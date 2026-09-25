@@ -41,6 +41,7 @@
         db.adaylar.unshift(n); save(); return P(n);
       },
       adaySil: function (id) { db.adaylar = db.adaylar.filter(function (y) { return y.id !== id; }); save(); return P(true); },
+      taslakIste: function (d) { db.adaylar.unshift(Object.assign(ADAY_VARSAYILAN(), { id: token(), olusturma: new Date().toISOString(), guncelleme: new Date().toISOString(), isletme: d.isletme, sektor: d.sektor, ilce: d.ilce, tel: d.tel, eposta: d.eposta || null, maps: d.maps || null, sonraki_adim: "Taslak talebi: prototip hazırla", sonraki_tarih: new Date().toISOString().slice(0, 10), notlar: [{ tarih: new Date().toISOString(), tur: "form", metin: "Siteden ücretsiz taslak talebi." }] })); save(); return P(true); },
       adaylarIceAktar: function (list) {
         list.forEach(function (a) {
           var x = a.slug && db.adaylar.find(function (y) { return y.slug === a.slug; });
@@ -93,6 +94,7 @@
         return q(function (sb) { return a.id ? sb.from("adaylar").update(x).eq("id", a.id).select().single() : sb.from("adaylar").insert(x).select().single(); });
       },
       adaySil: function (id) { return q(function (sb) { return sb.from("adaylar").delete().eq("id", id); }); },
+      taslakIste: function (d) { return q(function (sb) { return sb.rpc("taslak_iste", { p: d }); }); },
       adaylarIceAktar: function (list) { return q(function (sb) { return sb.from("adaylar").upsert(list, { onConflict: "slug" }).select("id"); }).then(function (r) { return (r || []).length; }); }
     };
   }
