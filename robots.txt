@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /panel.html
+Disallow: /teklif.html
+Disallow: /_build/
+Disallow: /supabase/
+
+Sitemap: https://www.dijitabela.com/sitemap.xml
