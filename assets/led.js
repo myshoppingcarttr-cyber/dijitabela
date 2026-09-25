@@ -73,5 +73,7 @@
     window.addEventListener("resize", boyut);
     boyut(); requestAnimationFrame(dongu);
   }
+  // Tanıtım videosu gibi dışarıdan kullanım için: harf sütunları
+  window.LED = { sutunlar: sutunlar };
   document.querySelectorAll("canvas.led").forEach(kur);
 })();

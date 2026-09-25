@@ -23,3 +23,10 @@
     }).then(function () { b.disabled = false; });
   });
 })();
+
+// ===== Açılıştaki telefon: ÖNCE ↔ SONRA döngüsü (az hareket tercihinde SONRA'da sabit) =====
+(function () {
+  var t = document.querySelector(".tel[data-durum]"); if (!t) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { t.dataset.durum = "sonra"; return; }
+  setInterval(function () { if (!document.hidden) t.dataset.durum = t.dataset.durum === "once" ? "sonra" : "once"; }, 3200);
+})();
