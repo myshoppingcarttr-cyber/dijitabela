@@ -246,3 +246,51 @@ table.lines small{color:var(--mute)}
 /* Klavye odağı */
 :focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .btn-p:focus-visible{outline-color:var(--fg)}
+
+/* ===== Panel başlığı + Satış takibi (CRM) ===== */
+.pn-ust{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.pn-ust h1{font-size:1.6rem;margin-right:auto}
+.pn-gor{display:inline-flex;border:1px solid var(--fg);border-radius:10px;overflow:hidden}
+.pn-gor button{padding:9px 16px;border:0;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+.pn-gor button.on{background:var(--fg);color:#fff}
+.crm-kpi{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.crm-kpi div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.crm-kpi b{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums}
+.crm-kpi span{color:var(--mute);font-size:.8rem}
+.crm-kpi .uyari{border-color:var(--led);background:var(--brand-soft)}
+.crm-huni{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;margin-bottom:18px;border-radius:10px;overflow:hidden}
+.crm-huni div{background:var(--bg3);padding:8px 10px}
+.crm-huni b{font-family:"Space Mono",ui-monospace,monospace;font-size:1.05rem;margin-right:6px}
+.crm-huni span{font-size:.78rem;color:var(--fg2)}
+.crm-huni .h-kazanildi{background:var(--ok-soft)}.crm-huni .h-kaybedildi{background:#fdecea}
+.crm-arac{display:grid;gap:10px;margin-bottom:14px}
+.crm-arac .pn-tabs{margin:0}
+.crm-ust{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.crm-ust input[type=search],.crm-ust select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;min-width:0}
+.crm-ust input[type=search]{flex:1 1 220px}
+.crm-yeni{margin-bottom:14px}
+.crm-f{grid-template-columns:repeat(4,minmax(0,1fr))!important;margin-bottom:10px}
+.crm-t td{font-size:.88rem}
+.crm-t tr.on td{background:var(--bg2)}
+.crm-t select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:.85rem;background:#fff}
+.crm-t td.gec b{color:var(--err)}
+.crm-pill{display:inline-block;padding:3px 8px;border-radius:20px;font-size:.76rem;font-weight:700;background:var(--bg3);color:var(--fg2)}
+.crm-pill.bek{background:var(--brand-soft);color:var(--led-ink)}
+.crm-pill.iyi{background:var(--ok-soft);color:var(--ok)}
+.crm-pill.kotu{background:#fdecea;color:var(--err)}
+.crm-tag{display:inline-block;font-size:.7rem;font-weight:700;padding:2px 6px;border-radius:4px;background:var(--fg);color:var(--led);vertical-align:1px}
+.crm-link{display:flex;gap:10px;margin-top:4px;font-size:.8rem}
+.crm-hiz{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.crm-hiz .btn.sm{padding:4px 8px;font-size:.75rem}
+.crm-detay td{background:var(--bg2)}
+.crm-d{display:grid;grid-template-columns:1fr 1.6fr;gap:24px}
+.crm-d h4{margin-bottom:8px}
+.crm-not{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start;margin-bottom:10px}
+.crm-not select,.crm-not textarea{padding:7px 9px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:.85rem;background:#fff}
+.crm-zaman{list-style:none;display:grid;gap:8px;max-height:320px;overflow:auto}
+.crm-zaman li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:.86rem}
+.crm-zaman small{display:block;color:var(--mute);font-size:.74rem}
+@media(max-width:1100px){.crm-kpi,.crm-huni{grid-template-columns:repeat(4,minmax(0,1fr))}.crm-f{grid-template-columns:repeat(2,minmax(0,1fr))!important}.crm-d{grid-template-columns:1fr}}
+@media(max-width:600px){.crm-kpi,.crm-huni{grid-template-columns:repeat(2,minmax(0,1fr))}.crm-f{grid-template-columns:1fr!important}.crm-not{grid-template-columns:1fr}}
+.crm-arac .pn-tabs button{padding:7px 11px;font-size:.84rem}
+.crm-ust input[type=search],.crm-ust select{font-size:.9rem}

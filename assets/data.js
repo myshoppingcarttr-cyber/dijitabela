@@ -11,6 +11,7 @@
   function demo() {
     var K = "ajans_demo_v1";
     var db = (function () { try { return JSON.parse(localStorage.getItem(K)) || { teklifler: [] }; } catch (e) { return { teklifler: [] }; } })();
+    if (!db.adaylar) db.adaylar = ORNEK_ADAYLAR();
     var save = function () { try { localStorage.setItem(K, JSON.stringify(db)); } catch (e) {} };
     var find = function (t) { return db.teklifler.find(function (x) { return x.token === t; }); };
     return {
@@ -30,8 +31,39 @@
       cikis: function () { sessionStorage.removeItem("ajans_panel"); return P(true); },
       tumTeklifler: function () { return P(db.teklifler.slice()); },
       teklifGuncelle: function (tk, alan) { var t = find(tk); Object.assign(t, alan); save(); return P(t); },
-      sifirla: function () { db = { teklifler: [] }; save(); return P(true); }
+      sifirla: function () { db = { teklifler: [], adaylar: ORNEK_ADAYLAR() }; save(); return P(true); },
+      // satış takibi
+      adaylar: function () { return P(db.adaylar.slice()); },
+      adayKaydet: function (a) {
+        var now = new Date().toISOString();
+        if (a.id) { var x = db.adaylar.find(function (y) { return y.id === a.id; }); Object.assign(x, a, { guncelleme: now }); save(); return P(x); }
+        var n = Object.assign(ADAY_VARSAYILAN(), a, { id: token(), olusturma: now, guncelleme: now });
+        db.adaylar.unshift(n); save(); return P(n);
+      },
+      adaySil: function (id) { db.adaylar = db.adaylar.filter(function (y) { return y.id !== id; }); save(); return P(true); },
+      adaylarIceAktar: function (list) {
+        list.forEach(function (a) {
+          var x = a.slug && db.adaylar.find(function (y) { return y.slug === a.slug; });
+          if (x) Object.assign(x, a); else db.adaylar.unshift(Object.assign(ADAY_VARSAYILAN(), a, { id: token(), olusturma: new Date().toISOString() }));
+        });
+        save(); return P(list.length);
+      }
     };
+  }
+
+  function ADAY_VARSAYILAN() {
+    return { asama: "yeni", mail_durum: "gonderilmedi", arama_durum: "aranmadi", sehir: "Antalya", notlar: [] };
+  }
+  // Demo için örnek adaylar (gerçek işletme değildir)
+  function ORNEK_ADAYLAR() {
+    var gun = function (d) { var t = new Date(); t.setDate(t.getDate() + d); return t.toISOString().slice(0, 10); };
+    var o = function (x) { return Object.assign(ADAY_VARSAYILAN(), { id: token(), olusturma: new Date().toISOString(), guncelleme: new Date().toISOString() }, x); };
+    return [
+      o({ isletme: "Örnek Emlak Ofisi", sektor: "emlak", ilce: "Konyaaltı", tel: "0500 000 00 01", eposta: "ornek@emlak.test", puan: 4.8, yorum: 64, asama: "iletisim", mail_durum: "gonderildi", mail_tarih: new Date().toISOString(), sonraki_adim: "Telefonla ara", sonraki_tarih: gun(0) }),
+      o({ isletme: "Örnek Oto Galeri", sektor: "galeri", ilce: "Kepez", tel: "0500 000 00 02", puan: 5, yorum: 120, asama: "gorusme", arama_durum: "gorusuldu", arama_tarih: new Date().toISOString(), sonraki_adim: "Dükkâna uğra, prototipi göster", sonraki_tarih: gun(2), tahmini_tutar: 49900,
+        notlar: [{ tarih: new Date().toISOString(), tur: "arama", metin: "Sahibiyle konuştum, sahibinden.com dışında sitesi yok. Perşembe uğrayacağım." }] }),
+      o({ isletme: "Örnek Diş Kliniği", sektor: "dis", ilce: "Muratpaşa", eposta: "ornek@klinik.test", puan: 4.9, yorum: 310, asama: "prototip", sonraki_adim: "Tanıtım e-postası gönder", sonraki_tarih: gun(-1) })
+    ];
   }
 
   // ----- CANLI: Supabase (RPC'ler supabase/schema.sql içinde) -----
@@ -49,12 +81,23 @@
       teklifOnayla: function (tk) { return q(function (sb) { return sb.rpc("teklif_onayla", { p_token: tk }); }); },
       odemeBildir: function (tk, o) { return q(function (sb) { return sb.rpc("odeme_bildir", { p_token: tk, p_odeme: o }); }); },
       girisVar: function () { return ready.then(function (sb) { return sb.auth.getSession(); }).then(function (r) { return !!r.data.session; }); },
-      girisYap: function (e, k) { return q(function (sb) { return k ? sb.auth.verifyOtp({ email: e, token: k, type: "email" }) : sb.auth.signInWithOtp({ email: e, options: { shouldCreateUser: false } }); }); },
+      // Supabase varsayılan e-postası giriş BAĞLANTISI gönderir; şablona {{ .Token }} eklenince 6 haneli kod da çalışır.
+      girisYap: function (e, k) { return q(function (sb) { return k ? sb.auth.verifyOtp({ email: e, token: k, type: "email" }) : sb.auth.signInWithOtp({ email: e, options: { shouldCreateUser: false, emailRedirectTo: location.href.split("#")[0].split("?")[0] } }); }); },
       cikis: function () { return q(function (sb) { return sb.auth.signOut(); }); },
       tumTeklifler: function () { return q(function (sb) { return sb.from("teklifler").select("*").order("olusturma", { ascending: false }); }); },
-      teklifGuncelle: function (tk, alan) { return q(function (sb) { return sb.from("teklifler").update(alan).eq("token", tk).select().single(); }); }
+      teklifGuncelle: function (tk, alan) { return q(function (sb) { return sb.from("teklifler").update(alan).eq("token", tk).select().single(); }); },
+      // satış takibi
+      adaylar: function () { return q(function (sb) { return sb.from("adaylar").select("*").order("guncelleme", { ascending: false }); }); },
+      adayKaydet: function (a) {
+        var x = Object.assign({}, a); delete x.olusturma; delete x.guncelleme;
+        return q(function (sb) { return a.id ? sb.from("adaylar").update(x).eq("id", a.id).select().single() : sb.from("adaylar").insert(x).select().single(); });
+      },
+      adaySil: function (id) { return q(function (sb) { return sb.from("adaylar").delete().eq("id", id); }); },
+      adaylarIceAktar: function (list) { return q(function (sb) { return sb.from("adaylar").upsert(list, { onConflict: "slug" }).select("id"); }).then(function (r) { return (r || []).length; }); }
     };
   }
+  // Giriş bağlantısı başka sekmede açılırsa bu sekme de oturumu alsın
+  window.addEventListener("storage", function (ev) { if (ev.key && /^sb-.*-auth-token$/.test(ev.key) && ev.newValue && /panel\.html/.test(location.pathname)) location.reload(); });
 
   window.API = LIVE ? live() : demo();
   window.esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
