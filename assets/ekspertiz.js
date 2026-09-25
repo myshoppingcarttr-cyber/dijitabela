@@ -128,12 +128,9 @@
         }).join("") + "</ol>";
       }).join("") +
       (iyi.length ? '<details class="eks-iyi"><summary>İyi olanlar (' + iyi.length + ")</summary><ol class=\"eks-liste\">" + iyi.map(function (x) { return '<li class="ok"><span>✓</span><div><b>' + e(x.ad) + "</b><p>" + e(x.not) + "</p></div></li>"; }).join("") + "</ol></details>" : "") +
-      '<div class="eks-cta"><p class="v-etiket">Çözüm</p>' +
-      (gorunurlukEksik ? '<h2>Google\'daki eksiklerin hepsi <span>tek pakette.</span></h2><div class="eks-fiyat"><b>' + TL(vitrin.fiyat).replace(" TL", "") + "</b><span>TL<br>+ KDV · tek seferlik</span></div>" +
-        '<p class="v-alt">' + e(vitrin.ad) + " paketi: " + vitrin.kalemler.map(function (k) { return e(F.KALEMLER[k].ad); }).join(" + ") + ". " + e(vitrin.sure) + " içinde teslim.</p>" : '<h2>Eksiklerinizi <span>birlikte kapatalım.</span></h2>') +
-      (h.satirlar.length > (gorunurlukEksik ? 1 : 0) ? '<div class="eks-oneri"><p class="eks-oneri-bas">Bulunan tüm eksikler için önerimiz</p>' + h.satirlar.map(function (r) { return '<div class="row"><span>' + e(r.ad) + '</span><span>' + (r.tek ? TL(r.tek) : "") + (r.ay ? (r.tek ? " + " : "") + TL(r.ay) + "/ay" : "") + "</span></div>"; }).join("") +
-        '<div class="row top"><span>Toplam, tek seferlik</span><b>' + TL(h.tek) + "</b></div>" + (h.ay ? '<div class="row"><span>Aylık işletim (isteğe bağlı)</span><span>' + TL(h.ay) + "/ay</span></div>" : "") + (h.indirim ? '<p class="eks-kazanc">Paket avantajı: ' + TL(h.indirim) + " tasarruf</p>" : "") + "</div>" : "") +
-      '<div class="v-dugmeler"><a class="v-btn ana" href="teklif-al.html?secim=' + encodeURIComponent((gorunurlukEksik && h.satirlar.length <= 1 ? vitrin.kalemler : kalemler).join(",")) + '">Eksikleri giderelim →</a><a class="v-btn" href="index.html#taslak">Önce ücretsiz taslak</a></div></div>';
+      '<div class="eks-cta"><p class="v-etiket">Çözüm</p><h2>Bu eksiklerin <span>hepsi çözülebilir.</span></h2>' +
+      '<p class="v-alt">' + ciddi.length + ' eksiğin her biri için ne yapılacağını yukarıda yazdık. Size özel planı ve süreyi telefonda 10 dakikada anlatalım; karar vermek için önce ücretsiz taslak da hazırlayabiliriz.</p>' +
+      '<div class="v-dugmeler"><a class="v-btn ana" href="#eks-rapor">Beni arayın →</a><a class="v-btn" href="index.html#taslak">Önce ücretsiz taslak</a></div></div>';
     s.appendChild(document.getElementById("eks-cta").content.cloneNode(true));
     $("eks-sorular").hidden = true; s.hidden = false; s.scrollIntoView({ behavior: "smooth", block: "start" });
 
