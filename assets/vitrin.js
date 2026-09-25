@@ -34,11 +34,12 @@
 // ===== "İşletmenizin adını yazın": yazılan ad LED tabelada canlı yanar =====
 (function () {
   var cv = document.getElementById("yaz-led"), inp = document.getElementById("yaz-ad"); if (!cv || !inp || !window.LED) return;
-  var ctx = cv.getContext("2d"), SUT = 46, SAT = 11, az = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ctx = cv.getContext("2d"), SUT = 46, SAT = 11, EN_COK = 90, az = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var metin = "İŞLETMENİZİN ADI", kolonlar = [], bas = performance.now();
   function hazirla() {
     var t = (inp.value.trim() || "İşletmenizin adı").toLocaleUpperCase("tr-TR").slice(0, 30);
     if (t === metin && kolonlar.length) return; metin = t; kolonlar = window.LED.sutunlar(t); bas = performance.now();
+    SUT = Math.max(46, Math.min(EN_COK, kolonlar.length + 6)); // kısa ad sabit, uzun ad kayar
   }
   function ciz(an) {
     var w = cv.clientWidth || 600, adim = w / SUT, dpr = Math.min(2, window.devicePixelRatio || 1);
