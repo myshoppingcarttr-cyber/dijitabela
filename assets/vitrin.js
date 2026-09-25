@@ -31,27 +31,37 @@
   setInterval(function () { if (!document.hidden) t.dataset.durum = t.dataset.durum === "once" ? "sonra" : "once"; }, 3200);
 })();
 
-// ===== "İşletmenizin adını yazın": yazılan ad LED tabelada canlı yanar =====
+// ===== "İşletmenizin adını yazın": yazılan ad LED tabelada canlı yanar (uzun ad iki satıra bölünür) =====
 (function () {
   var cv = document.getElementById("yaz-led"), inp = document.getElementById("yaz-ad"); if (!cv || !inp || !window.LED) return;
-  var ctx = cv.getContext("2d"), SUT = 46, SAT = 11, EN_COK = 90, az = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var metin = "İŞLETMENİZİN ADI", kolonlar = [], bas = performance.now();
+  var ctx = cv.getContext("2d"), az = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var metin = "", satirlar = [], SUT = 46, bas = performance.now();
+  function bol(t) { // en dengeli boşluktan ikiye böl
+    var k = t.split(" "); if (k.length < 2) return [t];
+    var en = null; for (var n = 1; n < k.length; n++) { var a = k.slice(0, n).join(" "), b = k.slice(n).join(" "), f = Math.max(a.length, b.length); if (!en || f < en[2]) en = [a, b, f]; }
+    return [en[0], en[1]];
+  }
   function hazirla() {
-    var t = (inp.value.trim() || "İşletmenizin adı").toLocaleUpperCase("tr-TR").slice(0, 30);
-    if (t === metin && kolonlar.length) return; metin = t; kolonlar = window.LED.sutunlar(t); bas = performance.now();
-    SUT = Math.max(46, Math.min(EN_COK, kolonlar.length + 6)); // kısa ad sabit, uzun ad kayar
+    var t = (inp.value.trim() || "İşletmenizin adı").toLocaleUpperCase("tr-TR").slice(0, 32);
+    if (t === metin && satirlar.length) return; metin = t; bas = performance.now();
+    var tek = window.LED.sutunlar(t);
+    satirlar = tek.length <= 58 ? [tek] : bol(t).map(function (x) { return window.LED.sutunlar(x); });
+    var en = Math.max.apply(null, satirlar.map(function (x) { return x.length; }));
+    SUT = Math.max(46, Math.min(64, en + 6));
   }
   function ciz(an) {
-    var w = cv.clientWidth || 600, adim = w / SUT, dpr = Math.min(2, window.devicePixelRatio || 1);
+    var SAT = satirlar.length * 10 + 1, w = cv.clientWidth || 600, adim = w / SUT, dpr = Math.min(2, window.devicePixelRatio || 1);
     cv.width = Math.round(w * dpr); cv.height = Math.round(adim * SAT * dpr); cv.style.height = Math.round(adim * SAT) + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = "#121418"; ctx.fillRect(0, 0, w, adim * SAT);
-    var sigar = kolonlar.length <= SUT - 2, kay = sigar || az ? 0 : Math.floor((an - bas) / 90) % (kolonlar.length + SUT);
-    for (var x = 0; x < SUT; x++) {
-      var i = sigar || az ? x - Math.floor((SUT - kolonlar.length) / 2) : x - SUT + kay, col = kolonlar[i] || [];
-      for (var y = 0; y < SAT; y++) {
-        ctx.fillStyle = col[y - 1] ? "#FFB000" : "#23262C";
-        ctx.beginPath(); ctx.arc(x * adim + adim / 2, y * adim + adim / 2, adim * .36, 0, 6.2832); ctx.fill();
+    for (var x = 0; x < SUT; x++) for (var y = 0; y < SAT; y++) {
+      var s = Math.floor((y - 1) / 10), sy = (y - 1) % 10, kol = satirlar[s] || [], yan = false;
+      if (y >= 1 && sy < 9) {
+        var sigar = kol.length <= SUT - 2, kay = sigar || az ? 0 : Math.floor((an - bas) / 90) % (kol.length + SUT);
+        var i = sigar || az ? x - Math.floor((SUT - kol.length) / 2) : x - SUT + kay;
+        yan = !!(kol[i] && kol[i][sy]);
       }
+      ctx.fillStyle = yan ? "#FFB000" : "#23262C";
+      ctx.beginPath(); ctx.arc(x * adim + adim / 2, y * adim + adim / 2, adim * .36, 0, 6.2832); ctx.fill();
     }
   }
   function dongu(an) { if (!document.hidden) ciz(an); requestAnimationFrame(dongu); }
