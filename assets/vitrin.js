@@ -30,3 +30,37 @@
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { t.dataset.durum = "sonra"; return; }
   setInterval(function () { if (!document.hidden) t.dataset.durum = t.dataset.durum === "once" ? "sonra" : "once"; }, 3200);
 })();
+
+// ===== "İşletmenizin adını yazın": yazılan ad LED tabelada canlı yanar =====
+(function () {
+  var cv = document.getElementById("yaz-led"), inp = document.getElementById("yaz-ad"); if (!cv || !inp || !window.LED) return;
+  var ctx = cv.getContext("2d"), SUT = 46, SAT = 11, az = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var metin = "İŞLETMENİZİN ADI", kolonlar = [], bas = performance.now();
+  function hazirla() {
+    var t = (inp.value.trim() || "İşletmenizin adı").toLocaleUpperCase("tr-TR").slice(0, 30);
+    if (t === metin && kolonlar.length) return; metin = t; kolonlar = window.LED.sutunlar(t); bas = performance.now();
+  }
+  function ciz(an) {
+    var w = cv.clientWidth || 600, adim = w / SUT, dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(w * dpr); cv.height = Math.round(adim * SAT * dpr); cv.style.height = Math.round(adim * SAT) + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = "#121418"; ctx.fillRect(0, 0, w, adim * SAT);
+    var sigar = kolonlar.length <= SUT - 2, kay = sigar || az ? 0 : Math.floor((an - bas) / 90) % (kolonlar.length + SUT);
+    for (var x = 0; x < SUT; x++) {
+      var i = sigar || az ? x - Math.floor((SUT - kolonlar.length) / 2) : x - SUT + kay, col = kolonlar[i] || [];
+      for (var y = 0; y < SAT; y++) {
+        ctx.fillStyle = col[y - 1] ? "#FFB000" : "#23262C";
+        ctx.beginPath(); ctx.arc(x * adim + adim / 2, y * adim + adim / 2, adim * .36, 0, 6.2832); ctx.fill();
+      }
+    }
+  }
+  function dongu(an) { if (!document.hidden) ciz(an); requestAnimationFrame(dongu); }
+  inp.addEventListener("input", hazirla);
+  document.getElementById("yaz-form").addEventListener("submit", function (e) { e.preventDefault(); hazirla(); inp.blur(); });
+  hazirla(); requestAnimationFrame(dongu);
+})();
+
+// ===== Tanıtım filmi: telefonda dikey kapak =====
+(function () {
+  var v = document.getElementById("v-film"); if (!v) return;
+  if (window.matchMedia && matchMedia("(max-width: 700px)").matches && v.dataset.posterDikey) v.poster = v.dataset.posterDikey;
+})();

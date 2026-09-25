@@ -295,3 +295,50 @@ body{background:var(--kagit)}
 .eks-sonuc>.eks-rapor{margin-top:28px;border:2px solid var(--murekkep);background:#fff}
 @media(max-width:900px){.eks-4{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.eks-alanlar{grid-template-columns:1fr}.eks-4{grid-template-columns:1fr}.eks-soru-liste li{grid-template-columns:34px minmax(0,1fr)}}
+
+/* ===== Etkileşimli tabela: "İşletmenizin adını yazın" ===== */
+.v-yaz{background:var(--kagit);border-top:2px solid var(--murekkep);padding:72px 0}
+.v-yaz-g{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.v-yaz h2{font-family:var(--baslik);font-stretch:66%;font-weight:900;text-transform:uppercase;font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:.9;margin:12px 0 14px;text-wrap:balance}
+.v-yaz .v-alt{font-size:1.1rem;color:#3A3E46;max-width:520px;margin-bottom:22px}
+.v-yaz-f{display:grid;grid-template-columns:minmax(0,1fr) auto;border:2px solid var(--murekkep);background:#fff;margin-bottom:16px;max-width:560px}
+.v-yaz-f input{font:inherit;font-size:1.1rem;padding:16px;border:0;min-width:0;background:transparent;color:var(--murekkep)}
+.v-yaz-f input:focus{outline:3px solid var(--led);outline-offset:-3px}
+.v-yaz-f button{border:0;border-left:2px solid var(--murekkep);background:var(--murekkep);color:var(--led);font:inherit;font-weight:800;padding:0 22px;cursor:pointer}
+.v-yaz-tabela{margin:0;position:relative;padding-top:34px}
+.v-yaz-aski{position:absolute;top:0;left:18%;right:18%;height:34px;display:flex;justify-content:space-between}
+.v-yaz-aski i{width:6px;height:100%;background:var(--murekkep)}
+#yaz-led{display:block;width:100%;background:#121418;border:6px solid var(--murekkep);border-bottom:10px solid var(--led)}
+.v-yaz-tabela figcaption{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gri);margin-top:10px}
+
+/* ===== Telefonda otomatik mesaj akışı ===== */
+.v-sohbet{margin:0;width:100%;max-width:340px;justify-self:center;border:12px solid var(--murekkep);border-radius:44px;background:#ECE9E1;overflow:hidden}
+.v-sohbet-ust{background:var(--murekkep);color:var(--kagit);padding:22px 18px 14px;display:flex;gap:10px;align-items:center}
+.v-sohbet-ust i{width:38px;height:38px;border-radius:50%;background:var(--led);color:var(--murekkep);display:grid;place-items:center;font-style:normal;font-family:var(--baslik);font-stretch:62%;font-weight:900;font-size:1.3rem;flex:none}
+.v-sohbet-ust b{display:block;font-size:.95rem}.v-sohbet-ust small{font-family:var(--mono);font-size:.66rem;color:#AEB3BB}
+.v-sohbet-ic{padding:14px 12px 18px;display:flex;flex-direction:column;gap:10px}
+.v-balon{max-width:88%;align-self:flex-end;background:#FFF3CF;border:1.5px solid var(--murekkep);padding:10px 12px 6px}
+.v-balon.gelen{align-self:flex-start;background:#fff}
+.v-balon-e{display:inline-block;font-family:var(--mono);font-weight:700;font-size:.62rem;letter-spacing:.06em;background:var(--murekkep);color:var(--led);padding:2px 6px;margin-bottom:6px}
+.v-balon p{font-size:.86rem;line-height:1.35}
+.v-balon small{display:block;text-align:right;font-family:var(--mono);font-size:.6rem;color:var(--gri);margin-top:4px}
+
+/* ===== Otomasyon bölümü ===== */
+.v-oto-g{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:start}
+.v-zaman{list-style:none;border-top:2px solid var(--murekkep);margin:26px 0 18px}
+.v-zaman li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--cizgi)}
+.v-zaman span{font-family:var(--mono);font-weight:700;font-size:.78rem;letter-spacing:.06em;color:var(--led-koyu);padding-top:2px}
+
+/* ===== Sektör sayfaları ===== */
+@media(min-width:901px){.v-dert>li{grid-template-columns:110px minmax(0,1fr) minmax(0,1.2fr)}}
+.v-kurulum{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;border-top:2px solid var(--murekkep)}
+.v-kurulum li{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--cizgi);font-weight:700;font-size:1.05rem}
+.v-kurulum span{font-family:var(--mono);color:var(--led-koyu)}
+.v-sektor a{color:var(--murekkep);text-decoration:none;border-bottom:4px solid var(--led)}
+.v-sektor a:hover{background:var(--led)}
+.v-not a{color:inherit}
+
+/* Video: mobilde dikey */
+@media(max-width:700px){.v-video video{aspect-ratio:9/16;max-height:82vh;margin:0 auto}}
+@media(max-width:900px){.v-yaz-g,.v-oto-g{grid-template-columns:1fr;gap:36px}.v-kurulum{grid-template-columns:1fr}}
+@media(max-width:600px){.v-yaz{padding:52px 0}.v-yaz-f{grid-template-columns:1fr}.v-yaz-f button{border-left:0;border-top:2px solid var(--murekkep);padding:14px}.v-zaman li{grid-template-columns:1fr;gap:4px}}
