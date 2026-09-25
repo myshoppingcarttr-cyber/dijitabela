@@ -17,6 +17,9 @@
   var S = { adim: 0, sektor: "", hedef: [], secim: [], olcek: "tek", acil: "normal", bilgi: {} };
   var pk = FIYAT.PAKETLER.find(function (p) { return p.id === q.get("paket"); });
   if (pk) { S.secim = pk.kalemler.slice(); S.adim = 0; }
+  // Ekspertizden gelen öneri: ?secim=site,seo,crm
+  var qs = (q.get("secim") || "").split(",").filter(function (k) { return FIYAT.KALEMLER[k]; });
+  if (qs.length) S.secim = qs;
 
   function ozet() {
     var h = FIYAT.hesapla(S.secim, S.olcek, S.acil);

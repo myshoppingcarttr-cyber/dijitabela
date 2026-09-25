@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <script>if(location.protocol==="http:"&&/(^|.)dijitabela.com$/.test(location.hostname))location.replace("https:"+location.href.slice(5))</script>
 <title>Ücretsiz Dijital Ekspertiz – Dijitabela</title>
-<meta name="description" content="Web sitenizi ve Google Haritalar kaydınızı 1 dakikada ücretsiz analiz edelim: müşteri kaybettiren eksikleri tek tek görün.">
+<meta name="description" content="İşletmenizi 4 alanda ücretsiz analiz edelim: Google'da bulunma, iletişim ve satış, müşteri takibi, yapay zekâ. Müşteri kaybettiren eksikleri ve çözümlerini görün.">
 <link rel="canonical" href="https://www.dijitabela.com/ekspertiz.html">
-<meta property="og:title" content="Ücretsiz Dijital Ekspertiz – Dijitabela"><meta property="og:description" content="Web sitenizi ve Google Haritalar kaydınızı 1 dakikada ücretsiz analiz edelim: müşteri kaybettiren eksikleri tek tek görün."><meta property="og:type" content="website"><meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Ücretsiz Dijital Ekspertiz – Dijitabela"><meta property="og:description" content="İşletmenizi 4 alanda ücretsiz analiz edelim: Google'da bulunma, iletişim ve satış, müşteri takibi, yapay zekâ. Müşteri kaybettiren eksikleri ve çözümlerini görün."><meta property="og:type" content="website"><meta property="og:locale" content="tr_TR">
 <meta name="theme-color" content="#16181D">
 <meta property="og:image" content="https://www.dijitabela.com/marka/png/paylasim-gorseli-1200x630.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="marka/png/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,700..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=muh9tgb6"><link rel="stylesheet" href="assets/vitrin.css?v=muh9tgb6">
+<link rel="stylesheet" href="assets/style.css?v=muhb243s"><link rel="stylesheet" href="assets/vitrin.css?v=muhb243s">
 </head>
 <body>
 <header class="hdr"><div class="wrap nav">
@@ -24,11 +24,17 @@
 
 <main class="eks">
 <section class="v-hero">
-  <div class="v-tabela"><canvas class="led" role="img" aria-label="Ücretsiz dijital ekspertiz" data-mesaj="ÜCRETSİZ DİJİTAL EKSPERTİZ|1 DAKİKADA EKSİKLERİNİZİ GÖRÜN"></canvas></div>
+  <div class="v-tabela"><canvas class="led" role="img" aria-label="Ücretsiz dijital ekspertiz" data-mesaj="ÜCRETSİZ DİJİTAL EKSPERTİZ|4 ALANDA EKSİKLERİNİZİ GÖRÜN"></canvas></div>
   <div class="wrap v-hero-ic">
-    <p class="v-etiket">Ücretsiz · 1 dakika · kayıt gerekmez</p>
+    <p class="v-etiket">Ücretsiz · 2 dakika · kayıt gerekmez</p>
     <h1>İşletmenizin<br><span>dijital ekspertizi.</span></h1>
-    <p class="v-giris">Aracı almadan önce ekspertize götürürsünüz. İşletmenizin internetteki hâlini de öyle kontrol edelim: web sitenizi ve Google profilinizi inceleyip müşteri kaybettiren eksikleri tek tek gösterelim.</p>
+    <p class="v-giris">Aracı almadan önce ekspertize götürürsünüz. İşletmenizi de öyle kontrol edelim: müşterinin sizi bulmasından tekrar gelmesine kadar 4 alanda müşteri kaybettiren eksikleri tek tek gösterelim.</p>
+    <ol class="eks-4">
+      <li><b>01</b><span>Google'da bulunma</span><small>Site, harita kaydı, Google profili</small></li>
+      <li><b>02</b><span>İletişim ve satış</span><small>7/24 WhatsApp cevabı, otomatik sipariş ve randevu, kaçan aramalar</small></li>
+      <li><b>03</b><span>Müşteri takibi ve sadakat</span><small>Müşteri kaydı, hatırlatma, her alışverişte memnuniyet ve olumlu yorum</small></li>
+      <li><b>04</b><span>Yapay zekâ ve otomasyon</span><small>Mesaj, teklif ve içerik işlerinin otomatiğe bağlanması</small></li>
+    </ol>
   </div>
 </section>
 
@@ -44,9 +50,9 @@
   </form>
 
   <div id="eks-sorular" class="eks-sorular" hidden>
-    <p class="v-etiket">Analiz sürerken · Google profiliniz</p>
-    <h2>6 kısa soru.</h2>
-    <p class="v-alt">Google profilinizi en iyi siz bilirsiniz. Cevaplarınız ekspertize eklenir.</p>
+    <p class="v-etiket">Siteniz incelenirken · işletmenizi siz anlatın</p>
+    <h2><span id="eks-soru-sayi"></span> kısa soru.</h2>
+    <p class="v-alt">Bazı şeyleri siteden göremeyiz: mesajlara nasıl cevap verdiğinizi, müşterilerinizi nasıl takip ettiğinizi en iyi siz bilirsiniz. Her soru tek tık.</p>
     <ol class="eks-soru-liste" id="eks-soru-liste"></ol>
     <div class="eks-ilerleme" id="eks-ilerleme"><span class="nokta"></span><span id="eks-ilerleme-yazi">Siteniz inceleniyor…</span></div>
     <button class="v-btn ana" id="eks-sonuc-dugme" type="button" disabled>Sonucu gör →</button>
@@ -55,13 +61,7 @@
   <div id="eks-sonuc" class="eks-sonuc" hidden></div>
 </div></section>
 </main>
-<template id="eks-cta"><div class="eks-cta">
-  <p class="v-etiket">Çözüm</p>
-  <h2>Bu eksiklerin hepsi <span>tek pakette.</span></h2>
-  <div class="eks-fiyat"><b>19.900</b><span>TL<br>+ KDV · tek seferlik</span></div>
-  <p class="v-alt">Dijital Vitrin paketi: Kurumsal web sitesi + Google SEO + Google İşletme Profili. 1 hafta içinde teslim, 1 ay ücretsiz destek. Site, alan adı ve Google hesapları sizin olur.</p>
-  <div class="v-dugmeler"><a class="v-btn ana" href="teklif-al.html?paket=vitrin">Eksikleri giderelim →</a><a class="v-btn" href="index.html#taslak">Önce ücretsiz taslak</a></div>
-  <form class="v-form eks-rapor" id="eks-rapor" novalidate>
+<template id="eks-cta"><form class="v-form eks-rapor" id="eks-rapor" novalidate>
     <h3>Raporu telefonunuza gönderelim</h3>
     <label class="tam">İşletmenizin adı *<input name="isletme" required maxlength="120"></label>
     <label>Telefon *<input name="tel" type="tel" required maxlength="20"></label>
@@ -69,8 +69,7 @@
     <label class="onay"><input name="kvkk" type="checkbox" required><span><a href="kvkk.html" target="_blank">KVKK aydınlatma metnini</a> okudum; bu bilgilerin rapor göndermek ve benimle iletişim kurmak için kullanılmasını kabul ediyorum.</span></label>
     <button class="v-btn ana" type="submit">Raporu gönderin →</button>
     <p class="durum" role="status" aria-live="polite"></p>
-  </form>
-</div></template>
+  </form></template>
 <footer class="ftr"><div class="wrap">
   <div class="ftr-g">
     <div><a class="logo" href="index.html"><span class="logo-m"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(0 0) scale(1)"><rect x="0" y="0" width="64" height="64" rx="12" fill="#16181D"/><circle cx="16" cy="8" r="3" fill="#2C3038"/><circle cx="24" cy="8" r="3" fill="#2C3038"/><circle cx="32" cy="8" r="3" fill="#2C3038"/><circle cx="40" cy="8" r="3" fill="#2C3038"/><circle cx="48" cy="8" r="3" fill="#FFB000"/><circle cx="16" cy="16" r="3" fill="#2C3038"/><circle cx="24" cy="16" r="3" fill="#2C3038"/><circle cx="32" cy="16" r="3" fill="#2C3038"/><circle cx="40" cy="16" r="3" fill="#2C3038"/><circle cx="48" cy="16" r="3" fill="#FFB000"/><circle cx="16" cy="24" r="3" fill="#2C3038"/><circle cx="24" cy="24" r="3" fill="#FFB000"/><circle cx="32" cy="24" r="3" fill="#FFB000"/><circle cx="40" cy="24" r="3" fill="#FFB000"/><circle cx="48" cy="24" r="3" fill="#FFB000"/><circle cx="16" cy="32" r="3" fill="#FFB000"/><circle cx="24" cy="32" r="3" fill="#2C3038"/><circle cx="32" cy="32" r="3" fill="#2C3038"/><circle cx="40" cy="32" r="3" fill="#2C3038"/><circle cx="48" cy="32" r="3" fill="#FFB000"/><circle cx="16" cy="40" r="3" fill="#FFB000"/><circle cx="24" cy="40" r="3" fill="#2C3038"/><circle cx="32" cy="40" r="3" fill="#2C3038"/><circle cx="40" cy="40" r="3" fill="#2C3038"/><circle cx="48" cy="40" r="3" fill="#FFB000"/><circle cx="16" cy="48" r="3" fill="#FFB000"/><circle cx="24" cy="48" r="3" fill="#2C3038"/><circle cx="32" cy="48" r="3" fill="#2C3038"/><circle cx="40" cy="48" r="3" fill="#2C3038"/><circle cx="48" cy="48" r="3" fill="#FFB000"/><circle cx="16" cy="56" r="3" fill="#2C3038"/><circle cx="24" cy="56" r="3" fill="#FFB000"/><circle cx="32" cy="56" r="3" fill="#FFB000"/><circle cx="40" cy="56" r="3" fill="#FFB000"/><circle cx="48" cy="56" r="3" fill="#FFB000"/></g></svg></span><span data-marka>Dijitabela</span></a>
@@ -82,10 +81,11 @@
   <div class="ftr-b"><span>© 2026 <span data-marka>Dijitabela</span></span><span>Fiyatlara KDV dahil değildir.</span></div>
 </div></footer>
 
-<script src="assets/config.js?v=muh9tgb6"></script>
+<script src="assets/config.js?v=muhb243s"></script>
 <script>document.querySelectorAll("[data-marka]").forEach(function(e){e.textContent=AJANS.marka})</script>
-<script src="assets/data.js?v=muh9tgb6"></script>
-<script src="assets/led.js?v=muh9tgb6"></script>
-<script src="assets/ekspertiz.js?v=muh9tgb6"></script>
+<script src="assets/fiyat.js?v=muhb243s"></script>
+<script src="assets/data.js?v=muhb243s"></script>
+<script src="assets/led.js?v=muhb243s"></script>
+<script src="assets/ekspertiz.js?v=muhb243s"></script>
 </body>
 </html>

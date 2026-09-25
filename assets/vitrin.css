@@ -221,8 +221,6 @@ body{background:var(--kagit)}
 .eks-form .onay{margin-top:-4px}
 .eks-sorular h2,.eks-sonuc>h2{margin-top:10px}
 .eks-soru-liste{list-style:none;counter-reset:s;margin:28px 0;border-top:2px solid var(--murekkep)}
-.eks-soru-liste li{counter-increment:s;display:grid;grid-template-columns:48px minmax(0,1fr);gap:4px 12px;padding:20px 0;border-bottom:1px solid var(--cizgi)}
-.eks-soru-liste li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-weight:700;grid-row:span 2}
 .eks-soru-liste p{font-weight:700;font-size:1.05rem;margin-bottom:10px}
 .eks-secim{display:flex;flex-wrap:wrap;gap:8px}
 .eks-secim label{cursor:pointer}
@@ -270,3 +268,30 @@ body{background:var(--kagit)}
 /* Tanıtım videosu */
 .v-video video{width:100%;display:block;border:2px solid var(--murekkep);background:var(--murekkep);aspect-ratio:16/9}
 .eks .v-b{padding:56px 0 80px}.eks-form{border:2px solid var(--murekkep);background:#fff}.eks-form input,.eks-form select{background:var(--kagit)}
+
+/* Ekspertiz: 4 alan */
+.eks-soru-liste li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;padding:20px 0;border-bottom:1px solid var(--cizgi)}
+.eks-soru-liste .eks-no{font-family:var(--mono);font-weight:700;padding-top:2px}
+.eks-soru-liste li.eks-alan-bas{display:block;background:var(--murekkep);color:var(--led);font-family:var(--mono);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;padding:10px 14px;margin-top:22px;border:0}
+.eks-soru-liste li.eks-alan-bas:first-child{margin-top:0}
+.eks-4{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--murekkep);margin-top:6px}
+.eks-4 li{padding:16px 18px 4px 0;display:grid;gap:4px;align-content:start}
+.eks-4 b{font-family:var(--mono);color:var(--led-koyu)}
+.eks-4 span{font-family:var(--baslik);font-stretch:70%;font-weight:800;text-transform:uppercase;font-size:1.35rem;line-height:1}
+.eks-4 small{color:var(--gri);font-size:.86rem}
+.eks-alanlar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:0 0 34px;border-top:2px solid var(--murekkep)}
+.eks-alanlar>div{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--cizgi);align-items:baseline}
+.eks-alanlar dt{font-weight:800}
+.eks-alanlar dd{font-family:var(--mono);font-size:.85rem}.eks-alanlar dd b{font-size:1.25rem}
+.eks-alanlar .kotu dd b{color:#B3261E}.eks-alanlar .orta dd b{color:var(--led-koyu)}.eks-alanlar .iyi dd b{color:#1E7A36}
+.eks-mini{grid-column:1/-1;height:8px;background:var(--cizgi)}.eks-mini i{display:block;height:100%;background:var(--murekkep)}
+.eks-h{margin-top:28px}
+.eks-cozum{font-family:var(--mono);font-size:.78rem!important;color:var(--led-koyu)!important;margin-top:6px;letter-spacing:.02em}
+.eks-oneri{background:#23262D;padding:20px 22px;margin:6px 0 26px}
+.eks-oneri-bas{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#AEB3BB;margin-bottom:8px}
+.eks-oneri .row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid #3A3F48;font-size:.95rem;font-variant-numeric:tabular-nums}
+.eks-oneri .row.top{border-bottom:0;padding-top:14px;font-size:1.05rem}.eks-oneri .row.top b{color:var(--led);font-size:1.3rem}
+.eks-kazanc{font-family:var(--mono);font-size:.8rem;color:var(--led);margin-top:6px}
+.eks-sonuc>.eks-rapor{margin-top:28px;border:2px solid var(--murekkep);background:#fff}
+@media(max-width:900px){.eks-4{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.eks-alanlar{grid-template-columns:1fr}.eks-4{grid-template-columns:1fr}.eks-soru-liste li{grid-template-columns:34px minmax(0,1fr)}}
