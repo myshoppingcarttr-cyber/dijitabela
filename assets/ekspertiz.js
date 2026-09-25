@@ -28,6 +28,7 @@
     ["yz", "yz", "İşinizde yapay zekâ kullanıyor musunuz (mesajlara cevap, teklif hazırlama, içerik yazma)?", "hayir", "Yapay zekâ entegrasyonu yok. Rakipleriniz mesaj, teklif ve içerik işini otomatiğe bağlarken bu işler sizde elle yapılıyor.", 10, "wa"],
     ["sosyal", "yz", "Sosyal medyada haftada en az 2 düzenli paylaşım yapılıyor mu?", "hayir", "Sosyal medya durgun. Çektiğiniz fotoğraftan paylaşım metni yapay zekâ ile otomatik hazırlanabilir.", 6, "icerik"]
   ];
+  var BASLIK = { kapali: "Haritada “kapandı” görünüyor", sahip: "Google profili sahipsiz", webbag: "Profilde site bağlantısı", saat: "Çalışma saatleri", foto: "Profil fotoğrafları", wa: "7/24 WhatsApp cevabı", siparis: "Otomatik sipariş ve randevu", kacan: "Kaçan aramalar", crm: "Müşteri kaydı (CRM)", hatirlat: "Otomatik hatırlatma", memnun: "Memnuniyet ve olumlu yorum", yorum: "Google yorum sayısı", yz: "Yapay zekâ entegrasyonu", sosyal: "Düzenli sosyal medya" };
   // Sunucudaki site kontrollerinin alanı ve çözüm kalemi
   var KONTROL_ALAN = { tel: "iletisim", whatsapp: "iletisim", form: "iletisim", siparis: "iletisim", yorumlink: "sadakat", sohbet: "yz", sosyal: "yz" };
   var KONTROL_KALEM = { baslik: "seo", aciklama: "seo", h1: "seo", yapisal: "seo", sitemap: "seo", robots: "seo", gorsel: "seo", olcum: "seo", harita: "seo", guncel: "bakim", sohbet: "wa", siparis: "randevu", yorumlink: "yorum", sosyal: "icerik" };
@@ -94,7 +95,7 @@
     // Sorular
     SORULAR.forEach(function (s) {
       var c = cevap[s[0]];
-      ekle(s[1], s[0] === "kapali" || s[0] === "sahip" ? "Google profili" : ALAN.filter(function (a) { return a.id === s[1]; })[0].ad, c === "bilmiyorum" ? "Emin değilsiniz; kontrol edilmeli. " + s[4] : s[4], s[5], s[6], c === s[3] ? "eksik" : c === "bilmiyorum" ? "uyari" : "ok");
+      ekle(s[1], BASLIK[s[0]], c === "bilmiyorum" ? "Emin değilsiniz; kontrol edilmeli. " + s[4] : s[4], s[5], s[6], c === s[3] ? "eksik" : c === "bilmiyorum" ? "uyari" : "ok");
     });
     if (harita && harita.kapali) eksik.unshift({ alan: "gorunurluk", ad: "Google profili", not: "Harita kaydınızda “Kalıcı olarak kapandı” ifadesi görünüyor. Bu en acil sorun.", kalem: "seo", agirlik: 99 });
 
