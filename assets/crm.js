@@ -47,7 +47,7 @@
     var govde = "Merhaba,\n\n" + a.isletme + " için Google'daki bilgilerinizden yola çıkarak size özel bir web sitesi taslağı hazırladık" +
       (a.prototip ? ":\n" + a.prototip + "\n" : ".\n") +
       "\nTaslak ücretsizdir, bakmanız yeterli. Beğenirseniz 1 hafta içinde kendi alan adınızda yayına alabiliriz; Google'da görünürlük, randevu ve müşteri takibi de eklenebilir.\n" +
-      "\n2 dakikalık bir telefon görüşmesi için uygun olduğunuz bir zamanı yazarsanız arayalım.\n\nİyi çalışmalar,\n" + A.sahip + "\n" + A.marka + (A.telefon ? " · " + A.telefon : "") + "\n" + A.site.replace(/^https?:\/\/(www\.)?/, "") +
+      "\n2 dakikalık bir telefon görüşmesi için uygun olduğunuz bir zamanı yazarsanız arayalım.\n\nİyi çalışmalar,\n" + A.marka + (A.telefon ? " · " + A.telefon : "") + "\n" + A.site.replace(/^https?:\/\/(www\.)?/, "") +
       "\n\n—\nBu tür e-postaları almak istemiyorsanız \"İstemiyorum\" yazarak yanıtlamanız yeterli; bir daha gönderilmez.";
     return "mailto:" + encodeURIComponent(a.eposta || "") + "?subject=" + encodeURIComponent(konu) + "&body=" + encodeURIComponent(govde);
   }
