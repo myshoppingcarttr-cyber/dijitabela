@@ -70,6 +70,7 @@
       else puanProfil += s[4];
     });
     if (harita && harita.kapali) eksik.unshift({ ad: "Google profili", not: "Harita kaydınızda “Kalıcı olarak kapandı” ifadesi görünüyor. Bu en acil sorun.", paket: "Google İşletme Profili" });
+    eksik.sort(function (a, b) { return (a.uyari ? 1 : 0) - (b.uyari ? 1 : 0); }); // önce ciddi eksikler
     var skor = Math.round(puanSite * .6 + puanProfil / profilToplam * 40);
     var ciddi = eksik.filter(function (x) { return !x.uyari; }).length;
     var renk = skor >= 75 ? "iyi" : skor >= 50 ? "orta" : "kotu";
