@@ -17,7 +17,7 @@
     O.innerHTML = (API.mode === "demo" ? '<div class="demo no-print"><b>Demo modu:</b> Veriler bu tarayıcıda saklanır; ödeme adımı simülasyondur.</div>' : "") +
       (q.get("yeni") ? '<div class="note no-print" style="margin-bottom:20px"><b>Teklifiniz hazır!</b> Bu sayfanın bağlantısı ' + e(b.eposta) + " adresinize ve WhatsApp'ınıza iletilecek. Bağlantıyı kaydederek daha sonra da açabilirsiniz.</div>" : "") +
       '<div class="of-h"><div><span class="kicker" style="margin:0">Teklif ' + e(t.no) + "</span><h1>" + e(b.isletme) + '</h1><p class="mute">' + e(b.ad) + " · " + e(t.basvuru.sektor) + (b.sehir ? " · " + e(b.sehir) : "") + '</p></div>' +
-      '<div style="text-align:right"><span class="status st-' + t.durum + '">' + DURUM[t.durum] + '</span><p class="small" style="margin-top:8px">Tarih: ' + tarih(t.olusturma) + "<br>Geçerlilik: " + tarih(t.gecerlilik) + "<br>Hazırlayan: " + e(A.sahip) + " · " + e(A.marka) + "</p></div></div>" +
+      '<div style="text-align:right"><span class="status st-' + t.durum + '">' + DURUM[t.durum] + '</span><p class="small" style="margin-top:8px">Tarih: ' + tarih(t.olusturma) + "<br>Geçerlilik: " + tarih(t.gecerlilik) + "<br>Hazırlayan: " + e(A.marka) + "</p></div></div>" +
       '<table class="lines"><thead><tr><th>Hizmet</th><th>Tutar</th></tr></thead><tbody>' +
       h.satirlar.map(function (r) { return "<tr><td><b>" + e(r.ad) + "</b><br><small>" + e(r.acik) + "</small>" + (r.liste && r.liste > r.tek ? '<br><small style="color:var(--ok)">Ayrı ayrı: ' + TL(r.liste) + "</small>" : "") + "</td><td>" + (r.tek ? TL(Math.round(r.tek * h.carpan)) : "—") + (r.ay ? "<br><small>+ " + TL(r.ay) + "/ay</small>" : "") + "</td></tr>"; }).join("") +
       "</tbody></table>" +
