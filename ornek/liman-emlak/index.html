@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Liman Emlak ve Gayrimenkul Danışmanlığı · Taslak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Karla:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ana:#1E2B45;--vurgu:#D9782D;--zemin:#FBFAF7;--zemin2:#F1EEE7;--yazi:#1C1D1B;--soluk:color-mix(in srgb,var(--yazi) 62%,transparent);--cizgi:color-mix(in srgb,var(--yazi) 14%,transparent);--bf:"Libre Caslon Display", Georgia, serif;--mf:Karla, system-ui, sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--mf);color:var(--yazi);background:var(--zemin);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;padding-bottom:64px}
+img{max-width:100%;display:block}a{color:inherit}
+h1,h2,h3{font-family:var(--bf);line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+.kap{max-width:1180px;margin:0 auto;padding:0 20px}
+.ust-bar{position:sticky;top:0;z-index:20;background:var(--zemin);border-bottom:1px solid var(--cizgi)}
+.ust-bar .kap{display:flex;align-items:center;gap:18px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo i{font-style:normal;width:42px;height:42px;display:grid;place-items:center;background:var(--ana);color:#fff;font-family:var(--bf);font-weight:800;font-size:1.05rem;border-bottom:4px solid var(--vurgu)}
+.logo b{font-family:var(--bf);font-size:1.25rem;line-height:1}.logo small{display:block;font-size:.72rem;color:var(--soluk);letter-spacing:.04em}
+nav{display:flex;gap:22px}nav a{text-decoration:none;font-weight:600;font-size:.95rem}nav a:hover{color:var(--vurgu)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;font-weight:700;text-decoration:none;border:2px solid var(--ana);font:inherit;font-weight:700;cursor:pointer}
+.btn.ana{background:var(--ana);color:#fff}.btn.ana:hover{background:var(--vurgu);border-color:var(--vurgu)}
+.btn.cizgi{background:transparent;color:var(--ana)}.btn.kucuk{padding:8px 12px;font-size:.85rem}
+.hero{position:relative}
+.hero-foto img{width:100%;height:min(62vh,560px);object-fit:cover}
+.hero-yazi{position:relative;margin-top:-120px;background:var(--zemin);max-width:760px;margin-left:max(20px,calc((100vw - 1180px)/2 + 20px));padding:34px 36px 30px;border-top:6px solid var(--vurgu)}
+.hero .ust{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--vurgu);margin-bottom:10px}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.6rem);margin-bottom:14px}
+.giris{font-size:1.12rem;color:var(--soluk);max-width:620px;margin-bottom:22px}
+.dugmeler{display:flex;gap:10px;flex-wrap:wrap}
+.puan{margin-top:16px;font-size:.95rem}.yildiz{color:#E8A317}.puan.buyuk{font-size:1.1rem}
+.serit{border-block:1px solid var(--cizgi);margin-top:48px}
+.serit-ic{display:grid;grid-template-columns:repeat(4,1fr)}
+.serit-ic div{padding:20px 18px;border-right:1px solid var(--cizgi)}.serit-ic div:last-child{border-right:0}
+.serit-ic b{display:block;font-family:var(--bf);font-size:1.7rem;color:var(--ana);line-height:1.1}.serit-ic span{font-size:.88rem;color:var(--soluk)}
+.blok{padding:80px 0}.zemin2{background:var(--zemin2)}
+.bas{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.blok h2{font-size:clamp(1.8rem,3.4vw,2.7rem)}
+.filtre{display:flex;gap:6px;flex-wrap:wrap}.filtre button{font:inherit;font-size:.88rem;font-weight:600;padding:7px 12px;border:1px solid var(--cizgi);background:transparent;cursor:pointer}
+.filtre button.on{background:var(--ana);color:#fff;border-color:var(--ana)}
+.ilanlar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.ilan{border:1px solid var(--cizgi);background:var(--zemin);display:flex;flex-direction:column}
+.ilan-foto{position:relative;overflow:hidden}.ilan-foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.rozet{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.72);color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;letter-spacing:.04em}
+.ilan-ic{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.kat{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--vurgu);font-weight:700}
+.ilan h3{font-size:1.35rem;margin:4px 0 12px}
+.ilan dl{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);margin-bottom:14px}
+.ilan dl div{padding:8px 0}.ilan dt{font-size:.7rem;color:var(--soluk);text-transform:uppercase;letter-spacing:.06em}.ilan dd{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ilan-alt{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}.fiyat{font-family:var(--bf);font-weight:700;font-size:1.15rem;color:var(--ana)}
+.portfoy-sar{overflow-x:auto;border-top:2px solid var(--ana)}
+.portfoy{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.portfoy th{text-align:left;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);padding:12px 10px;border-bottom:1px solid var(--cizgi);white-space:nowrap}
+.portfoy td{padding:16px 10px;border-bottom:1px solid var(--cizgi);white-space:nowrap}.portfoy td b{font-family:var(--bf);font-size:1.15rem;font-weight:400}
+.portfoy tr[hidden]{display:none}.portfoy .kat{font-size:.72rem}
+.not{margin-top:16px;font-size:.85rem;color:var(--soluk)}
+.iki{display:grid;grid-template-columns:1fr 1.25fr;gap:48px;align-items:start}
+.soluk{color:var(--soluk);margin-top:12px}
+.neden,.hizmet-liste{list-style:none;display:grid;gap:0}
+.neden li,.hizmet-liste li{display:grid;grid-template-columns:60px 1fr;gap:10px;padding:20px 0;border-top:1px solid var(--cizgi)}
+.no{font-family:var(--bf);font-weight:700;font-size:1.3rem;color:var(--vurgu)}
+.neden h3,.hizmet-liste h3{font-size:1.3rem;margin-bottom:4px}.neden p,.hizmet-liste p{color:var(--soluk)}
+.hizmet-liste{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+.genis-foto{margin-top:48px}.genis-foto img{width:100%;height:420px;object-fit:cover}
+.surec{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;counter-reset:s}
+.surec li{border-top:4px solid var(--ana);padding-top:16px}.surec .no{display:block;margin-bottom:6px}.surec h3{font-size:1.2rem;margin-bottom:6px}.surec p{color:var(--soluk);font-size:.95rem}
+.diller{margin-top:26px}
+.yorumlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.yorumlar blockquote{background:var(--zemin);padding:22px;border-left:4px solid var(--vurgu)}
+.yorumlar p{font-size:1.02rem}.yorumlar cite{display:block;margin-top:12px;font-style:normal;font-size:.85rem;color:var(--soluk)}
+.koyu{background:var(--ana);color:#fff}.koyu p{color:rgba(255,255,255,.8)}
+.talep{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.talep label{display:grid;gap:4px;font-size:.85rem;font-weight:600}
+.talep input{padding:12px;font:inherit;border:0;background:#fff;color:var(--yazi)}
+.talep .btn{grid-column:1/-1;background:var(--vurgu);border-color:var(--vurgu)}
+.kucuk-not{grid-column:1/-1;font-size:.78rem}
+.iletisim{display:grid;gap:14px;margin:20px 0 24px}.iletisim dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--soluk)}.iletisim dd{font-size:1.08rem}
+.iletisim-foto{width:100%;height:380px;object-fit:cover}
+.uyari{margin-top:28px;font-size:.82rem;color:var(--soluk)}
+footer{border-top:1px solid var(--cizgi);padding:26px 0;font-size:.85rem;color:var(--soluk)}
+.taslak{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#16181D;color:#fff;font-size:.88rem}
+.taslak .kap{display:flex;align-items:center;gap:14px;min-height:56px;padding-block:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+.taslak i{font-style:normal;font-family:"Space Mono",ui-monospace,monospace;color:#FFB000;font-weight:700;letter-spacing:.08em}
+.taslak span{margin-right:auto}.taslak a{background:#FFB000;color:#16181D;text-decoration:none;font-weight:700;padding:8px 14px;white-space:nowrap}
+:focus-visible{outline:3px solid var(--vurgu);outline-offset:2px}
+@media(max-width:900px){nav{display:none}.ilanlar,.yorumlar{grid-template-columns:1fr 1fr}.iki{grid-template-columns:1fr}.surec{grid-template-columns:1fr 1fr}.hizmet-liste{grid-template-columns:1fr}.serit-ic{grid-template-columns:1fr 1fr}.serit-ic div:nth-child(2){border-right:0}}
+@media(max-width:600px){body{font-size:16px}.ilanlar,.yorumlar,.surec{grid-template-columns:1fr}.hero-yazi{margin:-60px 12px 0;padding:24px 20px}.talep{grid-template-columns:1fr}.taslak span{font-size:.78rem}.ust-bar .btn{display:none}.hero-foto img{height:46vh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="ust-bar"><div class="kap"><a class="logo" href="#"><i>L</i><span><b>Liman Emlak</b><small>GAYRİMENKUL DANIŞMANLIĞI · KONYAALTI</small></span></a>
+<nav><a href="#ilanlar">Portföy</a><a href="#neden">Neden biz</a><a href="#form">Evinizi değerleyelim</a><a href="#iletisim">İletişim</a></nav><a class="btn ana kucuk" href="tel:+905462253834">0546 225 38 34</a></div></header>
+<main>
+<section class="hero"><div class="hero-foto"><img src="img/f2.jpg" alt="Liman Emlak ve Gayrimenkul Danışmanlığı" fetchpriority="high"></div>
+<div class="kap hero-yazi"><p class="ust">Liman Mahallesi · Konyaaltı · Antalya</p>
+<h1>Konyaaltı'nda ev ararken yanınızda bir komşu gibi.</h1><p class="giris">Liman, Hurma, Sarısu ve Uncalı'da satılık ve kiralık konut. Doğru evi bulmaktan tapu ve sözleşmeye kadar her adımda yanınızdayız.</p>
+<div class="dugmeler"><a class="btn ana" href="#ilanlar">Portföyü gör</a><a class="btn cizgi" href="tel:+905462253834">Ara · 0546 225 38 34</a></div>
+<p class="puan"><span class="yildiz">★</span> <b>4,8</b> · 109 Google yorumu</p></div></section>
+<section class="serit"><div class="kap serit-ic"><div><b>4,8 ★</b><span>109 Google yorumu</span></div><div><b>Liman · Konyaaltı</b><span>bölgeyi ezbere bilen ofis</span></div><div><b>Satılık &amp; kiralık</b><span>daire, rezidans, villa</span></div><div><b>Ücretsiz</b><span>değerleme raporu</span></div></div></section>
+<section class="blok" id="ilanlar"><div class="kap"><div class="bas"><h2>Portföyden seçmeler</h2>
+<div class="filtre"><button class="on" data-k="">Tümü</button><button data-k="Satılık">Satılık</button><button data-k="Kiralık">Kiralık</button></div></div>
+<div class="portfoy-sar"><table class="portfoy"><thead><tr><th>Tür</th><th>Konum</th><th>Oda</th><th>m²</th><th>Kat</th><th>Durum</th><th>Fiyat</th><th></th></tr></thead><tbody><tr class="ilan-satir" data-k="Satılık"><td><span class="kat">Satılık</span></td><td><b>Liman Mah. · havuzlu site</b></td><td>3+1</td><td>145</td><td>3</td><td>Sıfır</td><td class="fiyat">Arayın</td><td><a class="btn kucuk cizgi" target="_blank" rel="noopener" href="https://wa.me/905462253834?text=Merhaba%2C%20Liman%20Mah.%20%C2%B7%20havuzlu%20site%20ilan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">Bu ilanı sor</a></td></tr><tr class="ilan-satir" data-k="Kiralık"><td><span class="kat">Kiralık</span></td><td><b>Hurma Mah. · denize 400 m</b></td><td>2+1</td><td>95</td><td>2</td><td>Eşyalı</td><td class="fiyat">Arayın</td><td><a class="btn kucuk cizgi" target="_blank" rel="noopener" href="https://wa.me/905462253834?text=Merhaba%2C%20Hurma%20Mah.%20%C2%B7%20denize%20400%20m%20ilan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">Bu ilanı sor</a></td></tr><tr class="ilan-satir" data-k="Satılık"><td><span class="kat">Satılık</span></td><td><b>Sarısu · bahçeli villa</b></td><td>4+1</td><td>220</td><td>Müstakil</td><td>5 yıllık</td><td class="fiyat">Arayın</td><td><a class="btn kucuk cizgi" target="_blank" rel="noopener" href="https://wa.me/905462253834?text=Merhaba%2C%20Sar%C4%B1su%20%C2%B7%20bah%C3%A7eli%20villa%20ilan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">Bu ilanı sor</a></td></tr><tr class="ilan-satir" data-k="Kiralık"><td><span class="kat">Kiralık</span></td><td><b>Uncalı · yeni bina</b></td><td>1+1</td><td>60</td><td>4</td><td>Eşyasız</td><td class="fiyat">Arayın</td><td><a class="btn kucuk cizgi" target="_blank" rel="noopener" href="https://wa.me/905462253834?text=Merhaba%2C%20Uncal%C4%B1%20%C2%B7%20yeni%20bina%20ilan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">Bu ilanı sor</a></td></tr></tbody></table></div>
+<div class="ilanlar"></div>
+<p class="not">Örnek ilanlar. Portföyünüz sahibinden.com / emlakjet ilanlarınızdan otomatik aktarılabilir.</p></div></section>
+<section class="blok" id="neden"><div class="kap iki"><div><h2>Neden Liman Emlak?</h2><p class="soluk">109 müşterimizin ortalama puanı 4,8. Yorumlarda en çok geçen kelimeler: dürüst, samimi, yardımcı.</p></div>
+<ol class="neden"><li><span class="no">01</span><div><h3>Dürüst ve samimi danışmanlık</h3><p>Evin artısını da eksisini de açıkça söyleriz. Size uymayan evi satmaya çalışmayız.</p></div></li><li><span class="no">02</span><div><h3>Bölgeyi ezbere biliyoruz</h3><p>Liman ve çevresindeki sitelerin aidatını, güneş alan cepheyi, okul ve ulaşım durumunu önceden bilirsiniz.</p></div></li><li><span class="no">03</span><div><h3>Uçtan uca süreç</h3><p>Kira sözleşmesi, tapu randevusu, abonelikler: evraktan anahtara kadar her adımda yanınızdayız.</p></div></li><li><span class="no">04</span><div><h3>Şehir dışından gelene kolaylık</h3><p>Antalya'ya taşınmayı planlıyorsanız video görüşmeyle evleri gezdirir, siz gelmeden eleme yaparız.</p></div></li></ol></div>
+<div class="kap genis-foto"><img loading="lazy" src="img/f1.jpg" alt="Liman Emlak ve Gayrimenkul Danışmanlığı"></div></section>
+<section class="blok zemin2"><div class="kap"><div class="bas"><h2>Müşterilerimiz ne diyor?</h2><p class="puan buyuk"><span class="yildiz">★</span> <b>4,8</b> / 5 · 109 Google yorumu</p></div>
+<div class="yorumlar"><blockquote><p>“Kiralık ev ararken tesadüfen karşımıza Liman Emlak ofisten kiralık daire çıktı ve iyi ki çıkmış. Öyle dürüst, sevecen, pozitif ve enerji dolu insanlar ki.”</p><cite>Zera D. · Google</cite></blockquote><blockquote><p>“Ayşe Hanım ve Ramazan Bey ile çalışmak tam bir ayrıcalıktı. İşini bu kadar severek ve insana değer vererek yapan bir ekibe rastlamak günümüzde çok zor.”</p><cite>Rüya N. · Google</cite></blockquote></div></div></section>
+<section class="blok koyu" id="form"><div class="kap iki"><div><h2>Evinizin değerini öğrenin</h2><p>Bölge verileriyle 24 saat içinde ücretsiz değerleme raporu hazırlayalım.</p></div>
+<form class="talep" data-wa="905462253834" data-mesaj="Merhaba, evim için değerleme istiyorum:"><label>Mahalle<input name="a0" type="text" data-ad="Mahalle" required></label><label>Oda sayısı<input name="a1" type="text" data-ad="Oda sayısı" required></label><label>Metrekare<input name="a2" type="number" data-ad="Metrekare" required></label><label>Adınız<input name="a3" type="text" data-ad="Adınız" required></label>
+<button class="btn ana" type="submit">WhatsApp ile gönder</button><p class="kucuk-not">Bilgileriniz yalnızca size dönüş yapmak için kullanılır.</p></form></div></section>
+<section class="blok" id="iletisim"><div class="kap iki"><div><h2>İletişim</h2>
+<dl class="iletisim"><div><dt>Adres</dt><dd>Abdi Kilit Residence, Liman Mah. 20. Sk. No:16/3 D:3, 07130 Konyaaltı / Antalya</dd></div><div><dt>Telefon</dt><dd><a href="tel:+905462253834">0546 225 38 34</a></dd></div>
+<div><dt>Çalışma saatleri</dt><dd>Her gün 09:00'dan itibaren</dd></div></dl>
+<div class="dugmeler"><a class="btn ana" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Liman+Emlak+ve+Gayrimenkul+Dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@36.8547111,30.6155754,17z">Yol tarifi al</a><a class="btn cizgi" target="_blank" rel="noopener" href="https://wa.me/905462253834">WhatsApp</a></div></div>
+<img class="iletisim-foto" loading="lazy" src="img/f4.jpg" alt="Liman Emlak ve Gayrimenkul Danışmanlığı"></div></section>
+</main>
+<footer><div class="kap">© 2026 Liman Emlak ve Gayrimenkul Danışmanlığı · Abdi Kilit Residence, Liman Mah. 20. Sk. No:16/3 D:3, 07130 Konyaaltı / Antalya</div></footer>
+<div class="taslak" role="note"><div class="kap"><i>TASLAK</i><span>Bu sayfa Liman Emlak ve Gayrimenkul Danışmanlığı için <b>Dijitabela</b> tarafından hazırlanmış ücretsiz bir önizlemedir.</span><a href="https://myshoppingcarttr-cyber.github.io/dijitabela/teklif-al.html" target="_blank" rel="noopener">Bu siteyi sahiplenin →</a></div></div>
+<script>
+document.querySelectorAll(".filtre button").forEach(function(b){b.onclick=function(){document.querySelectorAll(".filtre button").forEach(function(x){x.classList.toggle("on",x===b)});document.querySelectorAll(".ilan,.ilan-satir").forEach(function(i){i.hidden=!!b.dataset.k&&i.dataset.k!==b.dataset.k})}});
+document.querySelectorAll("form.talep").forEach(function(f){f.onsubmit=function(e){e.preventDefault();var m=f.dataset.mesaj+"\n"+[].map.call(f.querySelectorAll("input"),function(i){return i.dataset.ad+": "+i.value}).join("\n");window.open("https://wa.me/"+f.dataset.wa+"?text="+encodeURIComponent(m),"_blank")}});
+</script>
+</body>
+</html>

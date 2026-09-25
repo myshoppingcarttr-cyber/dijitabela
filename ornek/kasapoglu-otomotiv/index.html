@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kasapoğlu Otomotiv · Taslak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ana:#1B2D6B;--vurgu:#D3202F;--zemin:#FFFFFF;--zemin2:#F3F4F6;--yazi:#111418;--soluk:color-mix(in srgb,var(--yazi) 62%,transparent);--cizgi:color-mix(in srgb,var(--yazi) 14%,transparent);--bf:"Barlow Condensed", "Arial Narrow", sans-serif;--mf:Barlow, system-ui, sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--mf);color:var(--yazi);background:var(--zemin);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;padding-bottom:64px}
+img{max-width:100%;display:block}a{color:inherit}
+h1,h2,h3{font-family:var(--bf);line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+.kap{max-width:1180px;margin:0 auto;padding:0 20px}
+.ust-bar{position:sticky;top:0;z-index:20;background:var(--zemin);border-bottom:1px solid var(--cizgi)}
+.ust-bar .kap{display:flex;align-items:center;gap:18px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo i{font-style:normal;width:42px;height:42px;display:grid;place-items:center;background:var(--ana);color:#fff;font-family:var(--bf);font-weight:800;font-size:1.05rem;border-bottom:4px solid var(--vurgu)}
+.logo b{font-family:var(--bf);font-size:1.25rem;line-height:1}.logo small{display:block;font-size:.72rem;color:var(--soluk);letter-spacing:.04em}
+nav{display:flex;gap:22px}nav a{text-decoration:none;font-weight:600;font-size:.95rem}nav a:hover{color:var(--vurgu)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;font-weight:700;text-decoration:none;border:2px solid var(--ana);font:inherit;font-weight:700;cursor:pointer}
+.btn.ana{background:var(--ana);color:#fff}.btn.ana:hover{background:var(--vurgu);border-color:var(--vurgu)}
+.btn.cizgi{background:transparent;color:var(--ana)}.btn.kucuk{padding:8px 12px;font-size:.85rem}
+.hero{position:relative}
+.hero-foto img{width:100%;height:min(62vh,560px);object-fit:cover}
+.hero-yazi{position:relative;margin-top:-120px;background:var(--zemin);max-width:760px;margin-left:max(20px,calc((100vw - 1180px)/2 + 20px));padding:34px 36px 30px;border-top:6px solid var(--vurgu)}
+.hero .ust{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--vurgu);margin-bottom:10px}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.6rem);margin-bottom:14px}
+.giris{font-size:1.12rem;color:var(--soluk);max-width:620px;margin-bottom:22px}
+.dugmeler{display:flex;gap:10px;flex-wrap:wrap}
+.puan{margin-top:16px;font-size:.95rem}.yildiz{color:#E8A317}.puan.buyuk{font-size:1.1rem}
+.serit{border-block:1px solid var(--cizgi);margin-top:48px}
+.serit-ic{display:grid;grid-template-columns:repeat(4,1fr)}
+.serit-ic div{padding:20px 18px;border-right:1px solid var(--cizgi)}.serit-ic div:last-child{border-right:0}
+.serit-ic b{display:block;font-family:var(--bf);font-size:1.7rem;color:var(--ana);line-height:1.1}.serit-ic span{font-size:.88rem;color:var(--soluk)}
+.blok{padding:80px 0}.zemin2{background:var(--zemin2)}
+.bas{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.blok h2{font-size:clamp(1.8rem,3.4vw,2.7rem)}
+.filtre{display:flex;gap:6px;flex-wrap:wrap}.filtre button{font:inherit;font-size:.88rem;font-weight:600;padding:7px 12px;border:1px solid var(--cizgi);background:transparent;cursor:pointer}
+.filtre button.on{background:var(--ana);color:#fff;border-color:var(--ana)}
+.ilanlar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.ilan{border:1px solid var(--cizgi);background:var(--zemin);display:flex;flex-direction:column}
+.ilan-foto{position:relative;overflow:hidden}.ilan-foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.rozet{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.72);color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;letter-spacing:.04em}
+.ilan-ic{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.kat{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--vurgu);font-weight:700}
+.ilan h3{font-size:1.35rem;margin:4px 0 12px}
+.ilan dl{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);margin-bottom:14px}
+.ilan dl div{padding:8px 0}.ilan dt{font-size:.7rem;color:var(--soluk);text-transform:uppercase;letter-spacing:.06em}.ilan dd{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ilan-alt{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}.fiyat{font-family:var(--bf);font-weight:700;font-size:1.15rem;color:var(--ana)}
+.portfoy-sar{overflow-x:auto;border-top:2px solid var(--ana)}
+.portfoy{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.portfoy th{text-align:left;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);padding:12px 10px;border-bottom:1px solid var(--cizgi);white-space:nowrap}
+.portfoy td{padding:16px 10px;border-bottom:1px solid var(--cizgi);white-space:nowrap}.portfoy td b{font-family:var(--bf);font-size:1.15rem;font-weight:400}
+.portfoy tr[hidden]{display:none}.portfoy .kat{font-size:.72rem}
+.not{margin-top:16px;font-size:.85rem;color:var(--soluk)}
+.iki{display:grid;grid-template-columns:1fr 1.25fr;gap:48px;align-items:start}
+.soluk{color:var(--soluk);margin-top:12px}
+.neden,.hizmet-liste{list-style:none;display:grid;gap:0}
+.neden li,.hizmet-liste li{display:grid;grid-template-columns:60px 1fr;gap:10px;padding:20px 0;border-top:1px solid var(--cizgi)}
+.no{font-family:var(--bf);font-weight:700;font-size:1.3rem;color:var(--vurgu)}
+.neden h3,.hizmet-liste h3{font-size:1.3rem;margin-bottom:4px}.neden p,.hizmet-liste p{color:var(--soluk)}
+.hizmet-liste{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+.genis-foto{margin-top:48px}.genis-foto img{width:100%;height:420px;object-fit:cover}
+.surec{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;counter-reset:s}
+.surec li{border-top:4px solid var(--ana);padding-top:16px}.surec .no{display:block;margin-bottom:6px}.surec h3{font-size:1.2rem;margin-bottom:6px}.surec p{color:var(--soluk);font-size:.95rem}
+.diller{margin-top:26px}
+.yorumlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.yorumlar blockquote{background:var(--zemin);padding:22px;border-left:4px solid var(--vurgu)}
+.yorumlar p{font-size:1.02rem}.yorumlar cite{display:block;margin-top:12px;font-style:normal;font-size:.85rem;color:var(--soluk)}
+.koyu{background:var(--ana);color:#fff}.koyu p{color:rgba(255,255,255,.8)}
+.talep{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.talep label{display:grid;gap:4px;font-size:.85rem;font-weight:600}
+.talep input{padding:12px;font:inherit;border:0;background:#fff;color:var(--yazi)}
+.talep .btn{grid-column:1/-1;background:var(--vurgu);border-color:var(--vurgu)}
+.kucuk-not{grid-column:1/-1;font-size:.78rem}
+.iletisim{display:grid;gap:14px;margin:20px 0 24px}.iletisim dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--soluk)}.iletisim dd{font-size:1.08rem}
+.iletisim-foto{width:100%;height:380px;object-fit:cover}
+.uyari{margin-top:28px;font-size:.82rem;color:var(--soluk)}
+footer{border-top:1px solid var(--cizgi);padding:26px 0;font-size:.85rem;color:var(--soluk)}
+.taslak{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#16181D;color:#fff;font-size:.88rem}
+.taslak .kap{display:flex;align-items:center;gap:14px;min-height:56px;padding-block:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+.taslak i{font-style:normal;font-family:"Space Mono",ui-monospace,monospace;color:#FFB000;font-weight:700;letter-spacing:.08em}
+.taslak span{margin-right:auto}.taslak a{background:#FFB000;color:#16181D;text-decoration:none;font-weight:700;padding:8px 14px;white-space:nowrap}
+:focus-visible{outline:3px solid var(--vurgu);outline-offset:2px}
+@media(max-width:900px){nav{display:none}.ilanlar,.yorumlar{grid-template-columns:1fr 1fr}.iki{grid-template-columns:1fr}.surec{grid-template-columns:1fr 1fr}.hizmet-liste{grid-template-columns:1fr}.serit-ic{grid-template-columns:1fr 1fr}.serit-ic div:nth-child(2){border-right:0}}
+@media(max-width:600px){body{font-size:16px}.ilanlar,.yorumlar,.surec{grid-template-columns:1fr}.hero-yazi{margin:-60px 12px 0;padding:24px 20px}.talep{grid-template-columns:1fr}.taslak span{font-size:.78rem}.ust-bar .btn{display:none}.hero-foto img{height:46vh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="ust-bar"><div class="kap"><a class="logo" href="#"><i>K</i><span><b>Kasapoğlu</b><small>OTOMOTİV · ANTALYA</small></span></a>
+<nav><a href="#ilanlar">Araçlar</a><a href="#neden">Neden biz</a><a href="#form">Aracınızı alalım</a><a href="#iletisim">İletişim</a></nav><a class="btn ana kucuk" href="tel:+902423314376">0242 331 43 76</a></div></header>
+<main>
+<section class="hero"><div class="hero-foto"><img src="img/f1.jpg" alt="Kasapoğlu Otomotiv" fetchpriority="high"></div>
+<div class="kap hero-yazi"><p class="ust">Kepez · Antalya · Midibüs, minibüs ve ticari araç</p>
+<h1>Midibüs, minibüs ve ticari araçta Antalya'nın güvenilir adresi.</h1><p class="giris">Otokar, Isuzu, Mercedes Sprinter ve Ford Transit başta olmak üzere sıfır ve ikinci el ticari araçlar. Ekspertizli satış, takas, kredi desteği ve Türkiye'nin her yerine teslim.</p>
+<div class="dugmeler"><a class="btn ana" href="#ilanlar">Araçları gör</a><a class="btn cizgi" href="tel:+902423314376">Ara · 0242 331 43 76</a></div>
+<p class="puan"><span class="yildiz">★</span> <b>5,0</b> · 293 Google yorumu</p></div></section>
+<section class="serit"><div class="kap serit-ic"><div><b>5,0 ★</b><span>293 Google yorumu</span></div><div><b>Midibüs · minibüs</b><span>ticari araçta uzman</span></div><div><b>Türkiye geneli</b><span>şehir dışına teslim</span></div><div><b>Takas · kredi</b><span>ekspertizli satış</span></div></div></section>
+<section class="blok" id="ilanlar"><div class="kap"><div class="bas"><h2>Vitrindeki araçlar</h2>
+<div class="filtre"><button class="on" data-k="">Tümü</button><button data-k="Minibüs">Minibüs</button><button data-k="Midibüs">Midibüs</button></div></div>
+
+<div class="ilanlar"><article class="ilan" data-k="Minibüs"><div class="ilan-foto"><img loading="lazy" src="img/f3.jpg" alt="Mercedes-Benz Sprinter 16+1" style="object-position:28% 45%;transform:scale(1.25);transform-origin:28% 45%"><span class="rozet">Örnek ilan</span></div>
+<div class="ilan-ic"><p class="kat">Minibüs</p><h3>Mercedes-Benz Sprinter 16+1</h3>
+<dl><div><dt>Yıl</dt><dd>2023</dd></div><div><dt>Km</dt><dd>Sıfır</dd></div><div><dt>Koltuk</dt><dd>16+1</dd></div><div><dt>Vites</dt><dd>Manuel</dd></div></dl>
+<div class="ilan-alt"><span class="fiyat">Fiyat için arayın</span><a class="btn kucuk" target="_blank" rel="noopener" href="https://wa.me/902423314376?text=Merhaba%2C%20sitenizdeki%20Mercedes-Benz%20Sprinter%2016%2B1%20ilan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">Bu aracı sor</a></div></div></article><article class="ilan" data-k="Midibüs"><div class="ilan-foto"><img loading="lazy" src="img/f1.jpg" alt="Isuzu Novo Lux" style="object-position:56% 62%;transform:scale(1.9);transform-origin:56% 62%"><span class="rozet">Örnek ilan</span></div>
+<div class="ilan-ic"><p class="kat">Midibüs</p><h3>Isuzu Novo Lux</h3>
+<dl><div><dt>Yıl</dt><dd>2021</dd></div><div><dt>Km</dt><dd>98.000</dd></div><div><dt>Koltuk</dt><dd>27+1</dd></div><div><dt>Vites</dt><dd>Manuel</dd></div></dl>
+<div class="ilan-alt"><span class="fiyat">Fiyat için arayın</span><a class="btn kucuk" target="_blank" rel="noopener" href="https://wa.me/902423314376?text=Merhaba%2C%20sitenizdeki%20Isuzu%20Novo%20Lux%20ilan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">Bu aracı sor</a></div></div></article><article class="ilan" data-k="Minibüs"><div class="ilan-foto"><img loading="lazy" src="img/f2.jpg" alt="Ford Transit 16+1" style="object-position:33% 55%;transform:scale(2.6);transform-origin:33% 55%"><span class="rozet">Örnek ilan</span></div>
+<div class="ilan-ic"><p class="kat">Minibüs</p><h3>Ford Transit 16+1</h3>
+<dl><div><dt>Yıl</dt><dd>2022</dd></div><div><dt>Km</dt><dd>64.000</dd></div><div><dt>Koltuk</dt><dd>16+1</dd></div><div><dt>Vites</dt><dd>Manuel</dd></div></dl>
+<div class="ilan-alt"><span class="fiyat">Satıldı</span><a class="btn kucuk" target="_blank" rel="noopener" href="https://wa.me/902423314376?text=Merhaba%2C%20sitenizdeki%20Ford%20Transit%2016%2B1%20ilan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">Bu aracı sor</a></div></div></article></div>
+<p class="not">Örnek ilanlar. Gerçek ilanlarınız sahibinden.com'dan otomatik olarak bu sayfaya aktarılabilir.</p></div></section>
+<section class="blok" id="neden"><div class="kap iki"><div><h2>Neden Kasapoğlu?</h2><p class="soluk">293 müşterimizin ortalama puanı 5 üzerinden 5. Bunun sebebi basit:</p></div>
+<ol class="neden"><li><span class="no">01</span><div><h3>Dürüst ve şeffaf satış</h3><p>Aracın geçmişini, ekspertizini ve eksiğini olduğu gibi söyleriz. Sürpriz çıkmaz.</p></div></li><li><span class="no">02</span><div><h3>Şehir dışından gelene kolaylık</h3><p>Konya’dan, farklı illerden gelen müşterilerimizi karşılar; ekspertiz, noter ve teslim sürecinde yanlarında oluruz.</p></div></li><li><span class="no">03</span><div><h3>Takas ve kredi desteği</h3><p>Mevcut aracınızı değerinde alır, kalan tutar için kredi seçeneklerini sizin yerinize araştırırız.</p></div></li><li><span class="no">04</span><div><h3>Ticari araçta uzmanlık</h3><p>Servis, turizm ve personel taşımacılığı için doğru koltuk sayısı ve donanımı birlikte seçeriz.</p></div></li></ol></div>
+<div class="kap genis-foto"><img loading="lazy" src="img/f2.jpg" alt="Kasapoğlu Otomotiv"></div></section>
+<section class="blok zemin2"><div class="kap"><div class="bas"><h2>Müşterilerimiz ne diyor?</h2><p class="puan buyuk"><span class="yildiz">★</span> <b>5,0</b> / 5 · 293 Google yorumu</p></div>
+<div class="yorumlar"><blockquote><p>“Şehir dışından gitmeme rağmen bana orada yabancılık çektirmeyen Kasapoğlu ailesine çok teşekkürler.”</p><cite>Soner M. · Google</cite></blockquote><blockquote><p>“Gerçekten dürüst esnaflar, misafirperver, her türlü yardımcı olan bir firma. Gönül rahatlığıyla araç alımlarındaki tek adres.”</p><cite>Alper D. · Google</cite></blockquote><blockquote><p>“Konya'dan gelerek Ford Custom aracımızı sorunsuz şekilde aldık. Hizmet, kalite, ilgi alaka konusunda ülkemizin nadide firmalarından.”</p><cite>Vesto Promosyon · Google</cite></blockquote></div></div></section>
+<section class="blok koyu" id="form"><div class="kap iki"><div><h2>Aracınızı değerinde alalım</h2><p>Bilgileri yazın, aynı gün ekspertiz ve fiyat teklifiyle dönelim.</p></div>
+<form class="talep" data-wa="902423314376" data-mesaj="Merhaba, aracımı satmak istiyorum:"><label>Marka / model<input name="a0" type="text" data-ad="Marka / model" required></label><label>Yıl<input name="a1" type="number" data-ad="Yıl" required></label><label>Kilometre<input name="a2" type="number" data-ad="Kilometre" required></label><label>Adınız<input name="a3" type="text" data-ad="Adınız" required></label>
+<button class="btn ana" type="submit">WhatsApp ile gönder</button><p class="kucuk-not">Bilgileriniz yalnızca size dönüş yapmak için kullanılır.</p></form></div></section>
+<section class="blok" id="iletisim"><div class="kap iki"><div><h2>İletişim</h2>
+<dl class="iletisim"><div><dt>Adres</dt><dd>Kanal Mah., Yasemin Cd. No:1, 07080 Kepez / Antalya</dd></div><div><dt>Telefon</dt><dd><a href="tel:+902423314376">0242 331 43 76</a> · <a href="tel:+902423314377">0242 331 43 77</a></dd></div>
+<div><dt>Çalışma saatleri</dt><dd>Her gün 08:30'dan itibaren</dd></div><div><dt>Bizi takip edin</dt><dd><a href="https://kasapogluotomotiv07.sahibinden.com/" target="_blank" rel="noopener">sahibinden.com mağazası</a> · <a href="https://www.facebook.com/kasapogluotomotiv07/" target="_blank" rel="noopener">Facebook</a></dd></div></dl>
+<div class="dugmeler"><a class="btn ana" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Kasapo%C4%9Flu+Otomotiv/@36.9235042,30.6690492,17z">Yol tarifi al</a><a class="btn cizgi" target="_blank" rel="noopener" href="https://wa.me/902423314376">WhatsApp</a></div></div>
+<img class="iletisim-foto" loading="lazy" src="img/f3.jpg" alt="Kasapoğlu Otomotiv"></div></section>
+</main>
+<footer><div class="kap">© 2026 Kasapoğlu Otomotiv · Kanal Mah., Yasemin Cd. No:1, 07080 Kepez / Antalya</div></footer>
+<div class="taslak" role="note"><div class="kap"><i>TASLAK</i><span>Bu sayfa Kasapoğlu Otomotiv için <b>Dijitabela</b> tarafından hazırlanmış ücretsiz bir önizlemedir.</span><a href="https://myshoppingcarttr-cyber.github.io/dijitabela/teklif-al.html" target="_blank" rel="noopener">Bu siteyi sahiplenin →</a></div></div>
+<script>
+document.querySelectorAll(".filtre button").forEach(function(b){b.onclick=function(){document.querySelectorAll(".filtre button").forEach(function(x){x.classList.toggle("on",x===b)});document.querySelectorAll(".ilan,.ilan-satir").forEach(function(i){i.hidden=!!b.dataset.k&&i.dataset.k!==b.dataset.k})}});
+document.querySelectorAll("form.talep").forEach(function(f){f.onsubmit=function(e){e.preventDefault();var m=f.dataset.mesaj+"\n"+[].map.call(f.querySelectorAll("input"),function(i){return i.dataset.ad+": "+i.value}).join("\n");window.open("https://wa.me/"+f.dataset.wa+"?text="+encodeURIComponent(m),"_blank")}});
+</script>
+</body>
+</html>
