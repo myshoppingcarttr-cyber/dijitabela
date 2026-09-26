@@ -46,3 +46,19 @@
 
 .hdr .nav ul{flex-wrap:nowrap}.hdr .nav ul a{white-space:nowrap}
 .tk-fis .row,.tk-fis .tot{display:flex;justify-content:space-between;gap:14px;align-items:baseline}.tk-fis .row span:last-child{text-align:right}
+
+/* ===== Yasal sayfalar ===== */
+.yasal-bas{border-bottom:2px solid var(--murekkep)}
+.yasal-bas .b-bas{padding-bottom:34px}
+.yasal .b-govde.legal{max-width:none;margin:0;padding:28px 0 64px}
+.yasal .legal h2{font-family:var(--baslik);font-stretch:70%;font-weight:800;text-transform:uppercase;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1;margin:36px 0 12px;padding-top:14px;border-top:2px solid var(--murekkep)}
+.yasal .legal p,.yasal .legal li{color:#2E3238;font-size:1.02rem;line-height:1.7;max-width:68ch}
+.yasal .legal ul{margin:0 0 16px 1.2em}
+.yasal .legal a{color:var(--murekkep);text-decoration-color:var(--led);text-decoration-thickness:3px;text-underline-offset:3px}
+.yasal .ph-warn{background:var(--led);border:2px solid var(--murekkep);border-radius:0;padding:14px 18px;font-size:.92rem;margin:0 0 18px;box-shadow:6px 6px 0 var(--murekkep)}
+.yasal-diger{border-top:2px solid var(--murekkep);padding:44px 0 72px;background:var(--kagit)}
+.yasal-diger ul{list-style:none;border-top:2px solid var(--murekkep);margin:12px 0 18px}
+.yasal-diger li{border-bottom:1px solid var(--cizgi)}
+.yasal-diger a{display:block;padding:14px 0;font-family:var(--baslik);font-stretch:70%;font-weight:800;text-transform:uppercase;font-size:1.4rem;color:var(--murekkep);text-decoration:none}
+.yasal-diger a:hover{background:var(--led)}
+.yasal-bas{padding:0}
