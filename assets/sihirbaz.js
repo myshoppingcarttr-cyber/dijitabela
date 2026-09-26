@@ -21,8 +21,33 @@
   var qs = (q.get("secim") || "").split(",").filter(function (k) { return FIYAT.KALEMLER[k]; });
   if (qs.length) S.secim = qs;
 
+  // Dükkân önizlemesi: seçilen kalemler rozet olur, tabela yanar, kepenk açılır; toplam LED'de yazar
+  var LEDC = document.getElementById("tk-led"), TOP = document.getElementById("tk-toplam"), USTA = document.getElementById("tk-usta"), KEP = [].slice.call(document.querySelectorAll("#tk-kepenk .hk-kp"));
+  var kepAcik = 0, kepHedef = 0, sonToplam = null;
+  function nokta(cv, metin, sutun, satir, renk) {
+    if (!cv || !window.LED) return; var w = cv.clientWidth, h = cv.clientHeight; if (!w) return;
+    var dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    var c = cv.getContext("2d"); c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, w, h);
+    if (!sutun) sutun = Math.floor(w / (h / satir)); var kol = metin ? window.LED.sutunlar(metin) : [], ax = w / sutun, ay = h / satir, r = Math.min(ax, ay) * .36, bas = Math.floor((sutun - kol.length) / 2), ust = Math.floor((satir - 9) / 2);
+    for (var x = 0; x < sutun; x++) for (var y = 0; y < satir; y++) { var k = kol[x - bas], yan = k && y >= ust && k[y - ust]; c.fillStyle = yan ? renk : "#262A31"; c.beginPath(); c.arc(x * ax + ax / 2, y * ay + ay / 2, r, 0, 6.2832); c.fill(); }
+  }
+  function kepenkCiz() {
+    kepAcik += (kepHedef - kepAcik) * .12; if (Math.abs(kepHedef - kepAcik) < .002) kepAcik = kepHedef;
+    KEP.forEach(function (g) { var H0 = +g.dataset.h, y0 = +g.dataset.y; g.querySelector(".kp-perde").setAttribute("y", y0 - H0 * kepAcik); g.querySelector(".kp-alt").setAttribute("transform", "translate(0," + (-H0 * kepAcik) + ")"); });
+    if (kepAcik !== kepHedef) requestAnimationFrame(kepenkCiz);
+  }
+  function dukkan(h) {
+    [].slice.call(document.querySelectorAll("[data-kalem]")).forEach(function (el) { el.classList.toggle("on", el.dataset.kalem.split(" ").some(function (k) { return S.secim.indexOf(k) > -1; })); });
+    var sek = { Oto: "SERVİS", Klinik: "KLİNİK", "Güzellik": "KUAFÖR", Restoran: "LOKANTA", Emlak: "EMLAK", "Eğitim": "KURS", Spor: "SPOR" }[(S.sektor || "").split(/[ /]/)[0]] || "AÇIK";
+    nokta(LEDC, S.secim.indexOf("site") > -1 ? sek : "", 44, 15, "#FFB000");
+    var n = S.secim.length; kepHedef = n ? 1 : 0; requestAnimationFrame(kepenkCiz);
+    if (USTA) USTA.src = "assets/img/sahne/usta-" + (n === 0 ? 1 : n < 3 ? 4 : 5) + ".webp";
+    var t = h.tek ? TL(h.tek).replace(/\s?TL/, "") + " TL" : "0 TL"; if (t !== sonToplam) { sonToplam = t; nokta(TOP, t, 0, 11, "#FFB000"); }
+  }
+  addEventListener("resize", function () { sonToplam = null; ozet(); });
+
   function ozet() {
-    var h = FIYAT.hesapla(S.secim, S.olcek, S.acil);
+    var h = FIYAT.hesapla(S.secim, S.olcek, S.acil); dukkan(h);
     SUM.innerHTML = "<h3>Anlık fiyat</h3>" + (h.satirlar.length
       ? h.satirlar.map(function (r) { return '<div class="row"><span>' + e(r.ad) + '</span><span>' + (r.tek ? TL(r.tek) : "") + (r.ay ? (r.tek ? " + " : "") + TL(r.ay) + "/ay" : "") + "</span></div>"; }).join("") +
         (h.carpan !== 1 ? '<div class="row"><span>Ölçek / aciliyet katsayısı</span><span>×' + h.carpan.toFixed(2).replace(".", ",") + "</span></div>" : "") +
