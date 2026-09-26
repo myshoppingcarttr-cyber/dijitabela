@@ -11,7 +11,7 @@
   var hk = document.getElementById("hikaye");
   if (hk) (function () {
     var sahne = document.getElementById("hk-sahne"), katlar = [].slice.call(sahne.querySelectorAll(".hk-kat"));
-    var kepenk = [].slice.call(sahne.querySelectorAll(".hk-kepenk img")), usta = document.getElementById("hk-usta");
+    var kepenkler = [].slice.call(sahne.querySelectorAll(".hk-kp")), kepenkSvg = document.getElementById("hk-kepenk"), usta = document.getElementById("hk-usta");
     var adimlar = [].slice.call(hk.querySelectorAll(".hk-adim")), cip = document.getElementById("hk-cip"), cipSayi = document.getElementById("hk-cip-sayi");
     var cubuk = document.getElementById("hk-cubuk"), tel = hk.querySelector(".tel"), inp = document.getElementById("yaz-ad");
     var yayaKap = document.getElementById("hk-yayalar");
@@ -58,7 +58,12 @@
       adimlar.forEach(function (a, i) { a.classList.toggle("aktif", i === adim); });
       cubuk.style.transform = "scaleX(" + p + ")";
       // Kepenk (yalnız ilk dükkânda)
-      var kep = yum(p / .14); kepenk.forEach(function (k) { k.style.transform = "translateY(" + (-kep * 100) + "%)"; k.parentNode.style.opacity = kep >= 1 ? 0 : 1; });
+      var kep = yum(p / .14);
+      kepenkler.forEach(function (g) { // perde kutuya sarılır: yükseklik azalır, çıtalar alt kenarla birlikte yukarı kayar
+        var H0 = +g.dataset.h, y0 = +g.dataset.y, kalan = H0 * (1 - kep), perde = g.querySelector(".kp-perde"), alt = g.querySelector(".kp-alt");
+        perde.setAttribute("y", y0 - H0 * kep); alt.setAttribute("transform", "translate(0," + (-H0 * kep) + ")");
+      });
+      kepenkSvg.style.opacity = p > .56 ? 0 : 1;
       // Sektör geçişleri
       var sp = kes((p - .56) / .24), sIdx = Math.min(katlar.length - 1, Math.floor(sp * (katlar.length - 1 + .999)) + (p >= .56 ? 1 : 0));
       if (p >= .78) sIdx = katlar.length - 1;

@@ -24,8 +24,7 @@
 .hk-sahne-kutu{height:min(84vh,860px);height:min(calc(100svh - 110px),860px);aspect-ratio:572/1024;max-width:100%}
 .hk-sahne{position:relative;width:100%;height:100%;overflow:hidden;border:3px solid var(--murekkep);background:#DCD6CA;box-shadow:12px 12px 0 var(--murekkep)}
 .hk-kat{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s}
-.hk-kepenk{position:absolute;overflow:hidden}
-.hk-kepenk img{position:absolute;max-width:none;height:auto}
+.hk-kepenk-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .4s}
 .hk-led{position:absolute;left:9.79%;top:15.04%;width:80.42%;height:15.63%;border-radius:4px}
 .hk-usta{position:absolute;height:auto;opacity:0;pointer-events:none}
 .hk-yayalar{position:absolute;inset:0;pointer-events:none}
