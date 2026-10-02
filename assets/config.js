@@ -3,8 +3,8 @@ window.AJANS = {
   marka: "Dijitabela",                // marka kitabı: marka/index.html
   slogan: "Yerel işletmeler için web, yazılım ve yapay zekâ",
   sahip: "Alim Hoşlar",
-  telefon: "",                         // ör. "0532 000 00 00"
-  whatsapp: "",                        // ör. "905320000000"
+  telefon: "0501 945 21 84",
+  whatsapp: "905019452184",
   eposta: "info@dijitabela.com",       // Natro ücretsiz mail kutusu (alan adı aktif olunca kurulacak)
   sehir: "Antalya",
   site: "https://www.dijitabela.com",  // alan adı henüz satın alınmadı

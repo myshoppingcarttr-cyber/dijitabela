@@ -370,3 +370,14 @@ body{background:var(--kagit)}
 .b-ilgili li{border-bottom:1px solid var(--cizgi)}.b-ilgili a{display:block;padding:14px 0;font-weight:700;color:var(--murekkep)}
 .h-hikaye{padding-bottom:40px}
 @media(max-width:600px){.b-liste a{grid-template-columns:44px minmax(0,1fr);}.b-ok{display:none}.b-cta{padding:22px 18px}}
+/* Ekspertiz v2: işletme kimliği, rakip tablosu, öncelik kutusu */
+.eks-kimlik{margin:-4px 0 14px;font-size:.92rem;color:#3A3E46}.eks-kimlik em{color:#8A5A00;font-style:normal}
+.eks-not{background:#fff7e0;border-left:3px solid var(--led,#FFB000);padding:12px 14px;margin:0 0 22px;font-size:.95rem}.eks-not.kotu{background:#fdecea;border-color:#c0392b}
+.eks-rakip{width:100%;border-collapse:collapse;margin:6px 0 26px;font-size:.93rem;background:#fff}
+.eks-rakip th,.eks-rakip td{text-align:left;padding:9px 10px;border-bottom:1px solid #e4e1d9}.eks-rakip th{font:700 .72rem/1 "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#5d6470}
+.eks-rakip td:nth-child(n+2),.eks-rakip th:nth-child(n+2){text-align:right;white-space:nowrap}.eks-rakip small{color:#8a8f99;font-size:.78rem}
+.eks-rakip tr.biz td{background:#16181D;color:#fff;font-weight:700}
+.eks-oncelik{background:#16181D;color:#fff;padding:20px 22px;margin:0 0 28px;border-radius:4px}.eks-oncelik .v-etiket{color:#FFB000}
+.eks-oncelik ol{margin:8px 0 0 18px}.eks-oncelik li{margin:8px 0;line-height:1.5}.eks-oncelik b{color:#FFB000;display:block}
+@media (max-width:560px){.eks-rakip{font-size:.85rem}.eks-rakip th,.eks-rakip td{padding:8px 6px}}
+.eks-cozum{font-family:inherit!important;font-size:.9rem!important;line-height:1.5;color:#3A3E46!important}.eks-cozum b{color:#8A5A00}
