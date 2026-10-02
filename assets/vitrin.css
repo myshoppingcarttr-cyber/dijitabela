@@ -381,3 +381,15 @@ body{background:var(--kagit)}
 .eks-oncelik ol{margin:8px 0 0 18px}.eks-oncelik li{margin:8px 0;line-height:1.5}.eks-oncelik b{color:#FFB000;display:block}
 @media (max-width:560px){.eks-rakip{font-size:.85rem}.eks-rakip th,.eks-rakip td{padding:8px 6px}}
 .eks-cozum{font-family:inherit!important;font-size:.9rem!important;line-height:1.5;color:#3A3E46!important}.eks-cozum b{color:#8A5A00}
+/* Ekspertiz: görünmeyen kayıplar, önerilen sistem, iletişim düğmeleri */
+.eks-oncelik-alt{margin:14px 0 4px;font-size:.95rem;line-height:1.5;opacity:.92}
+.eks-dugmeler{margin-top:14px;flex-wrap:wrap;gap:10px}
+.eks-oncelik .eks-dugmeler .v-btn:not(.ana){background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.eks-gizli{margin:34px 0 26px;padding:22px 22px 8px;background:#fff;border:1px solid #e4e1d9;border-top:4px solid #c0392b}
+.eks-gizli h3,.eks-onerilen h3{font-size:1.15rem;line-height:1.35;margin:6px 0 8px}
+.eks-gizli ol{margin:14px 0 0 18px}.eks-gizli li{margin:0 0 14px}.eks-gizli li b{display:block}.eks-gizli li p{margin:3px 0 0;color:#3A3E46;font-size:.95rem;line-height:1.5}
+.eks-onerilen{margin:0 0 28px;padding:22px;background:#fff7e0;border:1px solid #f1d58a}
+.eks-onerilen ul{list-style:none;margin:12px 0 0}.eks-onerilen li{padding:9px 0;border-bottom:1px dashed #e8cf86}.eks-onerilen li:last-child{border-bottom:0}
+.eks-onerilen li b:before{content:"●";color:#FFB000;margin-right:8px;text-shadow:0 0 0 #16181D}.eks-onerilen li span{display:block;margin:2px 0 0 20px;color:#5d6470;font-size:.88rem}
+@media (max-width:560px){.eks-dugmeler .v-btn{width:100%;text-align:center}}
+#eks-form[hidden],#eks-ilerleme[hidden],.eks-ilerleme[hidden]{display:none!important}
