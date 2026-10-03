@@ -45,10 +45,10 @@
     } else if (t.durum === "onaylandi") {
       P.innerHTML = "<h3>Ödeme</h3><p class=\"mute\" style=\"margin-top:6px\">İlk ödeme (%50, KDV dahil): <b>" + TL(kaporaKdvli) + "</b></p>" +
         '<div class="pay-opts">' +
-        '<div class="box"><b>Kredi / banka kartı</b><p class="small" style="margin:6px 0 12px">Güvenli ödeme sayfası (iyzico). Taksit seçenekleri kartınıza göre gösterilir. Kart bilgileriniz bizde saklanmaz.</p><button class="btn btn-p" id="kart">Kartla öde</button></div>' +
-        '<div class="box"><b>Havale / EFT</b><p class="small" style="margin:6px 0 12px">Alıcı: ' + e(A.unvan) + "<br>IBAN: " + e(A.iban || "[IBAN eklenecek]") + (A.banka ? "<br>" + e(A.banka) : "") + "<br>Açıklama: <b>" + e(t.no) + '</b></p><button class="btn btn-o" id="havale"' + (havaleBildirildi ? " disabled" : "") + ">" + (havaleBildirildi ? "Bildirildi, kontrol ediliyor" : "Ödemeyi yaptım") + "</button></div>" +
+        (A.kartOdeme ? '<div class="box"><b>Kredi / banka kartı</b><p class="small" style="margin:6px 0 12px">Güvenli ödeme sayfası (iyzico). Taksit seçenekleri kartınıza göre gösterilir. Kart bilgileriniz bizde saklanmaz.</p><button class="btn btn-p" id="kart">Kartla öde</button></div>' : '') +
+        '<div class="box"><b>Havale / EFT</b><p class="small" style="margin:6px 0 12px">Alıcı: ' + e(A.unvan) + (A.iban ? "<br>IBAN: " + e(A.iban) : "<br>IBAN bilgisi size WhatsApp’tan iletilecek: <a href=\"https://wa.me/" + e(A.whatsapp || "") + "\">bize yazın</a>") + (A.banka ? "<br>" + e(A.banka) : "") + "<br>Açıklama: <b>" + e(t.no) + '</b></p><button class="btn btn-o" id="havale"' + (havaleBildirildi ? " disabled" : "") + ">" + (havaleBildirildi ? "Bildirildi, kontrol ediliyor" : "Ödemeyi yaptım") + "</button></div>" +
         "</div>";
-      document.getElementById("kart").onclick = function () {
+      var kb = document.getElementById("kart"); if (kb) kb.onclick = function () {
         if (API.mode === "demo") { if (confirm("DEMO: " + TL(kaporaKdvli) + " kartla ödenmiş sayılsın mı?")) API.odemeBildir(tk, { yontem: "kart", tutar: kaporaKdvli }).then(ciz); return; }
         // Canlı: iyzico ödeme formu Supabase Edge Function üzerinden başlatılır (supabase/functions/odeme-baslat)
         this.disabled = true; this.textContent = "Ödeme sayfası açılıyor…";

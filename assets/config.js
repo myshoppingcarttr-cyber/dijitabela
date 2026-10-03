@@ -14,6 +14,7 @@ window.AJANS = {
   vergiNo: "",
   iban: "",                            // TR.. ile başlayan IBAN
   banka: "",
+  kartOdeme: false,                   // iyzico hesabı (vergi levhası sonrası) açılınca true yapın
   // Veritabanı (Supabase) — boşsa DEMO modunda çalışır
   supabaseUrl: "https://ctlbhwbccqgwmtqbwtfs.supabase.co",
   supabaseAnonKey: "sb_publishable_8MszpUT5gCp6cFhAKn-0VA_gW9_1hvy",  // herkese açık anahtar (RLS açık); gizli anahtar ASLA buraya yazılmaz
