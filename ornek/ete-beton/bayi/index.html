@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Bayi Portalı · Ete Beton</title><link rel="icon" href="../img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f4f1;--y:#fff;--t:#16171a;--s:#5f6168;--v:#9b1c24;--c:#e2ded8;--g:#2f9e44;--o:#f08c00;--k:#e03131}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,sans-serif;background:var(--bg);color:var(--t);line-height:1.55}
+.taslak{background:#fff3bf;color:#5c4400;font-size:.8rem;text-align:center;padding:6px 10px;font-weight:600}
+header{background:#fff;border-bottom:1px solid var(--c)}.kap{max-width:1240px;margin:0 auto;padding:0 20px}
+.ust{display:flex;align-items:center;gap:14px;height:68px}.ust img{height:40px}.ust b{font-family:Sora}.ust .sag{margin-left:auto;font-size:.88rem;color:var(--s)}
+.sek{display:flex;gap:8px;padding:12px 0}.sek button{border:0;background:#ebe7e2;border-radius:999px;padding:9px 14px;font-weight:700;cursor:pointer}.sek button.on{background:var(--v);color:#fff}
+.duzen{display:grid;grid-template-columns:1fr 330px;gap:18px;padding:10px 0 40px}
+.filtre{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.filtre button{border:1.5px solid var(--c);background:#fff;border-radius:999px;padding:7px 12px;font-weight:600;cursor:pointer}.filtre button.on{border-color:var(--v);color:var(--v)}
+.urunler{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.u{background:#fff;border:1px solid var(--c);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.u img{height:110px;object-fit:contain;background:#f3f1ee;border-radius:10px}.u b{font-family:Sora;font-size:.98rem}.u small{color:var(--s)}
+.st{font-size:.75rem;font-weight:800;padding:3px 9px;border-radius:999px;align-self:flex-start}.st.var{background:#d3f9d8;color:#2b8a3e}.st.az{background:#fff4e6;color:var(--o)}.st.yok{background:#ffe3e3;color:var(--k)}
+.u .alt{display:flex;gap:6px;align-items:center;margin-top:auto}.u input{width:70px;padding:8px;border:1.5px solid var(--c);border-radius:8px;font:inherit}
+.dg{border:0;background:var(--v);color:#fff;border-radius:10px;padding:9px 12px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}.dg.w{background:#25d366}.dg:disabled{opacity:.4}
+.sepet{background:#fff;border:1px solid var(--c);border-radius:14px;padding:16px;position:sticky;top:14px;align-self:start}.sepet h3{font-family:Sora;margin-bottom:8px}
+.sepet .s{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--c);font-size:.9rem}.sepet select,.sepet input{width:100%;padding:9px;border:1.5px solid var(--c);border-radius:8px;font:inherit;margin-top:4px}
+.sepet label{display:block;font-weight:700;font-size:.8rem;margin-top:10px}
+.kart{background:#fff;border:1px solid var(--c);border-radius:14px;padding:16px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{padding:10px 8px;border-bottom:1px solid var(--c);text-align:left}th{font-size:.75rem;color:var(--s);text-transform:uppercase}
+.sekme{display:none}.sekme.on{display:block}
+@media(max-width:1000px){.duzen{grid-template-columns:1fr}.urunler{grid-template-columns:1fr 1fr}}@media(max-width:600px){.urunler{grid-template-columns:1fr}}
+</style></head><body>
+<div class="taslak">Örnek bayi portalı · stok, sipariş ve sevkiyat bilgileri temsilîdir. Canlıda Ete Beton'un stok kayıtlarına bağlanır.</div>
+<header><div class="kap"><div class="ust"><img src="../img/logo.png" alt=""><b>Bayi & Altyapı Portalı</b><span class="sag">Örnek Bayi Ltd. · Ankara</span></div></div></header>
+<div class="kap"><div class="sek"><button class="on" data-s="katalog">🧱 Ürünler ve stok</button><button data-s="siparis">📦 Siparişlerim</button><button data-s="sevk">🚚 Sevkiyat takibi</button></div>
+<div class="sekme on" id="s-katalog"><div class="duzen"><div><div class="filtre"></div><div class="urunler"></div></div>
+<aside class="sepet"><h3>🛒 Sipariş talebi</h3><div class="sepet-liste"><p style="color:var(--s);font-size:.9rem">Henüz ürün eklenmedi.</p></div>
+<label>Teslim yeri</label><input class="teslim" placeholder="İl / ilçe, şantiye"><label>İstenen tarih</label><input class="tarih" type="date">
+<button class="dg w gonder" style="width:100%;margin-top:12px" disabled>Talebi WhatsApp'tan gönder</button><p style="color:var(--s);font-size:.8rem;margin-top:8px">Fiyat ve sevkiyat planı satış biriminden onaylanarak döner.</p></aside></div></div>
+<div class="sekme" id="s-siparis"><div class="kart"><table><tr><th>Sipariş</th><th>Tarih</th><th>İçerik</th><th>Durum</th></tr>
+<tr><td>S-2026-118</td><td>28 Eyl</td><td>Ø600 betonarme boru × 120 m</td><td><span class="st var">Teslim edildi</span></td></tr>
+<tr><td>S-2026-131</td><td>2 Eki</td><td>Kutu menfez 2×2 m × 18 adet</td><td><span class="st az">Üretimde</span></td></tr>
+<tr><td>S-2026-134</td><td>3 Eki</td><td>Ø400 beton boru × 200 m</td><td><span class="st az">Sevkiyat planlandı</span></td></tr></table></div></div>
+<div class="sekme" id="s-sevk"><div class="kart"><table><tr><th>Sevk no</th><th>Sipariş</th><th>Çıkış</th><th>Araç</th><th>Durum</th></tr>
+<tr><td>İRS-4471</td><td>S-2026-134</td><td>Yarın 07:00</td><td>65 ABC 123 (örnek)</td><td><span class="st az">Yüklemede</span></td></tr>
+<tr><td>İRS-4459</td><td>S-2026-118</td><td>29 Eyl</td><td>65 DEF 456 (örnek)</td><td><span class="st var">Teslim edildi · imzalı irsaliye</span></td></tr></table></div></div>
+</div>
+<script>
+(function(){
+var U=[["Beton boru Ø300 (contasız)","Boru","m","var","u-boru.jpg"],["Beton boru Ø400 (contalı)","Boru","m","var","u-boru.jpg"],["Betonarme boru Ø600","Boru","m","az","u-boru.jpg"],["Betonarme boru Ø800","Boru","m","var","u-boru.jpg"],["Betonarme boru Ø1000","Boru","m","yok","u-boru.jpg"],["Kutu menfez 1×1 m","Menfez","adet","var","u-menfez.jpg"],["Kutu menfez 2×2 m (ard germeli)","Menfez","adet","az","u-menfez.jpg"],["Kutu menfez 3×2 m","Menfez","adet","yok","u-menfez.jpg"],["Kafes donatı","Donatı","ton","var","k-donati.jpg"]];
+var ST={var:"Stokta var",az:"Az kaldı",yok:"Üretimde · 10 gün"},sep=[],kat="Tümü";
+var $=function(s){return document.querySelector(s)};
+function ciz(){$(".filtre").innerHTML=["Tümü","Boru","Menfez","Donatı"].map(function(k){return'<button class="'+(k===kat?"on":"")+'">'+k+"</button>"}).join("");
+$(".urunler").innerHTML=U.map(function(u,i){if(kat!=="Tümü"&&u[1]!==kat)return"";return'<div class="u"><img src="../img/'+u[4]+'" alt=""><b>'+u[0]+'</b><small>'+u[1]+" · birim: "+u[2]+'</small><span class="st '+u[3]+'">'+ST[u[3]]+'</span><div class="alt"><input type="number" min="1" value="'+(u[2]==="m"?100:u[2]==="ton"?5:10)+'" id="m'+i+'"><button class="dg" data-ekle="'+i+'">Ekle</button></div></div>'}).join("");
+$(".sepet-liste").innerHTML=sep.length?sep.map(function(s,i){return'<div class="s"><span>'+U[s[0]][0]+'</span><b>'+s[1]+" "+U[s[0]][2]+'</b></div>'}).join(""):'<p style="color:var(--s);font-size:.9rem">Henüz ürün eklenmedi.</p>';$(".gonder").disabled=!sep.length}
+document.addEventListener("click",function(e){var b=e.target.closest(".filtre button");if(b){kat=b.textContent;ciz()}var a=e.target.closest("[data-ekle]");if(a){var i=+a.dataset.ekle;sep.push([i,+document.getElementById("m"+i).value||1]);ciz()}
+var t=e.target.closest(".sek button");if(t){document.querySelectorAll(".sek button").forEach(function(x){x.classList.toggle("on",x===t)});document.querySelectorAll(".sekme").forEach(function(s){s.classList.toggle("on",s.id==="s-"+t.dataset.s)})}});
+$(".gonder").onclick=function(){var m="Merhaba, bayi portalından sipariş talebi (Örnek Bayi Ltd.):\n"+sep.map(function(s){return"• "+U[s[0]][0]+": "+s[1]+" "+U[s[0]][2]}).join("\n")+"\nTeslim: "+($(".teslim").value||"-")+" · Tarih: "+($(".tarih").value||"-");window.open("https://wa.me/905533925477?text="+encodeURIComponent(m),"_blank")};
+ciz()})();
+</script>
+</body></html>

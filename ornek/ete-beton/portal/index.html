@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Proje Portalı · Ete Beton</title><link rel="icon" href="../img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f4f1;--y:#fff;--t:#16171a;--s:#5f6168;--v:#9b1c24;--c:#e2ded8;--g:#2f9e44;--o:#f08c00}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,sans-serif;background:var(--bg);color:var(--t);line-height:1.55}
+.taslak{background:#fff3bf;color:#5c4400;font-size:.8rem;text-align:center;padding:6px 10px;font-weight:600}
+header{background:#121316;color:#fff;padding:18px 0 70px}
+.kap{max-width:1180px;margin:0 auto;padding:0 20px}
+.ust{display:flex;align-items:center;gap:14px}.ust img{height:40px;background:#fff;border-radius:6px;padding:3px 6px}.ust small{opacity:.7}.ust .sag{margin-left:auto;font-size:.85rem;opacity:.85;text-align:right}
+h1{font:800 clamp(1.7rem,3.6vw,2.5rem) Sora;margin:26px 0 6px}header p{color:#c8c8ce}
+.ozet{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-48px}
+.kart{background:var(--y);border:1px solid var(--c);border-radius:14px;padding:18px}
+.ozet .kart b{display:block;font:800 1.7rem Sora;color:var(--v)}.ozet .kart span{color:var(--s);font-size:.88rem}
+.cubuk{height:8px;background:#eee;border-radius:9px;margin-top:8px;overflow:hidden}.cubuk i{display:block;height:100%;background:var(--v)}
+h2{font:700 1.3rem Sora;margin:30px 0 12px}
+.adimlar{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.adimlar div{background:#fff;border:1px solid var(--c);border-radius:12px;padding:12px;font-size:.88rem}
+.adimlar b{display:block}.adimlar small{color:var(--s)}.adimlar .tamam{border-color:var(--g);background:#ebfbee}.adimlar .simdi{border-color:var(--v);box-shadow:0 0 0 3px rgba(155,28,36,.15)}
+.iki{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{padding:9px 8px;border-bottom:1px solid var(--c);text-align:left}th{font-size:.75rem;color:var(--s);text-transform:uppercase}
+.r{display:inline-block;font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px}.r.g{background:#d3f9d8;color:#2b8a3e}.r.o{background:#fff4e6;color:var(--o)}.r.s{background:#f1efec;color:var(--s)}.r.v{background:#ffe3e3;color:var(--v)}
+.sev div{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--c)}.sev div:last-child{border:0}.sev b{min-width:84px}
+.galeri{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.galeri figure{background:#fff;border:1px solid var(--c);border-radius:12px;overflow:hidden}.galeri img{width:100%;aspect-ratio:4/3;object-fit:cover}.galeri figcaption{padding:8px 10px;font-size:.8rem;color:var(--s)}
+.belge a{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--c);text-decoration:none;color:var(--t)}.belge a:last-child{border:0}.belge i{font-style:normal;font-size:1.4rem}.belge small{display:block;color:var(--s)}
+.soru textarea{width:100%;min-height:90px;padding:10px;border:1.5px solid var(--c);border-radius:10px;font:inherit}.dg{display:inline-block;background:var(--v);color:#fff;border:0;border-radius:10px;padding:11px 16px;font-weight:800;text-decoration:none;cursor:pointer;margin-top:8px}.dg.w{background:#25d366}
+footer{color:var(--s);font-size:.85rem;padding:30px 0 50px}
+@media(max-width:900px){.ozet{grid-template-columns:1fr 1fr}.adimlar{grid-template-columns:1fr 1fr}.iki{grid-template-columns:1fr}.galeri{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="taslak">Örnek müşteri portalı · tüm proje bilgileri temsilîdir. Canlıda her müşteriye özel, şifreli bağlantı verilir.</div>
+<header><div class="kap"><div class="ust"><img src="../img/logo.png" alt=""><div><b>Ete Beton · Proje Portalı</b><br><small>Müşteri: Örnek Yapı A.Ş.</small></div><div class="sag">Proje yöneticiniz: Teknik Ofis<br>0532 504 53 24</div></div>
+<h1>4 Katlı Okul Binası · Prekast Çift Duvar + Filigran Döşeme</h1><p>Proje no: ETE-2026-041 · Konum: Van (örnek) · Toplam inşaat alanı: 4.200 m² · Son güncelleme: <span id="saat"></span></p></div></header>
+<main class="kap">
+<div class="ozet"><div class="kart"><b>%68</b><span>Üretim tamamlandı</span><div class="cubuk"><i style="width:68%"></i></div></div><div class="kart"><b>12 / 30</b><span>Tır sevk edildi</span><div class="cubuk"><i style="width:40%"></i></div></div><div class="kart"><b>2 / 4</b><span>Kat monte edildi</span><div class="cubuk"><i style="width:50%"></i></div></div><div class="kart"><b>18 Kas</b><span>Planlanan montaj bitişi</span><div class="cubuk"><i style="width:55%;background:#2f9e44"></i></div></div></div>
+<h2>Proje aşamaları</h2>
+<div class="adimlar"><div class="tamam"><b>✓ Sözleşme</b><small>2 Eylül</small></div><div class="tamam"><b>✓ Statik proje</b><small>16 Eylül · onaylandı</small></div><div class="simdi"><b>● Üretim</b><small>%68 · sürüyor</small></div><div class="simdi"><b>● Sevkiyat</b><small>12/30 tır</small></div><div class="simdi"><b>● Montaj</b><small>2. kat tamam</small></div><div><b>○ Teslim</b><small>Aralık (plan)</small></div></div>
+<div class="iki"><div><h2>Eleman üretim durumu</h2><div class="kart"><table><tr><th>Eleman</th><th>Adet</th><th>Üretilen</th><th>Durum</th></tr>
+<tr><td>Çift duvar · zemin kat</td><td>64</td><td>64</td><td><span class="r g">Monte edildi</span></td></tr>
+<tr><td>Çift duvar · 1. kat</td><td>62</td><td>62</td><td><span class="r g">Monte edildi</span></td></tr>
+<tr><td>Çift duvar · 2. kat</td><td>62</td><td>62</td><td><span class="r o">Sevkiyatta</span></td></tr>
+<tr><td>Çift duvar · 3. kat</td><td>60</td><td>21</td><td><span class="r v">Üretimde</span></td></tr>
+<tr><td>Filigran döşeme</td><td>168</td><td>118</td><td><span class="r v">Üretimde</span></td></tr>
+<tr><td>Merdiven / sahanlık</td><td>8</td><td>0</td><td><span class="r s">Planlandı</span></td></tr></table></div></div>
+<div><h2>Sevkiyat takvimi</h2><div class="kart sev"><div><b>Bugün</b><span>2 tır · 2. kat çift duvar (P2-31…P2-48) · sabah 07:30 çıkış</span></div><div><b>Yarın</b><span>3 tır · 2. kat filigran döşeme</span></div><div><b>Perşembe</b><span>2 tır · 3. kat çift duvar (ilk parti)</span></div><div><b>Cumartesi</b><span>Sevkiyat yok · montaj ekibi 2. kat döşeme betonu</span></div></div></div></div>
+<h2>Şantiye günlüğü</h2>
+<div class="galeri"><figure><img src="../img/k-cift-duvar.jpg" alt=""><figcaption>Bugün · 2. kat panelleri yükleniyor</figcaption></figure><figure><img src="../img/k-filigran.jpg" alt=""><figcaption>Dün · filigran döşemeler hazır</figcaption></figure><figure><img src="../img/g2.jpg" alt=""><figcaption>Pazartesi · stok sahası</figcaption></figure><figure><img src="../img/p-lise.jpg" alt=""><figcaption>Geçen hafta · 1. kat montajı (örnek görsel)</figcaption></figure></div>
+<div class="iki"><div><h2>Belgeler</h2><div class="kart belge"><a href="#"><i>📄</i><span><b>Sözleşme ve ekleri</b><small>PDF · 2 Eylül</small></span></a><a href="#"><i>📐</i><span><b>Statik proje (onaylı)</b><small>PDF + DWG · 16 Eylül</small></span></a><a href="#"><i>🧾</i><span><b>Sevk irsaliyeleri (12)</b><small>PDF · son: bugün</small></span></a><a href="#"><i>🧪</i><span><b>Beton numune test raporları</b><small>PDF · laboratuvar</small></span></a><a href="#"><i>🏅</i><span><b>Ürün belgeleri</b><small>TSE / CE</small></span></a></div></div>
+<div class="soru"><h2>Proje ekibine sorun</h2><div class="kart"><textarea placeholder="Örn. 3. kat montajı hangi gün başlıyor?"></textarea><a class="dg w" href="https://wa.me/905533925477?text=Merhaba%2C%20ETE-2026-041%20nolu%20projem%20hakk%C4%B1nda%20soru%3A%20" target="_blank">WhatsApp'tan gönder</a><p style="color:var(--s);font-size:.85rem;margin-top:10px">Her yeni sevkiyat ve montaj adımında size otomatik WhatsApp bildirimi gider.</p></div></div></div>
+</main>
+<footer class="kap">Ete Beton Prefabrik · Şemsibey OSB, Tuşba / Van · 0432 226 02 02 · Portal altyapısı: Dijitabela</footer>
+<script>document.getElementById("saat").textContent=new Date().toLocaleString("tr-TR",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})</script>
+</body></html>
