@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Sana bir sürpriz var 💌</title>
+<meta property="og:title" content="Sana bir sürpriz var 💌"><meta property="og:description" content="Birisi seni düşündü. Açmak için dokun.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--a:#ffe1ec;--b:#ffc2d6;--c:#d6336c}
+html,body{height:100%}
+body{font-family:Manrope,sans-serif;background:linear-gradient(160deg,var(--a),var(--b));color:#212529;overflow:hidden;display:grid;place-items:center}
+canvas#yag{position:fixed;inset:0;pointer-events:none;z-index:1}
+.sahne{position:relative;z-index:2;width:min(92vw,440px);text-align:center}
+.zarf{position:relative;width:100%;aspect-ratio:1.45;cursor:pointer;margin:0 auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.25));transition:transform .5s}
+.zarf:hover{transform:translateY(-4px) rotate(-1deg)}
+.zarf .govde{position:absolute;inset:0;background:#fff;border-radius:16px;overflow:hidden}
+.zarf .govde:before{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(135deg,transparent 49.5%,#f1f3f5 50%),linear-gradient(225deg,transparent 49.5%,#e9ecef 50%);background-size:50% 100%;background-repeat:no-repeat;background-position:left,right}
+.zarf .kapak{position:absolute;left:0;right:0;top:0;height:62%;background:var(--c);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s cubic-bezier(.6,-0.2,.3,1.3);border-radius:16px 16px 0 0;z-index:3}
+.zarf .muhur{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffd8e4,var(--c));display:grid;place-items:center;font-size:28px;z-index:4;box-shadow:0 6px 14px rgba(0,0,0,.25);transition:opacity .4s}
+.ipucu{margin-top:22px;font-weight:800;color:var(--c);animation:nabiz 1.6s infinite}
+@keyframes nabiz{50%{opacity:.4}}
+.acik .zarf .kapak{transform:rotateX(180deg)}.acik .zarf .muhur{opacity:0}
+.kart{display:none;background:rgba(255,255,255,.94);border-radius:26px;padding:34px 26px 26px;box-shadow:0 40px 80px -30px rgba(0,0,0,.35);animation:cik .9s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes cik{from{opacity:0;transform:translateY(80px) scale(.85)}to{opacity:1;transform:none}}
+.goster .kart{display:block}.goster .zarf,.goster .ipucu{display:none}
+.vesile{font-weight:800;letter-spacing:.1em;color:var(--c);font-size:.82rem}
+.isim{font-family:'Great Vibes',cursive;font-size:clamp(3rem,14vw,4.6rem);line-height:1.1;margin:8px 0 6px;color:#212529}
+.mesaj{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;line-height:1.45;min-height:5em;color:#343a40}
+.mesaj:after{content:"|";animation:nabiz 1s infinite;font-style:normal}.bitti .mesaj:after{display:none}
+.kimden{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.3rem;color:var(--c);margin-top:14px;opacity:0;transition:opacity .8s}.bitti .kimden{opacity:1}
+.alt{margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;opacity:0;transition:opacity .8s .4s}.bitti .alt{opacity:1}
+.alt a,.alt button{border:0;cursor:pointer;text-decoration:none;font:800 .9rem Manrope;padding:11px 16px;border-radius:999px;background:var(--c);color:#fff}
+.alt .ikinci{background:#fff;color:var(--c);border:2px solid var(--c)}
+.imza{margin-top:18px;font-size:.78rem;color:#6c757d}.imza a{color:inherit}
+</style></head><body>
+<canvas id="yag"></canvas>
+<div class="sahne" id="sahne">
+  <div class="zarf" id="zarf" role="button" aria-label="Zarfı aç"><div class="govde"></div><div class="kapak"></div><div class="muhur" id="muhur">💌</div></div>
+  <p class="ipucu" id="ipucu">Sana bir sürpriz var · açmak için dokun</p>
+  <div class="kart" id="kart">
+    <div class="vesile" id="vesile"></div>
+    <div class="isim" id="isim"></div>
+    <p class="mesaj" id="mesaj"></p>
+    <p class="kimden" id="kimden"></p>
+    <div class="alt"><button id="tekrar" class="ikinci">↺ Yeniden oynat</button><a id="paylas" class="ikinci">Teşekkür et 💬</a><a id="dukkan" href="./1-zarif/">Sen de birini mutlu et 🌸</a></div>
+    <p class="imza">Bu sürpriz <a href="./1-zarif/">Hakan Çiçekçilik · Korkuteli</a> ile hazırlandı · 0542 763 45 78</p>
+  </div>
+</div>
+<script>
+(function(){
+  var V={dogum:["🎂 İYİ Kİ DOĞDUN",["#ffe1ec","#ffc2d6","#d6336c"],"konfeti"],sevgili:["❤️ SENİ SEVİYORUM",["#ffe3e3","#ffb3b3","#c92a2a"],"kalp"],dugun:["💍 MUTLULUĞUNUZ DAİM OLSUN",["#fff6e6","#f3dfb8","#a67c2e"],"yaprak"],anne:["🌷 İYİ Kİ ANNEMSİN",["#f3f0ff","#d0bfff","#7048e8"],"yaprak"],gecmis:["🌼 GEÇMİŞ OLSUN",["#fff9db","#ffe066","#e67700"],"yaprak"],bebek:["👶 HOŞ GELDİN BEBEK",["#e7f5ff","#a5d8ff","#1971c2"],"yaprak"],tebrik:["🎓 TEBRİKLER",["#e6fcf5","#96f2d7","#087f5b"],"konfeti"],ozur:["🤍 ÖZÜR DİLERİM",["#f8f9fa","#dee2e6","#495057"],"yaprak"],tesekkur:["🙏 TEŞEKKÜR EDERİM",["#fff4e6","#ffd8a8","#d9480f"],"yaprak"],ogretmen:["📚 ÖĞRETMENLER GÜNÜN KUTLU OLSUN",["#ebfbee","#b2f2bb","#2b8a3e"],"yaprak"],taziye:["🕊️ BAŞINIZ SAĞ OLSUN",["#f1f3f5","#ced4da","#343a40"],"yok"]};
+  var o={v:"dogum",A:"Sevgili dostum",G:"",m:"Bu sayfa sana özel hazırlandı. 🌸"};
+  try{var h=location.hash.slice(1);if(h){var s=decodeURIComponent(escape(atob(h.replace(/-/g,"+").replace(/_/g,"/"))));o=Object.assign(o,JSON.parse(s));}}catch(e){}
+  var t=V[o.v]||V.dogum,R=document.documentElement.style;R.setProperty("--a",t[1][0]);R.setProperty("--b",t[1][1]);R.setProperty("--c",t[1][2]);
+  var $=function(i){return document.getElementById(i)};
+  $("vesile").textContent=t[0];$("isim").textContent=o.A;if(o.G)$("kimden").textContent="— "+o.G;
+  document.title=(o.A?o.A+", ":"")+"sana bir sürpriz var 💌";
+  $("paylas").href="https://wa.me/?text="+encodeURIComponent("Sürprizin için çok teşekkür ederim, çok mutlu oldum! 🌸");
+  // Yağan şeyler
+  var cv=$("yag"),c=cv.getContext("2d"),P=[],W,H,tur=t[2],calis=false;
+  function boyut(){W=cv.width=innerWidth*devicePixelRatio;H=cv.height=innerHeight*devicePixelRatio}addEventListener("resize",boyut);boyut();
+  var renk=[t[1][2],"#ffffff",t[1][1],"#ffd43b","#f783ac"];
+  function ekle(n,ust){for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:ust?-Math.random()*H:Math.random()*H,r:(6+Math.random()*10)*devicePixelRatio,vy:(1+Math.random()*2.2)*devicePixelRatio,vx:(Math.random()-.5)*1.4*devicePixelRatio,a:Math.random()*6,va:(Math.random()-.5)*.08,k:renk[i%renk.length]})}
+  function kalp(x,y,r){c.beginPath();c.moveTo(x,y+r*.3);c.bezierCurveTo(x,y,x-r,y,x-r,y+r*.3);c.bezierCurveTo(x-r,y+r*.8,x,y+r*1.1,x,y+r*1.4);c.bezierCurveTo(x,y+r*1.1,x+r,y+r*.8,x+r,y+r*.3);c.bezierCurveTo(x+r,y,x,y,x,y+r*.3);c.fill()}
+  function kare(){c.clearRect(0,0,W,H);P.forEach(function(p){p.y+=p.vy;p.x+=p.vx+Math.sin(p.a)*.6;p.a+=p.va;if(p.y>H+40){p.y=-30;p.x=Math.random()*W}
+    c.save();c.translate(p.x,p.y);c.rotate(p.a);c.fillStyle=p.k;c.globalAlpha=.85;
+    if(tur==="kalp")kalp(0,-p.r*.6,p.r*.8);else if(tur==="konfeti")c.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);else{c.beginPath();c.ellipse(0,0,p.r*.55,p.r,0,0,Math.PI*2);c.fill()}c.restore()});if(calis)requestAnimationFrame(kare)}
+  function basla(){if(tur==="yok")return;calis=true;ekle(70,true);kare()}
+  // Mesajı daktilo gibi yaz
+  function yaz(){var m=o.m||"",i=0,el=$("mesaj");el.textContent="";document.getElementById("sahne").classList.remove("bitti");
+    (function adim(){el.textContent=m.slice(0,i++);if(i<=m.length)setTimeout(adim,m[i-2]==="."||m[i-2]===","?180:32);else document.getElementById("sahne").classList.add("bitti")})()}
+  function ac(){if(document.body.classList.contains("acik"))return;document.body.classList.add("acik");if(navigator.vibrate)navigator.vibrate([30,40,30]);setTimeout(function(){document.body.classList.add("goster");basla();yaz()},950)}
+  $("zarf").onclick=ac;$("ipucu").onclick=ac;$("tekrar").onclick=function(){yaz();if(tur!=="yok")ekle(40,true)};
+})();
+</script>
+</body></html>

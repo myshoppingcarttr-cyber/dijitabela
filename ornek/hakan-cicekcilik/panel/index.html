@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><meta name="theme-color" content="#b5476b">
+<title>Hakan Çiçekçilik · Panel</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="ikon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="ikon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hakan Çiçek">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3f1;--y:#fff;--t:#231c1f;--s:#7c6f74;--v:#b5476b;--v2:#2f9e44;--c:#ece4df;--k:#e03131}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Manrope,sans-serif;background:var(--bg);color:var(--t);padding-bottom:84px}
+button,input,select,textarea{font:inherit}a{color:inherit}
+.taslak{background:#fff3bf;color:#5c4400;font-size:.8rem;text-align:center;padding:6px 10px;font-weight:600}
+header{background:var(--v);color:#fff;padding:18px 18px 22px}
+header .ust{display:flex;align-items:center;gap:10px}header h1{font-size:1.15rem}header small{opacity:.85}
+header .yukle{margin-left:auto;background:rgba(255,255,255,.18);border:0;color:#fff;padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer}
+.ozet{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.ozet div{background:rgba(255,255,255,.14);border-radius:14px;padding:10px 12px}.ozet b{font-size:1.35rem;display:block}.ozet span{font-size:.75rem;opacity:.9}
+main{max-width:1100px;margin:0 auto;padding:16px}
+.sekme{display:none}.sekme.on{display:block}
+h2{font-size:1.2rem;margin:18px 0 10px;display:flex;align-items:center;gap:8px}
+.kart{background:var(--y);border:1px solid var(--c);border-radius:16px;padding:16px;margin-bottom:12px}
+.satir{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--c)}.satir:last-child{border:0}
+.satir .ic{flex:1;min-width:0}.satir b{display:block}.satir small{color:var(--s)}
+.rozet{display:inline-block;font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;background:#f1ecea;color:var(--s)}
+.rozet.k{background:#ffe3e3;color:var(--k)}.rozet.y{background:#d3f9d8;color:#2b8a3e}.rozet.v{background:#ffdeeb;color:var(--v)}
+.dg{border:0;cursor:pointer;background:var(--v);color:#fff;font-weight:800;padding:10px 14px;border-radius:12px;text-decoration:none;display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
+.dg.b{background:#fff;color:var(--t);border:1.5px solid var(--c)}.dg.w{background:#25d366}.dg.s{padding:7px 11px;font-size:.82rem}
+input,select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--c);border-radius:12px;background:#fff}
+label{display:block;font-weight:700;font-size:.82rem;margin:10px 0 5px}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:10px}.uc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kanban>div{background:#efe9e6;border-radius:14px;padding:10px;min-height:200px}
+.kanban h3{font-size:.85rem;margin-bottom:8px}.sip{background:#fff;border-radius:12px;padding:10px;margin-bottom:8px;font-size:.88rem;border:1px solid var(--c)}
+.otom{display:flex;gap:12px;align-items:flex-start}.otom .ic{flex:1}
+.anahtar{position:relative;width:46px;height:26px;flex:none}.anahtar input{opacity:0;width:0;height:0}
+.anahtar span{position:absolute;inset:0;background:#ced4da;border-radius:999px;transition:.2s;cursor:pointer}.anahtar span:before{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.anahtar input:checked+span{background:var(--v2)}.anahtar input:checked+span:before{transform:translateX(20px)}
+.ornek{background:#f8f9fa;border-radius:10px;padding:10px;font-size:.88rem;margin-top:8px;white-space:pre-line;border-left:3px solid var(--v)}
+.tel{width:280px;max-width:100%;margin:0 auto;background:#111;border-radius:34px;padding:14px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.tel .ekran{background:#e5ddd5;border-radius:24px;min-height:300px;padding:14px}.balon{background:#dcf8c6;border-radius:12px;padding:10px;font-size:.88rem;white-space:pre-line}
+.balon.sms{background:#fff}
+nav.alt{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--c);display:flex;z-index:30;padding-bottom:env(safe-area-inset-bottom)}
+nav.alt button{flex:1;border:0;background:none;padding:10px 2px 8px;font-size:.68rem;font-weight:700;color:var(--s);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav.alt button i{font-style:normal;font-size:1.25rem}nav.alt button.on{color:var(--v)}
+.fk{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}.fk .kart{padding:0;overflow:hidden}.fk img{width:100%;aspect-ratio:4/3;object-fit:cover}.fk .p{padding:10px}
+.uyari{background:#fff9db;border:1px solid #ffe066;border-radius:12px;padding:10px 12px;font-size:.85rem;margin:10px 0}
+.bos{color:var(--s);font-size:.9rem;padding:8px 0}
+@media(max-width:760px){.ozet{grid-template-columns:repeat(2,1fr)}.kanban{grid-template-columns:1fr 1fr}.uc{grid-template-columns:1fr}}
+</style></head><body>
+<div class="taslak">Taslak panel · örnek verilerle çalışır, bilgiler yalnızca bu cihazda saklanır.</div>
+<header><div class="ust"><div><h1>🌸 Hakan Çiçekçilik</h1><small id="tarih"></small></div><button class="yukle" id="yukle" hidden>📲 Uygulamayı yükle</button></div>
+<div class="ozet"><div><b id="o-sip">0</b><span>Bugünkü sipariş</span></div><div><b id="o-gun">0</b><span>Yaklaşan özel gün</span></div><div><b id="o-mus">0</b><span>Müşteri</span></div><div><b id="o-kayip">0</b><span>Geri kazanılacak</span></div></div></header>
+<main>
+<!-- BUGÜN -->
+<section class="sekme on" id="s-bugun">
+  <h2>🎂 Yaklaşan özel günler <span class="rozet v">14 gün</span></h2><div class="kart" id="yaklasan"></div>
+  <h2>🤖 Bugün otomatik gidecek mesajlar</h2><div class="kart" id="otomatik-kuyruk"></div>
+  <h2>💐 Bugünün siparişleri</h2><div class="kart" id="bugun-sip"></div>
+</section>
+<!-- MÜŞTERİLER -->
+<section class="sekme" id="s-musteri">
+  <h2>👥 Müşteriler</h2><input id="ara" placeholder="İsim ya da telefonla ara…" style="margin-bottom:10px">
+  <div class="kart" id="musteri-liste"></div>
+  <h2>➕ Yeni müşteri</h2>
+  <form class="kart" id="musteri-form"><div class="iki"><div><label>Ad Soyad</label><input name="ad" required></div><div><label>Telefon</label><input name="tel" inputmode="tel" required placeholder="05xx xxx xx xx"></div></div>
+  <div class="uc"><div><label>Özel gün</label><select name="tur"><option>Doğum günü</option><option>Evlilik yıl dönümü</option><option>Eşinin doğum günü</option><option>Annesinin doğum günü</option><option>Çocuğunun doğum günü</option></select></div><div><label>Tarih</label><input name="gun" type="date"></div><div><label>Not</label><input name="not" placeholder="Pembe gül sever"></div></div>
+  <label><input type="checkbox" name="izin" checked style="width:auto"> Kampanya mesajı izni var (İYS)</label>
+  <div style="margin-top:10px"><button class="dg">Kaydet</button></div></form>
+</section>
+<!-- SİPARİŞ -->
+<section class="sekme" id="s-siparis">
+  <h2>📦 Siparişler</h2><div class="kanban" id="kanban"></div>
+  <h2>➕ Yeni sipariş</h2>
+  <form class="kart" id="siparis-form"><div class="iki"><div><label>Müşteri</label><select name="m" id="sip-musteri"></select></div><div><label>Ürün</label><input name="urun" required placeholder="7 kırmızı gül buketi"></div></div>
+  <div class="uc"><div><label>Tutar (TL)</label><input name="tutar" type="number" required></div><div><label>Teslim</label><input name="teslim" type="datetime-local" required></div><div><label>Adres</label><input name="adres" placeholder="Teslim adresi"></div></div>
+  <label>Kart mesajı</label><input name="kart" placeholder="Duygu Stüdyosu'ndan gelen mesaj buraya">
+  <div style="margin-top:10px"><button class="dg">Siparişi ekle</button></div></form>
+</section>
+<!-- OTOMASYON -->
+<section class="sekme" id="s-otom">
+  <h2>🤖 Otomatik mesajlar</h2>
+  <div class="uyari">Açık olan kurallar her sabah 10:00'da çalışır; mesajlar seçtiğiniz kanaldan (WhatsApp Business ya da SMS) kendiliğinden gider. Siz sadece çiçeği hazırlarsınız.</div>
+  <div id="otom-liste"></div>
+</section>
+<!-- KAMPANYA -->
+<section class="sekme" id="s-kampanya">
+  <h2>📣 Kampanya gönder</h2>
+  <div class="iki"><div class="kart"><label>Kime?</label><select id="k-hedef"><option value="hepsi">Tüm izinli müşteriler</option><option value="aktif">Son 90 günde alışveriş yapanlar</option><option value="kayip">90+ gündür gelmeyenler</option><option value="buay">Bu ay özel günü olanlar</option></select>
+  <label>Kanal</label><select id="k-kanal"><option value="wa">WhatsApp</option><option value="sms">SMS</option></select>
+  <label>Mesaj</label><textarea id="k-metin" rows="6"></textarea><small id="k-say" style="color:var(--s)"></small>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="dg b s" data-hazir="hafta">Hafta sonu</button><button class="dg b s" data-hazir="firsat">Fırsat Köşesi</button><button class="dg b s" data-hazir="ozel">Özel gün (14 Şubat vb.)</button><button class="dg b s" data-hazir="ozledik">Sizi özledik</button></div>
+  <div style="margin-top:14px"><button class="dg" id="k-gonder">Gönder</button> <span id="k-kac" class="rozet"></span></div>
+  <div class="uyari">SMS için İYS kaydı ve onaylı SMS başlığı ("HAKANCICEK") gerekir; kurulumda Dijitabela tamamlar. Her SMS'in sonuna ret bilgisi otomatik eklenir.</div></div>
+  <div><div class="tel"><div class="ekran"><div class="balon" id="k-onizle"></div></div></div></div></div>
+</section>
+<!-- FIRSAT -->
+<section class="sekme" id="s-firsat">
+  <h2>🔥 Fırsat Köşesi</h2>
+  <div class="uyari">Tazeliği geçmek üzere olan çiçekleri buraya ekleyin: sitede indirimli görünür, tek dokunuşla tüm müşterilere kampanya mesajı gider.</div>
+  <form class="kart" id="firsat-form"><div class="iki"><div><label>Ürün</label><input name="ad" required placeholder="Kırmızı gül demeti (10 dal)"></div><div><label>Fotoğraf</label><input name="foto" type="file" accept="image/*" capture="environment"></div></div>
+  <div class="uc"><div><label>Normal fiyat</label><input name="eski" type="number" placeholder="1200"></div><div><label>Fırsat fiyatı</label><input name="yeni" type="number" required placeholder="650"></div><div><label>Ne zamana kadar?</label><input name="son" placeholder="Bugün 21:00'e kadar"></div></div>
+  <label>Adet</label><input name="adet" type="number" value="1">
+  <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="dg">Köşeye ekle</button><button class="dg w" type="button" id="firsat-duyur">📣 Tüm müşterilere duyur</button><a class="dg b" href="../1-zarif/#firsat" target="_blank">Sitede gör</a></div></form>
+  <div class="fk" id="firsat-liste"></div>
+</section>
+</main>
+<nav class="alt">
+<button class="on" data-s="bugun"><i>🏠</i>Bugün</button><button data-s="musteri"><i>👥</i>Müşteri</button><button data-s="siparis"><i>📦</i>Sipariş</button><button data-s="otom"><i>🤖</i>Otomatik</button><button data-s="kampanya"><i>📣</i>Kampanya</button><button data-s="firsat"><i>🔥</i>Fırsat</button>
+</nav>
+<script src="panel.js"></script>
+</body></html>
