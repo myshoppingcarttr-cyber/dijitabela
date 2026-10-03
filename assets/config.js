@@ -12,8 +12,8 @@ window.AJANS = {
   unvan: "Alim Hoşlar",                // vergi levhasındaki ad/unvan
   vergiDairesi: "",
   vergiNo: "",
-  iban: "",                            // TR.. ile başlayan IBAN
-  banka: "",
+  iban: "TR04 0006 4000 0016 2700 5489 50",                          // TR.. ile başlayan IBAN
+  banka: "Türkiye İş Bankası",
   kartOdeme: false,                   // iyzico hesabı (vergi levhası sonrası) açılınca true yapın
   // Veritabanı (Supabase) — boşsa DEMO modunda çalışır
   supabaseUrl: "https://ctlbhwbccqgwmtqbwtfs.supabase.co",
