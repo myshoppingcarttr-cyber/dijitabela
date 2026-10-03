@@ -400,3 +400,15 @@ body{background:var(--kagit)}
 .v-hikaye-tel{background:#16181D;border-radius:34px;padding:12px;box-shadow:0 18px 40px rgba(0,0,0,.25)}
 .v-video.v-hikaye video{aspect-ratio:9/16;border:0;border-radius:24px;max-height:none}
 @media(max-width:820px){.v-hikaye .wrap{grid-template-columns:1fr;gap:26px}.v-hikaye-tel{max-width:380px;margin:0 auto;width:100%}}
+/* Dijitabela uygulaması: ana sayfa bölümü + uygulama sayfası */
+.mg-g{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:center}
+.mg-madde{list-style:none;margin:22px 0 26px;display:grid;gap:10px}
+.mg-madde li{padding-left:26px;position:relative;font-weight:600}
+.mg-madde li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--led);box-shadow:0 0 0 2px var(--murekkep)}
+.mg-tel img,.mg-ekranlar img{display:block;width:100%;height:auto;border:2px solid var(--murekkep);border-radius:28px;background:#fff}
+.mg-ekranlar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+.v-btn.mg-yakinda{cursor:default;opacity:.62;border-style:dashed}
+.v-btn.mg-yakinda:hover{background:transparent;color:var(--murekkep)}
+.hizmet .yasal-bas .v-dugmeler{margin-top:22px}
+.hizmet .b-ozet{max-width:68ch}
+@media(max-width:900px){.mg-g{grid-template-columns:1fr;gap:36px}.mg-tel{justify-self:center;width:240px}.mg-ekranlar{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.mg-ekranlar img{scroll-snap-align:start}}
