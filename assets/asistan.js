@@ -24,7 +24,7 @@
     "<form class='dja-f'><input maxlength='1000' placeholder='Sorunuzu yazın…' aria-label='Mesaj'><button aria-label='Gönder'>➤</button></form><p class='dja-n'>Yapay zekâ asistanıdır; bilgileriniz yalnızca size dönüş için kullanılır (<a href='kvkk.html'>KVKK</a>).</p>";
   document.body.appendChild(d); document.body.appendChild(ip); document.body.appendChild(p);
   var akis = p.querySelector(".dja-a"), form = p.querySelector("form"), girdi = form.querySelector("input");
-  function linkle(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/(https?:\/\/[^\s)]+|wa\.me\/\d+)/g, function (u) { return "<a target='_blank' rel='noopener' href='" + (u.indexOf("http") ? "https://" + u : u) + "'>" + u + "</a>"; }); }
+  function linkle(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/(https?:\/\/[^\s)]+|wa\.me\/\d+)/g, function (u) { return "<a target='_blank' rel='noopener' href='" + (u.indexOf("http") ? "https://" + u : u) + "'>" + u + "</a>"; }).replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>"); }
   function yaz(metin, kim, kaydet) { var m = document.createElement("div"); m.className = "dja-m " + kim; m.innerHTML = linkle(metin); akis.appendChild(m); akis.scrollTop = akis.scrollHeight;
     if (kaydet) { gecmis.push([kim, metin]); try { sessionStorage.setItem("dj-asistan-gecmis", JSON.stringify(gecmis.slice(-30))); } catch (e) {} } }
   function ac() { p.hidden = false; d.hidden = true; ip.hidden = true;
