@@ -3,7 +3,7 @@
 // Geometri hesapları gerçektir (çevre, duvar ve döşeme alanı); panel ölçüsü ve sevkiyat katsayıları varsayımdır, Ete Beton tarafından güncellenir.
 (function () {
   "use strict";
-  var KATSAYI = { panelEn: 3.0, katYuk: 3.0, tirM2: 45, montajM2Gun: 120 }; // varsayım: panel 3 m genişlik, 1 tırda ~45 m² duvar, ekip başına günde ~120 m² montaj
+  var KATSAYI = { panelEn: 3.0, katYuk: 3.0, tirM2: 60, montajM2Gun: 120 }; // varsayım: panel 3 m genişlik, 1 tırda ~60 m² eleman, ekip başına günde ~120 m² montaj
   window.ETE_SIM_KATSAYI = KATSAYI;
   function kur(k) {
     var tuval = k.querySelector(".sim-tuval"), THREE = window.THREE;
