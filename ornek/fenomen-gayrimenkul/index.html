@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-11T23:59:00+03:00" data-slug="fenomen-gayrimenkul"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Fenomen Gayrimenkul · Akıllı Ofis Prototipi</title>
+<meta name="description" content="Fenomen Gayrimenkul & Kentsel Dönüşüm için hazırlanmış web sitesi + müşteri takip + otomatik eşleştirme prototipi.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ef;--kart:#fff;--y:#14161c;--g:#666b78;--c:#e7e3da;--a:#b8862f;--a2:#d9a441;--k:#0f2a3f;--ok:#15803d;--hata:#c2410c;--wa:#25d366;--ayr:#faf8f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1116;--kart:#161a22;--y:#eef0f4;--g:#9aa1ae;--c:#262c38;--ayr:#1b202a;--k:#0b1e2d}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--y);font:16px/1.55 "Plus Jakarta Sans",system-ui,sans-serif}
+img{max-width:100%;display:block}a{color:inherit}
+.kap{max-width:1180px;margin:0 auto;padding:0 16px}
+button,input,select,textarea{font:inherit}
+.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;background:var(--a);color:#fff;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn.k{background:var(--k)}.btn.ik{background:var(--kart);color:var(--y);border:1px solid var(--c)}.btn.wa{background:var(--wa);color:#073b1d}.btn.kc{padding:8px 12px;font-size:14px;border-radius:10px}
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--ayr);border:1px solid var(--c)}
+.chip.y{background:#dcfce7;color:#166534;border:0}.chip.t{background:#fef3c7;color:#92400e;border:0}.chip.m{background:#dbeafe;color:#1e40af;border:0}.chip.r{background:#fee2e2;color:#991b1b;border:0}
+.etiket{font-size:13px;color:var(--g)}
+h1,h2,h3{line-height:1.15;margin:0 0 10px}
+/* üst mod çubuğu */
+.mod{position:sticky;top:0;z-index:50;background:var(--k);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.18)}
+.mod .kap{display:flex;align-items:center;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+.mod .logo{font-weight:800;letter-spacing:.02em;margin-right:10px;white-space:nowrap}.mod .logo b{color:var(--a2)}
+.mod button{flex:none;border:0;background:rgba(255,255,255,.08);color:#dbe4ee;padding:9px 14px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap}
+.mod button.aktif{background:var(--a);color:#fff}
+.bolum{display:none}.bolum.aktif{display:block}
+/* rehber şerit */
+.rehber{background:linear-gradient(90deg,#fff7e6,#fdf2d8);border-bottom:1px solid #f1dfb4;color:#5b4210;font-size:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rehber{background:#2a2112;color:#f3dcae;border-color:#3d3018}}
+.rehber .kap{display:flex;gap:10px;align-items:center;padding-top:10px;padding-bottom:10px}
+.rehber .kap>span{flex:1}
+/* site */
+.hero{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero .arka{position:absolute;inset:0;background:url(img/k10.jpg) center/cover}
+.hero .arka:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,30,.25),rgba(10,20,30,.85))}
+.hero .ic{position:relative;padding:60px 0 40px;width:100%}
+.hero h1{font-size:clamp(32px,5vw,56px);max-width:760px}
+.hero p{max-width:620px;font-size:18px;opacity:.92}
+.arama{background:var(--kart);color:var(--y);border-radius:18px;padding:14px;display:grid;grid-template-columns:repeat(5,1fr) auto;gap:10px;margin-top:22px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.arama label{font-size:12px;color:var(--g);font-weight:700;display:block}
+.arama select,.arama input{width:100%;border:1px solid var(--c);background:var(--ayr);color:var(--y);border-radius:10px;padding:10px}
+.istat{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-34px auto 0;position:relative;z-index:2}
+.istat div{background:var(--kart);border:1px solid var(--c);border-radius:16px;padding:16px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.istat b{display:block;font-size:28px;color:var(--a)}
+section.blok{padding:64px 0}
+.ust-baslik{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.ust-baslik p{margin:0;color:var(--g);max-width:620px}
+.filtre{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filtre button{border:1px solid var(--c);background:var(--kart);color:var(--y);border-radius:99px;padding:7px 14px;font-weight:700;font-size:14px;cursor:pointer}
+.filtre button.s{background:var(--k);color:#fff;border-color:var(--k)}
+.izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ilan{background:var(--kart);border:1px solid var(--c);border-radius:18px;overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+.ilan:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.ilan .foto{aspect-ratio:16/10;position:relative;background:#cfc6b3 center/cover}
+.ilan .foto .tur{position:absolute;left:12px;top:12px;background:var(--k);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:8px}
+.ilan .foto .yeni{position:absolute;right:12px;top:12px;background:var(--a);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:8px}
+.ilan .arsa{display:grid;place-items:center;font-size:54px;background:linear-gradient(135deg,#d9cfa8,#a8b27a)}
+.ilan .ic{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.ilan .fiyat{font-size:21px;font-weight:800;color:var(--a)}
+.ilan .bas{font-weight:700;font-size:15px;line-height:1.35}
+.ilan .oz{display:flex;gap:10px;font-size:13px;color:var(--g);margin-top:auto;padding-top:8px;border-top:1px solid var(--c)}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.k{background:var(--kart);border:1px solid var(--c);border-radius:18px;padding:20px}
+.form label{display:block;font-size:13px;font-weight:700;color:var(--g);margin:10px 0 4px}
+.form input,.form select,.form textarea{width:100%;border:1px solid var(--c);background:var(--ayr);color:var(--y);border-radius:10px;padding:11px}
+.form .yan{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sonuc{background:var(--k);color:#fff;border-radius:16px;padding:18px;margin-top:14px}
+.sonuc b{font-size:26px;color:var(--a2)}
+.ekip{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.kisi{background:var(--kart);border:1px solid var(--c);border-radius:18px;padding:18px 12px;text-align:center}
+.av{width:72px;height:72px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;font-weight:800;font-size:24px;color:#fff;background:linear-gradient(135deg,var(--k),#2c5d82)}
+.kisi.b .av{background:linear-gradient(135deg,var(--a),#7a5410)}
+.kisi b{display:block}.kisi small{color:var(--g)}
+.altbilgi{background:var(--k);color:#c9d3df;padding:40px 0 90px}
+.altbilgi b{color:#fff}
+.yuzen{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.yuzen .wa{width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;font-size:28px;box-shadow:0 10px 30px rgba(0,0,0,.25);cursor:pointer;border:0}
+.bot{width:340px;max-width:calc(100vw - 36px);background:var(--kart);border:1px solid var(--c);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden;display:none}
+.bot.ac{display:block}
+.bot .bas{background:#075e54;color:#fff;padding:12px 14px;font-weight:700;display:flex;justify-content:space-between}
+.bot .gov{height:330px;overflow-y:auto;padding:12px;background:#efeae2;display:flex;flex-direction:column;gap:8px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bot .gov{background:#0b141a}}
+.bal{max-width:85%;padding:8px 11px;border-radius:12px;font-size:14px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.bal.o{background:#fff;color:#111;align-self:flex-start}.bal.b{background:#d9fdd3;color:#111;align-self:flex-end}
+.bal small{display:block;font-size:10px;opacity:.6;text-align:right}
+.bot form{display:flex;gap:6px;padding:8px;border-top:1px solid var(--c)}
+.bot input{flex:1;border:1px solid var(--c);border-radius:20px;padding:9px 12px;background:var(--ayr);color:var(--y)}
+.oneri{display:flex;gap:6px;flex-wrap:wrap;padding:0 8px 8px}
+.oneri button{border:1px solid var(--c);background:var(--ayr);color:var(--y);border-radius:99px;font-size:12px;padding:5px 9px;cursor:pointer}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(5,10,18,.6);z-index:80;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.ac{display:flex}
+.modal .ic{background:var(--kart);border-radius:20px;max-width:880px;width:100%;max-height:92vh;overflow:auto}
+.modal .ic .foto{aspect-ratio:16/8;background:#cfc6b3 center/cover;position:relative}
+.modal .kapat{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:20px;cursor:pointer}
+/* panel (CRM vb.) */
+.panel{padding:26px 0 80px}
+.panel h2{font-size:28px}
+.anlat{background:var(--kart);border:1px solid var(--c);border-left:5px solid var(--a);border-radius:16px;padding:18px 20px;margin-bottom:20px}
+.anlat p{margin:6px 0 0;color:var(--g)}
+.anlat ul{margin:10px 0 0;padding-left:20px;color:var(--y)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi div{background:var(--kart);border:1px solid var(--c);border-radius:16px;padding:14px}
+.kpi b{display:block;font-size:26px}
+.huni{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:start}
+.kolon{background:var(--ayr);border:1px solid var(--c);border-radius:16px;padding:10px;min-height:200px}
+.kolon h4{margin:4px 4px 10px;font-size:14px;display:flex;justify-content:space-between}
+.mk{background:var(--kart);border:1px solid var(--c);border-radius:12px;padding:10px;margin-bottom:8px;font-size:13px;cursor:pointer}
+.mk b{font-size:14px}.mk .krt{color:var(--g);margin-top:4px}
+.mk .alt{display:flex;justify-content:space-between;margin-top:6px;align-items:center}
+.tablo{width:100%;border-collapse:collapse;font-size:14px;background:var(--kart);border-radius:14px;overflow:hidden}
+.tablo th{text-align:left;font-size:12px;color:var(--g);padding:10px;border-bottom:1px solid var(--c);background:var(--ayr)}
+.tablo td{padding:10px;border-bottom:1px solid var(--c);vertical-align:top}
+.tel{width:300px;flex:none;background:#0b141a;border-radius:34px;border:8px solid #1d1f24;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.tel .ust{background:#075e54;color:#fff;padding:12px 14px;font-weight:700;font-size:14px;display:flex;gap:10px;align-items:center}
+.tel .ust i{width:32px;height:32px;border-radius:50%;background:#cfd8dc;display:grid;place-items:center;font-style:normal;color:#075e54;font-weight:800}
+.tel .gov{background:#efeae2;padding:12px;min-height:330px;display:flex;flex-direction:column;gap:8px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tel .gov{background:#0b141a}}
+.akis{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.adim{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.adim div{background:var(--kart);border:1px solid var(--c);border-radius:16px;padding:14px;position:relative}
+.adim div b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--a);color:#fff;margin-bottom:6px}
+.eslesme{border:2px solid var(--ok);background:rgba(21,128,61,.06);border-radius:14px;padding:12px;margin-bottom:10px;animation:gel .5s}
+@keyframes gel{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.kanal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.kanal .k h3{font-size:17px;display:flex;gap:8px;align-items:center}
+.kanal .k p{margin:6px 0 0;color:var(--g);font-size:14px}
+.cubuk{height:10px;background:var(--c);border-radius:9px;overflow:hidden}.cubuk i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140px);background:#111827;color:#fff;padding:13px 18px;border-radius:14px;z-index:99;transition:.35s;max-width:calc(100vw - 32px);font-size:14px}
+.toast.ac{transform:translate(-50%,0)}
+.ozellik{display:flex;gap:8px;flex-wrap:wrap}
+.ozellik label{display:flex;gap:6px;align-items:center;border:1px solid var(--c);border-radius:99px;padding:6px 12px;font-size:13px;font-weight:700;color:var(--y);margin:0;cursor:pointer;background:var(--ayr)}
+@media (max-width:1000px){.izgara{grid-template-columns:1fr 1fr}.ekip{grid-template-columns:repeat(3,1fr)}.huni{grid-template-columns:repeat(5,240px);overflow-x:auto}.kanal{grid-template-columns:1fr 1fr}.arama{grid-template-columns:1fr 1fr}.arama .btn{grid-column:1/-1;justify-content:center}}
+@media (max-width:680px){.rehber{font-size:13px}.rehber .kap{flex-wrap:wrap}.rehber .btn{width:100%;justify-content:center}.izgara,.iki,.kanal{grid-template-columns:1fr}.ekip{grid-template-columns:1fr 1fr}.istat,.kpi,.adim{grid-template-columns:1fr 1fr}.hero{min-height:620px}.tel{width:100%}.form .yan{grid-template-columns:1fr}.tablo{display:block;overflow-x:auto}}
+</style></head><body>
+
+<nav class="mod"><div class="kap">
+ <span class="logo">FENOMEN <b>·</b> Akıllı Ofis</span>
+ <button data-b="site" class="aktif">🌐 Web sitesi</button>
+ <button data-b="crm">🗂️ Müşteri Takip</button>
+ <button data-b="esle">⚡ Otomatik Eşleştirme</button>
+ <button data-b="kanal">📣 Müşteri Kazanma</button>
+ <button data-b="rapor">📊 Ofis Raporu</button>
+</div></nav>
+<div class="rehber" id="rehber"><div class="kap"><span>👋 <b>Dalyan Bey merhaba,</b> bu sayfa Fenomen Gayrimenkul için hazırlanmış <b>çalışan bir prototip</b>. Üstteki sekmeleri sırayla gezin: önce sitenizi, sonra müşteri takip ve <b>otomatik eşleştirme</b>yi deneyin. Her şeye tıklayabilirsiniz.</span><button class="btn kc" onclick="git('esle')">En güçlü özelliği gör →</button></div></div>
+
+<!-- ============ WEB SİTESİ ============ -->
+<div class="bolum aktif" id="b-site">
+<header class="hero"><div class="arka"></div><div class="ic kap">
+ <span class="chip" style="background:rgba(255,255,255,.15);color:#fff;border:0">Muratpaşa · 2015'ten beri · 6 danışman</span>
+ <h1 style="margin-top:14px">Antalya'da doğru evi, doğru fiyata; kentsel dönüşümde doğru kararı birlikte verelim.</h1>
+ <p>Fenomen Gayrimenkul Yatırım Danışmanlık & Kentsel Dönüşüm: satılık, kiralık, arsa ve yatırım portföyü; binanız için dönüşüm danışmanlığı.</p>
+ <form class="arama" onsubmit="event.preventDefault();ara()">
+  <div><label>İşlem</label><select id="a-islem"><option value="">Tümü</option><option value="S">Satılık</option><option value="K">Kiralık</option></select></div>
+  <div><label>Tür</label><select id="a-tur"><option value="">Tümü</option><option>Daire</option><option>Arsa</option><option>İşyeri</option></select></div>
+  <div><label>İlçe</label><select id="a-ilce"><option value="">Tümü</option><option>Muratpaşa</option><option>Konyaaltı</option><option>Kepez</option><option>Aksu</option><option>Korkuteli</option></select></div>
+  <div><label>Oda</label><select id="a-oda"><option value="">Farketmez</option><option>1+1</option><option>2+1</option><option>3+1</option><option>4+1</option></select></div>
+  <div><label>En fazla (TL)</label><input id="a-fiyat" inputmode="numeric" placeholder="ör. 8.000.000"></div>
+  <button class="btn">🔍 Ara</button>
+ </form>
+</div></header>
+<div class="kap"><div class="istat">
+ <div><b>47</b><span class="etiket">aktif portföy</span></div><div><b>6</b><span class="etiket">uzman danışman</span></div><div><b>7</b><span class="etiket">ilçede hizmet</span></div><div><b>4,9B+</b><span class="etiket">Instagram takipçi</span></div>
+</div></div>
+
+<section class="blok" id="portfoy"><div class="kap">
+ <div class="ust-baslik"><div><span class="chip t">Güncel portföy</span><h2 style="margin-top:8px">Öne çıkan ilanlarımız</h2><p>İlanlar sahibinden mağazanızdaki gerçek portföyünüzden alındı. Sitede tek yerden yönetilir, sahibinden ve diğer sitelere de aynı anda gider.</p></div><span class="etiket" id="sayac"></span></div>
+ <div class="filtre" id="hizli"></div>
+ <div class="izgara" id="ilanlar"></div>
+ <div class="k" id="bulamadim" style="margin-top:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:var(--k);color:#fff;border:0">
+  <div style="flex:1;min-width:240px"><h3 style="color:#fff">Aradığınız evi bulamadınız mı?</h3><span style="opacity:.85">Kriterlerinizi bırakın; uygun ev portföyümüze girdiği anda <b>WhatsApp'tan otomatik haber verelim</b>.</span></div>
+  <button class="btn" onclick="talepAc()">🔔 Bana haber ver</button>
+ </div>
+</div></section>
+
+<section class="blok" style="background:var(--ayr);border-top:1px solid var(--c);border-bottom:1px solid var(--c)" id="donusum"><div class="kap iki">
+ <div><span class="chip m">Kentsel dönüşüm uzmanlığı</span><h2 style="margin-top:8px">Binanız dönüşürse size kaç m² düşer?</h2>
+ <p class="etiket" style="font-size:16px">Fenomen'in en güçlü alanı kentsel dönüşüm. Bu hesaplayıcı, ziyaretçiyi daha ilk dakikada sizin ofisinize bağlar: arsa ve imar bilgisini girer, tahmini payını görür, sonucu tek tuşla size gönderir.</p>
+ <ul style="color:var(--g)"><li>Arsa payı, emsal ve kat karşılığı oranına göre tahmin</li><li>Hak sahibi başına düşen yaklaşık daire m²'si</li><li>Sonuç danışmana talep olarak düşer, müşteri takipte görünür</li></ul></div>
+ <div class="k form"><h3>Dönüşüm payı hesaplayıcı</h3>
+  <div class="yan"><div><label>Arsa alanı (m²)</label><input id="d-arsa" value="620" inputmode="numeric"></div><div><label>İmar emsali (KAKS)</label><input id="d-emsal" value="1.5" inputmode="decimal"></div></div>
+  <div class="yan"><div><label>Binadaki mevcut daire</label><input id="d-daire" value="8" inputmode="numeric"></div><div><label>Hak sahibi payı (%)</label><input id="d-oran" value="50" inputmode="numeric"></div></div>
+  <button class="btn" style="margin-top:14px;width:100%;justify-content:center" onclick="donusum()">Hesapla</button>
+  <div class="sonuc" id="d-sonuc"></div>
+  <p class="etiket" style="margin:8px 0 0">Tahmini hesaptır; kesin değerler imar durumu ve proje ile netleşir.</p>
+ </div>
+</div></section>
+
+<section class="blok"><div class="kap iki">
+ <div class="k form"><h3>🏦 Konut kredisi hesaplayıcı</h3>
+  <div class="yan"><div><label>Ev fiyatı (TL)</label><input id="k-fiyat" value="5.500.000" inputmode="numeric"></div><div><label>Peşinat (%)</label><input id="k-pes" value="30" inputmode="numeric"></div></div>
+  <div class="yan"><div><label>Vade (ay)</label><select id="k-vade"><option>60</option><option selected>120</option><option>180</option></select></div><div><label>Aylık faiz (%)</label><input id="k-faiz" value="2.79" inputmode="decimal"></div></div>
+  <button class="btn" style="margin-top:14px;width:100%;justify-content:center" onclick="kredi()">Taksiti hesapla</button>
+  <div class="sonuc" id="k-sonuc"></div>
+ </div>
+ <div><span class="chip y">Ziyaretçiyi müşteriye çeviren araçlar</span><h2 style="margin-top:8px">Siteniz sadece vitrin değil, satış elemanı</h2>
+ <p class="etiket" style="font-size:16px">Kredi hesabı yapan, dönüşüm payını öğrenen ya da "bana haber ver" diyen her ziyaretçi, adı ve telefonuyla müşteri takip sisteminize düşer. Hiçbir talep kaybolmaz.</p>
+ <div class="ozellik" style="margin-top:12px"><span class="chip">Mobil uyumlu</span><span class="chip">Google'da "Muratpaşa emlak" aramalarına uygun</span><span class="chip">Instagram ile bağlantılı</span><span class="chip">WhatsApp 7/24 asistan</span></div></div>
+</div></section>
+
+<section class="blok" style="background:var(--ayr);border-top:1px solid var(--c)" id="ekip"><div class="kap">
+ <div class="ust-baslik"><div><span class="chip t">Ekibimiz</span><h2 style="margin-top:8px">Sizi tanıyan, bölgeyi bilen danışmanlar</h2><p>Her danışmanın kendi sayfası, portföyü ve WhatsApp hattı. Müşteri hangi danışmana yazarsa talep onun listesine düşer.</p></div></div>
+ <div class="ekip" id="ekipler"></div>
+</div></section>
+
+<section class="blok"><div class="kap iki">
+ <div><h2>Ofisimize bekleriz</h2><p class="etiket" style="font-size:16px">Demircikara Mah. Narenciye Cad. Şengül Apt. No:13B<br>Muratpaşa / Antalya</p>
+ <p><b>📞 0543 350 01 07</b></p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn wa" href="#" onclick="event.preventDefault();botAc()">💬 WhatsApp'tan yaz</a><a class="btn ik" href="#" onclick="event.preventDefault();toast('Canlı sitede Google Haritalar yol tarifi açılır')">📍 Yol tarifi</a></div></div>
+ <div class="k" style="padding:0;overflow:hidden"><div style="aspect-ratio:16/10;background:linear-gradient(135deg,#dfe7d8,#c8d6c0);display:grid;place-items:center;text-align:center"><div><div style="font-size:42px">📍</div><b>Fenomen Gayrimenkul</b><div class="etiket">Demircikara · Muratpaşa</div></div></div></div>
+</div></section>
+<footer class="altbilgi"><div class="kap"><b>FENOMEN GAYRİMENKUL YATIRIM DANIŞMANLIK & KENTSEL DÖNÜŞÜM</b><br>Satılık · Kiralık · Arsa · Villa · Otel · Kentsel Dönüşüm<br><span class="etiket" style="color:#93a3b5">Bu sayfa satış öncesi hazırlanmış bir tasarım prototipidir.</span></div></footer>
+</div>
+
+<!-- ============ CRM ============ -->
+<div class="bolum" id="b-crm"><div class="kap panel">
+ <div class="anlat"><h3>🗂️ Müşteri takip sistemi (CRM) nedir?</h3>
+  <p>Bugün müşteriler telefon rehberinde, WhatsApp sohbetlerinde, defterde ve danışmanların aklında dağınık duruyor. Müşteri takip sistemi hepsini <b>tek ekrana</b> toplar: kim, ne arıyor, bütçesi ne, en son ne konuşuldu, bir sonraki adım ne?</p>
+  <ul><li><b>Hiçbir müşteri unutulmaz:</b> geri dönülmesi gereken müşteri, günü gelince danışmana hatırlatılır.</li><li><b>Satış hunisi:</b> müşterinin hangi aşamada olduğunu (yeni → görüşme → yer gösterme → teklif → satış) tek bakışta görürsünüz.</li><li><b>Ofis hafızası:</b> danışman değişse bile müşteri geçmişi ofiste kalır.</li><li><b>Otomatik eşleştirme:</b> müşterinin aradığı ev sisteme kayıtlı; uygun portföy gelince WhatsApp'tan kendiliğinden haber gider.</li></ul></div>
+ <div class="kpi" id="crm-kpi"></div>
+ <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px"><h2 style="margin:0">Satış hunisi</h2><div style="display:flex;gap:8px"><select id="crm-dan" class="btn ik kc" onchange="crm()"><option value="">Tüm danışmanlar</option></select><button class="btn kc" onclick="talepAc()">+ Müşteri / talep ekle</button></div></div>
+ <div class="huni" id="huni"></div>
+ <h2 style="margin-top:28px">Bugün yapılacaklar</h2>
+ <table class="tablo" id="gorev"></table>
+</div></div>
+
+<!-- ============ EŞLEŞTİRME ============ -->
+<div class="bolum" id="b-esle"><div class="kap panel">
+ <div class="anlat"><h3>⚡ Otomatik eşleştirme: "Aradığınız ev geldi" mesajı kendiliğinden gider</h3>
+  <p>Bir müşteri "Konyaaltı'nda, 3+1, havuzlu sitede, 9 milyona kadar" bir ev arıyor diyelim. Bu kriterleri <b>bir kez</b> sisteme girersiniz. Haftalar sonra ofise uygun bir ev geldiğinde, siz portföyü kaydettiğiniz anda sistem bütün bekleyen müşterilerle karşılaştırır ve uyan herkese <b>fotoğraflı WhatsApp mesajı otomatik</b> gönderir. Danışmana da "3 müşteri eşleşti, arayın" bildirimi düşer.</p></div>
+ <div class="adim"><div><b>1</b><br><strong>Müşteri kriteri girilir</b><div class="etiket">Tür, ilçe, oda, bütçe, m², havuz/site/asansör…</div></div><div><b>2</b><br><strong>Yeni portföy kaydedilir</b><div class="etiket">Siteye, sahibinden'e ve sisteme tek seferde</div></div><div><b>3</b><br><strong>Sistem eşleştirir</b><div class="etiket">Uygunluk puanı hesaplanır, en uygunlar sıralanır</div></div><div><b>4</b><br><strong>WhatsApp mesajı gider</b><div class="etiket">Müşteriye otomatik, danışmana bildirim</div></div></div>
+ <div class="iki">
+  <div class="k form"><h3>Yeni portföy ekleyin ve deneyin</h3><p class="etiket" style="margin:0">Hazır bir örnek doldurduk. İsterseniz değiştirip <b>Kaydet</b>'e basın.</p>
+   <div class="yan"><div><label>İşlem</label><select id="p-islem"><option value="S">Satılık</option><option value="K">Kiralık</option></select></div><div><label>Tür</label><select id="p-tur"><option>Daire</option><option>Arsa</option><option>İşyeri</option></select></div></div>
+   <label>Başlık</label><input id="p-bas" value="Liman Mah. havuzlu sitede 3+1 deniz manzaralı">
+   <div class="yan"><div><label>İlçe</label><select id="p-ilce"><option>Konyaaltı</option><option>Muratpaşa</option><option>Kepez</option><option>Aksu</option></select></div><div><label>Oda</label><select id="p-oda"><option>3+1</option><option>2+1</option><option>1+1</option><option>4+1</option></select></div></div>
+   <div class="yan"><div><label>Fiyat (TL)</label><input id="p-fiyat" value="8.750.000" inputmode="numeric"></div><div><label>m²</label><input id="p-m2" value="145" inputmode="numeric"></div></div>
+   <label>Özellikler</label><div class="ozellik" id="p-oz"></div>
+   <button class="btn" style="margin-top:16px;width:100%;justify-content:center" onclick="portfoyKaydet()">💾 Kaydet ve eşleştir</button>
+  </div>
+  <div><h3>Eşleşen müşteriler</h3><div id="eslesen"><div class="k etiket">Portföyü kaydedince eşleşmeler burada canlı görünecek.</div></div></div>
+ </div>
+ <div class="akis" style="margin-top:22px" id="telefonlar"></div>
+</div></div>
+
+<!-- ============ KANALLAR ============ -->
+<div class="bolum" id="b-kanal"><div class="kap panel">
+ <div class="anlat"><h3>📣 Müşterilere nasıl ulaşırsınız? Tüm kanallar tek kutuda</h3><p>Müşteri nereden gelirse gelsin (sahibinden, Instagram, site, Google, telefon) aynı sisteme düşer, sahibi belli olur, takibi otomatik yapılır. Aşağıdaki her kanal kurulumda hazır gelir.</p></div>
+ <div class="kanal">
+  <div class="k"><h3>🌐 Web sitesi talep formları</h3><p>"Bana haber ver", kredi ve dönüşüm hesaplayıcıları ziyaretçiyi isim + telefonla müşteriye çevirir.</p><div class="cubuk" style="margin-top:10px"><i style="width:72%"></i></div></div>
+  <div class="k"><h3>🏷️ Sahibinden & ilan siteleri</h3><p>İlan mesajları ve aramalar müşteri kartı olarak kaydedilir; hangi ilandan geldiği görünür.</p><div class="cubuk" style="margin-top:10px"><i style="width:88%"></i></div></div>
+  <div class="k"><h3>📸 Instagram (4,9B takipçi)</h3><p>Reels ve ilan paylaşımlarına gelen DM'lere otomatik ilk yanıt; "fiyat?" yazana ilan bilgisi gider.</p><div class="cubuk" style="margin-top:10px"><i style="width:64%"></i></div></div>
+  <div class="k"><h3>💬 WhatsApp yapay zekâ asistanı</h3><p>Gece 23:00'te yazan müşteriye bile anında cevap, uygun ilanları gösterir, randevu alır. Sağ alttaki yeşil balondan deneyin.</p><div class="cubuk" style="margin-top:10px"><i style="width:80%"></i></div></div>
+  <div class="k"><h3>📍 Google İşletme Profili</h3><p>"Muratpaşa emlak", "kentsel dönüşüm Antalya" aramalarında görünürlük, yorum toplama ve haftalık gönderiler.</p><div class="cubuk" style="margin-top:10px"><i style="width:58%"></i></div></div>
+  <div class="k"><h3>🔁 Eski müşteriyi yeniden kazanma</h3><p>Kira kontratı bitecek kiracıya 2 ay önce, ev alan müşteriye yıllık değer raporu, mal sahibine "eviniz şu an ... değerinde" mesajı.</p><div class="cubuk" style="margin-top:10px"><i style="width:46%"></i></div></div>
+ </div>
+ <h2 style="margin-top:28px">Otomatik mesaj şablonları</h2>
+ <table class="tablo"><tr><th>Ne zaman?</th><th>Kime?</th><th>Örnek mesaj</th></tr>
+  <tr><td><b>Uygun portföy girince</b></td><td>Kriteri eşleşen müşteri</td><td>"Merhaba Selin Hanım, aradığınız Konyaaltı 3+1 havuzlu daire portföyümüze girdi: 8.750.000 TL, 145 m². Fotoğraflar ekte, görmek ister misiniz?"</td></tr>
+  <tr><td><b>Talep bırakınca</b></td><td>Siteden yazan ziyaretçi</td><td>"Talebinizi aldık, Dalyan Bey 15 dakika içinde sizi arayacak."</td></tr>
+  <tr><td><b>Yer gösterme ertesi gün</b></td><td>Evi gezen müşteri</td><td>"Dünkü evi nasıl buldunuz? Benzer 2 seçenek daha hazırladık."</td></tr>
+  <tr><td><b>Kira bitişinden 60 gün önce</b></td><td>Kiracı ve mal sahibi</td><td>"Kontratınız 2 ay sonra bitiyor; yenileme veya yeni ev için yardımcı olalım."</td></tr>
+  <tr><td><b>Fiyat düşünce</b></td><td>İlanı favorileyen herkes</td><td>"Takip ettiğiniz Meydankavağı 3+1'in fiyatı 500.000 TL düştü."</td></tr>
+  <tr><td><b>Dönüşüm hesabı yapınca</b></td><td>Bina sahibi</td><td>"Binanız için ücretsiz ön değerlendirme yapalım; uygun gününüzü yazın."</td></tr>
+ </table>
+</div></div>
+
+<!-- ============ RAPOR ============ -->
+<div class="bolum" id="b-rapor"><div class="kap panel">
+ <div class="anlat"><h3>📊 Ofis raporu: Hakan Bey'in tek ekranı</h3><p>Hangi danışman kaç müşteriyle ilgileniyor, hangi kanaldan kaç talep geldi, hangi ilan çok bakılıyor ama aranmıyor (fiyat sinyali). Her pazartesi sabah özet WhatsApp'a gelir.</p></div>
+ <div class="kpi"><div><span class="etiket">Bu ay yeni talep</span><b>64</b><span class="chip y">+21%</span></div><div><span class="etiket">Yer gösterme</span><b>23</b></div><div><span class="etiket">Otomatik eşleşme mesajı</span><b>41</b></div><div><span class="etiket">Ort. ilk dönüş süresi</span><b>12 dk</b><span class="chip y">önce 3 saat</span></div></div>
+ <div class="iki">
+  <div class="k"><h3>Danışman performansı</h3><div id="perf"></div></div>
+  <div class="k"><h3>Talep kaynakları</h3><svg viewBox="0 0 320 200" width="100%" id="pasta"></svg></div>
+ </div>
+ <div class="k" style="margin-top:18px"><h3>İlan sinyalleri</h3><table class="tablo"><tr><th>İlan</th><th>Görüntülenme</th><th>Arama</th><th>Sinyal</th></tr>
+  <tr><td>Meydankavağı havuzlu 3+1 · 14.500.000</td><td>1.240</td><td>3</td><td><span class="chip r">çok bakılıyor, az aranıyor → fiyat yüksek olabilir</span></td></tr>
+  <tr><td>Göksu 2+1 havuzlu · 4.690.000</td><td>860</td><td>14</td><td><span class="chip y">sıcak ilan → hızlı satılabilir</span></td></tr>
+  <tr><td>Ayanoğlu sıfır 2+1 · 5.250.000</td><td>530</td><td>9</td><td><span class="chip m">normal</span></td></tr>
+ </table></div>
+</div></div>
+
+<!-- yüzen WhatsApp asistanı -->
+<div class="yuzen"><div class="bot" id="bot"><div class="bas"><span>💬 Fenomen Asistan · 7/24</span><button onclick="botAc()" style="background:none;border:0;color:#fff;font-size:18px;cursor:pointer">✕</button></div><div class="gov" id="botg"></div><div class="oneri" id="botoneri"></div><form onsubmit="event.preventDefault();botYaz()"><input id="boti" placeholder="Ör: Konyaaltı 3+1 9 milyona kadar"><button class="btn kc wa">➤</button></form></div><button class="wa" onclick="botAc()" aria-label="WhatsApp asistan">💬</button></div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)this.classList.remove('ac')"><div class="ic" id="modic"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const IMG=["k10","k1","k2","k3","k4","k5","k6","k7","k8","k9","k11"];
+const ILANLAR=[
+ ["S",1700000,"Korkuteli Çomaklı'da müstakil parsel","Korkuteli","Arsa",0,"",[]],
+ ["S",3500000,"Bozova'da müstakil arsa ve ev, takaslı","Korkuteli","Arsa",0,"",[]],
+ ["S",3950000,"Ana yol üzeri satılık müstakil parsel","Korkuteli","Arsa",0,"",[]],
+ ["S",14500000,"Meydankavağı Mah. havuzlu sitede satılık 3+1","Muratpaşa","Daire",170,"3+1",["havuz","site","asansör","otopark"]],
+ ["S",8350000,"Öğretmenevleri Mah. doğalgazlı 3+1, 2. kat","Konyaaltı","Daire",130,"3+1",["doğalgaz"]],
+ ["S",18000000,"Değirmenönü Parkı yanı kapalı otoparklı sitede 4+1","Muratpaşa","Daire",180,"4+1",["site","otopark","asansör"]],
+ ["K",50000,"Yenigöl Mah. sandviç panelli depo 308 m²","Muratpaşa","İşyeri",308,"",[]],
+ ["S",4690000,"Göksu Mah. 2+1 havuzlu asansörlü 1. kat daire","Kepez","Daire",80,"2+1",["havuz","asansör","site"]],
+ ["S",5250000,"Ayanoğlu'nda sıfır, ara katta iskanlı 2+1","Kepez","Daire",110,"2+1",["sıfır","asansör"]],
+ ["K",29500,"Kısa dönem kiralık eşyalı 1+1, havuzlu","Kepez","Daire",55,"1+1",["havuz","eşyalı"]],
+ ["S",8500000,"Meydankavağı site içi ara kat 3+1 daire","Muratpaşa","Daire",135,"3+1",["site","asansör"]],
+ ["S",5500000,"Kepez Göksu'da site içinde eşyalı 2+1","Kepez","Daire",90,"2+1",["site","eşyalı"]],
+ ["S",4250000,"Ayanoğlu'nda sıfır 2+1, tramvay caddesi üstü","Kepez","Daire",85,"2+1",["sıfır"]],
+ ["S",3450000,"Kepez Sütçüler'de fırsat havuzlu 2+1","Kepez","Daire",80,"2+1",["havuz"]],
+ ["S",1575000,"Bekçiler Köyü ana yola yakın müstakil parsel","Seydikemer","Arsa",0,"",[]],
+ ["K",30000,"Varlık'ta ana cadde üstü kiralık dükkan","Muratpaşa","İşyeri",0,"",[]],
+ ["S",6100000,"Havuzlu site içinde 3+1 130 m² asansörlü","Kepez","Daire",130,"3+1",["havuz","site","asansör"]],
+ ["K",25000,"Eşyalı kiralık 1+1, havuzlu, kapalı otoparklı","Aksu","Daire",65,"1+1",["havuz","eşyalı","otopark"]],
+ ["S",6250000,"Göksu Mah. ayrı mutfaklı havuzlu 2+1 sıfır","Kepez","Daire",105,"2+1",["havuz","sıfır"]],
+ ["S",11250000,"Molla Yusuf'ta satılık 3+1 bahçe dubleks","Konyaaltı","Daire",150,"3+1",["bahçe"]]
+].map((x,i)=>({id:i+1,islem:x[0],fiyat:x[1],bas:x[2],ilce:x[3],tur:x[4],m2:x[5],oda:x[6],oz:x[7],img:x[4]==="Daire"?IMG[i%IMG.length]:null,dan:["Hakan Kaynar","Dalyan Kaynar","Anıl M.","Mustafa Karakaş"][i%4],yeni:i<4}));
+const EKIP=[["Hakan Kaynar","Ofis Sahibi · Broker",12,true],["Dalyan Kaynar","Gayrimenkul Danışmanı",12],["Anıl M.","Gayrimenkul Danışmanı",11],["Mustafa Karakaş","Gayrimenkul Danışmanı",10],["Hatice Özbey","Gayrimenkul Danışmanı",2],["Belkıs Rezan Akça","Gayrimenkul Danışmanı",0]];
+const OZ=["havuz","site","asansör","otopark","doğalgaz","eşyalı","sıfır","bahçe","deniz manzarası"];
+const ASAMA=[["yeni","Yeni talep"],["gorusme","Görüşüldü"],["gosterim","Yer gösterildi"],["teklif","Teklif / pazarlık"],["satis","Satış / kira ✓"]];
+let MUS;try{MUS=JSON.parse(localStorage.getItem("fenomenMus")||"null")}catch(e){}
+if(!MUS)MUS=[
+ {ad:"Selin Y.",tel:"0532 *** 41 18",islem:"S",tur:"Daire",ilce:"Konyaaltı",oda:"3+1",max:9000000,m2:120,oz:["havuz","site"],asama:"gorusme",dan:"Dalyan Kaynar",not:"Çocuk okulu Liman'da, deniz tarafını istiyor",gun:0},
+ {ad:"Murat & Ece K.",tel:"0541 *** 07 22",islem:"S",tur:"Daire",ilce:"Konyaaltı",oda:"3+1",max:10000000,m2:130,oz:["havuz"],asama:"yeni",dan:"Dalyan Kaynar",not:"Kredi onayı var",gun:1},
+ {ad:"Oğuz T.",tel:"0505 *** 63 90",islem:"S",tur:"Daire",ilce:"Muratpaşa",oda:"3+1",max:9500000,m2:120,oz:["site"],asama:"gosterim",dan:"Hakan Kaynar",not:"Meydankavağı 3+1 gezdi, fiyat yüksek dedi",gun:0},
+ {ad:"Aylin S.",tel:"0533 *** 15 47",islem:"K",tur:"Daire",ilce:"Kepez",oda:"1+1",max:30000,m2:50,oz:["eşyalı"],asama:"yeni",dan:"Anıl M.",not:"Öğrenci, Eylül sonu taşınacak",gun:0},
+ {ad:"Hüseyin D.",tel:"0542 *** 88 03",islem:"S",tur:"Arsa",ilce:"Korkuteli",oda:"",max:4000000,m2:0,oz:[],asama:"teklif",dan:"Mustafa Karakaş",not:"Bozova arsası için 3,2M teklif verdi",gun:2},
+ {ad:"Zeynep A.",tel:"0530 *** 29 61",islem:"S",tur:"Daire",ilce:"Kepez",oda:"2+1",max:5500000,m2:80,oz:["havuz","asansör"],asama:"gorusme",dan:"Anıl M.",not:"Yatırım amaçlı, kiracılı olabilir",gun:1},
+ {ad:"Kemal B. (bina temsilcisi)",tel:"0532 *** 50 12",islem:"S",tur:"Dönüşüm",ilce:"Muratpaşa",oda:"",max:0,m2:0,oz:[],asama:"gosterim",dan:"Hakan Kaynar",not:"8 daireli bina, Demircikara. Müteahhit görüşmesi Perşembe",gun:3},
+ {ad:"Fatma Ö.",tel:"0539 *** 74 85",islem:"S",tur:"Daire",ilce:"Konyaaltı",oda:"3+1",max:8800000,m2:125,oz:["site","havuz"],asama:"yeni",dan:"Hatice Özbey",not:"Emekli, giriş kat istemiyor",gun:0},
+ {ad:"Serkan U.",tel:"0544 *** 31 76",islem:"S",tur:"Daire",ilce:"Kepez",oda:"2+1",max:4800000,m2:80,oz:["havuz"],asama:"satis",dan:"Dalyan Kaynar",not:"Göksu 2+1 kapora verildi 🎉",gun:9}];
+function kaydet(){try{localStorage.setItem("fenomenMus",JSON.stringify(MUS))}catch(e){}}
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const tl=n=>n.toLocaleString("tr-TR")+(n>=100000?" TL":" TL/ay").replace(" TL/ay"," TL");
+const fiyatYaz=(x)=>x.islem==="K"?x.fiyat.toLocaleString("tr-TR")+" TL/ay":x.fiyat.toLocaleString("tr-TR")+" TL";
+const sayi=s=>+String(s).replace(/[^\d]/g,"")||0;
+function toast(t){const x=$("#toast");x.innerHTML=t;x.classList.add("ac");clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove("ac"),3200)}
+function git(b){$$(".mod button").forEach(x=>x.classList.toggle("aktif",x.dataset.b===b));$$(".bolum").forEach(x=>x.classList.toggle("aktif",x.id==="b-"+b));scrollTo({top:0,behavior:"smooth"});if(b==="crm")crm();if(b==="rapor")rapor()}
+$$(".mod button").forEach(b=>b.onclick=()=>git(b.dataset.b));
+/* ---- site ---- */
+let filtre={};
+function kartHTML(x){return`<article class="ilan" onclick="detay(${x.id})"><div class="foto ${x.img?"":"arsa"}" style="${x.img?`background-image:url(img/${x.img}.jpg)`:""}">${x.img?"":(x.tur==="Arsa"?"🌾":"🏬")}<span class="tur">${x.islem==="S"?"SATILIK":"KİRALIK"}</span>${x.yeni?'<span class="yeni">YENİ</span>':""}</div><div class="ic"><div class="fiyat">${fiyatYaz(x)}</div><div class="bas">${x.bas}</div><div class="etiket">📍 Antalya / ${x.ilce}</div><div class="oz">${x.m2?`<span>📐 ${x.m2} m²</span>`:""}${x.oda?`<span>🛏 ${x.oda}</span>`:""}<span>🏷 ${x.tur}</span></div></div></article>`}
+function listele(){const l=ILANLAR.filter(x=>(!filtre.islem||x.islem===filtre.islem)&&(!filtre.tur||x.tur===filtre.tur)&&(!filtre.ilce||x.ilce===filtre.ilce)&&(!filtre.oda||x.oda===filtre.oda)&&(!filtre.max||x.fiyat<=filtre.max));
+ $("#ilanlar").innerHTML=l.length?l.map(kartHTML).join(""):`<div class="k" style="grid-column:1/-1">Bu kriterde ilan şu an yok. <b>"Bana haber ver"</b> deyin, girdiği an WhatsApp'tan bildirelim.</div>`;$("#sayac").textContent=l.length+" ilan listeleniyor"}
+const HIZLI=[["Tümü",{}],["Satılık daire",{islem:"S",tur:"Daire"}],["Kiralık",{islem:"K"}],["Arsa",{tur:"Arsa"}],["Muratpaşa",{ilce:"Muratpaşa"}],["Konyaaltı",{ilce:"Konyaaltı"}],["Kepez",{ilce:"Kepez"}]];
+$("#hizli").innerHTML=HIZLI.map((h,i)=>`<button class="${i?"":"s"}" onclick="filtre=${JSON.stringify(h[1]).replace(/"/g,"'")};$$('#hizli button').forEach(b=>b.classList.remove('s'));this.classList.add('s');listele()">${h[0]}</button>`).join("");
+function ara(){filtre={islem:$("#a-islem").value,tur:$("#a-tur").value,ilce:$("#a-ilce").value,oda:$("#a-oda").value,max:sayi($("#a-fiyat").value)};listele();document.getElementById("portfoy").scrollIntoView({behavior:"smooth"})}
+function detay(id){const x=ILANLAR.find(i=>i.id===id);$("#modic").innerHTML=`<div class="foto ${x.img?"":"arsa"}" style="${x.img?`background-image:url(img/${x.img}.jpg)`:"display:grid;place-items:center;font-size:80px;background:linear-gradient(135deg,#d9cfa8,#a8b27a)"}">${x.img?"":"🌾"}<button class="kapat" onclick="$('#modal').classList.remove('ac')">✕</button></div>
+ <div style="padding:22px"><span class="chip t">${x.islem==="S"?"Satılık":"Kiralık"} · ${x.tur}</span><h2 style="margin-top:10px">${x.bas}</h2><div style="font-size:28px;font-weight:800;color:var(--a)">${fiyatYaz(x)}</div><p class="etiket">📍 Antalya / ${x.ilce} ${x.m2?"· 📐 "+x.m2+" m²":""} ${x.oda?"· 🛏 "+x.oda:""}</p>
+ ${x.oz.length?`<div class="ozellik" style="margin:10px 0">${x.oz.map(o=>`<span class="chip">✓ ${o}</span>`).join("")}</div>`:""}
+ <div class="k" style="display:flex;gap:14px;align-items:center;margin-top:14px"><div class="av" style="width:54px;height:54px;font-size:18px;margin:0">${x.dan.split(" ").map(s=>s[0]).join("")}</div><div style="flex:1"><b>${x.dan}</b><div class="etiket">İlan danışmanı</div></div><button class="btn wa kc" onclick="toast('Canlıda danışmanın WhatsApp hattı açılır; mesaj ilan bilgisiyle hazır gelir.')">💬 WhatsApp</button><button class="btn kc" onclick="toast('📅 Yer gösterme talebi alındı → müşteri takipte görünür')">📅 Yer görme</button></div>
+ ${x.islem==="S"&&x.tur==="Daire"?`<p class="etiket" style="margin-top:12px">🏦 %30 peşinatla 120 ay vadede tahmini taksit: <b>${Math.round(taksit(x.fiyat*.7,120,2.79)).toLocaleString("tr-TR")} TL/ay</b></p>`:""}</div>`;$("#modal").classList.add("ac")}
+function taksit(P,n,r){r=r/100;return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1)}
+function kredi(){const f=sayi($("#k-fiyat").value),p=sayi($("#k-pes").value),n=+$("#k-vade").value,r=parseFloat($("#k-faiz").value.replace(",","."));const P=f*(1-p/100),t=taksit(P,n,r);
+ $("#k-sonuc").innerHTML=`<div class="etiket" style="color:#c9d3df">Aylık taksit</div><b>${Math.round(t).toLocaleString("tr-TR")} TL</b><div style="margin-top:6px;font-size:14px">Kredi: ${Math.round(P).toLocaleString("tr-TR")} TL · Toplam geri ödeme: ${Math.round(t*n).toLocaleString("tr-TR")} TL</div><button class="btn kc" style="margin-top:10px" onclick="talepAc('Kredi hesabı: '+${f}.toLocaleString('tr-TR')+' TL')">Bu bütçeye uygun evleri bana gönderin</button>`}
+function donusum(){const a=sayi($("#d-arsa").value),e=parseFloat($("#d-emsal").value.replace(",","."))||1,d=sayi($("#d-daire").value)||1,o=sayi($("#d-oran").value)||50;
+ const toplam=a*e*1.3,net=toplam*.82,hak=net*o/100,kisi=hak/d,yeniDaire=Math.floor(net/110);
+ $("#d-sonuc").innerHTML=`<div class="etiket" style="color:#c9d3df">Hak sahibi başına tahmini net alan</div><b>≈ ${Math.round(kisi)} m²</b><div style="margin-top:6px;font-size:14px">Toplam inşaat ≈ ${Math.round(toplam).toLocaleString("tr-TR")} m² · Projede ≈ ${yeniDaire} daire (110 m² ortalama) · Hak sahiplerine ≈ ${Math.round(hak).toLocaleString("tr-TR")} m²</div><button class="btn kc" style="margin-top:10px" onclick="talepAc('Kentsel dönüşüm: arsa ${a} m², ${d} daire')">Ücretsiz ön değerlendirme isteyin</button>`}
+$("#ekipler").innerHTML=EKIP.map(e=>`<div class="kisi ${e[3]?"b":""}"><div class="av">${e[0].split(" ").map(s=>s[0]).slice(0,2).join("")}</div><b>${e[0]}</b><small>${e[1]}</small><div class="etiket" style="margin-top:6px">${e[2]?e[2]+" aktif ilan":"Yeni portföy hazırlanıyor"}</div><button class="btn wa kc" style="margin-top:10px" onclick="toast('Canlıda ${e[0]} için kişisel WhatsApp hattı açılır.')">💬 Yaz</button></div>`).join("");
+/* ---- talep / müşteri ekleme ---- */
+function talepAc(not){$("#modic").innerHTML=`<div style="padding:22px" class="form"><div style="display:flex;justify-content:space-between"><h2>🔔 Aradığınız evi bize söyleyin</h2><button class="btn ik kc" onclick="$('#modal').classList.remove('ac')">✕</button></div><p class="etiket">Uygun bir ev portföyümüze girdiği an size WhatsApp'tan otomatik haber vereceğiz.</p>
+ <div class="yan"><div><label>Ad soyad</label><input id="t-ad" value="Deneme Müşteri"></div><div><label>Telefon</label><input id="t-tel" value="0555 *** 00 00"></div></div>
+ <div class="yan"><div><label>İşlem</label><select id="t-islem"><option value="S">Satın almak</option><option value="K">Kiralamak</option></select></div><div><label>Tür</label><select id="t-tur"><option>Daire</option><option>Arsa</option><option>İşyeri</option></select></div></div>
+ <div class="yan"><div><label>İlçe</label><select id="t-ilce"><option>Konyaaltı</option><option>Muratpaşa</option><option>Kepez</option><option>Aksu</option><option>Korkuteli</option></select></div><div><label>Oda</label><select id="t-oda"><option>3+1</option><option>2+1</option><option>1+1</option><option>4+1</option><option value="">Farketmez</option></select></div></div>
+ <div class="yan"><div><label>En fazla bütçe (TL)</label><input id="t-max" value="9.000.000"></div><div><label>En az m²</label><input id="t-m2" value="120"></div></div>
+ <label>Olmazsa olmazlar</label><div class="ozellik">${OZ.map(o=>`<label><input type="checkbox" value="${o}" class="t-oz" ${o==="havuz"?"checked":""}> ${o}</label>`).join("")}</div>
+ <label>Not</label><textarea id="t-not" rows="2">${not||""}</textarea>
+ <button class="btn" style="margin-top:14px;width:100%;justify-content:center" onclick="talepKaydet()">Kaydet</button></div>`;$("#modal").classList.add("ac")}
+function talepKaydet(){const m={ad:$("#t-ad").value||"Yeni müşteri",tel:$("#t-tel").value,islem:$("#t-islem").value,tur:$("#t-tur").value,ilce:$("#t-ilce").value,oda:$("#t-oda").value,max:sayi($("#t-max").value),m2:sayi($("#t-m2").value),oz:$$(".t-oz:checked").map(x=>x.value),asama:"yeni",dan:"Dalyan Kaynar",not:$("#t-not").value,gun:0};
+ MUS.unshift(m);kaydet();$("#modal").classList.remove("ac");const mev=ILANLAR.filter(i=>puan(m,i)>=70);
+ toast(`✅ ${m.ad} müşteri takibe eklendi (Dalyan Kaynar). ${mev.length?`<b>${mev.length} mevcut ilan</b> zaten uyuyor, WhatsApp'tan gönderildi.`:"Uygun ilan gelince otomatik haber verilecek."}`);if($("#b-crm").classList.contains("aktif"))crm()}
+/* ---- eşleştirme ---- */
+function puan(m,p){if(m.tur==="Dönüşüm")return 0;if(m.islem!==p.islem||m.tur!==p.tur)return 0;let s=0,t=0;
+ t+=30;if(m.ilce===p.ilce)s+=30;t+=25;if(!m.max||p.fiyat<=m.max)s+=25;else if(p.fiyat<=m.max*1.07)s+=12;
+ t+=20;if(!m.oda||m.oda===p.oda)s+=20;t+=10;if(!m.m2||p.m2>=m.m2)s+=10;else if(p.m2>=m.m2*.9)s+=5;
+ if(m.oz.length){t+=15;s+=15*m.oz.filter(o=>p.oz.includes(o)).length/m.oz.length}return Math.round(s/t*100)}
+$("#p-oz").innerHTML=OZ.map(o=>`<label><input type="checkbox" value="${o}" class="p-oz" ${["havuz","site","asansör","deniz manzarası"].includes(o)?"checked":""}> ${o}</label>`).join("");
+function portfoyKaydet(){const p={islem:$("#p-islem").value,tur:$("#p-tur").value,bas:$("#p-bas").value,ilce:$("#p-ilce").value,oda:$("#p-oda").value,fiyat:sayi($("#p-fiyat").value),m2:sayi($("#p-m2").value),oz:$$(".p-oz:checked").map(x=>x.value)};
+ const es=MUS.map(m=>({m,s:puan(m,p)})).filter(x=>x.s>=70).sort((a,b)=>b.s-a.s);
+ $("#eslesen").innerHTML=`<div class="k" style="margin-bottom:10px">🔎 <b>${MUS.length}</b> bekleyen müşteri tarandı · <b style="color:var(--ok)">${es.length} eşleşme</b></div>`+(es.length?es.map((x,i)=>`<div class="eslesme" style="animation-delay:${i*.15}s"><div style="display:flex;justify-content:space-between;gap:8px"><b>${x.m.ad}</b><span class="chip y">%${x.s} uyum</span></div><div class="etiket">${x.m.ilce} · ${x.m.oda||"-"} · bütçe ${x.m.max?x.m.max.toLocaleString("tr-TR")+" TL":"-"} · ${x.m.oz.join(", ")||"özel şart yok"}</div><div class="etiket" style="margin-top:4px">👤 ${x.m.dan} · ✅ WhatsApp gönderildi</div></div>`).join(""):`<div class="k">Şu an uyan müşteri yok; bu portföy, ileride gelecek talepler için beklemede.</div>`);
+ $("#telefonlar").innerHTML=es.slice(0,3).map(x=>`<div class="tel"><div class="ust"><i>F</i><div>Fenomen Gayrimenkul<div style="font-size:11px;opacity:.8">otomatik bildirim</div></div></div><div class="gov"><div class="bal o" style="padding:4px"><div style="aspect-ratio:16/10;border-radius:8px;background:url(img/k11.jpg) center/cover"></div></div><div class="bal o">Merhaba ${x.m.ad.split(" ")[0]} 👋 Aradığınız kriterlere uyan yeni bir ev portföyümüze girdi:<br><br><b>${p.bas}</b><br>📍 ${p.ilce} · ${p.oda} · ${p.m2} m²<br>💰 ${p.fiyat.toLocaleString("tr-TR")} TL<br>✓ ${p.oz.join(" · ")}<br><br>Görmek isterseniz bugün veya yarın için randevu ayarlayalım. – ${x.m.dan.split(" ")[0]} Bey<small>şimdi ✓✓</small></div><div class="bal b">Çok güzel, yarın 17:00 uygun mu?<small>şimdi</small></div></div></div>`).join("");
+ if(innerWidth<900)$("#eslesen").scrollIntoView({behavior:"smooth"});toast(es.length?`⚡ ${es.length} müşteriye otomatik WhatsApp gönderildi, danışmanlara bildirim düştü.`:"Portföy kaydedildi. Uyan müşteri gelince otomatik eşleşecek.")}
+/* ---- CRM ---- */
+const DANLAR=[...new Set(EKIP.map(e=>e[0]))];$("#crm-dan").innerHTML+=DANLAR.map(d=>`<option>${d}</option>`).join("");
+function crm(){const d=$("#crm-dan").value,l=MUS.filter(m=>!d||m.dan===d);
+ $("#crm-kpi").innerHTML=`<div><span class="etiket">Aktif müşteri</span><b>${l.filter(m=>m.asama!=="satis").length}</b></div><div><span class="etiket">Bugün aranacak</span><b style="color:var(--hata)">${l.filter(m=>m.gun===0&&m.asama!=="satis").length}</b></div><div><span class="etiket">Kayıtlı arama kriteri</span><b>${l.filter(m=>m.tur!=="Dönüşüm").length}</b></div><div><span class="etiket">Bu ay kapanan</span><b style="color:var(--ok)">${l.filter(m=>m.asama==="satis").length}</b></div>`;
+ $("#huni").innerHTML=ASAMA.map(([k,a])=>{const g=l.filter(m=>m.asama===k);return`<div class="kolon"><h4>${a}<span class="chip">${g.length}</span></h4>${g.map(m=>{const i=MUS.indexOf(m);const es=ILANLAR.filter(p=>puan(m,p)>=70).length;return`<div class="mk" onclick="musDetay(${i})"><b>${m.ad}</b><div class="krt">${m.tur==="Dönüşüm"?"🏗️ Kentsel dönüşüm":`${m.islem==="S"?"Alım":"Kira"} · ${m.ilce} · ${m.oda||m.tur}${m.max?" · ≤"+(m.max>=1e6?(m.max/1e6).toLocaleString("tr-TR")+"M":m.max.toLocaleString("tr-TR")):""}`}</div><div class="alt"><span class="etiket">👤 ${m.dan.split(" ")[0]}</span>${es?`<span class="chip y">${es} uygun ilan</span>`:m.gun===0&&k!=="satis"?'<span class="chip r">bugün ara</span>':""}</div></div>`}).join("")}</div>`}).join("");
+ const g=l.filter(m=>m.asama!=="satis").sort((a,b)=>a.gun-b.gun).slice(0,6);
+ $("#gorev").innerHTML=`<tr><th>Ne zaman</th><th>Müşteri</th><th>Yapılacak</th><th>Danışman</th><th></th></tr>`+g.map(m=>`<tr><td>${m.gun===0?'<span class="chip r">Bugün</span>':m.gun===1?'<span class="chip t">Yarın</span>':m.gun+" gün sonra"}</td><td><b>${m.ad}</b><div class="etiket">${m.tel}</div></td><td>${{yeni:"İlk arama, ihtiyaç analizi",gorusme:"Uygun 3 ilanı gönder, yer gösterme ayarla",gosterim:"Gezdiği evle ilgili geri dönüş al",teklif:"Mal sahibiyle pazarlık sonucu bildir"}[m.asama]||""}<div class="etiket">${m.not}</div></td><td>${m.dan}</td><td><button class="btn kc wa" onclick="toast('📞 Arama kaydı tutuldu, sonraki adım tarihi soruldu.')">Ara</button></td></tr>`).join("")}
+function musDetay(i){const m=MUS[i];const es=ILANLAR.map(p=>({p,s:puan(m,p)})).filter(x=>x.s>=60).sort((a,b)=>b.s-a.s);
+ $("#modic").innerHTML=`<div style="padding:22px"><div style="display:flex;justify-content:space-between;gap:10px"><div><h2>${m.ad}</h2><div class="etiket">${m.tel} · 👤 ${m.dan}</div></div><button class="btn ik kc" onclick="$('#modal').classList.remove('ac')">✕</button></div>
+ <div class="k" style="margin:14px 0"><b>Aradığı</b><div class="ozellik" style="margin-top:8px">${[m.islem==="S"?"Satın alma":"Kiralama",m.tur,m.ilce,m.oda,m.max?"≤ "+m.max.toLocaleString("tr-TR")+" TL":"",m.m2?"≥ "+m.m2+" m²":"",...m.oz].filter(Boolean).map(x=>`<span class="chip">${x}</span>`).join("")}</div><p class="etiket" style="margin:10px 0 0">📝 ${m.not}</p></div>
+ <b>Aşama</b><div class="filtre" style="margin-top:8px">${ASAMA.map(([k,a])=>`<button class="${m.asama===k?"s":""}" onclick="MUS[${i}].asama='${k}';kaydet();crm();musDetay(${i});${k==="satis"?"toast('🎉 Tebrikler! Satış kaydedildi.')":""}">${a}</button>`).join("")}</div>
+ <b>Portföyde uyan ilanlar</b>${es.length?es.slice(0,4).map(x=>`<div class="k" style="display:flex;gap:12px;align-items:center;margin-top:8px;padding:10px"><div style="width:70px;height:50px;border-radius:8px;background:${x.p.img?`url(img/${x.p.img}.jpg) center/cover`:"#cbbf96"}"></div><div style="flex:1"><b style="font-size:14px">${x.p.bas}</b><div class="etiket">${fiyatYaz(x.p)}</div></div><span class="chip y">%${x.s}</span><button class="btn wa kc" onclick="toast('📤 İlan ${m.ad.split(" ")[0]} kişisine WhatsApp ile gönderildi')">Gönder</button></div>`).join(""):`<p class="etiket">Şu an uyan ilan yok. Uygun portföy girince otomatik mesaj gidecek.</p>`}
+ <b style="display:block;margin-top:14px">Geçmiş</b><div class="etiket">📞 2 gün önce: ilk görüşme yapıldı · 💬 dün: 3 ilan WhatsApp'tan gönderildi · 👁 bugün: 2 ilanı açıp baktı</div></div>`;$("#modal").classList.add("ac")}
+/* ---- rapor ---- */
+function rapor(){const p=[["Dalyan Kaynar",18,7,3],["Hakan Kaynar",15,6,2],["Anıl M.",13,5,1],["Mustafa Karakaş",11,4,1],["Hatice Özbey",5,1,0],["Belkıs Rezan Akça",2,0,0]];
+ $("#perf").innerHTML=p.map(x=>`<div style="margin:10px 0"><div style="display:flex;justify-content:space-between"><span><b>${x[0]}</b> <span class="etiket">· ${x[1]} müşteri · ${x[2]} gösterim</span></span><b style="color:var(--ok)">${x[3]} satış</b></div><div class="cubuk" style="margin-top:4px"><i style="width:${x[1]/18*100}%"></i></div></div>`).join("");
+ const k=[["Sahibinden",34,"#b8862f"],["Instagram",22,"#c13584"],["Web sitesi",18,"#0f2a3f"],["WhatsApp asistan",14,"#25d366"],["Google",8,"#4285f4"],["Tavsiye",4,"#94a3b8"]];let a=-Math.PI/2;const T=100;
+ $("#pasta").innerHTML=k.map(([n,v,c])=>{const b=a+v/T*2*Math.PI,x1=100+80*Math.cos(a),y1=100+80*Math.sin(a),x2=100+80*Math.cos(b),y2=100+80*Math.sin(b),d=`M100,100 L${x1},${y1} A80,80 0 ${v>50?1:0} 1 ${x2},${y2} Z`;a=b;return`<path d="${d}" fill="${c}"/>`}).join("")+`<circle cx="100" cy="100" r="42" fill="var(--kart)"/><text x="100" y="98" text-anchor="middle" style="font:800 20px sans-serif;fill:var(--y)">64</text><text x="100" y="116" text-anchor="middle" style="font:11px sans-serif;fill:var(--g)">talep</text>`+k.map(([n,v,c],i)=>`<rect x="205" y="${22+i*27}" width="12" height="12" rx="3" fill="${c}"/><text x="223" y="${32+i*27}" style="font:12px sans-serif;fill:var(--y)">${n} %${v}</text>`).join("")}
+/* ---- WhatsApp asistan ---- */
+let botBasladi=false;
+function botAc(){const b=$("#bot");b.classList.toggle("ac");if(!botBasladi){botBasladi=true;botMesaj("o","Merhaba 👋 Fenomen Gayrimenkul'e hoş geldiniz. Ne arıyorsunuz? Örneğin: <i>Kepez 2+1 havuzlu 5 milyona kadar</i>");$("#botoneri").innerHTML=["Konyaaltı 3+1 9 milyona kadar","Kepez 2+1 havuzlu","Kiralık 1+1 eşyalı","Kentsel dönüşüm danışmanlığı"].map(s=>`<button onclick="$('#boti').value='${s}';botYaz()">${s}</button>`).join("")}}
+function botMesaj(k,t){const g=$("#botg");g.insertAdjacentHTML("beforeend",`<div class="bal ${k}">${t}<small>${new Date().toTimeString().slice(0,5)}</small></div>`);g.scrollTop=g.scrollHeight}
+function botYaz(){const t=$("#boti").value.trim();if(!t)return;$("#boti").value="";botMesaj("b",t);const s=t.toLocaleLowerCase("tr");
+ setTimeout(()=>{if(/dönüşüm|donusum|müteahhit|bina/.test(s)){botMesaj("o","Kentsel dönüşüm ofisimizin uzmanlık alanı 🏗️ Binanızın adresini ve daire sayısını yazarsanız Hakan Bey ücretsiz ön değerlendirme için sizi arasın.");return}
+  const ilce=["muratpaşa","konyaaltı","kepez","aksu","korkuteli"].find(i=>s.includes(i)),oda=(s.match(/[1-5]\+1/)||[])[0],mil=(s.match(/(\d+[.,]?\d*)\s*(milyon|m\b)/)||[])[1],kira=/kira/.test(s);
+  const max=mil?parseFloat(mil.replace(",","."))*1e6:0;
+  const l=ILANLAR.filter(x=>x.tur==="Daire"&&(kira?x.islem==="K":x.islem==="S"||!/sat/.test(s)&&true)&&(!ilce||x.ilce.toLocaleLowerCase("tr")===ilce)&&(!oda||x.oda===oda)&&(!max||x.fiyat<=max)&&(!/havuz/.test(s)||x.oz.includes("havuz"))&&(!/eşya/.test(s)||x.oz.includes("eşyalı"))).slice(0,3);
+  if(l.length)botMesaj("o",`Size uygun <b>${l.length} ilan</b> buldum:<br>`+l.map(x=>`• ${x.bas} – <b>${fiyatYaz(x)}</b>`).join("<br>")+"<br><br>Görmek istediğiniz var mı? Adınızı yazarsanız danışmanımız randevu için dönsün.");
+  else botMesaj("o","Şu an tam bu kriterde ilanımız yok 🙏 Kriterlerinizi kaydettim; uygun ev portföyümüze girdiği anda size buradan otomatik haber vereceğim. ✅")},700)}
+listele();donusum();kredi();
+</script></body></html>
