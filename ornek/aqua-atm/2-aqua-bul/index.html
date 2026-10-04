@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aqua ATM Bul · En Yakın C Vitaminli Su Otomatı (Prototip 2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="../ortak/aqua.css">
+<style>
+.duzen{display:grid;grid-template-columns:380px 1fr;height:calc(100vh - 66px)}@media(max-width:900px){.duzen{grid-template-columns:1fr;height:auto}#harita{height:55vh}}
+.yan{overflow:auto;border-right:1px solid var(--c);background:var(--k);padding:18px}#harita{height:100%;min-height:420px}
+.nokta{border:1px solid var(--c);border-radius:14px;padding:12px 14px;margin-bottom:10px;cursor:pointer;background:var(--bg)}.nokta:hover,.nokta.on{border-color:var(--r)}
+.nokta b{display:block}.nokta small{color:var(--g)}.ara{display:flex;gap:8px;margin:12px 0}.ara input{flex:1;padding:11px 14px;border:1px solid var(--c);border-radius:12px;background:var(--bg);color:var(--y);font:15px Inter}
+.sekme{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}.sekme button{border:1px solid var(--c);background:var(--bg);color:var(--y);border-radius:999px;padding:8px 13px;font:600 13px Inter;cursor:pointer}.sekme button.on{background:var(--r);color:#fff;border-color:var(--r)}
+.panel{display:none}.panel.on{display:block}
+.qr{display:grid;grid-template-columns:repeat(21,1fr);width:126px;gap:0;border:6px solid #fff;background:#fff}.qr i{aspect-ratio:1;background:#fff}.qr i.s{background:#111}
+.cihaz{background:linear-gradient(160deg,#1a0f0e,#2a1210);color:#fff;border:0}.cihaz .g{color:#d6c3c1}
+</style></head><body>
+<header class="ust-bar"><div class="kap"><a class="logo" href="#"><img src="../img/logo.png" alt="">Aqua ATM <span class="g" style="font-weight:600;font-size:13px">Bul</span></a>
+<nav class="men"><a href="#" data-p="bul">Yakınımdaki</a><a href="#" data-p="qr">Cihaz QR sayfası</a><a href="#" data-p="reklam">Ekrana reklam ver</a><a href="#" data-p="google">Google kayıtları</a></nav></div></header>
+<div class="duzen">
+<aside class="yan">
+<div class="sekme"><button class="on" data-p="bul">📍 Yakınımdaki</button><button data-p="qr">📱 QR sayfası</button><button data-p="reklam">📺 Reklam</button><button data-p="google">🔎 Google</button></div>
+
+<div class="panel on" id="p-bul"><h2 style="font-size:24px">En yakın Aqua ATM</h2><p class="g" style="margin:0">Şişeni getir, 5 ya da 19 litre doldur. Açık / bakımda durumunu canlı gör.</p>
+<div class="ara"><input id="q" placeholder="İl, ilçe ya da mahalle ara"><button class="btn btn-r" id="konum" style="padding:10px 14px">Konumum</button></div>
+<div id="liste"></div><p class="not">Noktalar örnek veridir; gerçek sistemde 700 cihaz bayi panelinden otomatik gelir.</p></div>
+
+<div class="panel" id="p-qr"><h2 style="font-size:24px">Her cihaza bir QR sayfası</h2><p class="g">Cihazın üstündeki QR'ı okutan kişi bu sayfayı görür. Arıza bildirimi doğrudan bayinin telefonuna düşer; Google yorumu ve "şişe getir" puanı burada toplanır.</p>
+<div class="kart cihaz"><div style="display:flex;gap:14px;align-items:center"><div class="qr" id="qrk"></div><div><b style="font-size:18px" id="qad">Bornova · Kazımdirik</b><div class="g" id="qdur">🟢 Açık · son dolum 4 dk önce</div></div></div>
+<p class="g" style="margin-top:12px">5 lt <b style="color:#fff">10 ₺</b> · 19 lt <b style="color:#fff">30 ₺</b> · Ozon + UV dezenfeksiyon · C vitaminli</p>
+<div class="izg" style="grid-template-columns:1fr 1fr;gap:8px"><button class="btn btn-r" onclick="ariza()">Arıza bildir</button><button class="btn btn-b" onclick="yorum()">Yorum yaz</button></div>
+<div style="margin-top:14px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px"><b>♻ Şişeni getir puanı</b><div class="g" style="font-size:14px">Bu cihazdan 9 dolum → 10. 19 lt dolum hediye. Telefon numaranla puanın birikir.</div><div id="puan" style="display:flex;gap:4px;margin-top:8px"></div></div></div>
+<div id="qsonuc" style="margin-top:12px"></div></div>
+
+<div class="panel" id="p-reklam"><h2 style="font-size:24px">Cihaz ekranına reklam ver</h2><p class="g">Mahalle esnafı (fırın, eczane, emlakçı…) cihaz ekranında 15 saniyelik görsel yayınlar. Gelir bayinin, yönetim sistemin.</p>
+<form class="form kart" id="rf"><label>Hangi cihazlar?<select id="rc" multiple size="4"></select></label><label>Süre<select id="rs"><option value="1">1 hafta</option><option value="4" selected>1 ay</option><option value="12">3 ay</option></select></label>
+<label>İşletme adı<input required placeholder="Örn. Kardeşler Fırını"></label><label>Görsel<input type="file" accept="image/*"></label>
+<div class="kart" style="background:var(--bg)"><div class="g">Günlük tahmini gösterim</div><div class="say" id="rg">—</div><div class="g" style="margin-top:8px">Tutar</div><div id="rt" style="font:800 22px Plus Jakarta Sans">—</div></div>
+<button class="btn btn-r" style="width:100%;margin-top:12px">Ödemeye geç</button><p class="not">Fiyatlar örnektir; bayi kendi cihazı için belirler.</p></form></div>
+
+<div class="panel" id="p-google"><h2 style="font-size:24px">Google'da her cihaz doğru görünsün</h2><p class="g">700 cihazın her biri Google Haritalar'da ayrı bir nokta. Bir kayıt "kalıcı olarak kapandı" görünürse insanlar oraya gitmez, marka güveni düşer.</p>
+<table class="kart" style="padding:0"><tr><th>Nokta</th><th>Google durumu</th></tr><tbody id="gt"></tbody></table>
+<p class="g" style="margin-top:12px">Sistem her gece kayıtları kontrol eder; sorunlu kayıt için bayiye ve merkeze uyarı gider, düzeltme tek tıkla Google'a iletilir.</p></div>
+</aside>
+<div id="harita"></div></div>
+<div class="modal" id="mod"><div class="kart"><div id="modIc"></div><button class="btn btn-b" onclick="mod.classList.remove('on')" style="margin-top:16px">Kapat</button></div></div>
+<div class="demo">Prototip · Dijitabela · <a href="../index.html">tüm öneriler</a></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),mod=$('#mod');
+const N=[["İzmir","Bornova · Kazımdirik",38.462,27.218,"acik"],["İzmir","Bayraklı · Manavkuyu",38.465,27.18,"kapali-google"],["İzmir","Menemen · Ulukent",38.6,27.07,"acik"],["İzmir","Karşıyaka · Bostanlı",38.457,27.1,"bakim"],["İzmir","Bergama · Merkez",39.12,27.18,"acik"],["İzmir","Dikili · Sahil",39.072,26.888,"acik"],["İzmir","Selçuk · Atatürk Mah.",37.95,27.37,"acik"],["Muğla","Bodrum · Konacık",37.05,27.4,"acik"],["Muğla","Marmaris · Armutalan",36.86,28.25,"acik"],["Muğla","Datça · Merkez",36.73,27.69,"acik"],["Bursa","Nilüfer · Ataevler",40.22,28.98,"acik"],["Aydın","Kuşadası · Değirmendere",37.86,27.27,"acik"],["Aydın","Nazilli · Merkez",37.91,28.32,"bakim"],["Denizli","Merkezefendi",37.78,29.08,"acik"],["Malatya","Yeşilyurt",38.3,38.25,"acik"],["Hatay","Antakya · Afad konteyner kent",36.2,36.16,"acik"],["Ankara","Sincan · Fatih",39.97,32.58,"acik"],["Yalova","Yeşilova",40.65,29.27,"acik"],["Mersin","Mezitli",36.75,34.53,"acik"],["İstanbul","Esenyurt",41.03,28.68,"acik"]];
+const DUR={acik:["🟢","Açık","e-ok"],bakim:["🟠","Bakımda (filtre değişimi)","e-uy"],"kapali-google":["🟢","Açık · Google'da 'kalıcı kapalı' görünüyor","e-hata"]};
+const harita=L.map('harita').setView([38.6,29.5],6);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(harita);
+const ik=c=>L.divIcon({className:'',html:`<div style="width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:${c};border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>`,iconSize:[26,26],iconAnchor:[13,26]});
+const mk=N.map(n=>L.marker([n[2],n[3]],{icon:ik(n[4]==='bakim'?'#d97706':'#e5322b')}).addTo(harita).bindPopup(`<b>${n[1]}</b><br>${n[0]}<br>${DUR[n[4]][0]} ${DUR[n[4]][1]}<br><a href="https://www.google.com/maps/dir/?api=1&destination=${n[2]},${n[3]}" target="_blank">Yol tarifi</a>`));
+function ciz(f=''){const k=f.toLocaleLowerCase('tr');$('#liste').innerHTML=N.map((n,i)=>[n,i]).filter(([n])=>(n[0]+' '+n[1]).toLocaleLowerCase('tr').includes(k)).map(([n,i])=>`<div class="nokta" data-i="${i}"><b>${n[1]}</b><small>${n[0]} · ${DUR[n[4]][0]} ${DUR[n[4]][1]}</small></div>`).join('')||'<p class="g">Bu bölgede henüz cihaz yok — <a href="../1-bayilik-merkezi/#basvuru">ilk bayi siz olun</a>.</p>';
+document.querySelectorAll('.nokta').forEach(d=>d.onclick=()=>{const n=N[d.dataset.i];harita.setView([n[2],n[3]],13);mk[d.dataset.i].openPopup();})}
+ciz();$('#q').oninput=e=>ciz(e.target.value);
+$('#konum').onclick=()=>{if(!navigator.geolocation)return;navigator.geolocation.getCurrentPosition(p=>{const{latitude:a,longitude:o}=p.coords;let b=0,m=1e9;N.forEach((n,i)=>{const d=(n[2]-a)**2+(n[3]-o)**2;if(d<m){m=d;b=i}});harita.setView([N[b][2],N[b][3]],13);mk[b].openPopup();},()=>alertYok())};
+function alertYok(){$('#modIc').innerHTML='<p>Konum izni verilmedi; il ya da ilçe yazarak arayabilirsiniz.</p>';mod.classList.add('on')}
+document.querySelectorAll('[data-p]').forEach(b=>b.onclick=e=>{e.preventDefault();const p=b.dataset.p;document.querySelectorAll('.sekme button').forEach(x=>x.classList.toggle('on',x.dataset.p===p));document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('on',x.id==='p-'+p));});
+// sahte QR deseni
+let q='';for(let i=0;i<441;i++){const x=i%21,y=Math.floor(i/21),f=(x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13);const kenar=f&&(x%6===0||y%6===0||x===20||y===20||((x%14>1&&x%14<5)&&(y%14>1&&y%14<5)));q+=`<i class="${(f?kenar:((x*7+y*13+x*y)%3===0))?'s':''}"></i>`}$('#qrk').innerHTML=q;
+$('#puan').innerHTML=Array.from({length:10},(_,i)=>`<span style="flex:1;height:10px;border-radius:5px;background:${i<9?'#ff8a80':'rgba(255,255,255,.2)'}"></span>`).join('');
+function ariza(){$('#qsonuc').innerHTML='<div class="kart"><b>Arıza bildirimi</b><div class="secim">'+['Para almıyor','Su akmıyor','Ekran kapalı','Kapak açılmıyor','Diğer'].map(x=>`<button onclick="this.parentNode.parentNode.innerHTML='<b>Teşekkürler ✓</b><p class=g>Bildirim Bornova bayisinin telefonuna ve merkez teknik ekibe iletildi. Takip no: AQ-24817</p>'">${x}</button>`).join('')+'</div></div>'}
+function yorum(){$('#qsonuc').innerHTML='<div class="kart"><b>Memnun kaldınız mı?</b><div class="secim"><button onclick="this.parentNode.parentNode.innerHTML=\'<b>Harika!</b><p class=g>Google yorum sayfası açılır (bu noktanın kaydı). Mutlu müşteri yorumu = haritada üst sıra.</p>\'">👍 Evet</button><button onclick="this.parentNode.parentNode.innerHTML=\'<b>Üzgünüz</b><p class=g>Geri bildiriminiz Google yerine doğrudan bayiye iletilir, sorun çözülür.</p>\'">👎 Hayır</button></div></div>'}
+$('#rc').innerHTML=N.map((n,i)=>`<option value="${i}" ${i<3?'selected':''}>${n[1]}</option>`).join('');
+function rh(){const s=[...$('#rc').selectedOptions].length,h=+$('#rs').value;$('#rg').textContent=(s*180).toLocaleString('tr-TR')+' kişi';$('#rt').textContent=(s*h*750).toLocaleString('tr-TR')+' ₺'}
+$('#rc').onchange=rh;$('#rs').onchange=rh;rh();$('#rf').onsubmit=e=>{e.preventDefault();$('#modIc').innerHTML='<h2>Reklam talebi alındı ✓</h2><p class="g">Gerçek sistemde iyzico/PayTR ile ödeme alınır, görsel bayi onayına düşer, onaylanınca seçilen cihazların ekranında yayına girer.</p>';mod.classList.add('on')};
+$('#gt').innerHTML=N.slice(0,8).map(n=>`<tr><td>${n[1]}</td><td><span class="etk ${n[4]==='kapali-google'?'e-hata':n[4]==='bakim'?'e-uy':'e-ok'}">${n[4]==='kapali-google'?'Kalıcı olarak kapalı ⚠':n[4]==='bakim'?'Geçici kapalı':'Açık ✓'}</span></td></tr>`).join('');
+</script></body></html>

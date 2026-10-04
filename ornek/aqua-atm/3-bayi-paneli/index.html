@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aqua ATM Bayi & Distribütör Paneli (Prototip 3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/aqua.css">
+<style>
+.duzen{display:grid;grid-template-columns:230px 1fr;min-height:100vh}@media(max-width:860px){.duzen{grid-template-columns:1fr}.sol{position:static!important;height:auto!important;display:flex;overflow:auto}.sol a{white-space:nowrap}}
+.sol{background:var(--d);color:#cfd5de;padding:18px 12px;position:sticky;top:0;height:100vh}.sol .logo{color:#fff;margin:0 8px 18px}.sol a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;cursor:pointer}.sol a.on,.sol a:hover{background:rgba(229,50,43,.18);color:#fff}
+.ana{padding:22px}.bas{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}.rol{display:flex;gap:6px}.rol button{border:1px solid var(--c);background:var(--k);color:var(--y);border-radius:999px;padding:8px 14px;font:600 13px Inter;cursor:pointer}.rol button.on{background:var(--r);color:#fff;border-color:var(--r)}
+.kpi .kart small{color:var(--g);font-weight:700}.kpi .kart b{display:block;font:800 28px "Plus Jakarta Sans";margin-top:4px}.kpi .kart span{font-size:13px}
+.sayfa{display:none}.sayfa.on{display:block}
+.grafik{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:10px}.grafik div{flex:1;background:linear-gradient(180deg,var(--o),var(--r));border-radius:6px 6px 0 0;position:relative}.grafik div span{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:11px;color:var(--g)}
+.huni>div{display:flex;align-items:center;gap:12px;margin-bottom:8px}.huni i{display:block;height:34px;border-radius:8px;background:linear-gradient(90deg,var(--r),var(--o))}.huni b{min-width:150px;font-size:14px}
+.btn-k{padding:7px 12px;font-size:13px}
+</style></head><body>
+<div class="duzen">
+<aside class="sol"><a class="logo" style="display:flex"><img src="../img/logo.png" alt="" style="width:30px;height:30px">Aqua ATM</a>
+<a data-s="ozet" class="on">📊 Özet</a><a data-s="cihaz">🚰 Cihazlarım</a><a data-s="bakim">🧰 Bakım & arıza</a><a data-s="aday">🧲 Bayi adayları</a><a data-s="reklam">📺 Ekran reklamları</a><a data-s="google">🔎 Google kayıtları</a></aside>
+<main class="ana">
+<div class="bas"><div><h2 style="margin:0" id="baslik">Merhaba, Ege Bölge Distribütörü</h2><div class="g" style="font-size:14px">Bugün, 4 Ekim · 38 cihaz · 21 bayi</div></div>
+<div class="rol"><button class="on" data-r="dist">Distribütör</button><button data-r="bayi">Bayi</button><button data-r="merkez">Merkez</button></div></div>
+
+<section class="sayfa on" id="s-ozet">
+<div class="izg i4 kpi"><div class="kart"><small>Bugünkü dolum</small><b id="k1">1.284</b><span class="g">5 lt + 19 lt</span></div><div class="kart"><small>Bugünkü ciro</small><b id="k2">24.860 ₺</b><span style="color:var(--ok)">▲ dün +%</span></div><div class="kart"><small>Filtre zamanı gelen</small><b style="color:var(--uy)">4 cihaz</b><span class="g">7 gün içinde</span></div><div class="kart"><small>Açık arıza</small><b style="color:var(--r)">2</b><span class="g">ort. çözüm 5 sa</span></div></div>
+<div class="izg i2" style="margin-top:18px"><div class="kart"><b>Son 14 gün ciro</b><div class="grafik" id="graf"></div><div style="height:22px"></div></div>
+<div class="kart"><b>Yapılacaklar</b><table style="margin-top:6px"><tr><td>🧰 Bornova · Kazımdirik filtre değişimi</td><td><span class="etk e-uy">2 gün</span></td></tr><tr><td>🔧 Karşıyaka · Bostanlı "para almıyor"</td><td><span class="etk e-hata">Açık</span></td></tr><tr><td>🧲 3 yeni bayi adayı (puan 75+)</td><td><span class="etk e-ok">Ara</span></td></tr><tr><td>🔎 Bayraklı Google kaydı "kalıcı kapalı"</td><td><span class="etk e-hata">Düzelt</span></td></tr><tr><td>📺 Kardeşler Fırını reklam onayı</td><td><span class="etk e-uy">Onay bekliyor</span></td></tr></table></div></div>
+</section>
+
+<section class="sayfa" id="s-cihaz"><div class="kart"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><b>Cihazlar</b><input id="cq" placeholder="Ara…" style="padding:9px 12px;border:1px solid var(--c);border-radius:10px;background:var(--bg);color:var(--y)"></div>
+<div style="overflow:auto"><table style="margin-top:10px"><thead><tr><th>Nokta</th><th>Bayi</th><th>Bugün</th><th>Bu ay</th><th>Filtre</th><th>Durum</th></tr></thead><tbody id="ct"></tbody></table></div>
+<p class="not">Satış verisi cihazdan otomatik (kartlı modelde) ya da bayinin günlük sayaç girişiyle gelir.</p></div></section>
+
+<section class="sayfa" id="s-bakim"><div class="izg i2"><div class="kart"><b>Açık arızalar</b><div id="ar"></div></div>
+<div class="kart"><b>Filtre & bakım takvimi</b><p class="g" style="font-size:14px">Her cihazın litre sayacına göre sediment, karbon ve membran filtresi değişimi otomatik planlanır; bayiye 7 gün ve 1 gün önce WhatsApp hatırlatması gider.</p><table><tr><td>Bornova · Kazımdirik</td><td>Sediment</td><td><span class="etk e-uy">2 gün</span></td></tr><tr><td>Menemen · Ulukent</td><td>Karbon</td><td><span class="etk e-uy">5 gün</span></td></tr><tr><td>Bergama · Merkez</td><td>Membran</td><td><span class="etk e-ok">41 gün</span></td></tr><tr><td>Dikili · Sahil</td><td>UV lamba</td><td><span class="etk e-uy">6 gün</span></td></tr></table></div></div></section>
+
+<section class="sayfa" id="s-aday"><div class="izg i2"><div class="kart"><b>Bayi adayı hunisi (bu ay)</b><div class="huni" style="margin-top:14px"><div><b>Siteden başvuru</b><i style="width:100%"></i>142</div><div><b>Lokasyon puanı 55+</b><i style="width:62%"></i>88</div><div><b>Arandı</b><i style="width:45%"></i>64</div><div><b>Saha ziyareti</b><i style="width:20%"></i>29</div><div><b>Sözleşme</b><i style="width:8%"></i>11</div></div>
+<p class="not">Başvuru, ilin bağlı olduğu bölge distribütörüne otomatik düşer; 24 saatte aranmayan aday merkeze eskalasyon olur.</p></div>
+<div class="kart"><b>Yeni adaylar</b><table id="at" style="margin-top:6px"></table></div></div></section>
+
+<section class="sayfa" id="s-reklam"><div class="kart"><b>Ekran reklam rezervasyonları</b><table style="margin-top:8px"><tr><th>Reklam veren</th><th>Cihaz</th><th>Süre</th><th>Tutar</th><th>Durum</th></tr>
+<tr><td>Kardeşler Fırını</td><td>Bornova, Menemen</td><td>1 ay</td><td>1.500 ₺</td><td><button class="btn btn-r btn-k" onclick="this.outerHTML='<span class=&quot;etk e-ok&quot;>Yayında</span>'">Onayla</button></td></tr>
+<tr><td>Ege Eczanesi</td><td>Karşıyaka</td><td>3 ay</td><td>2.250 ₺</td><td><span class="etk e-ok">Yayında</span></td></tr>
+<tr><td>Yıldız Emlak</td><td>Bergama ×2</td><td>1 hafta</td><td>375 ₺</td><td><span class="etk e-ok">Yayında</span></td></tr></table><p class="not">Bu ay ekran reklam geliri: 4.125 ₺ · bayiye aktarılan pay otomatik hesaplanır.</p></div></section>
+
+<section class="sayfa" id="s-google"><div class="kart"><b>Google Haritalar kayıt sağlığı</b><p class="g" style="font-size:14px">Her gece kontrol: kayıt var mı, durumu doğru mu, telefon/saat güncel mi, son yorumlar, puan.</p><table><tr><th>Nokta</th><th>Durum</th><th>Puan</th><th>Sorun</th><th></th></tr>
+<tr><td>Bayraklı · Manavkuyu</td><td><span class="etk e-hata">Kalıcı kapalı</span></td><td>4,6</td><td>Cihaz çalışıyor, Google kapalı gösteriyor</td><td><button class="btn btn-r btn-k" onclick="this.outerHTML='<span class=&quot;etk e-uy&quot;>Google’a iletildi</span>'">Düzelt</button></td></tr>
+<tr><td>Karşıyaka · Bostanlı</td><td><span class="etk e-ok">Açık</span></td><td>4,2</td><td>Son 30 günde 2 olumsuz yorum (para almıyor)</td><td><button class="btn btn-b btn-k">Yanıtla</button></td></tr>
+<tr><td>Dikili · Sahil</td><td><span class="etk e-uy">Kayıt yok</span></td><td>—</td><td>Haritada görünmüyor</td><td><button class="btn btn-r btn-k" onclick="this.outerHTML='<span class=&quot;etk e-uy&quot;>Oluşturuldu</span>'">Oluştur</button></td></tr>
+<tr><td>Bornova · Kazımdirik</td><td><span class="etk e-ok">Açık</span></td><td>4,8</td><td>—</td><td></td></tr></table></div></section>
+</main></div>
+<div class="demo">Prototip · örnek veriler · Dijitabela · <a href="../index.html">tüm öneriler</a></div>
+<script>
+const $=s=>document.querySelector(s);
+document.querySelectorAll('[data-s]').forEach(a=>a.onclick=()=>{document.querySelectorAll('[data-s]').forEach(x=>x.classList.toggle('on',x===a));document.querySelectorAll('.sayfa').forEach(x=>x.classList.toggle('on',x.id==='s-'+a.dataset.s))});
+const R={dist:['Merhaba, Ege Bölge Distribütörü','Bugün, 4 Ekim · 38 cihaz · 21 bayi'],bayi:['Merhaba, Bornova bayisi','Bugün, 4 Ekim · 3 cihaz'],merkez:['Aqua ATM Merkez','Bugün, 4 Ekim · 700 cihaz · 7 bölge · 312 bayi']};
+document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-r]').forEach(x=>x.classList.toggle('on',x===b));$('#baslik').textContent=R[b.dataset.r][0];$('#baslik').nextElementSibling.textContent=R[b.dataset.r][1];const m={dist:1,bayi:.09,merkez:18}[b.dataset.r];$('#k1').textContent=Math.round(1284*m).toLocaleString('tr-TR');$('#k2').textContent=Math.round(24860*m).toLocaleString('tr-TR')+' ₺'});
+$('#graf').innerHTML=[62,70,58,75,81,66,90,72,78,85,69,88,94,83].map((v,i)=>`<div style="height:${v}%"><span>${i+21>30?i-9:i+21}</span></div>`).join('');
+const C=[['Bornova · Kazımdirik','Ece Su','142','3.980','2 gün','e-ok','Açık'],['Bayraklı · Manavkuyu','Körfez Ticaret','118','3.420','23 gün','e-ok','Açık'],['Karşıyaka · Bostanlı','Mavi Damla','0','2.610','12 gün','e-hata','Arıza'],['Menemen · Ulukent','Merkez','96','2.870','5 gün','e-ok','Açık'],['Bergama · Merkez','Bergama Su','131','3.770','41 gün','e-ok','Açık'],['Dikili · Sahil','Sahil Gıda','88','2.140','6 gün','e-uy','Filtre'],['Selçuk · Atatürk','Efes Market','104','3.050','19 gün','e-ok','Açık']];
+function ct(f=''){$('#ct').innerHTML=C.filter(c=>c.join(' ').toLocaleLowerCase('tr').includes(f.toLocaleLowerCase('tr'))).map(c=>`<tr><td>${c[0]}</td><td>${c[1]}</td><td>${c[2]}</td><td>${c[3]} dolum</td><td>${c[4]}</td><td><span class="etk ${c[5]}">${c[6]}</span></td></tr>`).join('')}ct();$('#cq').oninput=e=>ct(e.target.value);
+$('#ar').innerHTML=[['Karşıyaka · Bostanlı','Para almıyor','QR bildirimi · 2 sa önce'],['Selçuk · Atatürk','Ekran kapalı','Bayi bildirimi · dün']].map(a=>`<div style="border-top:1px solid var(--c);padding:10px 0"><b>${a[0]}</b> — ${a[1]}<div class="g" style="font-size:13px">${a[2]}</div><div style="display:flex;gap:6px;margin-top:6px"><button class="btn btn-r btn-k" onclick="this.parentNode.innerHTML='<span class=&quot;etk e-uy&quot;>Teknisyen atandı · Ahmet U.</span>'">Teknisyen ata</button><button class="btn btn-b btn-k" onclick="this.parentNode.innerHTML='<span class=&quot;etk e-ok&quot;>Çözüldü</span>'">Çözüldü</button></div></div>`).join('');
+$('#at').innerHTML='<tr><th>Aday</th><th>İl</th><th>Puan</th><th></th></tr>'+[['M. Kaya','İzmir · Torbalı',86],['S. Demir','Manisa · Salihli',78],['A. Yıldız','Aydın · Söke',75],['H. Arslan','İzmir · Buca',52]].map(a=>`<tr><td>${a[0]}</td><td>${a[1]}</td><td><span class="etk ${a[2]>=75?'e-ok':'e-uy'}">${a[2]}</span></td><td><button class="btn btn-w btn-k">WhatsApp</button></td></tr>`).join('');
+</script></body></html>
