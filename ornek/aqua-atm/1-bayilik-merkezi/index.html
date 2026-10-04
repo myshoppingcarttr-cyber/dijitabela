@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-12T23:59:00+03:00" data-slug="aqua-atm"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Aqua ATM Bayilik · Su Otomatı Yatırım Merkezi (Prototip 1)</title>
 <meta name="description" content="Aqua ATM su otomatı bayiliği: kendi rakamlarınızla kazanç hesaplayın, lokasyonunuzu 2 dakikada test edin, bölge temsilcinizle görüşün.">
@@ -40,9 +40,9 @@ details{background:var(--k);border:1px solid var(--c);border-radius:14px;padding
 <div class="hes" style="margin-top:24px">
 <div class="kart">
 <label class="g" style="font-size:13px;font-weight:700">Lokasyon tipi</label>
-<div class="secim" id="tip"><button data-v="1.15" class="on">Market / bakkal</button><button data-v="1.35">Akaryakıt</button><button data-v="1.0">Site / apartman</button><button data-v="0.85">Ara sokak</button><button data-v="1.5">Çarşı / meydan</button></div>
-<div style="margin-top:18px"><div class="sat"><span>Günlük 19 lt dolum</span><b id="v19">70</b></div><input type="range" id="d19" min="10" max="250" value="70"></div>
-<div style="margin-top:12px"><div class="sat"><span>Günlük 5 lt dolum</span><b id="v5">60</b></div><input type="range" id="d5" min="0" max="250" value="60"></div>
+<div class="secim" id="tip"><button data-v="1" class="on">Market / bakkal</button><button data-v="1.2">Akaryakıt</button><button data-v="0.9">Site / apartman</button><button data-v="0.7">Ara sokak</button><button data-v="1.3">Çarşı / meydan</button></div>
+<div style="margin-top:18px"><div class="sat"><span>Günlük 19 lt dolum</span><b id="v19">35</b></div><input type="range" id="d19" min="5" max="200" value="35"></div>
+<div style="margin-top:12px"><div class="sat"><span>Günlük 5 lt dolum</span><b id="v5">30</b></div><input type="range" id="d5" min="0" max="200" value="30"></div>
 <div style="margin-top:12px"><div class="sat"><span>19 lt fiyatı (₺)</span><b id="vf19">30</b></div><input type="range" id="f19" min="15" max="60" value="30"></div>
 <div style="margin-top:12px"><div class="sat"><span>5 lt fiyatı (₺)</span><b id="vf5">10</b></div><input type="range" id="f5" min="5" max="25" value="10"></div>
 <div style="margin-top:12px"><div class="sat"><span>Aylık gider (elektrik, filtre, kira payı) ₺</span><b id="vg">6.000</b></div><input type="range" id="gid" min="1000" max="30000" step="500" value="6000"></div>
@@ -70,7 +70,7 @@ details{background:var(--k);border:1px solid var(--c);border-radius:14px;padding
 </div></div></section>
 
 <section class="bol" id="surec"><div class="kap">
-<span class="rozet">Bayilik süreci</span><h2>Başvurudan ilk dolum'a 5 adım</h2>
+<span class="rozet">Bayilik süreci</span><h2>Başvurudan ilk doluma 5 adım</h2>
 <div class="izg i3 adim" style="margin-top:20px">
 <div class="kart"><h3>Lokasyon analizi</h3><p class="g">Bölge, geçiş yoğunluğu, rakip otomatlar ve görünürlük değerlendirilir.</p></div>
 <div class="kart"><h3>Belgeler</h3><p class="g">Vergi levhası (NACE 479910 + gıda), belediye izni / işgaliye; hepsi kontrol listesiyle.</p></div>
@@ -118,7 +118,7 @@ details{background:var(--k);border:1px solid var(--c);border-radius:14px;padding
 <div class="demo">Prototip · Dijitabela · <a href="../index.html">tüm öneriler</a></div>
 <script>
 const $=s=>document.querySelector(s),tl=n=>Math.round(n).toLocaleString('tr-TR');
-let carpan=1.15;
+let carpan=1;
 document.querySelectorAll('#tip button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tip button').forEach(x=>x.classList.remove('on'));b.classList.add('on');carpan=+b.dataset.v;hesapla()});
 function hesapla(){const d19=+$('#d19').value*carpan,d5=+$('#d5').value*carpan,f19=+$('#f19').value,f5=+$('#f5').value,g=+$('#gid').value,y=+$('#yat').value;
 $('#v19').textContent=Math.round(d19);$('#v5').textContent=Math.round(d5);$('#vf19').textContent=f19;$('#vf5').textContent=f5;$('#vg').textContent=tl(g);$('#vy').textContent=tl(y);
