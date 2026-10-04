@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-11T23:59:00+03:00" data-slug="cch-teknoloji"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CCH Teknoloji · Anlık 3D Baskı Fiyatı</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f4f6;--k:#fff;--k2:#f8f9fb;--y:#111418;--g:#5f6776;--c:#e2e5ea;--a:#ff6a1a;--d:#0f1216;--ok:#16a34a}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1014;--k:#151a20;--k2:#1b2129;--y:#eef1f5;--g:#9aa3b0;--c:#28303a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--y);font:16px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.12;margin:0 0 10px}
+.kap{max-width:1220px;margin:0 auto;padding:0 18px}.g{color:var(--g)}
+.prot{background:var(--d);color:#ffb37a;font-size:13px;font-weight:700;text-align:center;padding:8px}.prot a{color:#fff}
+header{background:var(--d) url(../img/banner-x3.webp) center/cover;position:relative;color:#fff;padding:54px 0 40px}
+header:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,18,22,.95),rgba(15,18,22,.6))}
+header .kap{position:relative}header h1{font-size:clamp(30px,4.4vw,52px);max-width:760px}header p{max-width:640px;color:#cfd6df;margin:0}
+.adim{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.adim span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:6px 12px;font-size:13px}
+.ana{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;margin:24px auto 60px}
+.k{background:var(--k);border:1px solid var(--c);border-radius:18px;padding:18px}
+.yukle{border:2px dashed var(--c);border-radius:16px;padding:26px;text-align:center;cursor:pointer;transition:.2s;background:var(--k2)}
+.yukle.ust{border-color:var(--a);background:rgba(255,106,26,.06)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;padding:11px 16px;font:700 14px Inter;cursor:pointer;background:var(--a);color:#fff}
+.btn.ik{background:var(--k2);color:var(--y);border:1px solid var(--c)}
+canvas{width:100%;aspect-ratio:4/3;border-radius:14px;background:radial-gradient(circle at 50% 40%,#2a313b,#0f1216);display:block;cursor:grab;touch-action:none}
+.olcu{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.olcu div{background:var(--k2);border:1px solid var(--c);border-radius:12px;padding:10px}.olcu b{display:block;font-size:17px}.olcu span{font-size:12px;color:var(--g)}
+label.l{display:block;font-size:13px;font-weight:700;color:var(--g);margin:14px 0 6px}
+.sec{display:flex;gap:6px;flex-wrap:wrap}.sec button{border:1px solid var(--c);background:var(--k2);color:var(--y);border-radius:10px;padding:8px 11px;font:600 13px Inter;cursor:pointer;display:flex;align-items:center;gap:6px}
+.sec button.s{border-color:var(--a);background:rgba(255,106,26,.12)}
+.sec i{width:12px;height:12px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.2)}
+input[type=range]{width:100%;accent-color:var(--a)}
+.fiyat{background:var(--d);color:#fff;border-radius:16px;padding:18px;margin-top:16px}
+.fiyat .b{font:700 40px "Space Grotesk";color:#ffb37a}.fiyat .satir{display:flex;justify-content:space-between;font-size:14px;color:#c6ced8;padding:3px 0}
+.uyum{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.uyum span{font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--k2);border:1px solid var(--c)}
+.uyum span.ok{background:rgba(22,163,74,.12);color:var(--ok);border-color:transparent}.uyum span.no{opacity:.45;text-decoration:line-through}
+.takip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.takip div{text-align:center;font-size:12px;color:var(--g);padding:10px 4px;border-radius:10px;background:var(--k2);border:1px solid var(--c)}
+.takip div.on{background:rgba(22,163,74,.12);color:var(--ok);border-color:transparent;font-weight:700}
+.wa{background:#efeae2;border-radius:14px;padding:12px;margin-top:12px;color:#111;font-size:14px}.wa div{background:#d9fdd3;border-radius:10px;padding:9px 11px;max-width:92%;margin-left:auto}
+.alt3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:70px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,150px);background:#111;color:#fff;padding:13px 18px;border-radius:12px;z-index:90;transition:.35s;font-size:14px;max-width:calc(100vw - 32px)}.toast.ac{transform:translate(-50%,0)}
+@media(max-width:920px){.ana,.alt3{grid-template-columns:1fr}.olcu{grid-template-columns:1fr 1fr}.takip{grid-template-columns:repeat(3,1fr)}}
+</style></head><body>
+<div class="prot">Dijitabela tarafından CCH Teknoloji için hazırlanmış çalışan prototip · <a href="../">← 3 seçeneğe dön</a></div>
+<header><div class="kap">
+ <h1>Dosyanızı yükleyin, 3D baskı fiyatını <span style="color:#ffb37a">anında</span> görün.</h1>
+ <p>Bugünkü formda 10 MB sınırı var, büyük dosyalar WeTransfer ile gönderiliyor ve fiyat için dönüş bekleniyor. Bu sistemde STL dosyası tarayıcıda okunur; hacim, ağırlık, süre ve fiyat saniyeler içinde çıkar, sipariş tek tıkla verilir.</p>
+ <div class="adim"><span>① STL yükle (sınırsız boyut)</span><span>② Malzeme · doluluk · adet</span><span>③ Anlık fiyat ve süre</span><span>④ Sipariş + WhatsApp'tan takip</span></div>
+</div></header>
+<main class="kap ana">
+ <div class="k">
+  <div class="yukle" id="yukle"><b>STL dosyanızı buraya sürükleyin</b><div class="g" style="font-size:14px;margin:6px 0 12px">veya</div><label class="btn" style="display:inline-flex">Dosya seç<input type="file" accept=".stl" id="dosya" hidden></label> <button class="btn ik" onclick="ornek()">Örnek parça yükle</button><div class="g" style="font-size:12px;margin-top:10px">Dosya sunucuya gitmeden tarayıcınızda analiz edilir.</div></div>
+  <div style="margin-top:14px;position:relative"><canvas id="cv" width="800" height="600"></canvas><div id="dad" style="position:absolute;left:14px;top:12px;color:#fff;font-size:13px;opacity:.85"></div><div style="position:absolute;right:14px;bottom:10px;color:#fff;font-size:12px;opacity:.6">sürükleyerek döndürün</div></div>
+  <div class="olcu"><div><span>Boyut (mm)</span><b id="o-boy">—</b></div><div><span>Hacim</span><b id="o-hac">—</b></div><div><span>Yüzey</span><b id="o-yuz">—</b></div><div><span>Üçgen</span><b id="o-ucg">—</b></div></div>
+  <div class="uyum" id="uyum"></div>
+ </div>
+ <div class="k">
+  <h3>Baskı ayarları</h3>
+  <label class="l">Malzeme</label><div class="sec" id="mal"></div>
+  <label class="l">Doluluk: <span id="d-y">30</span>%</label><input type="range" min="10" max="100" step="5" value="30" id="dol">
+  <label class="l">Katman kalitesi</label><div class="sec" id="kat"><button data-v="0.3" data-c="0.75">Hızlı · 0,3 mm</button><button data-v="0.2" data-c="1" class="s">Standart · 0,2 mm</button><button data-v="0.1" data-c="1.8">İnce · 0,1 mm</button></div>
+  <label class="l">Adet</label><div class="sec" id="adet"><button data-v="1" class="s">1</button><button data-v="5">5</button><button data-v="10">10</button><button data-v="50">50</button><button data-v="100">100</button></div>
+  <label class="l">Son işlem</label><div class="sec" id="son"><button data-v="0" class="s">Yok</button><button data-v="1">Destek temizliği</button><button data-v="2">Zımpara + astar</button><button data-v="3">3D Layer Hider yüzey</button></div>
+  <div class="fiyat"><div style="font-size:13px;color:#9aa3b0">Tahmini toplam (KDV hariç)</div><div class="b" id="f-top">—</div>
+   <div class="satir"><span>Parça başı</span><b id="f-adet">—</b></div><div class="satir"><span>Tahmini ağırlık</span><b id="f-gr">—</b></div><div class="satir"><span>Baskı süresi</span><b id="f-sure">—</b></div><div class="satir"><span>Teslim</span><b id="f-tes">—</b></div>
+   <div class="satir" id="f-ind" style="color:#86efac"></div>
+  </div>
+  <button class="btn" style="width:100%;margin-top:12px" onclick="siparis()">Siparişi onayla</button>
+  <div id="sip"></div>
+ </div>
+</main>
+<div class="kap alt3">
+ <div class="k"><h3>Kurumsal hesaplar</h3><p class="g" style="margin:0">Firmalar dosyalarını kaydeder, aynı parçayı tek tıkla tekrar sipariş eder, aylık fatura alır.</p></div>
+ <div class="k"><h3>Fiyatı siz belirlersiniz</h3><p class="g" style="margin:0">Malzeme gram fiyatı, makine saati ve minimum tutar CCH panelinden değiştirilir; site anında günceller.</p></div>
+ <div class="k"><h3>Satışa köprü</h3><p class="g" style="margin:0">Sık baskı yaptıran müşteriye otomatik öneri: "Bu hacimde yılda X TL ödüyorsunuz, M30 ile kendiniz basın."</p></div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="../ortak/veri.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function toast(t){const x=$("#toast");x.innerHTML=t;x.classList.add("ac");clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove("ac"),3200)}
+let T=null,M={hac:0,yuz:0,bb:[0,0,0],ad:""},rx=-0.6,ry=0.7;
+const cv=$("#cv"),cx=cv.getContext("2d");
+// --- STL okuma ---
+function stlOku(buf){const dv=new DataView(buf);const n=dv.getUint32(80,true);let tris;
+ if(84+n*50===buf.byteLength){tris=new Float32Array(n*9);for(let i=0;i<n;i++){const o=84+i*50+12;for(let j=0;j<9;j++)tris[i*9+j]=dv.getFloat32(o+j*4,true)}}
+ else{const t=new TextDecoder().decode(buf);const v=t.match(/vertex\s+[-\d.eE+]+\s+[-\d.eE+]+\s+[-\d.eE+]+/g)||[];tris=new Float32Array(v.length*3);v.forEach((s,i)=>{const p=s.trim().split(/\s+/);tris[i*3]=+p[1];tris[i*3+1]=+p[2];tris[i*3+2]=+p[3]})}
+ return tris}
+function analiz(tris,ad){T=tris;let V=0,A=0,mn=[1e9,1e9,1e9],mx=[-1e9,-1e9,-1e9];
+ for(let i=0;i<tris.length;i+=9){const a=[tris[i],tris[i+1],tris[i+2]],b=[tris[i+3],tris[i+4],tris[i+5]],c=[tris[i+6],tris[i+7],tris[i+8]];
+  V+=(a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]))/6;
+  const u=[b[0]-a[0],b[1]-a[1],b[2]-a[2]],w=[c[0]-a[0],c[1]-a[1],c[2]-a[2]];A+=Math.hypot(u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0])/2;
+  for(const p of [a,b,c])for(let k=0;k<3;k++){mn[k]=Math.min(mn[k],p[k]);mx[k]=Math.max(mx[k],p[k])}}
+ M={hac:Math.abs(V)/1000,yuz:A/100,bb:mx.map((v,k)=>v-mn[k]),mn,mx,ad};
+ $("#o-boy").textContent=M.bb.map(v=>v.toFixed(0)).join("×");$("#o-hac").textContent=M.hac.toFixed(1)+" cm³";$("#o-yuz").textContent=M.yuz.toFixed(0)+" cm²";$("#o-ucg").textContent=(tris.length/9).toLocaleString("tr-TR");$("#dad").textContent=ad;
+ const s=[...M.bb].sort((a,b)=>a-b);$("#uyum").innerHTML="<b style='font-size:13px;margin-right:4px'>Sığdığı yazıcılar:</b>"+CCH.yazicilar.filter(y=>y.hacim).map(y=>{const h=[...y.hacim].sort((a,b)=>a-b);const ok=s.every((v,i)=>v<=h[i]);return`<span class="${ok?"ok":"no"}">${y.ad}</span>`}).join("");
+ ciz();hesap()}
+// --- basit 3B çizim ---
+function ciz(){const W=cv.width,H=cv.height;cx.clearRect(0,0,W,H);if(!T)return;const c=M.mn.map((v,k)=>(v+M.mx[k])/2),sc=Math.min(W,H)*0.62/Math.max(...M.bb);
+ const cX=Math.cos(rx),sX=Math.sin(rx),cY=Math.cos(ry),sY=Math.sin(ry),step=Math.max(1,Math.floor(T.length/9/40000));const L=[];
+ const P=(x,y,z)=>{x-=c[0];y-=c[1];z-=c[2];let x1=x*cY+y*sY,y1=-x*sY+y*cY;let y2=y1*cX-z*sX,z2=y1*sX+z*cX;return[W/2+x1*sc,H/2-z2*sc,y2]};
+ for(let i=0;i<T.length;i+=9*step){const a=P(T[i],T[i+1],T[i+2]),b=P(T[i+3],T[i+4],T[i+5]),d=P(T[i+6],T[i+7],T[i+8]);const ux=b[0]-a[0],uy=b[1]-a[1],uz=b[2]-a[2],wx=d[0]-a[0],wy=d[1]-a[1],wz=d[2]-a[2];
+  let nx=uy*wz-uz*wy,ny=uz*wx-ux*wz,nz=ux*wy-uy*wx;const l=Math.hypot(nx,ny,nz)||1;L.push([a,b,d,(a[2]+b[2]+d[2])/3,Math.abs(nz/l)*0.55+Math.abs(ny/l)*0.2+0.25])}
+ L.sort((p,q)=>q[3]-p[3]);const m=CCH.baskiMalzeme[sMal];const rgb=m.renk.match(/\w\w/g).map(h=>parseInt(h,16));
+ for(const [a,b,d,,s] of L){cx.beginPath();cx.moveTo(a[0],a[1]);cx.lineTo(b[0],b[1]);cx.lineTo(d[0],d[1]);cx.closePath();const f=Math.min(1,s);cx.fillStyle=`rgb(${rgb.map(v=>Math.round(40+v*f*0.85)).join(",")})`;cx.fill()}}
+let drag=null;cv.onpointerdown=e=>{drag=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId)};cv.onpointermove=e=>{if(!drag)return;ry+=(e.clientX-drag[0])*0.01;rx+=(e.clientY-drag[1])*0.01;drag=[e.clientX,e.clientY];ciz()};cv.onpointerup=()=>drag=null;
+// --- örnek parça: flanşlı boru + kulak ---
+function ornek(){const t=[];const tri=(a,b,c)=>t.push(...a,...b,...c);const N=48;
+ const silindir=(r1,r2,z0,z1)=>{for(let i=0;i<N;i++){const a=i/N*2*Math.PI,b=(i+1)/N*2*Math.PI,o=(r,an,z)=>[r*Math.cos(an),r*Math.sin(an),z];
+  tri(o(r2,a,z0),o(r2,b,z0),o(r2,b,z1));tri(o(r2,a,z0),o(r2,b,z1),o(r2,a,z1));tri(o(r1,a,z0),o(r1,b,z1),o(r1,b,z0));tri(o(r1,a,z0),o(r1,a,z1),o(r1,b,z1));
+  tri(o(r1,a,z1),o(r2,b,z1),o(r1,b,z1));tri(o(r1,a,z1),o(r2,a,z1),o(r2,b,z1));tri(o(r1,a,z0),o(r1,b,z0),o(r2,b,z0));tri(o(r1,a,z0),o(r2,b,z0),o(r2,a,z0))}};
+ silindir(18,42,0,8);silindir(18,26,8,60);silindir(26,30,52,60);analiz(new Float32Array(t),"ornek-flansli-boru.stl")}
+// --- fiyat ---
+let sMal=0,sKat={v:.2,c:1},sAdet=1,sSon=0;
+$("#mal").innerHTML=CCH.baskiMalzeme.map((m,i)=>`<button data-i="${i}" class="${i?"":"s"}"><i style="background:${m.renk}"></i>${m.ad}</button>`).join("");
+function grup(id,fn){$$("#"+id+" button").forEach(b=>b.onclick=()=>{$$("#"+id+" button").forEach(x=>x.classList.remove("s"));b.classList.add("s");fn(b);hesap();ciz()})}
+grup("mal",b=>sMal=+b.dataset.i);grup("kat",b=>sKat={v:+b.dataset.v,c:+b.dataset.c});grup("adet",b=>sAdet=+b.dataset.v);grup("son",b=>sSon=+b.dataset.v);
+$("#dol").oninput=e=>{$("#d-y").textContent=e.target.value;hesap()};
+function hesap(){if(!M.hac)return;const m=CCH.baskiMalzeme[sMal],dol=+$("#dol").value/100;
+ const kabuk=Math.min(M.hac,M.yuz*0.12),ic=Math.max(0,M.hac-kabuk);const gr=(kabuk+ic*dol)*m.yogunluk*1.05;
+ const saat=Math.max(0.5,gr/14*sKat.c);const sonTL=[0,60,180,120][sSon]*Math.max(1,M.yuz/150);
+ const tek=Math.max(250,gr*m.tlGram+saat*45+sonTL);const ind=sAdet>=100?.35:sAdet>=50?.28:sAdet>=10?.18:sAdet>=5?.1:0;const top=tek*sAdet*(1-ind);
+ const gun=Math.ceil(saat*sAdet/20)+1+(sSon?1:0);
+ $("#f-top").textContent=Math.round(top).toLocaleString("tr-TR")+" ₺";$("#f-adet").textContent=Math.round(top/sAdet).toLocaleString("tr-TR")+" ₺";$("#f-gr").textContent=gr.toFixed(0)+" g";$("#f-sure").textContent=saat<1?Math.round(saat*60)+" dk":saat.toFixed(1)+" saat / adet";$("#f-tes").textContent=gun+" iş günü";$("#f-ind").innerHTML=ind?`<span>Adet indirimi</span><b>%${Math.round(ind*100)}</b>`:""}
+function siparis(){if(!M.hac){toast("Önce bir STL dosyası yükleyin ya da örnek parçayı deneyin.");return}const kod="CCH-"+(4000+Math.floor(Math.random()*900));
+ $("#sip").innerHTML=`<div class="k" style="margin-top:12px;padding:14px"><b>✅ Sipariş alındı · ${kod}</b><div class="takip"><div class="on">Alındı</div><div class="on">Dosya kontrol</div><div>Baskıda</div><div>Kalite kontrol</div><div>Kargoda</div></div><div class="wa"><div>CCH Teknoloji: ${kod} numaralı siparişiniz alındı. ${M.ad} · ${CCH.baskiMalzeme[sMal].ad} · ${sAdet} adet · ${$("#f-top").textContent}. Baskıya girince haber vereceğiz. 🖨️</div></div></div>`;toast("Sipariş CCH paneline düştü; müşteriye WhatsApp ve e-posta onayı gitti.")}
+// sürükle-bırak
+const y=$("#yukle");["dragenter","dragover"].forEach(e=>y.addEventListener(e,v=>{v.preventDefault();y.classList.add("ust")}));["dragleave","drop"].forEach(e=>y.addEventListener(e,v=>{v.preventDefault();y.classList.remove("ust")}));
+y.addEventListener("drop",e=>{const f=e.dataTransfer.files[0];if(f)oku(f)});$("#dosya").onchange=e=>{const f=e.target.files[0];if(f)oku(f)};
+function oku(f){f.arrayBuffer().then(b=>{try{analiz(stlOku(b),f.name);toast("Dosya analiz edildi: "+f.name)}catch(e){toast("Dosya okunamadı; geçerli bir STL seçin.")}})}
+ornek();
+</script></body></html>
