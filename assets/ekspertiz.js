@@ -98,6 +98,7 @@
       dugmeler + "</div>";
     s.appendChild(document.getElementById("eks-cta").content.cloneNode(true));
     s.hidden = false; s.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.dtOlay) window.dtOlay("ViewContent", { content_name: "Ekspertiz sonucu" });
 
     var rf = $("eks-rapor"), rd = rf.querySelector(".durum");
     if (ist && ist.ad) rf.isletme.value = ist.ad; else if (girdi.isletme) rf.isletme.value = girdi.isletme;

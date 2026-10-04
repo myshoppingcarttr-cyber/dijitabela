@@ -94,7 +94,7 @@
         return q(function (sb) { return a.id ? sb.from("adaylar").update(x).eq("id", a.id).select().single() : sb.from("adaylar").insert(x).select().single(); });
       },
       adaySil: function (id) { return q(function (sb) { return sb.from("adaylar").delete().eq("id", id); }); },
-      taslakIste: function (d) { return q(function (sb) { return sb.rpc("taslak_iste", { p: d }); }); },
+      taslakIste: function (d) { return q(function (sb) { return sb.rpc("taslak_iste", { p: d }); }).then(function (r) { if (window.dtOlay) window.dtOlay("Lead", { content_name: d.kaynak || "Taslak" }); return r; }); },
       adaylarIceAktar: function (list) { return q(function (sb) { return sb.from("adaylar").upsert(list, { onConflict: "slug" }).select("id"); }).then(function (r) { return (r || []).length; }); }
     };
   }
