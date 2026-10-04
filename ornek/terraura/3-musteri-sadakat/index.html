@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-11T23:59:00+03:00" data-slug="terraura"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Terraura · Müşteri Takibi ve Tekrar Satış (Prototip 3)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ef;--k:#fff;--y:#14262a;--g:#5f6f72;--c:#e4dfd3;--a:#0f5c63;--b:#c9a24a;--ok:#15803d;--h:#b42318;--s:#0b2a2e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--y);font:15px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 8px}.g{color:var(--g)}
+.demo{background:#14262a;color:#e9e4d6;font-size:13px;text-align:center;padding:7px 12px}.demo a{color:var(--b);font-weight:700}
+.duzen{display:grid;grid-template-columns:230px 1fr;min-height:calc(100vh - 34px)}
+aside{background:var(--s);color:#dfe8e7;padding:16px 12px}aside .lg{display:flex;align-items:center;gap:8px;font:700 18px Fraunces;color:#fff;margin-bottom:18px}aside img{width:32px}
+aside button{display:flex;width:100%;gap:10px;align-items:center;background:none;border:0;color:inherit;text-align:left;padding:10px 12px;border-radius:10px;font:600 14.5px Inter;cursor:pointer}
+aside button.on{background:rgba(201,162,74,.18);color:#f1d9a0}aside .rz{margin-left:auto;background:var(--b);color:#1c1606;border-radius:99px;font-size:11px;padding:1px 7px;font-weight:800}
+main{padding:20px;min-width:0}.gizli{display:none}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.kpi div{background:var(--k);border:1px solid var(--c);border-radius:14px;padding:12px 14px}
+.kpi b{display:block;font:700 24px Fraunces;color:var(--a)}.kpi span{font-size:13px;color:var(--g)}
+.kart{background:var(--k);border:1px solid var(--c);border-radius:16px;padding:16px;min-width:0}
+.izg{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:start}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:9px 6px;border-bottom:1px solid var(--c);text-align:left;vertical-align:top}th{color:var(--g);font-size:12px;letter-spacing:.06em}
+tr.sat{cursor:pointer}tr.sat:hover td{background:#f8f6f0}tr.on td{background:#eef6f5}
+.et{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:99px;margin:1px 2px 1px 0;background:#eef1f1;color:var(--g)}
+.et.k{background:#dbeafe;color:#1e4fa0}.et.c{background:#fde7f1;color:#9d174d}.et.e{background:#fff3d6;color:#8a5a00}.et.a{background:#dcfce7;color:var(--ok)}
+.uyari{color:var(--h);font-weight:700}.yakin{color:#8a5a00;font-weight:700}
+.zaman{border-left:3px solid var(--c);margin:10px 0 0 6px;padding-left:14px}.zaman div{position:relative;margin-bottom:12px}.zaman div:before{content:"";position:absolute;left:-21px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--a)}
+.foto{display:flex;gap:6px;margin-top:6px}.foto img{width:70px;height:56px;object-fit:cover;border-radius:8px}
+.dg{display:inline-flex;align-items:center;gap:8px;background:var(--a);color:#fff;border:0;border-radius:11px;padding:10px 16px;font-weight:800;cursor:pointer;text-decoration:none;font-size:14.5px}.dg.b{background:var(--b);color:#1c1606}
+.wa{background:#e6ddd3;border-radius:14px;padding:10px;margin-top:10px}.wa div{background:#dcf8c6;border-radius:10px;padding:8px 10px;font-size:13.5px;white-space:pre-line;margin:6px 0 0 auto;max-width:94%}
+.paket{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.paket .kart{display:flex;flex-direction:column;gap:6px}.paket .kart.on{border-color:var(--a);box-shadow:0 0 0 2px rgba(15,92,99,.15)}
+.paket i{font-style:normal;font-size:28px}.fiy{font:700 22px Fraunces;color:var(--a)}
+label{font-weight:700;font-size:14px;display:block;margin-top:10px}select,input{width:100%;padding:10px 12px;border:1px solid var(--c);border-radius:10px;font:inherit;margin-top:5px;background:var(--k);color:var(--y)}
+.yil{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:10px}.yil span{text-align:center;font-size:11px;padding:8px 0;border-radius:8px;background:#eef1f1;color:var(--g);font-weight:700}.yil span.on{background:var(--a);color:#fff}
+.bar{display:flex;align-items:flex-end;gap:8px;height:170px;margin-top:10px}.bar div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:var(--g)}.bar i{display:block;width:100%;background:var(--a);border-radius:6px 6px 0 0}.bar i.t{background:var(--b)}
+.not{font-size:12px;color:var(--g)}
+@media(max-width:980px){.duzen{grid-template-columns:1fr}aside{display:flex;gap:4px;overflow-x:auto;padding:8px}aside .lg{display:none}aside button{width:auto;white-space:nowrap}.izg{grid-template-columns:1fr}.paket{grid-template-columns:1fr 1fr}.kpi{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.paket{grid-template-columns:1fr}main{padding:14px}.gizle-m{display:none}}
+</style></head><body>
+<div class="demo">Prototip 3 / 3 · Müşteri takibi, tekrar satış ve kurumsal paketler · <a href="../">Tüm seçeneklere dön</a></div>
+<div class="duzen"><aside><div class="lg"><img src="../img/logo.webp" alt="">Terraura CRM</div>
+<button class="on" onclick="sek('musteri',this)">👥 Müşteriler</button>
+<button onclick="sek('hatirlat',this)">🔔 Hatırlatmalar <span class="rz" id="hrz">0</span></button>
+<button onclick="sek('kurumsal',this)">🏢 Kurumsal & ev sahibi</button>
+<button onclick="sek('yorum',this)">⭐ Yorum & referans</button>
+<button onclick="sek('kampanya',this)">📣 Kampanya</button>
+<button onclick="sek('rapor',this)">📈 Rapor</button></aside>
+<main>
+<section id="musteri"><div class="kpi"><div><b>412</b><span>Kayıtlı müşteri</span></div><div><b>%38</b><span>Tekrar gelen müşteri</span></div><div><b id="kb">0</b><span>Yıkaması yaklaşan</span></div><div><b>14</b><span>Kurumsal sözleşme</span></div></div>
+<div class="izg"><div class="kart"><h3>Müşteriler</h3><table id="mt"></table><p class="not">İsimler kurgusaldır. Gerçek sistemde her randevu ve WhatsApp yazışması müşteri kartına kendiliğinden işlenir.</p></div>
+<div class="kart" id="mkart"></div></div></section>
+
+<section id="hatirlat" class="gizli"><div class="kart"><h3>Tekrar yıkama hatırlatmaları</h3>
+<p class="g" style="margin-top:0">Koltuk yıkama tekrar eden bir hizmet: evlerde 6–12 ay, kafe ve ofislerde 1–3 ay. Sistem son yıkama tarihine göre kimin zamanı geldiğini bulur ve kişiye özel mesaj hazırlar. Siz sadece onaylarsınız.</p>
+<table id="ht"></table><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center"><button class="dg" onclick="hGonder()">Seçilenlere hatırlatma gönder</button><span class="g" id="hgelir"></span></div>
+<div id="hwa"></div></div></section>
+
+<section id="kurumsal" class="gizli"><h3>Sözleşmeli paketler</h3><p class="g" style="margin-top:0">Antalya'da kafe, restoran, otel, ofis ve kısa dönem kiralık ev sahipleri düzenli temizliğe ihtiyaç duyuyor. Tek seferlik iş yerine aylık düzenli gelir.</p>
+<div class="paket" id="paketler"></div>
+<div class="izg" style="margin-top:16px"><div class="kart"><h3>Teklif hazırla</h3><label>İşletme adı<input id="pIsl" value="Kafe Deniz"></label><label>Adet (sandalye / koltuk / daire)<input id="pAdet" type="number" value="24" min="1"></label>
+<label>Sıklık<select id="pSik"><option value="1">Her ay</option><option value="2">2 ayda bir</option><option value="3" selected>3 ayda bir</option><option value="6">6 ayda bir</option></select></label></div>
+<div class="kart" id="pTeklif"></div></div></section>
+
+<section id="yorum" class="gizli"><div class="izg"><div class="kart"><h3>Google yorum akışı</h3><p class="g" style="margin-top:0">İş bittikten 2 saat sonra memnuniyet sorusu gider. 4–5 puan verenlere Google yorum linki, 1–3 verenlere önce Mehmet Bey'in telefonu düşer; sorun yorum olmadan çözülür.</p>
+<div class="kpi" style="grid-template-columns:repeat(3,1fr)"><div><b>86</b><span>Bu ay soru giden</span></div><div><b>61</b><span>Memnun (4–5)</span></div><div><b>3</b><span>Hemen aranan</span></div></div>
+<div class="wa"><div>Merhaba Ayşe Hanım, bugünkü yıkamamızı 1–5 arası nasıl puanlarsınız? 🙏</div><div style="background:#fff;margin-left:0">5</div><div>Çok teşekkür ederiz! 🌟 Bir dakikanızı ayırıp Google'da yazarsanız bizim için çok değerli: g.page/terraura/yorum</div></div></div>
+<div class="kart"><h3>Arkadaşını getir</h3><p class="g" style="margin-top:0">Her müşteriye kişisel kod verilir. Kodu kullanan arkadaşa da, getiren müşteriye de bir sonraki yıkamada indirim tanımlanır (tutar örnek).</p>
+<div style="background:#14262a;color:#fff;border-radius:16px;padding:18px;text-align:center"><div class="g" style="color:#9fb3b2">Ayşe Hanım'ın kodu</div><div style="font:700 34px Fraunces;color:#c9a24a;letter-spacing:.08em">AYSE150</div><div>Arkadaşınıza 150 ₺, size 150 ₺ indirim</div></div>
+<table style="margin-top:12px"><tr><th>EN ÇOK GETİREN</th><th>KİŞİ</th><th>CİRO</th></tr><tr><td>Ayşe K.</td><td>4</td><td>5.600 ₺</td></tr><tr><td>Kafe Deniz</td><td>2</td><td>7.400 ₺</td></tr><tr><td>Selin B.</td><td>2</td><td>2.300 ₺</td></tr></table></div></div></section>
+
+<section id="kampanya" class="gizli"><div class="izg"><div class="kart"><h3>Hedefli kampanya</h3>
+<label>Kime?<select id="kSeg" onchange="kamp()"><option value="cocuk">Çocuklu evler (bebek yatağı yıkatmış)</option><option value="evcil">Evcil hayvanı olanlar</option><option value="evsahibi">Kısa dönem kiralık ev sahipleri</option><option value="eski">1 yıldır gelmeyenler</option><option value="ru">Rusça konuşan müşteriler</option></select></label>
+<label>Konu<select id="kKonu" onchange="kamp()"><option value="bahar">Bahar / sezon öncesi temizlik</option><option value="bayram">Bayram öncesi</option><option value="alerji">Alerji dönemi (UV-C)</option></select></label>
+<p class="g" id="kSay" style="margin-top:12px"></p><button class="dg b" onclick="this.textContent='✓ Gönderim kuyruğa alındı (prototip)'">Kampanyayı gönder</button>
+<p class="not">Mesajlar WhatsApp'ın kurallarına uygun, kişiye özel ve gün içine yayılarak gider. "İstemiyorum" diyen listeden çıkar.</p></div>
+<div class="kart"><h3>Önizleme</h3><div class="wa" id="kWa"></div></div></div></section>
+
+<section id="rapor" class="gizli"><div class="izg"><div class="kart"><h3>Aylık ciro (örnek veri)</h3><div class="bar" id="bar"></div><p class="not"><span style="color:var(--a)">■</span> yeni müşteri <span style="color:var(--b)">■</span> tekrar gelen müşteri. Hatırlatma sistemi açıldıktan sonra sarı bölümün büyümesi beklenir.</p></div>
+<div class="kart"><h3>İlçelere göre müşteri</h3><table id="ilt"></table></div></div></section>
+</main></div>
+
+<script src="../ortak/veri.js"></script>
+<script>
+const $ = (id) => document.getElementById(id), bugun = new Date();
+const gunOnce = (g) => { const d = new Date(bugun); d.setDate(d.getDate() - g); return d; };
+const tarih = (d) => d.toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "numeric" });
+// kurgusal müşteriler
+const M = [
+  { ad: "Ayşe K.", ilce: "Konyaaltı", tel: "0532 ••• 41 12", et: ["c"], son: 176, aralik: 180, top: 5600, gecmis: [["kanepe", 2], ["tekli", 2]], not: "Kadife kumaş, açık renk. Bebek yatağı da yıkatıyor." },
+  { ad: "Kafe Deniz", ilce: "Konyaaltı", tel: "0242 ••• 18 90", et: ["k"], son: 84, aralik: 90, top: 21400, gecmis: [["sandalye", 24]], not: "3 ayda bir sözleşmeli. Pazartesi kapalı, o gün gelinmeli." },
+  { ad: "Elena S.", ilce: "Konyaaltı", tel: "0549 ••• 77 03", et: ["e", "a"], son: 40, aralik: 60, top: 6100, gecmis: [["kanepe", 1], ["tekli", 1]], not: "Rusça. Airbnb dairesi, misafir değişimlerinde hızlı tazeleme." },
+  { ad: "Murat Y.", ilce: "Muratpaşa", tel: "0505 ••• 62 48", et: [], son: 210, aralik: 365, top: 2750, gecmis: [["chester", 1]], not: "Chester deri-kumaş karışık." },
+  { ad: "Selin B.", ilce: "Lara", tel: "0533 ••• 09 51", et: ["evcil"], son: 190, aralik: 180, top: 2300, gecmis: [["kose22", 1]], not: "İki kedi var, koku giderici kullanıldı." },
+  { ad: "Ofis Pera", ilce: "Muratpaşa", tel: "0242 ••• 33 70", et: ["k"], son: 25, aralik: 90, top: 9800, gecmis: [["ofis", 14]], not: "Cumartesi çalışılıyor." },
+  { ad: "Hakan T.", ilce: "Kepez", tel: "0542 ••• 85 26", et: ["c"], son: 370, aralik: 180, top: 1600, gecmis: [["kose33", 1]], not: "" },
+  { ad: "Villa Kemer (ev sahibi)", ilce: "Kemer", tel: "0536 ••• 14 07", et: ["e"], son: 58, aralik: 60, top: 12800, gecmis: [["kanepe", 3], ["yatak2", 4]], not: "Sezon başı ve sonu tam temizlik." }
+];
+const ETAD = { c: ["Çocuklu ev", "c"], k: ["Kurumsal", "k"], e: ["Ev sahibi", "e"], a: ["RU", "a"], evcil: ["Evcil hayvan", ""] };
+const kalan = (m) => m.aralik - m.son;
+function musteri(sec = 0) {
+  $("kb").textContent = M.filter((m) => kalan(m) <= 14).length;
+  $("mt").innerHTML = `<tr><th>MÜŞTERİ</th><th class="gizle-m">SON YIKAMA</th><th>SIRADAKİ</th></tr>` + M.map((m, i) => `<tr class="sat ${i === sec ? "on" : ""}" onclick="musteri(${i})"><td><b>${m.ad}</b><br>${m.et.map((e) => `<span class="et ${ETAD[e][1]}">${ETAD[e][0]}</span>`).join("")}</td><td class="gizle-m">${tarih(gunOnce(m.son))}</td><td class="${kalan(m) < 0 ? "uyari" : kalan(m) <= 14 ? "yakin" : ""}">${kalan(m) < 0 ? -kalan(m) + " gün geçti" : kalan(m) + " gün sonra"}</td></tr>`).join("");
+  const m = M[sec];
+  $("mkart").innerHTML = `<h3>${m.ad}</h3><div class="g">${m.ilce} · ${m.tel} · Toplam harcama <b>${tl(m.top)}</b></div>
+  <div style="background:#fff8e6;border:1px solid #f0dca8;border-radius:12px;padding:10px;margin-top:10px;font-size:14px">📝 ${m.not || "Not yok."}</div>
+  <div class="zaman"><div><b>${tarih(gunOnce(m.son))}</b> · ${m.gecmis.map(([k, n]) => n + " " + TR.urunler.find((u) => u.id === k).ad.split(" /")[0].toLowerCase()).join(", ")}<div class="foto"><img src="../img/is-kanepe.webp" alt=""><img src="../img/su-kova.webp" alt=""></div></div>
+  <div><b>${tarih(gunOnce(m.son + m.aralik))}</b> · İlk yıkama · WhatsApp'tan fotoğrafla teklif</div></div>
+  <div class="wa"><div>Merhaba ${m.ad.split(" ")[0]} 👋 Son yıkamanızın üzerinden ${Math.round(m.son / 30)} ay geçti. ${m.et.includes("c") ? "Çocuklu evlerde akar ve lekeler hızlı birikiyor; " : ""}${m.ilce} ekibimizin önümüzdeki hafta boş saatleri var. Aynı fiyattan randevu oluşturalım mı?</div></div>`;
+}
+function hatirlat() {
+  const L = M.filter((m) => kalan(m) <= 14);
+  $("hrz").textContent = L.length;
+  $("ht").innerHTML = `<tr><th></th><th>MÜŞTERİ</th><th>DURUM</th><th class="gizle-m">TAHMİNİ İŞ</th></tr>` + L.map((m) => `<tr><td><input type="checkbox" checked style="width:auto" data-i="${M.indexOf(m)}"></td><td><b>${m.ad}</b><br><span class="g">${m.ilce}</span></td><td class="${kalan(m) < 0 ? "uyari" : "yakin"}">${kalan(m) < 0 ? -kalan(m) + " gün geçti" : kalan(m) + " gün kaldı"}</td><td class="gizle-m">${tl(fiyatHesapla(Object.fromEntries(m.gecmis)).toplam)}</td></tr>`).join("");
+  $("hgelir").textContent = "Olası iş: " + tl(L.reduce((s, m) => s + fiyatHesapla(Object.fromEntries(m.gecmis)).toplam, 0));
+}
+function hGonder() {
+  const sec = [...document.querySelectorAll("#ht input:checked")].map((x) => M[+x.dataset.i]);
+  $("hwa").innerHTML = `<p style="margin-top:14px;font-weight:700">✓ ${sec.length} kişiye gönderildi (prototip). Örnek mesajlar:</p><div class="wa">` + sec.slice(0, 3).map((m) => `<div>${m.et.includes("a") ? "Здравствуйте, " + m.ad.split(" ")[0] + "! Пора освежить мебель перед новыми гостями. Записать вас на эту неделю?" : m.et.includes("k") ? `Merhaba, ${m.ad} sözleşmenizdeki periyodik yıkamanın zamanı geldi. Kapalı olduğunuz gün ekibimizi planlayalım mı?` : `Merhaba ${m.ad.split(" ")[0]} 👋 Son yıkamanızın üzerinden ${Math.round(m.son / 30)} ay geçti. Bu hafta ${m.ilce}'dayız, uygun bir saat ayarlayalım mı?`}</div>`).join("") + "</div>";
+}
+const PAKET = [
+  { id: "kafe", ik: "☕", ad: "Kafe – restoran", birim: 120, br: "sandalye", acik: "Kapalı gününüzde gelinir, iş akışı durmaz." },
+  { id: "ofis", ik: "💼", ad: "Ofis", birim: 200, br: "koltuk", acik: "Hafta sonu yıkama, pazartesi kuru." },
+  { id: "ev", ik: "🔑", ad: "Kiralık ev sahibi", birim: 650, br: "daire", acik: "Misafir değişiminde hızlı tazeleme, fotoğraflı rapor." },
+  { id: "otel", ik: "🏨", ad: "Otel – pansiyon", birim: 900, br: "oda", acik: "Sezon öncesi ve sonrası planlı temizlik." }
+];
+let paketSec = "kafe";
+function kurumsal() {
+  $("paketler").innerHTML = PAKET.map((p) => `<div class="kart ${p.id === paketSec ? "on" : ""}" style="cursor:pointer" onclick="paketSec='${p.id}';kurumsal()"><i>${p.ik}</i><b>${p.ad}</b><span class="g" style="font-size:14px">${p.acik}</span><span class="fiy">${tl(p.birim)}<small class="g" style="font:600 13px Inter"> / ${p.br}*</small></span></div>`).join("");
+  const p = PAKET.find((x) => x.id === paketSec), n = +$("pAdet").value || 1, sik = +$("pSik").value, yilda = 12 / sik, tek = p.birim * n, ind = sik <= 1 ? 0.2 : sik <= 3 ? 0.12 : 0.05;
+  const aylik = Math.round((tek * (1 - ind) * yilda) / 12 / 10) * 10;
+  $("pTeklif").innerHTML = `<h3>${$("pIsl").value} · ${p.ad} paketi</h3><div class="g">${n} ${p.br} · ${$("pSik").selectedOptions[0].text.toLowerCase()} · yılda ${yilda} ziyaret</div>
+  <div style="font:700 36px Fraunces;color:var(--a);margin-top:8px">${tl(aylik)}<small class="g" style="font:600 14px Inter"> / ay</small></div>
+  <div class="g">Tek seferlik fiyata göre %${Math.round(ind * 100)} düzenli müşteri indirimi · Yıllık ${tl(aylik * 12)}</div>
+  <div class="yil">${["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"].map((a, i) => `<span class="${i % sik === 0 ? "on" : ""}">${a}</span>`).join("")}</div>
+  <button class="dg" style="margin-top:12px" onclick="this.textContent='✓ PDF teklif oluşturuldu ve WhatsApp’a eklendi (prototip)'">PDF teklif oluştur</button><p class="not">* Birim fiyatlar prototip için örnektir; Terraura panelden belirler.</p>`;
+}
+["pAdet", "pSik", "pIsl"].forEach((id) => ($(id).oninput = kurumsal));
+const KAMP = { cocuk: ["Çocuklu evler", 64, "Merhaba {ad} 👋 Bebek yatağı ve koltuklarda akarlar fark edilmeden birikiyor. Bu ay çocuklu ailelere UV-C uygulaması dahil yıkama yapıyoruz. Randevu ister misiniz?"], evcil: ["Evcil hayvanı olanlar", 37, "Merhaba {ad} 🐾 Tüy ve koku için koku giderici uygulamalı yıkama paketimiz var. Bu hafta bölgenizdeyiz, uygun saat ayarlayalım mı?"], evsahibi: ["Kısa dönem kiralık ev sahipleri", 22, "Merhaba {ad} 🔑 Sezon başlamadan dairelerinizdeki koltuk ve yatakları tazeleyelim; misafir yorumlarında temizlik puanı yükselsin. Fotoğraflı raporla teslim ediyoruz."], eski: ["1 yıldır gelmeyenler", 118, "Merhaba {ad}, Terraura'dan yazıyoruz 👋 Son yıkamanızın üzerinden bir yıl geçti. Eski müşterilerimize bu ay öncelikli randevu veriyoruz."], ru: ["Rusça konuşan müşteriler", 41, "Здравствуйте, {ad}! Terraura: химчистка мебели на дому в Анталье. На этой неделе есть свободные окна в вашем районе."] };
+function kamp() {
+  const k = KAMP[$("kSeg").value], konu = { bahar: "Bahar temizliği", bayram: "Bayram öncesi", alerji: "Alerji dönemi" }[$("kKonu").value];
+  $("kSay").innerHTML = `<b>${k[1]}</b> kişi · ${k[0]} · Konu: ${konu}`;
+  $("kWa").innerHTML = `<div>${k[2].replace("{ad}", $("kSeg").value === "ru" ? "Елена" : "Ayşe Hanım")}</div>`;
+}
+function rapor() {
+  const ay = ["May", "Haz", "Tem", "Ağu", "Eyl", "Eki"], y = [62, 70, 58, 64, 75, 72], t = [14, 18, 22, 27, 34, 41], mx = 120;
+  $("bar").innerHTML = ay.map((a, i) => `<div><span style="font-weight:700;color:var(--y)">${Math.round((y[i] + t[i]) * 1.1)}B</span><div style="width:100%;display:flex;flex-direction:column"><i class="t" style="height:${(t[i] / mx) * 140}px"></i><i style="height:${(y[i] / mx) * 140}px;border-radius:0"></i></div>${a}</div>`).join("");
+  const il = [["Konyaaltı", 128], ["Muratpaşa", 96], ["Lara", 71], ["Kepez", 58], ["Döşemealtı", 24], ["Kemer", 19], ["Diğer", 16]];
+  $("ilt").innerHTML = `<tr><th>İLÇE</th><th>MÜŞTERİ</th><th></th></tr>` + il.map(([a, n]) => `<tr><td>${a}</td><td>${n}</td><td style="width:45%"><div style="height:9px;border-radius:99px;background:#e6ecea"><div style="height:100%;width:${(n / 128) * 100}%;background:var(--a);border-radius:99px"></div></div></td></tr>`).join("");
+}
+function sek(id, b) { document.querySelectorAll("main>section").forEach((s) => s.classList.toggle("gizli", s.id !== id)); document.querySelectorAll("aside button").forEach((x) => x.classList.toggle("on", x === b)); }
+musteri(); hatirlat(); kurumsal(); kamp(); rapor();
+</script>
+</body></html>

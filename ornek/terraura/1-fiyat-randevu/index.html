@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-11T23:59:00+03:00" data-slug="terraura"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Terraura · Anında Fiyat ve Online Randevu (Prototip 1)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ef;--k:#fff;--y:#14262a;--g:#5f6f72;--c:#e4dfd3;--a:#0f5c63;--a2:#0b4449;--b:#c9a24a;--ok:#15803d;--h:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--y);font:16px/1.6 Inter,system-ui,sans-serif;padding-bottom:70px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.12;margin:0 0 10px}a{color:inherit}
+.kap{max-width:1140px;margin:0 auto;padding:0 16px}.g{color:var(--g)}
+.demo{background:#14262a;color:#e9e4d6;font-size:13px;text-align:center;padding:7px 12px}.demo a{color:var(--b);font-weight:700}
+nav{background:var(--k);border-bottom:1px solid var(--c);position:sticky;top:0;z-index:20}
+nav .kap{display:flex;align-items:center;gap:16px;height:64px}.logo{display:flex;align-items:center;gap:10px;font:700 20px Fraunces,serif;color:var(--a);text-decoration:none}
+.logo img{width:38px;height:38px;object-fit:contain}.logo small{display:block;font:600 10px Inter;letter-spacing:.18em;color:var(--b)}
+nav .m{display:flex;gap:18px;margin-left:auto;font-weight:600;font-size:14px}nav .m a{text-decoration:none}
+.dil{display:flex;gap:4px}.dil button{border:1px solid var(--c);background:none;border-radius:8px;padding:4px 8px;font-weight:700;cursor:pointer;color:var(--y)}.dil button.on{background:var(--a);color:#fff;border-color:var(--a)}
+.hero{position:relative;color:#fff;background:#0b4449 url(../img/ekip-buhar.webp) center/cover;padding:80px 0 70px}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,40,44,.95),rgba(11,40,44,.55))}
+.hero .kap{position:relative}.hero h1{font-size:clamp(32px,5vw,56px);max-width:760px}.hero p{max-width:620px;color:#d6e3e2;font-size:18px}
+.rozet{display:inline-block;background:rgba(201,162,74,.18);border:1px solid var(--b);color:#f1d9a0;font-weight:700;font-size:13px;padding:4px 12px;border-radius:99px;margin-bottom:14px}
+.dg{display:inline-flex;align-items:center;gap:8px;background:var(--b);color:#1c1606;text-decoration:none;font-weight:800;padding:13px 20px;border-radius:12px;border:0;cursor:pointer;font-size:16px}
+.dg.i{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}.dg.a{background:var(--a);color:#fff}.dg.wa{background:#25d366;color:#053b1b}
+.ser{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.guven{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font-size:14px;color:#cfe0de}.guven b{color:#fff}
+section{padding:56px 0}h2{font-size:clamp(26px,3.4vw,38px)}.alt{color:var(--g);max-width:720px;margin:0 0 24px}
+.hes{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.kart{background:var(--k);border:1px solid var(--c);border-radius:18px;padding:20px}
+.urun{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.u{display:flex;align-items:center;gap:10px;border:1px solid var(--c);border-radius:14px;padding:10px 12px;min-width:0}
+.u.sec{border-color:var(--a);background:#eef6f5}.u .ik{font-size:24px}.u .ad{flex:1;min-width:0;font-weight:600;font-size:14px;line-height:1.3}.u .ad small{display:block;color:var(--g);font-weight:500}
+.say{display:flex;align-items:center;gap:6px}.say button{width:30px;height:30px;border-radius:9px;border:1px solid var(--c);background:var(--k);font-weight:800;cursor:pointer;color:var(--y)}.say b{min-width:18px;text-align:center}
+.ek{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.ek label{display:flex;align-items:center;gap:6px;border:1px solid var(--c);border-radius:99px;padding:6px 12px;font-size:14px;cursor:pointer}
+select,input[type=text],input[type=tel]{width:100%;padding:11px 12px;border:1px solid var(--c);border-radius:11px;font:inherit;background:var(--k);color:var(--y)}
+.ozet{position:sticky;top:80px}.ozet .s{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--c);font-size:15px}
+.ozet .top{font:700 34px Fraunces,serif;color:var(--a)}.kaz{background:#ecf7ef;color:var(--ok);border-radius:10px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:10px}
+.foto{border:2px dashed var(--c);border-radius:14px;padding:16px;text-align:center;margin-top:14px;cursor:pointer}.foto:hover{border-color:var(--a)}
+.thumb{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px}.thumb img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+.yz{background:#fff8e6;border:1px solid #f0dca8;border-radius:12px;padding:10px 12px;font-size:14px;margin-top:10px;display:none}
+.gunler{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.gun{border:1px solid var(--c);border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;background:var(--k);font-size:13px}
+.gun b{display:block;font-size:18px}.gun.kapali{opacity:.35;cursor:not-allowed}.gun.on{background:var(--a);color:#fff;border-color:var(--a)}
+.saat{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.saat button{border:1px solid var(--c);background:var(--k);border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer;color:var(--y)}
+.saat button.on{background:var(--b);border-color:var(--b);color:#1c1606}.saat button:disabled{text-decoration:line-through;opacity:.4;cursor:not-allowed}
+.onay{display:none;margin-top:16px;background:#ecf7ef;border:1px solid #b8e0c2;border-radius:14px;padding:16px}
+.wa-on{background:#e6ddd3;border-radius:14px;padding:12px;margin-top:10px}.wa-on div{background:#dcf8c6;border-radius:10px;padding:10px 12px;font-size:14px;white-space:pre-line;max-width:420px;margin-left:auto}
+.adim{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.adim div{background:var(--k);border:1px solid var(--c);border-radius:16px;padding:16px}.adim i{font-style:normal;display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--a);color:#fff;font-weight:800;margin-bottom:6px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px}
+.kir{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}.kir img{width:100%;border-radius:18px}
+.alt-bar{position:fixed;left:0;right:0;bottom:0;background:var(--k);border-top:1px solid var(--c);display:grid;grid-template-columns:1fr 1fr 1fr;z-index:30}
+.alt-bar a{padding:12px 4px;text-align:center;font-weight:800;font-size:14px;text-decoration:none}.alt-bar a:nth-child(2){background:#25d366;color:#053b1b}.alt-bar a:nth-child(3){background:var(--a);color:#fff}
+.not{font-size:12px;color:var(--g)}
+footer{background:#0b2a2e;color:#cfdcdb;padding:30px 0;font-size:14px}
+@media(max-width:900px){.hes,.kir{grid-template-columns:1fr}.ozet{position:static}.adim{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}nav .m{display:none}}
+@media(max-width:560px){.logo small{display:none}.urun{grid-template-columns:1fr}.gunler{grid-template-columns:repeat(4,1fr)}.hero{padding:56px 0 50px}}
+</style></head><body>
+<div class="demo">Prototip 1 / 3 · Dijitabela tarafından Terraura için hazırlandı · <a href="../">Tüm seçeneklere dön</a></div>
+<nav><div class="kap"><a class="logo" href="#"><img src="../img/logo.webp" alt="">TERRAURA<small data-t="altlogo">KOLTUK YIKAMA · ANTALYA</small></a>
+<div class="m"><a href="#hesapla" data-t="m1">Fiyat hesapla</a><a href="#randevu" data-t="m2">Randevu</a><a href="#surec" data-t="m3">Nasıl çalışıyoruz</a><a href="#galeri" data-t="m4">İşlerimiz</a></div>
+<div class="dil"><button class="on" data-d="tr">TR</button><button data-d="en">EN</button><button data-d="ru">RU</button></div></div></nav>
+
+<header class="hero"><div class="kap">
+<span class="rozet" data-t="rozet">UV-C · Buhar · Köpüklü fırçalama · Vakum</span>
+<h1 data-t="h1">Koltuğunuzu seçin, fiyatınızı 30 saniyede görün.</h1>
+<p data-t="hp">Fotoğraf atıp cevap beklemenize gerek yok. Ne yıkatacağınızı seçin, paket indirimi otomatik uygulansın, ilçenize uygun günden randevunuzu hemen alın.</p>
+<div class="ser"><a class="dg" href="#hesapla" data-t="cta1">Fiyatımı hesapla</a><a class="dg i" href="#randevu" data-t="cta2">Randevu al</a></div>
+<div class="guven"><span>✓ <b data-t="g1">Antalya'nın tüm ilçeleri</b></span><span>✓ <b data-t="g2">Yerinde yıkama</b></span><span>✓ <b data-t="g3">4–6 saatte kuruma</b></span></div>
+</div></header>
+
+<section id="hesapla"><div class="kap">
+<h2 data-t="h2a">Anında fiyat hesaplayıcı</h2>
+<p class="alt" data-t="alta">Fiyatlar Terraura'nın güncel fiyat listesinden geliyor. Birden fazla parça seçtiğinizde sitedeki paket fiyatları kendiliğinden uygulanır.</p>
+<div class="hes">
+<div class="kart"><div class="urun" id="urunler"></div>
+<div class="ek" id="ekler"></div>
+<div class="foto" onclick="document.getElementById('dosya').click()"><b>📷 Fotoğraf ekleyin (isteğe bağlı)</b><div class="g" style="font-size:14px">Leke veya kumaş özel ise ekibimiz fotoğrafa bakıp fiyatı onaylar.</div><div class="thumb" id="thumb"></div></div>
+<input type="file" id="dosya" accept="image/*" multiple hidden>
+<div class="yz" id="yz"></div>
+</div>
+<div class="kart ozet"><div class="g" style="font-weight:700;font-size:13px;letter-spacing:.08em">TAHMİNİ FİYAT</div><div class="top" id="toplam">0 ₺</div>
+<div id="satirlar"><p class="g">Soldan yıkatmak istediklerinizi seçin.</p></div><div id="kazanc"></div>
+<div class="g" style="font-size:14px;margin-top:10px" id="sure"></div>
+<label style="display:block;margin-top:14px;font-weight:700;font-size:14px">İlçeniz<select id="ilce" style="margin-top:6px"></select></label>
+<a class="dg a" href="#randevu" style="width:100%;justify-content:center;margin-top:14px">Bu fiyatla randevu al →</a>
+<p class="not">Kesin fiyat yerinde kumaş ve leke durumuna göre teyit edilir. * işaretli kalemler prototip için örnek fiyattır.</p></div>
+</div></div></section>
+
+<section id="randevu" style="background:#ece7dc"><div class="kap">
+<h2>Online randevu</h2>
+<p class="alt">Takvim, ekiplerin o gün hangi bölgede olduğuna göre açılır. Böylece ekip gün içinde şehrin bir ucundan öbür ucuna gitmez, siz de daha erken gün bulursunuz.</p>
+<div class="kart"><div id="ilceBilgi" class="g" style="margin-bottom:10px"></div><div class="gunler" id="gunler"></div><div class="saat" id="saatler"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px"><input type="text" id="ad" placeholder="Adınız"><input type="tel" id="tel" placeholder="Telefonunuz"></div>
+<button class="dg a" style="margin-top:14px" onclick="onayla()">Randevuyu oluştur</button>
+<div class="onay" id="onay"></div></div>
+</div></section>
+
+<section id="surec"><div class="kap"><h2>Nasıl çalışıyoruz?</h2><p class="alt">Kumaş türüne göre bu adımların tamamı veya bir kısmı uygulanır.</p><div class="adim" id="adim"></div></div></section>
+
+<section style="padding-top:0"><div class="kap kir"><img src="../img/su-kova.webp" alt="Yıkamadan çıkan kirli su" loading="lazy"><div><h2>Koltuğunuzdan çıkan su, farkı anlatıyor.</h2><p class="g">Her işin sonunda kovadaki suyun fotoğrafı müşteriye WhatsApp'tan otomatik gönderilir. Bu fotoğraflar aynı zamanda sosyal medyada en çok ilgi gören içeriklerdir.</p><a class="dg a" href="#hesapla">Fiyatımı hesapla</a></div></div></section>
+
+<section id="galeri" style="padding-top:0"><div class="kap"><h2>Son işlerimiz</h2><div class="gal">
+<img src="../img/is-salon.webp" alt="" loading="lazy"><img src="../img/is-kafe.webp" alt="" loading="lazy"><img src="../img/is-kanepe.webp" alt="" loading="lazy"><img src="../img/is-berjer.webp" alt="" loading="lazy"></div></div></section>
+
+<footer><div class="kap">Terraura Koltuk Yıkama · Liman Mah. 37. Sok. No: 9A, Konyaaltı / Antalya · 0507 724 08 99<br><span style="opacity:.7">Bu sayfa Dijitabela tarafından hazırlanmış bir prototiptir.</span></div></footer>
+<div class="alt-bar"><a href="tel:05077240899">📞 Ara</a><a href="https://wa.me/905077240899">WhatsApp</a><a href="#hesapla">Fiyat</a></div>
+
+<script src="../ortak/veri.js"></script>
+<script>
+const adet = {}, ekSec = new Set(); let secGun = null, secSaat = null;
+const $ = (id) => document.getElementById(id);
+$("urunler").innerHTML = TR.urunler.map((u) => `<div class="u" id="u-${u.id}"><span class="ik">${u.ikon}</span><div class="ad">${u.ad}${u.ornek ? " *" : ""}<small>${tl(u.fiyat)}</small></div><div class="say"><button onclick="degis('${u.id}',-1)">−</button><b id="n-${u.id}">0</b><button onclick="degis('${u.id}',1)">+</button></div></div>`).join("");
+$("ekler").innerHTML = TR.ekler.map((e) => `<label><input type="checkbox" ${e.fiyat === 0 ? "checked disabled" : ""} onchange="ekDegis('${e.id}',this.checked)"> ${e.ad} ${e.fiyat ? "+" + tl(e.fiyat) + (e.ornek ? " *" : "") : "· " + e.not}</label>`).join("");
+$("ilce").innerHTML = TR.ilceler.map((i) => `<option>${i}</option>`).join("");
+$("adim").innerHTML = TR.yontem.map((y, i) => `<div><i>${i + 1}</i><b style="display:block">${y}</b><span class="g" style="font-size:14px">${["Kumaşa uygun yöntem seçilir", "Bakteri ve akarlar etkisizleşir", "Leke kumaşa zarar vermeden çıkar", "Kimyasal kalıntı bırakmadan dezenfekte", "Hızlı kuruma, uzun ömür"][i]}</span></div>`).join("");
+function degis(id, d) { adet[id] = Math.max(0, (adet[id] || 0) + d); $("n-" + id).textContent = adet[id]; $("u-" + id).classList.toggle("sec", adet[id] > 0); hesapla(); }
+function ekDegis(id, v) { v ? ekSec.add(id) : ekSec.delete(id); hesapla(); }
+function hesapla() {
+  const r = fiyatHesapla(adet), ekToplam = [...ekSec].reduce((s, id) => s + TR.ekler.find((e) => e.id === id).fiyat, 0);
+  const satir = r.satir.concat([...ekSec].map((id) => { const e = TR.ekler.find((x) => x.id === id); return { ad: e.ad, fiyat: e.fiyat, ornek: e.ornek }; }));
+  $("satirlar").innerHTML = satir.length ? satir.map((s) => `<div class="s"><span>${s.ad}${s.ornek ? " *" : ""}</span><b>${tl(s.fiyat)}</b></div>`).join("") : '<p class="g">Soldan yıkatmak istediklerinizi seçin.</p>';
+  $("toplam").textContent = tl(r.toplam + ekToplam);
+  $("kazanc").innerHTML = r.kazanc ? `<div class="kaz">🎉 Paket indirimi uygulandı: ${tl(r.kazanc)} kazancınız var</div>` : "";
+  $("sure").textContent = r.sure ? `⏱ Tahmini iş süresi: ${Math.ceil(r.sure / 30) / 2} saat · Kuruma: 4–6 saat` : "";
+  window._son = { toplam: r.toplam + ekToplam, satir };
+}
+$("dosya").onchange = (e) => {
+  const f = [...e.target.files].slice(0, 6); $("thumb").innerHTML = f.map((x) => `<img src="${URL.createObjectURL(x)}">`).join("");
+  if (f.length) { $("yz").style.display = "block"; $("yz").innerHTML = `🤖 <b>${f.length} fotoğraf alındı.</b> Asistan fotoğrafları teklifinize ekledi; ekibimiz kumaş ve leke durumuna bakıp fiyatı WhatsApp'tan onaylayacak. <span class="g">(Gerçek sistemde fotoğraftan parça sayısı da önerilir.)</span>`; }
+};
+// randevu takvimi: ilçenin servis günleri açık, bazı saatler dolu (örnek)
+const GUN = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
+function takvim() {
+  const ilce = $("ilce").value, acik = TR.ilceGun[ilce] || [1, 2, 3, 4, 5, 6];
+  $("ilceBilgi").innerHTML = `📍 <b>${ilce}</b> için ekiplerimizin bölgede olduğu günler açık. İlçeyi yukarıdaki hesaplayıcıdan değiştirebilirsiniz.`;
+  const bugun = new Date(); let h = "";
+  for (let i = 1; i <= 14; i++) { const d = new Date(bugun); d.setDate(d.getDate() + i); const ok = acik.includes(d.getDay()); h += `<div class="gun ${ok ? "" : "kapali"}" data-i="${i}" onclick="${ok ? `gunSec(this,${i})` : ""}">${GUN[d.getDay()]}<b>${d.getDate()}</b></div>`; }
+  $("gunler").innerHTML = h; $("saatler").innerHTML = ""; secGun = secSaat = null;
+}
+function gunSec(el, i) {
+  document.querySelectorAll(".gun").forEach((g) => g.classList.remove("on")); el.classList.add("on"); secGun = i;
+  const dolu = [(i * 7) % 4, (i * 3) % 5];
+  $("saatler").innerHTML = ["09:00", "11:00", "13:30", "16:00", "18:00"].map((s, j) => `<button ${dolu.includes(j) ? "disabled" : ""} onclick="saatSec(this,'${s}')">${s}</button>`).join("");
+}
+function saatSec(el, s) { document.querySelectorAll(".saat button").forEach((b) => b.classList.remove("on")); el.classList.add("on"); secSaat = s; }
+function onayla() {
+  const o = $("onay"); o.style.display = "block";
+  if (!secGun || !secSaat) { o.innerHTML = "Lütfen bir gün ve saat seçin."; return; }
+  const d = new Date(); d.setDate(d.getDate() + secGun); const tarih = d.toLocaleDateString("tr-TR", { day: "numeric", month: "long", weekday: "long" });
+  const s = window._son || { toplam: 0, satir: [] }, ad = $("ad").value || "Ayşe Hanım";
+  const msj = `Merhaba ${ad} 👋\nTerraura randevunuz oluşturuldu.\n📅 ${tarih} · ${secSaat}\n📍 ${$("ilce").value}\n🛋️ ${s.satir.map((x) => x.ad).join(", ") || "Ekip yerinde belirleyecek"}\n💰 Tahmini: ${tl(s.toplam)}\n\nGelmeden 1 saat önce "yola çıktık" mesajı alacaksınız. Yıkama sonrası 4–6 saat koltuğa oturmamanızı rica ederiz.`;
+  o.innerHTML = `<b>✅ Randevunuz alındı: ${tarih}, ${secSaat}</b><div class="g" style="font-size:14px">Randevu Terraura panelindeki takvime düştü. Müşteriye anında şu mesaj gider:</div><div class="wa-on"><div>${msj}</div></div><p class="not">Gerçek sistemde bir gün önce hatırlatma, gün içinde "yola çıktık" ve iş sonrası kirli su fotoğrafı da otomatik gider.</p>`;
+}
+$("ilce").onchange = takvim; takvim(); hesapla();
+// dil (örnek: ana başlıklar)
+const DIL = { en: { altlogo: "SOFA CLEANING · ANTALYA", m1: "Price", m2: "Booking", m3: "How it works", m4: "Our work", rozet: "UV-C · Steam · Foam brushing · Vacuum", h1: "Pick your sofa, see your price in 30 seconds.", hp: "No need to send photos and wait. Select what you want cleaned, bundle discounts apply automatically, and book a day that suits your district.", cta1: "Calculate my price", cta2: "Book now", g1: "All districts of Antalya", g2: "On-site cleaning", g3: "Dry in 4–6 hours", h2a: "Instant price calculator", alta: "Prices come from Terraura's current price list. Bundle prices apply automatically." },
+  ru: { altlogo: "ХИМЧИСТКА МЕБЕЛИ · АНТАЛЬЯ", m1: "Цена", m2: "Запись", m3: "Как мы работаем", m4: "Наши работы", rozet: "UV-C · Пар · Пена · Вакуум", h1: "Выберите диван — узнайте цену за 30 секунд.", hp: "Не нужно отправлять фото и ждать. Выберите мебель, скидка на комплект применяется автоматически, запишитесь на удобный день.", cta1: "Рассчитать цену", cta2: "Записаться", g1: "Все районы Антальи", g2: "Чистка на дому", g3: "Сохнет 4–6 часов", h2a: "Калькулятор цены", alta: "Цены из актуального прайса Terraura. Скидки на комплект применяются автоматически." } };
+const TRM = {}; document.querySelectorAll("[data-t]").forEach((e) => (TRM[e.dataset.t] = e.textContent));
+document.querySelectorAll(".dil button").forEach((b) => (b.onclick = () => { document.querySelectorAll(".dil button").forEach((x) => x.classList.toggle("on", x === b)); const s = DIL[b.dataset.d] || TRM; document.querySelectorAll("[data-t]").forEach((e) => { if (s[e.dataset.t]) e.textContent = s[e.dataset.t]; }); document.documentElement.lang = b.dataset.d; }));
+</script>
+</body></html>

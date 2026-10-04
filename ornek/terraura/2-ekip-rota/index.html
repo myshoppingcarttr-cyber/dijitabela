@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-11T23:59:00+03:00" data-slug="terraura"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Terraura · Ekip, Rota ve Günlük İş Paneli (Prototip 2)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f1;--k:#fff;--y:#14262a;--g:#5f6f72;--c:#dde3e3;--a:#0f5c63;--b:#c9a24a;--ok:#15803d;--h:#b42318;--s:#0b2a2e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--y);font:15px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 8px}.g{color:var(--g)}
+.demo{background:#14262a;color:#e9e4d6;font-size:13px;text-align:center;padding:7px 12px}.demo a{color:var(--b);font-weight:700}
+.ust{background:var(--s);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ust img{width:34px;height:34px}.ust b{font:700 19px Fraunces}.ust .sek{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.ust .sek button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:10px;padding:7px 12px;font-weight:700;cursor:pointer}
+.ust .sek button.on{background:var(--b);color:#1c1606;border-color:var(--b)}
+.kap{max-width:1200px;margin:0 auto;padding:18px 16px}
+.kpi{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}.kpi div{background:var(--k);border:1px solid var(--c);border-radius:14px;padding:12px 14px}
+.kpi b{display:block;font:700 24px Fraunces;color:var(--a)}.kpi span{font-size:13px;color:var(--g)}
+.izg{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;align-items:start}
+.kart{background:var(--k);border:1px solid var(--c);border-radius:16px;padding:16px;min-width:0}
+.ekip{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}.ekip button{border:1px solid var(--c);background:var(--k);border-radius:99px;padding:6px 12px;font-weight:700;cursor:pointer;color:var(--y)}
+.ekip button.on{background:var(--a);color:#fff;border-color:var(--a)}
+.is{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;border:1px solid var(--c);border-radius:14px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.is.on{border-color:var(--a);box-shadow:0 0 0 2px rgba(15,92,99,.15)}.is .no{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--a);color:#fff;font-weight:800}
+.is small{display:block;color:var(--g)}.dur{font-size:12px;font-weight:800;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.d0{background:#eef1f1;color:var(--g)}.d1{background:#fff3d6;color:#8a5a00}.d2{background:#dbeafe;color:#1e4fa0}.d3{background:#dcfce7;color:var(--ok)}
+svg{width:100%;height:auto;display:block;background:#e5ecea;border-radius:14px}
+.det h3{margin-top:4px}.adimlar{display:flex;flex-direction:column;gap:8px;margin:12px 0}.adimlar button{text-align:left;border:1px solid var(--c);background:var(--k);border-radius:12px;padding:10px 12px;font-weight:700;cursor:pointer;color:var(--y);display:flex;gap:10px;align-items:center}
+.adimlar button.ok{background:#ecf7ef;border-color:#b8e0c2;color:var(--ok)}.adimlar button:disabled{opacity:.45;cursor:not-allowed}
+.wa{background:#e6ddd3;border-radius:14px;padding:10px;min-height:60px}.wa div{background:#dcf8c6;border-radius:10px;padding:8px 10px;font-size:13.5px;white-space:pre-line;margin:6px 0 0 auto;max-width:92%}
+.wa div small{display:block;text-align:right;color:#667;font-size:11px}
+.tah{display:flex;gap:6px;flex-wrap:wrap}.tah button{border:1px solid var(--c);background:var(--k);border-radius:10px;padding:7px 12px;font-weight:700;cursor:pointer;color:var(--y)}.tah button.on{background:var(--a);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px 6px;border-bottom:1px solid var(--c);text-align:left}th{color:var(--g);font-size:12px;letter-spacing:.06em}
+.bar{height:10px;border-radius:99px;background:#e6ecea;overflow:hidden}.bar i{display:block;height:100%;background:var(--a)}
+.tel{max-width:380px;margin:0 auto;border:10px solid #111;border-radius:34px;overflow:hidden;background:var(--bg)}.tel .bas{background:var(--s);color:#fff;padding:12px 14px;font-weight:800}
+.gizli{display:none}.not{font-size:12px;color:var(--g)}
+@media(max-width:900px){.izg{grid-template-columns:1fr}.kpi{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<div class="demo">Prototip 2 / 3 · Ekip ve operasyon paneli · <a href="../">Tüm seçeneklere dön</a></div>
+<div class="ust"><img src="../img/logo.webp" alt=""><b>Terraura Operasyon</b><span style="opacity:.75;font-size:14px" id="tarih"></span>
+<div class="sek"><button class="on" onclick="mod('yonetici',this)">Yönetici ekranı</button><button onclick="mod('ekip',this)">Ekip telefonu</button><button onclick="mod('rapor',this)">Gün sonu raporu</button></div></div>
+
+<div class="kap" id="yonetici">
+<div class="kpi"><div><b id="k1">0</b><span>Bugünkü iş</span></div><div><b id="k2">0</b><span>Tamamlanan</span></div><div><b id="k3">0 ₺</b><span>Planlanan ciro</span></div><div><b id="k4">0 km</b><span>Rota (optimize)</span></div><div><b id="k5">0</b><span>Otomatik mesaj</span></div></div>
+<div class="izg">
+<div class="kart"><h3>Bugünün rotası</h3><p class="g" style="margin-top:0">Randevular ilçeye göre gruplanır; sistem işleri en kısa yol sırasına dizer. Ekip seçerek rotasını görün.</p>
+<div class="ekip" id="ekipler"></div><div id="isler"></div></div>
+<div class="kart"><svg viewBox="0 0 400 300" id="harita"></svg><p class="not">Şematik harita. Gerçek sistemde Google Haritalar üzerinde canlı konum ve trafikle hesaplanır.</p>
+<div class="det" id="detay"></div></div>
+</div></div>
+
+<div class="kap gizli" id="ekip"><div class="tel"><div class="bas">👷 Ekip 1 · Mert & Okan</div><div style="padding:12px" id="ekipEkran"></div></div>
+<p class="not" style="text-align:center">Ekip her adımda tek düğmeye basar; müşteriye mesajlar kendiliğinden gider, fotoğraflar müşteri kartına kaydedilir.</p></div>
+
+<div class="kap gizli" id="rapor"><div class="izg"><div class="kart"><h3>Gün sonu özeti</h3><table id="raporTablo"></table></div>
+<div class="kart"><h3>Hizmet dağılımı</h3><div id="dagilim"></div><h3 style="margin-top:18px">Tahsilat</h3><div id="tahsilat"></div>
+<p class="not">Rapor her akşam 20:00'de Mehmet Bey'in WhatsApp'ına özet olarak gider.</p></div></div></div>
+
+<script src="../ortak/veri.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+$("tarih").textContent = new Date().toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" });
+// örnek günlük iş listesi (isimler kurgusaldır)
+const ISLER = [
+  { ekip: 1, ad: "Ayşe K.", ilce: "Konyaaltı", mah: "Liman", saat: "09:00", is: { kanepe: 2, tekli: 2 }, x: 80, y: 170 },
+  { ekip: 1, ad: "Kafe Deniz", ilce: "Konyaaltı", mah: "Hurma", saat: "11:00", is: { sandalye: 18 }, x: 50, y: 210, kurumsal: true },
+  { ekip: 1, ad: "Burak T.", ilce: "Konyaaltı", mah: "Uncalı", saat: "14:00", is: { kose33: 1, yatak2: 1 }, x: 120, y: 120 },
+  { ekip: 1, ad: "Elena S.", ilce: "Konyaaltı", mah: "Sarısu", saat: "16:30", is: { kanepe: 1, tekli: 1 }, x: 30, y: 240, dil: "ru" },
+  { ekip: 2, ad: "Murat Y.", ilce: "Muratpaşa", mah: "Fener", saat: "09:30", is: { chester: 1 }, x: 260, y: 170 },
+  { ekip: 2, ad: "Ofis Pera", ilce: "Muratpaşa", mah: "Şirinyalı", saat: "12:00", is: { ofis: 14 }, x: 290, y: 190, kurumsal: true },
+  { ekip: 2, ad: "Zeynep A.", ilce: "Lara", mah: "Güzeloba", saat: "15:00", is: { kose22: 1, bebek: 1 }, x: 340, y: 140 },
+  { ekip: 2, ad: "Hasan D.", ilce: "Lara", mah: "Çağlayan", saat: "17:00", is: { arac: 1 }, x: 360, y: 110 }
+].map((x, i) => ({ ...x, id: i, durum: i < 2 ? 3 : i === 2 || i === 4 ? 1 : 0, fiyat: fiyatHesapla(x.is).toplam, tahsil: i < 2 ? (i ? "Havale" : "Kart") : null }));
+const DUR = ["Bekliyor", "Yolda", "Yıkanıyor", "Bitti"];
+let ekipSec = 1, isSec = null, mesajSay = 11;
+const isMetin = (is) => Object.entries(is).map(([k, n]) => n + " " + TR.urunler.find((u) => u.id === k).ad.split(" /")[0].toLowerCase()).join(", ");
+function kpi() {
+  $("k1").textContent = ISLER.length; $("k2").textContent = ISLER.filter((x) => x.durum === 3).length;
+  $("k3").textContent = tl(ISLER.reduce((s, x) => s + x.fiyat, 0)); $("k4").textContent = "38 km"; $("k5").textContent = mesajSay;
+}
+function ciz() {
+  $("ekipler").innerHTML = [1, 2].map((e) => `<button class="${e === ekipSec ? "on" : ""}" onclick="ekipSec=${e};isSec=null;ciz()">Ekip ${e} · ${e === 1 ? "Konyaaltı" : "Muratpaşa – Lara"}</button>`).join("");
+  const L = ISLER.filter((x) => x.ekip === ekipSec);
+  $("isler").innerHTML = L.map((x, i) => `<div class="is ${isSec === x.id ? "on" : ""}" onclick="sec(${x.id})"><div class="no">${i + 1}</div><div><b>${x.saat} · ${x.ad}</b>${x.kurumsal ? ' <span class="dur d2">Kurumsal</span>' : ""}${x.dil ? ' <span class="dur d1">RU</span>' : ""}<small>${x.ilce} / ${x.mah} · ${isMetin(x.is)} · ${tl(x.fiyat)}</small></div><span class="dur d${x.durum}">${DUR[x.durum]}</span></div>`).join("");
+  // şematik harita: ilçe alanları + rota
+  const yol = L.map((x) => `${x.x},${x.y}`).join(" ");
+  $("harita").innerHTML = `<rect x="0" y="0" width="400" height="300" fill="#e5ecea"/><path d="M0 260 Q120 230 200 250 T400 230 V300 H0Z" fill="#b9dbe3"/><text x="300" y="285" font-size="11" fill="#4b7c86">Akdeniz</text>
+  <g font-size="11" fill="#6b7f80" font-weight="700"><text x="20" y="100">KONYAALTI</text><text x="190" y="80">KEPEZ</text><text x="235" y="215">MURATPAŞA</text><text x="330" y="90">LARA</text></g>
+  <polyline points="${yol}" fill="none" stroke="#0f5c63" stroke-width="3" stroke-dasharray="6 5"/>
+  ${L.map((x, i) => `<g onclick="sec(${x.id})" style="cursor:pointer"><circle cx="${x.x}" cy="${x.y}" r="13" fill="${x.durum === 3 ? "#15803d" : isSec === x.id ? "#c9a24a" : "#0f5c63"}"/><text x="${x.x}" y="${x.y + 4}" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">${i + 1}</text></g>`).join("")}
+  <g transform="translate(200,150)"><rect x="-18" y="-12" width="36" height="24" rx="6" fill="#14262a"/><text y="4" text-anchor="middle" font-size="10" fill="#c9a24a" font-weight="800">DEPO</text></g>`;
+  kpi(); if (isSec !== null) detay();
+}
+function sec(id) { isSec = id; ciz(); }
+function detay() {
+  const x = ISLER[isSec];
+  $("detay").innerHTML = `<h3>${x.ad} · ${x.saat}</h3><div class="g">${x.ilce} / ${x.mah} · ${isMetin(x.is)} · <b>${tl(x.fiyat)}</b></div>
+  <div class="adimlar">${["🚐 Yola çıktık mesajı gönder", "📷 Önce fotoğrafı + işe başla", "✅ İşi bitir, sonra fotoğrafı + kirli su", "💳 Tahsilatı işle"].map((a, i) => `<button class="${x.durum > i ? "ok" : ""}" ${x.durum !== i ? "disabled" : ""} onclick="ilerle(${x.id})">${x.durum > i ? "✓" : "○"} ${a}</button>`).join("")}</div>
+  ${x.durum >= 3 ? `<div class="tah">${["Nakit", "Kart", "Havale"].map((t) => `<button class="${x.tahsil === t ? "on" : ""}" onclick="ISLER[${x.id}].tahsil='${t}';detay()">${t}</button>`).join("")}</div>` : ""}
+  <div style="font-weight:700;margin:12px 0 6px">Müşteriye giden otomatik mesajlar</div><div class="wa">${mesajlar(x)}</div>`;
+}
+function mesajlar(x) {
+  const ru = x.dil === "ru", m = [];
+  m.push(ru ? `Здравствуйте! Напоминаем: завтра в ${x.saat} чистка мебели Terraura.` : `Merhaba ${x.ad.split(" ")[0]} 👋 Yarın ${x.saat}'te Terraura ekibi sizde. Koltukların çevresini boşaltırsanız işimiz hızlanır.`);
+  if (x.durum >= 1) m.push(ru ? "Команда выехала, будем через ~25 минут 🚐" : "Ekibimiz yola çıktı, yaklaşık 25 dakikaya oradayız 🚐");
+  if (x.durum >= 3) m.push(ru ? "Готово! Не садитесь на мебель 4–6 часов. Фото до/после во вложении 📷" : "İşimiz bitti ✨ Koltuklarınız 4–6 saatte kurur, bu sürede oturmamanızı rica ederiz. Önce/sonra ve kirli su fotoğrafları ekte 📷");
+  if (x.durum >= 3) m.push(ru ? "Будем благодарны за отзыв в Google ⭐" : "Memnun kaldıysanız Google'da 1 dakikalık bir yorum bizim için çok değerli ⭐ (link)");
+  return m.map((t, i) => `<div>${t}<small>${["dün 18:00", "yolda", "iş sonu", "+2 saat"][i]} ✓✓</small></div>`).join("") + (ru ? '<p class="not">Müşteri Rusça konuştuğu için mesajlar Rusça gider.</p>' : "");
+}
+function ilerle(id) { const x = ISLER[id]; if (x.durum < 3) { x.durum++; mesajSay++; } ciz(); }
+function mod(m, b) { ["yonetici", "ekip", "rapor"].forEach((k) => $(k).classList.toggle("gizli", k !== m)); document.querySelectorAll(".ust .sek button").forEach((x) => x.classList.toggle("on", x === b)); if (m === "ekip") ekipEkran(); if (m === "rapor") rapor(); }
+function ekipEkran() {
+  const L = ISLER.filter((x) => x.ekip === 1), s = L.find((x) => x.durum < 3) || L[L.length - 1];
+  $("ekipEkran").innerHTML = `<div class="g" style="font-size:13px">Sıradaki iş</div><h3>${s.saat} · ${s.ad}</h3><div class="g">${s.ilce} / ${s.mah}<br>${isMetin(s.is)}</div>
+  <div style="background:#fff;border:1px solid var(--c);border-radius:12px;padding:10px;margin:10px 0;font-size:14px">🧵 Kumaş notu: kadife, geçen yıkamada açık renk lekeye dikkat edildi.<br>🐕 Evde köpek var: koku giderici götürün.</div>
+  <div class="adimlar">${["🚐 Yola çıktık", "📷 Önce fotoğrafı", "✅ Bitti + sonra fotoğrafı"].map((a, i) => `<button class="${s.durum > i ? "ok" : ""}" ${s.durum !== i ? "disabled" : ""} onclick="ilerle(${s.id});ekipEkran()">${s.durum > i ? "✓" : "○"} ${a}</button>`).join("")}</div>
+  <a href="https://maps.google.com/?q=${encodeURIComponent(s.mah + " " + s.ilce + " Antalya")}" target="_blank" style="display:block;text-align:center;background:var(--a);color:#fff;border-radius:12px;padding:11px;font-weight:800;text-decoration:none">🧭 Navigasyonu aç</a>
+  <div style="margin-top:14px">${L.map((x) => `<div style="display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px solid var(--c)"><span>${x.saat} ${x.ad}</span><span class="dur d${x.durum}">${DUR[x.durum]}</span></div>`).join("")}</div>`;
+}
+function rapor() {
+  const top = ISLER.reduce((s, x) => s + x.fiyat, 0), biten = ISLER.filter((x) => x.durum === 3);
+  $("raporTablo").innerHTML = `<tr><th>EKİP</th><th>İŞ</th><th>BİTEN</th><th>CİRO</th></tr>` + [1, 2].map((e) => { const L = ISLER.filter((x) => x.ekip === e); return `<tr><td>Ekip ${e}</td><td>${L.length}</td><td>${L.filter((x) => x.durum === 3).length}</td><td>${tl(L.reduce((s, x) => s + x.fiyat, 0))}</td></tr>`; }).join("") + `<tr><td><b>Toplam</b></td><td><b>${ISLER.length}</b></td><td><b>${biten.length}</b></td><td><b>${tl(top)}</b></td></tr>`;
+  const say = {}; ISLER.forEach((x) => Object.entries(x.is).forEach(([k]) => { const ad = TR.urunler.find((u) => u.id === k).ad.split(" ")[0]; say[ad] = (say[ad] || 0) + 1; }));
+  const mx = Math.max(...Object.values(say));
+  $("dagilim").innerHTML = Object.entries(say).map(([k, n]) => `<div style="display:grid;grid-template-columns:110px 1fr 24px;gap:8px;align-items:center;margin:6px 0;font-size:14px"><span>${k}</span><div class="bar"><i style="width:${(n / mx) * 100}%"></i></div><b>${n}</b></div>`).join("");
+  const t = {}; ISLER.forEach((x) => { const k = x.tahsil || "Bekleyen"; t[k] = (t[k] || 0) + x.fiyat; });
+  $("tahsilat").innerHTML = Object.entries(t).map(([k, v]) => `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--c)"><span>${k}</span><b>${tl(v)}</b></div>`).join("");
+}
+sec(2);
+</script>
+</body></html>
