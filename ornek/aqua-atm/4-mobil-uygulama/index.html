@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-12T23:59:00+03:00" data-slug="aqua-atm"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aqua ATM Mobil Uygulama · Sadakat + Bayi Kazanımı (Prototip 4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/aqua.css">
+<style>
+.sahne{display:grid;grid-template-columns:400px 1fr;gap:40px;align-items:start;padding:40px 16px;max-width:1180px;margin:0 auto}@media(max-width:900px){.sahne{grid-template-columns:1fr}}
+.tel{width:370px;max-width:100%;height:760px;border-radius:46px;background:#0b0d10;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.35);position:sticky;top:20px;margin:0 auto}
+.ekran{width:100%;height:100%;border-radius:36px;overflow:hidden;background:#f6f7f9;color:#14171c;position:relative;display:flex;flex-direction:column}
+.ust{background:linear-gradient(160deg,#e5322b,#f2711c);color:#fff;padding:26px 20px 22px}.ust small{opacity:.85}.ust .puan{font:800 40px "Plus Jakarta Sans";line-height:1.1}
+.ic{flex:1;overflow:auto;padding:16px}.alt{display:flex;border-top:1px solid #e6e8ec;background:#fff}.alt button{flex:1;border:0;background:none;padding:10px 0 12px;font:600 11px Inter;color:#5f6773;cursor:pointer}.alt button.on{color:#e5322b}.alt button b{display:block;font-size:20px}
+.ek{display:none}.ek.on{display:block}.mk{background:#fff;border:1px solid #e6e8ec;border-radius:16px;padding:14px;margin-bottom:12px}.mk h4{margin:0 0 6px;font:800 15px "Plus Jakarta Sans"}
+.seviye{display:flex;gap:6px}.seviye div{flex:1;text-align:center;border-radius:10px;padding:8px 4px;font:700 11px Inter;background:#f0f1f4;color:#5f6773}.seviye div.on{background:#14171c;color:#fff}
+.bar{height:10px;background:#eceef2;border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#f2711c,#e5322b)}
+.odul{display:flex;justify-content:space-between;align-items:center}.odul button{border:0;background:#e5322b;color:#fff;border-radius:999px;padding:7px 12px;font:700 12px Inter;cursor:pointer}.odul button:disabled{background:#c9ccd3}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin:8px 0}.chk input{margin-top:3px}
+.acik h2{font-size:30px}.acik .kart{margin-bottom:14px}.acik ul{padding-left:18px}.acik li{margin-bottom:6px}
+.seg td,.seg th{font-size:13px}.mk table td{font-size:13px;padding:6px 4px;white-space:nowrap}
+</style></head><body>
+<div class="sahne">
+<div class="tel"><div class="ekran">
+<div class="ust"><small id="selam">Merhaba Ayşe 👋</small><div class="puan"><span id="pn">1.240</span> <span style="font-size:16px">puan</span></div><small id="ayLt">Bu ay 152 litre · Gümüş üye</small></div>
+<div class="ic">
+<div class="ek on" id="e-ana">
+<div class="mk"><h4>Seviyen</h4><div class="seviye"><div>Bronz<br>0+ lt</div><div class="on">Gümüş<br>100+ lt/ay</div><div>Altın<br>200+ lt/ay</div></div><div style="margin-top:10px" class="bar"><i style="width:52%"></i></div><small style="color:#5f6773">Altın'a 48 litre kaldı: her dolumda 2× puan</small></div>
+<div class="mk"><h4>📍 En yakın Aqua ATM</h4><div>Bornova · Kazımdirik · 350 m</div><small style="color:#16a34a">🟢 Açık · sıra yok</small></div>
+<div class="mk" style="background:linear-gradient(135deg,#14171c,#2a1210);color:#fff;border:0"><h4 style="color:#fff">🏡 Boş bir yeriniz mi var?</h4><div style="font-size:13px;color:#d6c3c1">Dükkân önü, arsa, site girişi… Kendi Aqua ATM'nizin sahibi olun. Uygulama müşterilerine özel avantajlar.</div><button class="btn btn-r" style="margin-top:10px;padding:9px 14px;font-size:13px" onclick="git('bayi')">Avantajları gör</button></div>
+<div class="mk"><h4>Son dolumlar</h4><table><tr><td>Bugün · Kazımdirik</td><td>19 lt</td><td>+38</td></tr><tr><td>2 gün önce · Kazımdirik</td><td>19 lt</td><td>+38</td></tr><tr><td>5 gün önce · Bornova Merkez</td><td>5 lt</td><td>+10</td></tr></table></div>
+</div>
+<div class="ek" id="e-tara"><div class="mk" style="text-align:center"><h4>Cihazdaki QR'ı okut</h4><div style="width:200px;height:200px;margin:12px auto;border:3px dashed #e5322b;border-radius:18px;display:grid;place-items:center;color:#5f6773">📷 Kamera</div><small style="color:#5f6773">Dolum sonrası QR'ı okutunca puanın otomatik yüklenir. Kartlı cihazda telefon numaranla eşleşir.</small><button class="btn btn-r" style="margin-top:12px;width:100%" onclick="dolum()">Dolum simüle et (19 lt)</button><div id="dsonuc" style="margin-top:10px"></div></div></div>
+<div class="ek" id="e-odul"><div class="mk"><h4>Ödüller</h4>
+<div class="odul" style="margin:8px 0"><span>5 lt ücretsiz dolum</span><button data-p="200">200 p</button></div>
+<div class="odul" style="margin:8px 0"><span>19 lt ücretsiz dolum</span><button data-p="500">500 p</button></div>
+<div class="odul" style="margin:8px 0"><span>Aqua ATM cam şişe</span><button data-p="1500">1.500 p</button></div>
+<div class="odul" style="margin:8px 0"><span>Ev tipi arıtma %20 indirim</span><button data-p="3000">3.000 p</button></div></div>
+<div class="mk"><h4>👥 Arkadaşını getir</h4><small>Davet kodun: <b>AYSE152</b> · Arkadaşın ilk dolumda +100, sen +100 puan. Davet ettiğin kişi bayi olursa <b>1 yıl ücretsiz su</b>.</small></div></div>
+<div class="ek" id="e-bayi"><div class="mk" style="background:#14171c;color:#fff;border:0"><h4 style="color:#fff">Uygulama müşterisine özel bayilik</h4><ul style="padding-left:18px;font-size:13px;color:#d6c3c1;margin:6px 0 0"><li>Lokasyon analizi ücretsiz</li><li>İlk 6 ay filtre seti hediye</li><li>Taksitli ödeme seçeneği</li><li>Biriken puanların cihaz bedelinden düşülür</li></ul></div>
+<div class="mk"><h4>Size uygun yer var mı?</h4><div class="secim" id="yer"><button>Dükkânım var</button><button>Arsam / bahçem var</button><button>Ailemin işyeri var</button><button>Site yönetimindeyim</button><button>Yok ama ilgileniyorum</button></div>
+<label class="chk"><input type="checkbox" id="c1" checked> Bayilik için benimle iletişime geçilmesini istiyorum.</label>
+<button class="btn btn-r" style="width:100%" onclick="bayiOl()">Temsilci beni arasın</button><div id="bsonuc" style="margin-top:10px"></div></div></div>
+<div class="ek" id="e-profil"><div class="mk"><h4>Profil</h4><small>Ayşe K. · 05•• ••• •• 41 · Bornova</small></div>
+<div class="mk"><h4>İzinler</h4>
+<label class="chk"><input type="checkbox" checked disabled> KVKK aydınlatma metnini okudum (zorunlu).</label>
+<label class="chk"><input type="checkbox" checked> Kampanya ve avantajlar için <b>SMS</b> almak istiyorum (İYS'ye kaydedilir).</label>
+<label class="chk"><input type="checkbox"> Kampanya ve avantajlar için <b>e-posta</b> almak istiyorum (İYS'ye kaydedilir).</label>
+<small style="color:#5f6773">İzinleri istediğin an buradan kapatabilirsin.</small></div></div>
+</div>
+<div class="alt"><button class="on" data-e="ana"><b>🏠</b>Ana</button><button data-e="tara"><b>📷</b>Okut</button><button data-e="odul"><b>🎁</b>Ödüller</button><button data-e="bayi"><b>🏡</b>Bayi ol</button><button data-e="profil"><b>👤</b>Profil</button></div>
+</div></div>
+
+<div class="acik"><span class="rozet">Prototip 4 · mobil uygulama</span><h2 style="margin-top:10px">Her dolum bir müşteri kaydı, her müşteri bir bayi adayı</h2>
+<p class="g">Telefondaki uygulamayı tıklayarak deneyin. Uygulama iOS ve Android'de yayınlanır; cihazdaki QR ve telefon numarasıyla çalışır.</p>
+<div class="kart"><b>1) Sadakat: müşteri geri gelsin</b><ul><li>Her litre puan; aylık litreye göre Bronz / Gümüş / Altın seviye (Altın'da 2× puan).</li><li>Puanla ücretsiz dolum, cam şişe, ev tipi arıtma indirimi (kendi ürününüz).</li><li>Arkadaşını getir: iki tarafa puan.</li></ul></div>
+<div class="kart"><b>2) Veri: kim, nerede, ne kadar su alıyor?</b><ul><li>İl/ilçe, cihaz, aylık litre, sıklık: hangi mahallede yeni cihaza ihtiyaç var, haritada görünür.</li><li>KVKK aydınlatma + ayrı ticari ileti onayı (SMS/e-posta), izinler İYS'ye otomatik kaydedilir. Mevzuata uygun pazarlama listesi.</li></ul></div>
+<div class="kart"><b>3) Bayi kazanımı: yeri olan müşteriyi bayiye çevir</b><ul><li>Uygulamada "Boş bir yeriniz mi var?" kartı + 5 saniyelik yer sorusu → yer sahibi müşteriler ayrı segmentte toplanır.</li><li>Bu segmente özel avantajlar: ücretsiz lokasyon analizi, 6 ay filtre hediye, taksit, puanın cihaz bedelinden düşülmesi.</li><li>Davet ettiği kişi bayi olursa 1 yıl ücretsiz su → müşteriler sizin satış temsilciniz olur.</li><li>İzin veren müşterilere otomatik SMS ve e-posta serileri: aylık su harcaması → "kendi cihazınla kazan" hesabı.</li></ul></div>
+<div class="kart"><b>Merkez paneline yansıması</b><table class="seg" style="margin-top:6px"><tr><th>Segment</th><th>Kişi</th><th>Aksiyon</th></tr><tr><td>Yer sahibi + Altın üye</td><td>184</td><td><span class="etk e-hata">Öncelikli arama</span></td></tr><tr><td>Yer sahibi + SMS izni</td><td>612</td><td><span class="etk e-uy">Bayilik SMS serisi</span></td></tr><tr><td>Ailesinin işyeri var</td><td>298</td><td><span class="etk e-uy">E-posta + davet</span></td></tr><tr><td>Altın üye (aylık 200+ lt)</td><td>1.930</td><td><span class="etk e-ok">Sadakat kampanyası</span></td></tr></table><p class="not">Rakamlar örnektir.</p></div>
+</div></div>
+<div class="demo">Prototip · Dijitabela · <a href="../index.html">tüm öneriler</a></div>
+<script>
+const $=s=>document.querySelector(s);let puan=1240;
+function git(e){document.querySelectorAll('.alt button').forEach(b=>b.classList.toggle('on',b.dataset.e===e));document.querySelectorAll('.ek').forEach(x=>x.classList.toggle('on',x.id==='e-'+e));odulDurum()}
+document.querySelectorAll('.alt button').forEach(b=>b.onclick=()=>git(b.dataset.e));
+function odulDurum(){document.querySelectorAll('[data-p]').forEach(b=>{b.disabled=puan<+b.dataset.p;b.onclick=()=>{puan-=+b.dataset.p;$('#pn').textContent=puan.toLocaleString('tr-TR');b.outerHTML='<span style="color:#16a34a;font-weight:700;font-size:12px">Kod: AQ'+Math.floor(1000+Math.random()*9000)+' ✓</span>';odulDurum()}})}
+function dolum(){puan+=38;$('#pn').textContent=puan.toLocaleString('tr-TR');$('#ayLt').textContent='Bu ay 171 litre · Gümüş üye';$('#dsonuc').innerHTML='<b style="color:#16a34a">+38 puan yüklendi ✓</b>'}
+document.querySelectorAll('#yer button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#yer button').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
+function bayiOl(){const s=document.querySelector('#yer .on');$('#bsonuc').innerHTML=s?'<b style="color:#16a34a">Teşekkürler ✓</b><br><small>"'+s.textContent+'" segmentine eklendiniz. Bölge temsilciniz 24 saat içinde arayacak.</small>':'<small style="color:#e5322b">Lütfen bir seçenek işaretleyin.</small>'}
+odulDurum();
+</script></body></html>
