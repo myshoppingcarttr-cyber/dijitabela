@@ -6,4 +6,4 @@ Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/
 
-Sitemap: https://www.dijitabela.com/sitemap.xml
+Sitemap: https://dijitabela.com/sitemap.xml

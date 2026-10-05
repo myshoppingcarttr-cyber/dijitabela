@@ -7,7 +7,7 @@ window.AJANS = {
   whatsapp: "905019452184",
   eposta: "info@dijitabela.com",       // Natro ücretsiz mail kutusu (alan adı aktif olunca kurulacak)
   sehir: "Antalya",
-  site: "https://www.dijitabela.com",  // alan adı henüz satın alınmadı
+  site: "https://dijitabela.com",  // GitHub Pages CNAME = dijitabela.com (www → 301 buraya). Kanonik adres bu olmalı.
   // Havale/EFT bilgileri (şahıs şirketi)
   unvan: "Alim Hoşlar",                // vergi levhasındaki ad/unvan
   vergiDairesi: "",
