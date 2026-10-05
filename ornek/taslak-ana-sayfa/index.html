@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dijitabela – Yerel işletmeler için web, yazılım ve yapay zekâ (TASLAK)</title>
+<link rel="icon" href="https://dijitabela.com/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#F4F2EE;--beyaz:#FFFFFF;--murekkep:#16181D;--soluk:#5E6168;--cizgi:#DAD6CE;--sari:#FFB000;--yesil:#1FA855}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--zemin);color:var(--murekkep);font:400 17px/1.6 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.ic{max-width:1180px;margin:0 auto;padding:0 24px}
+.mono{font:400 12px/1.4 "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk)}
+.mono b{color:var(--murekkep);font-weight:700}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 66;font-weight:900;line-height:.95;letter-spacing:-.01em;text-transform:uppercase}
+h1{font-size:clamp(46px,7.2vw,92px)}
+h2{font-size:clamp(36px,5vw,64px)}
+h3{font-size:26px;line-height:1}
+.vurgu{background:var(--sari);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dg{display:inline-flex;align-items:center;gap:8px;font:700 16px/1 "Plus Jakarta Sans";text-decoration:none;padding:16px 22px;border:2px solid var(--murekkep);background:transparent;cursor:pointer}
+.dg.ana{background:var(--sari);border-color:var(--murekkep)}
+.dg.koyu{background:var(--murekkep);color:#fff}
+section{padding:96px 0;border-top:1px solid var(--cizgi)}
+
+/* üst */
+.ust{position:sticky;top:0;z-index:20;background:rgba(244,242,238,.94);backdrop-filter:blur(8px);border-bottom:2px solid var(--murekkep)}
+.ust .ic{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font:700 20px "Space Mono",monospace;text-decoration:none}
+.logo img{width:34px;height:34px}
+.ust nav{display:flex;gap:28px}
+.ust nav a{font:700 12px "Space Mono",monospace;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.ust nav a:hover{text-decoration:underline;text-decoration-color:var(--sari);text-decoration-thickness:3px}
+.ust .dg{padding:12px 16px;font-size:15px}
+
+/* açılış: tek ekran */
+.acilis{padding:64px 0 80px;border-top:0}
+.acilis .ic{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.acilis p.giris{font-size:20px;color:var(--soluk);max-width:560px;margin:26px 0 30px}
+.acilis .dugmeler{display:flex;gap:12px;flex-wrap:wrap}
+.guven{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px}
+.guven span{font:700 14px "Plus Jakarta Sans";display:flex;gap:8px;align-items:center}
+.guven span::before{content:"";width:10px;height:10px;background:var(--sari);border:2px solid var(--murekkep)}
+.telefon{position:relative;justify-self:center;width:300px;aspect-ratio:9/16;border:10px solid var(--murekkep);border-radius:34px;overflow:hidden;background:#000;box-shadow:14px 14px 0 var(--sari)}
+.telefon video{width:100%;height:100%;object-fit:cover;display:block}
+.telefon-not{text-align:center;margin-top:22px}
+
+/* işler */
+.isler-ust{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:44px}
+.isler-ust p{max-width:420px;color:var(--soluk)}
+.isler{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.is video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;border:2px solid var(--murekkep);background:#111}
+.is .mono{margin:14px 0 6px}
+.is h3{font-size:22px}
+.is p{font-size:15px;color:var(--soluk);margin-top:6px}
+.vaka{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:72px;padding-top:56px;border-top:1px dashed var(--cizgi)}
+.vaka img{width:100%;border:2px solid var(--murekkep);display:block}
+.vaka ol{list-style:none;margin-top:20px}
+.vaka li{padding:12px 0;border-bottom:1px solid var(--cizgi);display:grid;grid-template-columns:90px 1fr;gap:12px}
+.vaka li b{font:700 12px "Space Mono",monospace;text-transform:uppercase;padding-top:3px}
+
+/* hizmetler: satır liste, kart yok */
+.hiz{margin-top:40px;border-top:2px solid var(--murekkep)}
+.hiz a{display:grid;grid-template-columns:60px 1.1fr 1.4fr 40px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid var(--cizgi);text-decoration:none;transition:background .15s}
+.hiz a:hover{background:var(--beyaz)}
+.hiz .no{font:700 13px "Space Mono",monospace;color:var(--soluk)}
+.hiz h3{font-size:30px}
+.hiz p{color:var(--soluk);font-size:16px}
+.hiz .ok{font-size:26px;text-align:right}
+
+/* nasıl */
+.adimlar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:2px solid var(--murekkep)}
+.adim{padding:26px 24px 0 0}
+.adim+.adim{padding-left:24px;border-left:1px solid var(--cizgi)}
+.adim .sayi{font:900 64px/1 "Archivo";font-variation-settings:"wdth" 66;color:var(--sari);-webkit-text-stroke:2px var(--murekkep)}
+.adim h3{margin:14px 0 8px;font-size:24px}
+.adim p{font-size:15px;color:var(--soluk)}
+
+/* fiyat */
+.fiyatlar{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;border:2px solid var(--murekkep);background:var(--beyaz)}
+.paket{padding:32px 28px;display:flex;flex-direction:column}
+.paket+.paket{border-left:2px solid var(--murekkep)}
+.paket.oner{background:var(--murekkep);color:#fff}
+.paket.oner .mono,.paket.oner p,.paket.oner li{color:#C9CBD0}
+.paket h3{font-size:30px;margin:10px 0 8px}
+.paket .tutar{font:900 48px/1 "Archivo";font-variation-settings:"wdth" 66;margin:18px 0 4px}
+.paket ul{list-style:none;margin:18px 0 26px;flex:1}
+.paket li{padding:7px 0;border-bottom:1px solid rgba(128,128,128,.25);font-size:15px}
+.paket .dg{justify-content:center}
+.paket.oner .dg{border-color:var(--sari)}
+.fiyat-not{margin-top:16px}
+
+/* sss */
+.sss{margin-top:36px;border-top:2px solid var(--murekkep)}
+.sss details{border-bottom:1px solid var(--cizgi);padding:20px 0}
+.sss summary{font:700 19px "Plus Jakarta Sans";cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.sss summary::after{content:"+";font:900 28px/1 "Archivo"}
+.sss details[open] summary::after{content:"–"}
+.sss p{color:var(--soluk);margin-top:10px;max-width:760px}
+
+/* son çağrı */
+.son{background:var(--murekkep);color:#fff;border-top:0}
+.son .ic{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.son p{color:#C9CBD0;font-size:19px;margin-top:20px}
+.son .kutu{border:2px solid var(--sari);padding:28px}
+.son .kutu .dg{width:100%;justify-content:center;margin-top:12px}
+.son .dg.ana{color:var(--murekkep)}
+.son .dg:not(.ana){border-color:#fff;color:#fff}
+footer{background:var(--murekkep);color:#9EA1A8;padding:30px 0 40px;font-size:14px;border-top:1px solid #2C3038}
+footer .ic{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#fff;text-decoration:none;margin-right:18px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:var(--yesil);display:grid;place-items:center;border:2px solid var(--murekkep);box-shadow:3px 3px 0 var(--murekkep)}
+.wa svg{width:28px;height:28px;fill:#fff}
+.taslak{background:var(--sari);text-align:center;font:700 12px "Space Mono",monospace;padding:8px}
+
+@media(max-width:980px){
+  .acilis .ic,.vaka,.son .ic{grid-template-columns:1fr}
+  .telefon{width:250px}
+  .isler{grid-template-columns:repeat(2,1fr)}
+  .adimlar{grid-template-columns:1fr 1fr}.adim:nth-child(3){border-left:0;padding-left:0}
+  .fiyatlar{grid-template-columns:1fr}.paket+.paket{border-left:0;border-top:2px solid var(--murekkep)}
+  .ust nav{display:none}
+  .hiz a{grid-template-columns:40px 1fr 30px}.hiz p{grid-column:2}
+  .isler-ust{flex-direction:column;align-items:start}
+}
+@media(max-width:560px){
+  section{padding:64px 0}
+  .ic{padding:0 16px}
+  .acilis{padding:36px 0 56px}
+  .acilis p.giris{font-size:18px}
+  .isler{gap:14px}
+  .adimlar{grid-template-columns:1fr}.adim,.adim+.adim{padding:22px 0;border-left:0;border-bottom:1px solid var(--cizgi)}
+  .hiz h3{font-size:24px}
+  .ust .dg{display:none}
+}
+</style>
+</head>
+<body>
+<div class="taslak">TASLAK · yayında değil · onayınızdan sonra dijitabela.com ana sayfası olacak</div>
+
+<header class="ust"><div class="ic">
+  <a class="logo" href="#"><svg width="34" height="34" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Dijitabela"><title>Dijitabela</title><g transform="translate(0 0) scale(1)"><rect x="0" y="0" width="64" height="64" rx="12" fill="#16181D"/><circle cx="16" cy="8" r="3" fill="#2C3038"/><circle cx="24" cy="8" r="3" fill="#2C3038"/><circle cx="32" cy="8" r="3" fill="#2C3038"/><circle cx="40" cy="8" r="3" fill="#2C3038"/><circle cx="48" cy="8" r="3" fill="#FFB000"/><circle cx="16" cy="16" r="3" fill="#2C3038"/><circle cx="24" cy="16" r="3" fill="#2C3038"/><circle cx="32" cy="16" r="3" fill="#2C3038"/><circle cx="40" cy="16" r="3" fill="#2C3038"/><circle cx="48" cy="16" r="3" fill="#FFB000"/><circle cx="16" cy="24" r="3" fill="#2C3038"/><circle cx="24" cy="24" r="3" fill="#FFB000"/><circle cx="32" cy="24" r="3" fill="#FFB000"/><circle cx="40" cy="24" r="3" fill="#FFB000"/><circle cx="48" cy="24" r="3" fill="#FFB000"/><circle cx="16" cy="32" r="3" fill="#FFB000"/><circle cx="24" cy="32" r="3" fill="#2C3038"/><circle cx="32" cy="32" r="3" fill="#2C3038"/><circle cx="40" cy="32" r="3" fill="#2C3038"/><circle cx="48" cy="32" r="3" fill="#FFB000"/><circle cx="16" cy="40" r="3" fill="#FFB000"/><circle cx="24" cy="40" r="3" fill="#2C3038"/><circle cx="32" cy="40" r="3" fill="#2C3038"/><circle cx="40" cy="40" r="3" fill="#2C3038"/><circle cx="48" cy="40" r="3" fill="#FFB000"/><circle cx="16" cy="48" r="3" fill="#FFB000"/><circle cx="24" cy="48" r="3" fill="#2C3038"/><circle cx="32" cy="48" r="3" fill="#2C3038"/><circle cx="40" cy="48" r="3" fill="#2C3038"/><circle cx="48" cy="48" r="3" fill="#FFB000"/><circle cx="16" cy="56" r="3" fill="#2C3038"/><circle cx="24" cy="56" r="3" fill="#FFB000"/><circle cx="32" cy="56" r="3" fill="#FFB000"/><circle cx="40" cy="56" r="3" fill="#FFB000"/><circle cx="48" cy="56" r="3" fill="#FFB000"/></g></svg>dijitabela</a>
+  <nav><a href="#isler">İşlerimiz</a><a href="#hizmetler">Hizmetler</a><a href="#nasil">Nasıl çalışırız</a><a href="#fiyat">Fiyatlar</a><a href="#sss">SSS</a></nav>
+  <a class="dg ana" href="https://dijitabela.com/ekspertiz.html">Ücretsiz ekspertiz</a>
+</div></header>
+
+<!-- 1 · AÇILIŞ: tek ekran, sağda gerçek prototip videosu -->
+<section class="acilis"><div class="ic">
+  <div>
+    <p class="mono">● Antalya · Türkiye geneli · yerel işletmeler için</p>
+    <h1 style="margin-top:18px">Esnafın tabelası artık <span class="vurgu">Google'da.</span></h1>
+    <p class="giris">Web sitesi, Google'da görünürlük, müşteri takibi ve yapay zekâ. İşletmenizi inceliyor, size özel <b>3 çalışan prototip</b> hazırlıyoruz. Beğenmezseniz hiçbir şey ödemiyorsunuz.</p>
+    <div class="dugmeler">
+      <a class="dg ana" href="https://dijitabela.com/ekspertiz.html">İşletmemi ücretsiz inceleyin →</a>
+      <a class="dg" href="#isler">Yaptığımız işleri görün</a>
+    </div>
+    <div class="guven"><span>3 prototip ücretsiz</span><span>Fiyat baştan belli</span><span>%50 başta, %50 teslimde</span><span>Hesaplar sizin adınıza</span></div>
+  </div>
+  <div>
+    <div class="telefon"><video src="m/proto-nakliyat-takip.mp4" poster="m/proto-nakliyat-takip.jpg" autoplay muted loop playsinline></video></div>
+    <p class="mono telefon-not">Gerçek prototip · <b>nakliyat firması</b> · canlı taşınma takibi</p>
+  </div>
+</div></section>
+
+<!-- 2 · İŞLERİMİZ: gerçek prototipler (işletme adı gizli) -->
+<section id="isler"><div class="ic">
+  <div class="isler-ust">
+    <div><p class="mono">Son işlerimiz</p><h2 style="margin-top:12px">Anlatmıyoruz,<br>gösteriyoruz.</h2></div>
+    <p>Bize yazan her işletmeye birkaç gün içinde 3 farklı, çalışan prototip hazırlıyoruz. Aşağıdakiler son hafta hazırladıklarımızdan. İşletme adları gizlendi.</p>
+  </div>
+  <div class="isler">
+    <div class="is"><video src="m/proto-nakliyat-takip.mp4" poster="m/proto-nakliyat-takip.jpg" muted loop playsinline preload="none"></video>
+      <p class="mono">Nakliyat · Eskişehir</p><h3>Canlı taşınma takibi</h3><p>Kamyon haritada, her koli QR'lı. "Kitap kolisi nerede?" sorusu bitti.</p></div>
+    <div class="is"><video src="m/proto-nakliyat-fiyat.mp4" poster="m/proto-nakliyat-fiyat.jpg" muted loop playsinline preload="none"></video>
+      <p class="mono">Nakliyat · Eskişehir</p><h3>Anında fiyat</h3><p>Müşteri eşyasını seçiyor; araç, ekip ve fiyat aralığı hemen çıkıyor.</p></div>
+    <div class="is"><video src="m/proto-kombi-ariza.mp4" poster="m/proto-kombi-ariza.jpg" muted loop playsinline preload="none"></video>
+      <p class="mono">Kombi servisi · İstanbul</p><h3>Arıza asistanı</h3><p>Müşteri belirtiyi seçiyor, hata kodunu yazıyor. Usta doğru parçayla geliyor.</p></div>
+    <div class="is"><video src="m/proto-kombi-randevu.mp4" poster="m/proto-kombi-randevu.jpg" muted loop playsinline preload="none"></video>
+      <p class="mono">Kombi servisi · İstanbul</p><h3>3 dokunuşta randevu</h3><p>Gün ve saat seçimi, "usta yolda" bildirimi, yıllık bakım hatırlatması.</p></div>
+  </div>
+
+  <div class="vaka">
+    <img src="m/ornek-site.png" alt="Oto servis için hazırladığımız web sitesi · Dijitabela" loading="lazy">
+    <div>
+      <p class="mono">Gerçek bir iş · Antalya · oto servis</p>
+      <h3 style="font-size:38px;margin-top:10px">Google'a göre "kalıcı olarak kapanmıştı."</h3>
+      <p style="color:var(--soluk);margin-top:14px">Yıllardır aynı adreste çalışan bir BMW servisi, sahipsiz kalan Google kaydı yüzünden aramalarda "kapandı" görünüyordu.</p>
+      <ol>
+        <li><b>Önce</b><span>"Kalıcı olarak kapandı" uyarısı, eski fotoğraf, site yok, müşteri kaydı defterde.</span></li>
+        <li><b>Sonra</b><span>Google kaydını sahiplenme ve kurtarma süreci, yeni site, müşteri ve servis paneli, bakım hatırlatmaları.</span></li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<!-- 3 · HİZMETLER: satır liste -->
+<section id="hizmetler"><div class="ic">
+  <p class="mono">Ne yapıyoruz</p>
+  <h2 style="margin-top:12px">Tek adres,<br>birbirine bağlı sistem.</h2>
+  <div class="hiz">
+    <a href="https://dijitabela.com/antalya-web-tasarim.html"><span class="no">01</span><h3>Web sitesi</h3><p>Telefonda hızlı açılan, fiyatı ve iletişimi ilk bakışta gösteren site.</p><span class="ok">→</span></a>
+    <a href="https://dijitabela.com/google-isletme-profili.html"><span class="no">02</span><h3>Google'da görünmek</h3><p>Google İşletme Profili, haritalar, yorumlar ve yerel SEO. "Kapandı" görünen kayıtları kurtarıyoruz.</p><span class="ok">→</span></a>
+    <a href="https://dijitabela.com/sosyal-medya-otomasyonu.html"><span class="no">03</span><h3>Sosyal medya otomasyonu</h3><p>Fotoğrafınızdan Reels ve gönderi, takvimle 5 platformda yayın.</p><span class="ok">→</span></a>
+    <a href="https://dijitabela.com/yapay-zeka-entegrasyonu.html"><span class="no">04</span><h3>WhatsApp yapay zekâ asistanı</h3><p>Gece gelen mesaja anında cevap, randevu, kritik konuda size devir.</p><span class="ok">→</span></a>
+    <a href="https://dijitabela.com/blog-musteri-takip-programi-crm.html"><span class="no">05</span><h3>Müşteri takip programı</h3><p>Kim geldi, ne aldı, ne zaman tekrar gelecek. Hatırlatmalar kendiliğinden gider.</p><span class="ok">→</span></a>
+    <a href="https://dijitabela.com/dijitabela-uygulamasi.html"><span class="no">06</span><h3>Mobil uygulama ve özel yazılım</h3><p>Randevu, sadakat, sipariş, takip. İşinize özel uygulama.</p><span class="ok">→</span></a>
+  </div>
+</div></section>
+
+<!-- 4 · NASIL ÇALIŞIRIZ -->
+<section id="nasil"><div class="ic">
+  <p class="mono">Nasıl çalışırız</p>
+  <h2 style="margin-top:12px">Önce görün,<br>sonra karar verin.</h2>
+  <div class="adimlar">
+    <div class="adim"><div class="sayi">01</div><h3>Ücretsiz ekspertiz</h3><p>Google kaydınızı, sitenizi, mesajlarınızı inceliyoruz. Müşteri kaybettiren eksikleri raporluyoruz.</p></div>
+    <div class="adim"><div class="sayi">02</div><h3>3 prototip</h3><p>İşletmenize özel, çalışan 3 farklı tasarım. Telefonunuzdan açıp deniyorsunuz.</p></div>
+    <div class="adim"><div class="sayi">03</div><h3>%50 ile başlıyoruz</h3><p>Beğendiğinizi seçiyorsunuz. Fiyat baştan belli, kalan ödeme teslimde.</p></div>
+    <div class="adim"><div class="sayi">04</div><h3>Kurup bırakmıyoruz</h3><p>Teslimden sonra da yanınızdayız. İlerlemeyi Dijitabela uygulamasından görüyorsunuz.</p></div>
+  </div>
+</div></section>
+
+<!-- 5 · FİYATLAR -->
+<section id="fiyat"><div class="ic">
+  <p class="mono">Fiyatlar · KDV hariç</p>
+  <h2 style="margin-top:12px">Fiyat baştan belli.</h2>
+  <div class="fiyatlar">
+    <div class="paket"><p class="mono">1 hafta</p><h3>Dijital Vitrin</h3><p>Google'da görünür olun, müşteri sizi bulsun.</p><div class="tutar">19.900 ₺</div>
+      <ul><li>Kurumsal web sitesi</li><li>Google İşletme Profili kurulum / kurtarma</li><li>SEO altyapısı, 6 blog yazısı</li><li>1 ay destek</li></ul>
+      <a class="dg" href="https://dijitabela.com/teklif-al.html">Bu paketi seç</a></div>
+    <div class="paket oner"><p class="mono">En çok tercih edilen · 2–3 hafta</p><h3>Dijital İşletme</h3><p>Müşterinizi takip edin, geri çağırın.</p><div class="tutar">49.900 ₺</div>
+      <ul><li>Vitrin paketindeki her şey</li><li>Müşteri takip programı (CRM)</li><li>Telefon ve bilgisayar uygulaması</li><li>3 ay destek</li></ul>
+      <a class="dg ana" href="https://dijitabela.com/teklif-al.html">Bu paketi seç</a></div>
+    <div class="paket"><p class="mono">5–6 hafta</p><h3>Tam Dönüşüm</h3><p>Mağaza uygulaması, online ödeme ve büyüme.</p><div class="tutar">89.900 ₺</div>
+      <ul><li>İşletme paketindeki her şey</li><li>Google Play + App Store uygulaması</li><li>Online ödeme ve taksit</li><li>6 ay destek</li></ul>
+      <a class="dg" href="https://dijitabela.com/teklif-al.html">Bu paketi seç</a></div>
+  </div>
+  <p class="mono fiyat-not">Tek tek hizmet de alabilirsiniz → <a href="https://dijitabela.com/teklif-al.html">fiyat hesaplayıcı</a></p>
+</div></section>
+
+<!-- 6 · SSS -->
+<section id="sss"><div class="ic">
+  <p class="mono">Merak edilenler</p>
+  <h2 style="margin-top:12px">Sık sorulanlar.</h2>
+  <div class="sss">
+    <details><summary>Prototipler gerçekten ücretsiz mi?</summary><p>Evet. Ekspertiz ve 3 prototip ücretsizdir. Beğenmezseniz hiçbir şey ödemezsiniz, prototipler 7 gün açık kalır.</p></details>
+    <details><summary>Site ve hesaplar kimin olur?</summary><p>Tamamen sizin. Alan adı, Google hesapları ve uygulama mağazası hesapları işletme adına açılır.</p></details>
+    <details><summary>Google'da ilk sıraya çıkmayı garanti ediyor musunuz?</summary><p>Hiçbir dürüst ajans sıra garantisi veremez. Biz yerel aramada öne çıkmanızı sağlayan bütün adımları eksiksiz kurar ve her ay raporlarız.</p></details>
+    <details><summary>Ödemeyi nasıl yapıyorum?</summary><p>%50 başta, %50 teslimde. Havale/EFT ile ödeyebilirsiniz.</p></details>
+    <details><summary>Antalya dışındayım, çalışabilir miyiz?</summary><p>Evet. Türkiye'nin her şehrindeki işletmelerle uzaktan çalışıyoruz. Bu sayfadaki prototipler Eskişehir ve İstanbul'daki işletmeler için hazırlandı.</p></details>
+  </div>
+</div></section>
+
+<!-- 7 · SON ÇAĞRI -->
+<section class="son"><div class="ic">
+  <div><p class="mono" style="color:#9EA1A8">Sıradaki prototip sizin olsun</p>
+    <h2 style="margin-top:12px">Tabelanızı<br><span class="vurgu" style="color:var(--murekkep)">birlikte kuralım.</span></h2>
+    <p>İşletmenizin adını ya da Google Haritalar linkini gönderin. Birkaç gün içinde size özel 3 prototip ve ekspertiz raporu hazırlayalım.</p></div>
+  <div class="kutu">
+    <a class="dg ana" href="https://dijitabela.com/ekspertiz.html">Ücretsiz ekspertiz iste →</a>
+    <a class="dg" href="https://wa.me/905019452184?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20prototip%20istiyorum.">WhatsApp: 0501 945 21 84</a>
+  </div>
+</div></section>
+<footer><div class="ic"><div><a href="https://dijitabela.com/hakkimizda.html">Hakkımızda</a><a href="https://dijitabela.com/blog.html">Blog</a><a href="https://dijitabela.com/dijitabela.html">Dijitabela nedir?</a><a href="https://dijitabela.com/kvkk.html">KVKK</a></div><span>© 2026 Dijitabela · Antalya</span></div></footer>
+
+<a class="wa" href="https://wa.me/905019452184" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+<script>
+// İşler videoları ekrana girince oynasın, çıkınca dursun (sayfa hafif kalsın)
+var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.preload = "auto"; e.target.play().catch(function () {}); } else e.target.pause(); }); }, { threshold: .4 });
+document.querySelectorAll(".is video").forEach(function (v) { io.observe(v); });
+</script>
+</body>
+</html>
