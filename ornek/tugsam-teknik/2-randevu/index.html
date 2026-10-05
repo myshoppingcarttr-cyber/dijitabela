@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tuğsam Teknik · Online Kombi Bakım Randevusu · Esenyurt</title>
+<meta name="description" content="Kombi bakımı ve tamiri için online randevu alın, ustanın yolda olduğunu telefondan görün, yıllık bakım hatırlatıcısı kurun. Tuğsam Teknik, İstanbul Avrupa Yakası.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#0f2240;--kart:#16305a;--cizgi:#284a7e;--yazi:#eef3fa;--soluk:#a9b8cf;--turuncu:#f28c28;--mavi:#56b2f0;--yesil:#3fb950}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--zemin);color:var(--yazi);font-family:"Archivo",system-ui,sans-serif;line-height:1.5}
+.ic{max-width:1120px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.serit{background:var(--turuncu);color:#111;text-align:center;padding:7px 12px;font-family:"JetBrains Mono",monospace;font-size:12px}.serit a{color:inherit}
+header .ic{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;border-bottom:1px solid var(--cizgi)}
+header img{height:56px;border-radius:50%}
+header a{color:var(--turuncu);text-decoration:none;font-weight:800;font-variation-settings:"wdth" 75;font-size:20px}
+.ust{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:34px 0}
+h1{font-variation-settings:"wdth" 64;font-weight:800;font-size:clamp(38px,6vw,70px);line-height:.96}
+h1 em{font-style:normal;color:var(--turuncu)}
+.ust p{color:var(--soluk);font-size:18px;margin-top:12px}
+.ust img{width:100%;height:380px;object-fit:cover;display:block}
+.kutu{background:var(--kart);border:1px solid var(--cizgi);padding:22px}
+.kutu+.kutu{margin-top:18px}
+h2{font-variation-settings:"wdth" 72;font-weight:800;font-size:26px;margin-bottom:12px}
+.adim{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--soluk)}
+select,input{font:inherit;color:var(--yazi);background:#0b1a33;border:1px solid var(--cizgi);padding:12px;border-radius:0}
+.gunler,.saatler{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px}
+.gunler button,.saatler button{font:inherit;font-weight:700;padding:10px 12px;background:transparent;color:var(--yazi);border:1px solid var(--cizgi);cursor:pointer;min-width:84px}
+.gunler button small{display:block;font-weight:400;color:var(--soluk);font-size:12px}
+.gunler button.on,.saatler button.on{background:var(--turuncu);border-color:var(--turuncu);color:#111}
+.saatler button[disabled]{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.dg{display:inline-block;font:inherit;font-weight:800;font-size:17px;padding:14px 20px;background:var(--turuncu);color:#111;border:0;cursor:pointer;text-decoration:none}
+.dg.ikinci{background:transparent;color:var(--yazi);border:1px solid var(--cizgi)}
+.takip{display:none}
+.takip.acik{display:block}
+ol.yol{list-style:none;margin-top:10px}
+ol.yol li{display:grid;grid-template-columns:22px 1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--cizgi);color:var(--soluk)}
+ol.yol li::before{content:"";width:12px;height:12px;border:2px solid var(--cizgi);margin-top:5px}
+ol.yol li.tamam{color:var(--yazi)}ol.yol li.tamam::before{background:var(--yesil);border-color:var(--yesil)}
+ol.yol li.simdi{color:var(--yazi);font-weight:700}ol.yol li.simdi::before{background:var(--turuncu);border-color:var(--turuncu)}
+.ikili{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+ul.liste{list-style:none}
+ul.liste li{padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--cizgi)}
+ul.liste li::before{content:"✓";position:absolute;left:0;color:var(--yesil);font-weight:800}
+.not{color:var(--soluk);font-size:13px;margin-top:10px}
+.basari{border-left:4px solid var(--yesil);padding:8px 12px;margin-top:12px;display:none}
+footer{padding:26px 0 70px;color:var(--soluk);font-size:14px}footer a{color:inherit}
+@media(max-width:880px){.ust,.ikili,.adim{grid-template-columns:1fr}.ust img{height:260px}}
+</style>
+</head>
+<body>
+<div class="serit"><a href="../">← 3 tasarım</a> · TASARIM 2 · ONLINE RANDEVU + BAKIM HATIRLATICI · Dijitabela önizlemesi</div>
+<header><div class="ic"><img src="../img/logo.jpg" alt="Tuğsam Teknik" width="56" height="56"><a href="tel:+905314367872">☎ 0531 436 78 72</a></div></header>
+
+<div class="ic ust">
+  <div>
+    <div class="mono" style="color:var(--turuncu)">Kış gelmeden kombi bakımı</div>
+    <h1>Randevunuzu <em>siz seçin</em>, ustanın yolda olduğunu görün.</h1>
+    <p>Telefonda beklemeden gün ve saat seçin. Usta yola çıkınca telefonunuza haber gelsin. Bir sonraki bakımı da biz hatırlatalım.</p>
+  </div>
+  <img src="../img/y2.jpg" alt="Tuğsam Teknik kombi bakımı">
+</div>
+
+<div class="ic">
+  <div class="kutu" id="randevu">
+    <h2>1 · Online randevu</h2>
+    <div class="adim">
+      <label>Hizmet<select id="hizmet"><option>Kombi bakımı</option><option>Kombi arızası</option><option>Petek temizliği</option><option>Su kaçağı tespiti</option><option>Sıhhi tesisat / gider açma</option><option>Beyaz eşya servisi</option></select></label>
+      <label>İlçe<select id="ilce"><option>Esenyurt</option><option>Beylikdüzü</option><option>Avcılar</option><option>Büyükçekmece</option><option>Başakşehir</option><option>Küçükçekmece</option><option>Bağcılar</option><option>Bahçelievler</option><option>Arnavutköy</option><option>Diğer (Avrupa Yakası)</option></select></label>
+      <label>Kombi markası<select id="marka"><option>Vaillant</option><option>Protherm</option><option>Demirdöküm</option><option>Baymak</option><option>E.C.A.</option><option>Bosch</option><option>Buderus</option><option>Ferroli</option><option>Viessmann</option><option>Bilmiyorum</option></select></label>
+      <label>Adres (mahalle, sokak)<input id="adres" placeholder="ör. Fatih Mah. 879. Sk."></label>
+    </div>
+    <div style="margin-top:14px" class="mono">Gün</div>
+    <div class="gunler" id="gunler"></div>
+    <div class="mono">Saat aralığı</div>
+    <div class="saatler" id="saatler"></div>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"><button class="dg" id="onayla" type="button">Randevuyu oluştur</button><a class="dg ikinci" href="tel:+905314367872">Acil mi? Hemen ara</a></div>
+    <p class="not">Önizlemede randevu WhatsApp mesajı olarak gelir. Gerçek sitede randevular Tuğsam Teknik'in paneline düşer, dolu saatler otomatik kapanır.</p>
+  </div>
+
+  <div class="kutu takip" id="takip">
+    <h2>2 · Randevunuz: usta yolda takibi</h2>
+    <div id="ozet" class="mono" style="color:var(--turuncu)"></div>
+    <ol class="yol" id="yol"></ol>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><button class="dg ikinci" id="ileri" type="button">Demo: sonraki adım →</button><a class="dg" id="waRandevu" target="_blank">WhatsApp'tan onayla</a></div>
+  </div>
+
+  <div class="ikili" style="margin-top:18px">
+    <div class="kutu">
+      <h2>3 · Bakım hatırlatıcı</h2>
+      <p style="color:var(--soluk);margin-bottom:12px">Kombinizin yılda bir bakımı faturayı düşürür, arızayı önler. Son bakım tarihinizi girin, bir sonrakini telefonunuzun takvimine ekleyelim.</p>
+      <div class="adim">
+        <label>Son bakım tarihi<input type="date" id="sonBakim"></label>
+        <label>Kombi markası<select id="hMarka"><option>Vaillant</option><option>Protherm</option><option>Demirdöküm</option><option>Baymak</option><option>E.C.A.</option><option>Bosch</option><option>Diğer</option></select></label>
+      </div>
+      <div style="margin-top:14px"><button class="dg" id="takvim" type="button">Takvimime ekle</button></div>
+      <div class="basari" id="basari"></div>
+    </div>
+    <div class="kutu">
+      <h2>Bakımda neler yapıyoruz?</h2>
+      <ul class="liste">
+        <li>Yanma odası ve brülör temizliği</li><li>Fan ve baca bağlantısı kontrolü</li><li>Gaz kaçağı ve yanma ayarı kontrolü</li>
+        <li>Genleşme tankı ve basınç kontrolü</li><li>Pompa, vana ve sensör kontrolü</li><li>Petek ve tesisat su basıncı ayarı</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer><div class="ic">Tuğsam Teknik · Fatih Mah. 879. Sk. No:30B, Esenyurt / İstanbul · 0531 436 78 72<br>Bu sayfa <a href="https://dijitabela.com.tr/">Dijitabela</a> tarafından hazırlanmış bir önizlemedir.</div></footer>
+
+<script>
+var $ = function (i) { return document.getElementById(i); };
+var SAAT = ["09:00–11:00", "11:00–13:00", "13:00–15:00", "15:00–17:00", "17:00–19:00"];
+var GUN = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"], AY = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
+var secGun = null, secSaat = null, gunler = [];
+for (var i = 0; i < 7; i++) { var d = new Date(); d.setDate(d.getDate() + i); gunler.push(d); }
+gunler.forEach(function (d, i) {
+  var b = document.createElement("button"); b.type = "button";
+  b.innerHTML = (i === 0 ? "Bugün" : i === 1 ? "Yarın" : GUN[d.getDay()]) + "<small>" + d.getDate() + " " + AY[d.getMonth()] + "</small>";
+  b.onclick = function () { secGun = i; [].forEach.call($("gunler").children, function (x) { x.classList.remove("on"); }); b.classList.add("on"); saatCiz(); };
+  $("gunler").appendChild(b);
+});
+function saatCiz() {
+  $("saatler").innerHTML = ""; secSaat = null;
+  SAAT.forEach(function (s, j) {
+    var b = document.createElement("button"); b.type = "button"; b.textContent = s;
+    var dolu = (secGun + j) % 3 === 0 || (secGun === 0 && j < 2); // örnek doluluk
+    if (dolu) { b.disabled = true; b.title = "Dolu"; }
+    b.onclick = function () { secSaat = j; [].forEach.call($("saatler").children, function (x) { x.classList.remove("on"); }); b.classList.add("on"); };
+    $("saatler").appendChild(b);
+  });
+}
+$("gunler").children[1].click();
+var YOL = ["Randevu alındı", "Usta onayladı", "Usta yola çıktı", "Kapınızda", "İş bitti, fiş WhatsApp'a gönderildi"], adim = 0;
+function yolCiz() { $("yol").innerHTML = YOL.map(function (y, i) { return "<li class='" + (i < adim ? "tamam" : i === adim ? "simdi" : "") + "'><span>" + y + "</span><small>" + (i <= adim ? ["şimdi", "+5 dk", "+1 sa 20 dk", "+1 sa 45 dk", "+2 sa 30 dk"][i] : "") + "</small></li>"; }).join(""); }
+$("onayla").onclick = function () {
+  if (secSaat === null) { alertYerine("Lütfen bir saat aralığı seçin."); return; }
+  var d = gunler[secGun], metin = d.getDate() + " " + AY[d.getMonth()] + " · " + SAAT[secSaat];
+  $("ozet").textContent = $("hizmet").value + " · " + $("ilce").value + " · " + metin;
+  $("waRandevu").href = "https://wa.me/905314367872?text=" + encodeURIComponent("Merhaba, online randevu:\nHizmet: " + $("hizmet").value + "\nKombi: " + $("marka").value + "\nİlçe: " + $("ilce").value + "\nAdres: " + ($("adres").value || "-") + "\nGün/saat: " + metin);
+  adim = 0; yolCiz(); $("takip").classList.add("acik"); $("takip").scrollIntoView({ behavior: "smooth" });
+};
+$("ileri").onclick = function () { if (adim < YOL.length - 1) { adim++; yolCiz(); } };
+function alertYerine(m) { var p = $("onayla").parentNode.nextElementSibling; p.textContent = m; p.style.color = "#f28c28"; }
+$("takvim").onclick = function () {
+  var t = $("sonBakim").value ? new Date($("sonBakim").value) : new Date(); var s = new Date(t); s.setFullYear(s.getFullYear() + 1);
+  var f = function (x) { return x.toISOString().slice(0, 10).replace(/-/g, ""); }, son = new Date(s); son.setDate(son.getDate() + 1);
+  var ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tugsam Teknik//TR", "BEGIN:VEVENT", "UID:" + Date.now() + "@tugsamteknik", "DTSTAMP:" + f(new Date()) + "T000000Z",
+    "DTSTART;VALUE=DATE:" + f(s), "DTEND;VALUE=DATE:" + f(son), "SUMMARY:Kombi bakımı zamanı (" + $("hMarka").value + ")",
+    "DESCRIPTION:Tuğsam Teknik 0531 436 78 72 - randevu için arayın ya da WhatsApp'tan yazın.", "BEGIN:VALARM", "TRIGGER:-P7D", "ACTION:DISPLAY", "DESCRIPTION:Kombi bakımı yaklaşıyor", "END:VALARM", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "kombi-bakim-hatirlatici.ics"; a.click();
+  $("basari").style.display = "block"; $("basari").textContent = "Hatırlatıcı " + s.toLocaleDateString("tr-TR") + " tarihine eklendi, bir hafta önce de uyarır.";
+};
+</script>
+</body>
+</html>

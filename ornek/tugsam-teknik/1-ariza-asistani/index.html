@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tuğsam Teknik · Kombi Arıza Asistanı · Esenyurt</title>
+<meta name="description" content="Kombiniz mi bozuldu? Belirtiyi seçin, ne olabileceğini ve ne yapmanız gerektiğini 30 saniyede öğrenin. Tuğsam Teknik, Esenyurt ve İstanbul Avrupa Yakası.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--kagit:#f3f5f7;--beyaz:#fff;--lacivert:#13315c;--mavi:#2a8fd6;--turuncu:#f28c28;--yazi:#141a22;--soluk:#5a6574;--cizgi:#d6dde5;--kirmizi:#c62828}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--kagit);color:var(--yazi);font-family:"Archivo",system-ui,sans-serif;line-height:1.5}
+.ic{max-width:1120px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.serit{background:var(--lacivert);color:#fff;text-align:center;padding:7px 12px;font-family:"JetBrains Mono",monospace;font-size:12px}.serit a{color:inherit}
+.gaz{background:var(--kirmizi);color:#fff;text-align:center;padding:9px 12px;font-weight:700}
+.gaz a{color:#fff}
+header .ic{display:flex;justify-content:space-between;align-items:center;padding:10px 20px}
+header img{height:58px;width:auto}
+header a.tel{color:var(--lacivert);text-decoration:none;font-weight:800;font-variation-settings:"wdth" 75;font-size:20px}
+.ust{display:grid;grid-template-columns:1.1fr .9fr;border-top:3px solid var(--lacivert)}
+.ust img{width:100%;height:460px;object-fit:cover;display:block}
+.ust .y{padding:34px 30px;display:flex;flex-direction:column;justify-content:center;background:var(--beyaz)}
+h1{font-variation-settings:"wdth" 64;font-weight:800;font-size:clamp(36px,5.6vw,64px);line-height:.97;margin:10px 0 14px;color:var(--lacivert)}
+h1 em{font-style:normal;color:var(--turuncu)}
+.ust p{color:var(--soluk);font-size:18px}
+section{padding:34px 0;border-bottom:1px solid var(--cizgi)}
+h2{font-variation-settings:"wdth" 70;font-weight:800;font-size:30px;color:var(--lacivert);margin-bottom:6px}
+.alt{color:var(--soluk);margin-bottom:18px}
+.belirtiler{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.belirtiler button{font:inherit;text-align:left;padding:16px;background:var(--beyaz);border:1.5px solid var(--cizgi);cursor:pointer;font-weight:700;font-size:16px;min-height:86px;display:flex;flex-direction:column;justify-content:space-between}
+.belirtiler button small{font-weight:400;color:var(--soluk);font-size:13px}
+.belirtiler button.on{border-color:var(--lacivert);box-shadow:inset 0 -4px 0 var(--turuncu)}
+.sonuc{display:none;margin-top:18px;background:var(--beyaz);border:1.5px solid var(--lacivert)}
+.sonuc.acik{display:grid;grid-template-columns:1fr 1fr 1fr}
+.sonuc>div{padding:18px;border-right:1px solid var(--cizgi)}
+.sonuc>div:last-child{border-right:0}
+.sonuc h3{font-variation-settings:"wdth" 75;font-size:18px;margin-bottom:8px;color:var(--lacivert)}
+.sonuc ul{padding-left:18px}.sonuc li{margin:4px 0}
+.acil{color:var(--kirmizi);font-weight:700}
+.dugmeler{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dg{display:inline-block;font:inherit;font-weight:800;text-decoration:none;padding:13px 18px;border:2px solid var(--lacivert);color:var(--lacivert);background:transparent;cursor:pointer}
+.dg.ana{background:var(--lacivert);color:#fff}.dg.tur{background:var(--turuncu);border-color:var(--turuncu);color:#fff}
+.kod{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--soluk)}
+select,input{font:inherit;padding:12px;border:1.5px solid var(--cizgi);background:#fff;color:var(--yazi);border-radius:0}
+.foto{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.foto img{width:100%;height:320px;object-fit:cover;display:block}
+.foto figcaption{font-size:13px;color:var(--soluk);padding-top:4px}
+.markalar{display:flex;flex-wrap:wrap;gap:8px}
+.markalar span{border:1px solid var(--cizgi);background:#fff;padding:8px 12px;font-weight:700}
+footer{padding:22px 0 90px;color:var(--soluk);font-size:14px}footer a{color:inherit}
+.yapiskan{position:fixed;left:0;right:0;bottom:0;display:none}
+.yapiskan a{flex:1;text-align:center;text-decoration:none;font-weight:800;padding:15px 6px;color:#fff;background:var(--lacivert)}
+.yapiskan a.wa{background:var(--turuncu)}
+@media(max-width:900px){.ust{grid-template-columns:1fr}.ust img{height:300px}.belirtiler{grid-template-columns:1fr 1fr}.sonuc.acik{grid-template-columns:1fr}.sonuc>div{border-right:0;border-bottom:1px solid var(--cizgi)}.kod{grid-template-columns:1fr}.foto{grid-template-columns:1fr}.yapiskan{display:flex}}
+</style>
+</head>
+<body>
+<div class="serit"><a href="../">← 3 tasarım</a> · TASARIM 1 · ARIZA ASİSTANI · Dijitabela önizlemesi</div>
+<div class="gaz">Gaz kokusu mu var? Kombiye dokunmayın, elektrik düğmelerini kullanmayın, pencereleri açın ve <a href="tel:187">187 Doğalgaz Acil</a>'i arayın.</div>
+<header><div class="ic"><img src="../img/logo.jpg" alt="Tuğsam Teknik" width="68" height="58"><a class="tel" href="tel:+905314367872">☎ 0531 436 78 72</a></div></header>
+
+<div class="ust">
+  <img src="../img/y3.jpg" alt="Tuğsam Teknik, kombi brülörü bakımı">
+  <div class="y">
+    <div class="mono">Esenyurt · İstanbul Avrupa Yakası · tüm markalar</div>
+    <h1>Kombiniz mi bozuldu? <em>30 saniyede</em> ne olduğunu öğrenin.</h1>
+    <p>Belirtiyi seçin. Ne olabileceğini, önce neye bakmanız gerektiğini ve ne zaman usta çağırmanız gerektiğini söyleyelim. Gerekirse bilgileriniz tek dokunuşla bize gelir.</p>
+  </div>
+</div>
+
+<section><div class="ic">
+  <div class="mono">Arıza asistanı</div>
+  <h2>Kombinizde ne oluyor?</h2>
+  <p class="alt">Size en yakın belirtiyi seçin.</p>
+  <div class="belirtiler" id="belirtiler"></div>
+  <div class="sonuc" id="sonuc">
+    <div><h3>Ne olabilir?</h3><ul id="s1"></ul></div>
+    <div><h3>Önce bunlara bakın</h3><ul id="s2"></ul></div>
+    <div><h3>Ne zaman bizi çağırın</h3><ul id="s3"></ul>
+      <div class="dugmeler"><a class="dg ana" href="tel:+905314367872">Hemen ara</a><a class="dg tur" id="waBelirti" target="_blank">WhatsApp'a gönder</a></div></div>
+  </div>
+</div></section>
+
+<section><div class="ic">
+  <div class="mono">Ekranda kod mu var?</div>
+  <h2>Hata kodunu yazın, ustamız baksın</h2>
+  <p class="alt">Kod ve marka WhatsApp'ta hazır mesaj olarak açılır. Ustamız size ne yapmanız gerektiğini yazar, gerekirse aynı gün geliriz.</p>
+  <div class="kod">
+    <label>Marka<select id="marka"><option>Vaillant</option><option>Protherm</option><option>Demirdöküm</option><option>Baymak</option><option>E.C.A.</option><option>Bosch</option><option>Buderus</option><option>Ferroli</option><option>Viessmann</option><option>Diğer</option></select></label>
+    <label>Ekrandaki kod<input id="hk" placeholder="ör. F28, E01, A1"></label>
+    <label>Mahalle / ilçe<input id="ilce" placeholder="ör. Esenyurt, Fatih Mah."></label>
+    <a class="dg tur" id="waKod" target="_blank" href="#">Gönder</a>
+  </div>
+</div></section>
+
+<section><div class="ic">
+  <h2>Yaptığımız işlerden</h2>
+  <p class="alt">Gerçek servis fotoğraflarımız.</p>
+  <div class="foto">
+    <figure><img src="../img/y2.jpg" alt="Açılmış kombi, bakım öncesi" loading="lazy"><figcaption>Bakım: yanma odası ve fan kontrolü</figcaption></figure>
+    <figure><img src="../img/y5.jpg" alt="Kombi iç aksamı" loading="lazy"><figcaption>Arıza tespiti: kart ve bağlantılar</figcaption></figure>
+    <figure><img src="../img/y4.jpg" alt="Bakımı yapılan kombi" loading="lazy"><figcaption>Bakım sonrası çalışır durumda</figcaption></figure>
+  </div>
+</div></section>
+
+<section><div class="ic">
+  <h2>Servis verdiğimiz markalar</h2>
+  <div class="markalar"><span>Vaillant</span><span>Protherm</span><span>Demirdöküm</span><span>Baymak</span><span>E.C.A.</span><span>Bosch</span><span>Buderus</span><span>Ferroli</span><span>Viessmann</span><span>ve diğerleri</span></div>
+  <p class="alt" style="margin-top:12px">Kombi tamiri ve bakımı, petek temizliği, su kaçağı tespiti, sıhhi tesisat, gider açma, beyaz eşya servisi.</p>
+</div></section>
+
+<footer><div class="ic">Tuğsam Teknik · Fatih Mah. 879. Sk. No:30B, Esenyurt / İstanbul · 0531 436 78 72<br>Bu sayfa <a href="https://dijitabela.com.tr/">Dijitabela</a> tarafından hazırlanmış bir önizlemedir. Arıza asistanı genel bilgi verir, kesin tespiti ustamız yapar.</div></footer>
+<div class="yapiskan"><a href="tel:+905314367872">☎ Ara</a><a class="wa" href="https://wa.me/905314367872">WhatsApp</a></div>
+
+<script>
+var B = {
+  calismiyor: ["Hiç çalışmıyor", "ekran kapalı, ses yok",
+    ["Elektrik gelmiyor (sigorta, priz)", "Doğalgaz kesik ya da sayaç bakiyesi bitmiş", "Elektronik kart arızası"],
+    ["Kombinin fişi takılı mı, sigorta atmış mı?", "Ocağı yakın: ocak yanıyorsa gaz geliyordur", "Doğalgaz vanası açık mı?"],
+    ["Elektrik ve gaz varken kombi hâlâ açılmıyorsa", "Ekranda bir kod görünüyorsa"]],
+  basinc: ["Basınç düşüyor", "gösterge 1 barın altında",
+    ["Tesisatta ya da kombide su kaçağı", "Emniyet ventilinden su atma", "Genleşme tankının havası bitmiş"],
+    ["Soğukken basınç 1–1,5 bar arasında olmalı", "Kombinin altında, petek vanalarında ıslaklık var mı?", "Bir haftada birden fazla kez düşüyorsa not alın"],
+    ["Sık sık su eklemeniz gerekiyorsa (kaçak olabilir)", "Kombinin altından su damlıyorsa", "Su faturanız beklenmedik şekilde arttıysa"]],
+  petek: ["Petekler ısınmıyor", "hepsi ya da bazıları soğuk",
+    ["Peteklerde hava kalmış", "Peteklerde tortu birikmiş", "Pompa ya da termostat ayarı"],
+    ["Petek vanaları açık mı?", "Oda termostatı istenen sıcaklıkta mı?", "Peteğin üstü soğuk, altı sıcaksa hava olabilir"],
+    ["Petekler alttan soğuk kalıyorsa (tortu, petek temizliği gerekir)", "Kombi çalışıyor ama ev ısınmıyorsa"]],
+  sicaksu: ["Sıcak su gelmiyor", "kalorifer çalışıyor",
+    ["Üç yollu vana arızası", "Sıcak su eşanjöründe kireç", "Akış sensörü"],
+    ["Musluğu tam açınca da sıcak gelmiyor mu?", "Kombi ekranında sıcak su ayarı açık mı?"],
+    ["Kalorifer çalışıp sıcak su gelmiyorsa", "Su bir ısınıp bir soğuyorsa"]],
+  ses: ["Ses yapıyor", "fokurdama, tıkırtı, uğultu",
+    ["Tesisatta hava", "Kireç ya da tortu", "Pompa ya da fan yatağı"],
+    ["Ses ilk açılışta mı, sürekli mi?", "Basınç göstergesi normal mi?"],
+    ["Ses giderek artıyorsa", "Yanık kokusuyla birlikteyse hemen kapatın"]],
+  damla: ["Su damlatıyor", "kombinin altında su",
+    ["Basınç çok yükselmiş, emniyet ventili su atıyor", "Bağlantı contası", "Eşanjör"],
+    ["Basınç 3 bara yaklaşıyor mu?", "Damlama sürekli mi, sadece çalışırken mi?"],
+    ["Damlama sürüyorsa kombiyi kapatıp hemen arayın"]],
+  yanip: ["Yanıp sönüyor", "sık sık açılıp kapanıyor",
+    ["Kombi kapasitesi ve ayarlar", "Baca ya da hava akışı", "Sensör arızası"],
+    ["Oda termostatının yeri (kapı, pencere yanı mı?)", "Ekranda kod çıkıyor mu?"],
+    ["Bu durum faturayı artırır, bakımda ayarlarını düzeltelim"]],
+  koku: ["Koku var", "gaz ya da yanık kokusu",
+    ["GAZ KOKUSU: tehlikeli, kombiye dokunmayın", "Yanık kokusu: elektrik ya da fan"],
+    ["Gaz kokusunda: pencereleri açın, elektrik düğmelerine dokunmayın, gaz vanasını kapatın", "187 Doğalgaz Acil'i arayın"],
+    ["Yanık kokusunda kombiyi kapatıp bizi arayın"]]
+};
+var secili = null, $ = function (i) { return document.getElementById(i); };
+Object.keys(B).forEach(function (k) {
+  var b = document.createElement("button"); b.type = "button";
+  b.innerHTML = B[k][0] + "<small>" + B[k][1] + "</small>";
+  b.onclick = function () { secili = k; [].forEach.call($("belirtiler").children, function (x) { x.classList.remove("on"); }); b.classList.add("on"); goster(); };
+  $("belirtiler").appendChild(b);
+});
+function li(a, acil) { return a.map(function (x) { return "<li" + (acil && /GAZ|187/.test(x) ? " class='acil'" : "") + ">" + x + "</li>"; }).join(""); }
+function goster() {
+  var v = B[secili]; $("sonuc").classList.add("acik");
+  $("s1").innerHTML = li(v[2], 1); $("s2").innerHTML = li(v[3], 1); $("s3").innerHTML = li(v[4], 1);
+  $("waBelirti").href = "https://wa.me/905314367872?text=" + encodeURIComponent("Merhaba, kombim için yazıyorum. Belirti: " + v[0] + " (" + v[1] + "). Müsait olduğunuz zaman bakabilir misiniz?");
+}
+function kodLink() { $("waKod").href = "https://wa.me/905314367872?text=" + encodeURIComponent("Merhaba, kombimin ekranında hata kodu var.\nMarka: " + $("marka").value + "\nKod: " + ($("hk").value || "-") + "\nKonum: " + ($("ilce").value || "-")); }
+["marka", "hk", "ilce"].forEach(function (i) { $(i).addEventListener("input", kodLink); }); kodLink();
+</script>
+</body>
+</html>
