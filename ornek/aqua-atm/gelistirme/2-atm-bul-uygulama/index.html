@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-12T23:59:00+03:00" data-slug="aqua-atm"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>ATM Bul · Aqua ATM uygulaması · Geliştirme 2</title>
+<meta name="theme-color" content="#e5322b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="../../ortak/aqua.css"><link rel="stylesheet" href="../tema.css">
+<style>
+body{background:#ececee}
+.sahne{display:grid;grid-template-columns:1fr 400px;gap:40px;max-width:1180px;margin:0 auto;padding:28px 16px 60px;align-items:start}
+@media(max-width:960px){.sahne{grid-template-columns:1fr;gap:20px}.anlat{order:2}}
+.anlat h1{font-size:clamp(28px,4vw,42px);margin-top:12px}.anlat li{margin-bottom:8px}
+.tel{position:sticky;top:90px;width:100%;max-width:400px;margin:0 auto;height:min(820px,calc(100vh - 110px));min-height:640px;background:#fff;border:10px solid #15171b;border-radius:44px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 70px rgba(0,0,0,.25)}
+@media(max-width:960px){.tel{position:relative;top:0}}
+.app-ust{background:var(--r);color:#fff;padding:14px 16px 12px;display:flex;align-items:center;gap:10px}
+.app-ust img{width:30px;height:30px;background:#fff;border-radius:50%}.app-ust b{font:800 17px "DM Sans";flex:1}.app-ust small{opacity:.85;font-size:12px}
+.ekran{flex:1;overflow:auto;position:relative;background:#f7f7f8}
+.ek{display:none;height:100%}.ek.on{display:block}
+#harita{height:52%}.liste{padding:10px 12px}
+.nk{background:#fff;border:1px solid var(--c);border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;gap:10px;align-items:center;cursor:pointer}
+.nk .n{flex:1}.nk b{display:block;font-size:14px}.nk small{color:var(--g);font-size:12px}.nk .m{font:700 12px "DM Sans";color:var(--o);white-space:nowrap}
+.ara{display:flex;gap:6px;padding:10px 12px 0}.ara input{flex:1;padding:10px 12px;border:1px solid var(--c);border-radius:10px;font:14px "DM Sans";background:#fff}
+.alt{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--c);background:#fff}
+.alt button{border:0;background:none;padding:9px 0 11px;font:600 11px "DM Sans";color:var(--g);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.alt button i{font-style:normal;font-size:19px}.alt button.on{color:var(--r)}
+.ic{padding:14px}.kart2{background:#fff;border:1px solid var(--c);border-radius:14px;padding:14px;margin-bottom:12px}
+.cihaz{background:linear-gradient(160deg,#2a0f0d,#4a1612);color:#fff;border:0}.cihaz .g{color:#e9c9c5}
+.tarayici{aspect-ratio:1;max-width:240px;margin:6px auto 12px;border-radius:16px;background:#111 url(../../img/cihazlar.jpg) center/cover;position:relative;overflow:hidden}
+.tarayici:before{content:"";position:absolute;inset:18%;border:3px solid #fff;border-radius:14px;box-shadow:0 0 0 999px rgba(0,0,0,.45)}
+.tarayici:after{content:"";position:absolute;left:18%;right:18%;height:2px;background:#ff8a80;top:20%;animation:tara 2s ease-in-out infinite alternate}
+@keyframes tara{to{top:80%}}
+@media (prefers-reduced-motion:reduce){.tarayici:after{animation:none;top:50%}}
+.puan{display:flex;gap:4px;margin:8px 0}.puan span{flex:1;height:12px;border-radius:6px;background:#eee}.puan span.d{background:var(--r)}
+.buyuk{font:800 34px "DM Sans";color:var(--r)}
+.sw{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--c);font-size:14px}
+.sw input{width:40px;height:22px;accent-color:var(--r)}
+.toast{position:absolute;left:12px;right:12px;bottom:12px;background:#1b1d21;color:#fff;border-radius:12px;padding:12px 14px;font-size:14px;display:none}.toast.on{display:block}
+</style></head><body>
+<header class="site-ust"><div class="kap"><a class="site-logo" href="#"><img src="../img/logo-ikon.png" alt="Aqua ATM">AQUA <span>ATM</span></a>
+<nav class="site-men"><a href="#">Ana Sayfa</a><a href="#">Hakkımızda</a><a href="#">Çalışma Prensibi</a><a class="yeni" href="../1-site-bayilik/">Bayilik</a><a class="yeni akt" href="../2-atm-bul-uygulama/">Su Noktaları</a><a class="yeni" href="../1-site-bayilik/#blog">Blog</a><a href="#">Referanslar</a><a href="#">Sertifikalar</a><a href="#">S.S.S.</a><a href="#">İletişim</a></nav>
+<span class="dil">TR · EN</span></div></header>
+
+<div class="sahne">
+<div class="anlat">
+<div class="yeni-bant"><b>YENİ</b><span>Uygulama, telefonun ana ekranına eklenen bir web uygulaması olarak başlar (App Store / Play onayı beklemeden, ilk günden kullanılabilir). Aynı harita sitenizde <b style="background:none;color:inherit;padding:0">/su-noktalari/</b> sayfasında da yer alır.</span></div>
+<span class="rozet">ATM Bul uygulaması</span>
+<h1>En yakın Aqua ATM bir dokunuş uzakta.</h1>
+<p class="g">Sağdaki telefonda uygulamayı deneyebilirsiniz. Alttaki sekmelerle gezinin.</p>
+<ul>
+<li><b>📍 Harita:</b> 700 cihaz, açık / bakımda durumu, mesafe ve yol tarifi. Noktalar sizin Excel listenizden yüklenir; bayi güncelledikçe değişir.</li>
+<li><b>📷 Tara:</b> cihazın üstündeki QR okutulunca o cihazın sayfası açılır: fiyat, son dolum, arıza bildirimi, Google yorumu.</li>
+<li><b>🔧 Arıza bildirimi:</b> doğrudan o cihazın bayisine ve merkeze WhatsApp ile düşer; takip numarası verilir.</li>
+<li><b>♻ Şişeni getir puanı:</b> telefon numarasıyla puan birikir; 10. dolum hediye. Kaç plastik şişe tasarruf edildiği gösterilir.</li>
+<li><b>⭐ Google yorum akışı:</b> memnun kullanıcı o cihazın Google kaydına yönlendirilir; memnun olmayan Google yerine bayiye iletilir.</li>
+<li><b>📺 Ekrana reklam ver:</b> mahalle esnafı cihaz ekranı için reklam talebi bırakır; bayi onaylar.</li>
+<li><b>🔔 Bildirimler:</b> yakındaki yeni cihaz, puan hediyesi, bakım duyurusu (izin verilirse; KVKK ve İYS uyumlu).</li>
+</ul>
+<p class="not">Prototipteki noktalar ve rakamlar örnektir.</p>
+</div>
+
+<div class="tel" id="tel">
+<div class="app-ust"><img src="../img/logo-ikon.png" alt=""><div style="flex:1"><b>ATM Bul</b><br><small id="baslik">Yakınımdaki su noktaları</small></div></div>
+<div class="ekran">
+<section class="ek on" id="e-harita"><div id="harita"></div><div class="ara"><input id="q" placeholder="İl, ilçe ya da mahalle"><button class="btn btn-r" id="konum" style="padding:8px 12px">📍</button></div><div class="liste" id="liste"></div></section>
+<section class="ek" id="e-tara"><div class="ic">
+<div class="tarayici" id="tarayici"></div>
+<p class="g ort" id="taraYazi" style="font-size:14px">Cihazın üstündeki QR kodu çerçeveye getirin.</p>
+<button class="btn btn-r" style="width:100%" id="taraBtn">Örnek QR okut</button>
+<div id="cihazSayfa" hidden>
+<div class="kart2 cihaz"><b style="font-size:18px">Bornova · Kazımdirik</b><div class="g">🟢 Açık · son dolum 4 dk önce · 1,2 km</div>
+<p style="margin:10px 0 4px">5 lt <b>10 ₺</b> · 19 lt <b>30 ₺</b></p><div class="g" style="font-size:13px">Ozon + UV dezenfeksiyon · C vitaminli · madeni para, kâğıt para</div></div>
+<div class="izg" style="grid-template-columns:1fr 1fr;gap:8px"><button class="btn btn-r" onclick="ariza()">🔧 Arıza bildir</button><button class="btn btn-b" onclick="memnun()">⭐ Değerlendir</button></div>
+<div id="cSonuc" style="margin-top:12px"></div>
+<a class="btn btn-b" style="width:100%;margin-top:4px" href="https://www.google.com/maps/dir/?api=1&destination=38.462,27.218" target="_blank" rel="noopener">Yol tarifi</a>
+</div></div></section>
+<section class="ek" id="e-puan"><div class="ic">
+<div class="kart2"><div class="g" style="font-size:13px">Şişeni getir puanın</div><div class="buyuk" id="puanSay">7 / 10</div><div class="puan" id="puanCubuk"></div><div class="g" style="font-size:13px" id="puanYazi">3 dolum sonra 19 lt dolum hediye.</div>
+<button class="btn btn-r" style="width:100%;margin-top:10px" id="dolumBtn">Bugün doldurdum (+1)</button></div>
+<div class="kart2"><b>Senin etkin</b><div class="izg" style="grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><div><div class="buyuk" style="font-size:26px" id="sise">31</div><div class="g" style="font-size:12px">plastik şişe tasarrufu</div></div><div><div class="buyuk" style="font-size:26px" id="litre">412</div><div class="g" style="font-size:12px">litre temiz su</div></div></div></div>
+<div class="kart2"><b>Son dolumlar</b><table style="margin-top:6px"><tr><td>Bornova · Kazımdirik</td><td>19 lt</td></tr><tr><td>Bornova · Kazımdirik</td><td>5 lt</td></tr><tr><td>Bayraklı · Manavkuyu</td><td>19 lt</td></tr></table></div>
+<p class="not">Puan telefon numarasına bağlıdır; cihaz ekranındaki kod ya da QR ile dolum doğrulanır.</p></div></section>
+<section class="ek" id="e-reklam"><div class="ic">
+<div class="kart2"><b>Cihaz ekranında reklamınız</b><p class="g" style="font-size:14px;margin:6px 0 10px">Fırın, eczane, emlakçı… Mahallenin her gün uğradığı su noktasında 15 saniyelik görseliniz dönsün.</p>
+<form class="form" id="rf"><label>İşletme adı<input required placeholder="Örn. Kardeşler Fırını"></label>
+<label>Cihaz<select id="rc"></select></label><label>Süre<select id="rs"><option value="1">1 hafta</option><option value="4" selected>1 ay</option><option value="12">3 ay</option></select></label>
+<div class="kart2" style="background:var(--bg)"><div class="g" style="font-size:13px">Tahmini günlük gösterim</div><div class="buyuk" style="font-size:24px" id="rg">—</div><div class="g" style="font-size:13px">Örnek tutar</div><b id="rt" style="font-size:20px">—</b></div>
+<button class="btn btn-r" style="width:100%">Talep gönder</button></form></div></div></section>
+<section class="ek" id="e-profil"><div class="ic">
+<div class="kart2"><b>Bildirim izinleri</b>
+<div class="sw"><span>Yakınımda yeni cihaz açılınca</span><input type="checkbox" checked></div>
+<div class="sw"><span>Puan hediyem hazır olunca</span><input type="checkbox" checked></div>
+<div class="sw"><span>Kampanya SMS / e-posta (İYS)</span><input type="checkbox"></div>
+<p class="not" style="margin-top:10px">KVKK aydınlatma metni ve açık rıza ayrı ayrı alınır; ticari ileti izni İYS'ye kaydedilir.</p></div>
+<div class="kart2"><b>Bayi misiniz?</b><p class="g" style="font-size:14px;margin:6px 0 10px">Cihazlarınızın arıza bildirimlerini ve reklam taleplerini bu uygulamadan yönetin.</p><a class="btn btn-b" style="width:100%" href="../1-site-bayilik/#basvuru">Bayi olmak istiyorum</a></div></div></section>
+<div class="toast" id="toast"></div>
+</div>
+<nav class="alt"><button class="on" data-e="harita"><i>📍</i>Harita</button><button data-e="tara"><i>📷</i>Tara</button><button data-e="puan"><i>♻</i>Puanım</button><button data-e="reklam"><i>📺</i>Reklam</button><button data-e="profil"><i>👤</i>Profil</button></nav>
+</div>
+</div>
+<div class="demo">Prototip · Dijitabela · <a href="../index.html">teklif sayfası</a></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const N=[["İzmir","Bornova · Kazımdirik",38.462,27.218,"acik"],["İzmir","Bayraklı · Manavkuyu",38.465,27.18,"acik"],["İzmir","Menemen · Ulukent",38.6,27.07,"acik"],["İzmir","Karşıyaka · Bostanlı",38.457,27.1,"bakim"],["İzmir","Bergama · Merkez",39.12,27.18,"acik"],["İzmir","Dikili · Sahil",39.072,26.888,"acik"],["İzmir","Selçuk · Atatürk Mah.",37.95,27.37,"acik"],["Muğla","Bodrum · Konacık",37.05,27.4,"acik"],["Muğla","Marmaris · Armutalan",36.86,28.25,"acik"],["Bursa","Nilüfer · Ataevler",40.22,28.98,"acik"],["Aydın","Kuşadası · Değirmendere",37.86,27.27,"acik"],["Aydın","Nazilli · Merkez",37.91,28.32,"bakim"],["Denizli","Merkezefendi",37.78,29.08,"acik"],["Malatya","Yeşilyurt",38.3,38.25,"acik"],["Hatay","Antakya",36.2,36.16,"acik"],["Ankara","Sincan · Fatih",39.97,32.58,"acik"],["Mersin","Mezitli",36.75,34.53,"acik"],["İstanbul","Esenyurt",41.03,28.68,"acik"]];
+let ben=[38.455,27.205];
+const uz=(a,b)=>{const R=6371,r=Math.PI/180,dA=(b[0]-a[0])*r,dO=(b[1]-a[1])*r,x=Math.sin(dA/2)**2+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dO/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
+const harita=L.map('harita',{zoomControl:false}).setView([38.46,27.2],11);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(harita);
+const ik=c=>L.divIcon({className:'',html:`<div style="width:24px;height:24px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:${c};border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>`,iconSize:[24,24],iconAnchor:[12,24]});
+const mk=N.map(n=>L.marker([n[2],n[3]],{icon:ik(n[4]==='bakim'?'#e46b18':'#e5322b')}).addTo(harita).bindPopup(`<b>${n[1]}</b><br>${n[4]==='bakim'?'🟠 Bakımda':'🟢 Açık'}<br><a href="https://www.google.com/maps/dir/?api=1&destination=${n[2]},${n[3]}" target="_blank" rel="noopener">Yol tarifi</a>`));
+function ciz(f=''){const k=f.toLocaleLowerCase('tr');const s=N.map((n,i)=>({n,i,d:uz(ben,[n[2],n[3]])})).filter(o=>(o.n[0]+' '+o.n[1]).toLocaleLowerCase('tr').includes(k)).sort((a,b)=>a.d-b.d);
+$('#liste').innerHTML=s.map(o=>`<div class="nk" data-i="${o.i}"><div class="n"><b>${o.n[1]}</b><small>${o.n[0]} · ${o.n[4]==='bakim'?'🟠 Bakımda (filtre değişimi)':'🟢 Açık'}</small></div><span class="m">${o.d<10?o.d.toFixed(1):Math.round(o.d)} km</span></div>`).join('')||'<p class="g" style="padding:8px">Bu bölgede henüz cihaz yok. <a href="../1-site-bayilik/#basvuru">İlk bayi siz olun.</a></p>';
+document.querySelectorAll('.nk').forEach(d=>d.onclick=()=>{const n=N[d.dataset.i];harita.setView([n[2],n[3]],14);mk[d.dataset.i].openPopup()})}
+ciz();$('#q').oninput=e=>ciz(e.target.value);
+$('#konum').onclick=()=>{navigator.geolocation&&navigator.geolocation.getCurrentPosition(p=>{ben=[p.coords.latitude,p.coords.longitude];ciz($('#q').value);harita.setView(ben,12)},()=>toast('Konum izni verilmedi; il ya da ilçe yazarak arayabilirsiniz.'))};
+const BAS={harita:'Yakınımdaki su noktaları',tara:'Cihaz QR okut',puan:'Şişeni getir puanım',reklam:'Ekrana reklam ver',profil:'Profil ve izinler'};
+document.querySelectorAll('.alt button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.alt button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.ek').forEach(x=>x.classList.toggle('on',x.id==='e-'+b.dataset.e));$('#baslik').textContent=BAS[b.dataset.e];if(b.dataset.e==='harita')setTimeout(()=>harita.invalidateSize(),50)});
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._z);t._z=setTimeout(()=>t.classList.remove('on'),3200)}
+$('#taraBtn').onclick=()=>{$('#taraYazi').textContent='QR okundu ✓';setTimeout(()=>{$('#tarayici').hidden=true;$('#taraBtn').hidden=true;$('#taraYazi').hidden=true;$('#cihazSayfa').hidden=false},500)};
+function ariza(){$('#cSonuc').innerHTML='<div class="kart2"><b>Sorun nedir?</b><div class="secim">'+['Para almıyor','Su akmıyor','Ekran kapalı','Kapak açılmıyor','Diğer'].map(x=>`<button onclick="arizaGonder('${x}')">${x}</button>`).join('')+'</div></div>'}
+function arizaGonder(x){$('#cSonuc').innerHTML=`<div class="kart2"><b>Teşekkürler ✓</b><p class="g" style="font-size:14px;margin:6px 0 0">"${x}" bildirimi Bornova bayisine ve merkez teknik ekibe WhatsApp ile iletildi. Takip no: AQ-24817. Çözülünce size bildirim gelir.</p></div>`}
+function memnun(){$('#cSonuc').innerHTML='<div class="kart2"><b>Bu cihazdan memnun kaldınız mı?</b><div class="secim"><button onclick="cev(1)">👍 Evet</button><button onclick="cev(0)">👎 Hayır</button></div></div>'}
+function cev(e){$('#cSonuc').innerHTML=e?'<div class="kart2"><b>Harika!</b><p class="g" style="font-size:14px;margin:6px 0 0">Bu noktanın Google yorum sayfası açılır. Gerçek yorumlar cihazı haritada üst sıraya taşır.</p></div>':'<div class="kart2"><b>Üzgünüz</b><p class="g" style="font-size:14px;margin:6px 0 0">Geri bildiriminiz doğrudan bayiye iletildi; size dönüş yapılacak.</p></div>'}
+let p=7,sise=31,lt=412;function puanCiz(){$('#puanSay').textContent=p+' / 10';$('#puanCubuk').innerHTML=Array.from({length:10},(_,i)=>`<span class="${i<p?'d':''}"></span>`).join('');$('#puanYazi').textContent=p>=10?'🎁 Hediye 19 lt dolumunuz hazır! Cihaz ekranındaki kodu girin.':(10-p)+' dolum sonra 19 lt dolum hediye.';$('#sise').textContent=sise;$('#litre').textContent=lt}
+puanCiz();$('#dolumBtn').onclick=()=>{p=p>=10?1:p+1;sise+=1;lt+=19;puanCiz();toast(p>=10?'Tebrikler, hediye dolumunuz hazır!':'Dolum kaydedildi ✓')};
+$('#rc').innerHTML=N.slice(0,8).map((n,i)=>`<option value="${i}">${n[1]}</option>`).join('');
+function rh(){const h=+$('#rs').value;$('#rg').textContent='~180 kişi';$('#rt').textContent=(h*750).toLocaleString('tr-TR')+' ₺'}rh();$('#rs').onchange=rh;
+$('#rf').onsubmit=e=>{e.preventDefault();toast('Talep alındı ✓ Bayi onaylayınca ekranda yayına girer.')};
+</script></body></html>

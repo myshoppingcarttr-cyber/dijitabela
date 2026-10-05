@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-12T23:59:00+03:00" data-slug="aqua-atm"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aqua ATM · Sosyal medya otomasyon paneli · Geliştirme 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../ortak/aqua.css"><link rel="stylesheet" href="../tema.css">
+<style>
+.panel-duzen{display:grid;grid-template-columns:230px 1fr;min-height:calc(100vh - 74px)}
+@media(max-width:860px){.panel-duzen{grid-template-columns:1fr}.yan{display:flex;overflow-x:auto;gap:4px;padding:8px!important;border-right:0!important;border-bottom:1px solid var(--c)}.yan h4,.yan .not{display:none}}
+.yan{background:#fff;border-right:1px solid var(--c);padding:18px 12px}
+.yan h4{margin:0 0 10px 10px;font-size:12px;color:var(--g);letter-spacing:.06em;text-transform:uppercase}
+.yan button{display:flex;align-items:center;gap:8px;width:100%;border:0;background:none;padding:10px 12px;border-radius:8px;font:600 14px "DM Sans";color:#2a2d33;cursor:pointer;text-align:left;white-space:nowrap}
+.yan button.on{background:#fff2e8;color:var(--o)}.yan button em{margin-left:auto;font-style:normal;background:var(--r);color:#fff;border-radius:999px;font:700 11px "DM Sans";padding:1px 7px}
+.icerik{padding:22px;max-width:1000px}
+.bolum{display:none}.bolum.on{display:block}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 20px}
+.kpi .kart{padding:14px}.kpi b{display:block;font:800 26px "DM Sans";color:var(--y)}.kpi span{font-size:13px;color:var(--g)}
+.mesaj{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:14px;border:1px solid var(--c);border-radius:12px;background:#fff;margin-bottom:10px}
+.av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 14px "DM Sans"}
+.mesaj .ust{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--g)}.mesaj .ust b{color:var(--y);font-size:14px}
+.kanal{font:700 11px "DM Sans";border-radius:5px;padding:2px 6px;color:#fff}.k-ig{background:#c13584}.k-fb{background:#1877f2}.k-wa{background:#25d366}.k-g{background:#ea4335}
+.cevap{margin-top:10px;background:#f7f7f8;border-left:3px solid var(--o);border-radius:8px;padding:10px 12px;font-size:14px}
+.cevap small{display:block;color:var(--o);font-weight:700;margin-bottom:4px}
+.dugmeler{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.dugmeler .btn{padding:7px 12px;font-size:13px}
+.durum{font:700 12px "DM Sans"}.d-ok{color:#16a34a}.d-bek{color:var(--o)}.d-ins{color:var(--r)}
+.takvim{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}@media(max-width:700px){.takvim{grid-template-columns:repeat(2,1fr)}}
+.gun{background:#fff;border:1px solid var(--c);border-radius:10px;padding:10px;min-height:120px;font-size:13px}.gun b{display:block;margin-bottom:6px}
+.gun .p{background:#fff2e8;border-radius:6px;padding:6px;margin-bottom:6px;font-size:12px}
+.kural{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--c);font-size:14px}.kural input{width:42px;height:22px;accent-color:var(--o)}
+</style></head><body>
+<header class="site-ust"><div class="kap" style="max-width:none"><a class="site-logo" href="#"><img src="../img/logo-ikon.png" alt="Aqua ATM">AQUA <span>ATM</span></a>
+<span class="g" style="font:600 14px DM Sans">Sosyal Medya Merkezi</span>
+<nav class="site-men"><a class="yeni" href="../1-site-bayilik/">Bayilik sayfası</a><a class="yeni" href="../2-atm-bul-uygulama/">ATM Bul</a><a class="yeni akt" href="#">Sosyal otomasyon</a></nav></div></header>
+
+<div class="panel-duzen">
+<aside class="yan">
+<h4>Panel</h4>
+<button class="on" data-b="ozet">📊 Özet</button>
+<button data-b="yorum">💬 Yorumlar <em>6</em></button>
+<button data-b="dm">✉️ Mesajlar (DM) <em>4</em></button>
+<button data-b="grup">🔎 Grup taraması <em>5</em></button>
+<button data-b="takvim">🗓 Paylaşım takvimi</button>
+<button data-b="kural">⚙️ Kurallar</button>
+<p class="not" style="padding:12px 10px">Instagram, Facebook ve WhatsApp Business resmi Meta bağlantılarıyla çalışır. Şifreniz bizde durmaz.</p>
+</aside>
+
+<main class="icerik">
+<div class="yeni-bant"><b>YENİ</b><span>Gelen yorumlara ve mesajlara 7/24 cevap verilir, Facebook gruplarında bayilik ve su otomatı arayanlar bulunur. Hassas konular (şikâyet, fiyat pazarlığı, sözleşme) otomatik gönderilmez, ekibinizin onayına düşer.</span></div>
+
+<section class="bolum on" id="b-ozet">
+<span class="rozet">Bu hafta</span><h2 style="margin-top:10px">Sosyal medyanız kendi kendine çalışsın</h2>
+<div class="kpi">
+<div class="kart"><b>128</b><span>yoruma cevap verildi</span></div>
+<div class="kart"><b>46</b><span>DM'ye cevap verildi</span></div>
+<div class="kart"><b>2 dk</b><span>ortalama ilk cevap süresi</span></div>
+<div class="kart"><b>17</b><span>bayilik adayı bulundu</span></div>
+<div class="kart"><b>9</b><span>adayın telefonu alındı</span></div>
+<div class="kart"><b>5</b><span>paylaşım yayınlandı</span></div>
+</div>
+<div class="izg i2">
+<div class="kart"><b>En çok sorulanlar</b><table style="margin-top:8px"><tr><td>Bayilik ücreti / yatırım</td><td>38</td></tr><tr><td>En yakın cihaz nerede?</td><td>31</td></tr><tr><td>Su güvenli mi, nasıl arıtılıyor?</td><td>19</td></tr><tr><td>Arıza / para almadı</td><td>7</td></tr></table></div>
+<div class="kart"><b>Onay bekleyenler</b><p class="g" style="font-size:14px">3 şikâyet ve 1 sözleşme sorusu otomatik cevaplanmadı; ekibinizin onayını bekliyor.</p><button class="btn btn-r" onclick="git('yorum')">Onay kuyruğuna git</button></div>
+</div>
+<p class="not" style="margin-top:14px">Rakamlar örnektir. Gerçek panelde her hafta size WhatsApp ile rapor gelir.</p>
+</section>
+
+<section class="bolum" id="b-yorum"><h2>Gönderilerinize gelen yorumlar</h2><p class="g">Yapay zekâ asistanı sizin kurallarınızla cevap yazar. Yeşil olanlar gönderildi, turuncu olanlar onayınızı bekliyor.</p><div id="yorumlar"></div></section>
+<section class="bolum" id="b-dm"><h2>Mesajlar (Instagram · Facebook · WhatsApp)</h2><p class="g">Tüm kanallar tek kutuda. Bayilik soran kişi otomatik olarak lokasyon testine yönlendirilir, telefonu alınınca bölge distribütörüne düşer.</p><div id="dmler"></div></section>
+<section class="bolum" id="b-grup"><h2>Facebook gruplarında aday taraması</h2><p class="g">Üye olduğunuz yerel gruplarda "ek gelir", "yatırım", "dükkânımın önüne ne koyabilirim", "su otomatı" gibi gönderiler taranır. Bulunan her gönderiye ilana özel, satış kokmayan, yardımcı bir yorum önerilir. Günde en fazla 10 yorum yazılır; böylece hesabınız spam sayılmaz.</p><div id="gruplar"></div></section>
+<section class="bolum" id="b-takvim"><h2>Paylaşım takvimi</h2><p class="g">Haftada 5 paylaşım hazırlanır: yeni açılan nokta, bayi hikâyesi, su ve sağlık bilgisi, çevre ve plastik tasarrufu, bayilik çağrısı. Siz onaylarsanız Instagram ve Facebook'ta yayına girer.</p><div class="takvim" id="takvim"></div></section>
+<section class="bolum" id="b-kural"><h2>Kurallar</h2><p class="g">Asistanın neyi kendi başına yapacağını siz belirlersiniz.</p>
+<div class="kart" style="margin-top:12px">
+<div class="kural"><span>Genel sorulara (konum, fiyat, saat, su kalitesi) otomatik cevap</span><input type="checkbox" checked></div>
+<div class="kural"><span>Bayilik sorusunda lokasyon testine yönlendir ve telefon iste</span><input type="checkbox" checked></div>
+<div class="kural"><span>Şikâyet ve arıza: önce özür + takip no, sonra bayiye ilet (otomatik gönderme yok)</span><input type="checkbox" checked></div>
+<div class="kural"><span>Kazanç rakamı verme; hesaplayıcıya yönlendir</span><input type="checkbox" checked></div>
+<div class="kural"><span>Hakaret ve spam yorumları gizle</span><input type="checkbox" checked></div>
+<div class="kural"><span>Facebook grup yorumları (günde en fazla 10)</span><input type="checkbox" checked></div>
+<div class="kural"><span>Paylaşımları onaysız yayınla</span><input type="checkbox"></div>
+</div></section>
+</main></div>
+<div class="modal" id="mod"><div class="kart"><div id="modIc"></div><button class="btn btn-b" onclick="mod.classList.remove('on')" style="margin-top:16px">Kapat</button></div></div>
+<div class="demo">Prototip · Dijitabela · <a href="../index.html">teklif sayfası</a></div>
+<script>
+const $=s=>document.querySelector(s),mod=$('#mod');
+const renk=['#e5322b','#e46b18','#1877f2','#16a34a','#7c3aed','#0891b2'];
+const av=(a,i)=>`<div class="av" style="background:${renk[i%6]}">${a.split(' ').map(x=>x[0]).join('').slice(0,2)}</div>`;
+function git(b){document.querySelectorAll('.yan button').forEach(x=>x.classList.toggle('on',x.dataset.b===b));document.querySelectorAll('.bolum').forEach(x=>x.classList.toggle('on',x.id==='b-'+b));window.scrollTo(0,0)}
+document.querySelectorAll('.yan button').forEach(b=>b.onclick=()=>git(b.dataset.b));
+function kart(m,i){return `<div class="mesaj">${av(m.a,i)}<div><div class="ust"><b>${m.a}</b><span class="kanal k-${m.k}">${{ig:'Instagram',fb:'Facebook',wa:'WhatsApp',g:'Google'}[m.k]}</span><span>${m.t}</span><span class="durum ${m.d==='ok'?'d-ok':m.d==='ins'?'d-ins':'d-bek'}">${m.d==='ok'?'● Gönderildi':m.d==='ins'?'● Ekibe iletildi':'● Onay bekliyor'}</span></div><div style="margin-top:6px">${m.m}</div><div class="cevap"><small>${m.d==='ok'?'Asistanın cevabı':'Önerilen cevap'}</small>${m.c}</div>${m.d==='ok'?'':`<div class="dugmeler"><button class="btn btn-r" onclick="this.closest('.mesaj').querySelector('.durum').outerHTML='<span class=\\'durum d-ok\\'>● Gönderildi</span>';this.parentNode.remove()">Onayla ve gönder</button><button class="btn btn-b" onclick="duzenle(this)">Düzenle</button></div>`}</div></div>`}
+const Y=[
+{a:'Selin Kaya',k:'ig',t:'4 dk önce',d:'ok',m:'Bornova\'da var mı bu cihazdan? 🙏',c:'Merhaba Selin Hanım! Bornova Kazımdirik\'te 7/24 açık bir noktamız var 📍 En yakın cihazı ATM Bul\'dan görebilirsiniz: aquaatm.com.tr/su-noktalari'},
+{a:'Mehmet Arslan',k:'fb',t:'18 dk önce',d:'ok',m:'Bayilik kaç para, ayda ne kazandırır?',c:'Merhaba Mehmet Bey, yatırım lokasyona göre değişiyor. Kendi rakamlarınızla hesap yapabileceğiniz araç ve 2 dakikalık lokasyon testi burada: aquaatm.com.tr/bayilik. Telefonunuzu DM\'den iletirseniz bölge temsilcimiz arar.'},
+{a:'Ayşe Demir',k:'ig',t:'1 sa önce',d:'bek',m:'Dün para yuttu, su vermedi. Çok kötü.',c:'Çok üzgünüz Ayşe Hanım. Hangi cihaz olduğunu DM\'den yazarsanız bayimiz bugün iadenizi yapar; takip numaranız: AQ-24822.'},
+{a:'Okan Ş.',k:'fb',t:'2 sa önce',d:'ok',m:'Bu su gerçekten içilir mi?',c:'Merhaba Okan Bey, şebeke suyu çok aşamalı filtre ve membrandan geçiyor, mineral dengesi ve C vitamini ekleniyor, UV ile tekrar dezenfekte ediliyor. Sertifikalarımız: aquaatm.com.tr/sertifikalar'},
+{a:'Zeynep Y.',k:'ig',t:'3 sa önce',d:'ok',m:'Şişeni getir indirimi var mı?',c:'Var Zeynep Hanım! ATM Bul uygulamasında puanınız birikiyor, 10. dolum hediye ♻'},
+{a:'Gizli kullanıcı',k:'ig',t:'5 sa önce',d:'ins',m:'(hakaret içeren yorum)',c:'Yorum gizlendi; ekibe bilgi verildi.'}];
+const D=[
+{a:'Hakan Yıldız',k:'wa',t:'2 dk önce',d:'ok',m:'Antalya Kepez\'de dükkânımın önü uygun mu bayilik için?',c:'Merhaba Hakan Bey! 2 dakikalık lokasyon testiyle ön puanınızı hemen görebilirsiniz: aquaatm.com.tr/bayilik#lokasyon. Telefonunuz bu numara ise Antalya bölge temsilcimiz sizi bugün arayacak 👍'},
+{a:'Fatma Ç.',k:'ig',t:'25 dk önce',d:'ok',m:'Kuşadası\'nda nerede var?',c:'Merhaba Fatma Hanım, Kuşadası Değirmendere\'de noktamız var 📍 Yol tarifi: ATM Bul uygulamasında.'},
+{a:'Emre Tekin',k:'fb',t:'1 sa önce',d:'bek',m:'Sözleşmede bölge koruması var mı? Kaç yıllık?',c:'Merhaba Emre Bey, sözleşme ayrıntılarını bölge temsilcimiz netleştirecek. Uygun olduğunuz saati yazarsanız sizi arayalım.'},
+{a:'Ali R.',k:'wa',t:'3 sa önce',d:'ok',m:'Ekrana reklam vermek istiyorum, fırınım var',c:'Harika Ali Bey! Ekran reklamı talebinizi buradan bırakabilirsiniz: ATM Bul → Reklam. Bayimiz fiyatı ve yayın tarihini size iletecek.'}];
+const G=[
+{a:'Murat K.',k:'fb',t:'İzmir Esnaf Dayanışma · 40 dk önce',d:'bek',m:'Marketimin önünde boş alan var, ek gelir için ne önerirsiniz?',c:'Merhaba Murat Bey, market önü su otomatı için en verimli yerlerden biri; insanlar zaten alışverişe geliyor. İsterseniz 2 dakikalık lokasyon testiyle bakabilirsiniz: aquaatm.com.tr/bayilik'},
+{a:'Serkan D.',k:'fb',t:'Bursa Yatırım Fırsatları · 2 sa önce',d:'bek',m:'300-400 bin TL ile pasif gelir getirecek iş fikri?',c:'Serkan Bey, bütçenizle düşünülebilecek seçeneklerden biri su otomatı bayiliği. Kesin kazanç vaat etmek doğru olmaz ama kendi rakamlarınızla hesap yapabileceğiniz bir araç var: aquaatm.com.tr/bayilik'},
+{a:'Nur A.',k:'fb',t:'Bodrum Konacık Sakinleri · 3 sa önce',d:'ok',m:'Konacık\'ta damacana yerine su dolduracak yer var mı?',c:'Merhaba Nur Hanım, Konacık\'ta Aqua ATM noktası var; şişenizi getirip 5 ya da 19 litre doldurabilirsiniz 📍'},
+{a:'Kemal T.',k:'fb',t:'Denizli Esnaf · 5 sa önce',d:'bek',m:'Akaryakıt istasyonuma yeni bir hizmet eklemek istiyorum',c:'Kemal Bey, akaryakıt istasyonları su otomatı için en yoğun noktalardan. İsterseniz bölge temsilcimiz istasyonunuz için ücretsiz lokasyon değerlendirmesi yapsın.'},
+{a:'Elif S.',k:'fb',t:'Mersin Mezitli · 6 sa önce',d:'bek',m:'Sitemize su otomatı koydurmak istiyoruz, yönetim olarak',c:'Merhaba Elif Hanım, site girişleri çok uygun lokasyonlar. Yönetim kurulunuz için kısa bir bilgi dosyası ve lokasyon testi gönderebiliriz.'}];
+$('#yorumlar').innerHTML=Y.map(kart).join('');$('#dmler').innerHTML=D.map(kart).join('');$('#gruplar').innerHTML=G.map(kart).join('');
+function duzenle(b){const c=b.closest('.mesaj').querySelector('.cevap');const t=c.textContent.replace(/^(Önerilen cevap|Asistanın cevabı)/,'');c.innerHTML='<small>Düzenle</small><textarea style="width:100%;min-height:80px;border:1px solid var(--c);border-radius:8px;padding:8px;font:14px DM Sans">'+t+'</textarea>'}
+const gunler=['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],P=[['Yeni nokta: Bodrum Konacık açıldı 📍'],['Bayi hikâyesi: Bergama\'daki ilk yılımız'],[],['Su nasıl arıtılıyor? (Reels)'],['Şişeni getir: bu ay 12.000 plastik şişe tasarrufu ♻'],['Bayilik çağrısı: senin şehrin hangisi?'],[]];
+$('#takvim').innerHTML=gunler.map((g,i)=>`<div class="gun"><b>${g}</b>${(P[i]||[]).map(p=>`<div class="p">${p}<br><span class="durum d-bek">● Onay bekliyor</span></div>`).join('')||'<span class="g">—</span>'}</div>`).join('');
+</script></body></html>
