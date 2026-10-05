@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="tr">
+<head><script src="/ornek/_sure.js" data-bitis="2026-10-12T23:59:00+03:00" data-slug="baglar-nakliyat"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bağlar Nakliyat · Canlı Taşınma Takibi ve QR Koli</title>
+<meta name="description" content="Taşınmanızı telefondan canlı izleyin: ekip nerede, hangi koli yüklendi, ne zaman teslim. Bağlar Nakliyat, Eskişehir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--kagit:#f4f1ea;--beyaz:#fffdf8;--murekkep:#141414;--soluk:#625d55;--cizgi:#d8d1c4;--sari:#f2b705;--yesil:#2e7d32}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--kagit);color:var(--murekkep);font-family:"Archivo",system-ui,sans-serif;line-height:1.5}
+.ic{max-width:1120px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.serit{background:var(--murekkep);color:var(--sari);text-align:center;padding:7px 12px;font-family:"JetBrains Mono",monospace;font-size:12px}
+.serit a{color:inherit}
+header .ic{display:flex;justify-content:space-between;align-items:center;padding:12px 20px}
+header img{height:42px}
+header a{color:var(--murekkep);text-decoration:none;font-weight:800;font-variation-settings:"wdth" 75;font-size:19px}
+.kahraman{display:grid;grid-template-columns:1fr 1fr;border-top:3px solid var(--murekkep);border-bottom:1px solid var(--cizgi)}
+.kahraman img{width:100%;height:440px;object-fit:cover;display:block}
+.kahraman .y{padding:34px 30px;display:flex;flex-direction:column;justify-content:center}
+h1{font-variation-settings:"wdth" 64;font-weight:800;font-size:clamp(36px,5.4vw,64px);line-height:.97;margin:10px 0 14px}
+h1 span{background:var(--sari);padding:0 6px}
+.kahraman p{color:var(--soluk);font-size:18px}
+section{padding:34px 0;border-bottom:1px solid var(--cizgi)}
+h2{font-variation-settings:"wdth" 70;font-weight:800;font-size:30px;line-height:1.08;margin-bottom:6px}
+.alt{color:var(--soluk);margin-bottom:18px}
+.takip{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}
+.kart{background:var(--beyaz);border:1px solid var(--cizgi);padding:18px}
+.kod{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--cizgi);padding-bottom:10px;margin-bottom:10px}
+.kod b{font-family:"JetBrains Mono",monospace;font-size:18px}
+ol.adim{list-style:none}
+ol.adim li{display:grid;grid-template-columns:28px 1fr auto;gap:8px;padding:9px 0;border-bottom:1px dashed var(--cizgi);color:var(--soluk)}
+ol.adim li::before{content:"";width:14px;height:14px;border:2px solid var(--cizgi);margin-top:4px}
+ol.adim li.tamam{color:var(--murekkep)}
+ol.adim li.tamam::before{background:var(--murekkep);border-color:var(--murekkep)}
+ol.adim li.simdi{color:var(--murekkep);font-weight:700}
+ol.adim li.simdi::before{background:var(--sari);border-color:var(--murekkep)}
+ol.adim small{font-family:"JetBrains Mono",monospace;font-size:12px}
+#harita{height:330px;border:1px solid var(--cizgi)}
+.eta{display:flex;gap:18px;margin-top:10px;flex-wrap:wrap}
+.eta div b{display:block;font-variation-settings:"wdth" 70;font-size:26px}
+.eta div span{font-size:13px;color:var(--soluk)}
+.dugmeler{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+button,.dugme{font:inherit;font-weight:700;padding:11px 15px;border:1.5px solid var(--murekkep);background:transparent;color:var(--murekkep);cursor:pointer;text-decoration:none;display:inline-block}
+button.ana,.dugme.ana{background:var(--murekkep);color:#fff}
+button.sari{background:var(--sari);border-color:var(--sari)}
+.koliust{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.koliust input{font:inherit;padding:11px;border:1.5px solid var(--murekkep);min-width:280px;flex:1;background:#fff}
+.sayaclar{display:flex;gap:16px;font-family:"JetBrains Mono",monospace;font-size:13px}
+.koliler{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.koli{background:var(--beyaz);border:1px solid var(--cizgi);display:grid;grid-template-columns:76px 1fr;gap:10px;padding:10px;align-items:center}
+.koli.yuklendi{border-color:var(--murekkep)}
+.koli.teslim{border-color:var(--yesil);box-shadow:inset 4px 0 0 var(--yesil)}
+.koli svg{width:76px;height:76px;display:block}
+.koli b{font-family:"JetBrains Mono",monospace}
+.etiket{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;padding:2px 6px;border:1px solid var(--murekkep);margin:2px 0}
+.koli .icerik{font-size:13px;color:var(--soluk)}
+.koli .durum{font-size:12px;font-weight:700}
+.gizli{display:none}
+.isaret{background:var(--sari)}
+.uc{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.uc .kart b{display:block;font-size:18px;margin-bottom:4px}
+footer{padding:22px 0 60px;color:var(--soluk);font-size:14px}
+footer a{color:inherit}
+@media(max-width:860px){.kahraman,.takip,.uc{grid-template-columns:1fr}.kahraman img{height:280px}}
+</style>
+</head>
+<body>
+<div class="serit"><a href="../">← 3 tasarım</a> · TASARIM 3 · CANLI TAKİP + QR KOLİ · Dijitabela önizlemesi (demo verilerle çalışır)</div>
+<header><div class="ic"><img src="../img/logo.webp" alt="Bağlar Nakliyat" width="230" height="84"><a href="tel:+905375402115">☎ 0537 540 21 15</a></div></header>
+
+<div class="kahraman">
+  <img src="../img/f2.jpg" alt="Bağlar Nakliyat asansörü">
+  <div class="y">
+    <div class="mono">Eskişehir'de ilk</div>
+    <h1>Eşyanız nerede? <span>Telefondan izleyin.</span></h1>
+    <p>Taşınma günü size bir link gelir. Ekibin hangi aşamada olduğunu, kamyonun nerede olduğunu ve her kolinin yüklenip teslim edildiğini canlı görürsünüz. Telefonla sormanıza gerek kalmaz.</p>
+  </div>
+</div>
+
+<section><div class="ic">
+  <div class="mono">Müşterinin gördüğü ekran · örnek taşınma</div>
+  <h2>Taşınma takibi</h2>
+  <p class="alt">Aşağıdaki demo gerçek gibi çalışır. "Ekip: sonraki adım" ile ilerletin, harita ve koliler birlikte değişir.</p>
+  <div class="takip">
+    <div class="kart">
+      <div class="kod"><span>Takip kodu <b>BN-2481</b></span><span class="mono" id="durumYazi">Hazırlık</span></div>
+      <ol class="adim" id="adimlar"></ol>
+      <div class="dugmeler">
+        <button class="ana" id="ileri">Ekip: sonraki adım →</button>
+        <button id="sifirla">Baştan</button>
+      </div>
+    </div>
+    <div>
+      <div id="harita"></div>
+      <div class="eta">
+        <div><b id="eta">—</b><span>Tahmini varış</span></div>
+        <div><b id="kalan">—</b><span>Kalan mesafe</span></div>
+        <div><b id="koliSay">0 / 0</b><span>Yüklenen koli</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="ic">
+  <div class="mono">Her koliye QR · oda rengi etiketi</div>
+  <h2>Koliniz kayıp değil, listede</h2>
+  <p class="alt">Paketlerken her koliye QR'lı etiket yapıştırıyoruz. Ekip okuttukça "yüklendi" ve "teslim" olur. Yeni evde "tabaklar hangi kolide?" diye aramanız yeter.</p>
+  <div class="koliust">
+    <input id="ara" placeholder="Ara: tabak, kitap, oyuncak, perde…">
+    <div class="sayaclar"><span id="sYuk">Yüklendi: 0</span><span id="sTes">Teslim: 0</span></div>
+  </div>
+  <div class="koliler" id="koliler"></div>
+</div></section>
+
+<section><div class="ic">
+  <h2>Teslimden sonra</h2>
+  <p class="alt">Taşınma bitince müşteriye tek ekran gelir.</p>
+  <div class="uc">
+    <div class="kart"><b>Teslim onayı</b>"Her şey tamam" ya da fotoğraflı not. Bir sorun varsa ekip aynı gün döner.</div>
+    <div class="kart"><b>Yorum isteği</b>Memnun müşteri tek dokunuşla Google'da yorum bırakır. Yorumlarınız birikir.</div>
+    <div class="kart"><b>Kurulum hatırlatması</b>Söküp kurulan dolap ve TV için 1 hafta sonra "her şey yerinde mi?" mesajı.</div>
+  </div>
+  <div class="dugmeler"><a class="dugme ana" href="https://wa.me/905375402115">WhatsApp'tan fiyat al</a><a class="dugme" href="tel:+905375402115">Ara: 0537 540 21 15</a></div>
+</div></section>
+
+<footer><div class="ic">Bağlar Nakliyat · Tunalı Mah. Ertetik Sk. No:8, Tepebaşı / Eskişehir · 0537 540 21 15<br>Bu sayfa <a href="https://dijitabela.com.tr/">Dijitabela</a> tarafından hazırlanmış bir önizlemedir. Takip ve koli verileri örnektir.</div></footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<script>
+var ADIM = [
+  ["Teklif onaylandı", "Dün 18:40"], ["Ekip yola çıktı", "08:05"], ["Paketleme başladı", "08:30"], ["Yükleme", "10:10"],
+  ["Yolda", "11:45"], ["Boşaltma", "12:20"], ["Kurulum", "13:30"], ["Teslim edildi", "15:10"]
+];
+var CIKIS = [39.7873, 30.5199], VARIS = [39.7570, 30.5410]; // örnek güzergâh
+var YOL = [CIKIS, [39.7820, 30.5230], [39.7760, 30.5260], [39.7700, 30.5310], [39.7640, 30.5360], VARIS];
+var KOLI = [
+  ["Salon","BEYAZ","Kitaplar, albümler"],["Salon","BEYAZ","Vazolar, biblolar (kırılır)"],["Salon","BEYAZ","Perdeler, kırlentler"],
+  ["Mutfak","SARI","Tabaklar, kâseler (kırılır)"],["Mutfak","SARI","Tencere, tava"],["Mutfak","SARI","Bardaklar (kırılır)"],["Mutfak","SARI","Kiler: bakliyat, konserve"],
+  ["Yatak odası","MAVİ","Nevresim, yorgan"],["Yatak odası","MAVİ","Kışlık giysiler"],["Yatak odası","MAVİ","Ayakkabılar"],
+  ["Çocuk odası","YEŞİL","Oyuncaklar"],["Çocuk odası","YEŞİL","Okul kitapları, defterler"],["Banyo","GRİ","Havlular, temizlik malzemesi"],["Çalışma","KIRMIZI","Laptop, kablolar, belgeler"]
+];
+var adim = 0, durum = KOLI.map(function () { return 0; }); // 0 bekliyor, 1 yüklendi, 2 teslim
+var $ = function (i) { return document.getElementById(i); };
+
+var harita = L.map("harita", { scrollWheelZoom: false }).fitBounds(L.latLngBounds(YOL).pad(0.25));
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OpenStreetMap" }).addTo(harita);
+L.polyline(YOL, { color: "#141414", weight: 4, dashArray: "6 6" }).addTo(harita);
+L.circleMarker(CIKIS, { radius: 7, color: "#141414", fillColor: "#fff", fillOpacity: 1 }).addTo(harita).bindTooltip("Eski ev (örnek)");
+L.circleMarker(VARIS, { radius: 7, color: "#141414", fillColor: "#f2b705", fillOpacity: 1 }).addTo(harita).bindTooltip("Yeni ev (örnek)");
+var kamyon = L.marker(CIKIS, { icon: L.divIcon({ className: "", html: "<div style='font-size:26px;line-height:26px'>🚚</div>", iconSize: [26, 26], iconAnchor: [13, 13] }) }).addTo(harita);
+
+function koliCiz() {
+  var q = $("ara").value.trim().toLocaleLowerCase("tr");
+  $("koliler").innerHTML = "";
+  KOLI.forEach(function (k, i) {
+    var metin = (k[0] + " " + k[2]).toLocaleLowerCase("tr");
+    var d = document.createElement("div");
+    d.className = "koli" + (durum[i] === 1 ? " yuklendi" : durum[i] === 2 ? " teslim" : "") + (q && metin.indexOf(q) < 0 ? " gizli" : "") + (q && metin.indexOf(q) > -1 ? " isaret" : "");
+    var qr = qrcode(0, "M"); qr.addData("https://dijitabela.com.tr/ornek/baglar-nakliyat/3-takip/#koli-" + (i + 1)); qr.make();
+    d.innerHTML = qr.createSvgTag({ cellSize: 2, margin: 0 }) + "<div><b>Koli " + String(i + 1).padStart(2, "0") + "</b> <span class='etiket'>" + k[1] + " · " + k[0] + "</span><div class='icerik'>" + k[2] + "</div><div class='durum'>" +
+      (durum[i] === 2 ? "✓ Teslim edildi" : durum[i] === 1 ? "▲ Kamyonda" : "○ Evde, paketlendi") + "</div></div>";
+    d.title = "Ekip demo: tıklayınca okutulmuş sayılır";
+    d.onclick = function () { if (durum[i] < 2) { durum[i]++; guncelle(); } };
+    $("koliler").appendChild(d);
+  });
+  var y = durum.filter(function (x) { return x >= 1; }).length, t = durum.filter(function (x) { return x === 2; }).length;
+  $("sYuk").textContent = "Yüklendi: " + y + " / " + KOLI.length; $("sTes").textContent = "Teslim: " + t + " / " + KOLI.length;
+  $("koliSay").textContent = y + " / " + KOLI.length;
+}
+function guncelle() {
+  $("adimlar").innerHTML = ADIM.map(function (a, i) {
+    return "<li class='" + (i < adim ? "tamam" : i === adim ? "simdi" : "") + "'><span>" + a[0] + "</span><small>" + (i <= adim ? a[1] : "") + "</small></li>";
+  }).join("");
+  $("durumYazi").textContent = ADIM[adim][0];
+  var oran = adim <= 3 ? 0 : adim === 4 ? 0.5 : 1;
+  var nokta = YOL[Math.round(oran * (YOL.length - 1))]; kamyon.setLatLng(nokta);
+  $("eta").textContent = adim < 4 ? "12:20" : adim === 4 ? "12:20" : "Vardı";
+  $("kalan").textContent = oran === 0 ? "4,6 km" : oran < 1 ? "2,3 km" : "0 km";
+  koliCiz();
+}
+$("ileri").onclick = function () {
+  if (adim >= ADIM.length - 1) return;
+  adim++;
+  if (adim === 3) durum = durum.map(function (x, i) { return i < 9 ? Math.max(x, 1) : x; });   // yükleme sürüyor
+  if (adim === 4) durum = durum.map(function (x) { return Math.max(x, 1); });                 // hepsi kamyonda
+  if (adim >= 5) durum = durum.map(function (x, i) { return adim >= 6 || i < 8 ? 2 : x; });   // boşaltma
+  guncelle();
+};
+$("sifirla").onclick = function () { adim = 0; durum = KOLI.map(function () { return 0; }); guncelle(); };
+$("ara").addEventListener("input", koliCiz);
+guncelle();
+</script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="tr">
+<head><script src="/ornek/_sure.js" data-bitis="2026-10-12T23:59:00+03:00" data-slug="baglar-nakliyat"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bağlar Nakliyat · Taşınma Hesaplayıcı · Eskişehir</title>
+<meta name="description" content="Eşyalarınızı seçin; kaç metreküp, hangi araç, kaç kişi ve yaklaşık fiyat hemen çıksın. Bağlar Nakliyat, Eskişehir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#121212;--kart:#1c1c1c;--cizgi:#2e2e2e;--yazi:#f2efe8;--soluk:#a39f97;--sari:#f2b705}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--zemin);color:var(--yazi);font-family:"Archivo",system-ui,sans-serif;line-height:1.5}
+.ic{max-width:1120px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.serit{background:var(--sari);color:#111;text-align:center;padding:7px 12px;font-family:"JetBrains Mono",monospace;font-size:12px}
+.serit a{color:inherit}
+header .ic{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid var(--cizgi)}
+header img{height:42px}
+header a{color:var(--sari);text-decoration:none;font-weight:800;font-variation-settings:"wdth" 75;font-size:19px}
+.ust{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:end;padding:30px 0 22px}
+h1{font-variation-settings:"wdth" 64;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:.96}
+h1 em{font-style:normal;color:var(--sari)}
+.ust p{color:var(--soluk);font-size:18px;margin-top:12px}
+.ust img{width:100%;height:240px;object-fit:cover;display:block}
+.duzen{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start;padding-bottom:40px}
+.kutu{background:var(--kart);border:1px solid var(--cizgi);padding:20px}
+.kutu+.kutu{margin-top:16px}
+h2{font-variation-settings:"wdth" 72;font-weight:800;font-size:22px;margin-bottom:12px}
+.hazir{display:flex;flex-wrap:wrap;gap:8px}
+.hazir button,.sec button{font:inherit;font-weight:700;padding:10px 14px;background:transparent;color:var(--yazi);border:1px solid var(--cizgi);cursor:pointer}
+.hazir button.on,.sec button.on{background:var(--sari);color:#111;border-color:var(--sari)}
+.esyalar{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.esya{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--cizgi)}
+.esya span small{display:block;color:var(--soluk);font-size:12px}
+.sayac{display:flex;align-items:center;gap:8px}
+.sayac button{width:32px;height:32px;font:inherit;font-weight:800;background:transparent;color:var(--yazi);border:1px solid var(--cizgi);cursor:pointer}
+.sayac b{min-width:22px;text-align:center;font-family:"JetBrains Mono",monospace}
+.alanlar{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--soluk)}
+select,input{font:inherit;color:var(--yazi);background:#111;border:1px solid var(--cizgi);padding:11px;border-radius:0}
+.tik{flex-direction:row;align-items:center;gap:8px;color:var(--yazi);font-size:15px}
+.tik input{width:18px;height:18px}
+aside{position:sticky;top:14px}
+.sonuc .buyuk{font-variation-settings:"wdth" 70;font-weight:800;font-size:44px;color:var(--sari);line-height:1}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+td{padding:9px 0;border-bottom:1px solid var(--cizgi);font-size:15px}
+td:last-child{text-align:right;font-weight:700}
+.uyari{border-left:4px solid var(--sari);padding:6px 0 6px 12px;font-size:14px;margin:10px 0;color:var(--yazi)}
+.dugme{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:17px;padding:15px;background:var(--sari);color:#111;margin-top:10px;border:0;width:100%;cursor:pointer;font-family:inherit}
+.dugme.ikinci{background:transparent;color:var(--yazi);border:1px solid var(--cizgi)}
+.not{color:var(--soluk);font-size:12px;margin-top:10px}
+.foto{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:10px 0 40px}
+.foto img{width:100%;height:220px;object-fit:cover;display:block}
+footer{border-top:1px solid var(--cizgi);padding:22px 0 80px;color:var(--soluk);font-size:14px}
+footer a{color:inherit}
+@media(max-width:860px){.ust,.duzen{grid-template-columns:1fr}.esyalar,.alanlar{grid-template-columns:1fr}aside{position:static}.foto{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="serit"><a href="../">← 3 tasarım</a> · TASARIM 2 · TAŞINMA HESAPLAYICI · Dijitabela önizlemesi</div>
+<header><div class="ic"><img src="../img/logo.webp" alt="Bağlar Nakliyat" width="230" height="84"><a href="tel:+905375402115">☎ 0537 540 21 15</a></div></header>
+
+<div class="ic ust">
+  <div>
+    <div class="mono" style="color:var(--sari)">Eskişehir · evden eve · şehirlerarası</div>
+    <h1>Eşyanızı seçin,<br><em>fiyatı hemen görün.</em></h1>
+    <p>Eskişehir'de ilk kez: kaç metreküp, hangi araç, kaç kişi ve yaklaşık fiyat. Ev görmeye gelmeden önce, iki dakikada.</p>
+  </div>
+  <img src="../img/f1.jpg" alt="Bağlar Nakliyat kamyoneti">
+</div>
+
+<div class="ic duzen">
+  <div>
+    <div class="kutu">
+      <h2>1 · Eviniz</h2>
+      <div class="hazir" id="hazir"></div>
+      <p class="not">Seçince tipik eşyalar listeye gelir. Aşağıdan artırıp azaltın.</p>
+    </div>
+    <div class="kutu">
+      <h2>2 · Eşyalar</h2>
+      <div class="esyalar" id="esyalar"></div>
+    </div>
+    <div class="kutu">
+      <h2>3 · Nereden, nereye, ne zaman</h2>
+      <div class="alanlar">
+        <label>Mesafe<select id="mesafe"><option value="ici" selected>Eskişehir içi</option><option value="yakin">Yakın il (≤250 km)</option><option value="uzak">Uzak il (250+ km)</option></select></label>
+        <label>Taşınma tarihi<input type="date" id="tarih"></label>
+        <label>Çıkış katı<select id="kat1"></select></label>
+        <label>Varış katı<select id="kat2"></select></label>
+        <label>Çıkışta bina asansörü<select id="as1"><option value="0">Yok</option><option value="1">Var</option></select></label>
+        <label>Varışta bina asansörü<select id="as2"><option value="0">Yok</option><option value="1">Var</option></select></label>
+        <label class="tik"><input type="checkbox" id="paket" checked>Eşyaları biz paketleyelim</label>
+        <label class="tik"><input type="checkbox" id="montaj" checked>Söküm ve kurulum</label>
+      </div>
+    </div>
+  </div>
+
+  <aside>
+    <div class="kutu sonuc">
+      <div class="mono" style="color:var(--soluk)">Tahmini taşınma</div>
+      <div class="buyuk" id="fiyat">—</div>
+      <table>
+        <tr><td>Toplam hacim</td><td id="hacim">—</td></tr>
+        <tr><td>Araç</td><td id="arac">—</td></tr>
+        <tr><td>Ekip</td><td id="ekip">—</td></tr>
+        <tr><td>Süre</td><td id="sure">—</td></tr>
+        <tr><td>Dış cephe asansörü</td><td id="asansor">—</td></tr>
+      </table>
+      <div id="uyarilar"></div>
+      <button class="dugme" id="gonder">Bu bilgilerle WhatsApp'tan kesin fiyat al</button>
+      <a class="dugme ikinci" href="https://wa.me/905375402115?text=Merhaba%2C%20odalar%C4%B1m%C4%B1n%20foto%C4%9Fraflar%C4%B1n%C4%B1%20g%C3%B6nderiyorum%2C%20fiyat%20alabilir%20miyim%3F">Odaların fotoğrafını gönder, biz bakalım</a>
+      <p class="not">Fiyatlar örnektir. Bağlar Nakliyat'ın kendi tarifesiyle doldurulur. Kesin fiyat, eşya listesini gördükten sonra verilir.</p>
+    </div>
+  </aside>
+</div>
+
+<div class="ic foto">
+  <img src="../img/f2.jpg" alt="Bağlar Nakliyat asansörü" loading="lazy">
+  <img src="../img/f3.jpg" alt="Bağlar Nakliyat ambalajı" loading="lazy">
+  <img src="../img/f1.jpg" alt="Bağlar Nakliyat kamyoneti" loading="lazy" style="object-position:right">
+</div>
+
+<footer><div class="ic">Bağlar Nakliyat · Tunalı Mah. Ertetik Sk. No:8, Tepebaşı / Eskişehir · 0537 540 21 15<br>Bu sayfa <a href="https://dijitabela.com.tr/">Dijitabela</a> tarafından hazırlanmış bir önizlemedir.</div></footer>
+
+<script>
+// Eşya: [ad, açıklama, m³, büyük mü (dış asansör için)]
+var E = {
+  koltuk3:["3'lü koltuk","",2.2,1], koltuk1:["Tekli koltuk / berjer","",0.9,0], kose:["Köşe takımı","",4.5,1],
+  yatak2:["Çift kişilik yatak + baza","",2.4,1], yatak1:["Tek kişilik yatak","",1.2,0], gardirop:["Gardırop","kapı başına",1.0,1],
+  buzdolabi:["Buzdolabı","",1.5,1], camasir:["Çamaşır makinesi","",0.6,0], bulasik:["Bulaşık makinesi","",0.5,0],
+  masa:["Yemek masası","",1.2,0], sandalye:["Sandalye","",0.25,0], tv:["TV ünitesi","",0.8,0],
+  vitrin:["Vitrin / büfe","",1.5,1], calisma:["Çalışma masası","",0.8,0], koli:["Koli","orta boy",0.08,0]
+};
+var HAZIR = {
+  "1+1":{koltuk3:1,yatak2:1,gardirop:2,buzdolabi:1,camasir:1,masa:1,sandalye:4,tv:1,koli:20},
+  "2+1":{koltuk3:1,koltuk1:2,yatak2:1,yatak1:1,gardirop:4,buzdolabi:1,camasir:1,bulasik:1,masa:1,sandalye:6,tv:1,vitrin:1,koli:35},
+  "3+1":{kose:1,koltuk1:2,yatak2:1,yatak1:2,gardirop:6,buzdolabi:1,camasir:1,bulasik:1,masa:1,sandalye:6,tv:1,vitrin:1,calisma:1,koli:50},
+  "4+1":{kose:1,koltuk3:1,koltuk1:2,yatak2:2,yatak1:2,gardirop:8,buzdolabi:1,camasir:1,bulasik:1,masa:1,sandalye:8,tv:2,vitrin:1,calisma:1,koli:70},
+  "Parça eşya":{koltuk3:1,koli:5}
+};
+var adet = {}, secili = "2+1";
+var $ = function (i) { return document.getElementById(i); };
+function katlar(id, v) { var s = $(id); for (var i = 0; i <= 10; i++) { var o = document.createElement("option"); o.value = i; o.textContent = i === 0 ? "Giriş / bahçe" : i + ". kat"; if (i === v) o.selected = true; s.appendChild(o); } }
+katlar("kat1", 3); katlar("kat2", 1);
+Object.keys(HAZIR).forEach(function (k) { var b = document.createElement("button"); b.type = "button"; b.textContent = k; b.onclick = function () { secili = k; yukle(); }; $("hazir").appendChild(b); });
+function yukle() {
+  adet = Object.assign({}, HAZIR[secili]);
+  [].forEach.call($("hazir").children, function (b) { b.classList.toggle("on", b.textContent === secili); });
+  ciz(); hesapla();
+}
+function ciz() {
+  $("esyalar").innerHTML = "";
+  Object.keys(E).forEach(function (k) {
+    var d = document.createElement("div"); d.className = "esya";
+    d.innerHTML = "<span>" + E[k][0] + (E[k][1] ? "<small>" + E[k][1] + "</small>" : "") + "</span><span class='sayac'><button type='button' data-k='" + k + "' data-d='-1'>−</button><b>" + (adet[k] || 0) + "</b><button type='button' data-k='" + k + "' data-d='1'>+</button></span>";
+    $("esyalar").appendChild(d);
+  });
+}
+$("esyalar").addEventListener("click", function (e) {
+  var b = e.target.closest("button"); if (!b) return;
+  var k = b.dataset.k, s = k === "koli" ? 5 : 1; adet[k] = Math.max(0, (adet[k] || 0) + s * +b.dataset.d);
+  b.parentNode.querySelector("b").textContent = adet[k]; hesapla();
+});
+["mesafe","tarih","kat1","kat2","as1","as2","paket","montaj"].forEach(function (i) { $(i).addEventListener("change", hesapla); });
+var son = {};
+function TL(n) { return (Math.round(n / 250) * 250).toLocaleString("tr-TR") + " ₺"; }
+function hesapla() {
+  var m3 = 0, buyuk = 0;
+  Object.keys(adet).forEach(function (k) { m3 += (adet[k] || 0) * E[k][2]; if (E[k][3]) buyuk += adet[k] || 0; });
+  m3 = Math.round(m3 * 10) / 10;
+  var arac = m3 <= 10 ? "Kamyonet" : m3 <= 22 ? "Kamyon" : "Kamyon + kamyonet";
+  var ekip = m3 <= 6 ? 2 : m3 <= 15 ? 3 : m3 <= 28 ? 4 : 5;
+  var k1 = +$("kat1").value, k2 = +$("kat2").value, a1 = +$("as1").value, a2 = +$("as2").value;
+  var disAs = (buyuk > 0 && ((k1 >= 3 && !a1) || (k2 >= 3 && !a2))) || k1 >= 5 || k2 >= 5;
+  var mesafe = $("mesafe").value;
+  var saat = 1.5 + m3 * 0.22 + (disAs ? 0.5 : (k1 + k2) * 0.15) + ($("paket").checked ? m3 * 0.08 : 0) + ($("montaj").checked ? 1 : 0);
+  if (mesafe === "yakin") saat += 3; if (mesafe === "uzak") saat += 8;
+  // Örnek tarife (Bağlar Nakliyat'ın listesiyle değiştirilecek)
+  var taban = 1500 + m3 * 260 + (disAs ? 2500 : (k1 + k2) * 120) + ($("paket").checked ? m3 * 90 : 0) + ($("montaj").checked ? 900 : 0);
+  if (mesafe === "yakin") taban = taban * 1.7 + 2500; if (mesafe === "uzak") taban = taban * 2.4 + 6000;
+  var u = [], t = $("tarih").value ? new Date($("tarih").value) : null;
+  if (t) { var g = t.getDate(), w = t.getDay(), son3 = g >= new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate() - 2;
+    if (son3 || g <= 2) { taban *= 1.12; u.push("Ay sonu ve ay başı en yoğun günler. Erken yer ayırtın, isterseniz 2-3 gün kaydırarak tasarruf edin."); }
+    if (w === 0 || w === 6) u.push("Hafta sonu kontenjanı az, tarihi şimdi kesinleştirmenizi öneririz."); }
+  if (disAs) u.push("Bizim asansörümüz kullanılacak: büyük eşyalar balkondan, merdivene değmeden iner.");
+  if (m3 > 28) u.push("Bu hacim için iki araçla tek seferde taşıyoruz, ikinci sefer ücreti çıkmaz.");
+  $("hacim").textContent = m3 + " m³"; $("arac").textContent = arac; $("ekip").textContent = ekip + " kişi";
+  $("sure").textContent = saat < 10 ? "≈ " + Math.round(saat * 2) / 2 + " saat" : "≈ " + Math.ceil(saat / 9) + " gün";
+  $("asansor").textContent = disAs ? "Gerekli" : "Gerekmez";
+  $("fiyat").textContent = TL(taban * 0.9) + " – " + TL(taban * 1.15);
+  $("uyarilar").innerHTML = u.map(function (x) { return "<div class='uyari'>" + x + "</div>"; }).join("");
+  son = { m3: m3, arac: arac, ekip: ekip, disAs: disAs };
+}
+$("gonder").onclick = function () {
+  var liste = Object.keys(adet).filter(function (k) { return adet[k]; }).map(function (k) { return "- " + E[k][0] + ": " + adet[k]; }).join("\n");
+  var m = "Merhaba, hesaplayıcıdan geliyorum.\nEv: " + secili + "\nHacim: " + son.m3 + " m³ (" + son.arac + ", " + son.ekip + " kişi)\nMesafe: " + $("mesafe").selectedOptions[0].text +
+    "\nKat: " + $("kat1").value + " → " + $("kat2").value + (son.disAs ? " (dış asansör)" : "") + "\nTarih: " + ($("tarih").value || "belli değil") +
+    "\nPaketleme: " + ($("paket").checked ? "evet" : "hayır") + " · Söküm/kurulum: " + ($("montaj").checked ? "evet" : "hayır") + "\nEşyalar:\n" + liste;
+  window.open("https://wa.me/905375402115?text=" + encodeURIComponent(m), "_blank");
+};
+yukle();
+</script>
+</body>
+</html>
