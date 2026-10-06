@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sarıcalar Sigorta · Korkuteli'nin tarlası, evi, aracı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--krem:#f3efe4;--beyaz:#fffdf8;--yesil:#2d5e34;--yesil2:#1d3f22;--toprak:#9a5b2b;--kir:#b8322a;--sari:#d99a00;--yazi:#1b1d18;--soluk:#62665c;--cizgi:#d9d2c0;--lac:#123a6b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--krem);color:var(--yazi);line-height:1.55}
+a{color:inherit}
+.ic{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.demo{background:var(--yesil2);color:#fff;text-align:center;padding:7px 12px;font-size:13px}
+nav{border-bottom:2px solid var(--yazi);background:var(--krem)}
+nav .ic{display:flex;justify-content:space-between;align-items:center;height:70px;gap:12px}
+.logo b{font-variation-settings:"wdth" 64;font-weight:800;font-size:28px;color:var(--yesil2)}
+.logo span{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--soluk)}
+.sekmeler{display:flex;gap:0;border:1.5px solid var(--yazi)}
+.sekmeler button{all:unset;cursor:pointer;padding:10px 16px;font-weight:700;font-size:15px}
+.sekmeler button.on{background:var(--yazi);color:var(--krem)}
+.hero{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--cizgi)}
+.hero img{width:100%;height:100%;max-height:520px;object-fit:cover;display:block}
+.hero .y{padding:44px 40px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+h1{font-variation-settings:"wdth" 62;font-weight:800;font-size:clamp(38px,5.4vw,64px);line-height:.97;color:var(--yesil2)}
+.hero p{font-size:19px;color:var(--soluk)}
+.dg{display:inline-block;text-align:center;font-weight:800;text-decoration:none;padding:13px 18px;border:1.5px solid var(--yazi);background:transparent;cursor:pointer;font:inherit;font-weight:800}
+.dg.ana{background:var(--yesil);border-color:var(--yesil);color:#fff}
+section{padding:54px 0;border-bottom:1px solid var(--cizgi)}
+h2{font-variation-settings:"wdth" 64;font-weight:800;font-size:clamp(30px,4vw,46px);line-height:1;color:var(--yesil2);margin-bottom:8px}
+.alt{color:var(--soluk);font-size:17px;max-width:760px;margin-bottom:22px}
+/* radar */
+.radar{background:var(--beyaz);border:1px solid var(--cizgi)}
+.radar .bas{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--cizgi)}
+.urunler{display:flex;gap:0;border:1px solid var(--cizgi);flex-wrap:wrap}
+.urunler button{all:unset;cursor:pointer;padding:8px 12px;font-size:14px;font-weight:600;border-right:1px solid var(--cizgi)}
+.urunler button.on{background:var(--yesil);color:#fff}
+.gunler{display:grid;grid-template-columns:repeat(7,1fr)}
+.gun{padding:16px 12px;border-right:1px solid var(--cizgi);display:flex;flex-direction:column;gap:6px;min-height:200px}
+.gun .t{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--soluk)}
+.gun .d{font-variation-settings:"wdth" 70;font-weight:800;font-size:28px}
+.gun .d small{font-size:15px;color:var(--soluk);font-weight:600}
+.gun .r{font-size:12px;font-weight:700;padding:3px 6px;display:inline-block;color:#fff;align-self:flex-start}
+.r.yok{background:#6f8f63}.r.don{background:var(--lac)}.r.ciddi{background:var(--kir)}.r.dolu{background:#5a2a82}.r.ruz{background:var(--toprak)}.r.yag{background:#2f6f9a}
+.uyarikutu{padding:16px 20px;border-top:1px solid var(--cizgi);display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+.uyarikutu p{font-size:17px}
+/* checkup */
+.check{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.soru{background:var(--beyaz);border:1px solid var(--cizgi);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.soru span{font-size:16px;font-weight:600}
+.eh{display:flex;border:1px solid var(--yazi)}
+.eh button{all:unset;cursor:pointer;padding:7px 14px;font-weight:700;font-size:14px}
+.eh button.on{background:var(--yazi);color:#fff}
+.rapor{background:var(--beyaz);border:1px solid var(--cizgi);padding:22px;position:sticky;top:12px;align-self:start}
+.rapor h3{font-variation-settings:"wdth" 68;font-size:26px;color:var(--yesil2)}
+.puan{font-variation-settings:"wdth" 62;font-size:64px;font-weight:800;line-height:1}
+.oneri{list-style:none;margin:14px 0}
+.oneri li{padding:10px 0 10px 28px;border-bottom:1px solid var(--cizgi);position:relative;font-size:15px}
+.oneri li::before{position:absolute;left:0;font-weight:800}
+.oneri li.k::before{content:"!";color:var(--kir)}.oneri li.o::before{content:"✓";color:var(--yesil)}
+/* panel */
+.uyarim{background:var(--yazi);color:#fff;padding:10px 20px;font-size:14px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--cizgi);background:var(--beyaz)}
+.kpi div{padding:18px;border-right:1px solid var(--cizgi)}
+.kpi b{display:block;font-variation-settings:"wdth" 64;font-size:40px;line-height:1;color:var(--yesil2)}
+.kpi span{color:var(--soluk);font-size:14px}
+.ikili{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.kutu{background:var(--beyaz);border:1px solid var(--cizgi)}
+.kutu h3{font-variation-settings:"wdth" 70;font-size:21px;padding:14px 16px;border-bottom:1px solid var(--cizgi);display:flex;justify-content:space-between;align-items:center}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 16px;border-bottom:1px solid var(--cizgi)}
+th{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+.et{font-family:"JetBrains Mono",monospace;font-size:11px;padding:2px 6px;color:#fff;white-space:nowrap}
+.et.k{background:var(--kir)}.et.s{background:var(--sari)}.et.y{background:var(--yesil)}.et.l{background:var(--lac)}
+.bar{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;align-items:end;height:150px;padding:16px}
+.bar div{background:var(--yesil);position:relative}
+.bar div span{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--soluk)}
+.bar div b{position:absolute;top:-18px;left:0;right:0;text-align:center;font-size:11px}
+.anahtar{position:relative;width:42px;height:22px;background:var(--cizgi);cursor:pointer;flex:none}
+.anahtar.on{background:var(--yesil)}
+.anahtar::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;transition:left .15s}
+.anahtar.on::after{left:23px}
+.oto{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--cizgi);font-size:15px}
+.oto small{display:block;color:var(--soluk);font-size:13px}
+footer{padding:30px 0 60px;color:var(--soluk);font-size:14px}
+@media(max-width:900px){.hero,.check,.ikili{grid-template-columns:1fr}.gunler{grid-template-columns:repeat(2,1fr)}.kpi{grid-template-columns:1fr 1fr}.uyarikutu{grid-template-columns:1fr}.sekmeler button{padding:8px 10px;font-size:13px}.logo b{font-size:22px}}
+</style></head><body>
+<div class="demo">Dijitabela'nın Sarıcalar Sigorta için hazırladığı çalışan taslak · Hava verisi CANLI (Open-Meteo), panel verileri ÖRNEKTİR</div>
+<nav><div class="ic">
+  <div class="logo"><b>SARICALAR SİGORTA</b><span>KORKUTELİ · TARLA · EV · ARAÇ · İŞYERİ</span></div>
+  <div class="sekmeler"><button class="on" data-g="musteri">Müşteri sitesi</button><button data-g="panel">Bahattin Bey'in paneli</button></div>
+</div></nav>
+
+<div id="musteri">
+<header class="hero">
+  <div class="y">
+    <span class="mono" style="color:var(--toprak)">Korkuteli · Kiremitli Mah. · 7/24</span>
+    <h1>Elmanız, eviniz, aracınız. Hepsi tek acentede.</h1>
+    <p>Korkuteli'de çiftçinin, esnafın ve ailenin sigortası. Hava bozmadan önce haber veriyoruz, poliçe bitmeden önce hatırlatıyoruz.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="dg ana" href="#radar">Don / dolu radarı</a><a class="dg" href="#checkup">2 dakikalık sigorta check-up</a></div>
+  </div>
+  <img src="../img/dukkan.jpg" alt="Sarıcalar Sigorta dükkânı, Korkuteli">
+</header>
+
+<section id="radar"><div class="ic">
+  <span class="mono" style="color:var(--toprak)">Korkuteli için canlı · her saat güncellenir</span>
+  <h2>Don ve dolu radarı.</h2>
+  <p class="alt">Korkuteli'nin önümüzdeki 7 günlük hava tahmini; ürününüz için don, dolu, fırtına ve sağanak riski. Risk varsa TARSİM'li olmayan çiftçiyi biz ararız.</p>
+  <div class="radar">
+    <div class="bas"><b id="radarBaslik">Tahmin yükleniyor…</b><div class="urunler" id="urunler"></div></div>
+    <div class="gunler" id="gunler"></div>
+    <div class="uyarikutu"><p id="ozet">—</p><a class="dg ana" id="tarsimBtn" target="_blank" href="#">Ürünümü sigortalatmak istiyorum</a></div>
+  </div>
+  <p style="margin-top:10px;font-size:13px;color:var(--soluk)">Kaynak: Open-Meteo hava modeli (Korkuteli 37,07° K · 30,20° D). Tahmin bilgilendirme amaçlıdır. TARSİM poliçelerinde devlet prim desteği bulunur; oran ürün ve yıla göre değişir, acentemiz söyler.</p>
+</div></section>
+
+<section id="checkup"><div class="ic">
+  <span class="mono" style="color:var(--toprak)">2 dakika · ücretsiz</span>
+  <h2>Sigorta check-up: nereniz açıkta?</h2>
+  <p class="alt">Soruları cevaplayın; sağda eksik teminat raporunuz oluşsun. Rapor, cevaplarınızla birlikte Bahattin Bey'e gider; size en uygun teklifle döner.</p>
+  <div class="check"><div id="sorular"></div>
+    <div class="rapor"><span class="mono" style="color:var(--soluk)">Koruma puanınız</span><div class="puan" id="puan">—</div><h3 id="raporBaslik">Soruları cevaplayın</h3><ul class="oneri" id="oneri"></ul><a class="dg ana" id="raporBtn" target="_blank" href="#" style="width:100%">Raporumu Bahattin Bey'e gönder</a></div>
+  </div>
+</div></section>
+</div>
+
+<div id="panel" hidden>
+  <div class="uyarim">Bu ekran yalnızca acentenin görebileceği yönetim panelinin ÖRNEĞİDİR · isimler ve rakamlar uydurmadır</div>
+  <section><div class="ic">
+    <span class="mono" style="color:var(--toprak)">Günaydın Bahattin Bey · <span id="bugun"></span></span>
+    <h2>Bu ay ne yapmanız gerekiyor?</h2>
+    <div class="kpi"><div><b>37</b><span>poliçe bu ay bitiyor</span></div><div><b>21</b><span>otomatik hatırlatma gönderildi</span></div><div><b>93</b><span>çapraz satış fırsatı</span></div><div><b>4</b><span>açık hasar dosyası</span></div></div>
+    <div class="ikili">
+      <div class="kutu"><h3>Yenileme takvimi · 7 gün içinde <span class="et k">ACİL</span></h3>
+        <table><thead><tr><th>Müşteri</th><th>Poliçe</th><th>Bitiş</th><th>Durum</th></tr></thead><tbody>
+        <tr><td>Mehmet K.</td><td>Trafik · 07 ABC 123</td><td>2 gün</td><td><span class="et l">Teklif gönderildi</span></td></tr>
+        <tr><td>Ayşe D.</td><td>DASK · Kiremitli</td><td>3 gün</td><td><span class="et s">Okundu, cevap yok</span></td></tr>
+        <tr><td>Hasan Y.</td><td>Kasko · 07 KR 448</td><td>5 gün</td><td><span class="et y">Onaylandı</span></td></tr>
+        <tr><td>Fatma Ö.</td><td>Konut · Bozova</td><td>6 gün</td><td><span class="et k">Aranmalı</span></td></tr>
+        <tr><td>İbrahim T.</td><td>TARSİM · elma 30 da</td><td>7 gün</td><td><span class="et l">Teklif gönderildi</span></td></tr>
+        </tbody></table></div>
+      <div class="kutu"><h3>Otomasyonlar</h3>
+        <div class="oto"><div>Poliçe bitişinden 30 / 15 / 7 gün önce WhatsApp hatırlatması<small>Yeni teklif PDF'i ile · bu ay 21 gönderim</small></div><div class="anahtar on"></div></div>
+        <div class="oto"><div>Don / dolu uyarısında TARSİM'siz çiftçilere mesaj<small>Radar riski "ciddi" olunca · İYS onaylı listeye</small></div><div class="anahtar on"></div></div>
+        <div class="oto"><div>Poliçe kesilince Google yorum isteği<small>3 gün sonra, kibar tek mesaj</small></div><div class="anahtar on"></div></div>
+        <div class="oto"><div>Doğum gününde kutlama mesajı<small>İndirim yok, sadece hatır</small></div><div class="anahtar"></div></div>
+        <div class="oto"><div>7/24 WhatsApp asistanı (gece gelen soruya cevap)<small>Fiyat ve kesin teminatı size devreder</small></div><div class="anahtar on"></div></div>
+      </div>
+    </div>
+    <div class="ikili">
+      <div class="kutu"><h3>Çapraz satış fırsatları</h3>
+        <table><thead><tr><th>Liste</th><th>Kişi</th><th></th></tr></thead><tbody>
+        <tr><td>Trafiği bizde, kaskosu yok</td><td><b>52</b></td><td><a class="et l" style="text-decoration:none" href="#" onclick="return false">Kampanya hazırla</a></td></tr>
+        <tr><td>DASK'ı var, konut sigortası yok</td><td><b>41</b></td><td><a class="et l" style="text-decoration:none" href="#" onclick="return false">Kampanya hazırla</a></td></tr>
+        <tr><td>Çiftçi, TARSİM poliçesi yok</td><td><b>18</b></td><td><a class="et l" style="text-decoration:none" href="#" onclick="return false">Kampanya hazırla</a></td></tr>
+        <tr><td>Ailesi var, sağlık sigortası yok</td><td><b>27</b></td><td><a class="et l" style="text-decoration:none" href="#" onclick="return false">Kampanya hazırla</a></td></tr>
+        </tbody></table></div>
+      <div class="kutu"><h3>Aylara göre biten poliçe sayısı</h3><div class="bar" id="bar"></div><p style="padding:20px 16px 14px;font-size:13px;color:var(--soluk)">Yoğun ayları önceden görür, teklifleri erken hazırlarsınız.</p></div>
+    </div>
+    <div class="ikili">
+      <div class="kutu"><h3>Açık hasar dosyaları</h3>
+        <table><thead><tr><th>Dosya</th><th>Müşteri</th><th>Aşama</th><th>Gün</th></tr></thead><tbody>
+        <tr><td>H-4471 · Kasko</td><td>Mehmet K.</td><td><span class="et s">Ekspertiz</span></td><td>3</td></tr>
+        <tr><td>H-4465 · Trafik</td><td>Ali R.</td><td><span class="et l">Şirkette</span></td><td>6</td></tr>
+        <tr><td>H-4452 · Konut</td><td>Zeynep A.</td><td><span class="et k">Evrak eksik</span></td><td>9</td></tr>
+        <tr><td>T-0091 · TARSİM dolu</td><td>Veli Ç.</td><td><span class="et s">Eksper bekleniyor</span></td><td>2</td></tr>
+        </tbody></table></div>
+      <div class="kutu"><h3>Siteden ve WhatsApp'tan gelen talepler</h3>
+        <table><thead><tr><th>Kaynak</th><th>Talep</th><th>Saat</th></tr></thead><tbody>
+        <tr><td>Site · teklif</td><td>Kasko · Egea 2019</td><td>02:14</td></tr>
+        <tr><td>Kaza asistanı</td><td>Kaza bildirimi · 8/8 foto</td><td>23:47</td></tr>
+        <tr><td>Check-up</td><td>Puan 45 · konut + sağlık eksik</td><td>21:10</td></tr>
+        <tr><td>Radar</td><td>Kiraz 12 da · TARSİM teklifi</td><td>19:32</td></tr>
+        </tbody></table></div>
+    </div>
+  </div></section>
+</div>
+<footer class="ic">Sarıcalar Sigorta Aracılık Hizmetleri · Kiremitli Mah. 861. Sk. No:14 Korkuteli / Antalya · <a href="tel:+905306077950">0530 607 79 50</a> · Taslak: Dijitabela</footer>
+
+<script>
+var WA = "905306077950";
+document.querySelectorAll(".sekmeler button").forEach(function (b) { b.onclick = function () {
+  document.querySelectorAll(".sekmeler button").forEach(function (x) { x.classList.toggle("on", x === b); });
+  document.getElementById("musteri").hidden = b.dataset.g !== "musteri"; document.getElementById("panel").hidden = b.dataset.g !== "panel"; window.scrollTo(0, 0);
+}; });
+// ---- radar
+var URUN = { "Elma": [2, 3, 4], "Kiraz": [2, 3, 4], "Buğday": [3, 4, 5], "Nohut": [3, 4, 5], "Sera": [11, 0, 1, 2], "Hayvan": [] };
+var urun = "Elma", gunVeri = null;
+var uk = document.getElementById("urunler");
+Object.keys(URUN).forEach(function (u) { var b = document.createElement("button"); b.textContent = u; if (u === urun) b.className = "on"; b.onclick = function () { urun = u; [].forEach.call(uk.children, function (x) { x.classList.toggle("on", x === b); }); radarCiz(); }; uk.appendChild(b); });
+var GUNAD = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
+function risk(i) {
+  var d = gunVeri, mn = d.temperature_2m_min[i], kod = d.weather_code[i], yag = d.precipitation_sum[i], ruz = d.wind_speed_10m_max[i], r = [];
+  if (kod === 96 || kod === 99) r.push(["dolu", "Dolu riski"]);
+  if (mn <= -2) r.push(["ciddi", "Kuvvetli don"]); else if (mn <= 1) r.push(["don", "Don riski"]);
+  if (ruz >= 50) r.push(["ruz", "Fırtına"]);
+  if (yag >= 20) r.push(["yag", "Sağanak"]);
+  if (!r.length) r.push(["yok", "Risk yok"]);
+  return r;
+}
+function radarCiz() {
+  if (!gunVeri) return;
+  var g = document.getElementById("gunler"); g.innerHTML = ""; var riskli = [];
+  gunVeri.time.forEach(function (t, i) {
+    var dt = new Date(t + "T12:00:00"), r = risk(i);
+    if (r[0][0] !== "yok") riskli.push(GUNAD[dt.getDay()] + " " + r.map(function (x) { return x[1].toLowerCase(); }).join(", "));
+    var el = document.createElement("div"); el.className = "gun";
+    el.innerHTML = '<span class="t">' + GUNAD[dt.getDay()] + ' ' + dt.getDate() + '.' + (dt.getMonth() + 1) + '</span><span class="d">' + Math.round(gunVeri.temperature_2m_min[i]) + '° <small>/ ' + Math.round(gunVeri.temperature_2m_max[i]) + '°</small></span><span style="font-size:13px;color:var(--soluk)">Yağış ' + gunVeri.precipitation_sum[i].toFixed(1) + ' mm · Rüzgâr ' + Math.round(gunVeri.wind_speed_10m_max[i]) + ' km/s</span>' + r.map(function (x) { return '<span class="r ' + x[0] + '">' + x[1] + '</span>'; }).join("");
+    g.appendChild(el);
+  });
+  var ay = new Date().getMonth(), kritik = URUN[urun].indexOf(ay) >= 0;
+  document.getElementById("radarBaslik").textContent = "Korkuteli · 7 günlük tahmin · " + urun;
+  document.getElementById("ozet").innerHTML = (riskli.length ? "<b>Dikkat:</b> " + riskli.join(" · ") + "." : "Önümüzdeki 7 gün için <b>belirgin risk görünmüyor</b>.") +
+    (urun === "Hayvan" ? " Hayvan hayat sigortası hastalık ve kazaya karşı korur." : kritik ? " <b>" + urun + " için şu an kritik dönem</b> (çiçeklenme / gelişme); don ve dolu en çok bu dönemde zarar verir." : " " + urun + " için en kritik don dönemi ilkbahar; poliçeyi sezondan önce yaptırmak gerekir.");
+  document.getElementById("tarsimBtn").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Merhaba Bahattin Bey, " + urun + " için TARSİM (tarım sigortası) teklifi istiyorum. Alan/adet: ");
+}
+fetch("https://api.open-meteo.com/v1/forecast?latitude=37.066&longitude=30.197&daily=temperature_2m_min,temperature_2m_max,precipitation_sum,weather_code,wind_speed_10m_max&timezone=Europe%2FIstanbul&forecast_days=7")
+  .then(function (r) { return r.json(); }).then(function (j) { gunVeri = j.daily; radarCiz(); })
+  .catch(function () { document.getElementById("radarBaslik").textContent = "Hava verisi şu an alınamadı; birazdan tekrar deneyin."; });
+// ---- check-up
+var SORU = [
+  { s: "Ev sahibi misiniz?", k: "ev" }, { s: "Evinizin DASK'ı güncel mi?", k: "dask", e: "ev" }, { s: "Eşya / konut sigortanız var mı?", k: "konut", e: "ev" },
+  { s: "Aracınız var mı?", k: "arac" }, { s: "Kaskonuz var mı?", k: "kasko", e: "arac" },
+  { s: "Tarla, bahçe ya da hayvanınız var mı?", k: "tarla" }, { s: "Ürününüz / hayvanınız TARSİM'li mi?", k: "tarsim", e: "tarla" },
+  { s: "İşyeriniz / dükkânınız var mı?", k: "isyeri" }, { s: "İşyeri (yangın, hırsızlık) sigortanız var mı?", k: "isyeriS", e: "isyeri" },
+  { s: "Çocuk veya bakmakla yükümlü olduğunuz biri var mı?", k: "aile" }, { s: "Özel / tamamlayıcı sağlık sigortanız var mı?", k: "saglik" }
+];
+var cv = {};
+function sorulariCiz() {
+  var k = document.getElementById("sorular"); k.innerHTML = "";
+  SORU.forEach(function (q) {
+    if (q.e && cv[q.e] !== "e") return;
+    var d = document.createElement("div"); d.className = "soru"; d.innerHTML = "<span>" + q.s + "</span>";
+    var eh = document.createElement("div"); eh.className = "eh";
+    ["e", "h"].forEach(function (v) { var b = document.createElement("button"); b.textContent = v === "e" ? "Evet" : "Hayır"; if (cv[q.k] === v) b.className = "on"; b.onclick = function () { cv[q.k] = v; sorulariCiz(); raporla(); }; eh.appendChild(b); });
+    d.appendChild(eh); k.appendChild(d);
+  });
+}
+function raporla() {
+  var k = [], o = [], tam = 0, var_ = 0;
+  function bak(sart, ok, metinK, metinO) { if (!sart) return; tam++; if (ok) { var_++; o.push(metinO); } else k.push(metinK); }
+  bak(cv.ev === "e" && cv.dask, cv.dask === "e", "DASK zorunludur; yoksa deprem sonrası bina için teminat yok, tapu ve abonelik işlemleri aksar.", "DASK güncel.");
+  bak(cv.ev === "e" && cv.konut, cv.konut === "e", "DASK sadece binayı karşılar; eşya, su baskını, yangın, hırsızlık için konut sigortası gerekir.", "Konut sigortası var.");
+  bak(cv.arac === "e" && cv.kasko, cv.kasko === "e", "Trafik sigortası yalnız karşı tarafı öder; kendi aracınızın hasarı için kasko gerekir.", "Kasko var.");
+  bak(cv.tarla === "e" && cv.tarsim, cv.tarsim === "e", "Don ve dolu Korkuteli'de bir gecede sezonu götürebilir; TARSİM'de devlet primin bir kısmını öder.", "Ürününüz TARSİM'li.");
+  bak(cv.isyeri === "e" && cv.isyeriS, cv.isyeriS === "e", "Dükkân yangın, hırsızlık ve sel karşısında korumasız; işyeri paket sigortası düşük primlidir.", "İşyeri sigortası var.");
+  bak(cv.aile === "e" || cv.saglik, cv.saglik === "e", "Özel hastane fark ücretleri yüksek; tamamlayıcı sağlık sigortası SGK'lı aileler için uygun çözümdür.", "Sağlık sigortası var.");
+  var p = tam ? Math.round(var_ / tam * 100) : null;
+  document.getElementById("puan").textContent = p === null ? "—" : p;
+  document.getElementById("puan").style.color = p === null ? "" : p >= 80 ? "var(--yesil)" : p >= 50 ? "var(--sari)" : "var(--kir)";
+  document.getElementById("raporBaslik").textContent = p === null ? "Soruları cevaplayın" : k.length ? k.length + " yerde açıktasınız" : "Tam korunuyorsunuz";
+  document.getElementById("oneri").innerHTML = k.map(function (x) { return '<li class="k">' + x + "</li>"; }).join("") + o.map(function (x) { return '<li class="o">' + x + "</li>"; }).join("");
+  document.getElementById("raporBtn").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Merhaba Bahattin Bey, siteden sigorta check-up yaptım. Koruma puanım: " + (p === null ? "-" : p) + "/100\nEksiklerim:\n- " + (k.join("\n- ") || "yok") + "\nUygun teklifinizi bekliyorum.");
+}
+sorulariCiz(); raporla();
+// ---- panel
+document.getElementById("bugun").textContent = new Date().toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" });
+var AY = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"], SAY = [28, 22, 41, 36, 30, 25, 33, 29, 44, 37, 31, 26], bar = document.getElementById("bar");
+SAY.forEach(function (n, i) { var d = document.createElement("div"); d.style.height = (n / 44 * 100) + "%"; if (i === new Date().getMonth()) d.style.background = "var(--toprak)"; d.innerHTML = "<b>" + n + "</b><span>" + AY[i] + "</span>"; bar.appendChild(d); });
+document.querySelectorAll(".anahtar").forEach(function (a) { a.onclick = function () { a.classList.toggle("on"); }; });
+</script>
+</body></html>

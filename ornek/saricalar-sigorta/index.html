@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sarıcalar Sigorta · Size Özel Hazırladıklarımız</title>
+<meta property="og:title" content="Sarıcalar Sigorta · 3 tasarım + dijital ekspertiz"><meta property="og:description" content="Dijitabela'nın Sarıcalar Sigorta için hazırladığı tasarımlar: çoklu teklif sihirbazı, kaza anı asistanı, don/dolu radarı ve acente paneli."><meta property="og:image" content="https://dijitabela.com.tr/ornek/saricalar-sigorta/_onizleme/1-teklif-merkezi.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--kagit:#f4f5f2;--beyaz:#fff;--lac:#123a6b;--kir:#c8202f;--yazi:#15191f;--soluk:#5b6470;--cizgi:#d8dcd6;--yesil:#2d5e34}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--kagit);color:var(--yazi);line-height:1.55}
+.ic{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+header{padding:36px 0 26px;border-bottom:3px solid var(--lac)}
+header .ust{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+header .ust img{height:70px;width:70px;object-fit:cover;border-radius:50%;object-position:50% 25%}
+h1{font-variation-settings:"wdth" 66;font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.02;margin:8px 0 12px;color:var(--lac)}
+header p{color:var(--soluk);font-size:18px;max-width:820px}
+.rapor{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--beyaz);border:1px solid var(--cizgi);border-left:6px solid var(--kir);padding:18px 20px;margin-top:22px}
+.rapor .skor{font-variation-settings:"wdth" 62;font-weight:800;font-size:52px;line-height:1;color:var(--kir)}
+.rapor .skor small{font-size:20px;color:var(--soluk)}
+h2{font-variation-settings:"wdth" 70;font-weight:800;font-size:30px;margin:40px 0 14px;color:var(--lac)}
+.izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sec{background:var(--beyaz);border:1px solid var(--cizgi);display:flex;flex-direction:column}
+.sec .gorsel{display:block;aspect-ratio:16/11;overflow:hidden;border-bottom:1px solid var(--cizgi);background:#dde}
+.sec .gorsel img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.sec .y{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.sec h3{font-variation-settings:"wdth" 75;font-size:22px}
+.sec p{color:var(--soluk);font-size:15px}
+.sec ul{list-style:none;font-size:14px;flex:1}
+.sec li{padding:3px 0 3px 18px;position:relative}
+.sec li::before{content:"■";position:absolute;left:0;color:var(--kir);font-size:11px;top:6px}
+.dg{display:inline-block;text-align:center;font-weight:800;text-decoration:none;padding:12px 14px;border:1.5px solid var(--lac);color:var(--lac);background:transparent;cursor:pointer}
+.dg.ana{background:var(--lac);color:#fff}
+.ikili{display:flex;gap:8px}.ikili .dg{flex:1}
+ol.ozellik{list-style:none;counter-reset:a;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+ol.ozellik li{counter-increment:a;display:grid;grid-template-columns:42px 1fr;padding:12px 0;border-bottom:1px solid var(--cizgi)}
+ol.ozellik li::before{content:counter(a,decimal-leading-zero);font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--kir)}
+ol.ozellik b{display:block}
+ol.ozellik span{color:var(--soluk);font-size:15px}
+table{width:100%;border-collapse:collapse;background:var(--beyaz);border:1px solid var(--cizgi);font-size:15px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--cizgi);vertical-align:top}
+th{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk);font-weight:600}
+td.c{text-align:center;font-weight:800;color:var(--yesil)}
+td.c.y{color:#b9bfc6;font-weight:400}
+.paket{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pk{background:var(--beyaz);border:1px solid var(--cizgi);padding:20px;position:relative;display:flex;flex-direction:column}
+.pk.one{border:2px solid var(--lac)}
+.pk.one::before{content:"ÖNERİMİZ";position:absolute;top:-11px;left:18px;background:var(--kir);color:#fff;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;padding:3px 8px}
+.pk b{font-size:22px;font-variation-settings:"wdth" 72;color:var(--lac)}
+.pk .k{color:var(--soluk);font-size:14px;margin-top:2px}
+.pk ul{list-style:none;margin:12px 0 16px;font-size:15px;flex:1}
+.pk li{padding:4px 0 4px 22px;position:relative}
+.pk li::before{content:"✓";position:absolute;left:0;font-weight:800;color:var(--yesil)}
+.not{color:var(--soluk);font-size:14px}
+footer{color:var(--soluk);font-size:14px;padding:40px 0 70px}
+@media(max-width:900px){.izgara,.paket,ol.ozellik{grid-template-columns:1fr}.rapor{grid-template-columns:1fr}table{font-size:13px}th,td{padding:9px 8px}}
+</style></head><body>
+<header><div class="ic">
+  <div class="ust"><img src="img/bahattin.jpg" alt="Bahattin Sarıcalar" width="70" height="70"><div class="mono">Dijitabela · Sarıcalar Sigorta için özel · Bahattin Bey'e</div></div>
+  <h1>Bahattin Bey, size 3 web sitesi tasarımı hazırladık.<br>Korkuteli'de hiçbir acentede olmayan özelliklerle.</h1>
+  <p>Hepsi şu an çalışıyor: şirketlerin tekliflerini yan yana gösteren sihirbaz, kaza anında müşterinize adım adım yol gösteren asistan, Korkuteli'nin canlı don ve dolu radarı ve sizin için bir yönetim paneli. İnceleyin, beğendiğinizi seçin; gerisini biz kuralım.</p>
+  <div class="rapor">
+    <div class="skor">62<small>/100</small></div>
+    <div><b>Dijital ekspertiz raporunuz hazır</b><br><span class="not">Adınız Google'da aratıldığında üstte başka bir Antalya acentesinin reklamı çıkıyor. Neden olduğunu ve neleri değiştireceğimizi yazdık.</span></div>
+    <a class="dg" href="rapor.html">Raporu oku →</a>
+  </div>
+</div></header>
+
+<main class="ic">
+<h2>1 · Tasarımınızı seçin</h2>
+<div class="izgara">
+  <div class="sec"><a class="gorsel" href="1-teklif-merkezi/"><img src="_onizleme/1-teklif-merkezi.png" alt="Teklif merkezi tasarımı"></a><div class="y">
+    <h3>① Teklif Merkezi</h3><p>Açık zemin, lacivert ve kırmızı; ofisinizden gerçek fotoğraflar. Müşteri 3 dakikada teklifini görür.</p>
+    <ul><li>8 branşta akıllı teklif sihirbazı</li><li>Şirket tekliflerini yan yana karşılaştırma</li><li>Trafik basamak hesaplayıcı</li><li>DASK bitiş hatırlatıcısı (telefon takvimine)</li><li>19 branşın tamamı, harita, 7/24 arama</li></ul>
+    <div class="ikili"><a class="dg" href="1-teklif-merkezi/">İncele</a><a class="dg ana" data-sec="1 · Teklif Merkezi">Bunu seçiyorum</a></div></div></div>
+  <div class="sec"><a class="gorsel" href="2-kaza-asistani/"><img src="_onizleme/2-kaza-asistani.png" alt="Kaza anı asistanı tasarımı"></a><div class="y">
+    <h3>② Kaza Anı Asistanı</h3><p>Koyu asfalt, sarı şerit. Müşterinizin telefonunda uygulama gibi çalışır.</p>
+    <ul><li>Kazada 6 adım: güvenlik, fotoğraf, kroki, tutanak, konum, gönder</li><li>Parmakla sürükle-bırak kaza krokisi</li><li>Poliçe cüzdanı: bitişe kaç gün kaldı</li><li>Trafik kontrolünde QR ile poliçe</li><li>Hasar dosyası takibi</li></ul>
+    <div class="ikili"><a class="dg" href="2-kaza-asistani/">İncele</a><a class="dg ana" data-sec="2 · Kaza Anı Asistanı">Bunu seçiyorum</a></div></div></div>
+  <div class="sec"><a class="gorsel" href="3-ciftci-panel/"><img src="_onizleme/3-ciftci-panel.png" alt="Çiftçi ve panel tasarımı"></a><div class="y">
+    <h3>③ Korkuteli + Acente Paneli</h3><p>Toprak tonları, yeşil. Çiftçi, esnaf ve aile için; arkasında sizin yönetim paneliniz.</p>
+    <ul><li>Canlı don / dolu radarı (elma, kiraz, hububat, sera)</li><li>2 dakikalık sigorta check-up ve eksik teminat raporu</li><li>Panel: bu ay biten poliçeler, otomatik hatırlatmalar</li><li>Çapraz satış listeleri (trafiği var, kaskosu yok…)</li><li>Hasar dosyaları ve gelen talepler tek ekranda</li></ul>
+    <div class="ikili"><a class="dg" href="3-ciftci-panel/">İncele</a><a class="dg ana" data-sec="3 · Korkuteli + Acente Paneli">Bunu seçiyorum</a></div></div></div>
+</div>
+<p class="not" style="margin-top:10px">Tasarımlar birbirinin içine eklenebilir: örneğin ① numaralı siteye ② numaralı kaza asistanı ve ③ numaralı panel eklenebilir. Seçtiğiniz pakete göre birleştiriyoruz.</p>
+
+<h2>2 · Üç tasarımda da olanlar</h2>
+<ol class="ozellik">
+  <li><div><b>Gerçek fotoğraflarınız</b><span>Stok görsel yok; ofisiniz, dükkânınız, siz.</span></div></li>
+  <li><div><b>7/24 tek dokunuşla arama ve WhatsApp</b><span>Telefonda ekranın altında her zaman.</span></div></li>
+  <li><div><b>Hazır mesajlı talepler</b><span>Müşterinin seçtikleri WhatsApp'ınıza bilgileriyle düşer; tekrar soru sormazsınız.</span></div></li>
+  <li><div><b>19 branşın tamamı</b><span>Trafikten TARSİM'e, inşaat all risk'ten otel paketine.</span></div></li>
+  <li><div><b>KVKK'ya uygun</b><span>T.C. kimlik no gibi bilgiler sitede istenmez; çerez ve aydınlatma metni hazır.</span></div></li>
+  <li><div><b>Google'a uygun altyapı</b><span>Haritalar kaydınızla birlikte çalışacak şekilde kurulur; Korkuteli aramalarına göre hazırlanır.</span></div></li>
+</ol>
+
+<h2>3 · Sigortacılığa özel özellikler ve entegrasyonlar</h2>
+<div style="overflow-x:auto"><table>
+  <thead><tr><th>Özellik</th><th>Ne işe yarar</th><th>Görün</th><th>Dijital</th><th>Akıllı</th></tr></thead><tbody>
+  <tr><td><b>Teklif sihirbazı</b></td><td>Branşa göre doğru soruları sorar, talebi eksiksiz getirir</td><td class="c y">—</td><td class="c">✓</td><td class="c">✓</td></tr>
+  <tr><td><b>Çoklu şirket karşılaştırma</b></td><td>Yetkili olduğunuz şirketlerin tekliflerini tek ekranda gösterir</td><td class="c y">—</td><td class="c y">ek</td><td class="c">✓</td></tr>
+  <tr><td><b>Poliçe bitiş hatırlatma otomasyonu</b></td><td>30 / 15 / 7 gün kala müşteriye WhatsApp; yenileme kaçmaz</td><td class="c y">—</td><td class="c">✓</td><td class="c">✓</td></tr>
+  <tr><td><b>Kaza anı asistanı + kroki</b></td><td>Eksiksiz fotoğraf ve bilgiyle dosya; hasar süreci hızlanır</td><td class="c y">—</td><td class="c">✓</td><td class="c">✓</td></tr>
+  <tr><td><b>Poliçe cüzdanı (müşteri girişi)</b></td><td>Müşteri tüm poliçelerini ve bitiş tarihlerini görür</td><td class="c y">—</td><td class="c y">—</td><td class="c">✓</td></tr>
+  <tr><td><b>Hasar dosyası takibi</b></td><td>"Ne oldu?" telefonları azalır</td><td class="c y">—</td><td class="c y">—</td><td class="c">✓</td></tr>
+  <tr><td><b>Don / dolu radarı + çiftçi uyarısı</b></td><td>Risk günü TARSİM'siz çiftçiye otomatik haber</td><td class="c y">—</td><td class="c y">—</td><td class="c">✓</td></tr>
+  <tr><td><b>Sigorta check-up</b></td><td>Müşterinin açıkta kaldığı yeri gösterir, çapraz satış getirir</td><td class="c y">—</td><td class="c">✓</td><td class="c">✓</td></tr>
+  <tr><td><b>Acente paneli (müşteri–poliçe–yenileme)</b></td><td>Bu ay biten poliçeler, çapraz satış listeleri, talepler</td><td class="c y">—</td><td class="c y">—</td><td class="c">✓</td></tr>
+  <tr><td><b>7/24 WhatsApp yapay zekâ asistanı</b></td><td>Gece gelen soruya cevap, randevu ve bilgi toplar; fiyatı size devreder</td><td class="c y">—</td><td class="c y">ek</td><td class="c">✓</td></tr>
+  <tr><td><b>Online ödeme / taksit bağlantısı</b></td><td>Poliçe bedeli kartla, taksitli ödenir</td><td class="c y">—</td><td class="c y">ek</td><td class="c">✓</td></tr>
+  <tr><td><b>e-Devlet, SBM ve DASK sorgu yönlendirmeleri</b></td><td>Müşteri resmî sorgulara tek tıkla ulaşır</td><td class="c y">—</td><td class="c">✓</td><td class="c">✓</td></tr>
+  <tr><td><b>Google profili düzeni + yorum sistemi</b></td><td>Profil eksiksiz; her poliçeden sonra kibar yorum isteği</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr>
+  <tr><td><b>Sosyal medya içerik paketi</b></td><td>Hafta hafta sigorta bilgisi, Korkuteli'ye özel paylaşım</td><td class="c y">—</td><td class="c y">ek</td><td class="c">✓</td></tr>
+</tbody></table></div>
+
+<h2>4 · Paketler</h2>
+<div class="paket">
+  <div class="pk"><b>Google'da Görün</b><span class="k">Bulunmak ve güven vermek için</span>
+    <ul><li>Google Haritalar kaydınız eksiksiz ve tutarlı</li><li>Tanıtım, hizmetler, fotoğraflar, web bağlantısı</li><li>Tek sayfalık kartvizit site</li><li>Yorum toplama QR'ı ve masa kartı</li><li>Aylık kayıt takibi</li></ul>
+    <a class="dg" data-sec="Google'da Görün paketi">Bu paketi konuşalım</a></div>
+  <div class="pk one"><b>Dijital Acente</b><span class="k">Site + teklif + kaza asistanı + hatırlatma</span>
+    <ul><li>Google'da Görün'deki her şey</li><li>Seçtiğiniz tasarımla tam site (19 branş)</li><li>Teklif sihirbazı ve hesaplayıcılar</li><li>Kaza anı asistanı (uygulama gibi)</li><li>Poliçe bitiş hatırlatma otomasyonu</li><li>Sigorta check-up</li><li>Alan adı ve barındırma 1 yıl dahil</li></ul>
+    <a class="dg ana" data-sec="Dijital Acente paketi">Bu paketi konuşalım</a></div>
+  <div class="pk"><b>Akıllı Acente</b><span class="k">Her şey otomatik, siz satışa bakın</span>
+    <ul><li>Dijital Acente'deki her şey</li><li>Acente paneli: müşteri, poliçe, yenileme</li><li>Poliçe cüzdanı ve hasar dosyası takibi</li><li>Çoklu şirket teklif karşılaştırma</li><li>Don / dolu radarı ve çiftçi uyarıları</li><li>7/24 WhatsApp yapay zekâ asistanı</li><li>Aylık sosyal medya içerik paketi</li></ul>
+    <a class="dg" data-sec="Akıllı Acente paketi">Bu paketi konuşalım</a></div>
+</div>
+<p class="not" style="margin-top:14px">Fiyatları ve sürecin adımlarını 10 dakikalık bir görüşmede anlatıyoruz. Ödeme yarısı başta, yarısı teslimde. Site, alan adı ve tüm hesaplar sizin adınıza açılır. Çoklu şirket entegrasyonunun kapsamı, acentenizin yetkili olduğu şirketlerin sunduğu imkânlara göre belirlenir. Taslaklardaki şirket adları, fiyatlar ve müşteri bilgileri örnektir.</p>
+</main>
+<footer class="ic">Hazırlayan: Dijitabela · Alim Hoşlar · 0501 945 21 84 · dijitabela.com.tr</footer>
+<script>
+document.querySelectorAll("[data-sec]").forEach(function (a) { a.href = "https://wa.me/905019452184?text=" + encodeURIComponent("Merhaba Alim Bey, Sarıcalar Sigorta için seçimim: " + a.dataset.sec + ". Görüşelim."); a.target = "_blank"; });
+</script>
+</body></html>
