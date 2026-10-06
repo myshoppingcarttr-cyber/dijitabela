@@ -63,6 +63,20 @@ h2{font-variation-settings:"wdth" 72;font-weight:800;font-size:28px;color:var(--
 table{width:100%;border-collapse:collapse;background:var(--beyaz);font-size:15px}
 td,th{padding:11px 12px;border-bottom:1px solid var(--cizgi);text-align:left}
 th{font-size:12px;color:var(--soluk);text-transform:uppercase;letter-spacing:.05em}
+.dm{background:#fff;border:1px solid var(--cizgi);max-width:560px;margin-bottom:26px}
+.dm-ust{padding:12px 14px;border-bottom:1px solid var(--cizgi)}.dm-ust small{display:block;color:#3d8b5f;font-size:12px}
+.dm-akis{padding:14px;height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;background:#fcfaf7}
+.mb{max-width:82%;padding:9px 12px;border-radius:16px;font-size:14px;white-space:pre-line}
+.mb.s{background:#efefef;align-self:flex-start}.mb.m{background:#3797f0;color:#fff;align-self:flex-end}
+.mb.not{background:#fff5e0;border:1px dashed var(--altin);align-self:center;font-size:12px;color:var(--kahve);text-align:center}
+.dm-hizli{display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--cizgi)}
+.dm-hizli button{font:inherit;font-size:13px;border:1px solid var(--cizgi);background:#fff;border-radius:16px;padding:6px 11px;cursor:pointer}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:24px;background:var(--beyaz);border:1px solid var(--cizgi);padding:20px;margin-bottom:26px}
+.fl{display:block;font-size:13px;font-weight:700;margin:10px 0 4px}
+.fr select{width:100%;font:inherit;padding:9px;border:1px solid var(--cizgi);background:#fff}
+.fr-sonuc{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-left:1px solid var(--cizgi);padding-left:20px}
+.fr-sonuc b{font-size:56px;font-variation-settings:"wdth" 62;line-height:1}
+@media(max-width:960px){.fr{grid-template-columns:1fr}.fr-sonuc{border-left:0;padding:10px 0 0;border-top:1px solid var(--cizgi)}}
 footer{padding:30px 0 70px;color:var(--soluk);font-size:13px}
 .duzen>*{min-width:0}.takvim .g{min-width:0;overflow:hidden}.takvim .g span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media(max-width:960px){.duzen{grid-template-columns:1fr}.tel{position:static;max-width:400px;margin:0 auto}.reels{grid-template-columns:1fr}.takvim{font-size:10px}.takvim .g{min-height:62px;padding:3px}}
@@ -106,6 +120,27 @@ footer{padding:30px 0 70px;color:var(--soluk);font-size:13px}
       <li><b>Kullanıcı içeriği:</b> #BirFincandanFazlası etiketiyle paylaşanlardan her hafta 1 kişiye 250 g çekirdek</li>
     </ul>
 
+    <h2>Instagram DM'lerine 7/24 yanıt</h2>
+    <p class="a">"Menü?", "Franchise veriyor musunuz?", "Ofise toplu sipariş?" Gece gelen mesaj sabaha kalmaz. Hazır yanıtları siz onaylarsınız (bağlantılar örnektir); satış fırsatı olan konuşmalar ilgili kişiye anında iletilir. Aşağıdaki sorulardan birine dokunun.</p>
+    <div class="dm">
+      <div class="dm-ust"><b>caffeditoee</b><small>Otomatik yanıt açık · Ortalama yanıt 4 sn</small></div>
+      <div class="dm-akis" id="dmAkis"><div class="mb s">Merhaba! Caffé Di Toeé'ye hoş geldiniz ☕ Size nasıl yardımcı olabiliriz?</div></div>
+      <div class="dm-hizli" id="dmHizli"><button>Menü ve fiyatlar</button><button>Franchise veriyor musunuz?</button><button>Ofise toplu kahve</button><button>Bestekar kaçta kapanıyor?</button><button>Çekirdek kargosu kaç günde gelir?</button></div>
+    </div>
+
+    <h2>Franchise başvurularını süzün</h2>
+    <p class="a">Sitedeki franchise formu ön değerlendirmeye dönüşür: şehir, bütçe, deneyim ve mekân bilgisine göre puanlanır; yalnızca uygun adaylar sizinle görüşmeye geçer. Kriterleri siz belirlersiniz.</p>
+    <div class="fr">
+      <div>
+        <label class="fl">Şehir</label><select id="frSehir"><option value="2">Ankara dışı büyükşehir</option><option value="3">Ankara</option><option value="1">Diğer il</option></select>
+        <label class="fl">Ayrılabilecek bütçe</label><select id="frBut"><option value="0">1,5 milyon ₺ altı</option><option value="2" selected>1,5-3 milyon ₺</option><option value="3">3 milyon ₺ üzeri</option></select>
+        <label class="fl">Kafe / gıda işletme deneyimi</label><select id="frDen"><option value="0">Yok</option><option value="2" selected>1-3 yıl</option><option value="3">3 yıldan fazla</option></select>
+        <label class="fl">Mekân</label><select id="frMek"><option value="0">Henüz yok</option><option value="2" selected>Bakıyorum, adaylarım var</option><option value="3">Hazır, 80 m² üzeri</option></select>
+      </div>
+      <div class="fr-sonuc" id="frSonuc"></div>
+    </div>
+    <p style="font-size:13px;color:var(--soluk);margin:-10px 0 26px">Bütçe aralıkları ve puanlama örnektir; sizin franchise koşullarınıza göre ayarlanır.</p>
+
     <h2>Ay sonu rapor</h2>
     <table>
       <tr><th>Ölçüt</th><th>Takip ettiğimiz</th><th>Neden önemli</th></tr>
@@ -138,6 +173,16 @@ const T=["t-post","t-hik","t-reel","t-hik","t-post","t-reel","t-hik","t-kamp","t
 const tk=document.getElementById("takvim");["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"].forEach(g=>tk.innerHTML+=`<div class="g bas">${g}</div>`);
 const ad={"t-post":"Gönderi","t-reel":"Reels","t-hik":"Hikâye","t-kamp":"Kampanya"};
 for(let i=0;i<2;i++)tk.innerHTML+=`<div class="g" style="opacity:.3"></div>`;
+const DM={"Menü ve fiyatlar":["Menümüz burada 👉 caffeditoee.com/menu\nHarmanlarımız 250 g 550 ₺, Türk kahvesi 100 g 125 ₺. Hangi şubemize geleceksiniz?",0],
+"Franchise veriyor musunuz?":["Evet 🙌 Franchise ön başvuru formumuz: caffeditoee.com/franchise\nBirkaç kısa soruyla uygunluğu hemen görebilirsiniz. Hangi şehir için düşünüyorsunuz?","🔔 Franchise ilgisi · Bildirim franchise sorumlusuna gitti"],
+"Ofise toplu kahve":["Ofislere aylık çekirdek ve kurumsal teklif veriyoruz ☕ Kaç kişilik bir ekip? İhtiyacınızı buradan 1 dakikada hesaplayabilirsiniz: caffeditoee.com/ofis","🔔 Kurumsal satış fırsatı · Satış sorumlusuna iletildi"],
+"Bestekar kaçta kapanıyor?":["Bestekar şubemiz bugün 24:00'e kadar açık (örnek saat). Yol tarifi: maps.app.goo.gl/… 📍",0],
+"Çekirdek kargosu kaç günde gelir?":["Kavrumdan sonra en geç 3 gün içinde kargoya veriyoruz; Ankara içi genelde ertesi gün, diğer şehirler 1-3 iş günü 📦",0]};
+document.querySelectorAll("#dmHizli button").forEach(b=>b.onclick=()=>{const a=document.getElementById("dmAkis"),[c,n]=DM[b.textContent];a.innerHTML+=`<div class="mb m">${b.textContent}</div>`;a.scrollTop=a.scrollHeight;setTimeout(()=>{a.innerHTML+=`<div class="mb s">${c}</div>`+(n?`<div class="mb not">${n}</div>`:"");a.scrollTop=a.scrollHeight;},700);});
+function fr(){const p=["frSehir","frBut","frDen","frMek"].map(i=>+document.getElementById(i).value),t=Math.round(p.reduce((a,b)=>a+b,0)/12*100);
+ const [r,y]=t>=70?["#3d6b4f","Uygun aday · Görüşme takvimine eklendi"]:t>=45?["#b8863b","Bekleme listesi · Bilgilendirme e-postası gönderildi"]:["#b4483a","Şu an uygun değil · Kibar bir yanıt otomatik gönderildi"];
+ document.getElementById("frSonuc").innerHTML=`<small style="color:var(--soluk)">Ön değerlendirme puanı</small><b style="color:${r}">${t}</b><span style="font-weight:700;color:${r}">${y}</span>`;}
+["frSehir","frBut","frDen","frMek"].forEach(i=>document.getElementById(i).onchange=fr);fr();
 for(let d=1;d<=31;d++){const a=T[d%T.length],b=d%3===0?"t-hik":"";tk.innerHTML+=`<div class="g"><b>${d}</b><span class="${a}">${ad[a]}</span>${b&&b!==a?`<span class="${b}">${ad[b]}</span>`:""}</div>`;}
 </script>
 </body></html>

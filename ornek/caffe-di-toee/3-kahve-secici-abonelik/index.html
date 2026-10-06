@@ -53,8 +53,17 @@ h2{font-family:"Playfair Display",serif;font-size:clamp(28px,3.4vw,40px);color:v
 .neden div{border-top:3px solid var(--altin);padding-top:12px}
 .neden b{display:block;font-size:18px;margin-bottom:4px}
 .neden span{color:var(--soluk);font-size:15px}
+.taze{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.tz-kart{background:var(--beyaz);border:1px solid var(--cizgi);padding:22px}
+.tz-kart small{color:var(--altin);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.tz-kart b{display:block;font-family:"Playfair Display",serif;font-size:24px;margin:4px 0 14px}
+.tz-cubuk{position:relative;display:grid;grid-template-columns:4fr 17fr 24fr;height:14px}
+.tz-cubuk i{display:block}.d1{background:#d9c3a5}.d2{background:#3d6b4f}.d3{background:#b8863b}
+.tz-cubuk span{position:absolute;top:-8px;width:4px;height:30px;background:var(--espresso);transition:left .2s}
+.tz-lej{display:grid;grid-template-columns:4fr 17fr 24fr;font-size:11px;color:var(--soluk);margin-top:6px;gap:4px}
+.madde{list-style:none}.madde li{padding:10px 0 10px 22px;border-bottom:1px solid var(--cizgi);position:relative}.madde li::before{content:"●";position:absolute;left:0;color:var(--altin);font-size:12px;top:13px}
 footer{padding:30px 0 60px;color:var(--soluk);font-size:13px}
-@media(max-width:860px){.hero,.abonelik,.neden,.secen{grid-template-columns:1fr}.hero .f{min-height:240px;order:-1}.hero .y{padding:36px 20px}.urun{grid-template-columns:110px 1fr}}
+@media(max-width:860px){.hero,.abonelik,.neden,.secen,.taze{grid-template-columns:1fr}.hero .f{min-height:240px;order:-1}.hero .y{padding:36px 20px}.urun{grid-template-columns:110px 1fr}}
 </style></head><body>
 <div class="demo">Dijitabela önizlemesi · caffeditoee.com için kahve seçici + abonelik · Ürünler sitenizden alınmıştır · <a href="../">Tüm tasarımlara dön</a></div>
 <header class="hero">
@@ -86,6 +95,33 @@ footer{padding:30px 0 60px;color:var(--soluk);font-size:13px}
       <p style="font-size:14px;color:var(--soluk)">Sonraki gönderimler:</p><div class="takvim" id="tak"></div>
     </div>
     <div class="fis" id="fis"></div>
+  </div>
+</div></section>
+
+<section id="tazelik"><div class="ic">
+  <h2>Kavrum tarihi ve tazelik penceresi</h2>
+  <p class="a">"Taze kavrum" sözünüzü ürün sayfasında kanıtlayın. Her partinin kavrum tarihi otomatik görünür; müşteri kahvesinin en lezzetli döneminde olup olmadığını bilir.</p>
+  <div class="taze">
+    <div class="tz-kart"><small>Ethiopia Guji G2 · Parti #G-1041</small><b id="tzGun"></b>
+      <div class="tz-cubuk"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span id="tzOk"></span></div>
+      <div class="tz-lej"><span>Dinlenme 1-4. gün</span><span>En iyi 5-21. gün</span><span>İyi 22-45. gün</span></div>
+      <label style="font-size:14px;margin-top:12px;display:block">Kavrumdan bu yana gün: <b id="tzD">6</b></label><input type="range" min="0" max="45" value="6" id="tzR" style="width:100%;accent-color:var(--kahve)">
+    </div>
+    <div><ul class="madde"><li>Stok, kavrum partisi bazında tutulur; en eski parti önce satılır.</li><li>Abonelerin kahvesi kavrumdan en geç 3 gün sonra kargoya çıkar.</li><li>Partiler 21. günü geçince sistem şubeye "kampanyaya al / filtre menüsünde kullan" uyarısı verir: fire azalır.</li><li>Pakette QR: okutan müşteri partinin kavrum profilini ve demleme önerisini görür.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="ofis"><div class="ic">
+  <h2>Ofisinize Caffé Di Toeé</h2>
+  <p class="a">Acity şubeniz OSTİM OSB'nin içinde, Bestekar ve Beytepe çevresi ofislerle dolu. Kurumsal müşteri kendi aylık ihtiyacını hesaplar, teklif talebi doğrudan size düşer.</p>
+  <div class="abonelik">
+    <div>
+      <div class="sec-grup"><b>Çalışan sayısı: <span id="ofN">25</span></b><input type="range" min="5" max="200" step="5" value="25" id="ofR" style="width:100%;max-width:420px;accent-color:var(--kahve)"></div>
+      <div class="sec-grup"><b>Kişi başı günlük fincan</b><div class="chips" data-o="fin"><button data-v="1">1</button><button class="ak" data-v="2">2</button><button data-v="3">3</button></div></div>
+      <div class="sec-grup"><b>Demleme</b><div class="chips" data-o="dem"><button class="ak" data-v="9">Filtre makinesi</button><button data-v="16">Espresso makinesi</button></div></div>
+      <div class="sec-grup"><b>Konum</b><div class="chips" data-o="kon"><button class="ak" data-v="OSTİM / Acity çevresi">OSTİM / Acity</button><button data-v="Çankaya">Çankaya</button><button data-v="Diğer Ankara">Diğer</button></div></div>
+    </div>
+    <div class="fis" id="ofFis"></div>
   </div>
 </div></section>
 
@@ -127,5 +163,14 @@ function fis(){const ara=A.f*A.adet,ind=Math.round(ara*.1),t=ara-ind;
  document.getElementById("fis").innerHTML=`<b style="font-family:'Playfair Display',serif;font-size:22px">Aboneliğiniz</b><div><span>${A.kahve}</span><span>${A.adet} × 250 g</span></div><div><span>Öğütme</span><span>${A.ogut}</span></div><div><span>Sıklık</span><span>${A.sik===2?"2 haftada bir":"Ayda bir"}</span></div><div><span>Ara toplam</span><span>${ara.toLocaleString("tr-TR")} ₺</span></div><div class="ind"><span>Abone indirimi %10 (örnek)</span><span>−${ind.toLocaleString("tr-TR")} ₺</span></div><div><span>Kargo</span><span class="ind">Ücretsiz</span></div><div class="t"><span>Her gönderim</span><span>${t.toLocaleString("tr-TR")} ₺</span></div><button class="btn" style="width:100%;margin-top:12px" onclick="document.getElementById('ok').style.display='block'">Aboneliği başlat</button><div class="tamam" id="ok">Önizleme: Abonelik oluşturuldu. Gerçek sitede ödeme İKAS üzerinden alınır, her gönderimden 2 gün önce "atla / değiştir" bağlantısı WhatsApp ve e-postayla gider.</div>`;
  const tk=document.getElementById("tak"),d=new Date();tk.innerHTML="";for(let j=1;j<=4;j++){const x=new Date(d);x.setDate(d.getDate()+j*A.sik*7-3);tk.innerHTML+=`<span>${x.toLocaleDateString("tr-TR",{day:"numeric",month:"short"})}</span>`;}}
 fis();
+const tzR=document.getElementById("tzR");function tz(){const g=+tzR.value;document.getElementById("tzD").textContent=g;document.getElementById("tzOk").style.left=`calc(${g/45*100}% - 2px)`;
+ document.getElementById("tzGun").textContent=g<=4?`${g}. gün · Dinleniyor, ${5-g} gün sonra en iyi döneminde`:g<=21?`${g}. gün · Şu an en lezzetli döneminde ✓`:`${g}. gün · Hâlâ iyi; filtre demlemede önerilir`;}
+tzR.oninput=tz;tz();
+const O={n:25,fin:2,dem:9,kon:"OSTİM / Acity çevresi"};
+document.querySelectorAll(".chips[data-o]").forEach(g=>g.querySelectorAll("button").forEach(b=>b.onclick=()=>{g.querySelectorAll("button").forEach(x=>x.classList.remove("ak"));b.classList.add("ak");O[g.dataset.o]=isNaN(b.dataset.v)?b.dataset.v:+b.dataset.v;of();}));
+document.getElementById("ofR").oninput=e=>{O.n=+e.target.value;document.getElementById("ofN").textContent=O.n;of();};
+function of(){const kg=Math.ceil(O.n*O.fin*22*O.dem/1000*10)/10,pk=Math.ceil(kg*4),liste=pk*550,ind=O.n>=50?.2:O.n>=20?.15:.1,t=Math.round(liste*(1-ind));
+ document.getElementById("ofFis").innerHTML=`<b style="font-family:'Playfair Display',serif;font-size:22px">Aylık tahmini ihtiyaç</b><div><span>${O.n} kişi × ${O.fin} fincan × 22 iş günü</span><span>${(O.n*O.fin*22).toLocaleString("tr-TR")} fincan</span></div><div><span>Çekirdek (${O.dem} g/fincan)</span><span>${kg.toLocaleString("tr-TR")} kg ≈ ${pk} × 250 g</span></div><div><span>Liste fiyatı (Morbido, 550 ₺/250 g)</span><span>${liste.toLocaleString("tr-TR")} ₺</span></div><div class="ind"><span>Kurumsal indirim %${ind*100} (örnek)</span><span>−${(liste-t).toLocaleString("tr-TR")} ₺</span></div><div><span>Teslimat</span><span class="ind">${/OSTİM/.test(O.kon)?"Acity şubesinden aynı gün":"Ücretsiz kargo"}</span></div><div class="t"><span>Aylık</span><span>${t.toLocaleString("tr-TR")} ₺</span></div><button class="btn" style="width:100%;margin-top:12px" onclick="this.outerHTML='<div class=\\'tamam\\' style=\\'display:block\\'>Teklif talebi alındı (önizleme). Gerçekte bu özet satış sorumlunuza WhatsApp\\'tan iletilir.</div>'">Kurumsal teklif iste</button><p style="font-size:12px;color:var(--soluk);margin-top:8px">${O.n>=30&&O.dem===16?"30+ kişilik ofislerde espresso makinesi kiralama/ücretsiz kullanım seçeneği konuşulabilir.":"Hesap ortalamadır; tadım için ofisinize örnek paket gönderilir."}</p>`;}
+of();
 </script>
 </body></html>
