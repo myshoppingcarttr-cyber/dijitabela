@@ -71,6 +71,15 @@ td,th{padding:11px 12px;border-bottom:1px solid var(--cizgi);text-align:left}
 th{font-size:12px;color:var(--soluk);text-transform:uppercase;letter-spacing:.05em}
 .et{font-size:12px;padding:3px 7px;font-weight:700}
 .et.y{background:#e3efe6;color:#2c5a40}.et.b{background:#fbeadf;color:#9a4b23}.et.m{background:var(--mor2);color:var(--mor)}
+.gp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gp textarea{min-height:80px;font-size:14px;margin:6px 0 0}
+.oq{padding:10px 0;border-bottom:1px solid var(--cizgi)}
+.oq p{font-size:15px;margin-bottom:6px}
+.oq .ops{display:flex;gap:6px;flex-wrap:wrap}
+.oq .ops button{font:inherit;font-size:13px;padding:6px 9px;border:1.5px solid var(--cizgi);background:#fff;cursor:pointer}
+.oq .ops button.ak{border-color:var(--mor);background:var(--mor2)}
+.kriz{background:#fbeee8;border:2px solid var(--turuncu);padding:14px;margin-top:10px}
+@media(max-width:860px){.gp{grid-template-columns:1fr}}
 .acil{background:#fbeee8;border-left:4px solid var(--turuncu);padding:12px 14px;font-size:14px;margin-top:20px}
 @media(max-width:860px){.nefes,.ikili,.kaynak,.sonuc .o{grid-template-columns:1fr}.kpi{grid-template-columns:1fr 1fr}header .ic{height:auto;flex-wrap:wrap;padding:12px 20px}}
 </style></head><body>
@@ -80,7 +89,9 @@ th{font-size:12px;color:var(--soluk);text-transform:uppercase;letter-spacing:.05
   <button class="ak" data-s="yon">Bana uygun destek</button>
   <button data-s="nefes">Nefes egzersizi</button>
   <button data-s="gunluk">Duygu günlüğü</button>
-  <button data-s="odev">Ödevlerim</button>
+  <button data-s="olcek">Ölçeklerim</button>
+  <button data-s="guvenlik">Güvenlik planım</button>
+  <button data-s="odev">Ödev ve gündem</button>
   <button data-s="panel">Psikolog paneli</button>
 </nav></div></header>
 
@@ -140,6 +151,41 @@ th{font-size:12px;color:var(--soluk);text-transform:uppercase;letter-spacing:.05
   </div>
 </div></div>
 
+<!-- ÖLÇEK -->
+<div class="sek" id="olcek"><div class="ikili">
+  <div class="kutu">
+    <h2>Bu haftanın kısa değerlendirmesi</h2>
+    <p class="a">Psikoloğunuzun belirlediği aralıklarla doldurduğunuz, bilimsel olarak geçerli kısa ölçekler. Son iki haftayı düşünerek yanıtlayın. Sonuçları psikoloğunuzla birlikte değerlendirirsiniz.</p>
+    <div class="secim" id="olcekSec"><button class="ak" data-o="gad">Kaygı (GAD-7)</button><button data-o="phq">Ruh hali (PHQ-9)</button></div>
+    <div id="olcekForm"></div>
+    <button class="btn" id="olcekKaydet" style="margin-top:12px">Kaydet</button>
+    <div id="olcekSonuc" style="margin-top:12px"></div>
+    <p class="uyari">PHQ-9 ve GAD-7 ücretsiz kullanıma açık ölçeklerdir ve Türkçe geçerlik çalışmaları vardır. Buradaki puan tanı değildir; yalnızca seanslarda ilerlemeyi birlikte izlemek içindir.</p>
+  </div>
+  <div class="kutu">
+    <h2>Seanslar boyunca değişim</h2>
+    <p class="a">Örnek danışan: 8 haftalık kaygı puanı (GAD-7, 0-21). Düşüş, iyileşmeye işaret eder.</p>
+    <svg viewBox="0 0 420 210" id="olcekGrafik" style="width:100%;background:#fff;border:1px solid var(--cizgi)"></svg>
+    <p style="font-size:14px;color:var(--soluk);margin-top:10px">Ölçüm temelli terapi: Psikolog panelinde her danışanın eğrisi görünür; ilerleme durduğunda plan birlikte gözden geçirilir.</p>
+  </div>
+</div></div>
+
+<!-- GÜVENLİK PLANI -->
+<div class="sek" id="guvenlik"><div class="kutu">
+  <h2>Güvenlik planım</h2>
+  <p class="a">Zor anlarda neler yapacağınızı, sakin bir zamanda psikoloğunuzla birlikte yazdığınız kişisel plan. Telefonunuzda her zaman bir dokunuş uzağınızda; internet olmadan da açılır.</p>
+  <div class="gp">
+    <div><b>1. Uyarı işaretlerim</b><textarea>Gece uyuyamamak, kimseyle konuşmak istememek, "hiçbir şey düzelmeyecek" düşüncesi</textarea></div>
+    <div><b>2. Kendi başıma yapabileceklerim</b><textarea>10 dk yürüyüş · kutu nefesi · duş · sevdiğim çalma listesi</textarea></div>
+    <div><b>3. Beni oyalayan yerler ve kişiler</b><textarea>Parkta yürüyüş, kuzenimle kahve</textarea></div>
+    <div><b>4. Yardım isteyebileceğim kişiler</b><textarea>Annem · Elif (arkadaşım)</textarea></div>
+    <div><b>5. Profesyonel destek</b><textarea>Psikoloğum (mesai içinde) · Acil durumda 112</textarea></div>
+    <div><b>6. Ortamımı güvenli hale getirmek</b><textarea>İlaçlarımı başkasına teslim etmek</textarea></div>
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn" onclick="this.textContent='Kaydedildi · cihazınızda şifreli'">Kaydet</button><a class="btn c" href="tel:112">📞 112'yi ara</a></div>
+  <p class="uyari">Örnek metinlerdir. Plan psikoloğunuzla birlikte hazırlanır; acil bir durumda planı beklemeden 112'yi arayın.</p>
+</div></div>
+
 <!-- ÖDEV -->
 <div class="sek" id="odev"><div class="ikili">
   <div class="kutu">
@@ -151,6 +197,8 @@ th{font-size:12px;color:var(--soluk);text-transform:uppercase;letter-spacing:.05
       <li><input type="checkbox"><div><b>Küçük adım</b><small>Ertelediğiniz bir işi 10 dakikalığına başlatın.</small></div></li>
     </ul>
     <p style="margin-top:14px"><b>Sonraki seans:</b> Perşembe 18:00 · Online <button class="btn c" style="padding:7px 12px;margin-left:8px">Ertele</button></p>
+    <div style="margin-top:18px;border-top:1px solid var(--cizgi);padding-top:14px"><b>Bu seansta konuşmak istediklerim</b><p style="font-size:14px;color:var(--soluk)">Seans öncesi not bırakın; psikoloğunuz hazırlıklı gelsin, 50 dakikanın ilk 10'u "nereden başlasam" ile geçmesin.</p>
+    <textarea id="gundem" placeholder="Örn. Hafta sonu ailemle yaşadığım tartışma · Uyku düzenim"></textarea><button class="btn" onclick="document.getElementById('gOk').textContent='✓ Notunuz psikoloğunuza iletildi (yalnızca o görür)'">Gönder</button> <span id="gOk" style="color:var(--yesil);font-size:14px"></span></div>
   </div>
   <div class="kutu">
     <h2>Kaynak kütüphanesi</h2>
