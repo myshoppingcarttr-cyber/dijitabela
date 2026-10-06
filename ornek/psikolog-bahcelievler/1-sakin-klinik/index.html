@@ -74,7 +74,7 @@ input,select,textarea{width:100%;font:inherit;padding:12px;border:1px solid var(
 footer{padding:40px 0 90px;color:var(--soluk);font-size:14px}
 .wa{position:fixed;right:18px;bottom:18px;background:#1f8f4e;color:#fff;text-decoration:none;font-weight:700;padding:13px 18px;z-index:30;box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .tamam{display:none;background:var(--ada2);padding:16px;border-left:4px solid var(--ada)}
-@media(max-width:900px){nav ul{display:none}.hero{grid-template-columns:1fr}.hero .f{min-height:300px;order:-1}.hero .y{padding:40px 20px}.alanlar,.adim,.blog,.ikili,.iletisim{grid-template-columns:1fr}.adim div{margin-right:0}}
+@media(max-width:900px){#kontenjan .ic>div{grid-template-columns:1fr!important}nav ul{display:none}.hero{grid-template-columns:1fr}.hero .f{min-height:300px;order:-1}.hero .y{padding:40px 20px}.alanlar,.adim,.blog,.ikili,.iletisim{grid-template-columns:1fr}.adim div{margin-right:0}}
 </style></head><body>
 <div class="demo">Bu bir <b>Dijitabela</b> tasarım önizlemesidir · İsim, fotoğraf ve metinler sizin bilgilerinizle değişir · <a href="../">Tüm tasarımlara dön</a></div>
 <nav><div class="ic">
@@ -148,6 +148,31 @@ footer{padding:40px 0 90px;color:var(--soluk);font-size:14px}
   <details><summary>Seansa gelemezsem ne olur?</summary><p>24 saat önceden haber verirseniz seansınızı ücretsiz erteleriz. Daha geç iptallerde seans ücreti uygulanabilir.</p></details>
 </div></section>
 
+<section id="sor"><div class="ic ikili">
+  <div>
+    <h2>Psikoloğa anonim sorun</h2>
+    <p class="alt-b" style="margin-bottom:16px">Adınızı yazmadan sorun. Seçilen sorular kimlik bilgisi çıkarılarak sitede yanıtlanır; aynı soruyu soran başkalarına da yol gösterir. Kişisel durumunuzu değerlendirmek için ön görüşme daha uygundur.</p>
+    <form id="sf"><textarea rows="4" required placeholder="Örn. Partnerimle her tartışmada sustuğumu fark ediyorum. Bu neden olur?"></textarea>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><select style="width:auto"><option>Kaygı</option><option>İlişki</option><option>Ruh hali</option><option>İş / okul</option><option>Diğer</option></select><button class="btn" type="submit">Anonim gönder</button></div>
+      <div class="tamam" id="sOk">Sorunuz alındı. Yanıtlandığında "Sorular ve yanıtlar" bölümünde yayınlanır (kimlik bilgisi olmadan).</div></form>
+  </div>
+  <div>
+    <h2 style="font-size:24px">Son yanıtlanan sorular</h2>
+    <div class="sss">
+      <details><summary>Terapiye başlamak için "yeterince kötü" olmam mı gerekiyor?</summary><p>Hayır. Birçok kişi zorlanmanın erken döneminde başvurur ve bu genellikle süreci kısaltır. Merak ettiğiniz bir konuyu konuşmak bile yeterli bir sebeptir.</p></details>
+      <details><summary>Online terapide ev halkı konuşmalarımı duyarsa?</summary><p>Kulaklık, kapalı bir oda ya da arabada park halinde görüşme seçenekleri var. Ayrıca yazışma ağırlıklı kısa kontrol görüşmeleri planlanabilir.</p></details>
+      <details><summary>İlaç kullanıyorum, terapi alabilir miyim?</summary><p>Evet; psikiyatrik tedaviyle birlikte terapi sık uygulanan ve birbirini destekleyen bir yaklaşımdır. Gerekirse hekiminizle iş birliği yapılır.</p></details>
+    </div>
+  </div>
+</div></section>
+
+<section id="kontenjan"><div class="ic">
+  <div style="background:var(--ada2);border-left:5px solid var(--ada);padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center">
+    <div><b style="font-size:20px">İndirimli seans kontenjanı</b><p style="color:var(--soluk);margin-top:4px">Her hafta sınırlı sayıda seans öğrenciler ve geliri düşük danışanlar için indirimli ayrılır. Bu hafta kalan kontenjan: <b id="kont">2</b>. Belge istenmez; beyanınız esastır.</p></div>
+    <a class="btn" href="../2-akilli-randevu/">Kontenjandan randevu al</a>
+  </div>
+</div></section>
+
 <section id="yazilar"><div class="ic">
   <h2>Yazılar</h2>
   <p class="alt-b">Google'da arandığınızda bulunmanızı sağlayan, danışan adayına güven veren kısa yazılar.</p>
@@ -183,6 +208,7 @@ footer{padding:40px 0 90px;color:var(--soluk);font-size:14px}
 <a class="wa" href="#iletisim">WhatsApp'tan yaz</a>
 <script>
 (function(){const n=new Date(new Date().toLocaleString("en-US",{timeZone:"Europe/Istanbul"}));const g=n.getDay(),s=n.getHours()+n.getMinutes()/60;const acik=(g>=1&&g<=5&&s>=10&&s<20)||(g===6&&s>=10&&s<16);const d=document.getElementById("durum");d.classList.toggle("acik",acik);d.querySelector("span").textContent=acik?"Şu an açık":"Şu an kapalı · mesaj bırakabilirsiniz";})();
+document.getElementById("sf").addEventListener("submit",e=>{e.preventDefault();document.getElementById("sOk").style.display="block";});
 document.getElementById("f").addEventListener("submit",e=>{e.preventDefault();document.getElementById("tamam").style.display="block";});
 </script>
 </body></html>

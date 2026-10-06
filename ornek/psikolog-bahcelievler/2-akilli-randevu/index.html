@@ -67,6 +67,9 @@ input,select,textarea{width:100%;font:inherit;padding:11px;border:1px solid var(
 .wa b{color:#1f6b3c}
 .oda{margin-top:18px;border:1px solid var(--cizgi);padding:16px;text-align:left}
 .gizli{display:none}
+.bekle{margin-top:16px;border:1px dashed var(--mavi);padding:14px;font-size:14px;background:#f7fafc}
+.bekle-ic{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.bekle-ic select{width:auto;flex:1;min-width:180px}
+.gizlimod{background:var(--mavi2);padding:12px;border-left:4px solid var(--mavi)}
 .yan{font-size:13px;color:var(--soluk);margin-top:16px}
 main>*{min-width:0}
 @media(max-width:860px){header .sag{display:none}main{grid-template-columns:1fr}.adimlar{position:static;display:flex;overflow-x:auto}.adimlar li{border-bottom:0;border-right:1px solid var(--cizgi);white-space:nowrap}.ozet{display:none}.secenek,.iki,.odeme{grid-template-columns:1fr}.gunler{grid-template-columns:repeat(4,1fr)}.saatler{grid-template-columns:repeat(3,1fr)}}
@@ -94,6 +97,8 @@ main>*{min-width:0}
         <button class="sc" data-tur="Bireysel terapi (yüz yüze)" data-sure="50" data-ucret="2000"><em>Örnek: 2.000 ₺</em><b>Bireysel · ofiste</b><small>50 dk · Bahçelievler</small></button>
         <button class="sc" data-tur="Online terapi" data-sure="50" data-ucret="1800"><em>Örnek: 1.800 ₺</em><b>Online terapi</b><small>50 dk · güvenli görüntülü oda</small></button>
         <button class="sc" data-tur="Çift terapisi" data-sure="75" data-ucret="2800"><em>Örnek: 2.800 ₺</em><b>Çift terapisi</b><small>75 dk · ofiste ya da online</small></button>
+        <button class="sc" data-tur="4 seanslık paket (bireysel)" data-sure="50" data-ucret="7200"><em>Örnek: 7.200 ₺</em><b>4 seans paketi</b><small>Seans başı %10 avantajlı · ilk seansı seçin, kalanlar aynı gün/saat ayrılır</small></button>
+        <button class="sc" data-tur="İndirimli seans (öğrenci / kontenjan)" data-sure="50" data-ucret="1200"><em>Örnek: 1.200 ₺</em><b>İndirimli kontenjan</b><small>Öğrenci ve düşük gelir için haftada sınırlı sayıda</small></button>
       </div>
       <p class="yan">Ücretler örnektir; gerçek fiyatları siz panelden belirlersiniz. İsterseniz fiyatları sitede hiç göstermeyebilirsiniz.</p>
     </section>
@@ -104,6 +109,8 @@ main>*{min-width:0}
       <div class="gunler" id="gunler"></div>
       <div class="saatler" id="saatler"></div>
       <p class="lejant">Üstü çizili saatler dolu. Pazar günleri kapalı. Takviminiz Google Takvim ile eşleşir.</p>
+      <div class="bekle" id="bekle"><b>Size uyan saat dolu mu?</b> Bekleme listesine katılın; o saat iptal olursa ilk size haber verilir, 2 saat içinde onaylarsanız sizin olur.
+        <div class="bekle-ic"><select id="bGun"><option>Hafta içi akşam (18-20)</option><option>Hafta içi gündüz</option><option>Cumartesi</option></select><button class="btn c" id="bKatil">Listeye katıl</button></div><span id="bOk"></span></div>
     </section>
     <!-- 3 -->
     <section data-a="3" class="gizli">
@@ -114,6 +121,7 @@ main>*{min-width:0}
         <div class="iki"><div><label>Yaş aralığı</label><select><option>18-25</option><option>26-35</option><option>36-50</option><option>50+</option></select></div><div><label>Daha önce terapi aldınız mı?</label><select><option>Hayır, ilk kez</option><option>Evet, daha önce</option></select></div></div>
         <div><label>Başvuru konunuz (isteğe bağlı, bir cümle yeter)</label><select id="konu"><option>Belirtmek istemiyorum</option><option>Kaygı / stres</option><option>Moral bozukluğu</option><option>İlişki / aile</option><option>Zor bir yaşantı / kayıp</option><option>Diğer</option></select></div>
         <div class="not">Kendinize zarar verme düşünceniz varsa randevuyu beklemeyin: <b>112</b>'yi arayın. Bu form acil durumlar için takip edilmez.</div>
+        <div class="gizlimod"><label class="onay" style="color:var(--yazi)"><input type="checkbox" id="gizli"> <span><b>Gizli hatırlatma modu</b><br><span style="color:var(--soluk)">Telefonunuzu başkaları görebiliyorsa: hatırlatmalarda "terapi" ya da "psikolog" kelimesi geçmez, yalnızca "Yarın 18:00 randevunuz var" yazar. Gönderen adı da nötr görünür.</span></span></label></div>
         <label class="onay"><input type="checkbox" id="kvkk"> Özel nitelikli kişisel verilerimin (sağlık bilgisi) randevu ve terapi süreci amacıyla işlenmesine <b>açık rıza</b> veriyorum. KVKK aydınlatma metnini okudum.</label>
       </form>
     </section>
@@ -156,10 +164,13 @@ function saatleriKur(){const s=document.getElementById("saatler");s.innerHTML=""
 function fis(){const k=Math.round(S.ucret*.3);document.getElementById("fis").innerHTML=`<div><span>${S.tur}</span><span>${S.ucret.toLocaleString("tr-TR")} ₺</span></div><div><span>${TRU.format(S.gun)} · ${S.saat}</span><span></span></div><div><span>Şimdi ödenecek kapora (%30)</span><span>${k.toLocaleString("tr-TR")} ₺</span></div><div><span>Seansta ödenecek</span><span>${(S.ucret-k).toLocaleString("tr-TR")} ₺</span></div><div class="t"><span>Bugün</span><span>${k.toLocaleString("tr-TR")} ₺</span></div>`}
 function bitir(){const ad=document.getElementById("ad").value.split(" ")[0]||"";const online=/Online|Ön görüşme/.test(S.tur);
  document.getElementById("okMetin").innerHTML=`${ad?ad+", ":""}<b>${TRU.format(S.gun)} saat ${S.saat}</b> için <b>${S.tur}</b> randevunuz alındı. Onay mesajı WhatsApp'ınıza gönderildi.`;
- document.getElementById("waMetin").textContent=`Merhaba ${ad||""}, yarın ${S.saat}'te randevunuz var (${S.tur}). ${online?"Görüşme bağlantınız seanstan 10 dk önce açılacak.":"Adres: Bahçelievler ofis."} Gelemeyecekseniz bu mesaja "erteleme" yazmanız yeterli. — Psk. Deniz Aksoy`;
- document.getElementById("oda").innerHTML=online?`<b>Online görüşme odanız</b><br><span style="color:var(--soluk);font-size:14px">Uygulama indirmeye gerek yok, tarayıcıdan açılır. Kamera ve mikrofon testi seans öncesi yapılır. Oda yalnızca sizin ve psikoloğunuzun erişimine açıktır.</span><br><button class="btn" style="margin-top:10px" onclick="this.textContent='Oda seanstan 10 dk önce açılacak'">Kamera ve mikrofonu test et</button>`:`<b>Ofis bilgisi</b><br><span style="color:var(--soluk);font-size:14px">Bahçelievler, İstanbul · Bekleme alanında başka danışanla karşılaşmamanız için randevular arasında 10 dk boşluk bırakılır.</span>`;
+ const gz=document.getElementById("gizli").checked;
+ document.getElementById("waMetin").textContent=gz?`Merhaba, yarın ${S.saat}'te randevunuz var. Değiştirmek için "erteleme" yazabilirsiniz. — D.A. Ofis`:`Merhaba ${ad||""}, yarın ${S.saat}'te randevunuz var (${S.tur}). ${online?"Görüşme bağlantınız seanstan 10 dk önce açılacak.":"Adres: Bahçelievler ofis."} Gelemeyecekseniz bu mesaja "erteleme" yazmanız yeterli. — Psk. Deniz Aksoy`;
+ if(gz)document.getElementById("waMetin").insertAdjacentHTML("afterend",'<br><small style="color:#1f6b3c">🔒 Gizli mod açık: mesajda terapi/psikolog kelimesi yok.</small>');
+ document.getElementById("oda").innerHTML=online?`<b>Online görüşme odanız</b><br><span style="color:var(--soluk);font-size:14px">Uygulama indirmeye gerek yok, tarayıcıdan açılır. Kamera ve mikrofon testi seans öncesi yapılır. Oda yalnızca sizin ve psikoloğunuzun erişimine açıktır. Bağlantı koparsa: oda otomatik "düşük bant" moduna geçer; düzelmezse psikoloğunuz sizi 2 dakika içinde telefonla arar, seans kaldığı yerden sürer.</span><br><button class="btn" style="margin-top:10px" onclick="this.textContent='Oda seanstan 10 dk önce açılacak'">Kamera ve mikrofonu test et</button>`:`<b>Ofis bilgisi</b><br><span style="color:var(--soluk);font-size:14px">Bahçelievler, İstanbul · Bekleme alanında başka danışanla karşılaşmamanız için randevular arasında 10 dk boşluk bırakılır.</span>`;
  const [h,m]=S.saat.split(":").map(Number);const b=new Date(S.gun);b.setHours(h,m);const e=new Date(b.getTime()+S.sure*6e4);const f=d=>d.toISOString().replace(/[-:]/g,"").split(".")[0]+"Z";
  document.getElementById("ics").href="data:text/calendar;charset=utf-8,"+encodeURIComponent(`BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${f(b)}\nDTEND:${f(e)}\nSUMMARY:${S.tur} - Psk. Deniz Aksoy\nEND:VEVENT\nEND:VCALENDAR`);}
+document.getElementById("bKatil").onclick=()=>{document.getElementById("bOk").innerHTML=`<br><b style="color:var(--yesil)">✓ Bekleme listesindesiniz (${document.getElementById("bGun").value}).</b> Bir saat boşalırsa WhatsApp'tan "Perşembe 18:00 boşaldı, ister misiniz? EVET yazın" mesajı gelir.`;};
 document.getElementById("ileri").onclick=()=>{if(S.a===2&&!S.gun)return;S.a++;if(S.a===2&&!document.getElementById("gunler").children.length)gunleriKur();goster();};
 document.getElementById("geri").onclick=()=>{S.a--;if(S.a===4&&S.ucret===0)S.a=3;goster();};
 ["ad","tel","kvkk"].forEach(i=>document.getElementById(i).addEventListener("input",kontrol));document.getElementById("kvkk").addEventListener("change",kontrol);
