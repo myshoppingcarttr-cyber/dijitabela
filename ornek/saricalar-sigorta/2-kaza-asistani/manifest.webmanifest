@@ -1,0 +1,13 @@
+{
+  "name": "Sarıcalar Sigorta · Kaza ve Poliçe Asistanı",
+  "short_name": "Sarıcalar",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#17191c",
+  "theme_color": "#17191c",
+  "lang": "tr",
+  "icons": [
+    { "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

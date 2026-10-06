@@ -2,226 +2,371 @@
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#17191c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="ikon.svg">
+<link rel="apple-touch-icon" href="ikon.svg">
 <title>Sarıcalar Sigorta · Kaza Anı Asistanı ve Poliçe Cüzdanı</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
-:root{--asfalt:#17191c;--asfalt2:#22262b;--sari:#ffc400;--beyaz:#f6f4ee;--soluk:#9aa1a9;--cizgi:#343a41;--kir:#e0393e;--yesil:#3fae5a;--lac:#123a6b}
+:root{--asfalt:#17191c;--asfalt2:#202429;--asfalt3:#2a2f35;--sari:#ffc400;--beyaz:#f6f4ee;--soluk:#9aa1a9;--cizgi:#353b42;--kir:#e0393e;--yesil:#3fae5a;--mavi:#4d8fd6}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Archivo",system-ui,sans-serif;background:var(--asfalt);color:var(--beyaz);line-height:1.5}
-a{color:inherit}
+a{color:inherit}button{font-family:inherit}
 .mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
-.demo{background:var(--sari);color:#111;text-align:center;padding:6px 10px;font-size:13px;font-weight:600}
-.sayfa{display:grid;grid-template-columns:1fr 430px;min-height:100vh}
-.sol{padding:40px 46px;border-right:1px solid var(--cizgi);background:var(--asfalt)}
-.sol .logo b{font-variation-settings:"wdth" 64;font-weight:800;font-size:30px;color:var(--sari)}
-.sol .logo span{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--soluk);letter-spacing:.12em}
-.sol h1{font-variation-settings:"wdth" 62;font-weight:800;font-size:clamp(40px,5vw,68px);line-height:.96;margin:34px 0 16px}
+.demo{background:var(--sari);color:#111;text-align:center;padding:6px 10px;font-size:13px;font-weight:700}
+/* sahne */
+.sahne{display:grid;grid-template-columns:1fr 460px;min-height:calc(100vh - 30px)}
+.sol{padding:44px 52px 60px;background:var(--asfalt);position:relative;overflow:hidden}
+.sol::before{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,var(--sari) 0 60px,transparent 60px 100px);opacity:.9}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{width:42px;height:48px}
+.logo b{display:block;font-variation-settings:"wdth" 62;font-weight:800;font-size:28px;color:var(--sari);line-height:1}
+.logo span{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--soluk);letter-spacing:.12em}
+.sol h1{font-variation-settings:"wdth" 60;font-weight:800;font-size:clamp(44px,5.4vw,78px);line-height:.93;margin:38px 0 18px}
 .sol h1 em{font-style:normal;color:var(--sari)}
-.sol p{color:#c9ccd0;font-size:18px;max-width:560px;margin-bottom:14px}
-.sol img{width:100%;max-width:620px;display:block;margin:22px 0 10px;filter:grayscale(.15)}
-.sol ol{list-style:none;counter-reset:a;max-width:620px;margin-top:20px}
-.sol ol li{counter-increment:a;display:grid;grid-template-columns:44px 1fr;padding:12px 0;border-bottom:1px solid var(--cizgi)}
-.sol ol li::before{content:counter(a,decimal-leading-zero);font-family:"JetBrains Mono",monospace;color:var(--sari);font-weight:600}
-.sol ol b{display:block}.sol ol span{color:var(--soluk);font-size:15px}
+.sol .giris{color:#c9ccd0;font-size:19px;max-width:600px}
+.sol .dene{display:inline-flex;align-items:center;gap:10px;margin-top:18px;color:var(--sari);font-weight:800}
+.sol .dene::after{content:"→";font-size:22px}
+.olcu{display:grid;grid-template-columns:repeat(3,1fr);margin:30px 0;border-top:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);max-width:680px}
+.olcu div{padding:16px 16px 16px 0}
+.olcu b{display:block;font-variation-settings:"wdth" 60;font-size:42px;line-height:1;color:var(--sari)}
+.olcu span{color:var(--soluk);font-size:14px}
+.ozellikler{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;max-width:760px;counter-reset:a}
+.ozellikler div{counter-increment:a;padding:14px 0;border-bottom:1px solid var(--cizgi);display:grid;grid-template-columns:40px 1fr}
+.ozellikler div::before{content:counter(a,decimal-leading-zero);font-family:"JetBrains Mono",monospace;color:var(--sari);font-weight:600}
+.ozellikler b{display:block;font-size:17px}.ozellikler span{color:var(--soluk);font-size:14px}
+.sol figure{margin-top:28px;max-width:760px;position:relative}
+.sol figure img{width:100%;display:block;filter:grayscale(.2) contrast(1.05)}
+.sol figure figcaption{position:absolute;left:0;bottom:0;background:var(--sari);color:#111;font-weight:800;padding:8px 12px;font-size:14px}
 /* telefon */
-.sag{background:#0f1113;display:flex;justify-content:center;align-items:flex-start;padding:30px 0}
-.tel{width:390px;max-width:100%;background:var(--asfalt2);border:1px solid var(--cizgi);min-height:780px;position:relative;display:flex;flex-direction:column}
-.ust{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--cizgi)}
-.ust b{font-variation-settings:"wdth" 66;font-size:20px;color:var(--sari)}
-.ust a{font-size:13px;text-decoration:none;border:1px solid var(--cizgi);padding:6px 10px}
+.sag{background:#0e1012;display:flex;justify-content:center;align-items:flex-start;padding:34px 0 40px;position:sticky;top:0;height:100vh}
+.cerceve{width:400px;height:calc(100vh - 70px);max-height:840px;background:#000;border-radius:46px;padding:12px;box-shadow:0 0 0 2px #2c3036,0 24px 60px rgba(0,0,0,.6)}
+.tel{width:100%;height:100%;background:var(--asfalt2);border-radius:36px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.durumcubugu{display:flex;justify-content:space-between;padding:10px 26px 4px;font-size:13px;font-weight:700}
+.ust{display:flex;justify-content:space-between;align-items:center;padding:8px 16px 12px;border-bottom:1px solid var(--cizgi)}
+.ust b{font-variation-settings:"wdth" 64;font-size:21px;color:var(--sari)}
+.ust .r{display:flex;gap:6px}
+.ust a,.ust button{all:unset;cursor:pointer;font-size:12px;font-weight:700;border:1px solid var(--cizgi);padding:6px 9px}
+.cevrimdisi{display:none;background:var(--sari);color:#111;font-size:12px;font-weight:700;text-align:center;padding:4px}
 .ekran{flex:1;padding:16px;overflow:auto}
-.sekme{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--cizgi)}
-.sekme button{all:unset;cursor:pointer;text-align:center;padding:12px 4px;font-size:13px;font-weight:700;color:var(--soluk)}
-.sekme button.on{color:var(--sari);box-shadow:inset 0 3px 0 var(--sari)}
-.buyuk{display:block;width:100%;border:0;background:var(--kir);color:#fff;font:inherit;font-weight:800;font-size:26px;font-variation-settings:"wdth" 70;padding:28px 10px;cursor:pointer;text-align:center}
-.buyuk small{display:block;font-size:14px;font-weight:600;opacity:.9}
-.dg{display:block;width:100%;text-align:center;font:inherit;font-weight:800;padding:13px;border:1.5px solid var(--sari);color:var(--sari);background:transparent;cursor:pointer;text-decoration:none;margin-top:10px}
+.sekme{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--cizgi);padding-bottom:10px;background:var(--asfalt2)}
+.sekme button{all:unset;cursor:pointer;text-align:center;padding:10px 2px 6px;font-size:11px;font-weight:700;color:var(--soluk);position:relative}
+.sekme button svg{display:block;margin:0 auto 3px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.sekme button.on{color:var(--sari)}
+.sekme .rozet{position:absolute;top:6px;right:24%;background:var(--kir);color:#fff;font-size:10px;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center}
+.buyuk{display:block;width:100%;border:0;background:var(--kir);color:#fff;font-weight:800;font-size:30px;font-variation-settings:"wdth" 64;padding:30px 10px 26px;cursor:pointer;text-align:center;line-height:1}
+.buyuk small{display:block;font-size:14px;font-weight:600;opacity:.92;margin-top:8px;font-variation-settings:normal}
+.dg{display:block;width:100%;text-align:center;font-weight:800;padding:13px;border:1.5px solid var(--sari);color:var(--sari);background:transparent;cursor:pointer;text-decoration:none;margin-top:10px;font-size:15px}
 .dg.ana{background:var(--sari);color:#111}
+.dg.kir{background:var(--kir);border-color:var(--kir);color:#fff}
+.dg:disabled{opacity:.4}
 .ikili{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.kart{border:1px solid var(--cizgi);padding:14px;margin-top:12px;background:#1b1e22}
-.kart h3{font-variation-settings:"wdth" 70;font-size:21px;margin-bottom:4px}
+.kart{border:1px solid var(--cizgi);padding:14px;margin-top:12px;background:var(--asfalt3)}
+.kart h3{font-variation-settings:"wdth" 68;font-size:20px;margin-bottom:4px}
 .kart p{color:var(--soluk);font-size:14px}
-.ilerleme{display:flex;gap:4px;margin-bottom:14px}
+.ilerleme{display:flex;gap:4px;margin-bottom:6px}
 .ilerleme i{flex:1;height:4px;background:var(--cizgi)}
 .ilerleme i.on{background:var(--sari)}
-.adim h2{font-variation-settings:"wdth" 66;font-size:28px;line-height:1.05;margin-bottom:8px}
-.adim p{color:#c9ccd0;font-size:15px;margin-bottom:10px}
-.liste label{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--cizgi);font-size:15px;cursor:pointer}
-.liste input[type=checkbox]{width:20px;height:20px;accent-color:var(--sari)}
-.liste .foto{margin-left:auto;font-size:12px;color:var(--sari);font-family:"JetBrains Mono",monospace}
+.adimad{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--soluk);margin-bottom:12px;display:flex;justify-content:space-between}
+.adim h2{font-variation-settings:"wdth" 62;font-size:30px;line-height:1.02;margin-bottom:8px}
+.adim>p{color:#c9ccd0;font-size:15px;margin-bottom:10px}
+.liste label{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--cizgi);font-size:14px;cursor:pointer}
+.liste input[type=checkbox]{width:20px;height:20px;accent-color:var(--sari);flex:none}
+.foto{margin-left:auto;display:flex;align-items:center;gap:6px}
+.foto img{width:38px;height:38px;object-fit:cover;border:1px solid var(--sari)}
+.foto span{font-size:11px;color:var(--sari);font-family:"JetBrains Mono",monospace;border:1px solid var(--sari);padding:4px 6px;white-space:nowrap}
 .alan{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;margin-top:10px;color:#c9ccd0}
-.alan input,.alan select{font:inherit;font-weight:400;padding:10px;background:#111315;border:1px solid var(--cizgi);color:var(--beyaz);border-radius:0}
+.alan input,.alan select,.alan textarea{font:inherit;font-weight:400;padding:10px;background:#111315;border:1px solid var(--cizgi);color:var(--beyaz);border-radius:0;width:100%}
+.ab{display:grid;grid-template-columns:1fr 46px 46px;gap:0;border-bottom:1px solid var(--cizgi);font-size:13px;align-items:center}
+.ab span{padding:8px 6px 8px 0}
+.ab input{width:20px;height:20px;accent-color:var(--sari);justify-self:center}
+.abbas{display:grid;grid-template-columns:1fr 46px 46px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--soluk);padding-bottom:4px;border-bottom:1px solid var(--cizgi)}
+.abbas b{text-align:center}
 canvas{width:100%;background:#2b3036;display:block;touch-action:none;border:1px solid var(--cizgi)}
-.arac{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.arac button{all:unset;cursor:pointer;border:1px solid var(--cizgi);padding:6px 9px;font-size:12px;font-family:"JetBrains Mono",monospace}
+.arac{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.arac button{all:unset;cursor:pointer;border:1px solid var(--cizgi);padding:6px 8px;font-size:11px;font-family:"JetBrains Mono",monospace}
 .arac button.on{border-color:var(--sari);color:var(--sari)}
-.pol{border:1px solid var(--cizgi);padding:14px;margin-top:10px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;background:#1b1e22}
-.pol b{font-variation-settings:"wdth" 70;font-size:19px}
-.pol .gun{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:22px;text-align:right}
-.pol .alt{color:var(--soluk);font-size:13px}
-.pol.k .gun{color:var(--kir)}.pol.s .gun{color:var(--sari)}.pol.y .gun{color:var(--yesil)}
-.pol .btn{grid-column:1/-1;display:flex;gap:6px;margin-top:6px}
-.pol .btn button,.pol .btn a{all:unset;cursor:pointer;flex:1;text-align:center;border:1px solid var(--cizgi);padding:8px;font-size:13px;font-weight:700}
+.arac .ayir{width:100%;height:0}
+.kayit{display:flex;align-items:center;gap:10px;margin-top:10px}
+.kayit .nokta{width:14px;height:14px;border-radius:50%;background:var(--kir);display:none;animation:yan 1s infinite}
+@keyframes yan{50%{opacity:.2}}
+audio{width:100%;margin-top:8px}
+.pol{border:1px solid var(--cizgi);padding:14px;margin-top:10px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;background:var(--asfalt3)}
+.pol b{font-variation-settings:"wdth" 68;font-size:19px}
+.pol .gun{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:24px;text-align:right;line-height:1}
+.pol .alt{color:var(--soluk);font-size:12px}
+.pol.k{border-left:4px solid var(--kir)}.pol.k .gun{color:var(--kir)}.pol.s{border-left:4px solid var(--sari)}.pol.s .gun{color:var(--sari)}.pol.y{border-left:4px solid var(--yesil)}.pol.y .gun{color:var(--yesil)}
+.pol .btn{grid-column:1/-1;display:flex;gap:6px;margin-top:8px}
+.pol .btn button,.pol .btn a{all:unset;cursor:pointer;flex:1;text-align:center;border:1px solid var(--cizgi);padding:8px 4px;font-size:12px;font-weight:700}
+.aile{display:flex;gap:6px;margin:10px 0;overflow-x:auto}
+.aile button{all:unset;cursor:pointer;border:1px solid var(--cizgi);padding:6px 10px;font-size:13px;font-weight:700;white-space:nowrap}
+.aile button.on{border-color:var(--sari);color:var(--sari)}
 .zaman{list-style:none;margin-top:12px}
-.zaman li{position:relative;padding:0 0 18px 26px;border-left:2px solid var(--cizgi);margin-left:8px}
-.zaman li::before{content:"";position:absolute;left:-7px;top:2px;width:12px;height:12px;background:var(--cizgi)}
+.zaman li{position:relative;padding:0 0 16px 24px;border-left:2px solid var(--cizgi);margin-left:8px}
+.zaman li::before{content:"";position:absolute;left:-7px;top:3px;width:12px;height:12px;background:var(--cizgi)}
 .zaman li.ok{border-color:var(--yesil)}.zaman li.ok::before{background:var(--yesil)}
-.zaman li.su::before{background:var(--sari)}
-.zaman b{display:block}.zaman span{color:var(--soluk);font-size:13px}
+.zaman li.su::before{background:var(--sari);animation:yan 1.4s infinite}
+.zaman b{display:block;font-size:15px}.zaman span{color:var(--soluk);font-size:12px}
+.evrak label{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--cizgi);font-size:14px}
+.evrak .d{font-family:"JetBrains Mono",monospace;font-size:11px}
+.evrak .d.ok{color:var(--yesil)}.evrak .d.yok{color:var(--kir)}
+.mesajlar{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.msj{max-width:85%;padding:8px 10px;font-size:13px;background:var(--asfalt3);border:1px solid var(--cizgi);align-self:flex-start}
+.msj.ben{align-self:flex-end;background:#3a3215;border-color:#5b4c12}
+.msj small{display:block;color:var(--soluk);font-size:10px;margin-top:2px}
+.bildirim{border-bottom:1px solid var(--cizgi);padding:12px 0;display:grid;grid-template-columns:10px 1fr;gap:10px}
+.bildirim i{width:8px;height:8px;border-radius:50%;margin-top:6px;background:var(--sari)}
+.bildirim.okundu i{background:transparent}
+.bildirim b{display:block;font-size:14px}.bildirim span{color:var(--soluk);font-size:12px}
+.giris{text-align:center;padding:20px 6px}
+.kod{display:flex;gap:8px;justify-content:center;margin:14px 0}
+.kod input{width:44px;height:52px;text-align:center;font-size:24px;font-weight:800;background:#111315;border:1px solid var(--cizgi);color:var(--beyaz)}
+.modal{position:absolute;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px;text-align:center;z-index:5}
 #qrKutu{background:#fff;padding:12px;display:inline-block;margin-top:10px}
-.modal{position:absolute;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px;text-align:center;z-index:5}
-@media(max-width:980px){.sayfa{grid-template-columns:1fr}.sol{border-right:0;padding:28px 20px}.sag{padding:0;order:-1}.tel{width:100%;min-height:100vh;border:0}}
+.yukle{position:fixed;right:20px;bottom:20px;background:var(--sari);color:#111;font-weight:800;padding:12px 16px;border:0;cursor:pointer;display:none;z-index:9}
+@media(max-width:1000px){.sahne{grid-template-columns:1fr}.sag{order:-1;position:static;height:auto;padding:0;background:var(--asfalt2)}.cerceve{width:100%;height:auto;max-height:none;border-radius:0;padding:0;box-shadow:none;background:none}.tel{border-radius:0;min-height:100svh}.durumcubugu{display:none}.sol{padding:30px 20px 50px}.ozellikler{grid-template-columns:1fr}.olcu b{font-size:32px}}
 </style></head><body>
-<div class="demo">Dijitabela'nın Sarıcalar Sigorta için hazırladığı çalışan taslak · bilgiler ÖRNEKTİR</div>
-<div class="sayfa">
+<div class="demo">Dijitabela'nın Sarıcalar Sigorta için hazırladığı çalışan taslak · poliçe ve dosya bilgileri ÖRNEKTİR</div>
+<div class="sahne">
 <div class="sol">
-  <div class="logo"><b>SARICALAR SİGORTA</b><span>KORKUTELİ · 7 GÜN 24 SAAT</span></div>
+  <div class="logo"><svg viewBox="0 0 40 46"><path d="M20 1 L38 7 V21 C38 33 30 41 20 45 C10 41 2 33 2 21 V7 Z" fill="#ffc400"/><path d="M20 6 L33 10.5 V21 C33 30 27.5 36 20 39.5 Z" fill="#e0393e"/><text x="12.5" y="29" font-family="Archivo,sans-serif" font-weight="800" font-size="20" fill="#17191c">S</text></svg><div><b>SARICALAR SİGORTA</b><span>KORKUTELİ · 7 GÜN 24 SAAT</span></div></div>
   <h1>Kaza anında<br><em>ne yapacağınızı</em><br>telefonunuz söylesin.</h1>
-  <p>Müşterilerimiz için bir dijital asistan: kazada adım adım yol gösterir, krokiyi çizdirir, fotoğrafları eksiksiz çektirir ve dosyayı tek dokunuşla bize gönderir. Aynı yerde tüm poliçeleriniz ve bitiş tarihleri durur.</p>
-  <p style="color:var(--sari);font-weight:700">Sağdaki telefonda deneyin — her şey çalışıyor.</p>
-  <img src="../img/dukkan.jpg" alt="Sarıcalar Sigorta, Korkuteli">
-  <ol>
-    <li><div><b>Kaza anı asistanı</b><span>6 adım: güvenlik, 112/155, fotoğraf listesi, kroki, karşı taraf bilgileri, konum. Sonunda dosya acenteye gider.</span></div></li>
-    <li><div><b>Sürükle-bırak kroki</b><span>Kavşak ya da düz yol seçin, araçları yerleştirin, döndürün. Kroki resim olarak iner.</span></div></li>
-    <li><div><b>Poliçe cüzdanı</b><span>Trafik, kasko, DASK, konut… hepsinin bitişine kaç gün kaldığı renkli olarak görünür.</span></div></li>
-    <li><div><b>Trafik kontrolü için QR</b><span>Poliçe bilgisi telefonda; kağıt aramaya gerek yok.</span></div></li>
-    <li><div><b>Hasar dosyası takibi</b><span>"Eksper geldi mi, ödeme ne zaman?" diye aramaya gerek yok; her aşama görünür.</span></div></li>
-    <li><div><b>Uygulama gibi yüklenir</b><span>Mağazaya gerek kalmadan ana ekrana eklenir (PWA).</span></div></li>
-  </ol>
+  <p class="giris">Sarıcalar Sigorta müşterilerine özel dijital asistan. Kazada adım adım yol gösterir, krokiyi çizdirir, fotoğrafları eksiksiz çektirir ve dosyayı tek dokunuşla acenteye gönderir. Tüm poliçeleriniz, bitiş tarihleri ve hasar dosyanız aynı yerde.</p>
+  <span class="dene">Yandaki telefonda deneyin — her şey çalışıyor</span>
+  <div class="olcu"><div><b>6 adım</b><span>kazadan dosyaya</span></div><div><b>0 kâğıt</b><span>poliçeler telefonda</span></div><div><b>İnternetsiz</b><span>rehber çevrimdışı açılır</span></div></div>
+  <div class="ozellikler">
+    <div><span><b>Kaza anı asistanı</b><span>Güvenlik, fotoğraf, kroki, tutanak, konum, gönder.</span></span></div>
+    <div><span><b>Sürükle-bırak kroki</b><span>4 yol tipi, otomobil, kamyon, motosiklet, yaya ve yön oku.</span></span></div>
+    <div><span><b>Tutanak yardımcısı</b><span>Kaza durumu iki taraf için işaretlenir, özet hazır olur.</span></span></div>
+    <div><span><b>Sesli ifade</b><span>Olayı sıcağı sıcağına anlatın, kayıt dosyaya eklensin.</span></span></div>
+    <div><span><b>Tek seferde paylaş</b><span>Fotoğraf + kroki + özet telefonun paylaş menüsüyle gider.</span></span></div>
+    <div><span><b>Poliçe cüzdanı</b><span>Aile poliçeleri, bitişe kalan gün, QR, belgeler.</span></span></div>
+    <div><span><b>Hasar dosyası takibi</b><span>Aşama, eksik evrak ve acenteyle mesajlaşma.</span></span></div>
+    <div><span><b>Bildirimler</b><span>Yenileme, eksper randevusu, ödeme bilgisi.</span></span></div>
+  </div>
+  <figure><img src="../img/dukkan.jpg" alt="Sarıcalar Sigorta, Korkuteli"><figcaption>Kiremitli Mah. 861. Sk. No:14 · Korkuteli</figcaption></figure>
 </div>
 
-<div class="sag"><div class="tel">
-  <div class="ust"><b>Sarıcalar</b><a href="tel:+905306077950">☎ 7/24 Ara</a></div>
+<div class="sag"><div class="cerceve"><div class="tel">
+  <div class="durumcubugu"><span id="saat">--:--</span><span>●●● 4G</span></div>
+  <div class="ust"><b>Sarıcalar</b><div class="r"><a href="tel:+905306077950">☎ 7/24</a><button onclick="yukleIste()" id="yukleBtn">Yükle</button></div></div>
+  <div class="cevrimdisi" id="cevrimdisi">Çevrimdışı · rehber çalışıyor, gönderim internet gelince</div>
   <div class="ekran" id="ekran"></div>
-  <div class="sekme"><button class="on" data-s="kaza">Kaza / Hasar</button><button data-s="cuzdan">Poliçelerim</button><button data-s="dosya">Dosyam</button></div>
+  <div class="sekme">
+    <button class="on" data-s="kaza"><svg viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>Kaza</button>
+    <button data-s="cuzdan"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13"/><path d="M3 10h18"/></svg>Poliçeler</button>
+    <button data-s="dosya"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7"/></svg>Dosyam</button>
+    <button data-s="bildirim"><svg viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg>Bildirim<span class="rozet" id="bRozet">3</span></button>
+  </div>
   <div class="modal" id="modal"></div>
-</div></div>
+</div></div></div>
 </div>
+<button class="yukle" id="yukleKose" onclick="yukleIste()">Ana ekrana ekle</button>
 
 <script>
 var WA = "905306077950", ekran = document.getElementById("ekran");
-var veri = { foto: {}, karsi: {}, konum: "" };
+var veri = { foto: {}, fotoDosya: {}, karsi: {}, tanik: {}, konum: "", durumA: {}, durumB: {}, ses: null, kroki: null };
 var FOTO = ["Aracın önü (plaka görünsün)", "Aracın arkası", "Sağ yan", "Sol yan", "Hasarın yakın çekimi", "Karşı aracın plakası", "Karşı tarafın ehliyet ve ruhsatı", "Genel görünüm (yol, tabela, kavşak)"];
+var DURUM = ["Park halindeydi", "Park yerinden çıkıyordu", "Park ediyordu", "Geri manevra yapıyordu", "Aynı yönde gidiyordu (arkadan çarpma)", "Şerit değiştiriyordu", "Sağa dönüyordu", "Sola dönüyordu", "Kavşağa giriyordu", "Kırmızı ışıkta geçti", "Sağdan gelene yol vermedi", "Ters yöne girdi", "Sollama yapıyordu", "U dönüşü yapıyordu", "Kapı açtı"];
+var ADIM_AD = ["", "Güvenlik", "Fotoğraflar", "Kroki", "Tutanak", "Konum ve ifade", "Gönder"];
 var adim = 0;
-function sekme(s) { document.querySelectorAll(".sekme button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); }); ({ kaza: kazaGiris, cuzdan: cuzdan, dosya: dosya })[s](); }
+setInterval(function () { document.getElementById("saat").textContent = new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" }); }, 1000);
+function sekme(s) { document.querySelectorAll(".sekme button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); }); ({ kaza: kazaGiris, cuzdan: cuzdan, dosya: dosya, bildirim: bildirim })[s](); ekran.scrollTop = 0; }
 document.querySelectorAll(".sekme button").forEach(function (b) { b.onclick = function () { sekme(b.dataset.s); }; });
-function ilerleme() { var h = '<div class="ilerleme">'; for (var i = 1; i <= 6; i++) h += '<i class="' + (i <= adim ? "on" : "") + '"></i>'; return h + "</div>"; }
+function wa(m) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(m); }
+function fotoSay() { return Object.keys(veri.foto).filter(function (k) { return veri.foto[k]; }).length; }
 
 function kazaGiris() {
   adim = 0;
-  ekran.innerHTML = '<button class="buyuk" onclick="kazaAdim(1)">KAZA YAPTIM<small>Adım adım yönlendir</small></button>' +
+  ekran.innerHTML = '<button class="buyuk" onclick="kazaAdim(1)">KAZA YAPTIM<small>Adım adım yönlendir · 6 adım</small></button>' +
     '<div class="ikili" style="margin-top:8px"><a class="dg" href="tel:112">112 Acil</a><a class="dg" href="tel:155">155 Polis</a></div>' +
-    '<div class="kart"><h3>Cam kırıldı / hırsızlık / su baskını</h3><p>Kasko ve konut hasarları için fotoğraf ve kısa açıklama yeterli.</p><a class="dg" target="_blank" href="https://wa.me/' + WA + '?text=' + encodeURIComponent("Merhaba Bahattin Bey, hasar bildirmek istiyorum. Tür: ") + '">Hasar bildir</a></div>' +
-    '<div class="kart"><h3>Yol yardım</h3><p>Aracınız yolda kaldıysa poliçenizdeki yol yardım hattını size biz bağlarız.</p><a class="dg" href="tel:+905306077950">Acenteyi ara</a></div>';
+    '<div class="kart"><h3>Cam, hırsızlık, su baskını</h3><p>Kasko ve konut hasarları için fotoğraf ve kısa açıklama yeterli.</p><a class="dg" target="_blank" href="' + wa("Merhaba Bahattin Bey, hasar bildirmek istiyorum. Tür: ") + '">Hasar bildir</a></div>' +
+    '<div class="kart"><h3>Yol yardım</h3><p>Aracınız yolda kaldıysa poliçenizdeki yol yardım hattına sizi biz bağlarız.</p><a class="dg" href="tel:+905306077950">Acenteyi ara</a></div>' +
+    '<div class="kart"><h3>Bu rehber internetsiz de açılır</h3><p>Ana ekrana ekledikten sonra çekim olmayan yerde de adımlar çalışır; gönderim internet gelince yapılır.</p></div>';
 }
+function ust(n) { var h = '<div class="ilerleme">'; for (var i = 1; i <= 6; i++) h += '<i class="' + (i <= n ? "on" : "") + '"></i>'; return h + '</div><div class="adimad"><span>ADIM ' + n + ' / 6 · ' + ADIM_AD[n].toLocaleUpperCase("tr") + '</span><span onclick="kazaGiris()" style="cursor:pointer">✕ çık</span></div>'; }
 function kazaAdim(n) {
-  adim = n; var h = ilerleme();
-  if (n === 1) h += '<div class="adim"><h2>1 · Önce güvenlik</h2><p>Dörtlüleri yakın, reflektörü aracın 30 metre arkasına koyun. Yaralı varsa kimseyi hareket ettirmeyin.</p>' +
-    '<div class="ikili"><a class="dg ana" href="tel:112">Yaralı var · 112</a><a class="dg" href="tel:155">Polis · 155</a></div>' +
-    '<p style="margin-top:12px">Yaralı yoksa ve iki taraf anlaşıyorsa polis çağırmadan <b>anlaşmalı kaza tespit tutanağı</b> ile devam edebilirsiniz. Alkol, ehliyetsiz sürücü veya kamu malı hasarı varsa mutlaka 155\'i arayın.</p>' +
+  adim = n; var h = ust(n);
+  if (n === 1) h += '<div class="adim"><h2>Önce güvenlik</h2><p>Dörtlüleri yakın, reflektörü aracın yaklaşık 30 metre arkasına koyun. Yaralı varsa kimseyi hareket ettirmeyin.</p>' +
+    '<div class="ikili"><a class="dg kir" href="tel:112">Yaralı var · 112</a><a class="dg" href="tel:155">Polis · 155</a></div>' +
+    '<div class="kart"><h3>Polis ne zaman gerekir?</h3><p>Yaralanma, alkol şüphesi, ehliyetsiz sürücü, kamu malına zarar veya taraflar anlaşamıyorsa 155\'i arayın. Aksi hâlde anlaşmalı kaza tespit tutanağı ile devam edebilirsiniz.</p></div>' +
     '<button class="dg ana" onclick="kazaAdim(2)">Güvendeyim, devam</button></div>';
   if (n === 2) {
-    h += '<div class="adim"><h2>2 · Fotoğraflar</h2><p>Araçları yerinden oynatmadan önce bu 8 kareyi çekin. "📷 çek"e dokunun, kamera açılır; çektiğiniz kare işaretlenir.</p><div class="liste">';
-    FOTO.forEach(function (f, i) { h += '<label><input type="checkbox" ' + (veri.foto[i] ? "checked" : "") + ' onchange="veri.foto[' + i + ']=this.checked;sayac()"> ' + f + '<span class="foto" onclick="event.preventDefault();this.querySelector(\'input\').click()">📷 çek<input type="file" accept="image/*" capture="environment" style="display:none" onclick="event.stopPropagation()" onchange="veri.foto[' + i + ']=true;this.closest(\'label\').querySelector(\'input[type=checkbox]\').checked=true;sayac()"></span></label>'; });
-    h += '</div><p id="sayac" style="margin-top:10px"></p><button class="dg ana" onclick="kazaAdim(3)">Devam · Kroki</button></div>';
+    h += '<div class="adim"><h2>Fotoğraflar</h2><p>Araçları oynatmadan önce bu 8 kareyi çekin. "Çek"e dokunun; kare küçük resmiyle işaretlenir.</p><div class="liste">';
+    FOTO.forEach(function (f, i) { h += '<label><input type="checkbox" ' + (veri.foto[i] ? "checked" : "") + ' onchange="veri.foto[' + i + ']=this.checked;sayac()"> ' + f + '<span class="foto" onclick="event.preventDefault();this.querySelector(\'input\').click()">' + (veri.fotoDosya[i] ? '<img src="' + URL.createObjectURL(veri.fotoDosya[i]) + '">' : "") + '<span>📷 çek</span><input type="file" accept="image/*" capture="environment" hidden onclick="event.stopPropagation()" onchange="fotoAl(' + i + ',this)"></span></label>'; });
+    h += '</div><p id="sayac" style="margin-top:10px;font-size:14px"></p><button class="dg ana" onclick="kazaAdim(3)">Devam · kroki</button></div>';
   }
-  if (n === 3) h += '<div class="adim"><h2>3 · Krokiyi çizin</h2><p>Araçları sürükleyin; seçili aracı döndürmek için ↻ düğmesine basın.</p>' +
-    '<div class="arac"><button class="on" data-y="kavsak">Kavşak</button><button data-y="duz">Düz yol</button><button data-y="park">Park yeri</button><button onclick="dondur()">↻ Döndür</button></div>' +
-    '<canvas id="kroki" width="700" height="520" style="margin-top:8px"></canvas>' +
-    '<div class="ikili"><button class="dg" onclick="krokiIndir()">Krokiyi indir</button><button class="dg ana" onclick="kazaAdim(4)">Devam</button></div></div>';
-  if (n === 4) h += '<div class="adim"><h2>4 · Karşı taraf</h2><p>Tutanakta gerekecek bilgileri şimdi alın; sonra bulmak zor olur.</p>' +
-    alan("Karşı aracın plakası", "plaka", "07 XYZ 789") + alan("Sürücünün adı soyadı", "ad", "") + alan("Telefonu", "tel", "05..") + alan("Sigorta şirketi", "sirket", "Poliçesinden bakın") + alan("Poliçe no", "police", "") +
-    '<div class="alan">Kusur durumu<select onchange="veri.karsi.kusur=this.value"><option>Bilmiyorum</option><option>Karşı taraf arkadan çarptı</option><option>Karşı taraf kırmızıda geçti</option><option>Karşı taraf şerit değiştirdi</option><option>Ben çarptım</option><option>İkimiz de</option></select></div>' +
-    '<button class="dg ana" onclick="kazaAdim(5)">Devam · Konum</button></div>';
-  if (n === 5) h += '<div class="adim"><h2>5 · Konum ve saat</h2><p>Kazanın yeri ve saati tutanak için gereklidir.</p><div class="kart"><p id="konumYazi">Konum henüz alınmadı.</p><button class="dg" onclick="konumAl()">📍 Konumumu al</button></div>' +
-    '<div class="kart"><p>Saat: <b>' + new Date().toLocaleString("tr-TR") + '</b></p></div><button class="dg ana" onclick="kazaAdim(6)">Devam · Gönder</button></div>';
+  if (n === 3) h += '<div class="adim"><h2>Krokiyi çizin</h2><p>Aracı seçip sürükleyin, ↻ ile döndürün, ➜ ile hareket yönünü ekleyin.</p>' +
+    '<div class="arac" id="yolTip"><button class="on" data-y="kavsak">Dört yol</button><button data-y="t">T kavşak</button><button data-y="donel">Dönel</button><button data-y="duz">Düz yol</button><button data-y="park">Park</button></div>' +
+    '<div class="arac"><button onclick="ekle(\'oto\')">+ Otomobil</button><button onclick="ekle(\'kamyon\')">+ Kamyon</button><button onclick="ekle(\'motor\')">+ Motor</button><button onclick="ekle(\'yaya\')">+ Yaya</button><button onclick="ekle(\'ok\')">+ ➜ Yön</button><span class="ayir"></span><button onclick="dondur()">↻ Döndür</button><button onclick="sil()">✕ Sil</button><button onclick="geriAl()">↶ Geri al</button></div>' +
+    '<canvas id="kroki" width="700" height="560" style="margin-top:8px"></canvas>' +
+    '<div class="ikili"><button class="dg" onclick="krokiIndir()">Krokiyi indir</button><button class="dg ana" onclick="krokiKaydet();kazaAdim(4)">Devam</button></div></div>';
+  if (n === 4) {
+    h += '<div class="adim"><h2>Tutanak bilgileri</h2><p>Tutanaktaki "kaza durumu" bölümüne karşılık gelir. Kusur oranını sigorta şirketi belirler.</p>' +
+      '<div class="abbas"><span>Durum</span><b>A (siz)</b><b>B</b></div>';
+    DURUM.forEach(function (d, i) { h += '<div class="ab"><span>' + d + '</span><input type="checkbox" ' + (veri.durumA[i] ? "checked" : "") + ' onchange="veri.durumA[' + i + ']=this.checked"><input type="checkbox" ' + (veri.durumB[i] ? "checked" : "") + ' onchange="veri.durumB[' + i + ']=this.checked"></div>'; });
+    h += '<h3 style="margin-top:16px;font-variation-settings:\'wdth\' 68">Karşı taraf</h3>' + alan("karsi", "Plaka", "plaka", "07 XYZ 789") + alan("karsi", "Sürücü adı soyadı", "ad", "") + alan("karsi", "Telefonu", "tel", "05..") + alan("karsi", "Sigorta şirketi", "sirket", "Poliçesinden bakın") + alan("karsi", "Poliçe no", "police", "") +
+      '<h3 style="margin-top:16px;font-variation-settings:\'wdth\' 68">Tanık (varsa)</h3>' + alan("tanik", "Adı soyadı", "ad", "") + alan("tanik", "Telefonu", "tel", "") +
+      '<button class="dg ana" onclick="kazaAdim(5)">Devam · konum ve ifade</button></div>';
+  }
+  if (n === 5) h += '<div class="adim"><h2>Konum ve ifadeniz</h2><p>Kazanın yeri ve saati tutanakta gerekir. Olayı aklınız tazeyken sesli anlatın.</p>' +
+    '<div class="kart"><p id="konumYazi">' + (veri.konum ? "Konum alındı ✓<br><small>" + veri.konum + "</small>" : "Konum henüz alınmadı.") + '</p><button class="dg" onclick="konumAl()">📍 Konumumu al</button></div>' +
+    '<div class="kart"><h3>Sesli ifade</h3><p>Ne oldu, nereden geliyordunuz, karşı araç ne yaptı? 1–2 dakika yeter.</p><div class="kayit"><span class="nokta" id="kNokta"></span><button class="dg" style="margin:0" id="kBtn" onclick="kayit()">● Kayda başla</button></div><div id="sesOyna">' + (veri.ses ? '<audio controls src="' + URL.createObjectURL(veri.ses) + '"></audio>' : "") + '</div></div>' +
+    '<div class="kart"><p>Kaza saati: <b>' + new Date().toLocaleString("tr-TR") + '</b></p></div><button class="dg ana" onclick="kazaAdim(6)">Devam · gönder</button></div>';
   if (n === 6) {
-    var f = Object.keys(veri.foto).filter(function (k) { return veri.foto[k]; }).length;
-    h += '<div class="adim"><h2>6 · Dosyayı Bahattin Bey\'e gönderin</h2><p>Özet aşağıda. Gönderdikten sonra fotoğrafları ve indirdiğiniz krokiyi aynı sohbete ekleyin; dosyanızı biz açarız.</p>' +
-      '<div class="kart"><p>Fotoğraf: <b>' + f + '/8</b> · Karşı plaka: <b>' + (veri.karsi.plaka || "-") + '</b> · Şirket: <b>' + (veri.karsi.sirket || "-") + '</b><br>Kusur: <b>' + (veri.karsi.kusur || "Bilmiyorum") + '</b><br>Konum: <b>' + (veri.konum || "-") + '</b></p></div>' +
-      '<a class="dg ana" target="_blank" href="https://wa.me/' + WA + '?text=' + encodeURIComponent("KAZA BİLDİRİMİ (asistan)\nSaat: " + new Date().toLocaleString("tr-TR") + "\nKonum: " + (veri.konum || "-") + "\nKarşı plaka: " + (veri.karsi.plaka || "-") + "\nKarşı sürücü: " + (veri.karsi.ad || "-") + " " + (veri.karsi.tel || "") + "\nŞirketi / poliçe: " + (veri.karsi.sirket || "-") + " / " + (veri.karsi.police || "-") + "\nKusur: " + (veri.karsi.kusur || "Bilmiyorum") + "\nFotoğraf: " + f + "/8 çekildi, ekliyorum.") + '">WhatsApp ile gönder</a>' +
-      '<p style="margin-top:12px;font-size:13px;color:var(--soluk)">Gerçek sistemde dosya acente paneline düşer; hasar ihbarı ilgili şirkete acente tarafından yapılır ve süreç "Dosyam" sekmesinden izlenir.</p>' +
-      '<button class="dg" onclick="sekme(\'dosya\')">Dosyamı takip et</button></div>';
+    var f = fotoSay(), dA = DURUM.filter(function (x, i) { return veri.durumA[i]; }), dB = DURUM.filter(function (x, i) { return veri.durumB[i]; });
+    var ozet = "KAZA BİLDİRİMİ · Sarıcalar asistan\nSaat: " + new Date().toLocaleString("tr-TR") + "\nKonum: " + (veri.konum || "-") + "\nFotoğraf: " + f + "/8 · Kroki: " + (veri.kroki ? "var" : "yok") + " · Sesli ifade: " + (veri.ses ? "var" : "yok") + "\nA (ben): " + (dA.join(", ") || "-") + "\nB: " + (dB.join(", ") || "-") + "\nKarşı plaka: " + (veri.karsi.plaka || "-") + " · " + (veri.karsi.ad || "") + " " + (veri.karsi.tel || "") + "\nŞirket/poliçe: " + (veri.karsi.sirket || "-") + " / " + (veri.karsi.police || "-") + "\nTanık: " + (veri.tanik.ad || "-") + " " + (veri.tanik.tel || "");
+    window._ozet = ozet;
+    h += '<div class="adim"><h2>Dosyanızı gönderin</h2><p>Hepsi hazır. "Tümünü paylaş" telefonunuzun paylaş menüsünü açar; WhatsApp\'ta Bahattin Bey\'i seçin.</p>' +
+      '<div class="kart" style="white-space:pre-line;font-size:13px;color:#c9ccd0">' + ozet + '</div>' +
+      '<button class="dg ana" onclick="paylas()">Tümünü paylaş (fotoğraf + kroki + ses)</button>' +
+      '<a class="dg" target="_blank" href="' + wa(ozet) + '">Sadece özeti WhatsApp\'a gönder</a>' +
+      '<p style="margin-top:12px;font-size:12px;color:var(--soluk)">Gerçek sistemde dosya doğrudan acente paneline düşer; hasar ihbarını acente yapar, süreç "Dosyam" sekmesinden izlenir.</p><button class="dg" onclick="sekme(\'dosya\')">Dosyamı takip et</button></div>';
   }
   ekran.innerHTML = h; ekran.scrollTop = 0;
   if (n === 2) sayac(); if (n === 3) krokiKur();
 }
-function alan(e, k, ph) { return '<div class="alan">' + e + '<input placeholder="' + ph + '" value="' + (veri.karsi[k] || "") + '" oninput="veri.karsi.' + k + '=this.value"></div>'; }
-function sayac() { var f = Object.keys(veri.foto).filter(function (k) { return veri.foto[k]; }).length, e = document.getElementById("sayac"); if (e) e.innerHTML = "<b>" + f + "/8</b> kare tamam" + (f < 8 ? " · eksik kare dosyanızı geciktirebilir" : " · harika, eksiksiz"); }
+function alan(grup, e, k, ph) { return '<div class="alan">' + e + '<input placeholder="' + ph + '" value="' + (veri[grup][k] || "") + '" oninput="veri.' + grup + '.' + k + '=this.value"></div>'; }
+function fotoAl(i, inp) { if (!inp.files[0]) return; veri.foto[i] = true; veri.fotoDosya[i] = inp.files[0]; kazaAdim(2); }
+function sayac() { var f = fotoSay(), e = document.getElementById("sayac"); if (e) e.innerHTML = "<b>" + f + "/8</b> kare tamam" + (f < 8 ? " · eksik kare dosyanızı geciktirebilir" : " · eksiksiz ✓"); }
 function konumAl() {
   var y = document.getElementById("konumYazi"); y.textContent = "Konum alınıyor…";
   if (!navigator.geolocation) { y.textContent = "Tarayıcı konum vermiyor."; return; }
   navigator.geolocation.getCurrentPosition(function (p) { veri.konum = "https://maps.google.com/?q=" + p.coords.latitude.toFixed(5) + "," + p.coords.longitude.toFixed(5); y.innerHTML = "Konum alındı ✓<br><small>" + veri.konum + "</small>"; },
-    function () { veri.konum = "Korkuteli (elle yazılacak)"; y.textContent = "Konum izni verilmedi; tutanağa adresi elle yazın."; });
+    function () { veri.konum = "elle yazılacak"; y.textContent = "Konum izni verilmedi; adresi tutanağa elle yazın."; }, { enableHighAccuracy: true, timeout: 10000 });
+}
+var kaydedici = null, parcalar = [];
+function kayit() {
+  var b = document.getElementById("kBtn"), n = document.getElementById("kNokta");
+  if (kaydedici && kaydedici.state === "recording") { kaydedici.stop(); return; }
+  if (!navigator.mediaDevices || !window.MediaRecorder) { b.textContent = "Bu cihaz kaydı desteklemiyor"; return; }
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(function (s) {
+    parcalar = []; kaydedici = new MediaRecorder(s);
+    kaydedici.ondataavailable = function (e) { parcalar.push(e.data); };
+    kaydedici.onstop = function () { veri.ses = new Blob(parcalar, { type: kaydedici.mimeType || "audio/webm" }); s.getTracks().forEach(function (t) { t.stop(); }); n.style.display = "none"; b.textContent = "● Yeniden kaydet"; document.getElementById("sesOyna").innerHTML = '<audio controls src="' + URL.createObjectURL(veri.ses) + '"></audio>'; };
+    kaydedici.start(); n.style.display = "inline-block"; b.textContent = "■ Kaydı bitir";
+  }).catch(function () { b.textContent = "Mikrofon izni verilmedi"; });
+}
+function paylas() {
+  var dosyalar = []; Object.keys(veri.fotoDosya).forEach(function (k) { dosyalar.push(veri.fotoDosya[k]); });
+  if (veri.kroki) dosyalar.push(new File([veri.kroki], "kaza-krokisi.png", { type: "image/png" }));
+  if (veri.ses) dosyalar.push(new File([veri.ses], "sesli-ifade.webm", { type: veri.ses.type }));
+  if (navigator.canShare && dosyalar.length && navigator.canShare({ files: dosyalar })) navigator.share({ files: dosyalar, title: "Kaza bildirimi", text: window._ozet }).catch(function () {});
+  else if (navigator.share) navigator.share({ title: "Kaza bildirimi", text: window._ozet }).catch(function () {});
+  else window.open(wa(window._ozet), "_blank");
 }
 // ---- kroki
-var cv, cx, araclar, secA = 0, tip = "kavsak", surukle = null;
+var cv, cx, nes = [], sec = 0, tip = "kavsak", surukle = null, gecmis = [];
+var RENK = ["#ffc400", "#e0393e", "#4d8fd6", "#3fae5a", "#c27ce0"];
 function krokiKur() {
   cv = document.getElementById("kroki"); cx = cv.getContext("2d");
-  araclar = [{ x: 220, y: 330, a: 0, r: "#ffc400", t: "A (siz)" }, { x: 470, y: 200, a: Math.PI / 2, r: "#e0393e", t: "B" }];
-  document.querySelectorAll(".arac [data-y]").forEach(function (b) { b.onclick = function () { tip = b.dataset.y; document.querySelectorAll(".arac [data-y]").forEach(function (x) { x.classList.toggle("on", x === b); }); ciz(); }; });
+  if (!nes.length) nes = [{ t: "oto", x: 230, y: 350, a: 0, ad: "A" }, { t: "oto", x: 470, y: 210, a: Math.PI / 2, ad: "B" }];
+  document.querySelectorAll("#yolTip button").forEach(function (b) { b.classList.toggle("on", b.dataset.y === tip); b.onclick = function () { tip = b.dataset.y; document.querySelectorAll("#yolTip button").forEach(function (x) { x.classList.toggle("on", x === b); }); ciz(); }; });
   function poz(e) { var r = cv.getBoundingClientRect(), p = e.touches ? e.touches[0] : e; return { x: (p.clientX - r.left) * cv.width / r.width, y: (p.clientY - r.top) * cv.height / r.height }; }
-  function bas(e) { var p = poz(e); araclar.forEach(function (a, i) { if (Math.hypot(a.x - p.x, a.y - p.y) < 55) { surukle = i; secA = i; } }); ciz(); }
-  function hareket(e) { if (surukle === null) return; e.preventDefault(); var p = poz(e); araclar[surukle].x = p.x; araclar[surukle].y = p.y; ciz(); }
+  function bas(e) { var p = poz(e), en = 1e9; nes.forEach(function (o, i) { var d = Math.hypot(o.x - p.x, o.y - p.y); if (d < 60 && d < en) { en = d; surukle = i; sec = i; } }); if (surukle !== null) gecmis.push(JSON.stringify(nes)); ciz(); }
+  function hareket(e) { if (surukle === null) return; e.preventDefault(); var p = poz(e); nes[surukle].x = p.x; nes[surukle].y = p.y; ciz(); }
   cv.onmousedown = bas; cv.ontouchstart = bas; cv.onmousemove = hareket; cv.ontouchmove = hareket;
   cv.onmouseup = cv.ontouchend = cv.onmouseleave = function () { surukle = null; };
   ciz();
 }
-function dondur() { if (!araclar) return; araclar[secA].a += Math.PI / 8; ciz(); }
+function ekle(t) { gecmis.push(JSON.stringify(nes)); var harf = String.fromCharCode(65 + nes.filter(function (o) { return o.t !== "ok"; }).length); nes.push({ t: t, x: 350, y: 280, a: 0, ad: t === "ok" ? "" : harf }); sec = nes.length - 1; ciz(); }
+function dondur() { if (!nes[sec]) return; gecmis.push(JSON.stringify(nes)); nes[sec].a += Math.PI / 8; ciz(); }
+function sil() { if (!nes[sec]) return; gecmis.push(JSON.stringify(nes)); nes.splice(sec, 1); sec = Math.max(0, sec - 1); ciz(); }
+function geriAl() { if (!gecmis.length) return; nes = JSON.parse(gecmis.pop()); ciz(); }
 function ciz() {
-  var W = cv.width, H = cv.height; cx.fillStyle = "#3b6b3a"; cx.fillRect(0, 0, W, H);
-  cx.fillStyle = "#4a4f55";
-  if (tip === "kavsak") { cx.fillRect(0, H / 2 - 70, W, 140); cx.fillRect(W / 2 - 70, 0, 140, H); }
-  if (tip === "duz") { cx.fillRect(0, H / 2 - 90, W, 180); }
-  if (tip === "park") { cx.fillRect(0, 0, W, H); cx.strokeStyle = "#ddd"; cx.lineWidth = 3; for (var i = 60; i < W; i += 110) { cx.beginPath(); cx.moveTo(i, 0); cx.lineTo(i, 160); cx.stroke(); cx.beginPath(); cx.moveTo(i, H); cx.lineTo(i, H - 160); cx.stroke(); } }
+  var W = cv.width, H = cv.height; cx.fillStyle = "#3b6b3a"; cx.fillRect(0, 0, W, H); cx.fillStyle = "#4a4f55";
+  var yat = function () { cx.fillRect(0, H / 2 - 70, W, 140); }, dik = function (ust) { cx.fillRect(W / 2 - 70, ust ? 0 : H / 2, 140, ust ? H : H / 2); };
+  if (tip === "kavsak") { yat(); dik(true); } if (tip === "t") { yat(); dik(false); } if (tip === "duz") cx.fillRect(0, H / 2 - 95, W, 190);
+  if (tip === "donel") { yat(); dik(true); cx.beginPath(); cx.arc(W / 2, H / 2, 150, 0, 7); cx.fill(); cx.fillStyle = "#3b6b3a"; cx.beginPath(); cx.arc(W / 2, H / 2, 70, 0, 7); cx.fill(); }
+  if (tip === "park") { cx.fillRect(0, 0, W, H); cx.strokeStyle = "#ddd"; cx.lineWidth = 3; for (var i = 60; i < W; i += 110) { cx.beginPath(); cx.moveTo(i, 0); cx.lineTo(i, 170); cx.stroke(); cx.beginPath(); cx.moveTo(i, H); cx.lineTo(i, H - 170); cx.stroke(); } }
   cx.strokeStyle = "#f2f2f2"; cx.setLineDash([22, 18]); cx.lineWidth = 4;
-  if (tip !== "park") { cx.beginPath(); cx.moveTo(0, H / 2); cx.lineTo(W, H / 2); cx.stroke(); }
+  if (tip === "kavsak" || tip === "t" || tip === "duz") { cx.beginPath(); cx.moveTo(0, H / 2); cx.lineTo(W, H / 2); cx.stroke(); }
   if (tip === "kavsak") { cx.beginPath(); cx.moveTo(W / 2, 0); cx.lineTo(W / 2, H); cx.stroke(); }
+  if (tip === "t") { cx.beginPath(); cx.moveTo(W / 2, H / 2 + 70); cx.lineTo(W / 2, H); cx.stroke(); }
   cx.setLineDash([]);
-  araclar.forEach(function (a, i) {
-    cx.save(); cx.translate(a.x, a.y); cx.rotate(a.a);
-    cx.fillStyle = a.r; cx.fillRect(-48, -24, 96, 48); cx.fillStyle = "rgba(0,0,0,.45)"; cx.fillRect(14, -19, 22, 38);
-    cx.fillStyle = "#111"; cx.beginPath(); cx.moveTo(48, 0); cx.lineTo(70, -12); cx.lineTo(70, 12); cx.fill();
-    if (i === secA) { cx.strokeStyle = "#fff"; cx.lineWidth = 3; cx.strokeRect(-52, -28, 104, 56); }
-    cx.restore(); cx.fillStyle = "#fff"; cx.font = "bold 22px Archivo, sans-serif"; cx.fillText(a.t, a.x - 30, a.y - 36);
+  var renk = 0;
+  nes.forEach(function (o, i) {
+    cx.save(); cx.translate(o.x, o.y); cx.rotate(o.a);
+    if (o.t === "ok") { cx.strokeStyle = "#fff"; cx.fillStyle = "#fff"; cx.lineWidth = 6; cx.beginPath(); cx.moveTo(-50, 0); cx.lineTo(30, 0); cx.stroke(); cx.beginPath(); cx.moveTo(52, 0); cx.lineTo(26, -16); cx.lineTo(26, 16); cx.fill(); }
+    else {
+      var c = RENK[renk++ % RENK.length], w = o.t === "kamyon" ? 130 : o.t === "motor" ? 56 : o.t === "yaya" ? 26 : 96, hh = o.t === "kamyon" ? 54 : o.t === "motor" ? 22 : o.t === "yaya" ? 26 : 48;
+      cx.fillStyle = c;
+      if (o.t === "yaya") { cx.beginPath(); cx.arc(0, 0, 14, 0, 7); cx.fill(); }
+      else { cx.fillRect(-w / 2, -hh / 2, w, hh); cx.fillStyle = "rgba(0,0,0,.4)"; if (o.t === "kamyon") cx.fillRect(w / 2 - 34, -hh / 2 + 4, 28, hh - 8); else cx.fillRect(w / 2 - 34, -hh / 2 + 5, 20, hh - 10); cx.fillStyle = "#111"; cx.beginPath(); cx.moveTo(w / 2, 0); cx.lineTo(w / 2 + 18, -10); cx.lineTo(w / 2 + 18, 10); cx.fill(); }
+    }
+    if (i === sec) { cx.strokeStyle = "#fff"; cx.lineWidth = 2; cx.setLineDash([6, 4]); cx.strokeRect(-72, -38, 144, 76); cx.setLineDash([]); }
+    cx.restore();
+    if (o.ad) { cx.fillStyle = "#fff"; cx.font = "bold 24px Archivo, sans-serif"; cx.fillText(o.ad + (o.ad === "A" ? " (siz)" : ""), o.x - 22, o.y - 40); }
   });
-  cx.fillStyle = "rgba(0,0,0,.5)"; cx.fillRect(0, H - 34, W, 34); cx.fillStyle = "#fff"; cx.font = "16px JetBrains Mono, monospace"; cx.fillText("Kroki · " + new Date().toLocaleString("tr-TR") + " · Sarıcalar Sigorta", 12, H - 11);
+  cx.fillStyle = "rgba(0,0,0,.55)"; cx.fillRect(0, H - 34, W, 34); cx.fillStyle = "#fff"; cx.font = "16px JetBrains Mono, monospace"; cx.fillText("Kroki · " + new Date().toLocaleString("tr-TR") + " · Sarıcalar Sigorta", 12, H - 11);
 }
+function krokiKaydet() { if (cv) cv.toBlob(function (b) { veri.kroki = b; }); }
 function krokiIndir() { var a = document.createElement("a"); a.href = cv.toDataURL("image/png"); a.download = "kaza-krokisi.png"; a.click(); }
 // ---- cüzdan
-var POL = [
-  { t: "Zorunlu Trafik", n: "07 ABC 123 · Fiat Egea", g: 6, s: "Şirket A", no: "TR-2026-118844" },
-  { t: "DASK", n: "Kiremitli Mah. · 120 m²", g: 23, s: "DASK", no: "DSK-7781203" },
-  { t: "Kasko", n: "07 ABC 123 · Tam kasko", g: 141, s: "Şirket C", no: "KS-2026-55102" },
-  { t: "Tamamlayıcı Sağlık", n: "3 kişi · Antalya", g: 274, s: "Şirket B", no: "TSS-889120" }
-];
+var girisli = false, kisi = "Mehmet K.";
+var POL = {
+  "Mehmet K.": [{ t: "Zorunlu Trafik", n: "07 ABC 123 · Fiat Egea", g: 6, s: "Şirket A", no: "TR-2026-118844" }, { t: "Kasko", n: "07 ABC 123 · Tam kasko", g: 141, s: "Şirket C", no: "KS-2026-55102" }, { t: "DASK", n: "Kiremitli Mah. · 120 m²", g: 23, s: "DASK", no: "DSK-7781203" }],
+  "Ayşe K.": [{ t: "Tamamlayıcı Sağlık", n: "3 kişi · Antalya", g: 274, s: "Şirket B", no: "TSS-889120" }, { t: "Konut", n: "Kiremitli Mah. · eşya", g: 38, s: "Şirket B", no: "KN-55190" }],
+  "Tarla": [{ t: "TARSİM · Elma", n: "Korkuteli · 30 dekar", g: 182, s: "TARSİM", no: "TRS-2026-3310" }, { t: "Traktör trafik", n: "07 TR 456 · Tümosan", g: 61, s: "Şirket D", no: "TR-2026-90021" }]
+};
 function cuzdan() {
-  var h = '<h2 style="font-variation-settings:\'wdth\' 66;font-size:28px;margin-bottom:4px">Poliçelerim</h2><p style="color:var(--soluk);font-size:14px">Örnek müşteri: Mehmet K. · 4 aktif poliçe</p>';
-  POL.forEach(function (p, i) {
+  if (!girisli) {
+    ekran.innerHTML = '<div class="giris"><h2 style="font-variation-settings:\'wdth\' 62;font-size:30px">Poliçelerim</h2><p style="color:var(--soluk);font-size:14px;margin:6px 0 16px">Telefon numaranıza gelen kodla girin. Şifre yok.</p><div class="alan" style="text-align:left">Telefon<input id="gTel" value="0530 *** ** 50"></div><button class="dg ana" onclick="kodGoster()">Kod gönder</button><div id="kodAlan"></div><p style="font-size:12px;color:var(--soluk);margin-top:12px">Örnek giriş · demo kod: 2026</p></div>';
+    return;
+  }
+  var tum = [].concat.apply([], Object.keys(POL).map(function (k) { return POL[k]; })), en = tum.slice().sort(function (a, b) { return a.g - b.g; })[0];
+  var h = '<h2 style="font-variation-settings:\'wdth\' 62;font-size:30px">Poliçelerim</h2><p style="color:var(--soluk);font-size:13px">' + tum.length + ' aktif poliçe · en yakın bitiş: <b style="color:var(--kir)">' + en.t + ' · ' + en.g + ' gün</b></p><div class="aile">';
+  Object.keys(POL).forEach(function (k) { h += '<button class="' + (k === kisi ? "on" : "") + '" onclick="kisi=\'' + k + '\';cuzdan()">' + k + '</button>'; });
+  h += '</div>';
+  POL[kisi].forEach(function (p, i) {
     var c = p.g <= 15 ? "k" : p.g <= 45 ? "s" : "y";
-    h += '<div class="pol ' + c + '"><div><b>' + p.t + '</b><div class="alt">' + p.n + ' · ' + p.s + '</div></div><div class="gun">' + p.g + '<div class="alt">gün kaldı</div></div>' +
-      '<div class="btn"><a target="_blank" href="https://wa.me/' + WA + '?text=' + encodeURIComponent("Merhaba Bahattin Bey, " + p.t + " poliçemi (" + p.no + ") yenilemek istiyorum.") + '">Yenile</a><button onclick="qr(' + i + ')">QR göster</button><button onclick="ics(' + i + ')">Takvime ekle</button></div></div>';
+    h += '<div class="pol ' + c + '"><div><b>' + p.t + '</b><div class="alt">' + p.n + ' · ' + p.s + '</div><div class="alt">' + p.no + '</div></div><div class="gun">' + p.g + '<div class="alt">gün</div></div>' +
+      '<div class="btn"><a target="_blank" href="' + wa("Merhaba Bahattin Bey, " + p.t + " poliçemi (" + p.no + ") yenilemek istiyorum.") + '">' + (p.g <= 45 ? "Yenile" : "Teklif") + '</a><button onclick="qr(\'' + kisi + '\',' + i + ')">QR</button><button onclick="belge(\'' + p.t + '\')">Belge</button><button onclick="ics(\'' + kisi + '\',' + i + ')">Takvim</button></div></div>';
   });
-  h += '<p style="margin-top:12px;font-size:13px;color:var(--soluk)">Gerçek sistemde bitişe 30, 15 ve 7 gün kala size WhatsApp ile hatırlatma gelir; yeni teklif hazır olarak gönderilir.</p>';
+  h += '<div class="kart"><h3>Bitmeden haber veriyoruz</h3><p>30, 15 ve 7 gün kala WhatsApp\'ınıza yenileme teklifi gelir.</p></div>';
   ekran.innerHTML = h;
 }
-function qr(i) {
-  var p = POL[i], m = document.getElementById("modal"); m.style.display = "flex";
-  m.innerHTML = '<b style="font-size:20px">' + p.t + '</b><div style="color:var(--soluk)">' + p.no + ' · ' + p.s + '</div><div id="qrKutu"></div><p style="margin-top:10px;font-size:13px;color:var(--soluk)">Örnek QR · gerçek sistemde poliçe doğrulama bağlantısı</p><button class="dg" style="max-width:200px" onclick="document.getElementById(\'modal\').style.display=\'none\'">Kapat</button>';
-  new QRCode(document.getElementById("qrKutu"), { text: "SARICALAR|" + p.t + "|" + p.no + "|" + p.n, width: 200, height: 200 });
+function kodGoster() { document.getElementById("kodAlan").innerHTML = '<div class="kod">' + [0, 1, 2, 3].map(function (i) { return '<input maxlength="1" inputmode="numeric" oninput="kodIlerle(this,' + i + ')">'; }).join("") + '</div>'; document.querySelector(".kod input").focus(); }
+function kodIlerle(el, i) { var k = document.querySelectorAll(".kod input"); if (el.value && k[i + 1]) k[i + 1].focus(); var v = [].map.call(k, function (x) { return x.value; }).join(""); if (v.length === 4) { girisli = true; setTimeout(cuzdan, 250); } }
+function qr(k, i) {
+  var p = POL[k][i], m = document.getElementById("modal"); m.style.display = "flex";
+  m.innerHTML = '<b style="font-size:20px">' + p.t + '</b><div style="color:var(--soluk)">' + p.no + ' · ' + p.s + '</div><div id="qrKutu"></div><p style="margin-top:10px;font-size:12px;color:var(--soluk)">Örnek QR · gerçek sistemde poliçe doğrulama bağlantısı</p><button class="dg" style="max-width:200px" onclick="kapat()">Kapat</button>';
+  new QRCode(document.getElementById("qrKutu"), { text: "https://dijitabela.com.tr/ornek/saricalar-sigorta/?police=" + p.no, width: 200, height: 200 });
 }
-function ics(i) {
-  var p = POL[i], d = new Date(Date.now() + (p.g - 7) * 864e5), f = d.getFullYear() + String(d.getMonth() + 1).padStart(2, "0") + String(d.getDate()).padStart(2, "0");
-  var s = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Saricalar//TR", "BEGIN:VEVENT", "UID:" + p.no + "@saricalar", "DTSTART;VALUE=DATE:" + f, "SUMMARY:" + p.t + " poliçem 7 gün sonra bitiyor - Sarıcalar Sigorta", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+function belge(t) { var m = document.getElementById("modal"); m.style.display = "flex"; m.innerHTML = '<b style="font-size:20px">' + t + ' · belgeler</b><div style="text-align:left;margin-top:12px;width:100%;max-width:300px">' + ["Poliçe (PDF)", "Bilgilendirme formu", "Ödeme dekontu"].map(function (x) { return '<div style="padding:10px 0;border-bottom:1px solid var(--cizgi)">📄 ' + x + ' <span style="float:right;color:var(--sari)">İndir</span></div>'; }).join("") + '</div><p style="font-size:12px;color:var(--soluk);margin-top:10px">Örnek · gerçek sistemde poliçe PDF\'leri burada saklanır</p><button class="dg" style="max-width:200px" onclick="kapat()">Kapat</button>'; }
+function kapat() { document.getElementById("modal").style.display = "none"; }
+function ics(k, i) {
+  var p = POL[k][i], d = new Date(Date.now() + Math.max(1, p.g - 7) * 864e5), f = d.toLocaleDateString("en-CA").replace(/-/g, "");
+  var s = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Saricalar//TR", "BEGIN:VEVENT", "UID:" + p.no + "@saricalar", "DTSTART;VALUE=DATE:" + f, "SUMMARY:" + p.t + " poliçem 7 gün sonra bitiyor · Sarıcalar Sigorta", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
   var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([s], { type: "text/calendar" })); a.download = "police-hatirlatma.ics"; a.click();
 }
+// ---- dosya
+var EVRAK = [["Anlaşmalı kaza tespit tutanağı", 1], ["Ehliyet fotokopisi", 1], ["Ruhsat fotokopisi", 1], ["Hasar fotoğrafları (8/8)", 1], ["Karşı tarafın poliçesi", 0], ["IBAN bilgisi (ödeme için)", 0]];
+var MSJ = [["Dosyanız açıldı, ihbar şirkete yapıldı.", 0, "Dün 23:58"], ["Eksper yarın 10:30'da servise gelecek.", 0, "Bugün 09:12"], ["Teşekkürler, aracı servise bıraktım.", 1, "Bugün 09:40"]];
 function dosya() {
-  ekran.innerHTML = '<h2 style="font-variation-settings:\'wdth\' 66;font-size:28px;margin-bottom:4px">Hasar dosyam</h2><p style="color:var(--soluk);font-size:14px">Örnek dosya · Kasko · 07 ABC 123</p>' +
-    '<ul class="zaman"><li class="ok"><b>Kaza bildirildi</b><span>Asistan üzerinden · 8/8 fotoğraf, kroki</span></li><li class="ok"><b>Şirkete ihbar edildi</b><span>Acente tarafından · dosya no H-2026-4471</span></li><li class="ok"><b>Eksper atandı</b><span>Eksper randevusu: yarın 10:30 · anlaşmalı servis</span></li><li class="su"><b>Ekspertiz yapılıyor</b><span>Tahmini 2–3 iş günü</span></li><li><b>Onay ve onarım</b><span>Servis onarıma başlar</span></li><li><b>Ödeme / teslim</b><span>Araç size teslim edilir</span></li></ul>' +
-    '<div class="kart"><h3>Bir sorunuz mu var?</h3><p>Dosyanızla ilgili her şeyi Bahattin Bey\'e tek mesajla sorun.</p><a class="dg ana" target="_blank" href="https://wa.me/' + WA + '?text=' + encodeURIComponent("Merhaba, H-2026-4471 numaralı hasar dosyam hakkında bilgi alabilir miyim?") + '">Dosyamı sor</a></div>';
+  var eksik = EVRAK.filter(function (e) { return !e[1]; }).length;
+  var h = '<h2 style="font-variation-settings:\'wdth\' 62;font-size:30px">Hasar dosyam</h2><p style="color:var(--soluk);font-size:13px">Örnek · Kasko · 07 ABC 123 · Dosya H-2026-4471</p>' +
+    '<ul class="zaman"><li class="ok"><b>Kaza bildirildi</b><span>Asistan üzerinden · 8/8 fotoğraf, kroki, sesli ifade</span></li><li class="ok"><b>Şirkete ihbar edildi</b><span>Acente tarafından · gece 23:58</span></li><li class="ok"><b>Eksper atandı</b><span>Yarın 10:30 · anlaşmalı servis</span></li><li class="su"><b>Ekspertiz</b><span>Tahmini 2–3 iş günü</span></li><li><b>Onay ve onarım</b><span>Servis onarıma başlar</span></li><li><b>Ödeme / teslim</b><span>Araç size teslim edilir</span></li></ul>' +
+    '<div class="kart"><h3>Evraklar ' + (eksik ? '<span style="color:var(--kir);font-size:14px">· ' + eksik + ' eksik</span>' : '') + '</h3><div class="evrak">' + EVRAK.map(function (e, i) { return '<label>' + e[0] + (e[1] ? '<span class="d ok">✓ alındı</span>' : '<span class="d yok" style="cursor:pointer" onclick="this.closest(\'label\').querySelector(\'input\').click()">⬆ yükle<input type="file" hidden onchange="EVRAK[' + i + '][1]=1;dosya()"></span>') + '</label>'; }).join("") + '</div></div>' +
+    '<div class="kart"><h3>Mesajlar</h3><div class="mesajlar" id="msjlar">' + MSJ.map(function (m) { return '<div class="msj' + (m[1] ? " ben" : "") + '">' + m[0] + '<small>' + (m[1] ? "Siz" : "Bahattin Bey") + ' · ' + m[2] + '</small></div>'; }).join("") + '</div><div class="alan"><input id="yeniMsj" placeholder="Bir soru yazın…" onkeydown="if(event.key===\'Enter\')msjGonder()"></div><button class="dg" onclick="msjGonder()">Gönder</button></div>';
+  ekran.innerHTML = h;
 }
+function msjGonder() { var v = document.getElementById("yeniMsj").value.trim(); if (!v) return; MSJ.push([v, 1, "şimdi"]); dosya(); setTimeout(function () { MSJ.push(["Mesajınız alındı, en kısa sürede dönüyorum.", 0, "şimdi"]); dosya(); var m = document.getElementById("msjlar"); m.scrollIntoView(); }, 900); }
+// ---- bildirim
+var BIL = [["Trafik poliçeniz 6 gün sonra bitiyor", "Yenileme teklifiniz hazır · 3 şirket", 0], ["Eksper randevusu", "Yarın 10:30 · anlaşmalı servis", 0], ["Don uyarısı · Korkuteli", "Perşembe gecesi -2°C · TARSİM'iniz aktif", 0], ["DASK poliçeniz yenilendi", "Belge Poliçelerim'de", 1], ["Ödemeniz alındı", "Kasko 2. taksit", 1]];
+function bildirim() {
+  ekran.innerHTML = '<h2 style="font-variation-settings:\'wdth\' 62;font-size:30px">Bildirimler</h2>' + BIL.map(function (b) { return '<div class="bildirim' + (b[2] ? " okundu" : "") + '"><i></i><div><b>' + b[0] + '</b><span>' + b[1] + '</span></div></div>'; }).join("") + '<p style="font-size:12px;color:var(--soluk);margin-top:12px">Gerçek sistemde bildirimler WhatsApp ve uygulama bildirimi olarak gelir.</p>';
+  BIL.forEach(function (b) { b[2] = 1; }); document.getElementById("bRozet").style.display = "none";
+}
+// ---- PWA
+var yuklemeOlayi = null;
+window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); yuklemeOlayi = e; document.getElementById("yukleKose").style.display = "block"; });
+function yukleIste() { if (yuklemeOlayi) { yuklemeOlayi.prompt(); yuklemeOlayi = null; return; } var m = document.getElementById("modal"); m.style.display = "flex"; m.innerHTML = '<b style="font-size:20px">Ana ekrana ekleyin</b><p style="color:#c9ccd0;font-size:14px;margin:10px 0;max-width:280px">iPhone: Safari\'de paylaş düğmesi → "Ana Ekrana Ekle".<br>Android: Chrome menüsü → "Uygulamayı yükle".</p><button class="dg" style="max-width:200px" onclick="kapat()">Tamam</button>'; }
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function () {});
+function agDurum() { document.getElementById("cevrimdisi").style.display = navigator.onLine ? "none" : "block"; }
+window.addEventListener("online", agDurum); window.addEventListener("offline", agDurum); agDurum();
 kazaGiris();
 </script>
 </body></html>

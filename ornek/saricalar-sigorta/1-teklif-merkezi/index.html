@@ -1,213 +1,406 @@
 <!DOCTYPE html>
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Sarıcalar Sigorta · Korkuteli · 7/24 Sigorta Acentesi</title>
+<title>Sarıcalar Sigorta · Korkuteli 7/24 Sigorta Acentesi · Trafik, Kasko, DASK, TARSİM</title>
+<meta name="description" content="Korkuteli'de 7 gün 24 saat açık sigorta acentesi. Trafik, kasko, DASK, konut, sağlık ve tarım sigortasında şirket tekliflerini karşılaştırın.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"Sarıcalar Sigorta Aracılık Hizmetleri","alternateName":"Sarıcalar sigorta Bahattin Sarıcalar","telephone":"+905306077950","address":{"@type":"PostalAddress","streetAddress":"Kiremitli Mah. 861. Sk. No:14","addressLocality":"Korkuteli","addressRegion":"Antalya","postalCode":"07800","addressCountry":"TR"},"geo":{"@type":"GeoCoordinates","latitude":37.0662421,"longitude":30.1972579},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":"Korkuteli","founder":{"@type":"Person","name":"Bahattin Sarıcalar"}}</script>
 <style>
-:root{--kagit:#f4f5f2;--beyaz:#fff;--lac:#123a6b;--lac2:#0b2748;--kir:#c8202f;--yazi:#15191f;--soluk:#5b6470;--cizgi:#d8dcd6;--yesil:#1f7a3f}
+:root{--kagit:#f4f5f2;--beyaz:#fff;--lac:#123a6b;--lac2:#0b2748;--lac3:#e8eef6;--kir:#c8202f;--yazi:#15191f;--soluk:#5b6470;--cizgi:#d8dcd6;--yesil:#1f7a3f;--sari:#f2b705}
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{font-family:"Archivo",system-ui,sans-serif;background:var(--kagit);color:var(--yazi);line-height:1.55}
 a{color:inherit}
-.ic{max-width:1180px;margin:0 auto;padding:0 20px}
+button{font-family:inherit}
+.ic{max-width:1200px;margin:0 auto;padding:0 20px}
 .mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.etiket{color:var(--kir)}
 .demo{background:var(--yazi);color:#fff;text-align:center;padding:7px 12px;font-size:13px}
-nav{background:var(--beyaz);border-bottom:1px solid var(--cizgi);position:sticky;top:0;z-index:20}
-nav .ic{display:flex;align-items:center;justify-content:space-between;gap:14px;height:66px}
-.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
-.logo b{font-variation-settings:"wdth" 66;font-weight:800;font-size:27px;color:var(--lac);letter-spacing:.01em}
-.logo span{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--soluk);letter-spacing:.12em;margin-top:3px}
-nav ul{display:flex;gap:22px;list-style:none;font-size:15px;font-weight:600}
+.ustbilgi{background:var(--lac2);color:#cfd8e6;font-size:13px}
+.ustbilgi .ic{display:flex;justify-content:space-between;gap:12px;height:34px;align-items:center}
+.ustbilgi a{text-decoration:none}
+.ustbilgi .acik{color:#7fd39a;font-weight:700}
+nav{background:var(--beyaz);border-bottom:1px solid var(--cizgi);position:sticky;top:0;z-index:40}
+nav .ic{display:flex;align-items:center;justify-content:space-between;gap:14px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .m{width:44px;height:44px;background:var(--lac);color:#fff;display:grid;place-items:center;font-variation-settings:"wdth" 62;font-weight:800;font-size:24px}
+.logo b{display:block;font-variation-settings:"wdth" 64;font-weight:800;font-size:25px;color:var(--lac);line-height:1}
+.logo span{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--soluk);letter-spacing:.12em}
+nav ul{display:flex;gap:20px;list-style:none;font-size:15px;font-weight:600}
 nav ul a{text-decoration:none}
-.tel{font-weight:800;text-decoration:none;border:1.5px solid var(--lac);color:var(--lac);padding:9px 14px;white-space:nowrap}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;border-bottom:1px solid var(--cizgi);background:var(--beyaz)}
-.hero img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block}
-.hero .y{padding:46px 42px;display:flex;flex-direction:column;justify-content:center;gap:16px}
-.acik{display:inline-flex;align-items:center;gap:8px;color:var(--yesil);font-weight:700}
-.acik i{width:10px;height:10px;background:var(--yesil);border-radius:50%;display:inline-block}
-h1{font-variation-settings:"wdth" 64;font-weight:800;font-size:clamp(38px,5.6vw,66px);line-height:.98;color:var(--lac2)}
-.hero p{font-size:19px;color:var(--soluk);max-width:520px}
-.dg{display:inline-block;text-align:center;font-weight:800;text-decoration:none;padding:14px 18px;border:1.5px solid var(--lac);color:var(--lac);background:transparent;cursor:pointer;font-family:inherit;font-size:16px}
+nav ul a:hover{color:var(--kir)}
+.dg{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center;font-weight:800;text-decoration:none;padding:13px 18px;border:1.5px solid var(--lac);color:var(--lac);background:transparent;cursor:pointer;font-size:16px;line-height:1.2}
 .dg.ana{background:var(--lac);color:#fff}
 .dg.kir{background:var(--kir);border-color:var(--kir);color:#fff}
-.satir{display:flex;gap:10px;flex-wrap:wrap}
-.serit{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--cizgi);background:var(--kagit)}
+.dg.kucuk{padding:8px 12px;font-size:14px}
+.dg:disabled{opacity:.45;cursor:not-allowed}
+.satir{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;background:var(--beyaz);border-bottom:1px solid var(--cizgi)}
+.hero .foto{position:relative}
+.hero img{width:100%;height:100%;max-height:600px;object-fit:cover;display:block}
+.hero .foto figcaption{position:absolute;left:0;bottom:0;background:rgba(11,39,72,.88);color:#fff;padding:10px 14px;font-size:14px}
+.hero .y{padding:44px 42px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.durum{display:inline-flex;align-items:center;gap:8px;color:var(--yesil);font-weight:700}
+.durum i{width:10px;height:10px;background:var(--yesil);border-radius:50%;display:inline-block;animation:yan 1.6s infinite}
+@keyframes yan{50%{opacity:.25}}
+h1{font-variation-settings:"wdth" 62;font-weight:800;font-size:clamp(40px,5.6vw,68px);line-height:.96;color:var(--lac2)}
+.hero p{font-size:19px;color:var(--soluk);max-width:540px}
+.hizli{display:grid;grid-template-columns:1fr auto;border:2px solid var(--lac);background:#fff;max-width:540px}
+.hizli input{border:0;font:inherit;font-size:22px;font-weight:800;letter-spacing:.06em;padding:14px 16px;text-transform:uppercase;min-width:0}
+.hizli input:focus{outline:none;background:var(--lac3)}
+.hizli button{border:0;background:var(--lac);color:#fff;font-weight:800;font-size:16px;padding:0 20px;cursor:pointer}
+.hizli+small{color:var(--soluk);font-size:13px}
+.serit{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--cizgi)}
 .serit div{padding:18px 20px;border-right:1px solid var(--cizgi)}
-.serit b{display:block;font-variation-settings:"wdth" 70;font-size:24px;color:var(--lac)}
+.serit b{display:block;font-variation-settings:"wdth" 66;font-size:26px;color:var(--lac);line-height:1.1}
 .serit span{color:var(--soluk);font-size:14px}
-section{padding:56px 0;border-bottom:1px solid var(--cizgi)}
-h2{font-variation-settings:"wdth" 66;font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.02;color:var(--lac2);margin-bottom:8px}
-.alt{color:var(--soluk);font-size:17px;max-width:720px;margin-bottom:26px}
-/* teklif sihirbazı */
+section{padding:64px 0;border-bottom:1px solid var(--cizgi)}
+h2{font-variation-settings:"wdth" 64;font-weight:800;font-size:clamp(32px,4.2vw,48px);line-height:1;color:var(--lac2);margin:6px 0 10px}
+.alt{color:var(--soluk);font-size:17px;max-width:760px;margin-bottom:26px}
+/* sihirbaz */
 .sihir{background:var(--beyaz);border:1px solid var(--cizgi)}
-.adimlar{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--cizgi)}
-.adimlar div{padding:12px 16px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--soluk);border-right:1px solid var(--cizgi)}
-.adimlar div.on{color:var(--lac);font-weight:600;box-shadow:inset 0 -3px 0 var(--kir)}
-.panel{padding:24px}
-.brans{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--cizgi)}
-.brans button{all:unset;cursor:pointer;padding:16px;border-right:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);display:flex;flex-direction:column;gap:2px}
-.brans button b{font-variation-settings:"wdth" 75;font-size:19px}
+.adimlar{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--cizgi)}
+.adimlar div{padding:13px 16px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--soluk);border-right:1px solid var(--cizgi)}
+.adimlar div.on{color:var(--lac);font-weight:600;box-shadow:inset 0 -3px 0 var(--kir);background:var(--lac3)}
+.adimlar div.ok{color:var(--yesil)}
+.panel{padding:26px}
+.brans{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--cizgi);border-left:1px solid var(--cizgi)}
+.brans button{all:unset;box-sizing:border-box;cursor:pointer;padding:18px;border-right:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);display:flex;flex-direction:column;gap:3px;min-height:104px}
+.brans button b{font-variation-settings:"wdth" 72;font-size:21px}
 .brans button span{color:var(--soluk);font-size:13px}
-.brans button:hover,.brans button.sec{background:#eef2f7;box-shadow:inset 4px 0 0 var(--lac)}
-.alanlar{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
-label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:600}
-input,select{font:inherit;font-weight:400;padding:11px 12px;border:1px solid #b9c0c8;background:#fff;border-radius:0}
-.uyari{font-size:13px;color:var(--soluk);margin-top:12px}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--cizgi);vertical-align:top}
-th{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk);font-weight:600}
-td.fiyat{font-weight:800;font-size:18px;white-space:nowrap}
-.rozet{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;padding:2px 6px;margin-left:6px;color:#fff;background:var(--yesil)}
+.brans button em{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--kir);letter-spacing:.06em;margin-top:auto}
+.brans button:hover{background:var(--lac3);box-shadow:inset 4px 0 0 var(--lac)}
+.alanlar{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:600}
+label.f small{font-weight:400;color:var(--soluk);font-size:12px}
+input,select,textarea{font:inherit;font-weight:400;padding:11px 12px;border:1px solid #b9c0c8;background:#fff;border-radius:0;width:100%}
+input:focus,select:focus{outline:2px solid var(--lac);outline-offset:-1px}
+.hatali input,.hatali select{border-color:var(--kir);background:#fff5f5}
+.hatali small{color:var(--kir)!important}
+.kvkk{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--soluk);margin-top:16px}
+.kvkk input{width:auto;margin-top:3px}
+.yukle{padding:40px 26px}
+.yukle h3{font-variation-settings:"wdth" 70;font-size:26px;color:var(--lac2);margin-bottom:14px}
+.sirketsira{list-style:none;max-width:560px}
+.sirketsira li{display:grid;grid-template-columns:1fr auto;padding:11px 0;border-bottom:1px solid var(--cizgi);font-size:16px}
+.sirketsira li span{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--soluk)}
+.sirketsira li.ok span{color:var(--yesil);font-weight:600}
+.cubuk{height:6px;background:var(--cizgi);margin-top:16px;max-width:560px}
+.cubuk i{display:block;height:100%;width:0;background:var(--kir);transition:width .4s}
+.ust3{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.siralama{display:flex;border:1px solid var(--lac)}
+.siralama button{all:unset;cursor:pointer;padding:8px 12px;font-size:14px;font-weight:700;color:var(--lac)}
+.siralama button.on{background:var(--lac);color:#fff}
+.tablo{overflow-x:auto;border:1px solid var(--cizgi)}
+table{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
+th,td{text-align:left;padding:12px 12px;border-bottom:1px solid var(--cizgi);vertical-align:middle}
+thead th{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--soluk);font-weight:600;background:var(--kagit)}
+.matris th:first-child,.matris td:first-child{position:sticky;left:0;background:#fff;z-index:1;min-width:170px}
+.matris thead th{text-align:center;min-width:150px}
+.matris thead th:first-child{text-align:left}
+.matris td{text-align:center}
+.matris td:first-child{text-align:left;font-weight:600}
+.sirkethucre b{display:block;font-size:17px;color:var(--yazi);font-family:"Archivo",sans-serif;text-transform:none;letter-spacing:0}
+.sirkethucre .prim{display:block;font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 66;font-weight:800;font-size:26px;color:var(--lac2);text-transform:none;letter-spacing:0;margin:4px 0}
+.rozet{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;padding:2px 6px;color:#fff;background:var(--yesil);margin:2px}
 .rozet.m{background:var(--lac)}
-.tik{color:var(--yesil);font-weight:800}.yok{color:#a33}
+.var{color:var(--yesil);font-weight:800}.yok{color:#b5bcc4}
+.matris tr.taksit td{background:var(--kagit)}
+.matris tr.sec td{border-bottom:0;padding-top:16px}
+.secili{outline:3px solid var(--kir);outline-offset:-3px}
+.ozet{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;margin-top:20px}
+.ozetkutu{border:1px solid var(--cizgi);background:var(--kagit);padding:18px}
+.ozetkutu h4{font-variation-settings:"wdth" 70;font-size:21px;color:var(--lac2);margin-bottom:6px}
+.ozetkutu dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
+.ozetkutu dt{color:var(--soluk)}
+.not{font-size:13px;color:var(--soluk)}
 /* hesaplayıcılar */
-.ikili{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.kutu{background:var(--beyaz);border:1px solid var(--cizgi);padding:24px}
-.kutu h3{font-variation-settings:"wdth" 70;font-size:26px;color:var(--lac2);margin-bottom:6px}
-.basamak{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:18px 0 8px}
-.basamak div{text-align:center;padding:10px 0;border:1px solid var(--cizgi);font-family:"JetBrains Mono",monospace;font-size:13px;background:var(--kagit)}
-.basamak div.simdi{background:#dfe6ef;border-color:var(--lac)}
+.uclu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kutu{background:var(--beyaz);border:1px solid var(--cizgi);padding:22px;display:flex;flex-direction:column;gap:10px}
+.kutu h3{font-variation-settings:"wdth" 68;font-size:24px;color:var(--lac2);line-height:1.1}
+.basamak{display:grid;grid-template-columns:repeat(8,1fr);gap:3px}
+.basamak div{text-align:center;padding:9px 0;border:1px solid var(--cizgi);font-family:"JetBrains Mono",monospace;font-size:13px;background:var(--kagit)}
+.basamak div.simdi{background:var(--lac3);border-color:var(--lac)}
 .basamak div.sonra{background:var(--lac);color:#fff;border-color:var(--lac)}
-.sonuc{font-size:17px;margin-top:10px;min-height:52px}
-/* branş listesi */
-ol.liste{list-style:none;counter-reset:a;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 30px}
-ol.liste li{counter-increment:a;display:grid;grid-template-columns:40px 1fr;padding:14px 0;border-bottom:1px solid var(--cizgi)}
-ol.liste li::before{content:counter(a,decimal-leading-zero);font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--kir)}
-ol.liste b{display:block;font-size:17px}
-ol.liste span{color:var(--soluk);font-size:14px}
-.hakkinda{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}
+.sonuc{font-size:16px;min-height:48px}
+.sorgu{list-style:none}
+.sorgu li{border-bottom:1px solid var(--cizgi)}
+.sorgu a{display:flex;justify-content:space-between;gap:10px;padding:11px 0;text-decoration:none;font-weight:600}
+.sorgu a span{color:var(--soluk);font-weight:400;font-size:13px}
+/* branşlar */
+.branslar{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--cizgi);border-left:1px solid var(--cizgi);background:#fff}
+.br{border-right:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);padding:20px;display:flex;flex-direction:column;gap:6px}
+.br .no{font-family:"JetBrains Mono",monospace;color:var(--kir);font-size:12px}
+.br b{font-variation-settings:"wdth" 70;font-size:22px}
+.br p{color:var(--soluk);font-size:14px;flex:1}
+.br button{all:unset;cursor:pointer;font-weight:700;color:var(--lac);font-size:14px}
+.digerbrans{columns:3;margin-top:20px;font-size:15px}
+.digerbrans li{list-style:none;padding:6px 0;border-bottom:1px dashed var(--cizgi);break-inside:avoid}
+/* süreç */
+.surec{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--lac)}
+.surec div{padding:20px 18px 0 0}
+.surec b{display:block;font-family:"JetBrains Mono",monospace;color:var(--kir);font-size:13px;margin-bottom:6px}
+.surec h4{font-variation-settings:"wdth" 70;font-size:21px;margin-bottom:4px}
+.surec p{color:var(--soluk);font-size:15px}
+/* hakkında */
+.hakkinda{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:center}
 .hakkinda img{width:100%;display:block}
 .hakkinda p{font-size:18px;margin-bottom:12px}
-.hakkinda .imza{font-variation-settings:"wdth" 70;font-weight:800;font-size:22px;color:var(--lac)}
-.iletisim{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--beyaz);border:1px solid var(--cizgi)}
-.iletisim .y{padding:28px}
+.imza{font-variation-settings:"wdth" 68;font-weight:800;font-size:24px;color:var(--lac)}
+.degerler{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:18px;border-top:1px solid var(--cizgi)}
+.degerler div{padding:12px 12px 12px 0;border-bottom:1px solid var(--cizgi)}
+.degerler b{display:block}.degerler span{color:var(--soluk);font-size:14px}
+/* sss */
+details{border-bottom:1px solid var(--cizgi);background:#fff}
+summary{cursor:pointer;padding:18px 20px;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--kir);font-size:20px}
+details[open] summary::after{content:"–"}
+details p{padding:0 20px 18px;color:var(--soluk);max-width:860px}
+.sss{border-top:1px solid var(--cizgi);border-left:1px solid var(--cizgi);border-right:1px solid var(--cizgi)}
+/* iletişim */
+.iletisim{display:grid;grid-template-columns:1fr 1fr;background:var(--beyaz);border:1px solid var(--cizgi)}
+.iletisim .y{padding:30px}
 .iletisim dl{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;font-size:16px;margin:14px 0 20px}
 .iletisim dt{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;color:var(--soluk);padding-top:4px}
-.iletisim iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
-footer{padding:28px 0 90px;color:var(--soluk);font-size:14px}
-.altbar{position:fixed;left:0;right:0;bottom:0;display:none;z-index:30}
+.iletisim iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+footer{background:var(--lac2);color:#b9c6d8;font-size:14px;padding:36px 0 100px}
+footer .ic{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+footer b{color:#fff;display:block;margin-bottom:6px}
+footer a{text-decoration:none;display:block;padding:2px 0}
+/* modal, asistan, çerez */
+.modal{position:fixed;inset:0;background:rgba(11,20,32,.6);display:none;align-items:center;justify-content:center;z-index:80;padding:16px}
+.modal.ac{display:flex}
+.modal .ic2{background:#fff;max-width:720px;width:100%;max-height:88vh;overflow:auto;padding:28px;position:relative}
+.modal .kapat{position:absolute;top:10px;right:12px;all:unset;cursor:pointer;font-size:28px;line-height:1;padding:4px 10px}
+.modal h3{font-variation-settings:"wdth" 66;font-size:32px;color:var(--lac2);margin-bottom:12px;padding-right:30px}
+.modal h4{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;color:var(--kir);margin:16px 0 6px}
+.modal ul{padding-left:20px}
+.modal li{margin:4px 0}
+.saatler{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.saatler button{all:unset;cursor:pointer;border:1px solid var(--cizgi);padding:12px;text-align:center;font-weight:700}
+.saatler button.on{border-color:var(--lac);background:var(--lac3);color:var(--lac)}
+.asistanbtn{position:fixed;right:20px;bottom:24px;z-index:60;background:var(--lac);color:#fff;border:0;padding:14px 18px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:10px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.asistanbtn i{width:9px;height:9px;border-radius:50%;background:#7fd39a;display:inline-block}
+.asistan{position:fixed;right:20px;bottom:84px;width:370px;max-width:calc(100vw - 24px);background:#fff;border:1px solid var(--cizgi);z-index:61;display:none;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.asistan.ac{display:flex}
+.asistan header{background:var(--lac);color:#fff;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.asistan header small{display:block;color:#b9c6d8;font-size:12px}
+.asistan .akis{padding:14px;height:330px;overflow:auto;display:flex;flex-direction:column;gap:8px;background:var(--kagit)}
+.balon{max-width:85%;padding:9px 12px;font-size:14px;background:#fff;border:1px solid var(--cizgi);align-self:flex-start}
+.balon.ben{align-self:flex-end;background:var(--lac);color:#fff;border-color:var(--lac)}
+.secenek{display:flex;flex-wrap:wrap;gap:6px;padding:10px;border-top:1px solid var(--cizgi)}
+.secenek button{all:unset;cursor:pointer;border:1px solid var(--lac);color:var(--lac);padding:6px 10px;font-size:13px;font-weight:700}
+.cerez{position:fixed;left:16px;bottom:16px;max-width:430px;background:var(--yazi);color:#fff;padding:16px;z-index:70;font-size:14px;display:none}
+.cerez .satir{margin-top:10px}
+.cerez .dg{border-color:#fff;color:#fff;padding:8px 12px;font-size:14px}
+.cerez .dg.ana{background:#fff;color:var(--yazi)}
+.altbar{position:fixed;left:0;right:0;bottom:0;display:none;z-index:50}
 .altbar a{flex:1;text-align:center;padding:15px 8px;font-weight:800;text-decoration:none;color:#fff}
-@media(max-width:900px){nav ul{display:none}.hero,.ikili,.hakkinda,.iletisim{grid-template-columns:1fr}.hero .y{padding:28px 20px}.serit{grid-template-columns:1fr 1fr}.brans{grid-template-columns:1fr 1fr}.alanlar{grid-template-columns:1fr}ol.liste{grid-template-columns:1fr}.altbar{display:flex}.tel{display:none}table{font-size:13px}td.fiyat{font-size:15px}.adimlar div{font-size:10px;padding:10px 8px}}
+@media print{nav,.ustbilgi,.demo,.hero,.serit,section:not(#teklif),footer,.asistanbtn,.altbar,.adimlar,.satir,.cerez{display:none!important}#teklif{padding:0}}
+@media(max-width:980px){nav ul{display:none}.hero,.hakkinda,.iletisim,.ozet{grid-template-columns:1fr}.hero .y{padding:28px 20px}.serit{grid-template-columns:1fr 1fr}.serit div:last-child{grid-column:1/-1}.brans{grid-template-columns:1fr 1fr}.alanlar,.uclu,.branslar{grid-template-columns:1fr}.surec{grid-template-columns:1fr 1fr}.digerbrans{columns:1}.altbar{display:flex}.asistanbtn{bottom:64px;right:12px;padding:11px 14px}.asistan{bottom:120px;right:12px}.adimlar div{font-size:10px;padding:10px 6px}.ustbilgi .gizle{display:none}footer .ic{grid-template-columns:1fr}.panel{padding:18px}nav .dg{display:none}.degerler{grid-template-columns:1fr}}
+
+/* === TEMA v2 === */
+.logo .m{background:none;width:40px;height:46px;display:block}
+.logo .m svg{width:40px;height:46px;display:block}
+.hero{background:var(--lac2);color:#fff;border-bottom:0;grid-template-columns:1fr 1fr}
+.hero .y{padding:56px 48px 52px}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;color:#fff;box-shadow:inset 0 -.16em 0 var(--kir)}
+.hero p{color:#c3cfdf}
+.hero .durum{color:#7fd39a}.hero .durum i{background:#7fd39a}
+.hero .hizli{border-color:#fff}
+.hero .hizli button{background:var(--kir)}
+.hero .hizli+small{color:#9fb0c6}.hero .hizli+small a{color:#fff}
+.hero .foto{order:2}
+.hero img{max-height:640px;min-height:520px}
+.hero .foto figcaption{background:var(--kir)}
+.guven{display:flex;gap:22px;flex-wrap:wrap;margin-top:6px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:#9fb0c6;text-transform:uppercase}
+.guven span::before{content:"■ ";color:var(--kir)}
+.serit{background:#fff}
+.serit b{font-size:34px}
+.bas-no{display:block;font-variation-settings:"wdth" 62;font-weight:800;font-size:15px;color:var(--kir);letter-spacing:.04em;margin-bottom:4px}
+#hasar{background:var(--lac2);color:#fff;border-bottom:0}
+#hasar h2{color:#fff}#hasar .alt{color:#c3cfdf}
+#hasar .surec{border-top-color:var(--kir)}
+#hasar .surec p{color:#c3cfdf}
+#hasar .etiket{color:#ff8a8f}
+#hasar .dg:not(.kir){border-color:#fff;color:#fff}
+.br{transition:background .15s}.br:hover{background:var(--lac3)}
+#sss{background:#fff}
+.hakkinda img{box-shadow:12px 12px 0 var(--lac2)}
+@media(max-width:980px){.hero{grid-template-columns:1fr}.hero .foto{order:0}.hero img{min-height:300px;max-height:380px}.hero .y{padding:30px 20px}}
 </style></head><body>
-<div class="demo">Dijitabela tarafından Sarıcalar Sigorta için hazırlanmış çalışan taslaktır · fiyatlar ve şirketler ÖRNEKTİR</div>
+<div class="demo">Dijitabela tarafından Sarıcalar Sigorta için hazırlanmış çalışan taslaktır · şirket adları, fiyatlar ve teminatlar ÖRNEKTİR</div>
+<div class="ustbilgi"><div class="ic"><span><span class="acik">● 7/24 açık</span> <span class="gizle">· Kaza ve hasar anında gece de ulaşabilirsiniz</span></span><span><a href="tel:+905306077950">☎ 0530 607 79 50</a><span class="gizle"> · Kiremitli Mah. 861. Sk. No:14 Korkuteli</span></span></div></div>
 <nav><div class="ic">
-  <a class="logo" href="#"><b>SARICALAR SİGORTA</b><span>ARACILIK HİZMETLERİ · KORKUTELİ</span></a>
-  <ul><li><a href="#teklif">Teklif al</a></li><li><a href="#araclar">Hesaplayıcılar</a></li><li><a href="#branslar">Branşlar</a></li><li><a href="#hakkimizda">Hakkımızda</a></li><li><a href="#iletisim">İletişim</a></li></ul>
-  <a class="tel" href="tel:+905306077950">0530 607 79 50</a>
+  <a class="logo" href="#"><span class="m"><svg viewBox="0 0 40 46" aria-hidden="true"><path d="M20 1 L38 7 V21 C38 33 30 41 20 45 C10 41 2 33 2 21 V7 Z" fill="#123a6b"/><path d="M20 6 L33 10.5 V21 C33 30 27.5 36 20 39.5 Z" fill="#c8202f"/><text x="12.5" y="29" font-family="Archivo,sans-serif" font-weight="800" font-size="20" fill="#fff">S</text></svg></span><span><b>SARICALAR SİGORTA</b><span>ARACILIK HİZMETLERİ · KORKUTELİ</span></span></a>
+  <ul><li><a href="#teklif">Teklif al</a></li><li><a href="#araclar">Araçlar</a></li><li><a href="#branslar">Branşlar</a></li><li><a href="#hasar">Hasar</a></li><li><a href="#sss">Sorular</a></li><li><a href="#iletisim">İletişim</a></li></ul>
+  <button class="dg ana kucuk" onclick="ara()">Sizi arayalım</button>
 </div></nav>
 
 <header class="hero">
-  <img src="../img/bahattin.jpg" alt="Bahattin Sarıcalar, Sarıcalar Sigorta ofisinde">
+  <figure class="foto"><img src="../img/bahattin.jpg" alt="Bahattin Sarıcalar, Korkuteli'deki ofisinde"><figcaption>Bahattin Sarıcalar · Korkuteli ofisi</figcaption></figure>
   <div class="y">
-    <span class="acik"><i></i> Şu an açık · 7 gün 24 saat</span>
-    <h1>Korkuteli'nin gece gündüz açık sigorta acentesi.</h1>
-    <p>Trafik, kasko, DASK, konut, sağlık ve tarım sigortası. Birden fazla şirketin teklifini karşılaştırıp size en uygununu söylüyoruz. Kaza anında da telefonun ucundayız.</p>
-    <div class="satir"><a class="dg ana" href="#teklif">3 dakikada teklif al</a><a class="dg" href="https://wa.me/905306077950" target="_blank">WhatsApp'tan yaz</a></div>
-    <span class="mono" style="color:var(--soluk)">Kiremitli Mah. 861. Sk. No:14 · Korkuteli / Antalya</span>
+    <span class="durum"><i></i> <span id="durumYazi">Şu an açık · 7 gün 24 saat</span></span>
+    <h1>Korkuteli'nin <em>gece gündüz</em> açık sigorta acentesi.</h1>
+    <p>Trafik, kasko, DASK, konut, sağlık ve tarım sigortası. Birden fazla şirketin teklifini karşılaştırıp size en uygununu söylüyoruz; kaza anında da telefonun ucundayız.</p>
+    <form class="hizli" onsubmit="event.preventDefault();hizliBasla()"><input id="hizliPlaka" placeholder="07 ABC 123" maxlength="11" aria-label="Plaka"><button>Trafik / kasko teklifi →</button></form>
+    <small>Plakanızı yazın, teklif sihirbazı kaldığınız yerden devam etsin. Konut, DASK, sağlık ve tarım için <a href="#teklif">buradan</a>.</small>
+    <div class="guven"><span>Yetkili sigorta aracısı</span><span>Çoklu şirket</span><span>KVKK uyumlu</span><span>Hasar takibi</span></div>
   </div>
 </header>
 <div class="serit">
   <div><b>4,5 ★</b><span>Google'da 4 yorum</span></div>
-  <div><b>7/24</b><span>Hasar ve kaza anında ulaşılabilir</span></div>
-  <div><b>19 branş</b><span>Araçtan tarlaya, evden işyerine</span></div>
-  <div><b>Çoklu teklif</b><span>Tek şirkete bağlı kalmadan karşılaştırma</span></div>
+  <div><b>7/24</b><span>Gece de ulaşılabilir</span></div>
+  <div><b>19 branş</b><span>Araçtan tarlaya</span></div>
+  <div><b>Çoklu teklif</b><span>Tek şirkete bağlı değiliz</span></div>
+  <div><b>Hasar takibi</b><span>Dosya kapanana kadar yanınızda</span></div>
 </div>
 
+<!-- TEKLİF -->
 <section id="teklif"><div class="ic">
-  <span class="mono" style="color:var(--kir)">Hızlı teklif</span>
+  <span class="bas-no">01 · TEKLİF</span><span class="mono etiket">Hızlı teklif · 3 dakika</span>
   <h2>Ne sigortalatmak istiyorsunuz?</h2>
-  <p class="alt">Branşı seçin, birkaç bilgi girin; şirketlerin tekliflerini yan yana görün. Seçtiğiniz teklif bilgileriyle birlikte Bahattin Bey'in WhatsApp'ına düşer.</p>
+  <p class="alt">Branşı seçin, birkaç bilgi girin; şirketlerin tekliflerini ve teminatlarını yan yana görün. Seçtiğiniz teklif bilgileriyle birlikte Bahattin Bey'e ulaşır, poliçeniz dakikalar içinde kesilir.</p>
   <div class="sihir">
-    <div class="adimlar"><div class="on" id="a1">1 · Branş</div><div id="a2">2 · Bilgiler</div><div id="a3">3 · Teklifler</div></div>
-    <div class="panel" id="p1">
-      <div class="brans" id="bransSec"></div>
-    </div>
+    <div class="adimlar"><div class="on" id="a1">1 · Branş</div><div id="a2">2 · Bilgiler</div><div id="a3">3 · Karşılaştır</div><div id="a4">4 · Onay</div></div>
+    <div class="panel" id="p1"><div class="brans" id="bransSec"></div></div>
     <div class="panel" id="p2" hidden>
-      <h3 id="p2baslik" style="font-variation-settings:'wdth' 70;font-size:26px;color:var(--lac2);margin-bottom:12px"></h3>
+      <div class="ust3"><div><span class="mono etiket" id="p2etiket"></span><h3 id="p2baslik" style="font-variation-settings:'wdth' 68;font-size:30px;color:var(--lac2)"></h3></div><span class="not" id="p2not"></span></div>
       <div class="alanlar" id="alanlar"></div>
-      <p class="uyari">T.C. kimlik numaranızı burada istemiyoruz; poliçe aşamasında telefonda, güvenli şekilde alınır (KVKK).</p>
-      <div class="satir" style="margin-top:18px"><button class="dg" onclick="git(1)">← Geri</button><button class="dg ana" onclick="teklifGetir()">Teklifleri göster</button></div>
+      <label class="kvkk"><input type="checkbox" id="kvkkOk"> <span>Bilgilerimin teklif hazırlamak amacıyla işlenmesine ilişkin <a href="#" onclick="kvkk();return false">aydınlatma metnini</a> okudum. T.C. kimlik numaranız bu formda istenmez; poliçe aşamasında güvenli şekilde alınır.</span></label>
+      <div class="satir" style="margin-top:18px"><button class="dg" onclick="git(1)">← Branşı değiştir</button><button class="dg ana" onclick="dogrulaVeGetir()">Teklifleri getir →</button></div>
+    </div>
+    <div class="yukle" id="pY" hidden>
+      <h3 id="yukBaslik">Teklifler alınıyor…</h3>
+      <ul class="sirketsira" id="sirketSira"></ul>
+      <div class="cubuk"><i id="cubuk"></i></div>
+      <p class="not" style="margin-top:10px">Gerçek sistemde teklifler acentenin yetkili olduğu şirketlerden çekilir; bu ekran örnektir.</p>
     </div>
     <div class="panel" id="p3" hidden>
-      <h3 style="font-variation-settings:'wdth' 70;font-size:26px;color:var(--lac2)" id="p3baslik"></h3>
-      <p class="uyari" style="margin:4px 0 14px">Bu ekrandaki şirketler ve fiyatlar ÖRNEKTİR. Gerçek sistemde teklifler, acentenin yetkili olduğu şirketlerden anlık gelir.</p>
-      <div style="overflow-x:auto"><table><thead><tr><th>Şirket</th><th>Prim</th><th>Teminat özeti</th><th>Taksit</th><th></th></tr></thead><tbody id="teklifler"></tbody></table></div>
-      <div class="satir" style="margin-top:18px"><button class="dg" onclick="git(2)">← Bilgileri değiştir</button></div>
+      <div class="ust3">
+        <div><span class="mono etiket" id="p3etiket"></span><h3 id="p3baslik" style="font-variation-settings:'wdth' 68;font-size:30px;color:var(--lac2)"></h3></div>
+        <div class="satir"><span class="not">Sırala:</span><div class="siralama"><button class="on" data-s="fiyat">Fiyat</button><button data-s="teminat">Teminat</button></div>
+        <label class="f" style="flex-direction:row;align-items:center;gap:8px">Taksit<select id="taksit" style="width:auto;padding:8px"><option value="1">Peşin</option><option value="3">3 taksit</option><option value="6">6 taksit</option><option value="9">9 taksit</option><option value="12">12 taksit</option></select></label></div>
+      </div>
+      <div class="tablo"><table class="matris" id="matris"></table></div>
+      <p class="not" style="margin-top:10px">Şirket adları, primler ve teminatlar ÖRNEKTİR. Taksit seçenekleri şirkete ve kartınıza göre değişir. Gri "–" o teminatın pakette olmadığını gösterir.</p>
+    </div>
+    <div class="panel" id="p4" hidden>
+      <span class="mono etiket">Son adım</span>
+      <h3 style="font-variation-settings:'wdth' 68;font-size:30px;color:var(--lac2)">Teklifiniz hazır, nasıl devam edelim?</h3>
+      <div class="ozet">
+        <div class="ozetkutu"><h4 id="ozBaslik"></h4><dl id="ozBilgi"></dl></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a class="dg kir" id="waGonder" target="_blank">WhatsApp'tan Bahattin Bey'e gönder</a>
+          <button class="dg ana" onclick="ara()">Sizi arayalım</button>
+          <button class="dg" onclick="window.print()">Teklif özetini yazdır / PDF</button>
+          <button class="dg" onclick="git(3)">← Diğer tekliflere dön</button>
+          <p class="not">Poliçeniz onayınızdan sonra kesilir; ödeme kartla, havaleyle ya da ofiste yapılabilir.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div></section>
 
+<!-- ARAÇLAR -->
 <section id="araclar"><div class="ic">
-  <span class="mono" style="color:var(--kir)">Bilmeniz gerekenler</span>
-  <h2>İki küçük araç, iki büyük soru.</h2>
-  <p class="alt">"Trafik sigortam neden pahalandı?" ve "DASK'ım ne zaman bitiyor?" — en çok sorulan iki soruyu burada cevaplıyoruz.</p>
-  <div class="ikili">
+  <span class="bas-no">02 · ARAÇLAR</span><span class="mono etiket">Bilmeniz gerekenler</span>
+  <h2>Üç küçük araç, en çok sorulan üç soru.</h2>
+  <p class="alt">"Trafik sigortam neden pahalandı?", "DASK'ım ne zaman bitiyor?", "Poliçemi nereden sorgularım?"</p>
+  <div class="uclu">
     <div class="kutu">
-      <h3>Trafik sigortası basamak hesaplayıcı</h3>
-      <p class="uyari" style="margin-top:0">Hasarsızlık basamağınız primi doğrudan etkiler. Bu yıl kaç hasar ödendiğini seçin, gelecek yılki basamağınızı görün.</p>
-      <div class="alanlar" style="grid-template-columns:1fr 1fr;margin-top:14px">
-        <label>Şu anki basamağınız<select id="bas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
-        <label>Bu poliçe döneminde ödenen hasar<select id="has"><option value="0">Hasar yok</option><option value="1">1 hasar</option><option value="2">2 hasar</option><option value="3">3 ve üzeri</option></select></label>
+      <h3>Trafik basamak hesaplayıcı</h3>
+      <p class="not">Bu dönem ödenen hasar sayısını seçin; gelecek yılki basamağınızı görün.</p>
+      <div class="alanlar" style="grid-template-columns:1fr 1fr">
+        <label class="f">Şu anki basamak<select id="bas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+        <label class="f">Ödenen hasar<select id="has"><option value="0">Yok</option><option value="1">1</option><option value="2">2</option><option value="3">3+</option></select></label>
       </div>
       <div class="basamak" id="basGorsel"></div>
       <div class="sonuc" id="basSonuc"></div>
-      <p class="uyari">İlk kez trafik sigortası yaptıran araç 4. basamaktan başlar. Basamak başına indirim/artış oranları her yıl tarifede belirlenir; kesin primi acentemiz söyler. Basamağınızı SBM üzerinden birlikte kontrol edebiliriz.</p>
+      <p class="not">İlk kez sigortalanan araç 4. basamaktan başlar. Basamak oranları her yıl tarifede belirlenir; kesin primi acentemiz söyler.</p>
     </div>
     <div class="kutu">
-      <h3>DASK bitiş hatırlatıcısı</h3>
-      <p class="uyari" style="margin-top:0">Zorunlu deprem sigortası (DASK) bitince elektrik-su aboneliği ve tapu işlemlerinde sorun çıkar; deprem olursa teminat olmaz. Bitiş tarihini girin, telefonunuzun takvimine hatırlatma ekleyin.</p>
-      <div class="alanlar" style="grid-template-columns:1fr 1fr;margin-top:14px">
-        <label>Poliçe bitiş tarihi<input type="date" id="daskT"></label>
-        <label>Ne kadar önce hatırlatalım?<select id="daskG"><option value="30">30 gün önce</option><option value="15" selected>15 gün önce</option><option value="7">7 gün önce</option></select></label>
+      <h3>DASK / poliçe bitiş hatırlatıcısı</h3>
+      <p class="not">Bitiş tarihini girin; telefonunuzun takvimine hatırlatma ekleyin.</p>
+      <div class="alanlar" style="grid-template-columns:1fr 1fr">
+        <label class="f">Poliçe<select id="pTur"><option>DASK</option><option>Trafik</option><option>Kasko</option><option>Konut</option><option>Sağlık</option><option>TARSİM</option></select></label>
+        <label class="f">Bitiş tarihi<input type="date" id="daskT"></label>
       </div>
+      <label class="f">Ne kadar önce?<select id="daskG"><option value="30">30 gün önce</option><option value="15" selected>15 gün önce</option><option value="7">7 gün önce</option></select></label>
       <div class="sonuc" id="daskSonuc"></div>
-      <div class="satir"><button class="dg ana" onclick="daskIcs()">Takvimime ekle</button><a class="dg" href="https://www.dask.gov.tr" target="_blank" rel="noopener">DASK poliçe sorgula ↗</a></div>
-      <p class="uyari">Gerçek sistemde poliçesi bizden olan herkese bitişten önce otomatik WhatsApp hatırlatması gider.</p>
+      <button class="dg ana" onclick="daskIcs()">Takvimime ekle</button>
+    </div>
+    <div class="kutu">
+      <h3>Resmî sorgular</h3>
+      <p class="not">Poliçenizi, araç hasar kaydınızı ve DASK durumunuzu resmî kaynaklardan kontrol edin.</p>
+      <ul class="sorgu">
+        <li><a href="https://www.turkiye.gov.tr/sbm-sigorta-police-bilgileri" target="_blank" rel="noopener">Sigorta poliçelerim <span>e-Devlet · SBM ↗</span></a></li>
+        <li><a href="https://www.turkiye.gov.tr/sbm-arac-hasar-kaydi-sorgulama" target="_blank" rel="noopener">Araç hasar kaydı <span>e-Devlet · SBM ↗</span></a></li>
+        <li><a href="https://www.dask.gov.tr" target="_blank" rel="noopener">DASK poliçe sorgu <span>dask.gov.tr ↗</span></a></li>
+        <li><a href="https://www.tarsim.gov.tr" target="_blank" rel="noopener">Tarım sigortası bilgi <span>tarsim.gov.tr ↗</span></a></li>
+      </ul>
+      <p class="not">Sorgu sonucunu anlamadıysanız ekran görüntüsünü WhatsApp'tan gönderin, birlikte bakalım.</p>
     </div>
   </div>
 </div></section>
 
+<!-- BRANŞLAR -->
 <section id="branslar"><div class="ic">
-  <span class="mono" style="color:var(--kir)">Hizmetlerimiz</span>
+  <span class="bas-no">03 · BRANŞLAR</span><span class="mono etiket">Hizmetlerimiz</span>
   <h2>19 branşta sigorta.</h2>
-  <p class="alt">Korkuteli'de aracınız, eviniz, işyeriniz, tarlanız ve sağlığınız için.</p>
-  <ol class="liste">
-    <li><div><b>Zorunlu Trafik</b><span>Basamak kontrolü, kısa süreli trafik</span></div></li>
-    <li><div><b>Kasko</b><span>Tam, dar, mini kasko; ikame araç</span></div></li>
-    <li><div><b>DASK</b><span>Zorunlu deprem sigortası</span></div></li>
-    <li><div><b>Konut</b><span>Eşya, cam kırılması, su baskını</span></div></li>
-    <li><div><b>Tamamlayıcı Sağlık</b><span>SGK anlaşmalı hastanelerde fark ücreti</span></div></li>
-    <li><div><b>Özel Sağlık</b><span>Yatarak ve ayakta tedavi</span></div></li>
-    <li><div><b>Tarım (TARSİM)</b><span>Elma, kiraz, hububat, sera, hayvan</span></div></li>
-    <li><div><b>İşyeri / Yangın</b><span>Dükkân, depo, emtia</span></div></li>
-    <li><div><b>Ferdi Kaza</b><span>Kendiniz ve çalışanlarınız için</span></div></li>
-    <li><div><b>Seyahat Sağlık</b><span>Vize başvurusu için</span></div></li>
-    <li><div><b>Yabancı Sağlık</b><span>İkamet izni için</span></div></li>
-    <li><div><b>Yeşil Kart</b><span>Yurt dışına araçla çıkış</span></div></li>
-    <li><div><b>İnşaat All Risk</b><span>Şantiye ve yapı süreci</span></div></li>
-    <li><div><b>Bina Tamamlama</b><span>Müteahhit ve kat maliki için</span></div></li>
-    <li><div><b>Mühendislik</b><span>Makine kırılması, elektronik cihaz</span></div></li>
-    <li><div><b>Sorumluluk</b><span>Mesleki, işveren, üçüncü şahıs</span></div></li>
-    <li><div><b>Nakliyat</b><span>Emtia ve yük sigortası</span></div></li>
-    <li><div><b>Otel Paket</b><span>Konaklama işletmeleri</span></div></li>
-    <li><div><b>Kısa Süreli Trafik</b><span>Satış, transfer ve geçiş için</span></div></li>
-  </ol>
+  <p class="alt">En çok sorulan altı branşın ne karşıladığını, ne karşılamadığını ve hangi belgelerin gerektiğini açıkça yazdık.</p>
+  <div class="branslar" id="bransKart"></div>
+  <ul class="digerbrans">
+    <li>Özel sağlık sigortası</li><li>Seyahat sağlık (vize)</li><li>Yabancı sağlık (ikamet)</li><li>Ferdi kaza</li><li>Yeşil kart</li><li>İnşaat all risk</li><li>Bina tamamlama</li><li>Mühendislik sigortaları</li><li>Sorumluluk sigortaları</li><li>Nakliyat</li><li>Otel paket</li><li>Kısa süreli trafik</li><li>Yat sigortası</li>
+  </ul>
 </div></section>
 
+<!-- HASAR -->
+<section id="hasar"><div class="ic">
+  <span class="bas-no">04 · HASAR</span><span class="mono etiket">Hasar anında</span>
+  <h2>Kaza oldu. Şimdi ne olacak?</h2>
+  <p class="alt">Hasar dosyanızı biz açarız, eksper ve servis sürecini biz takip ederiz. Size düşen dört adım:</p>
+  <div class="surec">
+    <div><b>01</b><h4>Güvenlik</h4><p>Yaralı varsa 112, anlaşamazsanız 155. Araçları oynatmadan önce fotoğraf çekin.</p></div>
+    <div><b>02</b><h4>Tutanak</h4><p>Anlaşmalı kaza tespit tutanağını iki taraf birlikte doldurup imzalar.</p></div>
+    <div><b>03</b><h4>Bize gönderin</h4><p>Tutanak, ehliyet, ruhsat ve fotoğrafları WhatsApp'tan iletin; gece de olur.</p></div>
+    <div><b>04</b><h4>Takip bizde</h4><p>İhbar, eksper, servis ve ödeme aşamalarını size haber veririz.</p></div>
+  </div>
+  <div class="satir" style="margin-top:24px"><a class="dg kir" href="../2-kaza-asistani/">Kaza anı asistanını aç</a><a class="dg" href="https://wa.me/905306077950?text=Merhaba%2C%20hasar%20bildirmek%20istiyorum." target="_blank">Hasar bildir</a></div>
+</div></section>
+
+<!-- HAKKINDA -->
 <section id="hakkimizda"><div class="ic hakkinda">
   <img src="../img/dukkan.jpg" alt="Sarıcalar Sigorta dükkânı, Korkuteli">
   <div>
-    <span class="mono" style="color:var(--kir)">Hakkımızda</span>
+    <span class="mono etiket">Hakkımızda</span>
     <h2 style="margin-bottom:16px">Kendime yapılmasını istemediğimi müşterime yapmam.</h2>
-    <p>Sarıcalar Sigorta, Korkuteli Kiremitli Mahallesi'nde Bahattin Sarıcalar'ın yönettiği bir sigorta aracılık acentesidir. Gece gündüz telefonumuz açık; kaza anında dosyanız kapanana kadar yanınızdayız.</p>
+    <p>Sarıcalar Sigorta, Korkuteli Kiremitli Mahallesi'nde Bahattin Sarıcalar'ın yönettiği sigorta aracılık acentesidir. Gece gündüz telefonumuz açık; kaza anında dosyanız kapanana kadar yanınızdayız.</p>
     <p>Tek bir şirkete bağlı kalmıyoruz: ihtiyacınıza en uygun teminatı ve fiyatı birlikte buluyoruz.</p>
     <p class="imza">— Bahattin Sarıcalar</p>
+    <div class="degerler">
+      <div><b>Açık konuşuruz</b><span>Neyin karşılanıp neyin karşılanmadığını baştan söyleriz.</span></div>
+      <div><b>Gece de buradayız</b><span>Kaza saat sormaz; biz de sormayız.</span></div>
+      <div><b>Karşılaştırırız</b><span>Size tek şirketin değil, birkaç şirketin teklifini getiririz.</span></div>
+      <div><b>Takip ederiz</b><span>Poliçe bitmeden haber veririz, hasarda süreci biz yürütürüz.</span></div>
+    </div>
   </div>
+</div></section>
+
+<!-- SSS -->
+<section id="sss"><div class="ic">
+  <span class="bas-no">06 · SORULAR</span><span class="mono etiket">Sık sorulanlar</span>
+  <h2>Merak edilenler.</h2>
+  <div class="sss" id="sssKutu" style="margin-top:20px"></div>
 </div></section>
 
 <section id="iletisim" style="border-bottom:0"><div class="ic">
   <div class="iletisim">
     <div class="y">
+      <span class="mono etiket">İletişim</span>
       <h2>Bize ulaşın</h2>
       <dl>
         <dt>TELEFON</dt><dd><a href="tel:+905306077950"><b>0530 607 79 50</b></a></dd>
@@ -216,95 +409,214 @@ footer{padding:28px 0 90px;color:var(--soluk);font-size:14px}
         <dt>SAAT</dt><dd>7 gün 24 saat</dd>
         <dt>LEVHA NO</dt><dd>[SEDDK levha kayıt no · EKSİK]</dd>
       </dl>
-      <div class="satir"><a class="dg ana" href="https://maps.google.com/?cid=785002776969874951" target="_blank">Yol tarifi</a><a class="dg" href="tel:+905306077950">Hemen ara</a></div>
+      <div class="satir"><a class="dg ana" href="https://maps.google.com/?cid=785002776969874951" target="_blank">Yol tarifi</a><button class="dg" onclick="ara()">Sizi arayalım</button></div>
     </div>
     <iframe loading="lazy" title="Harita" src="https://maps.google.com/maps?q=37.0662421,30.1972579&z=16&output=embed"></iframe>
   </div>
 </div></section>
-<footer class="ic">© Sarıcalar Sigorta Aracılık Hizmetleri · Korkuteli / Antalya · Bu site taslağı Dijitabela tarafından hazırlanmıştır.</footer>
+
+<footer><div class="ic">
+  <div><b>Sarıcalar Sigorta Aracılık Hizmetleri</b>Kiremitli Mah. 861. Sk. No:14, 07800 Korkuteli / Antalya<br>0530 607 79 50 · 7/24<br>Levha kayıt no: [EKSİK]</div>
+  <div><b>Sigorta</b><a href="#teklif">Trafik</a><a href="#teklif">Kasko</a><a href="#teklif">DASK</a><a href="#teklif">TARSİM</a></div>
+  <div><b>Kurumsal</b><a href="#" onclick="kvkk();return false">KVKK aydınlatma metni</a><a href="#" onclick="cerezAc();return false">Çerez tercihleri</a><a href="#hakkimizda">Hakkımızda</a></div>
+</div><div class="ic" style="display:block;margin-top:20px;font-size:12px">© Sarıcalar Sigorta · Bu site taslağı Dijitabela tarafından hazırlanmıştır.</div></footer>
+
+<button class="asistanbtn" onclick="asistan()"><i></i> 7/24 dijital asistan</button>
+<div class="asistan" id="asistan"><header><div><b>Sarıcalar dijital asistan</b><small>Gece de cevap verir · fiyatı Bahattin Bey'e devreder</small></div><button onclick="asistan()" style="all:unset;cursor:pointer;font-size:22px">×</button></header><div class="akis" id="akis"></div><div class="secenek" id="secenek"></div></div>
+<div class="modal" id="modal"><div class="ic2"><button class="kapat" onclick="kapat()">×</button><div id="modalIc"></div></div></div>
+<div class="cerez" id="cerez">Bu sitede yalnızca zorunlu çerezler ve izin verirseniz ziyaret istatistiği kullanılır. <div class="satir"><button class="dg ana" onclick="cerez(1)">Kabul et</button><button class="dg" onclick="cerez(0)">Yalnız zorunlu</button></div></div>
 <div class="altbar"><a href="tel:+905306077950" style="background:var(--lac)">Ara</a><a href="https://wa.me/905306077950" target="_blank" style="background:var(--yesil)">WhatsApp</a><a href="#teklif" style="background:var(--kir)">Teklif al</a></div>
 
 <script>
 var WA = "905306077950";
+function tl(n) { return (Math.round(n / 10) * 10).toLocaleString("tr-TR") + " ₺"; }
+function wa(m) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(m); }
+var PLAKA = /^(0[1-9]|[1-7][0-9]|8[01])\s?[A-ZÇĞİÖŞÜ]{1,3}\s?\d{2,4}$/;
+var MARKA = { "Fiat": ["Egea", "Doblo", "Linea", "Fiorino"], "Renault": ["Clio", "Megane", "Fluence", "Taliant"], "Toyota": ["Corolla", "C-HR", "Hilux"], "Volkswagen": ["Passat", "Golf", "Polo", "Caddy"], "Ford": ["Focus", "Courier", "Transit", "Ranger"], "Hyundai": ["i20", "Accent", "Tucson"], "Dacia": ["Duster", "Sandero"], "Opel": ["Astra", "Corsa"], "Peugeot": ["301", "2008", "Partner"], "Tofaş": ["Şahin", "Doğan", "Kartal"], "Traktör · Tümosan": ["8105", "5055", "8085"], "Traktör · New Holland": ["TD", "TT", "Fiat serisi"], "Traktör · Massey Ferguson": ["240", "2635", "3709"] };
 var BRANS = {
-  trafik: { ad: "Zorunlu Trafik", not: "Plaka ile hızlı", alan: [["Plaka", "text", "07 ABC 123"], ["Ruhsat seri no", "text", "AB 123456"], ["Kullanım", ["Hususi otomobil", "Ticari", "Kamyonet", "Traktör", "Motosiklet"]], ["Sürücü doğum yılı", "number", "1980"]], baz: 9800 },
-  kasko: { ad: "Kasko", not: "Tam / dar / mini", alan: [["Plaka", "text", "07 ABC 123"], ["Marka / model", "text", "Fiat Egea 1.4"], ["Model yılı", "number", "2019"], ["Kasko türü", ["Tam kasko", "Dar kasko", "Mini kasko"]], ["İkame araç", ["İstemiyorum", "7 gün", "15 gün"]], ["Hasarsızlık", ["Bilmiyorum", "0 yıl", "1 yıl", "2 yıl", "3+ yıl"]]], baz: 21500 },
-  dask: { ad: "DASK", not: "Zorunlu deprem", alan: [["İlçe / mahalle", "text", "Korkuteli / Kiremitli"], ["Brüt m²", "number", "120"], ["Yapı tarzı", ["Betonarme", "Yığma kagir", "Diğer"]], ["Bina kat sayısı", ["1–3", "4–7", "8+"]], ["İnşa yılı", ["2000 öncesi", "2000–2006", "2007 sonrası"]]], baz: 1450 },
-  konut: { ad: "Konut", not: "Eşya ve bina", alan: [["Brüt m²", "number", "120"], ["Eşya bedeli (₺)", "number", "300000"], ["Ek teminat", ["Cam kırılması", "Su baskını", "Hırsızlık", "Hepsi"]]], baz: 2600 },
-  tss: { ad: "Tamamlayıcı Sağlık", not: "SGK + özel hastane", alan: [["Kişi sayısı", "number", "3"], ["En büyük yaş", "number", "45"], ["Kapsam", ["Yatarak", "Yatarak + ayakta"]], ["Tercih edilen il", "text", "Antalya"]], baz: 7900 },
-  isyeri: { ad: "İşyeri", not: "Yangın ve hırsızlık", alan: [["Faaliyet", "text", "Market"], ["Emtia bedeli (₺)", "number", "750000"], ["Bina sizin mi?", ["Kira", "Kendi mülkü"]]], baz: 5200 },
-  tarim: { ad: "Tarım (TARSİM)", not: "Devlet destekli", alan: [["Ürün", ["Elma", "Kiraz", "Buğday", "Arpa", "Nohut", "Sera", "Büyükbaş hayvan"]], ["Alan (dekar) / adet", "number", "20"], ["Köy / mevki", "text", "Korkuteli"]], baz: 3400 },
-  seyahat: { ad: "Seyahat Sağlık", not: "Vize için", alan: [["Gidilecek ülke", "text", "Almanya"], ["Gün sayısı", "number", "15"], ["Yaş", "number", "35"]], baz: 650 }
+  trafik: { ad: "Zorunlu Trafik", not: "Plaka ile hızlı", et: "Yasal zorunluluk", baz: 9800, alan: [{ ad: "Plaka", t: "plaka", z: 1 }, { ad: "Ruhsat seri no", t: "text", ph: "AB 123456", z: 1, kucuk: "Ruhsatın sağ üst köşesinde" }, { ad: "Kullanım", t: ["Hususi otomobil", "Ticari otomobil", "Kamyonet", "Traktör", "Minibüs", "Motosiklet"] }, { ad: "Sürücü doğum yılı", t: "number", ph: "1980" }] },
+  kasko: { ad: "Kasko", not: "Tam / dar / mini", et: "Kendi aracınız için", baz: 21500, alan: [{ ad: "Plaka", t: "plaka", z: 1 }, { ad: "Marka", t: "marka", z: 1 }, { ad: "Model", t: "model", z: 1 }, { ad: "Model yılı", t: "yil", z: 1 }, { ad: "Kasko türü", t: ["Tam kasko", "Dar kasko", "Mini kasko"] }, { ad: "İkame araç", t: ["İstemiyorum", "7 gün", "15 gün"] }, { ad: "Önceki kasko", t: ["Yok", "Var · hasarsız", "Var · hasarlı"] }] },
+  dask: { ad: "DASK", not: "Zorunlu deprem", et: "Konut için zorunlu", baz: 1450, alan: [{ ad: "Mahalle / köy", t: "text", ph: "Kiremitli", z: 1 }, { ad: "Brüt m²", t: "number", ph: "120", z: 1 }, { ad: "Yapı tarzı", t: ["Betonarme", "Yığma kagir", "Diğer"] }, { ad: "Bina kat sayısı", t: ["1–3", "4–7", "8+"] }, { ad: "İnşa yılı", t: ["2000 öncesi", "2000–2006", "2007 sonrası"] }, { ad: "UAVT adres kodu", t: "text", ph: "Bilmiyorsanız boş bırakın", kucuk: "e-Devlet adres bilgilerinde yazar" }] },
+  konut: { ad: "Konut", not: "Eşya ve bina", et: "DASK'ın karşılamadığı", baz: 2600, alan: [{ ad: "Brüt m²", t: "number", ph: "120", z: 1 }, { ad: "Eşya bedeli (₺)", t: "number", ph: "300000" }, { ad: "Ek teminat", t: ["Hepsi", "Cam kırılması", "Su baskını", "Hırsızlık"] }, { ad: "Ev sahibi misiniz?", t: ["Ev sahibiyim", "Kiracıyım"] }] },
+  tss: { ad: "Tamamlayıcı Sağlık", not: "SGK + özel hastane", et: "Fark ücreti ödemeyin", baz: 7900, alan: [{ ad: "Kişi sayısı", t: "number", ph: "3", z: 1 }, { ad: "En büyük yaş", t: "number", ph: "45", z: 1 }, { ad: "Kapsam", t: ["Yatarak", "Yatarak + ayakta"] }, { ad: "Tercih edilen il", t: ["Antalya", "Burdur", "Isparta", "Fark etmez"] }] },
+  isyeri: { ad: "İşyeri", not: "Yangın ve hırsızlık", et: "Dükkân, depo", baz: 5200, alan: [{ ad: "Faaliyet", t: "text", ph: "Market, kafe…", z: 1 }, { ad: "Emtia bedeli (₺)", t: "number", ph: "750000" }, { ad: "Bina", t: ["Kira", "Kendi mülkü"] }] },
+  tarim: { ad: "Tarım (TARSİM)", not: "Devlet destekli", et: "Elma, kiraz, hububat", baz: 3400, alan: [{ ad: "Ürün", t: ["Elma", "Kiraz", "Buğday", "Arpa", "Nohut", "Sera", "Büyükbaş hayvan", "Küçükbaş hayvan"], z: 1 }, { ad: "Alan (dekar) / adet", t: "number", ph: "20", z: 1 }, { ad: "Köy / mevki", t: "text", ph: "Korkuteli" }, { ad: "ÇKS kaydı", t: ["Var", "Yok", "Bilmiyorum"] }] },
+  seyahat: { ad: "Seyahat Sağlık", not: "Vize için", et: "Schengen uyumlu", baz: 650, alan: [{ ad: "Gidilecek ülke", t: "text", ph: "Almanya", z: 1 }, { ad: "Gün sayısı", t: "number", ph: "15", z: 1 }, { ad: "Yaş", t: "number", ph: "35" }] }
 };
-var secili = null;
-var kutu = document.getElementById("bransSec");
+var TEMINAT = {
+  arac: ["Yol yardım", "İkame araç", "Mini onarım", "Cam kırılması", "Hukuksal koruma", "Anlaşmalı servis ağı", "Orijinal parça", "Deprem / sel", "Kişisel eşya"],
+  ev: ["Yangın", "Su baskını", "Hırsızlık", "Cam kırılması", "Deprem (ek)", "Kira kaybı", "Acil konut yardım", "Elektronik cihaz", "Sorumluluk"],
+  saglik: ["Yatarak tedavi", "Ayakta tedavi", "Doğum", "Check-up", "İlaç", "Fizik tedavi", "Ambulans", "Diş (ek)", "Yurt içi her il"],
+  tarim: ["Dolu", "Don", "Fırtına / hortum", "Yangın", "Sel / su baskını", "Heyelan", "Deprem", "Hayvan hastalık", "Nakliye kaza"]
+};
+function grup(k) { return k === "trafik" || k === "kasko" ? "arac" : k === "tss" || k === "seyahat" ? "saglik" : k === "tarim" ? "tarim" : "ev"; }
+var SIRKET = [
+  { ad: "Şirket A", k: 0.93, t: [1, 0, 1, 1, 0, 1, 0, 0, 0], tk: 6, puan: "Hızlı ödeme" },
+  { ad: "Şirket B", k: 1.00, t: [1, 1, 1, 1, 0, 1, 0, 1, 0], tk: 9, puan: "Geniş servis ağı" },
+  { ad: "Şirket C", k: 1.07, t: [1, 1, 1, 1, 1, 1, 1, 1, 0], tk: 12, puan: "En geniş paket" },
+  { ad: "Şirket D", k: 0.97, t: [1, 0, 0, 1, 0, 0, 0, 0, 0], tk: 3, puan: "Ekonomik" },
+  { ad: "Şirket E", k: 1.15, t: [1, 1, 1, 1, 1, 1, 1, 1, 1], tk: 12, puan: "Premium" }
+];
+var secili = null, secilenTeklif = null, siralama = "fiyat", bilgi = {};
+// branş kartları
+var bk = document.getElementById("bransSec");
 Object.keys(BRANS).forEach(function (k) {
-  var b = document.createElement("button"); b.innerHTML = "<b>" + BRANS[k].ad + "</b><span>" + BRANS[k].not + "</span>";
-  b.onclick = function () { secili = k; document.querySelectorAll(".brans button").forEach(function (x) { x.classList.remove("sec"); }); b.classList.add("sec"); alanKur(); git(2); };
-  kutu.appendChild(b);
+  var b = document.createElement("button"); b.innerHTML = "<b>" + BRANS[k].ad + "</b><span>" + BRANS[k].not + "</span><em>" + BRANS[k].et + "</em>";
+  b.onclick = function () { bransSec(k); }; bk.appendChild(b);
 });
-function git(n) { [1, 2, 3].forEach(function (i) { document.getElementById("p" + i).hidden = i !== n; document.getElementById("a" + i).classList.toggle("on", i === n); }); document.getElementById("teklif").scrollIntoView({ behavior: "smooth" }); }
-function alanKur() {
+function bransSec(k, plaka) { secili = k; alanKur(plaka); git(2); }
+function git(n) {
+  ["p1", "p2", "pY", "p3", "p4"].forEach(function (p) { document.getElementById(p).hidden = true; });
+  document.getElementById(n === "Y" ? "pY" : "p" + n).hidden = false;
+  var a = n === "Y" ? 3 : n;
+  for (var i = 1; i <= 4; i++) { var e = document.getElementById("a" + i); e.classList.toggle("on", i === a); e.classList.toggle("ok", i < a); }
+  document.getElementById("teklif").scrollIntoView({ behavior: "smooth" });
+}
+function alanKur(plaka) {
   var B = BRANS[secili], a = document.getElementById("alanlar"); a.innerHTML = "";
   document.getElementById("p2baslik").textContent = B.ad + " teklifi";
-  B.alan.concat([["Ad soyad", "text", "Adınız"], ["Telefon", "tel", "05xx xxx xx xx"]]).forEach(function (f, i) {
-    var l = document.createElement("label"); l.textContent = f[0]; var el;
-    if (Array.isArray(f[1])) { el = document.createElement("select"); f[1].forEach(function (o) { var op = document.createElement("option"); op.textContent = o; el.appendChild(op); }); }
-    else { el = document.createElement("input"); el.type = f[1]; el.placeholder = f[2]; }
-    el.dataset.ad = f[0]; l.appendChild(el); a.appendChild(l);
+  document.getElementById("p2etiket").textContent = "2 / 4 · " + B.et;
+  document.getElementById("p2not").textContent = "* zorunlu alanlar";
+  B.alan.concat([{ ad: "Ad soyad", t: "text", ph: "Adınız soyadınız", z: 1 }, { ad: "Telefon", t: "tel", ph: "05xx xxx xx xx", z: 1 }]).forEach(function (f) {
+    var l = document.createElement("label"); l.className = "f"; l.innerHTML = f.ad + (f.z ? " *" : ""); var el;
+    if (Array.isArray(f.t)) { el = document.createElement("select"); f.t.forEach(function (o) { el.add(new Option(o)); }); }
+    else if (f.t === "marka") { el = document.createElement("select"); el.add(new Option("Seçin", "")); Object.keys(MARKA).forEach(function (m) { el.add(new Option(m)); }); el.onchange = modelDoldur; }
+    else if (f.t === "model") { el = document.createElement("select"); el.id = "modelSec"; el.add(new Option("Önce marka seçin", "")); }
+    else if (f.t === "yil") { el = document.createElement("select"); el.add(new Option("Seçin", "")); for (var y = new Date().getFullYear() + 1; y >= 1995; y--) el.add(new Option(y)); }
+    else { el = document.createElement("input"); el.type = f.t === "plaka" ? "text" : f.t; el.placeholder = f.t === "plaka" ? "07 ABC 123" : f.ph || ""; if (f.t === "plaka") { el.style.textTransform = "uppercase"; el.style.fontWeight = "800"; el.style.letterSpacing = ".06em"; if (plaka) el.value = plaka; } }
+    el.dataset.ad = f.ad; el.dataset.tip = f.t; if (f.z) el.dataset.z = 1; if (bilgi[f.ad] && !(f.t === "plaka" && plaka)) el.value = bilgi[f.ad];
+    l.appendChild(el); var s = document.createElement("small"); s.textContent = f.kucuk || ""; l.appendChild(s); a.appendChild(l);
   });
 }
-function bilgiler() { return [].map.call(document.querySelectorAll("#alanlar [data-ad]"), function (e) { return e.dataset.ad + ": " + (e.value || "-"); }); }
-function para(n) { return Math.round(n / 10) * 10 + "".replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
-function tl(n) { return (Math.round(n / 10) * 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ₺"; }
-function teklifGetir() {
-  var B = BRANS[secili];
-  var sirketler = [
-    { ad: "Şirket A", k: 0.94, t: ["Yol yardım", "Mini onarım"], tk: 6 },
-    { ad: "Şirket B", k: 1.00, t: ["Yol yardım", "İkame araç 7 gün", "Cam"], tk: 9 },
-    { ad: "Şirket C", k: 1.08, t: ["Yol yardım", "İkame araç 15 gün", "Cam", "Hukuksal koruma"], tk: 12 },
-    { ad: "Şirket D", k: 0.97, t: ["Yol yardım"], tk: 3 },
-    { ad: "Şirket E", k: 1.15, t: ["Geniş teminat paketi", "Anlaşmalı servis", "Cam", "İkame araç"], tk: 12 }
-  ];
-  var min = Math.min.apply(null, sirketler.map(function (s) { return s.k; }));
-  var max = Math.max.apply(null, sirketler.map(function (s) { return s.t.length; }));
-  var tb = document.getElementById("teklifler"); tb.innerHTML = "";
-  document.getElementById("p3baslik").textContent = B.ad + " · " + sirketler.length + " şirketten teklif";
-  sirketler.sort(function (a, b) { return a.k - b.k; }).forEach(function (s) {
-    var prim = B.baz * s.k, r = "";
-    if (s.k === min) r += '<span class="rozet">EN UYGUN</span>';
-    if (s.t.length === max) r += '<span class="rozet m">EN GENİŞ TEMİNAT</span>';
-    var tr = document.createElement("tr");
-    tr.innerHTML = "<td><b>" + s.ad + "</b>" + r + "</td><td class='fiyat'>" + tl(prim) + "</td><td>" + s.t.map(function (x) { return "<span class='tik'>✓</span> " + x; }).join("<br>") + "</td><td>" + s.tk + " taksit</td><td></td>";
-    var bt = document.createElement("a"); bt.className = "dg ana"; bt.textContent = "Bu teklifi istiyorum"; bt.target = "_blank";
-    bt.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Merhaba Bahattin Bey, siteden " + B.ad + " teklifi istiyorum.\nSeçtiğim: " + s.ad + " · " + tl(prim) + " · " + s.tk + " taksit\n" + bilgiler().join("\n"));
-    tr.lastChild.appendChild(bt); tb.appendChild(tr);
+function modelDoldur(e) { var m = document.getElementById("modelSec"); m.innerHTML = ""; (MARKA[e.target.value] || []).forEach(function (x) { m.add(new Option(x)); }); }
+function dogrulaVeGetir() {
+  var ok = true; bilgi = {};
+  document.querySelectorAll("#alanlar [data-ad]").forEach(function (el) {
+    var l = el.parentNode, v = el.value.trim().toLocaleUpperCase("tr"), hata = "";
+    if (el.dataset.z && !el.value.trim()) hata = "Bu alan gerekli";
+    else if (el.dataset.tip === "plaka" && !PLAKA.test(v)) hata = "Plaka biçimi: 07 ABC 123";
+    else if (el.dataset.tip === "tel" && el.value.replace(/\D/g, "").length < 10) hata = "Telefon numarasını kontrol edin";
+    l.classList.toggle("hatali", !!hata); var s = l.querySelector("small"); if (hata) { s.dataset.eski = s.dataset.eski || s.textContent; s.textContent = hata; ok = false; } else if (s.dataset.eski !== undefined) s.textContent = s.dataset.eski;
+    bilgi[el.dataset.ad] = el.dataset.tip === "plaka" ? v : el.value;
   });
+  if (!document.getElementById("kvkkOk").checked) { ok = false; document.querySelector(".kvkk").style.color = "var(--kir)"; } else document.querySelector(".kvkk").style.color = "";
+  if (!ok) return;
+  yukleniyor();
+}
+function yukleniyor() {
+  git("Y"); var ul = document.getElementById("sirketSira"); ul.innerHTML = ""; document.getElementById("yukBaslik").textContent = BRANS[secili].ad + " · teklifler alınıyor…";
+  SIRKET.forEach(function (s) { var li = document.createElement("li"); li.innerHTML = s.ad + "<span>bekleniyor</span>"; ul.appendChild(li); });
+  var i = 0, cub = document.getElementById("cubuk"); cub.style.width = "0";
+  var t = setInterval(function () {
+    var li = ul.children[i]; li.classList.add("ok"); li.querySelector("span").textContent = "✓ teklif geldi"; i++; cub.style.width = (i / SIRKET.length * 100) + "%";
+    if (i === SIRKET.length) { clearInterval(t); setTimeout(tablo, 450); }
+  }, 420);
+}
+function prim(s) { var B = BRANS[secili], c = 1; if (secili === "tss") c = Math.max(1, +bilgi["Kişi sayısı"] || 1) * (1 + Math.max(0, (+bilgi["En büyük yaş"] || 35) - 30) / 60); if (secili === "tarim") c = Math.max(1, (+bilgi["Alan (dekar) / adet"] || 10) / 10); if (secili === "dask" || secili === "konut") c = Math.max(.6, (+bilgi["Brüt m²"] || 100) / 100); if (secili === "seyahat") c = Math.max(.5, (+bilgi["Gün sayısı"] || 10) / 15); return B.baz * s.k * c; }
+function tablo() {
+  var B = BRANS[secili], g = grup(secili), T = TEMINAT[g], tk = +document.getElementById("taksit").value;
+  var liste = SIRKET.slice().sort(function (a, b) { return siralama === "fiyat" ? a.k - b.k : b.t.reduce(function (x, y) { return x + y; }) - a.t.reduce(function (x, y) { return x + y; }); });
+  var minK = Math.min.apply(null, SIRKET.map(function (s) { return s.k; })), maxT = Math.max.apply(null, SIRKET.map(function (s) { return s.t.reduce(function (x, y) { return x + y; }); }));
+  document.getElementById("p3baslik").textContent = B.ad + " · " + SIRKET.length + " şirket yan yana";
+  document.getElementById("p3etiket").textContent = "3 / 4 · " + (bilgi["Plaka"] || bilgi["Ürün"] || bilgi["Mahalle / köy"] || bilgi["Gidilecek ülke"] || bilgi["Faaliyet"] || "");
+  var h = "<thead><tr><th>Teminat</th>";
+  liste.forEach(function (s) {
+    var p = prim(s), r = (s.k === minK ? '<span class="rozet">EN UYGUN</span>' : "") + (s.t.reduce(function (x, y) { return x + y; }) === maxT ? '<span class="rozet m">EN GENİŞ</span>' : "");
+    h += '<th class="sirkethucre"><b>' + s.ad + '</b><span class="prim">' + tl(p) + "</span>" + r + "<div class='not' style='text-transform:none;letter-spacing:0;font-family:Archivo,sans-serif'>" + s.puan + "</div></th>";
+  });
+  h += "</tr></thead><tbody>";
+  T.forEach(function (te, i) { h += "<tr><td>" + te + "</td>"; liste.forEach(function (s) { h += s.t[i] ? '<td class="var">✓</td>' : '<td class="yok">–</td>'; }); h += "</tr>"; });
+  h += '<tr class="taksit"><td>' + (tk === 1 ? "Peşin" : tk + " taksit · aylık") + "</td>"; liste.forEach(function (s) { h += "<td>" + (tk > s.tk ? '<span class="yok">en çok ' + s.tk + "</span>" : "<b>" + tl(prim(s) * (tk === 1 ? 1 : 1.04) / tk) + "</b>") + "</td>"; }); h += "</tr>";
+  h += '<tr class="sec"><td></td>'; liste.forEach(function (s, i) { h += '<td><button class="dg ana kucuk" data-i="' + SIRKET.indexOf(s) + '">Bunu seç</button></td>'; }); h += "</tr></tbody>";
+  var m = document.getElementById("matris"); m.innerHTML = h;
+  m.querySelectorAll("button[data-i]").forEach(function (b) { b.onclick = function () { onay(SIRKET[+b.dataset.i]); }; });
   git(3);
 }
+document.querySelectorAll(".siralama button").forEach(function (b) { b.onclick = function () { siralama = b.dataset.s; document.querySelectorAll(".siralama button").forEach(function (x) { x.classList.toggle("on", x === b); }); tablo(); }; });
+document.getElementById("taksit").onchange = tablo;
+function onay(s) {
+  secilenTeklif = s; var B = BRANS[secili], g = grup(secili), tk = +document.getElementById("taksit").value, p = prim(s);
+  var tem = TEMINAT[g].filter(function (x, i) { return s.t[i]; });
+  document.getElementById("ozBaslik").textContent = B.ad + " · " + s.ad;
+  var dl = "<dt>Prim</dt><dd><b>" + tl(p) + "</b>" + (tk > 1 ? " · " + Math.min(tk, s.tk) + " taksit" : " · peşin") + "</dd><dt>Teminatlar</dt><dd>" + tem.join(", ") + "</dd>";
+  Object.keys(bilgi).forEach(function (k) { if (bilgi[k] && k !== "Telefon") dl += "<dt>" + k + "</dt><dd>" + bilgi[k] + "</dd>"; });
+  document.getElementById("ozBilgi").innerHTML = dl + "<dt>Tarih</dt><dd>" + new Date().toLocaleString("tr-TR") + "</dd>";
+  document.getElementById("waGonder").href = wa("Merhaba Bahattin Bey, siteden " + B.ad + " teklifi seçtim.\n• " + s.ad + " · " + tl(p) + " · " + (tk > 1 ? Math.min(tk, s.tk) + " taksit" : "peşin") + "\n• Teminat: " + tem.join(", ") + "\n" + Object.keys(bilgi).map(function (k) { return "• " + k + ": " + (bilgi[k] || "-"); }).join("\n"));
+  git(4);
+}
+function hizliBasla() { var v = document.getElementById("hizliPlaka").value.trim().toLocaleUpperCase("tr"); bransSec("trafik", v); }
 // basamak
 function basHesap() {
-  var b = +document.getElementById("bas").value, h = +document.getElementById("has").value;
-  var s = h === 0 ? Math.min(8, b + 1) : Math.max(1, b - h);
-  var g = document.getElementById("basGorsel"); g.innerHTML = "";
+  var b = +bas.value, h = +has.value, s = h === 0 ? Math.min(8, b + 1) : Math.max(1, b - h), g = document.getElementById("basGorsel"); g.innerHTML = "";
   for (var i = 1; i <= 8; i++) { var d = document.createElement("div"); d.textContent = i; if (i === b) d.className = "simdi"; if (i === s) d.className = "sonra"; g.appendChild(d); }
-  document.getElementById("basSonuc").innerHTML = h === 0
-    ? (b === 8 ? "En üst basamaktasınız; hasarsız devam ederseniz <b>8. basamakta kalırsınız</b>, en yüksek indirim sizde." : "Hasarsız geçen yıl sonrası <b>" + s + ". basamağa çıkarsınız</b> → priminiz bir kademe indirimli hesaplanır.")
-    : "Ödenen " + h + " hasar sonrası <b>" + s + ". basamağa inersiniz</b> → priminiz artar. Küçük hasarları cebinizden karşılamak bazen daha kârlı olabilir; birlikte hesaplayalım.";
+  document.getElementById("basSonuc").innerHTML = h === 0 ? (b === 8 ? "En üst basamaktasınız; hasarsız devam ederseniz <b>8'de kalırsınız</b>." : "Hasarsız yıl sonrası <b>" + s + ". basamağa çıkarsınız</b>; prim indirimi artar.") : "Ödenen " + h + " hasar sonrası <b>" + s + ". basamağa inersiniz</b>; prim artar. Küçük hasarı kendiniz karşılamak bazen daha kârlıdır, birlikte hesaplayalım.";
 }
-document.getElementById("bas").onchange = document.getElementById("has").onchange = basHesap; basHesap();
-// DASK
-var dT = document.getElementById("daskT"); var y = new Date(); y.setMonth(y.getMonth() + 5); dT.value = y.getFullYear() + "-" + String(y.getMonth() + 1).padStart(2, "0") + "-" + String(y.getDate()).padStart(2, "0");
-function daskYaz() {
-  var bit = new Date(dT.value + "T09:00:00"), gun = Math.ceil((bit - new Date()) / 864e5);
-  document.getElementById("daskSonuc").innerHTML = isNaN(gun) ? "" : (gun < 0 ? "<b style='color:var(--kir)'>DASK poliçeniz " + (-gun) + " gün önce bitmiş.</b> Hemen yenileyelim." : "Poliçenizin bitmesine <b>" + gun + " gün</b> var. Hatırlatma " + document.getElementById("daskG").value + " gün önce telefonunuza düşer.");
-}
-dT.onchange = document.getElementById("daskG").onchange = daskYaz; daskYaz();
+var bas = document.getElementById("bas"), has = document.getElementById("has"); bas.onchange = has.onchange = basHesap; basHesap();
+// hatırlatıcı
+var dT = document.getElementById("daskT"), y5 = new Date(); y5.setMonth(y5.getMonth() + 5); dT.value = y5.toLocaleDateString("en-CA");
+function daskYaz() { var g = Math.ceil((new Date(dT.value + "T09:00:00") - new Date()) / 864e5), t = document.getElementById("pTur").value; document.getElementById("daskSonuc").innerHTML = isNaN(g) ? "" : g < 0 ? "<b style='color:var(--kir)'>" + t + " poliçeniz " + (-g) + " gün önce bitmiş.</b>" : t + " poliçenizin bitmesine <b>" + g + " gün</b> var."; }
+dT.onchange = document.getElementById("daskG").onchange = document.getElementById("pTur").onchange = daskYaz; daskYaz();
 function daskIcs() {
-  var bit = new Date(dT.value + "T09:00:00"), once = +document.getElementById("daskG").value, h = new Date(bit - once * 864e5);
-  var f = function (d) { return d.getFullYear() + String(d.getMonth() + 1).padStart(2, "0") + String(d.getDate()).padStart(2, "0"); };
-  var ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Saricalar Sigorta//TR", "BEGIN:VEVENT", "UID:dask-" + Date.now() + "@saricalar", "DTSTART;VALUE=DATE:" + f(h), "SUMMARY:DASK poliçem bitiyor - Sarıcalar Sigorta 0530 607 79 50", "DESCRIPTION:DASK poliçeniz " + dT.value + " tarihinde bitiyor. Yenilemek için: https://wa.me/905306077950", "BEGIN:VALARM", "TRIGGER:-PT0M", "ACTION:DISPLAY", "DESCRIPTION:DASK yenileme", "END:VALARM", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
-  var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "dask-hatirlatma.ics"; a.click();
+  var t = document.getElementById("pTur").value, bit = new Date(dT.value + "T09:00:00"), h = new Date(bit - +document.getElementById("daskG").value * 864e5), f = function (d) { return d.toLocaleDateString("en-CA").replace(/-/g, ""); };
+  var ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Saricalar Sigorta//TR", "BEGIN:VEVENT", "UID:" + Date.now() + "@saricalar", "DTSTART;VALUE=DATE:" + f(h), "SUMMARY:" + t + " poliçem bitiyor · Sarıcalar Sigorta 0530 607 79 50", "DESCRIPTION:" + t + " poliçeniz " + dT.value + " tarihinde bitiyor. Yenilemek için: https://wa.me/905306077950", "BEGIN:VALARM", "TRIGGER:-PT0M", "ACTION:DISPLAY", "DESCRIPTION:Poliçe yenileme", "END:VALARM", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "police-hatirlatma.ics"; a.click();
 }
+// branş detayları
+var DETAY = [
+  ["Zorunlu Trafik", "Aracınızın karşı tarafa verdiği maddi ve bedeni zararları karşılar.", ["Karşı aracın ve malın hasarı", "Karşı tarafın tedavi giderleri", "Sakatlık ve vefat tazminatı"], ["Kendi aracınızın hasarı (bunun için kasko gerekir)", "Alkollü veya ehliyetsiz sürüşte şirket rücu edebilir"], ["Ruhsat (seri no)", "Plaka", "T.C. kimlik / vergi no"], "trafik"],
+  ["Kasko", "Kendi aracınızın çarpma, yanma, çalınma ve doğal afet hasarlarını karşılar.", ["Çarpma, çarpışma, devrilme", "Yangın ve hırsızlık", "Cam kırılması", "Paket kapsamına göre sel, deprem, yol yardım, ikame araç"], ["Kasıtlı hasar", "Poliçede yazmayan ek donanım", "Aşınma ve mekanik arıza"], ["Ruhsat", "Önceki kasko poliçesi (varsa)", "Ek donanım listesi"], "kasko"],
+  ["DASK", "Konutunuzun deprem ve deprem kaynaklı yangın, infilak, tsunami ve yer kaymasıyla oluşan bina hasarını karşılar.", ["Bina hasarı (ana yapı)", "Deprem kaynaklı yangın ve infilak"], ["Ev eşyası (konut sigortası gerekir)", "Kira kaybı ve enkaz kaldırma (konut sigortasında ek)"], ["Adres / UAVT kodu", "Brüt m²", "Yapı tarzı ve inşa yılı"], "dask"],
+  ["Konut", "Ev eşyanızı ve binanızı yangın, su baskını, hırsızlık ve cam kırılmasına karşı korur.", ["Yangın, yıldırım, infilak", "Dahili su ve sel", "Hırsızlık", "Cam kırılması, acil konut yardım"], ["Bakımsızlıktan doğan hasar", "Poliçede beyan edilmeyen değerli eşya"], ["Adres ve m²", "Eşya bedeli tahmini"], "konut"],
+  ["Tamamlayıcı Sağlık", "SGK'lı kişilerin anlaşmalı özel hastanelerde ödediği fark ücretlerini karşılar.", ["Yatarak tedavi (ameliyat, yoğun bakım)", "Pakete göre ayakta tedavi, tahlil, görüntüleme"], ["Poliçe öncesi hastalıklar (çoğu pakette)", "Estetik ve kozmetik işlemler"], ["Kişi sayısı ve yaşlar", "SGK durumu", "Sağlık beyanı"], "tss"],
+  ["Tarım (TARSİM)", "Ürününüzü ve hayvanınızı doğal afetlere karşı korur; primin bir kısmını devlet karşılar.", ["Dolu, don, fırtına, hortum", "Yangın, sel, heyelan, deprem", "Hayvanlarda hastalık ve kaza (hayvan hayat)"], ["Bakım eksikliğinden kaynaklı kayıp", "Poliçe başlamadan oluşan hasar"], ["ÇKS kaydı", "Ada / parsel bilgisi", "Ürün ve dekar"], "tarim"]
+];
+var bkk = document.getElementById("bransKart");
+DETAY.forEach(function (d, i) { var e = document.createElement("div"); e.className = "br"; e.innerHTML = '<span class="no">' + String(i + 1).padStart(2, "0") + "</span><b>" + d[0] + "</b><p>" + d[1] + "</p><div class='satir'><button>Ne karşılar? →</button><button style='color:var(--kir)'>Teklif al</button></div>"; var bt = e.querySelectorAll("button"); bt[0].onclick = function () { detay(i); }; bt[1].onclick = function () { bransSec(d[5]); }; bkk.appendChild(e); });
+function detay(i) { var d = DETAY[i]; modal("<h3>" + d[0] + "</h3><p>" + d[1] + "</p><h4>KARŞILAR</h4><ul>" + d[2].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul><h4>KARŞILAMAZ</h4><ul>" + d[3].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul><h4>GEREKEN BİLGİ VE BELGELER</h4><ul>" + d[4].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul><p class='not' style='margin-top:14px'>Kapsam şirkete ve pakete göre değişir; kesin teminatı poliçede birlikte okuyalım.</p><div class='satir' style='margin-top:14px'><button class='dg ana' onclick=\"kapat();bransSec('" + d[5] + "')\">" + d[0] + " teklifi al</button></div>"); }
+// SSS
+var SSS = [
+  ["Trafik sigortası ile kasko arasındaki fark nedir?", "Trafik sigortası zorunludur ve yalnızca karşı tarafa verdiğiniz zararı öder. Kendi aracınızın hasarını kasko karşılar."],
+  ["DASK zorunlu mu?", "Evet. Tapuya kayıtlı konutlar için zorunludur; elektrik, su ve doğalgaz aboneliği ile tapu işlemlerinde DASK poliçesi sorulur."],
+  ["Kaza yaptım, ilk ne yapmalıyım?", "Yaralı varsa 112'yi arayın. Yaralı yoksa ve taraflar anlaşıyorsa araçları oynatmadan fotoğraf çekin, anlaşmalı kaza tespit tutanağını doldurun ve bize gönderin. Kaza anı asistanımız adım adım yol gösterir."],
+  ["Poliçemi nereden sorgulayabilirim?", "e-Devlet'te SBM hizmetleri üzerinden tüm poliçelerinizi görebilirsiniz. Araçlar bölümündeki bağlantıları kullanabilir ya da bize sorabilirsiniz."],
+  ["Hasarsızlık indirimim kaybolur mu?", "Kaskoda hasar ödenirse hasarsızlık kademeniz düşebilir. Küçük hasarlarda dosya açmadan önce bizi arayın; hangisinin daha kârlı olduğunu birlikte hesaplayalım."],
+  ["Tarım sigortasında devlet desteği var mı?", "Evet. TARSİM poliçelerinde primin bir kısmını devlet karşılar; oran ürün ve yıla göre değişir. ÇKS kaydınız varsa işlem hızlanır."],
+  ["Tamamlayıcı sağlık sigortası ne işe yarar?", "SGK'lı iseniz anlaşmalı özel hastanelerde ödediğiniz fark ücretini karşılar; özel sağlık sigortasından daha uygun fiyatlıdır."],
+  ["Taksit yapıyor musunuz?", "Kredi kartına taksit seçenekleri şirkete göre değişir; teklif tablosunda her şirketin taksit sayısını görebilirsiniz."],
+  ["Gece aradığımda kim cevap veriyor?", "Telefonumuz 7/24 açıktır. Gece WhatsApp'a yazdığınız mesajlara dijital asistanımız hemen döner; poliçe ve fiyat konularını Bahattin Bey üstlenir."]
+];
+var sk = document.getElementById("sssKutu"); SSS.forEach(function (s) { var d = document.createElement("details"); d.innerHTML = "<summary>" + s[0] + "</summary><p>" + s[1] + "</p>"; sk.appendChild(d); });
+// modal / ara / kvkk
+function modal(h) { document.getElementById("modalIc").innerHTML = h; document.getElementById("modal").classList.add("ac"); }
+function kapat() { document.getElementById("modal").classList.remove("ac"); }
+document.getElementById("modal").onclick = function (e) { if (e.target.id === "modal") kapat(); };
+var aramaSaat = "Hemen";
+function ara() {
+  modal("<h3>Sizi arayalım</h3><p class='not'>Numaranızı bırakın, seçtiğiniz zamanda Bahattin Bey arasın.</p><label class='f' style='margin-top:12px'>Ad soyad<input id='aAd'></label><label class='f' style='margin-top:10px'>Telefon<input id='aTel' type='tel' placeholder='05xx xxx xx xx'></label><label class='f' style='margin-top:10px'>Konu<select id='aKonu'><option>Teklif</option><option>Poliçe yenileme</option><option>Hasar / kaza</option><option>Diğer</option></select></label><div class='saatler' id='saatler'><button class='on'>Hemen</button><button>1 saat içinde</button><button>Akşam 18–21</button><button>Yarın sabah</button></div><a class='dg kir' style='width:100%' id='aGonder' target='_blank'>Arama talebi gönder</a>");
+  document.querySelectorAll("#saatler button").forEach(function (b) { b.onclick = function () { aramaSaat = b.textContent; document.querySelectorAll("#saatler button").forEach(function (x) { x.classList.toggle("on", x === b); }); }; });
+  document.getElementById("aGonder").onclick = function () { this.href = wa("Arama talebi\nAd: " + aAd.value + "\nTel: " + aTel.value + "\nKonu: " + aKonu.value + "\nZaman: " + aramaSaat); };
+}
+function kvkk() { modal("<h3>KVKK aydınlatma metni (özet)</h3><p>Sarıcalar Sigorta Aracılık Hizmetleri olarak, teklif ve poliçe işlemleri için verdiğiniz ad, telefon, araç ve konut bilgilerini 6698 sayılı KVKK kapsamında işleriz.</p><h4>NE İÇİN</h4><ul><li>Teklif hazırlamak ve sizinle iletişime geçmek</li><li>Poliçe düzenlemek ve yenileme hatırlatması yapmak</li><li>Hasar sürecini yürütmek</li></ul><h4>KİMLERLE</h4><ul><li>Yalnızca teklif istenen sigorta şirketleri ve yasal yükümlü kurumlar</li></ul><h4>HAKLARINIZ</h4><p>Verilerinize erişme, düzeltme ve silinmesini isteme hakkınız vardır. Talepleriniz için 0530 607 79 50.</p><p class='not'>Taslak metindir; yayından önce acentenin bilgileriyle tamamlanır.</p>"); }
+// çerez
+function cerezAc() { document.getElementById("cerez").style.display = "block"; }
+function cerez(v) { try { localStorage.setItem("sar_cerez", v); } catch (e) {} document.getElementById("cerez").style.display = "none"; }
+try { if (localStorage.getItem("sar_cerez") === null) cerezAc(); } catch (e) { cerezAc(); }
+// asistan
+var AS = {
+  bas: ["Merhaba, ben Sarıcalar Sigorta'nın dijital asistanıyım. Gece gündüz buradayım. Ne yapmak istersiniz?", ["Teklif almak", "Kaza yaptım", "Poliçe yenileme", "Adres ve saatler", "Bahattin Bey ile konuş"]],
+  "Teklif almak": ["Hangi sigorta için?", ["Trafik / kasko", "DASK / konut", "Sağlık", "Tarım (TARSİM)"]],
+  "Trafik / kasko": ["Plakanızı yazıp teklif sihirbazına geçebilirsiniz; 5 şirketi yan yana görürsünüz.", ["Sihirbazı aç", "Başa dön"]],
+  "DASK / konut": ["DASK zorunludur ve sadece binayı karşılar. Eşya için konut sigortası öneririz. İkisini birlikte teklif edelim mi?", ["Sihirbazı aç", "Başa dön"]],
+  "Sağlık": ["Tamamlayıcı sağlık, SGK'lı aileler için uygun fiyatlı çözümdür. Kişi sayısı ve yaşları sihirbazda sorarım.", ["Sihirbazı aç", "Başa dön"]],
+  "Tarım (TARSİM)": ["TARSİM'de primin bir kısmını devlet öder. Ürün ve dekar bilgisini sihirbazda alalım.", ["Sihirbazı aç", "Başa dön"]],
+  "Kaza yaptım": ["Geçmiş olsun. Yaralı varsa hemen 112'yi arayın. Yaralı yoksa kaza anı asistanı size adım adım yol gösterir.", ["Kaza asistanını aç", "Bahattin Bey'i ara", "Başa dön"]],
+  "Poliçe yenileme": ["Poliçenizin türünü ve plakanızı/adresinizi WhatsApp'tan yazın; yenileme teklifinizi hazırlayalım.", ["WhatsApp'ta yaz", "Başa dön"]],
+  "Adres ve saatler": ["Kiremitli Mah. 861. Sk. No:14 Korkuteli. 7 gün 24 saat açığız.", ["Yol tarifi", "Başa dön"]],
+  "Bahattin Bey ile konuş": ["Fiyat, indirim ve özel durumlar için Bahattin Bey'e bağlıyorum.", ["Bahattin Bey'i ara", "WhatsApp'ta yaz", "Başa dön"]]
+};
+var EYLEM = { "Sihirbazı aç": function () { asistan(); document.getElementById("teklif").scrollIntoView({ behavior: "smooth" }); }, "Kaza asistanını aç": function () { location.href = "../2-kaza-asistani/"; }, "Bahattin Bey'i ara": function () { location.href = "tel:+905306077950"; }, "WhatsApp'ta yaz": function () { window.open(wa("Merhaba Bahattin Bey,"), "_blank"); }, "Yol tarifi": function () { window.open("https://maps.google.com/?cid=785002776969874951", "_blank"); }, "Başa dön": function () { asAdim("bas"); } };
+function balon(m, ben) { var b = document.createElement("div"); b.className = "balon" + (ben ? " ben" : ""); b.textContent = m; var a = document.getElementById("akis"); a.appendChild(b); a.scrollTop = 1e6; }
+function asAdim(k) { var d = AS[k]; balon(d[0]); var s = document.getElementById("secenek"); s.innerHTML = ""; d[1].forEach(function (o) { var b = document.createElement("button"); b.textContent = o; b.onclick = function () { balon(o, true); if (EYLEM[o]) EYLEM[o](); else setTimeout(function () { asAdim(o); }, 350); }; s.appendChild(b); }); }
+function asistan() { var a = document.getElementById("asistan"); a.classList.toggle("ac"); if (a.classList.contains("ac") && !document.getElementById("akis").children.length) asAdim("bas"); }
 </script>
 </body></html>
