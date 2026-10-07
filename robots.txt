@@ -4,6 +4,9 @@ Disallow: /panel.html
 Disallow: /teklif.html
 Disallow: /yukle.html
 Disallow: /onay.html
+Disallow: /siparis.html
+Disallow: /bar.html
+Disallow: /qr-kart.html
 Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/
