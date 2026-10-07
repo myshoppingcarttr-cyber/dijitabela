@@ -7,7 +7,7 @@ window.AJANS = {
   whatsapp: "905019452184",
   eposta: "info@dijitabela.com",       // Natro ücretsiz mail kutusu (alan adı aktif olunca kurulacak)
   sehir: "Antalya",
-  site: "https://dijitabela.com",  // GitHub Pages CNAME = dijitabela.com (www → 301 buraya). Kanonik adres bu olmalı.
+  site: "https://dijitabela.com.tr",  // 7 Eki 2026: KANONİK ADRES .com.tr (dijitabela.com BTK Güvenli İnternet'te eski sahibinden kalma etiketle engelli). dijitabela.com aynı içeriği sunmaya devam eder (kartvizit QR).
   // Havale/EFT bilgileri (şahıs şirketi)
   unvan: "Dijitabela",                 // kullanıcı: ünvan Dijitabela (7 Eki)
   yasalAd: "Alim Hoşlar",              // vergi levhasındaki gerçek kişi adı: havale alıcısı, yasal satıcı, KVKK veri sorumlusu

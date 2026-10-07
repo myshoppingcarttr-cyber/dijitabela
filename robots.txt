@@ -14,4 +14,4 @@ Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/
 
-Sitemap: https://dijitabela.com/sitemap.xml
+Sitemap: https://dijitabela.com.tr/sitemap.xml
