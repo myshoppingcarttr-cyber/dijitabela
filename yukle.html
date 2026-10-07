@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>İçerik Yükle · Dijitabela</title>
+<script>if(location.protocol==="http:"&&/(^|.)dijitabela.com$/.test(location.hostname))location.replace("https:"+location.href.slice(5))</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<script src="assets/config.js"></script>
+<style>
+:root{--zemin:#f4f1ec;--kart:#fff;--yazi:#1d1a16;--soluk:#6f6860;--cizgi:#e3ddd3;--ana:#1d1a16;--yesil:#2f7a4f;--kirmizi:#b4483a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi);line-height:1.5}
+.ic{max-width:560px;margin:0 auto;padding:22px 16px 60px}
+.marka{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk)}
+h1{font-size:30px;line-height:1.1;font-variation-settings:"wdth" 80;margin:6px 0 4px}
+.alt{color:var(--soluk);font-size:15px}
+.sayac{display:flex;gap:10px;margin:14px 0}
+.sayac div{flex:1;background:var(--kart);border:1px solid var(--cizgi);border-radius:12px;padding:10px 12px}
+.sayac b{display:block;font-size:22px}.sayac small{color:var(--soluk);font-size:12.5px}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 6px}
+select,input[type=text],textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--cizgi);border-radius:12px;background:#fff}
+textarea{resize:vertical}
+.secim{display:block;border:2px dashed #c9bfae;border-radius:16px;background:#fff;padding:28px 16px;text-align:center;margin-top:16px;cursor:pointer;position:relative}
+.secim b{display:block;font-size:18px}.secim small{color:var(--soluk)}
+.secim input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.secim .ikon{font-size:38px}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font:inherit;font-weight:800;font-size:16px;background:var(--ana);color:#fff;margin-top:14px;cursor:pointer}
+.btn:disabled{opacity:.4}
+.dosyalar{margin-top:14px}
+.dosya{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--cizgi);border-radius:12px;padding:8px;margin-bottom:8px}
+.dosya img,.dosya video{width:52px;height:52px;border-radius:8px;object-fit:cover;background:#ddd}
+.dosya b{font-size:14px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dosya small{color:var(--soluk);font-size:12.5px}
+.dosya .c{height:5px;background:#eee;border-radius:3px;overflow:hidden;margin-top:5px}.dosya .c i{display:block;height:100%;width:0;background:var(--yesil);transition:width .2s}
+.dosya .d{font-size:13px;font-weight:700;min-width:22px;text-align:right}
+.ok{color:var(--yesil)}.hata{color:var(--kirmizi)}
+.kutu{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:16px;margin-top:16px;font-size:14.5px}
+.kutu ul{padding-left:18px;color:var(--soluk)}
+.gecersiz{background:#fbe3df;color:#8f2c1f;border-radius:12px;padding:14px;margin-top:20px}
+footer{color:var(--soluk);font-size:12.5px;margin-top:26px;text-align:center}
+</style></head><body>
+<div class="ic">
+ <div class="marka">Dijitabela · İçerik Merkezi</div>
+ <h1 id="baslik">İçerik yükle</h1>
+ <p class="alt">Çektiğiniz fotoğraf ve videoları buraya atın. Kurgu, yazı ve paylaşım bizde; her yüklemeden en az 4 içerik hazırlarız.</p>
+ <div id="form" hidden>
+  <div class="sayac"><div><b id="bugun">0</b><small>bugün yüklenen</small></div><div><b id="ay">0</b><small>bu ay</small></div></div>
+  <label for="sube">Şube</label><select id="sube"></select>
+  <label for="kisi">Adınız (isteğe bağlı)</label><input type="text" id="kisi" maxlength="60" placeholder="Örn. Emre · barista">
+  <label class="secim"><div class="ikon">📸</div><b>Fotoğraf / video seç</b><small>Birden fazla seçebilirsiniz · en fazla 300 MB / dosya</small><input type="file" id="dosya" accept="image/*,video/*" multiple></label>
+  <div class="dosyalar" id="dosyalar"></div>
+  <label for="not">Not (isteğe bağlı)</label><textarea id="not" rows="2" maxlength="500" placeholder="Örn. yeni sezon tatlısı, yarın kampanya başlıyor"></textarea>
+  <button class="btn" id="gonder" disabled>Yükle</button>
+  <div class="kutu"><b>İyi içerik için kısa ipuçları</b><ul><li>Telefonu dik tutun (Reels ve hikâye için).</li><li>Gün ışığı, pencere kenarı en iyisi.</li><li>Video 10-30 saniye yeterli; ürünün yapılışı, latte art, kuyruk, ekip.</li><li>Misafirlerin yüzü görünecekse izinlerini alın.</li></ul></div>
+ </div>
+ <div class="gecersiz" id="gecersiz" hidden>Bu yükleme linki geçersiz ya da süresi dolmuş. Lütfen Dijitabela'dan yeni link isteyin: 0501 945 21 84</div>
+ <footer>Dosyalar yalnızca içerik hazırlamak için kullanılır · <a href="kvkk.html">KVKK</a></footer>
+</div>
+<script>
+const A=window.AJANS,SB=A.supabaseUrl,KEY=A.supabaseAnonKey,$=s=>document.querySelector(s);
+const TOKEN=new URLSearchParams(location.search).get("t")||"";
+const rpc=(f,p)=>fetch(SB+"/rest/v1/rpc/"+f,{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+KEY},body:JSON.stringify({p})}).then(async r=>{const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.message||r.status);return j;});
+const oku=k=>{try{return localStorage.getItem(k)}catch{return null}},yaz=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
+let SECILEN=[];
+(async()=>{
+ if(!/^[0-9a-f-]{36}$/.test(TOKEN)){$("#gecersiz").hidden=false;return;}
+ try{const b=await rpc("yukleme_bilgi",{token:TOKEN});
+  $("#baslik").textContent=b.ad+" · içerik yükle";document.title=b.ad+" · İçerik Yükle";
+  $("#sube").innerHTML=(b.subeler.length?b.subeler:["Merkez"]).map(s=>`<option>${s.replace(/</g,"&lt;")}</option>`).join("");
+  const s=oku("yukle-sube-"+TOKEN);if(s)$("#sube").value=s;$("#kisi").value=oku("yukle-kisi")||"";
+  $("#bugun").textContent=b.bugun;$("#ay").textContent=b.ay;$("#form").hidden=false;
+ }catch(e){$("#gecersiz").hidden=false;}
+})();
+$("#dosya").onchange=e=>{for(const f of e.target.files){if(!/^(image|video)\//.test(f.type))continue;if(f.size>300*1048576){alert(f.name+" 300 MB'tan büyük");continue;}SECILEN.push({f,durum:"bekliyor"});}e.target.value="";ciz();};
+function ciz(){$("#dosyalar").innerHTML=SECILEN.map((x,i)=>{const u=x.u||(x.u=URL.createObjectURL(x.f));return `<div class="dosya" id="d${i}">${x.f.type.startsWith("video")?`<video src="${u}" muted></video>`:`<img src="${u}" alt="">`}<div><b>${x.f.name.replace(/</g,"&lt;")}</b><small>${(x.f.size/1048576).toFixed(1)} MB</small><div class="c"><i style="width:${x.p||0}%"></i></div></div><span class="d ${x.durum==="tamam"?"ok":x.durum==="hata"?"hata":""}">${x.durum==="tamam"?"✓":x.durum==="hata"?"!":x.durum==="yukleniyor"?(x.p||0)+"%":"×"}</span></div>`}).join("");
+ document.querySelectorAll(".dosya .d").forEach((d,i)=>{if(SECILEN[i].durum==="bekliyor")d.onclick=()=>{SECILEN.splice(i,1);ciz();};});
+ $("#gonder").disabled=!SECILEN.some(x=>x.durum==="bekliyor"||x.durum==="hata");$("#gonder").textContent=SECILEN.length?`${SECILEN.filter(x=>x.durum!=="tamam").length} dosyayı yükle`:"Yükle";}
+function yukleDosya(x){return new Promise((ok,red)=>{const tarih=new Date().toISOString().slice(0,10),uz=(x.f.name.split(".").pop()||"bin").toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,5);
+ x.yol=`${TOKEN}/${tarih}/${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}.${uz}`;
+ const r=new XMLHttpRequest();r.open("POST",SB+"/storage/v1/object/icerik-yukleme/"+x.yol);r.setRequestHeader("apikey",KEY);r.setRequestHeader("Authorization","Bearer "+KEY);r.setRequestHeader("x-upsert","false");r.setRequestHeader("Content-Type",x.f.type||"application/octet-stream");
+ r.upload.onprogress=e=>{if(e.lengthComputable){x.p=Math.round(e.loaded/e.total*100);const d=document.querySelector(`#d${SECILEN.indexOf(x)}`);if(d){d.querySelector(".c i").style.width=x.p+"%";d.querySelector(".d").textContent=x.p+"%";}}};
+ r.onload=()=>r.status<300?ok():red(new Error(r.status+" "+r.responseText.slice(0,120)));r.onerror=()=>red(new Error("bağlantı"));r.send(x.f);});}
+$("#gonder").onclick=async()=>{const sube=$("#sube").value,kisi=$("#kisi").value.trim(),not=$("#not").value.trim();yaz("yukle-sube-"+TOKEN,sube);yaz("yukle-kisi",kisi);
+ $("#gonder").disabled=true;let n=0;
+ for(const x of SECILEN.filter(x=>x.durum==="bekliyor"||x.durum==="hata")){x.durum="yukleniyor";x.p=0;ciz();
+  try{await yukleDosya(x);await rpc("yukleme_kaydet",{token:TOKEN,sube,kisi,not,yol:x.yol,tur:x.f.type.startsWith("video")?"video":"foto",boyut:x.f.size});x.durum="tamam";n++;}
+  catch(e){x.durum="hata";console.error(e);}ciz();}
+ if(n){$("#bugun").textContent=+$("#bugun").textContent+n;$("#ay").textContent=+$("#ay").textContent+n;$("#not").value="";}
+ const h=SECILEN.filter(x=>x.durum==="hata").length;$("#gonder").textContent=h?`${h} dosya yüklenemedi · tekrar dene`:`✓ ${n} dosya yüklendi, teşekkürler!`;$("#gonder").disabled=!h;};
+</script>
+</body></html>
