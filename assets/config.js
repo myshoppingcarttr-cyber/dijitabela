@@ -18,7 +18,7 @@ window.AJANS = {
   adresParca: { ilce: "Kepez", il: "Antalya", ulke: "TR" },
   iban: "TR04 0006 4000 0016 2700 5489 50",                          // TR.. ile başlayan IBAN
   banka: "Türkiye İş Bankası",
-  kartOdeme: false,                   // iyzico hesabı (vergi levhası sonrası) açılınca true yapın
+  kartOdeme: true,                    // PayTR iFrame (KURULUM.md §3). Test modu Supabase Secrets PAYTR_TEST ile yönetilir
   // Veritabanı (Supabase) — boşsa DEMO modunda çalışır
   supabaseUrl: "https://ctlbhwbccqgwmtqbwtfs.supabase.co",
   supabaseAnonKey: "sb_publishable_8MszpUT5gCp6cFhAKn-0VA_gW9_1hvy",  // herkese açık anahtar (RLS açık); gizli anahtar ASLA buraya yazılmaz
