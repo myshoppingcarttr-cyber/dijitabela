@@ -146,12 +146,14 @@ const kutular=[...document.querySelectorAll("#ozListe input")];
 function hesapla(){let kur=0,ay=0;
  kutular.forEach(c=>{const x=T[c.value],dep=x[5];const kilit=dep&&!SEC.has(dep);if(kilit&&c.checked){c.checked=false;SEC.delete(c.value);}c.disabled=!!kilit;c.closest(".oz").classList.toggle("kilit",!!kilit);c.closest(".oz").classList.toggle("sec",c.checked);});
  SEC.forEach(k=>{kur+=T[k][3];ay+=T[k][4];});
+ let uyg=null;for(const [ad,f,ic] of PAKET){if(ic.every(k=>SEC.has(k))){const top=ic.reduce((t,k)=>t+T[k][4],0);if(top>f){ay-=top-f;uyg=[ad,top-f];}break;}}
  const sk=(id,v)=>{const e=document.getElementById(id);if(e.textContent!==v){e.textContent=v;e.classList.add("zip");setTimeout(()=>e.classList.remove("zip"),300);}};
  sk("tKur",tl(kur));sk("tAy",tl(ay));document.getElementById("tKdv").textContent=SEC.size?tl(Math.round(kur*1.2))+" + "+tl(Math.round(ay*1.2))+"/ay":"–";
- const p=PAKET.find(([,f,ic])=>{const ortak=[...SEC].filter(k=>ic.includes(k));const ayOrtak=ortak.reduce((t,k)=>t+T[k][4],0);return ortak.length>=2&&ayOrtak>f;});
+ const p=uyg?null:PAKET.find(([,f,ic])=>{const ortak=[...SEC].filter(k=>ic.includes(k));const ayOrtak=ortak.reduce((t,k)=>t+T[k][4],0);return ortak.length>=2&&ayOrtak>f;});
  const o=document.getElementById("oneri");
  if(p){const ic=p[2],ortak=[...SEC].filter(k=>ic.includes(k)),ayOrtak=ortak.reduce((t,k)=>t+T[k][4],0);o.style.display="block";o.innerHTML="💡 Seçtiğiniz aylık hizmetler <b>"+p[0]+" paketi</b>nde "+tl(p[1])+"/ay. Ayrı ayrı "+tl(ayOrtak)+"/ay ödersiniz; paketle ayda <b>"+tl(ayOrtak-p[1])+"</b> tasarruf"+(ic.length>ortak.length?" ve pakette ek olarak "+ic.filter(k=>!SEC.has(k)).map(k=>T[k][1]).join(", ")+" da var":"")+".<button type='button' id='paketSec'>"+p[0]+" paketini seç</button>";
   document.getElementById("paketSec").onclick=()=>{ic.forEach(k=>SEC.add(k));kutular.forEach(c=>c.checked=SEC.has(c.value));hesapla();};}
+ else if(uyg){o.style.display="block";o.innerHTML="✓ <b>"+uyg[0]+" paketi fiyatı uygulandı</b>: aylık toplamdan "+tl(uyg[1])+" düşüldü.";}
  else o.style.display="none";
  const a=document.getElementById("tGonder");a.classList.toggle("pasif",!SEC.size);
  a.href="https://wa.me/905019452184?text="+encodeURIComponent("Merhaba, Caffé Di Toeé için seçtiğimiz özellikler:\n"+[...SEC].map(k=>"• "+T[k][1]).join("\n")+"\n\nKurulum: "+tl(kur)+" · Aylık: "+tl(ay)+" (KDV hariç)");}
