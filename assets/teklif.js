@@ -11,7 +11,7 @@
   function ciz(t) {
     var h = t.hesap, b = t.basvuru.bilgi, link = location.origin + location.pathname + "?t=" + t.token;
     var waMsg = encodeURIComponent("Merhaba, " + t.no + " numaralı teklifim hakkında görüşmek istiyorum: " + link);
-    var odenen = (t.odemeler || []).reduce(function (s, o) { return s + (o.yontem === "kart" ? o.tutar : 0); }, 0);
+    var odenen = (t.odemeler || []).reduce(function (s, o) { return s + (o.yontem === "kart" && o.onayli !== false ? o.tutar : 0); }, 0);
     var havaleBildirildi = (t.odemeler || []).some(function (o) { return o.yontem === "havale"; });
 
     O.innerHTML = (API.mode === "demo" ? '<div class="demo no-print"><b>Demo modu:</b> Veriler bu tarayıcıda saklanır; ödeme adımı simülasyondur.</div>' : "") +
@@ -45,16 +45,22 @@
     } else if (t.durum === "onaylandi") {
       P.innerHTML = "<h3>Ödeme</h3><p class=\"mute\" style=\"margin-top:6px\">İlk ödeme (%50, KDV dahil): <b>" + TL(kaporaKdvli) + "</b></p>" +
         '<div class="pay-opts">' +
-        (A.kartOdeme ? '<div class="box"><b>Kredi / banka kartı</b><p class="small" style="margin:6px 0 12px">Güvenli ödeme sayfası (iyzico). Taksit seçenekleri kartınıza göre gösterilir. Kart bilgileriniz bizde saklanmaz.</p><button class="btn btn-p" id="kart">Kartla öde</button></div>' : '') +
+        (A.kartOdeme ? '<div class="box"><b>Kredi / banka kartı</b><p class="small" style="margin:6px 0 12px">Güvenli ödeme ekranı (PayTR). 12 aya varan taksit seçenekleri kartınıza göre gösterilir. Kart bilgileriniz bizde saklanmaz.</p><button class="btn btn-p" id="kart">Kartla öde</button></div>' : '') +
         '<div class="box"><b>Havale / EFT</b><p class="small" style="margin:6px 0 12px">Alıcı: ' + e(A.yasalAd || A.unvan) + (A.yasalAd ? " (" + e(A.unvan) + ")" : "") + (A.iban ? "<br>IBAN: " + e(A.iban) : "<br>IBAN bilgisi size WhatsApp’tan iletilecek: <a href=\"https://wa.me/" + e(A.whatsapp || "") + "\">bize yazın</a>") + (A.banka ? "<br>" + e(A.banka) : "") + "<br>Açıklama: <b>" + e(t.no) + '</b></p><button class="btn btn-o" id="havale"' + (havaleBildirildi ? " disabled" : "") + ">" + (havaleBildirildi ? "Bildirildi, kontrol ediliyor" : "Ödemeyi yaptım") + "</button></div>" +
         "</div>";
       var kb = document.getElementById("kart"); if (kb) kb.onclick = function () {
         if (API.mode === "demo") { if (confirm("DEMO: " + TL(kaporaKdvli) + " kartla ödenmiş sayılsın mı?")) API.odemeBildir(tk, { yontem: "kart", tutar: kaporaKdvli }).then(ciz); return; }
-        // Canlı: iyzico ödeme formu Supabase Edge Function üzerinden başlatılır (supabase/functions/odeme-baslat)
-        this.disabled = true; this.textContent = "Ödeme sayfası açılıyor…";
-        fetch(A.supabaseUrl + "/functions/v1/odeme-baslat", { method: "POST", headers: { "Content-Type": "application/json", apikey: A.supabaseAnonKey }, body: JSON.stringify({ token: tk }) })
-          .then(function (r) { return r.json(); }).then(function (d) { if (d.paymentPageUrl) location.href = d.paymentPageUrl; else throw new Error(d.error || "Ödeme başlatılamadı"); })
-          .catch(function (x) { alert(x.message); ciz(t); });
+        // Canlı: PayTR iFrame ödemesi Supabase Edge Function üzerinden başlatılır (supabase/functions/odeme-baslat); sonuç paytr-bildirim ile doğrulanır
+        var btn = this; btn.disabled = true; btn.textContent = "Ödeme ekranı açılıyor…";
+        fetch(A.supabaseUrl + "/functions/v1/odeme-baslat", { method: "POST", headers: { "Content-Type": "application/json", apikey: A.supabaseAnonKey, Authorization: "Bearer " + A.supabaseAnonKey }, body: JSON.stringify({ token: tk }) })
+          .then(function (r) { return r.json(); }).then(function (d) {
+            if (!d.iframeToken) throw new Error(d.error || "Ödeme başlatılamadı");
+            P.innerHTML = "<h3>Kartla ödeme · " + TL(kaporaKdvli) + '</h3><p class="small mute" style="margin:6px 0 12px">Kart bilgileriniz doğrudan PayTR’ye iletilir. Ödeme bitince bu sayfa kendiliğinden güncellenir.</p>' +
+              '<iframe src="https://www.paytr.com/odeme/guvenli/' + encodeURIComponent(d.iframeToken) + '" id="paytriframe" frameborder="0" scrolling="no" style="width:100%;min-height:620px;border:0"></iframe>';
+            var s = document.createElement("script"); s.src = "https://www.paytr.com/js/iframeResizer.min.js";
+            s.onload = function () { if (window.iFrameResize) window.iFrameResize({}, "#paytriframe"); }; document.body.appendChild(s);
+          })
+          .catch(function (x) { btn.disabled = false; btn.textContent = "Kartla öde"; P.insertAdjacentHTML("beforeend", '<p class="err">' + e(x.message) + "</p>"); });
       };
       var hv = document.getElementById("havale"); if (hv) hv.onclick = function () { this.disabled = true; API.odemeBildir(tk, { yontem: "havale", tutar: kaporaKdvli }).then(ciz); };
     } else if (t.durum === "odendi") {
@@ -63,5 +69,19 @@
   }
 
   if (!tk) { O.innerHTML = '<p>Teklif bağlantısı eksik. <a href="teklif-al.html">Yeni teklif alın</a>.</p>'; return; }
+  // PayTR dönüşü ödeme çerçevesinin içinde açılırsa sayfanın tamamına taşı
+  if (q.get("odeme") && window.top !== window.self) { try { window.top.location.href = location.href; return; } catch (x) {} }
+  if (q.get("odeme") === "tamam") {
+    // Onay PayTR'den sunucuya birkaç saniye içinde gelir (paytr-bildirim); gelene kadar bekle
+    var deneme = 0, bekle = function () {
+      API.teklifGetir(tk).then(function (t) {
+        if (t.durum === "odendi" || ++deneme > 20) return ciz(t);
+        O.innerHTML = '<div class="note"><b>Ödemeniz işleniyor…</b> Bankadan onay bekleniyor, bu sayfa birkaç saniye içinde güncellenecek.</div>';
+        setTimeout(bekle, 3000);
+      }).catch(function (x) { O.innerHTML = '<p class="err">' + e(x.message) + "</p>"; });
+    };
+    bekle(); return;
+  }
+  if (q.get("odeme") === "hata") O.insertAdjacentHTML("beforebegin", '<div class="note no-print" style="margin-bottom:16px;border-color:#b3261e"><b>Ödeme tamamlanamadı.</b> Kartınızdan para çekilmedi. Tekrar deneyebilir veya havale ile ödeyebilirsiniz.</div>');
   API.teklifGetir(tk).then(ciz).catch(function (x) { O.innerHTML = '<p class="err">' + e(x.message) + '</p><p><a href="teklif-al.html">Yeni teklif alın</a></p>'; });
 })();

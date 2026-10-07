@@ -9,6 +9,7 @@ Disallow: /bar.html
 Disallow: /qr-kart.html
 Disallow: /yonetim.html
 Disallow: /kart.html
+Disallow: /lig.html
 Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/

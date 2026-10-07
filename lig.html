@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Şube Ligi</title>
+<script>if(location.protocol==="http:"&&/(^|.)dijitabela.com$/.test(location.hostname))location.replace("https:"+location.href.slice(5))</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<script src="assets/config.js"></script>
+<style>
+:root{--ana:#2a1b14;--vurgu:#e5c08a;--zemin:#f4f1ec;--yazi:#1d1a16;--soluk:#6f6860;--cizgi:#e3ddd3;--altin:#d4a63a;--gumus:#a8adb4;--bronz:#b87a4b}
+*{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi)}
+.ust{background:var(--ana);color:#fff}.ust .ic{max-width:1100px;margin:0 auto;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.ust small{display:block;font-size:12px;color:var(--vurgu);letter-spacing:.1em;text-transform:uppercase}.ust b{font-family:"Playfair Display",serif;font-size:26px}
+.ust select{background:#3a2d24;color:#fff;border:0;border-radius:10px;padding:8px 10px;font:inherit}
+main{max-width:1100px;margin:0 auto;padding:18px 16px 50px}
+.podyum{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end;margin-bottom:18px}
+.p{background:#fff;border-radius:20px;padding:18px 14px;text-align:center;border:1px solid var(--cizgi);position:relative;animation:yuk .7s cubic-bezier(.2,.8,.2,1) both}
+.p:nth-child(1){animation-delay:.15s}.p:nth-child(3){animation-delay:.3s}
+@keyframes yuk{from{opacity:0;transform:translateY(30px)}}
+.p .mad{font-size:40px;line-height:1}.p b{display:block;font-size:20px;margin:6px 0 2px;font-variation-settings:"wdth" 82}.p .puan{font-size:34px;font-weight:900;font-variation-settings:"wdth" 70}.p small{color:var(--soluk)}
+.p.bir{background:linear-gradient(180deg,#fff7e0,#fff);border:2px solid var(--altin);padding-top:26px}.p.bir .puan{color:#9a7414}
+.tablo{background:#fff;border:1px solid var(--cizgi);border-radius:18px;overflow:hidden}
+.sat{display:grid;grid-template-columns:44px 1.3fr 2fr 70px;gap:10px;align-items:center;padding:11px 16px;border-bottom:1px solid #f0ebe3;animation:yuk .5s both}
+.sat:last-child{border:0}.sat .s{font-weight:900;font-size:18px;color:var(--soluk);text-align:center}.sat b{font-size:16px}.sat small{color:var(--soluk);font-size:12.5px;display:block}
+.sat .bar{height:12px;background:#efe6d8;border-radius:6px;overflow:hidden}.sat .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--vurgu),#b8863b);border-radius:6px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.sat .pt{font-weight:900;font-size:20px;text-align:right;font-variation-settings:"wdth" 72}
+.kural{background:#fff;border:1px solid var(--cizgi);border-radius:18px;padding:16px;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:14.5px}
+.kural h3{font-size:15px;margin-bottom:8px}.kural li{list-style:none;padding:4px 0;border-bottom:1px dashed #eee}.kural li b{float:right}
+.gecersiz{background:#fbe3df;color:#8f2c1f;border-radius:12px;padding:16px;margin:30px auto;max-width:600px}
+/* TV modu */
+body.tv{background:var(--ana);color:#fff}body.tv .ust{background:transparent}body.tv .ust select,body.tv .kural,body.tv #tvLink{display:none}
+body.tv main{max-width:1500px}body.tv .p{background:rgba(255,255,255,.07);border-color:rgba(229,192,138,.3);color:#fff}body.tv .p.bir{background:rgba(229,192,138,.16);border-color:var(--vurgu)}body.tv .p.bir .puan{color:var(--vurgu)}body.tv .p small,body.tv .sat small{color:#cdbba3}
+body.tv .tablo{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}body.tv .sat{border-color:rgba(255,255,255,.08)}body.tv .sat .bar{background:rgba(255,255,255,.1)}
+body.tv .ust b{font-size:40px}body.tv .p b{font-size:28px}body.tv .p .puan{font-size:52px}body.tv .sat b{font-size:22px}body.tv .sat .pt{font-size:26px}
+@media(max-width:700px){.podyum{grid-template-columns:1fr}.p.bir{order:-1}.sat{grid-template-columns:34px 1fr 60px}.sat .bar{grid-column:2/4}.kural{grid-template-columns:1fr}}
+</style></head><body>
+<div class="ust"><div class="ic"><div><small id="alt">Şube ligi</small><b id="baslik">Yükleniyor…</b></div><div style="display:flex;gap:8px;align-items:center"><select id="ay"></select><a id="tvLink" target="_blank" style="color:var(--vurgu);font-weight:700">📺 Şube ekranı modu</a></div></div></div>
+<main id="ana" hidden><div class="podyum" id="podyum"></div><div class="tablo" id="tablo"></div>
+ <div class="kural"><div><h3>Puanlar nasıl toplanır?</h3><ul><li>İçerik Merkezi'ne yükleme<b>3 puan</b></li><li>Onaylanan içerik<b>+2 puan</b></li><li>Teslim edilen QR sipariş<b>1 puan</b></li><li>Sadakat kartı damgası<b>1 puan</b></li><li>Kullanılan hediye kahve<b>2 puan</b></li><li>Hız bonusu (ort. hazırlama ≤ 5 / ≤ 8 dk)<b>+10 / +5</b></li></ul></div>
+ <div><h3>Ay sonu ödülleri</h3><p id="odul" style="color:var(--soluk);line-height:1.6">🥇 Ayın şubesi: ekibe ödül + sosyal medyada "Ayın Şubesi" paylaşımı<br>🥈 İkinci: ekip kahvaltısı<br>🥉 Üçüncü: tebrik paylaşımı<br><br>Sıralama her gün otomatik güncellenir; şubeler kendi ekranlarından canlı izler.</p></div></div></main>
+<div class="gecersiz" id="gecersiz" hidden>Bu lig linki geçersiz. Dijitabela: 0501 945 21 84</div>
+<script>
+const A=window.AJANS,SB=A.supabaseUrl,KEY=A.supabaseAnonKey,$=s=>document.querySelector(s);
+const q=new URLSearchParams(location.search),TOKEN=q.get("t")||"",TV=q.get("tv")==="1";
+if(TV)document.body.classList.add("tv");
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const aylar=[];{const d=new Date();for(let i=0;i<6;i++){const x=new Date(d.getFullYear(),d.getMonth()-i,1);aylar.push([x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-01",x.toLocaleDateString("tr-TR",{month:"long",year:"numeric"})]);}}
+$("#ay").innerHTML=aylar.map(([v,t])=>`<option value="${v}">${t}</option>`).join("");$("#tvLink").href=location.pathname+"?t="+encodeURIComponent(TOKEN)+"&tv=1";$("#tvLink").title="Şube ekranlarına yönetim linkini değil, bar linkiyle açılan lig ekranını verin";
+async function yukle(){try{const r=await fetch(SB+"/rest/v1/rpc/sube_ligi",{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+KEY},body:JSON.stringify({p:{token:TOKEN,ay:$("#ay").value}})});const v=await r.json();if(!r.ok)throw new Error(v.message);ciz(v);}catch(e){$("#gecersiz").hidden=false;$("#baslik").textContent="Şube ligi";}}
+function ciz(v){const ay=v.ayar||{};if(ay.renk)document.documentElement.style.setProperty("--ana",ay.renk);if(ay.vurgu)document.documentElement.style.setProperty("--vurgu",ay.vurgu);
+ $("#baslik").textContent=(TV?"🏆 ":"")+v.isletme+" Ligi";$("#alt").textContent=new Date(v.bas).toLocaleDateString("tr-TR",{month:"long",year:"numeric"})+" · şube sıralaması";document.title=v.isletme+" · Şube Ligi";$("#ana").hidden=false;
+ const S=v.satirlar,mx=Math.max(1,...S.map(x=>x.puan)),detay=x=>[x.yukleme&&x.yukleme+" yükleme",x.siparis&&x.siparis+" sipariş",x.damga&&x.damga+" damga",x.bonus&&"⚡ +"+x.bonus].filter(Boolean).join(" · ")||"henüz puan yok";
+ const ilk=S.slice(0,3),sira=[1,0,2].filter(i=>ilk[i]);
+ $("#podyum").innerHTML=sira.map(i=>{const x=ilk[i];return `<div class="p ${i===0?"bir":""}"><div class="mad">${["🥇","🥈","🥉"][i]}</div><b>${esc(x.sube)}</b><div class="puan">${x.puan}</div><small>${detay(x)}</small></div>`}).join("");
+ $("#tablo").innerHTML=S.slice(3).map((x,i)=>`<div class="sat" style="animation-delay:${.04*i}s"><div class="s">${i+4}</div><div><b>${esc(x.sube)}</b><small>${detay(x)}</small></div><div class="bar"><i style="width:0" data-w="${x.puan/mx*100}"></i></div><div class="pt">${x.puan}</div></div>`).join("");
+ requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll(".bar i").forEach(e=>e.style.width=e.dataset.w+"%"),60));}
+$("#ay").onchange=yukle;
+if(!/^[0-9a-f-]{36}$/.test(TOKEN)){$("#gecersiz").hidden=false;$("#baslik").textContent="Şube ligi";}else{yukle();setInterval(yukle,TV?60000:300000);}
+</script>
+</body></html>

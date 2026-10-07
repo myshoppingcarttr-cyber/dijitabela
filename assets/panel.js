@@ -45,7 +45,7 @@
 
   function ciz() {
     var L = S.list, f = S.tab === "tumu" ? L : L.filter(function (t) { return t.durum === S.tab; });
-    var toplamOdeme = L.reduce(function (s, t) { return s + (t.odemeler || []).filter(function (o) { return o.yontem === "kart" || o.onayli; }).reduce(function (a, o) { return a + o.tutar; }, 0); }, 0);
+    var toplamOdeme = L.reduce(function (s, t) { return s + (t.odemeler || []).filter(function (o) { return o.yontem === "kart" ? o.onayli !== false : o.onayli; }).reduce(function (a, o) { return a + o.tutar; }, 0); }, 0);
     var bekleyen = L.filter(function (t) { return t.durum !== "iptal" && t.durum !== "odendi"; }).reduce(function (s, t) { return s + t.hesap.tek; }, 0);
     R.innerHTML = ust() +
       '<div class="kpi4"><div><b>' + L.length + "</b><span>Toplam başvuru</span></div><div><b>" + L.filter(function (t) { return t.durum === "gonderildi"; }).length + "</b><span>Onay bekleyen</span></div><div><b>" + TL(bekleyen) + "</b><span>Açık teklif tutarı</span></div><div><b>" + TL(toplamOdeme) + "</b><span>Tahsil edilen</span></div></div>" +

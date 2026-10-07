@@ -44,7 +44,7 @@ label.l{display:block;font-size:12.5px;font-weight:800;color:#5a4a36;margin:10px
 @media(max-width:860px){.kpi{grid-template-columns:repeat(2,1fr)}.iki,.iki2{grid-template-columns:1fr}.sube{grid-template-columns:1fr auto}}
 </style></head><body>
 <div class="ust"><div class="ic"><div><small>Dijitabela · QR sipariş yönetimi</small><b id="isletme">Yükleniyor…</b></div>
- <div class="sek" id="sek"><button data-s="ozet" class="ak">Özet</button><button data-s="menu">Menü</button><button data-s="subeler">Şubeler ve masalar</button><button data-s="ayar">Görünüm</button></div></div></div>
+ <div class="sek" id="sek"><button data-s="ozet" class="ak">Özet</button><button data-s="menu">Menü</button><button data-s="subeler">Şubeler ve masalar</button><button data-s="ayar">Görünüm</button><button onclick="open('lig.html?t='+encodeURIComponent(TOKEN),'_blank')">🏆 Şube ligi</button></div></div></div>
 <main id="ana" hidden>
  <section id="s-ozet">
   <div class="bas"><h2>Özet</h2><div class="donem" id="donem"><button data-g="0" class="ak">Bugün</button><button data-g="7">7 gün</button><button data-g="30">30 gün</button></div></div>
@@ -93,7 +93,7 @@ function ciz(){$("#isletme").textContent=V.isletme;document.title=V.isletme+" ·
  $("#subeListe").innerHTML=V.subeler.map(s=>`<div class="sube" data-id="${s.id}"><div><b>${esc(s.ad)}</b><small>${s.masa} masa · bugün ${s.siparis} sipariş</small></div>
   <button class="anahtar${s.aktif?" on":""}" title="Şube QR siparişe açık/kapalı" data-is="durum"></button>
   <button class="btn alt kucuk" data-is="masa">+ Masa</button>
-  <span style="display:flex;gap:6px"><a class="btn alt kucuk" target="_blank" href="qr-kart.html?t=${V.bar_token}&s=${s.id}">QR kartları</a><a class="btn alt kucuk" target="_blank" href="bar.html?t=${V.bar_token}&s=${s.id}">Bar ekranı</a></span></div>`).join("");
+  <span style="display:flex;gap:6px"><a class="btn alt kucuk" target="_blank" href="qr-kart.html?t=${V.bar_token}&s=${s.id}">QR kartları</a><a class="btn alt kucuk" target="_blank" href="bar.html?t=${V.bar_token}&s=${s.id}">Bar ekranı</a><a class="btn alt kucuk" target="_blank" href="lig.html?t=${V.bar_token}&tv=1">Lig ekranı</a></span></div>`).join("");
  $$("#subeListe .sube").forEach(r=>{const id=r.dataset.id;
   r.querySelector('[data-is="durum"]').onclick=async e=>{const on=!e.target.classList.contains("on");if(await yukle({islem:"sube_durum",sube:id,aktif:on}))toast(on?"Şube açıldı":"Şube QR siparişe kapatıldı");};
   r.querySelector('[data-is="masa"]').onclick=async()=>{const n=prompt("Kaç masa eklensin?","10");if(!n)return;if(await yukle({islem:"masa_ekle",sube:id,adet:+n}))toast(n+" masa eklendi, QR kartlarını yazdırabilirsiniz");};});
