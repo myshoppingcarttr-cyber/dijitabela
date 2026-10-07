@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>QR Sipariş Yönetimi · Dijitabela</title>
+<script>if(location.protocol==="http:"&&/(^|.)dijitabela.com$/.test(location.hostname))location.replace("https:"+location.href.slice(5))</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<script src="assets/config.js"></script>
+<style>
+:root{--zemin:#f4f1ec;--kart:#fff;--yazi:#1d1a16;--soluk:#6f6860;--cizgi:#e3ddd3;--ana:#1d1a16;--yesil:#2f7a4f;--kirmizi:#b4483a;--altin:#b8863b}
+*{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi);line-height:1.45}
+button,input,select,textarea{font:inherit}
+.ust{background:var(--ana);color:#fff;position:sticky;top:0;z-index:10}
+.ust .ic{max-width:1150px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.ust small{display:block;font-size:11.5px;color:#c9c2b8;letter-spacing:.08em;text-transform:uppercase}.ust b{font-size:20px;font-variation-settings:"wdth" 80}
+.sek{display:flex;gap:6px;flex-wrap:wrap}.sek button{border:0;background:#2e2a25;color:#ddd;padding:8px 14px;border-radius:20px;font-weight:700;font-size:14px;cursor:pointer}.sek button.ak{background:#fff;color:var(--ana)}
+main{max-width:1150px;margin:0 auto;padding:18px 16px 60px}
+.bas{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}.bas h2{font-size:24px;font-variation-settings:"wdth" 80}
+.donem{display:inline-flex;background:#fff;border:1px solid var(--cizgi);border-radius:12px;padding:3px}.donem button{border:0;background:none;padding:7px 12px;border-radius:9px;font-weight:700;color:var(--soluk);cursor:pointer}.donem button.ak{background:var(--ana);color:#fff}
+.kpi{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}.kpi div{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:12px}.kpi b{display:block;font-size:26px;font-variation-settings:"wdth" 72}.kpi span{color:var(--soluk);font-size:13px}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kutu{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:14px;margin-bottom:14px}.kutu h3{font-size:15px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #f0ebe3}th{color:var(--soluk);font-size:12.5px;font-weight:700}td.s{text-align:right}
+.cubuk{display:grid;grid-template-columns:120px 1fr 50px;gap:8px;align-items:center;font-size:13.5px;margin-bottom:6px}.cubuk i{height:10px;background:#efe6d8;border-radius:5px;overflow:hidden}.cubuk i u{display:block;height:100%;background:var(--altin)}
+.saat{display:flex;align-items:flex-end;gap:4px;height:120px;padding-top:6px}.saat div{flex:1;background:var(--altin);border-radius:4px 4px 0 0;position:relative;min-height:2px}.saat div span{position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-size:10.5px;color:var(--soluk)}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--ana);color:#fff;cursor:pointer;text-decoration:none;display:inline-block;font-size:14px}.btn.alt{background:#fff;color:var(--ana);border:1.5px solid var(--cizgi)}.btn.kirmizi{background:#fff;color:var(--kirmizi);border:1.5px solid var(--kirmizi)}.btn.kucuk{padding:6px 10px;font-size:13px}
+.kat-b{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk);margin:16px 0 8px;font-weight:800}
+.urunler{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.urun{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:10px;display:grid;grid-template-columns:64px 1fr;gap:10px;cursor:pointer;transition:.15s}.urun:hover{border-color:var(--altin)}
+.urun img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:#eee}.urun b{display:block}.urun small{color:var(--soluk);font-size:12.5px;display:block}.urun .f{font-weight:800;margin-top:3px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:40;padding:16px}
+.modal .ic{background:#fff;border-radius:18px;padding:20px;width:min(560px,100%);max-height:92vh;overflow-y:auto}
+.modal h3{font-size:20px;margin-bottom:10px}
+label.l{display:block;font-size:12.5px;font-weight:800;color:#5a4a36;margin:10px 0 4px;text-transform:uppercase;letter-spacing:.04em}
+.modal input,.modal textarea,.modal select,.ayar input{width:100%;border:1px solid var(--cizgi);border-radius:10px;padding:9px 10px;font-size:15px;background:#fdfcfa}
+.iki2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ipucu{font-size:12.5px;color:var(--soluk);margin-top:3px}
+.alt-b{display:flex;justify-content:space-between;gap:8px;margin-top:16px;flex-wrap:wrap}
+.sube{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #f0ebe3}.sube b{display:block}.sube small{color:var(--soluk);font-size:13px}
+.anahtar{position:relative;width:42px;height:24px;border-radius:12px;background:#d8d2c8;border:0;cursor:pointer}.anahtar::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}.anahtar.on{background:var(--yesil)}.anahtar.on::after{left:21px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ana);color:#fff;padding:12px 18px;border-radius:30px;font-weight:700;font-size:14px;opacity:0;transition:.3s;z-index:60}.toast.g{opacity:1;transform:translate(-50%,0)}
+.gecersiz{background:#fbe3df;color:#8f2c1f;border-radius:12px;padding:16px;margin-top:20px}
+@media(max-width:860px){.kpi{grid-template-columns:repeat(2,1fr)}.iki,.iki2{grid-template-columns:1fr}.sube{grid-template-columns:1fr auto}}
+</style></head><body>
+<div class="ust"><div class="ic"><div><small>Dijitabela · QR sipariş yönetimi</small><b id="isletme">Yükleniyor…</b></div>
+ <div class="sek" id="sek"><button data-s="ozet" class="ak">Özet</button><button data-s="menu">Menü</button><button data-s="subeler">Şubeler ve masalar</button><button data-s="ayar">Görünüm</button></div></div></div>
+<main id="ana" hidden>
+ <section id="s-ozet">
+  <div class="bas"><h2>Özet</h2><div class="donem" id="donem"><button data-g="0" class="ak">Bugün</button><button data-g="7">7 gün</button><button data-g="30">30 gün</button></div></div>
+  <div class="kpi" id="kpi"></div>
+  <div class="iki"><div class="kutu"><h3>En çok satanlar</h3><div id="enCok"></div></div><div class="kutu"><h3>Saatlere göre sipariş</h3><div class="saat" id="saat"></div><div style="height:18px"></div></div></div>
+  <div class="kutu"><h3>Şubeler</h3><table><thead><tr><th>Şube</th><th class="s">Masa</th><th class="s">Sipariş</th><th class="s">Ciro</th></tr></thead><tbody id="subeTablo"></tbody></table></div>
+ </section>
+ <section id="s-menu" hidden>
+  <div class="bas"><h2>Menü</h2><button class="btn" id="yeniUrun">+ Ürün ekle</button></div>
+  <p class="ipucu" style="margin-bottom:6px">Ürüne dokunup fiyatı, görseli ve seçenekleri düzenleyin. Değişiklik tüm şubelerin QR menüsüne anında yansır. Tek bir şubede tükenen ürünü bar ekranındaki "Tükenenler"den kapatın.</p>
+  <div id="menu"></div>
+ </section>
+ <section id="s-subeler" hidden>
+  <div class="bas"><h2>Şubeler ve masalar</h2></div>
+  <div class="kutu" id="subeListe"></div>
+ </section>
+ <section id="s-ayar" hidden>
+  <div class="bas"><h2>Görünüm</h2></div>
+  <div class="kutu ayar"><label class="l">Ana renk</label><input id="aRenk" type="color"><label class="l">Vurgu rengi</label><input id="aVurgu" type="color"><label class="l">Logo görsel adresi (URL)</label><input id="aLogo" placeholder="https://..."><label class="l">Bekleme oyunu</label><select id="aOyun"><option value="1">Açık</option><option value="0">Kapalı</option></select>
+   <p class="ipucu" style="margin-top:10px">Kartla ödeme, sanal POS onaylandıktan sonra Dijitabela tarafından açılır.</p><div class="alt-b"><span></span><button class="btn" id="ayarKaydet">Kaydet</button></div></div>
+ </section>
+</main>
+<div class="gecersiz" id="gecersiz" hidden style="max-width:600px;margin:30px auto">Bu yönetim linki geçersiz. Dijitabela: 0501 945 21 84</div>
+<div class="modal" id="modal" hidden><div class="ic" id="modalIc"></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const A=window.AJANS,SB=A.supabaseUrl,KEY=A.supabaseAnonKey,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const TOKEN=new URLSearchParams(location.search).get("t")||"";
+const rpc=(f,p)=>fetch(SB+"/rest/v1/rpc/"+f,{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+KEY},body:JSON.stringify({p:Object.assign({token:TOKEN},p)})}).then(async r=>{const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.message||r.status);return j;});
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tl=n=>Number(n||0).toLocaleString("tr-TR",{maximumFractionDigits:2})+" ₺";
+let V=null,GUN=0;
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("g");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("g"),2200);}
+const bas=()=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-GUN);return d.toISOString();};
+async function yukle(ek){try{V=await rpc("qr_yonetim",Object.assign({bas:bas()},ek||{}));ciz();return true;}catch(e){if(/Geçersiz/.test(e.message)){$("#gecersiz").hidden=false;$("#ana").hidden=true;}else toast("Hata: "+e.message);return false;}}
+function ciz(){$("#isletme").textContent=V.isletme;document.title=V.isletme+" · QR Yönetim";$("#ana").hidden=false;
+ const o=V.ozet||{};$("#kpi").innerHTML=[[o.siparis||0,"sipariş"],[tl(o.ciro),"ciro"],[tl(o.ortalama),"ortalama sepet"],[o.hazirlama_dk!=null?o.hazirlama_dk+" dk":"—","ort. hazırlama"],[o.oyun||0,"oyun oynayan misafir"]].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join("");
+ const mx=Math.max(1,...V.enCok.map(x=>x.adet));$("#enCok").innerHTML=V.enCok.length?V.enCok.map(x=>`<div class="cubuk"><span>${esc(x.ad)}</span><i><u style="width:${x.adet/mx*100}%"></u></i><b style="text-align:right">${x.adet}</b></div>`).join(""):`<p class="ipucu">Bu dönemde sipariş yok.</p>`;
+ const sm=Math.max(1,...V.saatlik.map(x=>x.n)),S={};V.saatlik.forEach(x=>S[x.saat]=x.n);$("#saat").innerHTML=Array.from({length:17},(_,i)=>i+7).map(h=>`<div style="height:${(S[h]||0)/sm*100}%" title="${h}:00 · ${S[h]||0}"><span>${h}</span></div>`).join("");
+ $("#subeTablo").innerHTML=V.subeler.filter(s=>s.aktif).sort((a,b)=>b.ciro-a.ciro).map(s=>`<tr><td>${esc(s.ad)}</td><td class="s">${s.masa}</td><td class="s">${s.siparis}</td><td class="s">${tl(s.ciro)}</td></tr>`).join("");
+ // menü
+ const kat=[...new Set(V.urunler.map(u=>u.kategori))];
+ $("#menu").innerHTML=kat.length?kat.map(k=>`<div class="kat-b">${esc(k)}</div><div class="urunler">${V.urunler.filter(u=>u.kategori===k).map(u=>`<div class="urun" data-id="${u.id}"><img src="${esc(u.gorsel||"")}" alt=""><div><b>${esc(u.ad)}${u.populer?" ⭐":""}</b><small>${esc(u.aciklama||"")}</small><div class="f">${tl(u.fiyat)}${(u.secenekler||[]).length?` <small style="display:inline">· ${u.secenekler.map(s=>esc(s.ad)).join(", ")}</small>`:""}</div></div></div>`).join("")}</div>`).join(""):`<p class="ipucu">Menüde ürün yok. "+ Ürün ekle" ile başlayın.</p>`;
+ $$(".urun").forEach(e=>e.onclick=()=>urunDuzenle(V.urunler.find(u=>u.id===e.dataset.id)));
+ // şubeler
+ $("#subeListe").innerHTML=V.subeler.map(s=>`<div class="sube" data-id="${s.id}"><div><b>${esc(s.ad)}</b><small>${s.masa} masa · bugün ${s.siparis} sipariş</small></div>
+  <button class="anahtar${s.aktif?" on":""}" title="Şube QR siparişe açık/kapalı" data-is="durum"></button>
+  <button class="btn alt kucuk" data-is="masa">+ Masa</button>
+  <span style="display:flex;gap:6px"><a class="btn alt kucuk" target="_blank" href="qr-kart.html?t=${V.bar_token}&s=${s.id}">QR kartları</a><a class="btn alt kucuk" target="_blank" href="bar.html?t=${V.bar_token}&s=${s.id}">Bar ekranı</a></span></div>`).join("");
+ $$("#subeListe .sube").forEach(r=>{const id=r.dataset.id;
+  r.querySelector('[data-is="durum"]').onclick=async e=>{const on=!e.target.classList.contains("on");if(await yukle({islem:"sube_durum",sube:id,aktif:on}))toast(on?"Şube açıldı":"Şube QR siparişe kapatıldı");};
+  r.querySelector('[data-is="masa"]').onclick=async()=>{const n=prompt("Kaç masa eklensin?","10");if(!n)return;if(await yukle({islem:"masa_ekle",sube:id,adet:+n}))toast(n+" masa eklendi, QR kartlarını yazdırabilirsiniz");};});
+ // ayar
+ const ay=V.ayar||{};$("#aRenk").value=ay.renk||"#2a1b14";$("#aVurgu").value=ay.vurgu||"#e5c08a";$("#aLogo").value=ay.logo||"";$("#aOyun").value=ay.oyun===false?"0":"1";}
+function secMetin(s){return (s||[]).map(x=>x.ad+": "+x.secim.map(c=>c.ad+(Number(c.ek)?" "+(c.ek>0?"+":"")+c.ek:"")).join(", ")).join("\n");}
+function secCoz(t){return t.split("\n").map(l=>l.trim()).filter(Boolean).map(l=>{const[ad,...r]=l.split(":");const secim=r.join(":").split(",").map(x=>x.trim()).filter(Boolean).map(x=>{const m=x.match(/^(.*?)\s*([+-]\d+(?:[.,]\d+)?)?$/);return{ad:m[1].trim(),ek:m[2]?Number(m[2].replace(",",".")):0};});if(!ad.trim()||!secim.length)throw new Error("Seçenek satırı hatalı: "+l);return{ad:ad.trim(),zorunlu:true,secim};});}
+function urunDuzenle(u){u=u||{};const kat=[...new Set(V.urunler.map(x=>x.kategori))];
+ $("#modalIc").innerHTML=`<h3>${u.id?"Ürünü düzenle":"Yeni ürün"}</h3>
+  <div class="iki2"><div><label class="l">Ürün adı</label><input id="uAd" value="${esc(u.ad)}" maxlength="80"></div><div><label class="l">Fiyat (₺)</label><input id="uF" type="number" min="0" step="0.5" value="${u.fiyat??""}"></div></div>
+  <div class="iki2"><div><label class="l">Kategori</label><input id="uK" list="katL" value="${esc(u.kategori||kat[0]||"")}" maxlength="60"><datalist id="katL">${kat.map(k=>`<option value="${esc(k)}">`).join("")}</datalist></div><div><label class="l">Sıra</label><input id="uS" type="number" value="${u.sira??50}"></div></div>
+  <label class="l">Açıklama</label><input id="uA" value="${esc(u.aciklama)}" maxlength="200">
+  <label class="l">Görsel adresi (URL)</label><input id="uG" value="${esc(u.gorsel)}" placeholder="https://..."><div class="ipucu">Görsellerinizi bize WhatsApp'tan iletirseniz biz yükleriz.</div>
+  <label class="l">Seçenekler (her satır bir seçenek)</label><textarea id="uSec" rows="3" placeholder="Boy: Küçük -10, Orta, Büyük +15&#10;Süt: Normal, Laktozsuz, Yulaf +15">${esc(secMetin(u.secenekler))}</textarea><div class="ipucu">Fiyat farkını seçeneğin yanına +15 / -10 diye yazın.</div>
+  <div class="iki2"><div><label class="l">Yanına önerilecek ürün</label><select id="uO"><option value="">—</option>${V.urunler.filter(x=>x.id!==u.id).map(x=>`<option${x.ad===u.oneri?" selected":""}>${esc(x.ad)}</option>`).join("")}</select></div><div><label class="l">Popüler rozeti</label><select id="uP"><option value="0">Yok</option><option value="1"${u.populer?" selected":""}>Var ⭐</option></select></div></div>
+  <div class="alt-b">${u.id?`<button class="btn kirmizi" id="uSil">Menüden kaldır</button>`:"<span></span>"}<span style="display:flex;gap:8px"><button class="btn alt" id="uIptal">Vazgeç</button><button class="btn" id="uKaydet">Kaydet</button></span></div>`;
+ $("#modal").hidden=false;$("#uIptal").onclick=()=>$("#modal").hidden=true;
+ $("#uKaydet").onclick=async()=>{let sec;try{sec=secCoz($("#uSec").value);}catch(e){return toast(e.message);}
+  const urun={id:u.id||"",ad:$("#uAd").value.trim(),fiyat:Number($("#uF").value),kategori:$("#uK").value.trim(),sira:Number($("#uS").value||50),aciklama:$("#uA").value.trim(),gorsel:$("#uG").value.trim(),secenekler:sec,oneri:$("#uO").value,populer:$("#uP").value==="1",aktif:true};
+  if(!urun.ad||!urun.kategori||!(urun.fiyat>=0))return toast("Ad, kategori ve fiyat gerekli");
+  if(await yukle({islem:"urun_kaydet",urun})){$("#modal").hidden=true;toast("✓ Kaydedildi, QR menüde güncel");}};
+ if(u.id)$("#uSil").onclick=async()=>{if($("#uSil").dataset.o!=="1"){$("#uSil").dataset.o="1";$("#uSil").textContent="Emin misiniz? Tekrar dokunun";return;}if(await yukle({islem:"urun_sil",id:u.id})){$("#modal").hidden=true;toast("Ürün menüden kaldırıldı");}};}
+$("#modal").onclick=e=>{if(e.target.id==="modal")$("#modal").hidden=true;};
+$("#yeniUrun").onclick=()=>urunDuzenle(null);
+$("#ayarKaydet").onclick=async()=>{if(await yukle({islem:"ayar",ayar:{renk:$("#aRenk").value,vurgu:$("#aVurgu").value,logo:$("#aLogo").value.trim(),oyun:$("#aOyun").value==="1"}}))toast("✓ Görünüm kaydedildi");};
+$$("#sek button").forEach(b=>b.onclick=()=>{$$("#sek button").forEach(x=>x.classList.toggle("ak",x===b));["ozet","menu","subeler","ayar"].forEach(s=>$("#s-"+s).hidden=s!==b.dataset.s);});
+$$("#donem button").forEach(b=>b.onclick=()=>{GUN=+b.dataset.g;$$("#donem button").forEach(x=>x.classList.toggle("ak",x===b));yukle();});
+if(!/^[0-9a-f-]{36}$/.test(TOKEN)){$("#gecersiz").hidden=false;$("#isletme").textContent="QR Yönetim";}else yukle();
+</script>
+</body></html>
