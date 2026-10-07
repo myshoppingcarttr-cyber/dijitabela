@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-21T23:59:00+03:00" data-slug="caffe-di-toee"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Caffé Di Toeé · Masadan QR Sipariş · Dijitabela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--krem:#f3ece1;--beyaz:#fffaf3;--espresso:#2a1b14;--kahve:#6b4430;--altin:#b8863b;--acik-altin:#e5c08a;--yazi:#231915;--soluk:#6e625a;--cizgi:#e0d5c6;--yesil:#3d8b5f;--kirmizi:#b4483a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--krem);color:var(--yazi);line-height:1.5;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+.mono{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--soluk)}
+.demo{background:var(--espresso);color:var(--krem);font-size:13px;text-align:center;padding:8px 14px}.demo a{color:var(--acik-altin)}
+.sahne{display:grid;grid-template-columns:1fr 400px 300px;gap:30px;max-width:1260px;margin:0 auto;padding:40px 20px 60px;align-items:start}
+.sol h1{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(32px,4vw,50px);line-height:1.05;margin:10px 0 14px;color:var(--espresso)}
+.sol h1 em{color:var(--altin)}
+.sol>p{color:var(--soluk);font-size:17px}
+.qr-kart{background:var(--beyaz);border:1px solid var(--cizgi);padding:18px;margin:22px 0;display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center}
+.qr-kart #qrGercek{background:#fff;padding:8px;width:132px;height:132px}
+.qr-kart #qrGercek img,.qr-kart #qrGercek canvas{width:116px!important;height:116px!important}
+.qr-kart b{display:block;font-size:17px;color:var(--espresso)}.qr-kart small{color:var(--soluk);font-size:14px}
+.ozellik{list-style:none}
+.ozellik li{padding:11px 0 11px 30px;border-bottom:1px solid var(--cizgi);position:relative;font-size:15px}
+.ozellik li::before{content:"";position:absolute;left:0;top:15px;width:18px;height:18px;border-radius:50%;background:var(--acik-altin)}
+.ozellik b{display:block}.ozellik span{color:var(--soluk)}
+/* telefon */
+.tel{background:#1a120d;border-radius:44px;padding:12px;box-shadow:0 40px 70px -30px rgba(42,27,20,.6);position:sticky;top:16px}
+.ek{background:var(--beyaz);border-radius:34px;overflow:hidden;height:780px;display:flex;flex-direction:column;position:relative}
+.ust{background:var(--espresso);color:var(--krem);padding:16px 18px 12px;flex:none}
+.ust .m{font-family:"Playfair Display",serif;font-size:21px;color:var(--acik-altin)}
+.ust small{color:#d9c3a5;font-size:12.5px;display:flex;justify-content:space-between}
+.ekran{flex:1;overflow-y:auto;overflow-x:hidden;display:none;position:relative}
+.ekran.ak{display:block;animation:gir .35s ease}
+@keyframes gir{from{opacity:0;transform:translateX(16px)}}
+/* tarama */
+#e-tara{background:#000;color:#fff}
+.kamera{position:absolute;inset:0;background:url(https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=60) center/cover;filter:blur(2px) brightness(.55)}
+.vizor{position:absolute;left:50%;top:42%;width:220px;height:220px;transform:translate(-50%,-50%)}
+.vizor .qr-masa{position:absolute;inset:30px;background:#fff;border-radius:6px;padding:10px;transition:.4s}
+.vizor .qr-masa canvas{width:100%;height:100%;image-rendering:pixelated}
+.vizor::before,.vizor::after{content:"";position:absolute;inset:0;border:3px solid var(--acik-altin);border-radius:18px;clip-path:polygon(0 0,30% 0,30% 4%,4% 4%,4% 30%,0 30%,0 70%,4% 70%,4% 96%,30% 96%,30% 100%,70% 100%,70% 96%,96% 96%,96% 70%,100% 70%,100% 30%,96% 30%,96% 4%,70% 4%,70% 0,100% 0,100% 100%,0 100%)}
+.tarama-cizgi{position:absolute;left:8%;right:8%;height:2px;background:var(--acik-altin);box-shadow:0 0 14px 3px rgba(229,192,138,.8);animation:tara 1.8s ease-in-out infinite}
+@keyframes tara{0%,100%{top:10%}50%{top:88%}}
+.tara-yazi{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-size:15px;padding:0 30px}
+.tara-yazi b{display:block;font-size:20px;margin-bottom:4px}
+.tara-btn{position:absolute;left:24px;right:24px;bottom:40px}
+.bulundu{position:absolute;left:20px;right:20px;top:50%;transform:translateY(-50%) scale(.9);background:var(--beyaz);color:var(--yazi);border-radius:20px;padding:22px;text-align:center;opacity:0;transition:.35s;pointer-events:none}
+.bulundu.gor{opacity:1;transform:translateY(-50%) scale(1)}
+.bulundu .tik{width:56px;height:56px;border-radius:50%;background:var(--yesil);color:#fff;display:grid;place-items:center;font-size:28px;margin:0 auto 10px}
+.btn{display:block;width:100%;background:var(--espresso);color:#fff;border:0;padding:14px;font-weight:700;border-radius:14px;font-size:15px}
+.btn.altin{background:var(--acik-altin);color:var(--espresso)}
+.btn.alt{background:#fff;color:var(--espresso);border:1.5px solid var(--espresso)}
+/* menü */
+.masa-bant{display:flex;justify-content:space-between;align-items:center;background:#f6efe4;padding:9px 16px;font-size:13px;border-bottom:1px solid var(--cizgi)}
+.masa-bant b{color:var(--espresso)}
+.kat{display:flex;gap:6px;padding:12px 14px 6px;overflow-x:auto;position:sticky;top:0;background:var(--beyaz);z-index:3}
+.kat button{flex:none;border:1.5px solid var(--cizgi);background:#fff;border-radius:20px;padding:7px 13px;font-size:13.5px;font-weight:600}
+.kat button.ak{background:var(--espresso);color:#fff;border-color:var(--espresso)}
+.urunler{padding:6px 14px 110px}
+.urun{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid #f0e8dc;animation:gir .3s}
+.urun img{width:84px;height:84px;border-radius:14px;object-fit:cover}
+.urun b{display:block;font-size:15px}.urun small{color:var(--soluk);font-size:12.5px;display:block;line-height:1.35}
+.urun .alt-s{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.urun .f{font-weight:800;color:var(--kahve)}
+.ekle{width:32px;height:32px;border-radius:50%;border:0;background:var(--espresso);color:#fff;font-size:20px;line-height:1;transition:.15s}
+.ekle:active{transform:scale(.88)}
+.rozet-y{font-size:10.5px;font-weight:800;background:#fff1d6;color:#8a5a00;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle}
+.sepet-bar{position:absolute;left:12px;right:12px;bottom:12px;background:var(--espresso);color:#fff;border-radius:16px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;transform:translateY(130%);transition:.35s cubic-bezier(.2,.8,.2,1);z-index:5;border:0;font-weight:700}
+.sepet-bar.gor{transform:none}
+.sepet-bar .s{background:var(--acik-altin);color:var(--espresso);border-radius:10px;padding:2px 9px;margin-right:8px}
+.sepet-bar.zipla{animation:zip .35s}
+@keyframes zip{50%{transform:scale(1.04)}}
+.ucan{position:absolute;width:34px;height:34px;border-radius:50%;object-fit:cover;z-index:9;pointer-events:none;transition:all .6s cubic-bezier(.5,-.3,.7,1)}
+/* seçenek sayfası */
+.sayfa{position:absolute;inset:0;background:rgba(26,18,13,.5);display:flex;align-items:flex-end;z-index:8;opacity:0;pointer-events:none;transition:.25s}
+.sayfa.ac{opacity:1;pointer-events:auto}
+.sayfa .ic{background:var(--beyaz);width:100%;border-radius:22px 22px 0 0;padding:18px;max-height:85%;overflow-y:auto;transform:translateY(100%);transition:.3s cubic-bezier(.2,.8,.2,1)}
+.sayfa.ac .ic{transform:none}
+.sayfa h3{font-family:"Playfair Display",serif;font-size:22px}
+.lb{display:block;font-size:13px;font-weight:700;margin:12px 0 6px;color:var(--kahve)}
+.chip{display:flex;gap:6px;flex-wrap:wrap}
+.chip button{border:1.5px solid var(--cizgi);background:#fff;border-radius:10px;padding:8px 11px;font-size:13.5px}
+.chip button.ak{border-color:var(--espresso);background:var(--espresso);color:#fff}
+.sat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0e8dc;font-size:14px}
+.sat small{color:var(--soluk);display:block;font-size:12px}
+.adet{display:flex;align-items:center;gap:8px}.adet button{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--cizgi);background:#fff;font-weight:800}
+.toplam{display:flex;justify-content:space-between;font-weight:800;font-size:17px;margin:12px 0}
+textarea{width:100%;font:inherit;font-size:14px;border:1px solid var(--cizgi);border-radius:10px;padding:9px;resize:none}
+/* bekleme */
+.durum-kart{margin:14px;background:#fff;border:1px solid var(--cizgi);border-radius:18px;padding:14px}
+.durum-kart .sat2{display:flex;justify-content:space-between;align-items:center}
+.durum-kart b{font-size:17px}
+.sure{font-family:"JetBrains Mono",monospace;font-size:22px;color:var(--kahve);font-weight:700}
+.adimlar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.adimlar div{text-align:center;font-size:11.5px;color:var(--soluk)}
+.adimlar div i{display:block;height:5px;border-radius:3px;background:#eee4d6;margin-bottom:5px;overflow:hidden;position:relative}
+.adimlar div.on{color:var(--espresso);font-weight:700}
+.adimlar div.on i{background:var(--yesil)}
+.adimlar div.su i::after{content:"";position:absolute;inset:0;width:40%;background:var(--altin);animation:ak 1.1s linear infinite}
+@keyframes ak{from{left:-40%}to{left:100%}}
+.oyun-bas{display:flex;justify-content:space-between;align-items:center;padding:4px 16px 6px}
+.oyun-bas b{font-family:"Playfair Display",serif;font-size:19px}
+.oyun-bas span{font-weight:800;color:var(--kahve)}
+.oyun-alan{position:relative;margin:0 14px;border-radius:18px;overflow:hidden;background:linear-gradient(#3a2519,#1f140e);touch-action:none}
+#oyun{display:block;width:100%;height:380px}
+.oyun-ortu{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;background:rgba(26,18,13,.72);padding:24px;transition:.3s}
+.oyun-ortu.gizli{opacity:0;pointer-events:none}
+.oyun-ortu b{font-family:"Playfair Display",serif;font-size:24px;color:var(--acik-altin)}
+.oyun-ortu p{font-size:14px;color:#e9dccb;margin:6px 0 14px}
+.oyun-ortu .btn{width:auto;padding:12px 22px}
+.oyun-not{font-size:12px;color:var(--soluk);text-align:center;padding:8px 16px 16px}
+.hazir{position:absolute;left:12px;right:12px;top:12px;background:var(--yesil);color:#fff;border-radius:16px;padding:14px;z-index:9;transform:translateY(-140%);transition:.4s cubic-bezier(.2,.8,.2,1);box-shadow:0 14px 30px -10px rgba(0,0,0,.5)}
+.hazir.gor{transform:none}
+.hazir b{display:block;font-size:16px}
+/* bar ekranı */
+.bar{background:#14100d;color:#e9dccb;border-radius:16px;padding:14px;position:sticky;top:16px}
+.bar h3{font-size:14px;display:flex;justify-content:space-between;color:var(--acik-altin);margin-bottom:10px}
+.bar h3 i{font-style:normal;color:#4cc27a;font-size:12px}
+.fis{background:#fffaf3;color:var(--yazi);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:13px;animation:dus .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes dus{from{opacity:0;transform:translateY(-20px) rotate(-2deg)}}
+.fis .b{display:flex;justify-content:space-between;font-weight:800;font-size:14px;border-bottom:1px dashed #cdbba3;padding-bottom:5px;margin-bottom:5px}
+.fis .b span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--kahve)}
+.fis ul{list-style:none}.fis li{padding:1px 0}
+.fis .not2{font-size:12px;color:var(--kirmizi);font-style:italic}
+.fis button{margin-top:8px;width:100%;border:0;border-radius:8px;padding:8px;font-weight:800;background:var(--espresso);color:#fff}
+.fis.bitti{opacity:.45}
+.bos{font-size:13px;color:#8c7b6c;text-align:center;padding:24px 8px;border:1px dashed #3a2d24;border-radius:10px}
+.ozet-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.ozet-bar div{background:#211913;border-radius:10px;padding:8px;font-size:12px}.ozet-bar b{display:block;font-size:18px;color:#fff}
+.cagri{max-width:1260px;margin:0 auto 60px;padding:0 20px}
+.cagri>div{background:var(--espresso);color:var(--krem);padding:26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.cagri b{font-family:"Playfair Display",serif;font-size:24px;color:var(--acik-altin)}
+.cagri a{background:#25a35a;color:#fff;text-decoration:none;font-weight:800;padding:13px 18px}
+.cagri p{font-size:12.5px;color:var(--soluk);margin-top:10px}
+@media(max-width:1180px){.sahne{grid-template-columns:1fr 400px}.bar{grid-column:1/-1;position:static}}
+@media(max-width:820px){.sahne{grid-template-columns:1fr;padding:24px 14px 40px}.tel{position:static;max-width:400px;margin:0 auto;padding:8px;border-radius:36px}.ek{height:740px;border-radius:30px}.qr-kart{grid-template-columns:1fr;justify-items:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="demo">Bu sayfa Dijitabela'nın <b>Caffé Di Toeé</b> için hazırladığı çalışan bir tasarımdır · <a href="../">Tüm tasarımlara dön</a></div>
+<div class="sahne">
+ <div class="sol">
+  <div class="mono">Tasarım 5 · Masadan QR sipariş</div>
+  <h1>Masada QR'ı okut, sırada değil <em>sohbette</em> bekle.</h1>
+  <p>Misafir masadaki QR'ı okutur, menüden seçer, siparişini verir. Uygulama indirmez, üye olmaz. Sipariş anında bar ekranına düşer. Hazırlanırken misafir küçük bir oyunla vakit geçirir, kahvesi hazır olunca telefonu titrer.</p>
+  <div class="qr-kart">
+   <div id="qrGercek"></div>
+   <div><b>Telefonunuzla deneyin</b><small>Bu QR'ı okutunca tasarım telefonunuzda Bestekar · Masa 7 olarak açılır. Her masanın kendi QR'ı olur, şube ve masa otomatik tanınır.</small></div>
+  </div>
+  <ul class="ozellik">
+   <li><b>Kasada kuyruk yok</b><span>Yoğun saatte sipariş masadan gelir; kasadaki ekip hazırlamaya odaklanır.</span></li>
+   <li><b>Sepet ortalaması artar</b><span>"Yanına ne gider?" önerileri: latteye kurabiye, filtreye cheesecake.</span></li>
+   <li><b>Bekleme oyunu: "Çekirdek Yakala"</b><span>30 saniyelik oyun. 30 puanı geçen misafirin sadakat kartına 1 damga eklenir; bekleme eğlenceye döner.</span></li>
+   <li><b>21 şubede aynı sistem</b><span>Menü merkezden yönetilir; şubeye özel ürün ve fiyat açılıp kapatılır, tükenen ürün tek tıkla gizlenir.</span></li>
+   <li><b>Bar ekranı</b><span>Sağdaki ekran baristanın tabletidir. Sipariş verin, fişin düştüğünü görün, "Hazır" deyince misafirin telefonuna bildirim gider.</span></li>
+  </ul>
+ </div>
+
+ <div class="tel"><div class="ek" id="ek">
+  <div class="ust"><div class="m">Caffé Di Toeé</div><small><span id="ustSube">Masadan sipariş</span><span id="ustSaat"></span></small></div>
+  <div class="hazir" id="hazir"><b>☕ Siparişiniz hazır!</b>Baristamız masanıza getiriyor. Afiyet olsun.</div>
+
+  <!-- 1 tarama -->
+  <section class="ekran ak" id="e-tara">
+   <div class="kamera"></div>
+   <div class="vizor"><div class="qr-masa"><canvas id="qrMasa" width="25" height="25"></canvas></div><div class="tarama-cizgi"></div></div>
+   <div class="tara-yazi"><b>Masadaki QR'ı okutun</b>Telefon kamerasını masadaki kartın üzerine tutun.</div>
+   <div class="tara-btn"><button class="btn altin" id="taraBtn">QR'ı okut (deneme)</button></div>
+   <div class="bulundu" id="bulundu"><div class="tik">✓</div><b style="font-size:19px">Bestekar · Masa 7</b><p style="color:var(--soluk);font-size:14px;margin-top:4px">Hoş geldiniz! Menü açılıyor…</p></div>
+  </section>
+
+  <!-- 2 menü -->
+  <section class="ekran" id="e-menu">
+   <div class="masa-bant"><span>📍 <b id="bantSube">Bestekar</b> · Masa <b id="bantMasa">7</b></span><span>☕ Kartınız: 6/10</span></div>
+   <div class="kat" id="kat"></div>
+   <div class="urunler" id="urunler"></div>
+  </section>
+
+  <!-- 3 bekleme + oyun -->
+  <section class="ekran" id="e-bekle">
+   <div class="durum-kart">
+    <div class="sat2"><div><small class="mono">Sipariş <span id="sipNo">#000</span></small><br><b id="durumYazi">Siparişiniz alındı</b></div><div class="sure" id="sure">03:00</div></div>
+    <div class="adimlar" id="adimlar"><div class="on"><i></i>Alındı</div><div class="su"><i></i>Hazırlanıyor</div><div><i></i>Masanızda</div></div>
+   </div>
+   <div class="oyun-bas"><b>Çekirdek Yakala</b><span>Puan: <span id="puan">0</span> · <span id="sn">30</span> sn</span></div>
+   <div class="oyun-alan" id="oyunAlan">
+    <canvas id="oyun" width="372" height="380"></canvas>
+    <div class="oyun-ortu" id="ortu"><b>Kahveniz hazırlanırken</b><p>Fincanı parmağınızla sağa sola kaydırın, düşen çekirdekleri yakalayın. Şeker küplerinden kaçının! 30 puanı geçerseniz kartınıza <b style="font-family:inherit;font-size:inherit;color:#fff">1 damga</b> hediye.</p><button class="btn altin" id="basla">Oyna ▶</button></div>
+   </div>
+   <p class="oyun-not">Klavyede ← → tuşlarıyla da oynanır · Sipariş hazır olunca bildirim gelir</p>
+  </section>
+
+  <!-- seçenek / sepet sayfası -->
+  <div class="sayfa" id="sayfa"><div class="ic" id="sayfaIc"></div></div>
+  <button class="sepet-bar" id="sepetBar"><span><span class="s" id="sepetAdet">0</span>Sepeti gör</span><span id="sepetTutar">0 ₺</span></button>
+ </div></div>
+
+ <aside class="bar">
+  <h3>BAR EKRANI · Bestekar <i>● canlı</i></h3>
+  <div id="fisler"><div class="bos">Henüz sipariş yok.<br>Telefondan sipariş verin, fiş buraya düşsün.</div></div>
+  <div class="ozet-bar"><div><b id="bugunSip">38</b>bugünkü masa siparişi</div><div><b>4:12</b>ort. hazırlık (dk)</div></div>
+ </aside>
+</div>
+
+<div class="cagri"><div><div><b>Masadan siparişi bir şubede deneyelim mi?</b><br>Masa QR kartları, menü kurulumu ve bar ekranı dahil; pilot şube 2 haftada hazır.</div><a href="https://wa.me/905019452184?text=Merhaba%2C%20Caff%C3%A9%20Di%20Toe%C3%A9%20i%C3%A7in%20haz%C4%B1rlanan%20QR%20sipari%C5%9F%20tasar%C4%B1m%C4%B1n%C4%B1%20inceledim.">WhatsApp'tan yaz</a></div>
+<p>Görseller ve fiyatlar örnektir. Ödeme masada kartla (sanal POS) ya da kasada alınabilir.</p></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const U="https://images.unsplash.com/photo-",G=id=>U+id+"?w=240&q=60";
+const prm=new URLSearchParams(location.search),SUBE=prm.get("sube")||"Bestekar",MASA=prm.get("masa")||"7";
+$("#bantSube").textContent=SUBE;$("#bantMasa").textContent=MASA;$("#bulundu b").textContent=SUBE+" · Masa "+MASA;
+setInterval(()=>$("#ustSaat").textContent=new Date().toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"}),1000);
+
+/* gerçek QR: bu sayfa + masa */
+try{new QRCode($("#qrGercek"),{text:location.href.split("?")[0].replace(/^file:.*$/,"https://dijitabela.com/ornek/caffe-di-toee/5-qr-siparis-oyun/")+"?sube=Bestekar&masa=7",width:116,height:116,colorDark:"#2a1b14",colorLight:"#ffffff"});}catch(e){}
+/* vizördeki QR görseli */
+(function(){const c=$("#qrMasa"),x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,25,25);x.fillStyle="#2a1b14";let s=7;const r=()=>{s=(s*9301+49297)%233280;return s/233280};for(let i=0;i<25;i++)for(let j=0;j<25;j++)if(r()>.5)x.fillRect(i,j,1,1);[[0,0],[18,0],[0,18]].forEach(([a,b])=>{x.fillStyle="#2a1b14";x.fillRect(a,b,7,7);x.fillStyle="#fff";x.fillRect(a+1,b+1,5,5);x.fillStyle="#2a1b14";x.fillRect(a+2,b+2,3,3);});})();
+
+function ekranGit(id){$$(".ekran").forEach(e=>e.classList.toggle("ak",e.id==="e-"+id));sepetGuncelle();}
+$("#taraBtn").onclick=()=>{$("#taraBtn").disabled=true;$("#taraBtn").textContent="Okunuyor…";setTimeout(()=>{$("#bulundu").classList.add("gor");$("#ustSube").textContent=SUBE+" · Masa "+MASA;if(navigator.vibrate)navigator.vibrate(40);},900);setTimeout(()=>ekranGit("menu"),2300);};
+if(prm.get("masa"))setTimeout(()=>$("#taraBtn").click(),400);
+
+/* menü */
+const MENU={
+ "Sıcak kahveler":[["Filtre kahve","Günün tek kökenli kahvesi",95,"1495474472287-4d71bcdd2085"],["Flat white","Çift shot, kadifemsi süt",120,"1511920170033-f8396924c348",1],["Latte","Yumuşak, sütlü",125,"1442512595331-e89e73853f31"],["Americano","Espresso + sıcak su",110,"1509042239860-f550ce710b93"]],
+ "Soğuk":[["Iced latte","Buzlu, sütlü",130,"1461023058943-07fcbe16d735"],["Cold brew","18 saat soğuk demleme",135,"1517701604599-bb29b565090c",1],["Espresso tonic","Tonik + espresso",140,"1541167760496-1628856ab772"]],
+ "Tatlılar":[["San Sebastian","Günlük, ev yapımı",165,"1567171466295-4afa63d45416",1],["Brownie","Bitter çikolata",120,"1606313564200-e75d5e30476c"],["Kurabiye","Çikolata parçacıklı",70,"1499636136210-6f4ee915583e"]],
+ "Çekirdek":[["Morbido Blend 250 g","Eve götürün, öğütme bizden",420,"1447933601403-0c6688de566e"]]};
+const ONERI={"Latte":"Kurabiye","Flat white":"Brownie","Filtre kahve":"San Sebastian","Americano":"Brownie","Iced latte":"Brownie","Cold brew":"Kurabiye"};
+const bul=a=>{for(const k in MENU)for(const u of MENU[k])if(u[0]===a)return u;};
+let KAT="Sıcak kahveler",SEPET=[];
+function menuCiz(){$("#kat").innerHTML=Object.keys(MENU).map(k=>`<button class="${k===KAT?"ak":""}">${k}</button>`).join("");$$("#kat button").forEach(b=>b.onclick=()=>{KAT=b.textContent;menuCiz();});
+ $("#urunler").innerHTML=MENU[KAT].map(([a,d,f,g,p])=>`<div class="urun"><img src="${G(g)}" alt="${a}"><div><b>${a}${p?'<span class="rozet-y">Popüler</span>':""}</b><small>${d}</small><div class="alt-s"><span class="f">${f} ₺</span><button class="ekle" data-a="${a}" aria-label="${a} ekle">+</button></div></div></div>`).join("");
+ $$(".ekle").forEach(b=>b.onclick=()=>secenek(b.dataset.a,b));}
+const icecekMi=a=>MENU["Sıcak kahveler"].concat(MENU["Soğuk"]).some(u=>u[0]===a);
+function secenek(a,btn){const u=bul(a);if(!icecekMi(a)){ekle({a,f:u[2],s:""},btn);return;}
+ let boy="Orta",sut="Normal";
+ sayfaAc(`<h3>${a}</h3><small style="color:var(--soluk)">${u[1]}</small>
+  <span class="lb">Boy</span><div class="chip" data-o="boy"><button>Küçük</button><button class="ak">Orta</button><button>Büyük (+15 ₺)</button></div>
+  <span class="lb">Süt</span><div class="chip" data-o="sut"><button class="ak">Normal</button><button>Laktozsuz</button><button>Yulaf (+15 ₺)</button><button>Sütsüz</button></div>
+  <button class="btn" id="sepeteAt" style="margin-top:18px">Sepete ekle · <span id="sfiyat">${u[2]}</span> ₺</button>`);
+ const fiyat=()=>u[2]+(boy.startsWith("Büyük")?15:0)+(sut.startsWith("Yulaf")?15:0);
+ $$("#sayfaIc .chip").forEach(c=>c.querySelectorAll("button").forEach(b=>b.onclick=()=>{c.querySelectorAll("button").forEach(x=>x.classList.toggle("ak",x===b));if(c.dataset.o==="boy")boy=b.textContent;else sut=b.textContent;$("#sfiyat").textContent=fiyat();}));
+ $("#sepeteAt").onclick=()=>{sayfaKapa();ekle({a,f:fiyat(),s:[boy,sut].filter(x=>x!=="Orta"&&x!=="Normal").map(x=>x.replace(/ \(.*\)/,"")).join(", ")},btn);};}
+function ekle(k,btn){const v=SEPET.find(x=>x.a===k.a&&x.s===k.s);if(v)v.n++;else SEPET.push(Object.assign({n:1},k));
+ const ek=$("#ek").getBoundingClientRect(),img=btn.closest(".urun").querySelector("img"),r=img.getBoundingClientRect(),hb=$("#sepetBar").getBoundingClientRect();
+ const u=document.createElement("img");u.src=img.src;u.className="ucan";u.style.left=(r.left-ek.left+25)+"px";u.style.top=(r.top-ek.top+25)+"px";$("#ek").append(u);
+ sepetGuncelle();requestAnimationFrame(()=>{u.style.left=(hb.left-ek.left+20)+"px";u.style.top=(hb.top-ek.top+4)+"px";u.style.transform="scale(.4)";u.style.opacity=".3";});
+ setTimeout(()=>{u.remove();$("#sepetBar").classList.remove("zipla");void $("#sepetBar").offsetWidth;$("#sepetBar").classList.add("zipla");},620);
+ if(navigator.vibrate)navigator.vibrate(15);}
+const adet=()=>SEPET.reduce((t,x)=>t+x.n,0),tutar=()=>SEPET.reduce((t,x)=>t+x.n*x.f,0);
+function sepetGuncelle(){$("#sepetAdet").textContent=adet();$("#sepetTutar").textContent=tutar()+" ₺";$("#sepetBar").classList.toggle("gor",adet()>0&&$("#e-menu").classList.contains("ak"));}
+function sayfaAc(h){$("#sayfaIc").innerHTML=h;$("#sayfa").classList.add("ac");}
+function sayfaKapa(){$("#sayfa").classList.remove("ac");}
+$("#sayfa").onclick=e=>{if(e.target.id==="sayfa")sayfaKapa();};
+$("#sepetBar").onclick=sepetAc;
+function sepetAc(){if(!adet())return;const son=SEPET.map(x=>ONERI[x.a]).find(o=>o&&!SEPET.some(y=>y.a===o));
+ sayfaAc(`<h3>Siparişiniz</h3><small style="color:var(--soluk)">${SUBE} · Masa ${MASA}</small>
+  <div style="margin-top:10px">${SEPET.map((x,i)=>`<div class="sat"><div>${x.a}<small>${x.s||"&nbsp;"}</small></div><div class="adet"><button data-i="${i}" data-d="-1">−</button>${x.n}<button data-i="${i}" data-d="1">+</button><b style="min-width:58px;text-align:right">${x.n*x.f} ₺</b></div></div>`).join("")}</div>
+  ${son?`<div style="background:#fff1d6;border-radius:12px;padding:10px 12px;margin-top:12px;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:8px"><span>☕ Yanına çok yakışır: <b>${son}</b> · ${bul(son)[2]} ₺</span><button class="ekle" id="oneriEkle">+</button></div>`:""}
+  <span class="lb">Baristaya not</span><textarea id="notu" rows="2" placeholder="Örn. az köpüklü, sıcak olmasın"></textarea>
+  <span class="lb">Ödeme</span><div class="chip" id="odeme"><button class="ak">Kartla öde</button><button>Kasada öde</button></div>
+  <div class="toplam"><span>Toplam</span><span>${tutar()} ₺</span></div>
+  <button class="btn" id="siparisVer">Siparişi ver</button>`);
+ $$("#sayfaIc .adet button").forEach(b=>b.onclick=()=>{const x=SEPET[b.dataset.i];x.n+=+b.dataset.d;if(x.n<=0)SEPET.splice(b.dataset.i,1);sepetGuncelle();if(adet())sepetAc();else sayfaKapa();});
+ if(son)$("#oneriEkle").onclick=()=>{const u=bul(son);const v=SEPET.find(x=>x.a===son);if(v)v.n++;else SEPET.push({a:son,f:u[2],s:"",n:1});sepetGuncelle();sepetAc();};
+ $$("#odeme button").forEach(b=>b.onclick=()=>$$("#odeme button").forEach(x=>x.classList.toggle("ak",x===b)));
+ $("#siparisVer").onclick=()=>siparisVer($("#notu").value.trim(),$("#odeme .ak").textContent);}
+menuCiz();
+
+/* sipariş + bar ekranı */
+let SIP=null,BEKLE_T=null,KALAN=180;
+function siparisVer(not,odeme){const no="#"+(400+Math.floor(Math.random()*500));SIP={no,ur:SEPET.map(x=>({...x})),not,odeme};
+ sayfaKapa();SEPET=[];$("#sipNo").textContent=no;ekranGit("bekle");$("#bugunSip").textContent=+$("#bugunSip").textContent+1;
+ const fis=document.createElement("div");fis.className="fis";fis.innerHTML=`<div class="b">Masa ${MASA}<span>${no} · ${new Date().toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"})}</span></div><ul>${SIP.ur.map(x=>`<li>${x.n}× <b>${x.a}</b>${x.s?` <small>(${x.s})</small>`:""}</li>`).join("")}</ul>${not?`<div class="not2">Not: ${not.replace(/</g,"&lt;")}</div>`:""}<small style="color:var(--soluk)">${odeme==="Kartla öde"?"✓ Kartla ödendi":"Kasada ödenecek"}</small><button>Hazırla</button>`;
+ const bos=$("#fisler .bos");if(bos)bos.remove();$("#fisler").prepend(fis);
+ const b=fis.querySelector("button");b.onclick=()=>{if(b.textContent==="Hazırla"){b.textContent="Hazır ✓ (misafire bildir)";b.style.background="var(--yesil)";durum(1);}else{hazir();fis.classList.add("bitti");b.disabled=true;b.textContent="Teslim edildi";}};
+ KALAN=180;clearInterval(BEKLE_T);BEKLE_T=setInterval(()=>{KALAN=Math.max(0,KALAN-1);$("#sure").textContent=String(KALAN/60|0).padStart(2,"0")+":"+String(KALAN%60).padStart(2,"0");if(KALAN===120)durum(1);if(KALAN===0){hazir();fis.classList.add("bitti");b.disabled=true;b.textContent="Teslim edildi";}},1000);}
+function durum(k){const a=$$("#adimlar div");a.forEach((d,i)=>{d.classList.toggle("on",i<=k);d.classList.toggle("su",i===k+1);});$("#durumYazi").textContent=["Siparişiniz alındı","Baristamız hazırlıyor","Masanıza geliyor"][k];}
+function hazir(){if(!SIP||SIP.bitti)return;SIP.bitti=1;clearInterval(BEKLE_T);durum(2);$$("#adimlar div").forEach(d=>d.classList.remove("su"));$("#sure").textContent="✓";$("#hazir").classList.add("gor");if(navigator.vibrate)navigator.vibrate([200,100,200]);oyunDur("Kahveniz hazır! ☕");setTimeout(()=>$("#hazir").classList.remove("gor"),6000);}
+
+/* ===== OYUN: Çekirdek Yakala ===== */
+const cv=$("#oyun"),cx=cv.getContext("2d");let W=372,H=380;
+function boyut(){const r=cv.getBoundingClientRect();if(!r.width)return;const d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);}
+let O=null;
+function oyunBasla(){boyut();O={x:W/2,puan:0,sn:30,parca:[],t:0,son:performance.now(),bitis:performance.now()+30000,efekt:[]};$("#ortu").classList.add("gizli");$("#puan").textContent=0;requestAnimationFrame(kare);}
+function oyunDur(baslik){if(!O)return;const p=O.puan;O=null;const kazandi=p>=30;
+ $("#ortu").innerHTML=`<b>${baslik||"Süre doldu!"}</b><p>${p} puan topladınız. ${kazandi?"🎉 Kartınıza <b style='font-family:inherit;font-size:inherit;color:#fff'>1 damga</b> eklendi (7/10).":"30 puana çok az kaldı, bir daha dener misiniz?"}</p><button class="btn altin" id="basla">Tekrar oyna ▶</button>`;
+ $("#ortu").classList.remove("gizli");$("#basla").onclick=oyunBasla;if(kazandi)$(".masa-bant span:last-child").textContent="☕ Kartınız: 7/10";}
+$("#basla").onclick=oyunBasla;
+function kare(simdi){if(!O)return;const dt=Math.min(40,simdi-O.son)/16.7;O.son=simdi;O.t+=dt;
+ const kalan=Math.max(0,Math.ceil((O.bitis-simdi)/1000));$("#sn").textContent=kalan;if(kalan<=0){oyunDur();return;}
+ const hiz=1+(30-kalan)/22;
+ if(Math.random()<0.045*dt*hiz){const r=Math.random();O.parca.push({x:20+Math.random()*(W-40),y:-20,v:(2+Math.random()*1.6)*hiz,tur:r<.16?"seker":r<.24?"altin":"cekirdek",a:Math.random()*6});}
+ if(TUS.sol)O.x-=7*dt;if(TUS.sag)O.x+=7*dt;O.x=Math.max(34,Math.min(W-34,O.x));
+ const g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#3a2519");g.addColorStop(1,"#1a110c");cx.fillStyle=g;cx.fillRect(0,0,W,H);
+ cx.fillStyle="rgba(229,192,138,.06)";for(let i=0;i<6;i++){cx.beginPath();cx.arc((i*97+O.t*0.3)%W,(i*61)%H,40+i*6,0,7);cx.fill();}
+ const fy=H-46;
+ for(const p of O.parca){p.y+=p.v*dt;p.a+=0.05*dt;cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);
+  if(p.tur==="seker"){cx.fillStyle="#fff";cx.fillRect(-10,-10,20,20);cx.strokeStyle="#ddd";cx.strokeRect(-10,-10,20,20);}
+  else{cx.fillStyle=p.tur==="altin"?"#e5c08a":"#7a4a2e";cx.beginPath();cx.ellipse(0,0,9,13,0,0,7);cx.fill();cx.strokeStyle=p.tur==="altin"?"#b8863b":"#3b2115";cx.lineWidth=2;cx.beginPath();cx.moveTo(0,-10);cx.quadraticCurveTo(-4,0,0,10);cx.stroke();if(p.tur==="altin"){cx.shadowColor="#e5c08a";cx.shadowBlur=12;}}
+  cx.restore();
+  if(!p.yok&&p.y>fy-8&&p.y<fy+16&&Math.abs(p.x-O.x)<36){p.yok=1;const d=p.tur==="seker"?-5:p.tur==="altin"?5:1;O.puan=Math.max(0,O.puan+d);$("#puan").textContent=O.puan;O.efekt.push({x:p.x,y:fy-20,m:(d>0?"+":"")+d,o:1,r:d>0?"#e5c08a":"#ff8a7a"});if(navigator.vibrate&&d<0)navigator.vibrate(60);}}
+ O.parca=O.parca.filter(p=>!p.yok&&p.y<H+30);
+ cx.save();cx.translate(O.x,fy);cx.fillStyle="#fffaf3";cx.beginPath();cx.moveTo(-30,-14);cx.lineTo(30,-14);cx.lineTo(24,22);cx.quadraticCurveTo(0,30,-24,22);cx.closePath();cx.fill();
+ cx.strokeStyle="#fffaf3";cx.lineWidth=5;cx.beginPath();cx.arc(32,2,9,-1.3,1.3);cx.stroke();cx.fillStyle="#6b4430";cx.beginPath();cx.ellipse(0,-14,30,6,0,0,7);cx.fill();
+ cx.fillStyle="#2a1b14";cx.font="700 10px Archivo,sans-serif";cx.textAlign="center";cx.fillText("TOEÉ",0,10);cx.restore();
+ cx.strokeStyle="rgba(255,255,255,.35)";cx.lineWidth=2;for(let i=-1;i<=1;i++){cx.beginPath();const ox=O.x+i*10;cx.moveTo(ox,fy-24);cx.bezierCurveTo(ox-6,fy-34,ox+6,fy-40,ox,fy-52+Math.sin(O.t/8+i)*3);cx.stroke();}
+ for(const e of O.efekt){e.y-=1.2*dt;e.o-=0.025*dt;cx.globalAlpha=Math.max(0,e.o);cx.fillStyle=e.r;cx.font="800 18px Archivo,sans-serif";cx.textAlign="center";cx.fillText(e.m,e.x,e.y);}cx.globalAlpha=1;O.efekt=O.efekt.filter(e=>e.o>0);
+ cx.fillStyle="rgba(229,192,138,.85)";cx.fillRect(0,0,W*(kalan/30),4);
+ requestAnimationFrame(kare);}
+const TUS={};addEventListener("keydown",e=>{if(!O)return;if(e.key==="ArrowLeft"){TUS.sol=1;e.preventDefault();}if(e.key==="ArrowRight"){TUS.sag=1;e.preventDefault();}});
+addEventListener("keyup",e=>{if(e.key==="ArrowLeft")TUS.sol=0;if(e.key==="ArrowRight")TUS.sag=0;});
+const tasi=e=>{if(!O)return;const r=cv.getBoundingClientRect(),t=e.touches?e.touches[0]:e;O.x=t.clientX-r.left;};
+cv.addEventListener("pointermove",tasi);cv.addEventListener("touchmove",e=>{tasi(e);e.preventDefault();},{passive:false});cv.addEventListener("pointerdown",tasi);
+addEventListener("resize",()=>{if(O)boyut();});
+</script>
+</body></html>

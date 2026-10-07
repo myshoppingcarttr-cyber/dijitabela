@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-21T23:59:00+03:00" data-slug="caffe-di-toee"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Caffé Di Toeé · İçerik ve Otomasyon Merkezi · Dijitabela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--krem:#f3ece1;--beyaz:#fffaf3;--espresso:#2a1b14;--kahve:#6b4430;--altin:#b8863b;--acik-altin:#e5c08a;--yazi:#231915;--soluk:#6e625a;--cizgi:#e0d5c6;--yesil:#3d8b5f;--kirmizi:#b4483a;--mavi:#3b5b8c}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--krem);color:var(--yazi);line-height:1.5;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+button{font:inherit;cursor:pointer}
+.mono{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--soluk)}
+.demo{background:var(--espresso);color:var(--krem);font-size:13px;text-align:center;padding:8px 14px}.demo a{color:var(--acik-altin)}
+.ic{max-width:1220px;margin:0 auto;padding:0 20px}
+
+/* ---------- açılış ---------- */
+.acilis{position:relative;overflow:hidden;background:var(--espresso);color:var(--krem)}
+.acilis .arka{position:absolute;inset:0;background:url(https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&q=60) center/cover;opacity:.28;transform:scale(1.08);animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.18) translate(-2%,-2%)}}
+.acilis .ic{position:relative;padding:64px 20px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.acilis h1{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(34px,5vw,62px);line-height:1.02;margin:12px 0 16px}
+.acilis h1 em{color:var(--acik-altin)}
+.acilis p{font-size:18px;color:#e9dccb;max-width:620px}
+.acilis .mono{color:var(--acik-altin)}
+.rakamlar{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+.rakamlar div b{display:block;font-size:38px;font-variation-settings:"wdth" 70;color:#fff;line-height:1}
+.rakamlar div span{font-size:13px;color:#d9c3a5}
+.akis{background:rgba(255,250,243,.07);border:1px solid rgba(229,192,138,.35);padding:22px;backdrop-filter:blur(4px)}
+.akis ol{list-style:none;counter-reset:a}
+.akis li{counter-increment:a;display:grid;grid-template-columns:38px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed rgba(229,192,138,.25);opacity:.35;transition:opacity .5s}
+.akis li:last-child{border:0}
+.akis li.on{opacity:1}
+.akis li::before{content:counter(a);width:34px;height:34px;border-radius:50%;border:1.5px solid var(--acik-altin);display:grid;place-items:center;font-weight:800;color:var(--acik-altin)}
+.akis li.on::before{background:var(--acik-altin);color:var(--espresso)}
+.akis b{display:block;color:#fff}.akis small{color:#d9c3a5;font-size:13.5px}
+
+/* ---------- uygulama çerçevesi ---------- */
+.kabuk{display:grid;grid-template-columns:230px 1fr;gap:0;margin:34px auto 0;max-width:1220px;background:var(--beyaz);border:1px solid var(--cizgi);box-shadow:0 30px 60px -30px rgba(42,27,20,.35)}
+.yan{background:var(--espresso);color:var(--krem);padding:20px 14px;position:sticky;top:0;align-self:start;min-height:100%}
+.yan .logo{font-family:"Playfair Display",serif;font-size:22px;color:var(--acik-altin);padding:0 8px 4px}
+.yan .logo+small{display:block;color:#bfa98e;font-size:12px;padding:0 8px 18px}
+.yan button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;color:#e9dccb;padding:11px 10px;border-radius:8px;font-size:15px;position:relative}
+.yan button:hover{background:rgba(255,255,255,.06)}
+.yan button.ak{background:var(--acik-altin);color:var(--espresso);font-weight:700}
+.yan button .rozet{margin-left:auto;background:var(--kirmizi);color:#fff;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px}
+.yan .durum{margin-top:18px;padding:12px 10px;border-top:1px solid rgba(229,192,138,.2);font-size:12.5px;color:#bfa98e}
+.yan .durum i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4cc27a;margin-right:6px;animation:nabiz 1.6s infinite}
+@keyframes nabiz{50%{box-shadow:0 0 0 6px rgba(76,194,122,0)}0%{box-shadow:0 0 0 0 rgba(76,194,122,.6)}}
+.alan{padding:26px 28px 34px;min-width:0}
+.bolum{display:none;animation:gir .45s ease}
+.bolum.ak{display:block}
+@keyframes gir{from{opacity:0;transform:translateY(10px)}}
+.bas{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.bas h2{font-family:"Playfair Display",serif;font-size:30px;color:var(--espresso);line-height:1.1}
+.anlat{background:#f6efe4;border-left:3px solid var(--altin);padding:12px 14px;font-size:14.5px;color:#4a3b31;margin:12px 0 20px;max-width:880px}
+.anlat b{color:var(--espresso)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--espresso);color:#fff;border:0;padding:11px 16px;border-radius:10px;font-weight:700;font-size:14px}
+.btn.alt{background:#fff;color:var(--espresso);border:1.5px solid var(--espresso)}
+.btn.altin{background:var(--acik-altin);color:var(--espresso)}
+.btn:disabled{opacity:.45;cursor:default}
+select{font:inherit;padding:10px 12px;border:1px solid var(--cizgi);border-radius:10px;background:#fff;max-width:100%}
+
+/* ---------- yükleme ---------- */
+.yukle-ust{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.birak{border:2px dashed #c9b394;border-radius:16px;background:#fff;padding:30px 20px;text-align:center;transition:.25s;position:relative}
+.birak.ust{border-color:var(--espresso);background:#fbf4ea;transform:scale(1.01)}
+.birak .ikon{font-size:40px;line-height:1;animation:yuz 2.4s ease-in-out infinite}
+@keyframes yuz{50%{transform:translateY(-6px)}}
+.birak b{display:block;font-size:19px;margin:8px 0 4px}
+.birak small{color:var(--soluk)}
+.birak input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ornekler{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap;position:relative;z-index:2}
+.ornekler button{border:0;padding:0;border-radius:10px;overflow:hidden;width:76px;height:76px;position:relative;box-shadow:0 4px 12px -4px rgba(0,0,0,.3);transition:.2s}
+.ornekler button:hover{transform:translateY(-3px)}
+.ornekler button img{width:100%;height:100%;object-fit:cover}
+.ornekler button span{position:absolute;inset:auto 0 0;background:rgba(42,27,20,.75);color:#fff;font-size:10px;padding:2px}
+.kanallar-yukle{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.kanallar-yukle div{background:#fff;border:1px solid var(--cizgi);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--soluk)}
+.kanallar-yukle b{display:block;color:var(--yazi);font-size:14px}
+.is{background:#fff;border:1px solid var(--cizgi);border-radius:16px;margin-top:18px;overflow:hidden;animation:gir .4s ease}
+.is-ust{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;padding:14px;border-bottom:1px solid var(--cizgi)}
+.is-ust .kucuk{width:72px;height:72px;border-radius:10px;overflow:hidden;background:#ddd}
+.is-ust .kucuk img,.is-ust .kucuk video{width:100%;height:100%;object-fit:cover}
+.is-ust b{display:block}.is-ust small{color:var(--soluk);font-size:13px}
+.cubuk{height:6px;background:#eee4d6;border-radius:3px;overflow:hidden;margin-top:8px}.cubuk i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--altin),var(--acik-altin));transition:width .3s}
+.adimlar{display:flex;gap:6px;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid var(--cizgi);background:#fcf8f2}
+.adimlar span{font-size:12.5px;padding:5px 10px;border-radius:20px;background:#efe6d8;color:#8a7a6c;transition:.3s}
+.adimlar span.on{background:#e7f3ec;color:#235a3a}
+.adimlar span.su{background:var(--espresso);color:#fff}
+.ciktilar{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:16px 14px}
+.cikti{opacity:0;transform:translateY(14px) scale(.98);transition:.5s cubic-bezier(.2,.8,.2,1)}
+.cikti.gor{opacity:1;transform:none}
+.cikti .tur{font-size:12px;font-weight:800;color:var(--kahve);margin-bottom:6px;display:flex;justify-content:space-between}
+.cikti .tur em{font-style:normal;color:var(--soluk);font-weight:500}
+.cerceve{position:relative;border-radius:14px;overflow:hidden;background:#111;box-shadow:0 10px 24px -14px rgba(0,0,0,.6)}
+.cerceve .m{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.d916{aspect-ratio:9/16}.d45{aspect-ratio:4/5}.d11{aspect-ratio:1/1}
+.kb{animation:kb2 9s ease-in-out infinite alternate}
+@keyframes kb2{from{transform:scale(1.02)}to{transform:scale(1.16) translate(-3%,2%)}}
+.alt-yazi{position:absolute;left:8%;right:8%;bottom:20%;text-align:center;color:#fff;font-weight:900;font-size:clamp(14px,1.5vw,19px);line-height:1.15;font-variation-settings:"wdth" 80;text-transform:uppercase;-webkit-text-stroke:1.2px #000;paint-order:stroke fill;text-shadow:0 3px 0 #000,0 0 14px rgba(0,0,0,.5)}
+.alt-yazi span{display:inline-block;opacity:0;transform:scale(.6);transition:.18s}
+.alt-yazi span.g{opacity:1;transform:none}
+.alt-yazi span.vurgu{color:var(--acik-altin)}
+.reels-ui{position:absolute;right:8px;bottom:14px;display:flex;flex-direction:column;gap:12px;color:#fff;font-size:11px;text-align:center;text-shadow:0 1px 3px #000}
+.reels-ui b{display:block;font-size:17px}
+.ust-et{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;padding:3px 8px;border-radius:12px}
+.anket{position:absolute;left:12%;right:12%;bottom:18%;background:#fff;border-radius:12px;padding:10px;text-align:center;font-size:12px;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.anket b{display:block;margin-bottom:6px;font-size:13px}
+.anket div{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.anket span{border:1px solid #ddd;border-radius:8px;padding:6px 2px;font-weight:700;position:relative;overflow:hidden}
+.anket span i{position:absolute;inset:0 auto 0 0;background:rgba(184,134,59,.25);width:0;transition:width 1.4s}
+.hik-ust{position:absolute;inset:8px 8px auto;display:flex;gap:3px}.hik-ust i{flex:1;height:2px;background:rgba(255,255,255,.4);border-radius:2px;overflow:hidden}.hik-ust i:first-child::after{content:"";display:block;height:100%;background:#fff;animation:dol 5s linear infinite}
+@keyframes dol{from{width:0}to{width:100%}}
+.hik-ad{position:absolute;top:18px;left:10px;color:#fff;font-size:11.5px;font-weight:700;display:flex;gap:6px;align-items:center;text-shadow:0 1px 3px #000}.hik-ad i{width:22px;height:22px;border-radius:50%;background:var(--espresso);border:1.5px solid var(--acik-altin);display:grid;place-items:center;font-style:normal;font-size:10px}
+.gonderi{background:#fff;border:1px solid var(--cizgi);border-radius:14px;overflow:hidden}
+.gonderi .ust{display:flex;align-items:center;gap:8px;padding:8px 10px;font-size:12.5px;font-weight:700}.gonderi .ust i{width:24px;height:24px;border-radius:50%;background:var(--espresso);color:var(--acik-altin);display:grid;place-items:center;font-style:normal;font-size:11px}
+.gonderi .cerceve{border-radius:0;box-shadow:none}
+.gonderi .met{padding:8px 10px 10px;font-size:12px;color:#333;max-height:92px;overflow:hidden}
+.gonderi .met b{font-weight:700}
+.gbp{background:#fff;border:1px solid #dadce0;border-radius:14px;overflow:hidden;font-family:Arial,system-ui,sans-serif}
+.gbp .ust{padding:10px;font-size:12px;display:flex;gap:8px;align-items:center}.gbp .ust i{width:26px;height:26px;border-radius:50%;background:#1a73e8;color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
+.gbp .ust small{display:block;color:#5f6368}
+.gbp .met{padding:8px 10px;font-size:12px;color:#202124}
+.gbp .gbtn{margin:0 10px 10px;border:1px solid #dadce0;border-radius:18px;text-align:center;color:#1a73e8;font-size:12px;font-weight:700;padding:6px}
+.onay{display:flex;gap:6px;margin-top:8px;align-items:center;font-size:12px;color:var(--soluk)}
+.onay button{border:1.5px solid var(--espresso);background:#fff;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:700}
+.onay button.ok{background:var(--yesil);border-color:var(--yesil);color:#fff}
+.is-alt{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-top:1px solid var(--cizgi);background:#fcf8f2;gap:10px;flex-wrap:wrap;font-size:13.5px}
+
+/* ---------- takvim ---------- */
+.takvim{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.gun{background:#fff;border:1px solid var(--cizgi);border-radius:12px;padding:10px;min-height:190px}
+.gun h4{font-size:13px;color:var(--kahve);margin-bottom:8px;display:flex;justify-content:space-between}
+.gun h4 small{color:var(--soluk);font-weight:500}
+.ogesi{display:flex;gap:7px;align-items:center;background:#f6efe4;border-radius:8px;padding:5px;margin-bottom:6px;font-size:11.5px;line-height:1.2;animation:gir .4s}
+.ogesi img{width:30px;height:30px;border-radius:6px;object-fit:cover;flex:none}
+.ogesi b{display:block;font-size:11.5px}
+.ogesi.yeni{outline:2px solid var(--altin)}
+.kanal-sim{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;color:#fff;font-size:9px;font-weight:800;margin-right:2px}
+.ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}.fb{background:#1877f2}.tt{background:#111}.gg{background:#1a73e8}.yt{background:#e62117}
+
+/* ---------- gelen kutusu ---------- */
+.gk{display:grid;grid-template-columns:340px 1fr;gap:16px}
+.liste{background:#fff;border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;max-height:620px;overflow-y:auto}
+.mesaj{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:start;gap:10px;padding:12px;border-bottom:1px solid #f0e8dc;cursor:pointer;transition:background .2s;animation:gir .4s}
+.mesaj:hover{background:#fbf6ef}.mesaj.sec{background:#f3e9da}
+.mesaj .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
+.mesaj b{font-size:14px}.mesaj p{font-size:13px;color:var(--soluk);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.etiket{font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.e-cevap{background:#e7f3ec;color:#235a3a}.e-bekle{background:#fff1d6;color:#8a5a00}.e-sikayet{background:#fbe3df;color:#8f2c1f}.e-franchise{background:#e5ebf6;color:#2c4a7a}
+.detay{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:18px;min-height:420px;display:flex;flex-direction:column}
+.detay .kim{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--cizgi);padding-bottom:12px;margin-bottom:12px}
+.balon{max-width:82%;padding:10px 13px;border-radius:14px;font-size:14px;margin-bottom:10px;animation:gir .35s}
+.balon.gelen{background:#f1ebe2;border-bottom-left-radius:4px}
+.balon.giden{background:var(--espresso);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.balon small{display:block;font-size:11px;opacity:.7;margin-top:4px}
+.yaziyor{display:inline-flex;gap:4px;padding:12px 14px;background:var(--espresso);border-radius:14px;margin-left:auto}
+.yaziyor i{width:6px;height:6px;border-radius:50%;background:#e9dccb;animation:zipla 1s infinite}.yaziyor i:nth-child(2){animation-delay:.15s}.yaziyor i:nth-child(3){animation-delay:.3s}
+@keyframes zipla{50%{transform:translateY(-4px);opacity:.5}}
+.kural{margin-top:auto;background:#fcf8f2;border:1px dashed #d8c6ad;border-radius:10px;padding:10px 12px;font-size:13px;color:#4a3b31}
+.kurallar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.kurallar div{background:#fff;border:1px solid var(--cizgi);border-radius:12px;padding:12px;font-size:13px;color:var(--soluk)}
+.kurallar b{display:block;color:var(--yazi);font-size:14px;margin-bottom:2px}
+.anahtar{float:right;width:34px;height:20px;border-radius:10px;background:var(--yesil);position:relative}.anahtar::after{content:"";position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff}
+
+/* ---------- franchise ---------- */
+.boru{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sutun{background:#f6efe4;border-radius:14px;padding:10px;min-height:260px}
+.sutun h4{font-size:13px;color:var(--kahve);margin:2px 4px 10px;display:flex;justify-content:space-between}
+.aday{background:#fff;border:1px solid var(--cizgi);border-radius:10px;padding:10px;margin-bottom:8px;font-size:13px;cursor:pointer;transition:.2s;animation:gir .4s}
+.aday:hover{transform:translateY(-2px);box-shadow:0 8px 16px -10px rgba(0,0,0,.4)}
+.aday b{display:block;font-size:14px}
+.aday .puan{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:12px;color:var(--soluk)}
+.aday .puan i{flex:1;height:5px;background:#eee4d6;border-radius:3px;overflow:hidden}.aday .puan i::after{content:"";display:block;height:100%;width:var(--p);background:var(--altin)}
+.eposta{background:#fff;border:1px solid var(--cizgi);border-radius:14px;margin-top:16px;overflow:hidden}
+.eposta .bas2{padding:12px 16px;border-bottom:1px solid var(--cizgi);font-size:13.5px;color:var(--soluk)}
+.eposta .bas2 b{color:var(--yazi)}
+.eposta .govde{padding:16px;font-size:14.5px;white-space:pre-line;min-height:150px}
+
+/* ---------- raporlar ---------- */
+.donem{display:inline-flex;background:#fff;border:1px solid var(--cizgi);border-radius:12px;padding:4px}
+.donem button{border:0;background:none;padding:8px 14px;border-radius:9px;font-weight:700;font-size:14px;color:var(--soluk)}
+.donem button.ak{background:var(--espresso);color:#fff}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.kpi div{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:14px}
+.kpi small{color:var(--soluk);font-size:12.5px}
+.kpi b{display:block;font-size:30px;font-variation-settings:"wdth" 72;color:var(--espresso);line-height:1.15}
+.kpi em{font-style:normal;font-size:12.5px;font-weight:800;color:var(--yesil)}
+.grafikler{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.kutu{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:16px}
+.kutu h4{font-size:15px;margin-bottom:10px}
+svg .cizgi-yol{fill:none;stroke:var(--kahve);stroke-width:2.5;stroke-linejoin:round}
+svg .alan-yol{fill:url(#grd)}
+.siralama div{display:grid;grid-template-columns:110px 1fr 46px;gap:8px;align-items:center;font-size:13px;margin-bottom:7px}
+.siralama i{height:10px;background:#eee4d6;border-radius:5px;overflow:hidden}.siralama i::after{content:"";display:block;height:100%;width:var(--w);background:var(--altin);transition:width 1s}
+.siralama span{text-align:right;font-weight:700}
+.wa-rapor{background:#e5ddd5;border-radius:14px;padding:14px;margin-top:14px}
+.wa-rapor .b{background:#fff;border-radius:10px;padding:10px 12px;font-size:13.5px;white-space:pre-line;max-width:430px;box-shadow:0 1px 1px rgba(0,0,0,.1)}
+.en-iyi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.en-iyi div{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5}
+.en-iyi img{width:100%;height:100%;object-fit:cover}
+.en-iyi span{position:absolute;inset:auto 0 0;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;font-size:12px;padding:20px 8px 6px}
+
+/* ---------- kapanış ---------- */
+.kapanis{max-width:1220px;margin:40px auto 0;padding:0 20px 60px}
+.kapanis h2{font-family:"Playfair Display",serif;font-size:32px;color:var(--espresso);margin-bottom:12px}
+.uclu{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.uclu div{background:var(--beyaz);border:1px solid var(--cizgi);padding:18px}
+.uclu b{display:block;font-size:18px;margin-bottom:4px;color:var(--espresso)}
+.uclu p{color:var(--soluk);font-size:14.5px}
+.cagri{background:var(--espresso);color:var(--krem);padding:26px;margin-top:22px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.cagri b{font-family:"Playfair Display",serif;font-size:24px;color:var(--acik-altin)}
+.cagri a{background:#25a35a;color:#fff;text-decoration:none;font-weight:800;padding:13px 18px}
+.not{font-size:12.5px;color:var(--soluk);margin-top:10px}
+.belir{opacity:0;transform:translateY(18px);transition:.7s cubic-bezier(.2,.8,.2,1)}.belir.gor{opacity:1;transform:none}
+
+@media(max-width:1100px){.ciktilar{grid-template-columns:repeat(2,1fr)}.kurallar,.kpi{grid-template-columns:repeat(2,1fr)}.takvim{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){
+ .acilis .ic{grid-template-columns:1fr;padding:44px 16px 40px}
+ .kabuk{grid-template-columns:1fr;margin-top:20px;border-left:0;border-right:0}
+ .yan{position:sticky;top:0;z-index:20;display:flex;gap:6px;overflow-x:auto;padding:10px;min-height:0}
+ .yan .logo,.yan .logo+small,.yan .durum{display:none}
+ .yan button{width:auto;white-space:nowrap;padding:8px 12px;font-size:14px;flex:none}
+ .alan{padding:18px 16px 26px}
+ .gk,.grafikler,.uclu{grid-template-columns:1fr}
+ .boru{grid-template-columns:repeat(2,1fr)}
+ .kanallar-yukle{grid-template-columns:1fr}
+ .takvim{grid-template-columns:repeat(2,1fr)}
+ .is-ust{grid-template-columns:56px 1fr}.is-ust .kucuk{width:56px;height:56px}.is-ust>.btn{grid-column:1/-1}
+ .liste{max-height:340px}
+}
+@media(max-width:520px){.ciktilar{grid-template-columns:1fr 1fr;gap:10px;padding:12px 10px}.boru{grid-template-columns:1fr}.kpi b{font-size:24px}.siralama div{grid-template-columns:90px 1fr 40px}.en-iyi{grid-template-columns:repeat(3,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="demo">Bu sayfa Dijitabela'nın <b>Caffé Di Toeé</b> için hazırladığı çalışan bir tasarımdır · <a href="../">Tüm tasarımlara dön</a></div>
+
+<section class="acilis">
+ <div class="arka"></div>
+ <div class="ic">
+  <div class="belir">
+   <div class="mono">Tasarım 4 · İçerik ve Otomasyon Merkezi</div>
+   <h1>Şubeleriniz <em>çeker</em>,<br>gerisini sistem yapar.</h1>
+   <p>Barista telefonuyla bir fotoğraf ya da video yükler. Sistem ondan en az 4 içerik üretir, onayınızla 5 kanalda yayınlar. Yorumlara ve DM'lere cevap verir, franchise e-postalarını yanıtlar. Size her gün, her hafta ve her ay rapor gönderir. Sizin işiniz kahve olmaya devam eder.</p>
+   <div class="rakamlar">
+    <div><b data-say="21">0</b><span>şube tek panelde</span></div>
+    <div><b data-say="4" data-on="+">0</b><span>içerik / her yükleme</span></div>
+    <div><b data-say="2" data-son=" dk">0</b><span>ortalama cevap süresi</span></div>
+    <div><b data-say="7" data-son="/24">0</b><span>yorum, DM, e-posta</span></div>
+   </div>
+  </div>
+  <div class="akis belir">
+   <ol id="akis">
+    <li><div><b>Şube yükler</b><small>Panelden, WhatsApp'tan ya da QR'lı yükleme linkinden. Ham ve kurgusuz olabilir.</small></div></li>
+    <li><div><b>Sistem işler</b><small>En iyi kareler seçilir, ışık düzeltilir. Reels, gönderi, hikâye ve Google gönderisi hazırlanır.</small></div></li>
+    <li><div><b>Siz onaylarsınız</b><small>Tek dokunuşla. İsterseniz otomatik onay da açılabilir.</small></div></li>
+    <li><div><b>Yayın, cevap, rapor</b><small>Takvimdeki saatte paylaşılır. Gelen yorum, DM ve e-postalar marka dilinizle cevaplanır.</small></div></li>
+   </ol>
+  </div>
+ </div>
+</section>
+
+<div class="kabuk" id="panel">
+ <nav class="yan" id="yan">
+  <div class="logo">Caffé Di Toeé</div><small>İçerik ve Otomasyon Merkezi</small>
+  <button data-b="yukle" class="ak">⬆ Yükleme alanı</button>
+  <button data-b="takvim">🗓 Yayın takvimi</button>
+  <button data-b="gelen">💬 Gelen kutusu <span class="rozet" id="rozetGelen">3</span></button>
+  <button data-b="franchise">🤝 Franchise <span class="rozet" id="rozetFr">2</span></button>
+  <button data-b="rapor">📊 Raporlar</button>
+  <div class="durum"><i></i>Sistem çalışıyor<br>Son işlem: <span id="sonIslem">az önce</span></div>
+ </nav>
+ <main class="alan">
+
+ <!-- ===== YÜKLEME ===== -->
+ <section class="bolum ak" id="b-yukle">
+  <div class="bas"><div><div class="mono">Adım 1 · Şubeden içerik</div><h2>Yükleme alanı</h2></div>
+   <div class="mono">Bu ay: <b id="ayYukleme">63</b> yükleme → <b id="ayIcerik">252</b> içerik</div></div>
+  <div class="anlat"><b>Nasıl çalışır?</b> Şube ekibi gün içinde ne çekerse buraya atar: latte art, yeni tatlı, sabah kuyruğu, kavurma günü. Kurgu ya da yazı gerekmez. <b>Aşağıya kendi fotoğrafınızı ya da videonuzu sürükleyin</b> veya örneklerden birine dokunun. Sistemin ondan neler ürettiğini canlı görün.</div>
+  <div class="yukle-ust">
+   <label class="mono" for="ySube">Yükleyen şube</label>
+   <select id="ySube"></select>
+   <select id="yKisi"><option>Barista</option><option>Şube müdürü</option><option>Genel merkez</option></select>
+  </div>
+  <div class="birak" id="birak">
+   <div class="ikon">☕</div>
+   <b>Fotoğraf veya videoyu buraya bırakın</b>
+   <small>ya da dokunup telefonunuzdan seçin · JPG, PNG, MP4, MOV · birden fazla dosya olabilir</small>
+   <input type="file" id="dosya" accept="image/*,video/*" multiple aria-label="İçerik yükle">
+   <div class="ornekler" id="ornekler"></div>
+  </div>
+  <div class="kanallar-yukle">
+   <div><b>📱 WhatsApp'tan gönder</b>Şubeye özel numaraya atılan her fotoğraf buraya düşer.</div>
+   <div><b>🔗 QR'lı yükleme linki</b>Kasanın yanındaki QR ile giriş gerekmeden yükleme.</div>
+   <div><b>📂 Toplu yükleme</b>Açılış, etkinlik gibi günlerde 50+ dosya tek seferde.</div>
+  </div>
+  <div id="isler"></div>
+ </section>
+
+ <!-- ===== TAKVİM ===== -->
+ <section class="bolum" id="b-takvim">
+  <div class="bas"><div><div class="mono">Adım 2 · Planlı yayın</div><h2>Yayın takvimi</h2></div>
+   <div><span class="kanal-sim ig">IG</span><span class="kanal-sim fb">f</span><span class="kanal-sim tt">TT</span><span class="kanal-sim yt">▶</span><span class="kanal-sim gg">G</span> <span class="mono">5 kanal</span></div></div>
+  <div class="anlat">Onaylanan her içerik, takipçilerinizin en aktif olduğu saate yerleşir: sabah kahvesi 08:30, öğle arası 12:45, akşam 19:30. <b>21 şube sırayla görünür</b>; hiçbir şube unutulmaz. Yükleme alanında onayladığınız içerikler buraya <b>altın çerçeveyle</b> eklenir.</div>
+  <div class="takvim" id="takvim"></div>
+ </section>
+
+ <!-- ===== GELEN KUTUSU ===== -->
+ <section class="bolum" id="b-gelen">
+  <div class="bas"><div><div class="mono">Adım 3 · 7/24 cevap</div><h2>Gelen kutusu</h2></div>
+   <div class="mono">Bugün: <b id="gkSayi">47</b> mesaj · <b>%94</b> otomatik cevaplandı</div></div>
+  <div class="anlat">Instagram yorumları, DM'ler, Google ve TikTok yorumları tek kutuda toplanır. Sistem her birini <b>marka dilinizle</b> ve birkaç dakika içinde cevaplar. Şikâyet gelirse cevabı beklemeye alır ve <b>ilgili şube müdürüne WhatsApp'tan haber verir</b>. Yeni mesajlar canlı düşüyor; bir mesaja dokunup cevabını görün.</div>
+  <div class="kurallar">
+   <div><span class="anahtar"></span><b>Menü ve fiyat soruları</b>Anında cevap + menü linki</div>
+   <div><span class="anahtar"></span><b>Şube ve saat soruları</b>En yakın şube + yol tarifi</div>
+   <div><span class="anahtar"></span><b>Şikâyetler</b>Onaya düşer, şube müdürü uyarılır</div>
+   <div><span class="anahtar"></span><b>Franchise soruları</b>Bilgi paketi + aday listesine eklenir</div>
+  </div>
+  <div class="gk">
+   <div class="liste" id="liste"></div>
+   <div class="detay" id="detay"></div>
+  </div>
+ </section>
+
+ <!-- ===== FRANCHISE ===== -->
+ <section class="bolum" id="b-franchise">
+  <div class="bas"><div><div class="mono">Adım 4 · Büyüme</div><h2>Franchise başvuruları</h2></div>
+   <div class="mono">Bu ay <b>14</b> başvuru · <b>3</b> görüşme</div></div>
+  <div class="anlat">"Şubemiz olun" formundan, e-postadan ya da DM'den gelen her franchise talebi buraya düşer. Sistem adaya <b>aynı gün kişisel bir cevap ve bilgi paketi</b> gönderir. Şehir, bütçe ve deneyime göre <b>uygunluk puanı</b> verir. Size yalnızca ciddi adaylarla görüşmek kalır. Bir adaya dokunup giden e-postayı görün.</div>
+  <div class="boru" id="boru"></div>
+  <div class="eposta" id="eposta"></div>
+ </section>
+
+ <!-- ===== RAPOR ===== -->
+ <section class="bolum" id="b-rapor">
+  <div class="bas"><div><div class="mono">Adım 5 · Ölçüm</div><h2>Raporlar</h2></div>
+   <div class="donem" id="donem"><button data-d="gun" class="ak">Günlük</button><button data-d="hafta">Haftalık</button><button data-d="ay">Aylık</button></div></div>
+  <div class="anlat">Her sabah 09:00'da <b>günlük özet</b>, pazartesileri <b>haftalık rapor</b>, ay başında <b>aylık rapor ve görüşme</b> gelir. Hepsi WhatsApp'a ve e-postanıza gönderilir. Hangi şube ne kadar içerik gönderdi, hangi içerik satış getirdi, kaç franchise adayı geldi, tek bakışta görürsünüz.</div>
+  <div class="kpi" id="kpi"></div>
+  <div class="grafikler">
+   <div class="kutu"><h4 id="grafikBaslik">Erişim</h4><svg id="grafik" viewBox="0 0 600 220" width="100%" preserveAspectRatio="none" style="height:220px"><defs><linearGradient id="grd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8863b" stop-opacity=".35"/><stop offset="1" stop-color="#b8863b" stop-opacity="0"/></linearGradient></defs></svg><div class="mono" id="grafikEtiket" style="display:flex;justify-content:space-between"></div></div>
+   <div class="kutu"><h4>Şube sıralaması · içerik + etkileşim</h4><div class="siralama" id="siralama"></div></div>
+  </div>
+  <div class="grafikler" style="margin-top:14px">
+   <div class="kutu"><h4>En iyi içerikler</h4><div class="en-iyi" id="enIyi"></div></div>
+   <div class="kutu"><h4>Size giden rapor (WhatsApp)</h4><div class="wa-rapor"><div class="b" id="waRapor"></div></div></div>
+  </div>
+ </section>
+ </main>
+</div>
+
+<section class="kapanis">
+ <h2 class="belir">Bu panel size ne kazandırır?</h2>
+ <div class="uclu belir">
+  <div><b>Çekim derdi biter</b><p>Profesyonel çekimci beklemeden şubelerin telefonla çektiği görüntü yayına hazır hale gelir. Şube açılışlarında ekip çeker, kurgu ve yayın bizde.</p></div>
+  <div><b>Hiçbir mesaj cevapsız kalmaz</b><p>21 şubenin yorum, DM ve e-postası gece gündüz birkaç dakikada cevaplanır. Şikâyetler anında doğru kişiye gider.</p></div>
+  <div><b>Franchise büyümesi ölçülür</b><p>"Şubemiz olun" talepleri kaybolmaz. Her aday puanlanır, takip edilir ve raporlanır.</p></div>
+ </div>
+ <div class="cagri belir"><div><b>Paneli kendi şubenizle deneyelim mi?</b><br>Bir şubeden 10 fotoğraf gönderin, 40 içeriği birlikte inceleyelim.</div><a href="https://wa.me/905019452184?text=Merhaba%2C%20Caff%C3%A9%20Di%20Toe%C3%A9%20i%C3%A7in%20haz%C4%B1rlanan%20%C4%B0%C3%A7erik%20ve%20Otomasyon%20Merkezi%27ni%20inceledim.">WhatsApp'tan yaz</a></div>
+ <p class="not">Görseller temsilîdir; mesaj, aday ve rapor rakamları örnektir. Yüklediğiniz dosyalar yalnızca tarayıcınızda işlenir, hiçbir yere gönderilmez.</p>
+</section>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const U="https://images.unsplash.com/photo-";
+const SUBE=["Acity AVM","Address Göksu","ATG AVM","Bahçelievler","Beker Plaza","Besa Kule","Bestekar","Beytepe 1923","Çakırlar","Merkez Ankara","Metromall AVM","Mevlana Çarşı","Mogan Gölü","Nata Vega AVM","Onyx Ankara","Park Caddesi","Saraçoğlu","Ümitköy","5M Migros AVM","Beach Park","Dmall AVM"];
+const SEHIR=n=>n==="5M Migros AVM"||n==="Beach Park"?"Antalya":n==="Dmall AVM"?"Düzce":"Ankara";
+const ORNEK=[
+ {ad:"Latte art",g:U+"1511920170033-f8396924c348?w=900&q=70",k:"latte"},
+ {ad:"Kavurma",g:U+"1447933601403-0c6688de566e?w=900&q=70",k:"kavurma"},
+ {ad:"Şube",g:U+"1554118811-1e0d58224f24?w=900&q=70",k:"sube"},
+ {ad:"Çekirdek",g:U+"1509042239860-f550ce710b93?w=900&q=70",k:"cekirdek"}];
+const METIN={
+ latte:{alt:["Bu kalbi","barista","Emre","çizdi ☕"],gonderi:"Her fincan bir imza. ☕ Bugün {s} şubemizde baristamızın elinden çıkan flat white.\n\nSizin favoriniz hangisi: rosetta mı, kalp mi?",anket:["Flat white","Latte"],gbp:"Bugün {s} şubemizde latte art haftası! Her sıcak içecekte baristalarımızın imzası var. ☕",h:"#latteart #caffeditoee #{sl}"},
+ kavurma:{alt:["Bologna'dan","bugüne","her hafta","taze kavrum"],gonderi:"Kavurma günü. 🔥 Küçük partiler, taze çekirdek, Bologna geleneği.\n\nBu hafta raflarda: Ethiopia Guji G2 ve Morbido Blend.",anket:["Espresso","Filtre"],gbp:"Bu haftanın taze kavrumu şubelerimizde ve caffeditoee.com'da. Morbido Blend ile tanışın.",h:"#tazekavrum #specialtycoffee #caffeditoee"},
+ sube:{alt:["Sizin","köşeniz","{s}'de","sizi bekliyor"],gonderi:"Hızlı Wi-Fi, prizli masalar, sessiz bir köşe. 💻☕\n{s} şubemizde hafta içi 10:00-14:00 arası kahve + kurabiye çalışma menüsü.",anket:["Sabah","Öğleden sonra"],gbp:"{s} şubemizde çalışma menüsü: hafta içi 10:00-14:00 kahve + kurabiye. Yol tarifi için dokunun.",h:"#ankaracafe #calismakosesi #{sl}"},
+ cekirdek:{alt:["Evde de","aynı","lezzet","250 g taze"],gonderi:"Şubedeki tadı evinize taşıyın. ☕ Taze kavrulmuş çekirdekler caffeditoee.com'da; siparişte ücretsiz öğütme.",anket:["Çekirdek","Öğütülmüş"],gbp:"Taze kavrulmuş çekirdeklerimiz şubelerimizde ve online mağazamızda. Ekim'de öğütme bizden!",h:"#kahvecekirdegi #evdekahve #caffeditoee"},
+ genel:{alt:["Bugün","{s}","şubemizde","böyle ☕"],gonderi:"{s} şubemizden bugün. ☕ Bir fincandan fazlası.\n\nSiz de uğrayın, kahveniz hazır.",anket:["Geliyorum","Yoldayım"],gbp:"{s} şubemizden bugünün paylaşımı. Uğrayın, kahveniz hazır! ☕",h:"#caffeditoee #{sl}"}};
+const sl=s=>s.toLocaleLowerCase("tr").replace(/ç/g,"c").replace(/ğ/g,"g").replace(/ı/g,"i").replace(/ö/g,"o").replace(/ş/g,"s").replace(/ü/g,"u").replace(/[^a-z0-9]/g,"");
+const doldur=(t,s)=>t.replace(/\{s\}/g,s).replace(/\{sl\}/g,sl(s));
+const bekle=ms=>new Promise(r=>setTimeout(r,ms));
+
+/* sekmeler */
+function sekme(b){$$("#yan button").forEach(x=>x.classList.toggle("ak",x.dataset.b===b));$$(".bolum").forEach(x=>x.classList.toggle("ak",x.id==="b-"+b));
+ if(b==="gelen")$("#rozetGelen").style.display="none";if(b==="franchise")$("#rozetFr").style.display="none";if(b==="rapor")rapor(DONEM);
+ if(innerWidth<860)$("#panel").scrollIntoView({behavior:"smooth"});}
+$$("#yan button").forEach(b=>b.onclick=()=>sekme(b.dataset.b));
+
+/* açılış animasyonları */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("gor");io.unobserve(e.target);}}),{threshold:.15});
+$$(".belir").forEach(e=>io.observe(e));
+$$("[data-say]").forEach(e=>{const n=+e.dataset.say;let i=0;const t=setInterval(()=>{i++;e.textContent=(e.dataset.on||"")+Math.min(n,Math.round(n*i/30))+(e.dataset.son||"");if(i>=30)clearInterval(t);},40);});
+let ak=0;const akisLi=$$("#akis li");setInterval(()=>{akisLi.forEach((l,i)=>l.classList.toggle("on",i<=ak));ak=(ak+1)%5;},1300);
+
+/* ===== YÜKLEME ===== */
+$("#ySube").innerHTML=["Ankara","Antalya","Düzce"].map(c=>`<optgroup label="${c}">`+SUBE.filter(s=>SEHIR(s)===c).map(s=>`<option${s==="Bestekar"?" selected":""}>${s}</option>`).join("")+"</optgroup>").join("");
+$("#ornekler").innerHTML=ORNEK.map((o,i)=>`<button data-i="${i}" title="Örnek: ${o.ad}"><img src="${o.g.replace("w=900","w=200")}" alt="${o.ad}"><span>${o.ad}</span></button>`).join("");
+$$("#ornekler button").forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();const o=ORNEK[b.dataset.i];isle({url:o.g,video:false,ad:o.ad.toLowerCase()+".jpg",k:o.k});});
+const bir=$("#birak");
+["dragenter","dragover"].forEach(t=>bir.addEventListener(t,e=>{e.preventDefault();bir.classList.add("ust");}));
+["dragleave","drop"].forEach(t=>bir.addEventListener(t,e=>{e.preventDefault();bir.classList.remove("ust");}));
+bir.addEventListener("drop",e=>dosyalar(e.dataTransfer.files));
+$("#dosya").onchange=e=>{dosyalar(e.target.files);e.target.value="";};
+function dosyalar(F){[...F].filter(f=>/^(image|video)\//.test(f.type)).slice(0,6).forEach((f,i)=>setTimeout(()=>isle({url:URL.createObjectURL(f),video:f.type.startsWith("video"),ad:f.name,k:"genel",boyut:f.size}),i*500));}
+let ISNO=0,AY_Y=63,AY_I=252;
+async function isle(d){
+ const s=$("#ySube").value,kisi=$("#yKisi").value,no=++ISNO,M=METIN[d.k]||METIN.genel;
+ const medya=c=>d.video?`<video class="m ${c||""}" src="${d.url}" muted loop autoplay playsinline></video>`:`<img class="m ${c||""}" src="${d.url}" alt="">`;
+ const el=document.createElement("div");el.className="is";
+ el.innerHTML=`<div class="is-ust"><div class="kucuk">${d.video?`<video src="${d.url}" muted autoplay loop playsinline></video>`:`<img src="${d.url}" alt="">`}</div>
+  <div><b>${d.ad.length>34?d.ad.slice(0,32)+"…":d.ad}</b><small>${s} · ${kisi} · ${d.video?"video":"fotoğraf"}${d.boyut?" · "+(d.boyut/1048576).toFixed(1)+" MB":""}</small><div class="cubuk"><i></i></div></div>
+  <button class="btn alt" disabled>İşleniyor…</button></div>
+  <div class="adimlar">${["Yüklendi","Kalite kontrolü","En iyi kareler","Işık ve renk","Metin ve altyazı","4 format hazır"].map(a=>`<span>${a}</span>`).join("")}</div>
+  <div class="ciktilar"></div>`;
+ $("#isler").prepend(el);el.scrollIntoView({behavior:"smooth",block:"start"});
+ const cb=el.querySelector(".cubuk i");for(let p=0;p<=100;p+=10){cb.style.width=p+"%";await bekle(70);}
+ const ad=el.querySelectorAll(".adimlar span");
+ for(let i=0;i<ad.length;i++){ad[i].classList.add("su");await bekle(i?520:250);ad[i].classList.remove("su");ad[i].classList.add("on");ad[i].textContent="✓ "+ad[i].textContent;}
+ const saatler=["Bugün 19:30","Yarın 08:30","Yarın 12:45","Yarın 10:00"];
+ const alt=doldur(M.alt.join("|"),s).split("|");
+ const kartlar=[
+  `<div class="tur">Reels · 9:16 <em>${saatler[0]}</em></div><div class="cerceve d916">${medya("kb")}<div class="ust-et">Reels</div><div class="alt-yazi">${alt.map((w,i)=>`<span class="${i===alt.length-1?"vurgu":""}">${w}</span>`).join(" ")}</div><div class="reels-ui"><div><b>♥</b>1,2B</div><div><b>💬</b>86</div><div><b>↗</b>214</div></div></div>`,
+  `<div class="tur">Gönderi · 4:5 <em>${saatler[1]}</em></div><div class="gonderi"><div class="ust"><i>CD</i>caffeditoee</div><div class="cerceve d45">${medya()}</div><div class="met"><b>caffeditoee</b> ${doldur(M.gonderi,s).replace(/\n/g,"<br>")}<br><span style="color:#00376b">${doldur(M.h,s)}</span></div></div>`,
+  `<div class="tur">Hikâye + anket <em>${saatler[2]}</em></div><div class="cerceve d916">${medya()}<div class="hik-ust"><i></i><i></i><i></i></div><div class="hik-ad"><i>CD</i>caffeditoee · ${s}</div><div class="anket"><b>Bugün hangisi?</b><div><span><i></i>${M.anket[0]}</span><span><i></i>${M.anket[1]}</span></div></div></div>`,
+  `<div class="tur">Google gönderisi <em>${saatler[3]}</em></div><div class="gbp"><div class="ust"><i>C</i><div><b>Caffé Di Toeé ${s}</b><small>${SEHIR(s)} · Gönderi</small></div></div><div class="cerceve d11" style="border-radius:0">${medya()}</div><div class="met">${doldur(M.gbp,s)}</div><div class="gbtn">Yol tarifi al</div></div>`];
+ const kap=el.querySelector(".ciktilar");
+ kap.innerHTML=kartlar.map(k=>`<div class="cikti">${k}<div class="onay"><button class="ok-b">Onayla</button><button>Düzenle</button></div></div>`).join("");
+ const ct=kap.querySelectorAll(".cikti");for(const c of ct){await bekle(220);c.classList.add("gor");}
+ const sp=kap.querySelectorAll(".alt-yazi span");let w=0;const altZ=setInterval(()=>{sp.forEach((x,i)=>x.classList.toggle("g",i<=w));w=(w+1)%(sp.length+3);},420);
+ setTimeout(()=>kap.querySelectorAll(".anket i").forEach((x,i)=>x.style.width=(i?38:62)+"%"),900);
+ const btn=el.querySelector(".is-ust .btn");btn.disabled=false;btn.textContent="✓ 4 içerik hazır";
+ const altb=document.createElement("div");altb.className="is-alt";altb.innerHTML=`<span>4 içerik · ${s} · Instagram, Facebook, TikTok, YouTube Shorts ve Google'a planlandı</span><button class="btn altin">Hepsini onayla ve takvime ekle</button>`;el.append(altb);
+ const onayla=(c,i)=>{const b=c.querySelector(".ok-b");if(b.classList.contains("ok"))return;b.classList.add("ok");b.textContent="✓ Onaylandı";takvimeEkle(d.url,d.video,["Reels","Gönderi","Hikâye","Google"][i],s,i);};
+ ct.forEach((c,i)=>c.querySelector(".ok-b").onclick=()=>onayla(c,i));
+ altb.querySelector("button").onclick=e=>{ct.forEach((c,i)=>onayla(c,i));e.target.textContent="✓ Takvime eklendi · Yayın takvimine git →";e.target.onclick=()=>sekme("takvim");};
+ AY_Y++;AY_I+=4;$("#ayYukleme").textContent=AY_Y;$("#ayIcerik").textContent=AY_I;$("#sonIslem").textContent=s+" · az önce";
+}
+
+/* ===== TAKVİM ===== */
+const GUN=["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"];
+const TK=[[["08:30","Kavurma günü","ig",U+"1447933601403-0c6688de566e","Merkez Ankara"],["19:30","Latte art · Reels","tt",U+"1511920170033-f8396924c348","Bestekar"]],[["12:45","Çalışma menüsü","fb",U+"1554118811-1e0d58224f24","Besa Kule"],["18:00","Google gönderisi","gg",U+"1495474472287-4d71bcdd2085","Beach Park"]],[["08:30","Sabah kuyruğu","ig",U+"1442512595331-e89e73853f31","Beytepe 1923"]],[["10:00","Yeni tatlı","ig",U+"1509042239860-f550ce710b93","ATG AVM"],["20:00","Barista tanıtımı","yt",U+"1511920170033-f8396924c348","Dmall AVM"]],[["17:00","Latte art yarışması","ig",U+"1511920170033-f8396924c348","21 şube"]],[["11:00","Hafta sonu brunch","fb",U+"1554118811-1e0d58224f24","Mogan Gölü"],["19:30","Kavurma · Reels","tt",U+"1447933601403-0c6688de566e","5M Migros AVM"]],[["10:00","Çekirdek kampanyası","ig",U+"1509042239860-f550ce710b93","Online mağaza"]]];
+function takvimCiz(){const bug=(new Date().getDay()+6)%7;$("#takvim").innerHTML=GUN.map((g,i)=>`<div class="gun" id="g${i}"><h4>${g}<small>${i===bug?"bugün":""}</small></h4>${TK[i].map(o=>oge(...o)).join("")}</div>`).join("");}
+const oge=(sa,ad,k,g,s,yeni)=>`<div class="ogesi${yeni?" yeni":""}"><img src="${g.startsWith("blob:")||g.includes("?")?g:g+"?w=80&q=50"}" alt=""><div><b><span class="kanal-sim ${k}">${{ig:"IG",fb:"f",tt:"TT",gg:"G",yt:"▶"}[k]}</span>${sa}</b>${ad}<br><small style="color:var(--soluk)">${s}</small></div></div>`;
+function takvimeEkle(g,video,tur,s,i){const bug=(new Date().getDay()+6)%7,gun=(bug+(i?1:0))%7,sa=["19:30","08:30","12:45","10:00"][i],k=["ig","fb","ig","gg"][i];
+ const res=video?ORNEK[0].g.replace("w=900","w=80"):g;$("#g"+gun).insertAdjacentHTML("beforeend",oge(sa,tur,k,res,s,true));}
+takvimCiz();
+
+/* ===== GELEN KUTUSU ===== */
+const RENK=["#c2410c","#7c3aed","#0f766e","#be185d","#1d4ed8","#a16207","#15803d"];
+const MSJ=[
+ {k:"ig",tur:"Instagram yorumu",ad:"zeynep.k",m:"Beytepe'de yulaf sütü var mı? 🥺",c:"Merhaba Zeynep! Evet, Beytepe 1923 dahil tüm şubelerimizde yulaf sütü var 🌾 İçeceğinize +15 ₺ ile ekleniyor. Sizi bekliyoruz! ☕",e:"cevap"},
+ {k:"ig",tur:"Instagram DM",ad:"mert_ozdemir",m:"Merhaba, Acity'deki şube kaçta kapanıyor?",c:"Merhaba Mert Bey! Acity AVM şubemiz her gün 10:00-22:00 arası açık. Yol tarifi: caffeditoee.com/pages/subelerimiz 📍 İyi kahveler!",e:"cevap"},
+ {k:"gg",tur:"Google yorumu · ★★☆☆☆",ad:"Ayşe Demir",m:"Kahve güzeldi ama Metromall'da 20 dakika bekledik, kasada tek kişi vardı.",c:"Ayşe Hanım, beklediğiniz için çok özür dileriz. 🙏 Yoğun saatlerde Metromall AVM ekibimizi güçlendiriyoruz; şube müdürümüz sizinle iletişime geçmek istiyor. Bir sonraki kahveniz bizden.",e:"sikayet",not:"⚠ Şikâyet: cevap onayınıza düştü · Metromall AVM şube müdürüne WhatsApp ile bildirildi"},
+ {k:"ig",tur:"Instagram DM",ad:"hakan.yatirim",m:"Antalya'da franchise vermeyi düşünüyor musunuz? Bütçe ve şartları öğrenebilir miyim?",c:"Merhaba Hakan Bey, ilginiz için teşekkür ederiz! 🤝 Franchise bilgi paketimizi e-postanıza göndermek isteriz. E-posta adresinizi ve düşündüğünüz semti paylaşır mısınız? Franchise ekibimiz 24 saat içinde sizi arayacak.",e:"franchise",not:"🤝 Franchise adayı: listeye eklendi · uygunluk puanı 78/100"},
+ {k:"tt",tur:"TikTok yorumu",ad:"kahvesever06",m:"Bu latte art çok iyi, hangi şube?",c:"Bestekar şubemizden! ☕ Baristamız Emre her gün yeni bir desen deniyor. Uğrarsanız size de çizer 😊",e:"cevap"},
+ {k:"ig",tur:"Instagram DM",ad:"elif.ofis",m:"Ofisimiz için 30 kişilik haftalık kahve siparişi verebilir miyiz?",c:"Merhaba Elif Hanım! Elbette 🙌 Kurumsal kahve aboneliğimizle 30 kişilik ofis için haftalık teslimat yapıyoruz. Aylık ihtiyacınızı caffeditoee.com'daki hesaplayıcıdan görebilir ya da adresinizi yazarsanız size özel teklif hazırlayabiliriz.",e:"cevap"},
+ {k:"fb",tur:"Facebook yorumu",ad:"Murat Yılmaz",m:"Düzce'deki şube harika, Dmall'a her hafta geliyoruz 👏",c:"Ne güzel, Murat Bey! 🙏 Dmall ekibimize iletiyoruz. Sadakat kartınızla 10. kahveniz bizden, unutmayın ☕",e:"cevap"}];
+let MS=[],SECILI=null;
+function listeCiz(){$("#liste").innerHTML=MS.map((x,i)=>`<div class="mesaj${SECILI===i?" sec":""}" data-i="${i}"><div class="av" style="background:${RENK[i%RENK.length]}">${x.ad[0].toUpperCase()}</div><div><b>${x.ad}</b> <span class="kanal-sim ${x.k}" style="vertical-align:middle">${{ig:"IG",fb:"f",tt:"TT",gg:"G"}[x.k]}</span><p>${x.m}</p></div><span class="etiket e-${x.durum==="yaziyor"?"bekle":x.e}">${x.durum==="yaziyor"?"yazılıyor":x.e==="sikayet"?"onayda":x.e==="franchise"?"franchise":"cevaplandı"}</span></div>`).join("");
+ $$("#liste .mesaj").forEach(m=>m.onclick=()=>detay(+m.dataset.i));}
+async function detay(i){SECILI=i;listeCiz();const x=MS[i],d=$("#detay");
+ d.innerHTML=`<div class="kim"><div class="av" style="width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;background:${RENK[i%RENK.length]}">${x.ad[0].toUpperCase()}</div><div><b>${x.ad}</b><br><small style="color:var(--soluk)">${x.tur}</small></div></div><div class="balon gelen">${x.m}<small>${x.saat}</small></div><div id="cvp"></div>${x.not?`<div class="kural">${x.not}</div>`:`<div class="kural">✓ Otomatik cevap · marka dili: samimi, kısa, emojili · ortalama süre 2 dk</div>`}`;
+ const c=d.querySelector("#cvp");c.innerHTML=`<div style="display:flex"><div class="yaziyor"><i></i><i></i><i></i></div></div>`;await bekle(900);if(SECILI!==i)return;
+ c.innerHTML=`<div class="balon giden"><span id="yz"></span><small>${x.e==="sikayet"?"Taslak · onayınızı bekliyor":"Dijitabela asistanı · "+x.saat}</small></div>`;
+ const yz=c.querySelector("#yz");for(let k=0;k<=x.c.length;k+=3){if(SECILI!==i)return;yz.textContent=x.c.slice(0,k);await bekle(14);}yz.textContent=x.c;
+ if(x.e==="sikayet")c.insertAdjacentHTML("beforeend",`<div style="text-align:right"><button class="btn" onclick="this.outerHTML='<span class=\\'etiket e-cevap\\'>✓ Onaylandı ve gönderildi</span>'">Onayla ve gönder</button></div>`);}
+function gelenBasla(){let n=0;const saat=()=>new Date().toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"});
+ const ekle=()=>{if(n>=MSJ.length)return;const x=Object.assign({},MSJ[n],{saat:saat(),durum:"yaziyor"});MS.unshift(x);n++;if(SECILI!==null)SECILI++;listeCiz();setTimeout(()=>{x.durum="";listeCiz();},2200);$("#gkSayi").textContent=47+n;};
+ for(let i=0;i<3;i++){ekle();MS[0].durum="";}listeCiz();detay(0);setInterval(ekle,6500);}
+gelenBasla();
+
+/* ===== FRANCHISE ===== */
+const ADAY=[
+ {ad:"Hakan T.",sehir:"Antalya · Lara",p:78,a:0,kanal:"Instagram DM",m:"Antalya'da franchise vermeyi düşünüyor musunuz?"},
+ {ad:"Selin A.",sehir:"İzmir · Bornova",p:84,a:0,kanal:"Web formu",m:"Bornova'da 120 m² dükkânım var, franchise şartlarını öğrenmek istiyorum."},
+ {ad:"Kemal Ö.",sehir:"Eskişehir",p:66,a:1,kanal:"E-posta",m:"Üniversite bölgesinde kafe açmayı planlıyoruz."},
+ {ad:"Burak E.",sehir:"Ankara · İncek",p:91,a:2,kanal:"E-posta",m:"Daha önce iki şube işlettim, İncek için görüşmek isterim."},
+ {ad:"Derya Y.",sehir:"Bursa · Nilüfer",p:72,a:1,kanal:"Web formu",m:"AVM içi köşe formatınız var mı?"},
+ {ad:"Okan S.",sehir:"Ankara · Gölbaşı",p:88,a:3,kanal:"E-posta",m:"Sözleşme taslağını inceledik."}];
+const SUTUN=["Yeni başvuru","Bilgi paketi gitti","Görüşme","Sözleşme"];
+function boruCiz(){$("#boru").innerHTML=SUTUN.map((s,i)=>`<div class="sutun"><h4>${s}<span>${ADAY.filter(a=>a.a===i).length}</span></h4>${ADAY.map((a,j)=>a.a===i?`<div class="aday" data-j="${j}"><b>${a.ad}</b>${a.sehir}<br><small style="color:var(--soluk)">${a.kanal}</small><div class="puan">Uygunluk <i style="--p:${a.p}%"></i>${a.p}</div></div>`:"").join("")}</div>`).join("");
+ $$(".aday").forEach(e=>e.onclick=()=>eposta(+e.dataset.j));}
+async function eposta(j){const a=ADAY[j],ilk=a.ad.split(" ")[0];
+ const g=`Merhaba ${ilk} ${a.ad.endsWith(".")?"":""}Bey/Hanım,
+
+Caffé Di Toeé'ye gösterdiğiniz ilgi için teşekkür ederiz. ${a.sehir.split(" · ")[0]} için başvurunuzu aldık.
+
+Ekte franchise bilgi paketimizi bulabilirsiniz: yatırım aralığı, mekân kriterleri (AVM köşe ve cadde formatı), eğitim süreci ve Bologna kavurma geleneğimizin hikâyesi.
+
+Sizi daha iyi tanımak için 3 kısa soru:
+1) Düşündüğünüz mekânın semti ve metrekaresi?
+2) Daha önce yiyecek-içecek işletmeciliği deneyiminiz oldu mu?
+3) Görüşme için size uygun gün ve saat?
+
+Franchise ekibimiz 24 saat içinde sizi arayacak.
+
+Sevgiyle,
+Caffé Di Toeé Franchise Ekibi
+caffeditoee.com/pages/franchise`;
+ $("#eposta").innerHTML=`<div class="bas2"><b>Gelen (${a.kanal}):</b> "${a.m}"</div><div class="bas2"><b>Giden:</b> franchise@caffeditoee.com → ${a.ad} · <b>Konu:</b> Caffé Di Toeé franchise bilgi paketi · 📎 franchise-bilgi-paketi.pdf</div><div class="govde" id="epG"></div>`;
+ const el=$("#epG");for(let k=0;k<=g.length;k+=6){el.textContent=g.slice(0,k);await bekle(8);}el.textContent=g;
+ if(a.a===0){a.a=1;setTimeout(boruCiz,500);}}
+boruCiz();eposta(1);
+
+/* ===== RAPORLAR ===== */
+let DONEM="gun";
+const R={
+ gun:{et:["08","10","12","14","16","18","20","22"],k:[["Erişim",18420,"+12%"],["Etkileşim",1386,"+8%"],["Cevaplanan mesaj",47,"%94 otomatik"],["Yeni içerik",9,"5 şubeden"]],seri:[3,6,9,7,8,12,15,10]},
+ hafta:{et:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],k:[["Erişim",142800,"+18%"],["Yeni takipçi",612,"+24%"],["Cevaplanan mesaj",318,"ort. 2 dk"],["Franchise adayı",4,"2 görüşme"]],seri:[14,16,15,19,24,31,27]},
+ ay:{et:["1.h","2.h","3.h","4.h"],k:[["Erişim",612000,"+31%"],["Online satış (site)",48600,"₺ · +22%"],["Yayınlanan içerik",252,"63 yüklemeden"],["Franchise adayı",14,"3 görüşme"]],seri:[110,138,162,202]}};
+const tr=n=>n.toLocaleString("tr-TR");
+function rapor(d){DONEM=d;$$("#donem button").forEach(b=>b.classList.toggle("ak",b.dataset.d===d));const r=R[d];
+ $("#kpi").innerHTML=r.k.map(([a,v,e])=>`<div><small>${a}</small><b data-v="${v}">0</b><em>${e}</em></div>`).join("");
+ $$("#kpi b").forEach(b=>{const v=+b.dataset.v;let i=0;const t=setInterval(()=>{i++;b.textContent=tr(Math.round(v*(1-Math.pow(1-i/40,3))));if(i>=40)clearInterval(t);},22);});
+ const s=r.seri,mx=Math.max(...s)*1.15,W=600,H=210,x=i=>i*(W/(s.length-1)),y=v=>H-v/mx*H+5;
+ const yol=s.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+" "+y(v).toFixed(1)).join(" ");
+ const g=$("#grafik");[...g.querySelectorAll("path,circle")].forEach(e=>e.remove());
+ g.insertAdjacentHTML("beforeend",`<path class="alan-yol" d="${yol} L${W} 220 L0 220 Z" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="1s" fill="freeze"/></path><path class="cizgi-yol" d="${yol}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.2s" fill="freeze"/></path>`+s.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="4" fill="#2a1b14"/>`).join(""));
+ $("#grafikEtiket").innerHTML=r.et.map(e=>`<span>${e}</span>`).join("");$("#grafikBaslik").textContent=d==="gun"?"Saat saat etkileşim":d==="hafta"?"Günlük erişim (bin)":"Haftalık erişim (bin)";
+ const sr=[...SUBE].map((s,i)=>[s,Math.round(40+55*Math.abs(Math.sin(i*1.7+(d==="gun"?1:d==="hafta"?2:3))))]).sort((a,b)=>b[1]-a[1]).slice(0,8);
+ $("#siralama").innerHTML=sr.map(([s,v])=>`<div><small>${s}</small><i style="--w:0%"></i><span>${v}</span></div>`).join("");
+ requestAnimationFrame(()=>setTimeout(()=>$$("#siralama i").forEach((e,i)=>e.style.setProperty("--w",sr[i][1]+"%")),50));
+ $("#enIyi").innerHTML=[[U+"1511920170033-f8396924c348","Latte art · 24B erişim"],[U+"1447933601403-0c6688de566e","Kavurma günü · 312 kayıt"],[U+"1554118811-1e0d58224f24","Çalışma köşesi · 41 yol tarifi"]].map(([g,t])=>`<div><img src="${g}?w=300&q=60" alt=""><span>${t}</span></div>`).join("");
+ const k=r.k;$("#waRapor").textContent=d==="gun"?`☕ Caffé Di Toeé · Günlük özet\n\n👀 Erişim: ${tr(k[0][1])} (${k[0][2]})\n💬 47 mesaj cevaplandı, 1 şikâyet onayınızda (Metromall)\n📸 5 şubeden 9 içerik geldi, 36 içerik hazır\n⚠ Bugün içerik göndermeyen şubeler: Onyx, Çakırlar\n\nDetay: panel.dijitabela.com`:d==="hafta"?`☕ Caffé Di Toeé · Haftalık rapor\n\n📈 Erişim: ${tr(k[0][1])} (${k[0][2]})\n👥 Yeni takipçi: ${k[1][1]}\n🏆 Haftanın şubesi: ${sr[0][0]}\n🤝 4 franchise adayı (2 görüşme planlandı)\n🎯 En iyi içerik: Latte art Reels\n\nPDF rapor e-postanızda.`:`☕ Caffé Di Toeé · Ekim raporu\n\n📈 Erişim: ${tr(k[0][1])} (${k[0][2]})\n🛒 Sosyal medyadan site satışı: ${tr(k[1][1])} ₺\n📸 63 yükleme → 252 içerik\n🤝 14 franchise başvurusu, 3 görüşme\n\nAylık görüşmemiz: 3 Kasım 11:00`;}
+$$("#donem button").forEach(b=>b.onclick=()=>rapor(b.dataset.d));
+rapor("gun");
+</script>
+</body></html>
