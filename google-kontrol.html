@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google'da kapalı mı görünüyorum? · Ücretsiz kontrol aracı | Dijitabela</title>
+<meta name="description" content="İşletmeniz Google Haritalar'da nasıl görünüyor? 1 dakikalık ücretsiz kontrol: kalıcı kapandı uyarısı, saatler, telefon, fotoğraf, yorumlar. Anında puan ve düzeltme listesi.">
+<link rel="canonical" href="https://dijitabela.com.tr/google-kontrol.html">
+<meta property="og:title" content="Google'da kapalı mı görünüyorum? · Ücretsiz kontrol">
+<meta property="og:description" content="1 dakikada işletmenizin Google görünümünü kontrol edin, puanınızı görün.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--zemin:#f6f4ef;--metin:#17191f;--soluk:#5c5f66;--cizgi:#ddd8cc;--amber:#ffb000;--kirmizi:#c62828;--yesil:#1b7f3b;--sari:#b77900}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--zemin);color:var(--metin);font:16px/1.55 Inter,system-ui,sans-serif}
+  a{color:inherit}
+  .ust{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--cizgi);background:#fff}
+  .ust img{width:26px;height:26px}.ust b{font:700 22px "Barlow Condensed",sans-serif;letter-spacing:.3px}
+  .ust a.geri{margin-left:auto;font-size:14px;color:var(--soluk);text-decoration:none}
+  main{max-width:640px;margin:0 auto;padding:24px 16px 80px}
+  h1{font:800 clamp(34px,8vw,48px)/1.02 "Barlow Condensed",sans-serif;margin:8px 0 10px;text-transform:uppercase}
+  h1 em{font-style:normal;background:var(--amber);padding:0 6px}
+  h2{font:700 26px/1.1 "Barlow Condensed",sans-serif;margin:32px 0 10px;text-transform:uppercase}
+  .alt{color:var(--soluk);margin:0 0 22px}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input{width:100%;font:inherit;padding:13px 14px;border:1.5px solid var(--metin);border-radius:0;background:#fff}
+  .dugme{display:inline-block;font:700 19px "Barlow Condensed",sans-serif;letter-spacing:.4px;text-transform:uppercase;padding:13px 20px;border:2px solid var(--metin);background:var(--metin);color:#fff;cursor:pointer;text-decoration:none;margin:14px 8px 0 0}
+  .dugme.acik{background:#fff;color:var(--metin)}
+  .dugme.wa{background:#1fa855;border-color:#1fa855;width:100%;text-align:center;font-size:22px;padding:16px}
+  .soru{border-top:1px solid var(--cizgi);padding:16px 0}
+  .soru p{margin:0 0 4px;font-weight:600}.soru small{display:block;color:var(--soluk);margin-bottom:10px}
+  .sec{display:flex;gap:8px;flex-wrap:wrap}
+  .sec button{flex:1;min-width:90px;font:600 15px Inter,sans-serif;padding:11px 8px;border:1.5px solid var(--metin);background:#fff;cursor:pointer}
+  .sec button.on{background:var(--metin);color:#fff}
+  .gizli{display:none}
+  .puan{display:flex;align-items:baseline;gap:12px;border-top:4px solid var(--metin);padding-top:14px}
+  .puan b{font:800 76px/1 "Barlow Condensed",sans-serif}.puan span{font:700 24px "Barlow Condensed",sans-serif;text-transform:uppercase}
+  .durum-kirmizi{color:var(--kirmizi)}.durum-sari{color:var(--sari)}.durum-yesil{color:var(--yesil)}
+  ul.liste{padding:0;list-style:none;margin:8px 0}
+  ul.liste li{border-left:4px solid var(--kirmizi);background:#fff;padding:10px 12px;margin:8px 0}
+  ul.liste li.orta{border-color:var(--amber)}
+  ul.liste li b{display:block}
+  ul.biz li{border-color:var(--metin)}
+  .not{font-size:13px;color:var(--soluk);margin-top:18px}
+  .adim{font:700 15px "Barlow Condensed",sans-serif;letter-spacing:1px;color:var(--soluk);text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="ust"><img src="assets/favicon.svg" alt=""><b>DİJİTABELA</b><a class="geri" href="index.html">dijitabela.com.tr →</a></div>
+<main>
+  <div class="adim">Ücretsiz araç · 1 dakika</div>
+  <h1>Google'da <em>kapalı</em> mı görünüyorum?</h1>
+  <p class="alt">Müşterileriniz sizi aramadan önce Google'a bakıyor. İşletmenizin orada nasıl göründüğünü 9 soruda kontrol edin, puanınızı ve eksiklerinizi anında görün.</p>
+
+  <section id="a1">
+    <label for="ad">İşletmenizin adı</label>
+    <input id="ad" placeholder="ör. Yıldız Oto Servis" autocomplete="organization">
+    <label for="yer">İlçe / şehir</label>
+    <input id="yer" placeholder="ör. Kepez Antalya">
+    <a class="dugme" id="ara" target="_blank" rel="noopener">Google'da aç</a><a class="dugme acik" id="harita" target="_blank" rel="noopener">Haritalar'da aç</a>
+    <p class="not">Açılan sayfada işletmenize bakın, sonra aşağıdaki soruları cevaplayın.</p>
+  </section>
+
+  <h2>Gördüklerinizi işaretleyin</h2>
+  <div id="sorular"></div>
+  <button class="dugme" id="hesapla">Puanımı göster</button>
+
+  <section id="sonuc" class="gizli">
+    <h2>Sonuç</h2>
+    <div class="puan"><b id="p">0</b><span id="pd"></span></div>
+    <p id="pyorum" class="alt"></p>
+    <h2>Müşterinin gördüğü sorunlar</h2>
+    <ul class="liste" id="sorunlar"></ul>
+    <h2>Bizim yapacaklarımız</h2>
+    <ul class="liste biz" id="biz"></ul>
+    <a class="dugme wa" id="wa" target="_blank" rel="noopener">Ücretsiz düzeltme raporu iste</a>
+    <p class="not">Düğme, sonuçlarınızı WhatsApp'ta hazır bir mesaj olarak açar; siz gönderince Dijitabela ekibi işletmenize özel raporu iletir. Gönderip göndermemek size kalmış, hiçbir bilgi otomatik paylaşılmaz.</p>
+  </section>
+</main>
+<script>
+const WA = "905019452184";
+// [anahtar, soru, açıklama, sorunlu cevap ("e"=evet sorunlu, "h"=hayır sorunlu), puan ağırlığı, müşterinin gözünden sorun, bizim yapacağımız]
+const S = [
+  ["bulunur", "Google'da adınızla aratınca işletmeniz sağda/haritada çıkıyor mu?", "Profil kartı (adres, telefon, yorumlar) görünüyor mu?", "h", 20, "Müşteri sizi Google'da bulamıyor; rakibin profilini görüp onu arıyor.", "Profilinizi bulup sahipliğini doğrulamak ya da sıfırdan açıp onaylatmak"],
+  ["kapali", "Profilde \"Kalıcı olarak kapandı\" veya \"Geçici olarak kapalı\" yazıyor mu?", "Kırmızı yazıyla, adın hemen altında olur.", "e", 25, "Müşteri dükkânınızın kapandığını düşünüp hiç aramıyor.", "Kapandı uyarısını Google itiraz süreciyle kaldırmak ve profili yeniden açtırmak"],
+  ["saat", "Çalışma saatleri doğru mu?", "Bayram/tatil saatleri dahil.", "h", 10, "Açık olduğunuz saatte 'kapalı' görünüyor; müşteri gelmiyor.", "Normal ve özel gün saatlerini düzeltip takvime bağlamak"],
+  ["tel", "Telefon numarası doğru ve aranınca açılıyor mu?", "Eski numara ya da sabit hat sık sorun çıkarır.", "h", 10, "Arayan müşteri ulaşamıyor ya da yanlış yere düşüyor.", "Doğru numarayı ve WhatsApp bağlantısını profile eklemek"],
+  ["foto", "En az 10 güncel fotoğraf var mı (dükkân, ürün, ekip)?", "Fotoğraflar sekmesine bakın.", "h", 8, "Fotoğrafsız profil güven vermiyor; müşteri fotoğraflı rakibe yöneliyor.", "Güncel fotoğrafları düzenleyip yüklemek, kapak ve logoyu ayarlamak"],
+  ["puan", "Puanınız 4.3 ve üstü, en az 20 yorumunuz var mı?", "Yıldızların yanındaki sayı.", "h", 9, "Az yorum ya da düşük puan, ilk bakışta tercih edilmemenize yol açıyor.", "Memnun müşterilerden düzenli yorum isteyen otomatik WhatsApp mesajı kurmak"],
+  ["cevap", "Yorumlara cevap veriyor musunuz?", "Özellikle olumsuz yorumlara.", "h", 6, "Cevapsız şikâyet, yeni gelen müşteriye 'ilgilenmiyorlar' mesajı veriyor.", "Yorumlara düzenli, işletme diliyle cevap verilmesini sağlamak"],
+  ["site", "Profilde web sitesi veya WhatsApp/randevu bağlantısı var mı?", "Web sitesi düğmesi.", "h", 6, "Müşteri bilgi ya da fiyat bulamayıp sayfadan çıkıyor.", "Tek sayfalık hızlı site ve WhatsApp randevu bağlantısı eklemek"],
+  ["sahip", "Profilde \"Bu işletmenin sahibi misiniz?\" yazısı çıkıyor mu?", "Çıkıyorsa profil sizin kontrolünüzde değildir.", "e", 6, "Profil sahipsiz; bilgileri herkes değiştirebiliyor (kapandı uyarısı da böyle gelir).", "Profilin sahipliğini sizin adınıza doğrulamak"],
+];
+const cev = {};
+const kutu = document.getElementById("sorular");
+for (const [k, soru, acik] of S) {
+  const d = document.createElement("div"); d.className = "soru";
+  d.innerHTML = `<p>${soru}</p><small>${acik}</small><div class="sec"><button data-v="e">Evet</button><button data-v="h">Hayır</button><button data-v="b">Bilmiyorum</button></div>`;
+  d.querySelectorAll("button").forEach((b) => b.onclick = () => { cev[k] = b.dataset.v; d.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b)); });
+  kutu.appendChild(d);
+}
+const q = () => encodeURIComponent((document.getElementById("ad").value + " " + document.getElementById("yer").value).trim());
+const ara = document.getElementById("ara"), harita = document.getElementById("harita");
+const bagla = () => { ara.href = "https://www.google.com/search?q=" + q(); harita.href = "https://www.google.com/maps/search/" + q(); };
+["ad", "yer"].forEach((i) => document.getElementById(i).addEventListener("input", bagla)); bagla();
+
+document.getElementById("hesapla").onclick = () => {
+  let puan = 100; const sorun = [], biz = [];
+  for (const [k, soru, , kotu, w, gorunen, yap] of S) {
+    const v = cev[k];
+    if (v === kotu) { puan -= w; sorun.push([w >= 10, gorunen]); biz.push(yap); }
+    else if (v === "b" || !v) { puan -= Math.round(w / 2); sorun.push([false, "Kontrol edilmedi: " + soru.replace(/\?$/, "") + ". Bilinmeyen her madde risk demek."]); }
+  }
+  if (cev.bulunur === "h") puan = Math.min(puan, 30);
+  if (cev.kapali === "e") puan = Math.min(puan, 25);
+  puan = Math.max(0, puan);
+  const [lbl, cls, yorum] = puan < 50 ? ["Acil", "durum-kirmizi", "Google'da müşteri kaybediyorsunuz. Bu sorunlar her gün arayacak müşterileri rakibe gönderiyor."]
+    : puan < 80 ? ["Eksik", "durum-sari", "Görünüyorsunuz ama eksikler yüzünden müşterinin bir kısmı rakibe gidiyor."]
+    : ["İyi", "durum-yesil", "Profiliniz iyi durumda. Yorum ve fotoğrafları düzenli tutarak önde kalabilirsiniz."];
+  document.getElementById("p").textContent = puan; const pd = document.getElementById("pd"); pd.textContent = "/ 100 · " + lbl; pd.className = cls;
+  document.getElementById("p").className = cls; document.getElementById("pyorum").textContent = yorum;
+  document.getElementById("sorunlar").innerHTML = sorun.length ? sorun.map(([agir, t]) => `<li class="${agir ? "" : "orta"}">${t}</li>`).join("") : "<li class='orta'>Belirgin bir sorun işaretlemediniz.</li>";
+  document.getElementById("biz").innerHTML = (biz.length ? biz : ["Profilinizi düzenli izleyip yorum ve fotoğrafları güncel tutmak"]).map((t) => `<li>${t}</li>`).join("");
+  const ad = document.getElementById("ad").value.trim() || "(işletme adı yazılmadı)", yer = document.getElementById("yer").value.trim();
+  const msg = `Merhaba, Google kontrol aracını kullandım.\nİşletme: ${ad}${yer ? " (" + yer + ")" : ""}\nPuan: ${puan}/100 · ${lbl}\nSorunlar:\n${sorun.filter(([a]) => a).map(([, t]) => "- " + t).join("\n") || "- (ağır sorun yok)"}\nÜcretsiz düzeltme raporu istiyorum.`;
+  document.getElementById("wa").href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+  const s = document.getElementById("sonuc"); s.classList.remove("gizli"); s.scrollIntoView({ behavior: "smooth" });
+};
+</script>
+</body>
+</html>
