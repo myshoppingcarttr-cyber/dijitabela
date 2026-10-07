@@ -93,11 +93,11 @@ footer{color:var(--soluk);font-size:14px;padding:30px 0 60px}
 </ul>
 
 <h2>Paketler</h2>
-<p class="alt">Fiyatlar Caffé Di Toeé'nin <b>3 şehirdeki 21 şubesi</b> için hazırlandı, KDV hariçtir ve <b>20 Ekim 2026</b>'ya kadar geçerlidir. İlk ay deneme süresidir; memnun kalmazsanız devam etmezsiniz.</p>
+<p class="alt">Fiyatlar Caffé Di Toeé'nin <b>3 şehirdeki 21 şubesi</b> için hazırlandı, KDV hariçtir ve <b>20 Ekim 2026</b>'ya kadar geçerlidir. <b>Paketlerde kurulum ücretsizdir.</b> İlk ay deneme süresidir; memnun kalmazsanız devam etmezsiniz.</p>
 <div class="paket">
-  <div class="pk"><b>Başlangıç</b><div class="k">İçerik Merkezi + sosyal medya</div><ul><li>Şubelerin yüklediğinden içerik üretimi</li><li>12 gönderi + 8 Reels / ay</li><li>Hikâye serileri, tasarım + kurgu</li><li>Aylık rapor</li></ul><span class="f">14.900 ₺ <small>/ ay</small></span></div>
-  <div class="pk one"><b>Büyüme</b><div class="k">Tam otomasyon</div><ul><li>Başlangıç paketindeki her şey</li><li>Yorum ve DM'lere 7/24 otomatik cevap</li><li>Franchise e-postalarına cevap + aday puanlama</li><li>21 şubeye Google İşletme gönderileri</li><li>Günlük, haftalık, aylık rapor</li></ul><span class="f">24.900 ₺ <small>/ ay</small></span></div>
-  <div class="pk"><b>Tam paket</b><div class="k">Hepsi + reklam + platform bakımı</div><ul><li>Büyüme paketindeki her şey</li><li>Reklam yönetimi (şube çevresi + online satış)</li><li>Sadakat kartı ve QR sipariş bakımı</li><li>Çeyreklik strateji görüşmesi</li></ul><span class="f">34.900 ₺ <small>/ ay</small></span></div>
+  <div class="pk"><b>Başlangıç</b><div class="k">İçerik Merkezi + sosyal medya</div><ul><li>Şubelerin yüklediğinden içerik üretimi</li><li>12 gönderi + 8 Reels / ay</li><li>Hikâye serileri, tasarım + kurgu</li><li>Aylık rapor</li></ul><span class="f">14.900 ₺ <small>/ ay</small></span><span class="fk">✓ Kurulum ücretsiz</span></div>
+  <div class="pk one"><b>Büyüme</b><div class="k">Tam otomasyon</div><ul><li>Başlangıç paketindeki her şey</li><li>Yorum ve DM'lere 7/24 otomatik cevap</li><li>Franchise e-postalarına cevap + aday puanlama</li><li>21 şubeye Google İşletme gönderileri</li><li>Günlük, haftalık, aylık rapor</li></ul><span class="f">24.900 ₺ <small>/ ay</small></span><span class="fk">✓ Kurulum ücretsiz</span></div>
+  <div class="pk"><b>Tam paket</b><div class="k">Hepsi + reklam + platform bakımı</div><ul><li>Büyüme paketindeki her şey</li><li>Reklam yönetimi (şube çevresi + online satış)</li><li>Sadakat kartı ve QR sipariş bakımı</li><li>Çeyreklik strateji görüşmesi</li></ul><span class="f">34.900 ₺ <small>/ ay</small></span><span class="fk">✓ Kurulum ücretsiz</span></div>
 </div>
 <h2>Modülleri ayrı ayrı da alabilirsiniz</h2>
 <p class="alt">İsterseniz yalnızca ihtiyacınız olanla başlayın; sonradan pakete geçişte kurulum ücreti düşülür.</p>
@@ -108,7 +108,7 @@ footer{color:var(--soluk);font-size:14px;padding:30px 0 60px}
   <li><b>İçerik ve Otomasyon Merkezi (tek başına) · 9.900 ₺ kurulum + 7.900 ₺/ay</b><span>Şube yükleme alanı, her yüklemeden 4 içerik, onay ve yayın takvimi.</span></li>
 </ul>
 <section class="hes" id="hesaplayici">
- <div class="hes-bas"><h2>Kendi paketinizi oluşturun</h2><p>Tüm özellikler tek tek ve fiyatlarıyla aşağıda. Yalnızca istediklerinizi işaretleyin; en altta <b>tek seferlik kurulum toplamını</b> ve <b>aylık ödeme tutarını</b> anında görün. Seçiminiz bir pakete denk geliyorsa size daha uygun olanı da gösteririz.</p></div>
+ <div class="hes-bas"><h2>Kendi paketinizi oluşturun</h2><p>Tüm özellikler tek tek ve fiyatlarıyla aşağıda. Yalnızca istediklerinizi işaretleyin; en altta <b>tek seferlik kurulum toplamını</b> ve <b>aylık ödeme tutarını</b> anında görün. Seçiminiz bir paketin tüm kalemlerini kapsıyorsa paket fiyatı otomatik uygulanır ve <b>kurulum ücretsiz</b> olur.</p></div>
  <div id="ozListe"></div>
  <div class="oneri" id="oneri"></div>
  <div class="ozet"><div><small>Tek seferlik kurulum</small><b id="tKur">0 ₺</b></div><div><small>Aylık ödeme</small><b id="tAy">0 ₺</b></div><div class="kdvd"><small>KDV dahil (%20)</small><b id="tKdv" style="font-size:17px">–</b></div><a id="tGonder" class="pasif" target="_blank" href="#">Seçimimi WhatsApp'tan gönder</a></div>
@@ -146,14 +146,14 @@ const kutular=[...document.querySelectorAll("#ozListe input")];
 function hesapla(){let kur=0,ay=0;
  kutular.forEach(c=>{const x=T[c.value],dep=x[5];const kilit=dep&&!SEC.has(dep);if(kilit&&c.checked){c.checked=false;SEC.delete(c.value);}c.disabled=!!kilit;c.closest(".oz").classList.toggle("kilit",!!kilit);c.closest(".oz").classList.toggle("sec",c.checked);});
  SEC.forEach(k=>{kur+=T[k][3];ay+=T[k][4];});
- let uyg=null;for(const [ad,f,ic] of PAKET){if(ic.every(k=>SEC.has(k))){const top=ic.reduce((t,k)=>t+T[k][4],0);if(top>f){ay-=top-f;uyg=[ad,top-f];}break;}}
+ let uyg=null;for(const [ad,f,ic] of PAKET){if(ic.every(k=>SEC.has(k))){const top=ic.reduce((t,k)=>t+T[k][4],0),kd=ic.reduce((t,k)=>t+T[k][3],0);ay-=Math.max(0,top-f);kur-=kd;uyg=[ad,Math.max(0,top-f),kd];break;}}
  const sk=(id,v)=>{const e=document.getElementById(id);if(e.textContent!==v){e.textContent=v;e.classList.add("zip");setTimeout(()=>e.classList.remove("zip"),300);}};
  sk("tKur",tl(kur));sk("tAy",tl(ay));document.getElementById("tKdv").textContent=SEC.size?tl(Math.round(kur*1.2))+" + "+tl(Math.round(ay*1.2))+"/ay":"–";
  const p=uyg?null:PAKET.find(([,f,ic])=>{const ortak=[...SEC].filter(k=>ic.includes(k));const ayOrtak=ortak.reduce((t,k)=>t+T[k][4],0);return ortak.length>=2&&ayOrtak>f;});
  const o=document.getElementById("oneri");
  if(p){const ic=p[2],ortak=[...SEC].filter(k=>ic.includes(k)),ayOrtak=ortak.reduce((t,k)=>t+T[k][4],0);o.style.display="block";o.innerHTML="💡 Seçtiğiniz aylık hizmetler <b>"+p[0]+" paketi</b>nde "+tl(p[1])+"/ay. Ayrı ayrı "+tl(ayOrtak)+"/ay ödersiniz; paketle ayda <b>"+tl(ayOrtak-p[1])+"</b> tasarruf"+(ic.length>ortak.length?" ve pakette ek olarak "+ic.filter(k=>!SEC.has(k)).map(k=>T[k][1]).join(", ")+" da var":"")+".<button type='button' id='paketSec'>"+p[0]+" paketini seç</button>";
   document.getElementById("paketSec").onclick=()=>{ic.forEach(k=>SEC.add(k));kutular.forEach(c=>c.checked=SEC.has(c.value));hesapla();};}
- else if(uyg){o.style.display="block";o.innerHTML="✓ <b>"+uyg[0]+" paketi fiyatı uygulandı</b>: aylık toplamdan "+tl(uyg[1])+" düşüldü.";}
+ else if(uyg){o.style.display="block";o.innerHTML="✓ <b>"+uyg[0]+" paketi uygulandı</b>: "+(uyg[2]?tl(uyg[2])+" kurulum ücreti silindi (paketlerde kurulum ücretsiz)":"")+(uyg[1]?(uyg[2]?", ":"")+"aylık toplamdan "+tl(uyg[1])+" düşüldü":"")+".";}
  else o.style.display="none";
  const a=document.getElementById("tGonder");a.classList.toggle("pasif",!SEC.size);
  a.href="https://wa.me/905019452184?text="+encodeURIComponent("Merhaba, Caffé Di Toeé için seçtiğimiz özellikler:\n"+[...SEC].map(k=>"• "+T[k][1]).join("\n")+"\n\nKurulum: "+tl(kur)+" · Aylık: "+tl(ay)+" (KDV hariç)");}
