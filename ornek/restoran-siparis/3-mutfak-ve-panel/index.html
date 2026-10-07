@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-14T23:59:00+03:00" data-slug="restoran-siparis"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mutfak Ekranı ve Yönetim Paneli · Restoran Sipariş Sistemi · Dijitabela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#f1eee8;--kart:#fff;--yazi:#1a1b1d;--soluk:#62666c;--cizgi:#dcd7cd;--ana:#b3261e;--iyi:#2f6b45;--uyari:#b7791f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi);display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+nav{background:#16181d;color:#e9e6df;padding:18px 0;position:sticky;top:0;height:100vh}
+nav .logo{padding:0 18px 16px;font-variation-settings:"wdth" 64;font-weight:800;font-size:21px;border-bottom:1px solid #2e3137}
+nav .logo small{display:block;font:500 10.5px "JetBrains Mono";color:#9ea2a9;letter-spacing:.05em}
+nav button{display:flex;justify-content:space-between;width:100%;background:transparent;border:0;color:#c9c7c1;text-align:left;padding:12px 18px;font:600 14.5px "Archivo";cursor:pointer;border-left:4px solid transparent}
+nav button.on{background:#22252b;color:#fff;border-left-color:#f2a93b}
+nav button i{font-style:normal;font:600 11px "JetBrains Mono";background:#b3261e;color:#fff;padding:1px 6px}
+nav .alt{position:absolute;bottom:16px;left:18px;right:18px;font-size:12px;color:#9ea2a9}
+nav .alt a{color:#f2a93b}
+main{padding:20px 24px 40px;min-width:0}
+.bas{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--yazi);padding-bottom:10px;margin-bottom:16px}
+.bas h1{font-variation-settings:"wdth" 66;font-size:34px;line-height:1}
+.mono{font:600 11px "JetBrains Mono";letter-spacing:.07em;text-transform:uppercase;color:var(--soluk)}
+.btn{border:0;background:var(--yazi);color:#fff;font:700 14px "Archivo";padding:10px 14px;cursor:pointer}
+.btn.k{background:var(--ana)}.btn.y{background:var(--iyi)}.btn.i{background:transparent;color:var(--yazi);border:1.5px solid var(--yazi)}
+.btn.kucuk{padding:6px 10px;font-size:13px}
+.sayfa{display:none}.sayfa.on{display:block}
+/* KDS */
+.kds{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kol{background:#e6e2da;min-height:60vh;padding:8px}
+.kol h3{font:700 13px "JetBrains Mono";letter-spacing:.06em;padding:4px 4px 8px;display:flex;justify-content:space-between}
+.fis{background:var(--kart);border-top:5px solid var(--yazi);padding:10px 12px;margin-bottom:8px;font-size:14px}
+.fis.yeni{border-top-color:var(--ana);animation:yan 1s 3}
+@keyframes yan{50%{background:#ffe9e6}}
+.fis.gec .sure{color:var(--ana);font-weight:800}
+.fis .s1{display:flex;justify-content:space-between;font-weight:800;font-size:15px}
+.fis ul{list-style:none;margin:6px 0;font-size:15px}
+.fis li{padding:2px 0}
+.fis li small{display:block;color:var(--ana);font-size:12.5px}
+.fis .meta{font-size:12px;color:var(--soluk);display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.fis .dg{display:flex;gap:6px;margin-top:8px}
+.fis .dg .btn{flex:1;padding:8px}
+.fis select{flex:1;border:1px solid var(--cizgi);padding:6px;font:14px "Archivo"}
+.kartlar{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--cizgi);background:var(--kart);margin-bottom:16px}
+.kartlar div{padding:14px 16px;border-right:1px solid var(--cizgi)}
+.kartlar div:last-child{border:0}
+.kartlar b{display:block;font-size:30px;font-variation-settings:"wdth" 62;line-height:1.05}
+.kartlar span{font-size:13px;color:var(--soluk)}
+.kartlar em{font-style:normal;font-size:12px;color:var(--iyi);font-weight:700}
+.iki{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.kutu{background:var(--kart);border:1px solid var(--cizgi);padding:16px;margin-bottom:16px}
+.kutu h3{font-variation-settings:"wdth" 72;font-size:19px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--cizgi)}
+th{font:600 11px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+td.r{text-align:right;font-weight:700}
+.bar{height:8px;background:#e6e2da}.bar i{display:block;height:100%;background:var(--ana)}
+.anahtar{position:relative;width:46px;height:24px;display:inline-block}
+.anahtar input{opacity:0;width:0;height:0}
+.anahtar span{position:absolute;inset:0;background:#c9c4ba;cursor:pointer;transition:.2s}
+.anahtar span::before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;transition:.2s}
+.anahtar input:checked+span{background:var(--iyi)}
+.anahtar input:checked+span::before{transform:translateX(22px)}
+input[type=text],input[type=number],select{border:1px solid var(--cizgi);padding:9px;font:15px "Archivo";background:#fff;width:100%}
+.form{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:8px;align-items:end}
+.form label{font-size:12.5px;color:var(--soluk)}
+.tasarruf{font-size:42px;font-variation-settings:"wdth" 62;font-weight:800;color:var(--iyi);line-height:1}
+.ses{display:flex;gap:8px;align-items:center;font-size:13px}
+.bil{position:fixed;right:20px;bottom:20px;background:var(--yazi);color:#fff;padding:14px 16px;max-width:340px;font-size:14px;transform:translateY(150%);transition:transform .35s;z-index:99}
+.bil.gor{transform:none}
+.bil b{display:block;font:600 11px "JetBrains Mono";color:#f2a93b;letter-spacing:.05em}
+.ust-not{background:#fff8e1;border-left:4px solid var(--uyari);padding:10px 14px;margin-bottom:14px;font-size:14px}
+@media(max-width:1100px){.kds{grid-template-columns:repeat(2,1fr)}.iki{grid-template-columns:1fr}.kartlar{grid-template-columns:repeat(2,1fr)}.form{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){body{grid-template-columns:1fr}nav{position:static;height:auto;display:flex;overflow-x:auto;padding:0}nav .logo,nav .alt{display:none}nav button{width:auto;white-space:nowrap;border-left:0;border-bottom:3px solid transparent}nav button.on{border-bottom-color:#f2a93b}.kds{grid-template-columns:1fr}main{padding:14px}}
+</style></head><body>
+<nav>
+  <div class="logo">Lezzet Durağı<small>RESTORAN PANELİ · ÖRNEK</small></div>
+  <button class="on" data-s="mutfak">Mutfak ekranı <i id="yeniSay">0</i></button>
+  <button data-s="ozet">Bugün / ciro</button>
+  <button data-s="menu">Menü ve stok</button>
+  <button data-s="kampanya">Kampanya kodları</button>
+  <button data-s="musteri">Müşteriler</button>
+  <button data-s="hesap">Komisyon hesabı</button>
+  <div class="alt"><a href="../">← Tüm tasarımlar</a><br>Tasarım 3 / 3 · demo veri</div>
+</nav>
+<main>
+<section class="sayfa on" id="s-mutfak">
+  <div class="bas"><div><div class="mono">Tasarım 3 · Mutfak ekranı (tablet / TV)</div><h1>Siparişler</h1></div>
+  <div class="ses"><label class="anahtar"><input type="checkbox" id="sesAc" checked><span></span></label> Sesli uyarı <button class="btn i kucuk" onclick="demoSiparis()">+ Demo sipariş düşür</button></div></div>
+  <div class="ust-not">Yeni sipariş gelince ekran yanıp söner ve zil çalar. 15 dakikayı geçen fiş kırmızıya döner. "Hazır" denince kuryeye ve gel-al müşterisine otomatik bildirim gider. <b>Bir kez ekrana tıklayın</b> ki tarayıcı sesi açsın.</div>
+  <div class="kds">
+    <div class="kol"><h3>YENİ <span id="c-yeni"></span></h3><div id="k-yeni"></div></div>
+    <div class="kol"><h3>HAZIRLANIYOR <span id="c-haz"></span></h3><div id="k-haz"></div></div>
+    <div class="kol"><h3>HAZIR <span id="c-hazir"></span></h3><div id="k-hazir"></div></div>
+    <div class="kol"><h3>YOLDA / TESLİM <span id="c-yol"></span></h3><div id="k-yol"></div></div>
+  </div>
+</section>
+<section class="sayfa" id="s-ozet">
+  <div class="bas"><div><div class="mono">Bugün · canlı</div><h1>Ciro ve sipariş özeti</h1></div><button class="btn i" onclick="window.print()">Yazdır / PDF</button></div>
+  <div class="kartlar"><div><b id="oCiro">12.840 TL</b><span>bugünkü ciro</span><br><em>▲ %18 geçen salıya göre</em></div><div><b id="oSip">47</b><span>sipariş</span><br><em>31 teslimat · 16 gel-al</em></div><div><b>273 TL</b><span>ortalama sepet</span><br><em>▲ 22 TL</em></div><div><b>19 dk</b><span>ort. hazırlanma</span><br><em>hedef 20 dk</em></div></div>
+  <div class="iki">
+    <div class="kutu"><h3>Son 14 gün ciro</h3><canvas id="grafik" height="230" style="width:100%"></canvas><p class="mono" style="margin-top:6px">Kırmızı çizgi: komisyonlu platformda kalacak kesinti</p></div>
+    <div class="kutu"><h3>En çok satanlar (bu hafta)</h3><table id="cokSatan"></table></div>
+  </div>
+  <div class="iki">
+    <div class="kutu"><h3>Saatlik yoğunluk</h3><canvas id="saat" height="170" style="width:100%"></canvas></div>
+    <div class="kutu"><h3>Kuryeler</h3><table><tr><th>Kurye</th><th>Paket</th><th>Ort.</th><th>Nakit</th></tr><tr><td>Mehmet</td><td>14</td><td>21 dk</td><td class="r">1.240 TL</td></tr><tr><td>Serkan</td><td>11</td><td>24 dk</td><td class="r">860 TL</td></tr><tr><td>Emre (yarı zamanlı)</td><td>6</td><td>19 dk</td><td class="r">410 TL</td></tr></table></div>
+  </div>
+</section>
+<section class="sayfa" id="s-menu">
+  <div class="bas"><div><div class="mono">Anında yayına yansır</div><h1>Menü ve stok</h1></div></div>
+  <div class="kutu"><h3>Ürünler</h3><p style="font-size:14px;color:var(--soluk);margin-bottom:8px">Bir ürün bitince anahtarı kapatın: müşteri uygulamasında "Bugünlük bitti" görünür, sipariş alınmaz. Fiyatı burada değiştirin, uygulamada hemen güncellenir.</p><table id="menuTablo"></table></div>
+  <div class="kutu"><h3>Çalışma saatleri ve teslimat bölgesi</h3><table><tr><td>Hafta içi</td><td>11:00 – 23:00</td></tr><tr><td>Cuma – Cumartesi</td><td>11:00 – 00:30</td></tr><tr><td>Teslimat ücreti</td><td>0–2 km ücretsiz · 2–4 km 25 TL · 4–7 km 45 TL</td></tr><tr><td>Minimum sepet</td><td>200 TL (gel-al için yok)</td></tr><tr><td>Yoğunluk modu</td><td><label class="anahtar"><input type="checkbox" onchange="bil('Yoğunluk modu',this.checked?'Tahmini süre müşteriye 45-55 dk olarak gösteriliyor.':'Normal süre: 30-40 dk')"><span></span></label> mutfak yetişmiyorsa süreyi otomatik uzatır</td></tr></table></div>
+</section>
+<section class="sayfa" id="s-kampanya">
+  <div class="bas"><div><div class="mono">Komisyonsuz kampanya</div><h1>Kampanya kodları</h1></div></div>
+  <div class="kutu"><h3>Yeni kod</h3><div class="form"><div><label>Kod</label><input type="text" id="kKod" placeholder="HAFTASONU"></div><div><label>Tür</label><select id="kTur"><option value="%">Yüzde indirim</option><option value="TL">Tutar indirim</option><option value="H">Hediye ürün</option></select></div><div><label>Değer</label><input type="number" id="kDeger" value="10"></div><div><label>Min. sepet (TL)</label><input type="number" id="kMin" value="250"></div><button class="btn k" onclick="kodEkle()">Oluştur</button></div></div>
+  <div class="kutu"><h3>Aktif kodlar</h3><table id="kodTablo"></table></div>
+  <div class="kutu"><h3>Otomatik kampanyalar</h3><table>
+  <tr><td>Doğum günü tatlısı</td><td>Doğum gününde SMS + ücretsiz künefe</td><td><label class="anahtar"><input type="checkbox" checked><span></span></label></td></tr>
+  <tr><td>"Sizi özledik"</td><td>30 gündür sipariş vermeyene %15 kod</td><td><label class="anahtar"><input type="checkbox" checked><span></span></label></td></tr>
+  <tr><td>Yağmurlu gün</td><td>Hava yağmurluysa teslimat ücretsiz (hava durumu otomatik)</td><td><label class="anahtar"><input type="checkbox"><span></span></label></td></tr>
+  <tr><td>Sadakat damgası</td><td>150 TL üzeri her siparişte 1 damga, 10 damgada ana yemek</td><td><label class="anahtar"><input type="checkbox" checked><span></span></label></td></tr></table></div>
+</section>
+<section class="sayfa" id="s-musteri">
+  <div class="bas"><div><div class="mono">Müşteri sizin, platformun değil</div><h1>Müşteriler</h1></div><button class="btn k" onclick="bil('SMS kuyruğa alındı','Seçili 38 müşteriye İYS onaylı kampanya SMS\\'i 18:00\\'de gidecek.')">Seçililere SMS gönder</button></div>
+  <div class="kutu"><table><tr><th></th><th>Müşteri</th><th>Sipariş</th><th>Toplam</th><th>Son sipariş</th><th>Segment</th></tr>
+  <tr><td><input type="checkbox" checked></td><td>Ayşe Y.</td><td>14</td><td class="r">3.920 TL</td><td>bugün</td><td>Sadık</td></tr>
+  <tr><td><input type="checkbox" checked></td><td>Burak K. (ofis)</td><td>22</td><td class="r">5.140 TL</td><td>dün</td><td>Öğle ofis</td></tr>
+  <tr><td><input type="checkbox"></td><td>Zeynep A.</td><td>3</td><td class="r">1.650 TL</td><td>12 gün önce</td><td>Yeni</td></tr>
+  <tr><td><input type="checkbox" checked></td><td>Murat D.</td><td>9</td><td class="r">2.210 TL</td><td>34 gün önce</td><td>Kaybolmak üzere</td></tr>
+  <tr><td><input type="checkbox"></td><td>Selin B.</td><td>1</td><td class="r">215 TL</td><td>3 gün önce</td><td>Yeni</td></tr></table>
+  <p class="mono" style="margin-top:8px">KVKK açık rıza ve İYS izni olmayan müşteriye SMS gönderilmez.</p></div>
+</section>
+<section class="sayfa" id="s-hesap">
+  <div class="bas"><div><div class="mono">Kendi uygulamanızın getirisi</div><h1>Komisyon hesabı</h1></div></div>
+  <div class="iki"><div class="kutu"><h3>Rakamlarınızı girin</h3>
+    <label style="font-size:13px;color:var(--soluk)">Platformdan aylık sipariş adedi</label><input type="number" id="hAdet" value="600" oninput="hesapla()">
+    <label style="font-size:13px;color:var(--soluk);margin-top:8px;display:block">Ortalama sepet (TL)</label><input type="number" id="hSepet" value="280" oninput="hesapla()">
+    <label style="font-size:13px;color:var(--soluk);margin-top:8px;display:block">Platform komisyonu (%)</label><input type="number" id="hKom" value="25" oninput="hesapla()">
+    <label style="font-size:13px;color:var(--soluk);margin-top:8px;display:block">Kendi uygulamanıza geçecek sipariş oranı (%)</label><input type="range" id="hOran" min="10" max="100" value="40" oninput="hesapla()" style="width:100%"><span id="hOranY" class="mono"></span></div>
+  <div class="kutu"><h3>Sonuç</h3><div class="mono">Aylık cebinizde kalan</div><div class="tasarruf" id="hSonuc"></div><p id="hDetay" style="margin-top:10px;font-size:15px"></p><div class="mono" style="margin-top:14px">Uygulama kendini kaç günde öder?</div><div class="tasarruf" style="font-size:30px;color:var(--yazi)" id="hGeri"></div></div></div>
+</section>
+</main>
+<div class="bil" id="bil"><b></b><span></span></div>
+<script>
+const $=s=>document.querySelector(s);const tl=n=>Math.round(n).toLocaleString("tr-TR")+" TL";
+function bil(b,t){const e=$("#bil");e.querySelector("b").textContent=b;e.querySelector("span").textContent=t||"";e.classList.add("gor");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("gor"),3800)}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("on"));b.classList.add("on");document.querySelectorAll(".sayfa").forEach(s=>s.classList.remove("on"));$("#s-"+b.dataset.s).classList.add("on");if(b.dataset.s==="ozet")grafikler()});
+// KDS
+const KURYE=["Mehmet","Serkan","Emre"];
+let fisler=[
+ {no:"#4829",tur:"Teslimat",ad:"Ali Ç.",ur:[["2× Adana Kebap","1 acısız"],["1× Gavurdağı",""],["2× Ayran",""]],ode:"Online",t:Date.now()-17*60000,d:"haz"},
+ {no:"#4830",tur:"Gel-al",ad:"Kemal S.",ur:[["3× Lahmacun","biri acılı"],["1× Şalgam",""]],ode:"Kapıda kart",t:Date.now()-6*60000,d:"haz"},
+ {no:"#4826",tur:"Teslimat",ad:"Elif T.",ur:[["1× Karışık ızgara 2 kişilik",""]],ode:"Online",t:Date.now()-26*60000,d:"hazir"},
+ {no:"#4824",tur:"Teslimat",ad:"Ayşe Y.",ur:[["2× Adana Dürüm","soğansız"],["Künefe",""]],ode:"Online",t:Date.now()-38*60000,d:"yol",k:"Mehmet"}
+];
+let sayac=4831,yeni=0;
+function dk(t){return Math.floor((Date.now()-t)/60000)}
+function kds(){const k={yeni:[],haz:[],hazir:[],yol:[]};fisler.forEach(f=>k[f.d].push(f));
+const html=f=>`<div class="fis ${f.d==="yeni"?"yeni":""} ${dk(f.t)>=15&&f.d!=="yol"?"gec":""}"><div class="s1"><span>${f.no} · ${f.tur}</span><span class="sure">${dk(f.t)} dk</span></div><ul>${f.ur.map(u=>`<li>${u[0]}${u[1]?`<small>⚠ ${u[1]}</small>`:""}</li>`).join("")}</ul><div class="meta"><span>${f.ad}</span><span>${f.ode}</span>${f.k?`<span>Kurye: ${f.k}</span>`:""}</div>
+<div class="dg">${f.d==="yeni"?`<button class="btn k" onclick="dur('${f.no}','haz')">Onayla · hazırla</button><button class="btn i" onclick="fisYaz('${f.no}')">Fiş</button>`:f.d==="haz"?`<button class="btn y" onclick="dur('${f.no}','hazir')">Hazır</button>`:f.d==="hazir"?(f.tur==="Gel-al"?`<button class="btn" onclick="dur('${f.no}','yol')">Teslim edildi</button>`:`<select id="ks-${f.no.slice(1)}">${KURYE.map(x=>`<option>${x}</option>`).join("")}</select><button class="btn" onclick="kuryeVer('${f.no}')">Kuryeye ver</button>`):`<span class="mono" style="color:var(--iyi)">● yolda / teslim</span>`}</div></div>`;
+["yeni","haz","hazir","yol"].forEach(x=>{$("#k-"+x).innerHTML=k[x].map(html).join("")||'<p class="mono" style="padding:6px">—</p>';$("#c-"+({yeni:"yeni",haz:"haz",hazir:"hazir",yol:"yol"})[x]).textContent=k[x].length});
+$("#yeniSay").textContent=k.yeni.length}
+function dur(no,d){const f=fisler.find(x=>x.no===no);f.d=d;if(d==="hazir")bil("Hazır · "+no,f.tur==="Gel-al"?f.ad+" bilgilendirildi: “Siparişiniz hazır, gelebilirsiniz.”":"Kurye atayın; müşteriye “hazır, kurye yola çıkmak üzere” gitti.");kds()}
+function kuryeVer(no){const f=fisler.find(x=>x.no===no);f.k=$("#ks-"+no.slice(1)).value;f.d="yol";bil(f.k+" yola çıktı",f.ad+" kuryeyi canlı haritada takip ediyor.");kds()}
+function fisYaz(no){const f=fisler.find(x=>x.no===no);const w=window.open("","fis","width=320,height=520");if(!w)return bil("Fiş","Açılır pencereye izin verin.");w.document.write(`<pre style="font:13px monospace;padding:10px">LEZZET DURAĞI\n------------------------\n${f.no}  ${f.tur.toUpperCase()}\n${new Date().toLocaleString("tr-TR")}\nMüşteri: ${f.ad}\n------------------------\n${f.ur.map(u=>u[0]+(u[1]?"\n  ! "+u[1]:"")).join("\n")}\n------------------------\nÖdeme: ${f.ode}\n\n  Afiyet olsun\n</pre><script>print()<\/script>`)}
+let sesBaglam;document.addEventListener("click",()=>{if(!sesBaglam)try{sesBaglam=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}},{once:true});
+function zil(){if(!$("#sesAc").checked||!sesBaglam)return;const a=sesBaglam;[0,.22,.44].forEach(t=>{const o=a.createOscillator(),g=a.createGain();o.type="triangle";o.frequency.value=t?1046:784;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(.25,a.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+t+.2);o.start(a.currentTime+t);o.stop(a.currentTime+t+.21)})}
+const ORN=[[["2× Tavuk Şiş Dürüm",""],["2× Ayran",""]],[["1× Kuşbaşılı Pide","kaşarlı"],["1× Şalgam","acılı"]],[["4× Lahmacun",""],["1× Künefe",""]],[["1× Urfa Kebap","1,5 porsiyon"],["1× Gavurdağı",""]]];
+const ADL=["Murat D.","Selin B.","Okan E.","Derya M.","Hakan T."];
+function demoSiparis(){const g=Math.random()<.35;fisler.unshift({no:"#"+(sayac++),tur:g?"Gel-al":"Teslimat",ad:ADL[Math.floor(Math.random()*ADL.length)],ur:ORN[Math.floor(Math.random()*ORN.length)],ode:["Online","Kapıda nakit","Kapıda kart"][Math.floor(Math.random()*3)],t:Date.now(),d:"yeni"});zil();bil("Yeni sipariş "+fisler[0].no,fisler[0].tur+" · "+fisler[0].ad);document.title="(●) Yeni sipariş · Mutfak";setTimeout(()=>document.title="Mutfak Ekranı · Dijitabela",4000);kds()}
+setInterval(demoSiparis,30000);setInterval(kds,20000);setTimeout(demoSiparis,2500);kds();
+// menü
+let MENU=[["Adana Kebap",290,true,38],["Urfa Kebap",290,true,21],["Karışık Izgara (2 kişilik)",780,true,9],["Adana Dürüm",185,true,44],["Tavuk Şiş Dürüm",165,true,30],["Lahmacun",85,true,96],["Kuşbaşılı Pide",240,true,17],["Gavurdağı Salata",120,true,26],["Meze Tabağı",210,false,12],["Künefe",150,true,33],["Ayran",35,true,88]];
+function menuCiz(){$("#menuTablo").innerHTML=`<tr><th>Ürün</th><th>Fiyat (TL)</th><th>Bu hafta</th><th>Satışta</th></tr>`+MENU.map((m,i)=>`<tr><td>${m[0]}</td><td style="width:130px"><input type="number" value="${m[1]}" onchange="MENU[${i}][1]=+this.value;bil('Fiyat güncellendi','${m[0]}: '+this.value+' TL · uygulamada yayında')"></td><td>${m[3]} adet</td><td><label class="anahtar"><input type="checkbox" ${m[2]?"checked":""} onchange="MENU[${i}][2]=this.checked;bil('${m[0]}',this.checked?'Tekrar satışta':'Bugünlük bitti olarak işaretlendi')"><span></span></label></td></tr>`).join("")}
+menuCiz();
+$("#cokSatan").innerHTML=[...MENU].sort((a,b)=>b[3]-a[3]).slice(0,6).map((m,i,a)=>`<tr><td style="width:46%">${m[0]}</td><td><div class="bar"><i style="width:${m[3]/a[0][3]*100}%"></i></div></td><td class="r">${m[3]}</td></tr>`).join("");
+// kodlar
+let KODLAR=[["HOSGELDIN","%",15,0,64],["CUMA20","TL",20,250,31],["OFIS10","%",10,400,18]];
+function kodCiz(){$("#kodTablo").innerHTML=`<tr><th>Kod</th><th>İndirim</th><th>Min. sepet</th><th>Kullanım</th><th></th></tr>`+KODLAR.map((k,i)=>`<tr><td><b>${k[0]}</b></td><td>${k[1]==="%"?"%"+k[2]:k[1]==="TL"?k[2]+" TL":"Hediye ürün"}</td><td>${k[3]?k[3]+" TL":"—"}</td><td>${k[4]}</td><td><button class="btn i kucuk" onclick="KODLAR.splice(${i},1);kodCiz()">Kaldır</button></td></tr>`).join("")}
+function kodEkle(){const k=$("#kKod").value.trim().toUpperCase();if(!k)return bil("Kod adı girin");KODLAR.unshift([k,$("#kTur").value,+$("#kDeger").value,+$("#kMin").value,0]);kodCiz();bil("Kod oluşturuldu",k+" müşteri uygulamasında hemen kullanılabilir.")}
+kodCiz();
+// grafikler
+function grafikler(){const c=$("#grafik"),x=c.getContext("2d"),W=c.width=c.clientWidth*2,H=c.height=460;x.clearRect(0,0,W,H);const v=[9.2,10.1,8.7,11.4,13.9,16.2,12.1,9.8,10.9,9.4,12.2,14.8,17.1,12.8];const mx=18;const bw=W/v.length;
+x.font="22px JetBrains Mono";x.fillStyle="#62666c";for(let i=0;i<=3;i++){const y=H-40-(H-70)*i/3;x.fillRect(60,y,W-60,1);x.fillText((mx*i/3).toFixed(0)+"k",4,y+6)}
+v.forEach((d,i)=>{const h=(H-70)*d/mx;x.fillStyle=i===v.length-1?"#b3261e":"#1a1b1d";x.fillRect(60+i*(W-60)/v.length+6,H-40-h,(W-60)/v.length-12,h)});
+x.strokeStyle="#b3261e";x.lineWidth=4;x.beginPath();v.forEach((d,i)=>{const px=60+i*(W-60)/v.length+(W-60)/v.length/2,py=H-40-(H-70)*d*.25/mx;i?x.lineTo(px,py):x.moveTo(px,py)});x.stroke();
+const s=$("#saat"),y=s.getContext("2d"),W2=s.width=s.clientWidth*2,H2=s.height=340;const sv=[1,2,7,9,4,2,2,3,6,11,13,9,4];y.font="20px JetBrains Mono";sv.forEach((d,i)=>{const h=(H2-50)*d/13;y.fillStyle=d>=9?"#b3261e":"#1a1b1d";y.fillRect(i*W2/sv.length+4,H2-30-h,W2/sv.length-8,h);y.fillStyle="#62666c";y.fillText(11+i,i*W2/sv.length+8,H2-6)})}
+// hesap
+function hesapla(){const a=+$("#hAdet").value,s=+$("#hSepet").value,k=+$("#hKom").value/100,o=+$("#hOran").value/100;$("#hOranY").textContent="%"+Math.round(o*100);const kalan=a*o*s*k-490;$("#hSonuc").textContent=tl(Math.max(0,kalan));$("#hDetay").innerHTML=`Ayda <b>${Math.round(a*o)}</b> sipariş kendi uygulamanızdan gelirse, platforma gidecek <b>${tl(a*o*s*k)}</b> komisyonun tamamı sizde kalır (sunucu + bakım 490 TL düşüldü).`;const gun=kalan>0?Math.ceil(19900/(kalan/30)):"—";$("#hGeri").textContent=gun==="—"?"—":gun+" gün"}
+hesapla();
+</script></body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-14T23:59:00+03:00" data-slug="kafe-stok-adisyon"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Stok ve Fatura Takibi · Kafe Sistemi · Tasarım 2 · Dijitabela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#f1eee8;--kart:#fff;--yazi:#1c1b19;--soluk:#67625a;--cizgi:#d8d2c6;--ana:#6b3e26;--vurgu:#c8742a;--yesil:#2f6b45;--kirmizi:#b3261e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi);line-height:1.5}
+.demo{background:#16181d;color:#e9e6df;font-size:13px;padding:6px 14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.demo a{color:#f2a93b}
+.bar{background:var(--yazi);color:#fff;display:flex;align-items:center;gap:6px;padding:0 14px;height:56px;overflow-x:auto}
+.bar b{font-variation-settings:"wdth" 62;font-size:21px;margin-right:14px;white-space:nowrap}
+.bar button{background:transparent;border:0;color:#c9c4ba;font:700 15px "Archivo";padding:16px 12px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.bar button.on{color:#fff;border-bottom-color:var(--vurgu)}
+main{max-width:1200px;margin:0 auto;padding:20px}
+.bas{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--yazi);padding-bottom:10px;margin-bottom:16px}
+h1{font-variation-settings:"wdth" 64;font-size:34px;line-height:1}
+.mono{font:600 11.5px "JetBrains Mono";letter-spacing:.07em;text-transform:uppercase;color:var(--soluk)}
+.btn{border:0;background:var(--yazi);color:#fff;font:700 15px "Archivo";padding:12px 14px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn.v{background:var(--vurgu)}.btn.y{background:var(--yesil)}.btn.i{background:transparent;color:var(--yazi);border:1.5px solid var(--yazi)}.btn.k{padding:7px 10px;font-size:13px}
+.say{display:none}.say.on{display:block}
+.kartlar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--kart);border:1px solid var(--cizgi);margin-bottom:16px}
+.kartlar div{padding:14px 16px;border-right:1px solid var(--cizgi)}.kartlar div:last-child{border:0}
+.kartlar b{display:block;font-size:30px;font-variation-settings:"wdth" 60;line-height:1.05}
+.kartlar span{font-size:13px;color:var(--soluk)}
+table{width:100%;border-collapse:collapse;background:var(--kart);border:1px solid var(--cizgi);font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--cizgi);vertical-align:middle}
+th{font:600 11px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+td.r{text-align:right;font-weight:700}
+.cubuk{height:10px;background:#e7e2d9;position:relative;min-width:120px}
+.cubuk i{display:block;height:100%;background:var(--yesil)}
+.cubuk i.d{background:var(--kirmizi)}.cubuk i.o{background:var(--vurgu)}
+.cubuk em{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--yazi)}
+.etiket{font:600 10.5px "JetBrains Mono";padding:2px 6px;border:1px solid}
+.etiket.d{color:var(--kirmizi)}.etiket.o{color:var(--vurgu)}.etiket.y{color:var(--yesil)}
+.iki{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.kutu{background:var(--kart);border:1px solid var(--cizgi);padding:18px;margin-bottom:16px}
+.kutu h3{font-variation-settings:"wdth" 70;font-size:20px;margin-bottom:10px}
+input,select{border:1px solid var(--cizgi);padding:10px;font:15px "Archivo";background:#fff;width:100%}
+.satir{display:grid;grid-template-columns:2fr 1fr 1fr 40px;gap:6px;margin-bottom:6px}
+.satir button{border:1px solid var(--cizgi);background:#fff;cursor:pointer;font-size:18px}
+.okuma{border:2px dashed var(--cizgi);padding:18px;text-align:center;cursor:pointer;background:#faf8f4}
+.okuma.calis{border-color:var(--vurgu);background:#fbf1e7}
+.fatura-gorsel{display:flex;gap:12px;align-items:flex-start;margin-top:10px}
+.fatura-gorsel img{width:120px;border:1px solid var(--cizgi)}
+.bil{position:fixed;left:50%;top:70px;transform:translate(-50%,-400%);background:var(--yesil);color:#fff;font-weight:700;padding:14px 18px;z-index:60;transition:transform .3s;max-width:92vw}
+.bil.gor{transform:translate(-50%,0)}
+.marj{font-weight:800}
+.marj.d{color:var(--kirmizi)}.marj.y{color:var(--yesil)}
+@media(max-width:900px){.kartlar{grid-template-columns:1fr 1fr}.iki{grid-template-columns:1fr}table{font-size:13px;display:block;overflow-x:auto}th,td{padding:8px 6px}.satir{grid-template-columns:1fr 1fr}.cubuk{min-width:60px}}
+</style></head><body>
+<div class="demo"><span>Dijitabela ön gösterimi · Tasarım 2 / 3 · Stok ve fatura · adisyonda satılan her ürün reçetesine göre stoktan düşer</span><span><a href="../1-dokunmatik-adisyon/">← Adisyon</a> · <a href="../3-gun-sonu-ve-qr/">Gün sonu →</a> · <a href="../">Tüm tasarımlar</a></span></div>
+<div class="bar"><b>KAFENİZİN ADI · STOK</b><button class="on" data-s="stok">Stok durumu</button><button data-s="fatura">Fatura işle</button><button data-s="recete">Reçete ve kâr</button><button data-s="siparis">Sipariş listesi</button><button data-s="sayim">Sayım</button></div>
+<main>
+<section class="say on" id="s-stok">
+  <div class="bas"><div><div class="mono">Anlık · satışla düşer, faturayla artar</div><h1>Stok durumu</h1></div><button class="btn i k" onclick="if(confirmSifirla())location.reload()">Demo verisini sıfırla</button></div>
+  <div class="kartlar"><div><b id="kKalem"></b><span>takip edilen kalem</span></div><div><b id="kKritik" style="color:var(--kirmizi)"></b><span>kritik seviyede</span></div><div><b id="kDeger"></b><span>depodaki mal değeri</span></div><div><b id="kFatura"></b><span>bu ay işlenen fatura</span></div></div>
+  <table id="stokTablo"></table>
+</section>
+<section class="say" id="s-fatura">
+  <div class="bas"><div><div class="mono">Cari takip yok · sadece stok ve maliyet</div><h1>Fatura işle</h1></div></div>
+  <div class="iki"><div class="kutu"><h3>Faturadaki kalemler</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px"><input id="fTed" placeholder="Tedarikçi (ör. Adana Kahve Toptan)" value="Adana Kahve Toptan"><input id="fNo" placeholder="Fatura no" value="ADK2026-0918"></div>
+    <div class="mono" style="display:grid;grid-template-columns:2fr 1fr 1fr 40px;gap:6px;margin-bottom:4px"><span>Ürün</span><span>Miktar</span><span>Tutar (₺)</span><span></span></div>
+    <div id="satirlar"></div><button class="btn i k" onclick="satirEkle()">+ Kalem ekle</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;border-top:2px solid var(--yazi);padding-top:10px"><b style="font-size:20px">Toplam: <span id="fTop">0 ₺</span></b><button class="btn y" onclick="faturaKaydet()">Faturayı işle, stoğa ekle</button></div></div>
+  <div><div class="kutu"><h3>Fotoğraftan oku <span class="etiket o">EKSTRA</span></h3><p style="color:var(--soluk);font-size:14.5px;margin-bottom:10px">Faturanın fotoğrafını çekin; kalemler, miktarlar ve tutarlar otomatik doldurulur, siz sadece kontrol edersiniz.</p>
+    <label class="okuma" id="okuma"><b>Fatura fotoğrafı seç / çek</b><br><span style="font-size:13px;color:var(--soluk)">Demo: herhangi bir fotoğraf seçin, örnek fatura okunur</span><input type="file" accept="image/*" capture="environment" style="display:none" onchange="oku(this)"></label><div class="fatura-gorsel" id="fGorsel"></div></div>
+    <div class="kutu"><h3>Son işlenen faturalar</h3><table id="fListe"></table></div></div></div>
+</section>
+<section class="say" id="s-recete">
+  <div class="bas"><div><div class="mono">Hangi ürün ne kazandırıyor?</div><h1>Reçete ve kâr</h1></div></div>
+  <p style="color:var(--soluk);margin-bottom:12px">Her ürünün reçetesi bir kez girilir (1 latte = 18 g kahve + 220 ml süt). Fatura girdikçe maliyet kendiliğinden güncellenir; kâr marjı %50'nin altına düşen ürün kırmızı yanar.</p>
+  <table id="receteTablo"></table>
+</section>
+<section class="say" id="s-siparis">
+  <div class="bas"><div><div class="mono">Kritik seviyenin altındakiler</div><h1>Sipariş listesi</h1></div></div>
+  <div class="iki"><div><table id="sipTablo"></table></div><div class="kutu"><h3>Tedarikçiye gönder</h3><select id="ted"><option value="905019452184">Adana Kahve Toptan</option><option value="905019452184">Çukurova Süt</option><option value="905019452184">Metro Grossmarket</option></select><pre id="sipMetin" style="white-space:pre-wrap;font:13px/1.45 'JetBrains Mono';background:#faf8f4;border:1px solid var(--cizgi);padding:12px;margin:10px 0"></pre><a class="btn y" id="sipGonder" target="_blank" rel="noopener" style="width:100%">WhatsApp'tan sipariş ver</a></div></div>
+</section>
+<section class="say" id="s-sayim">
+  <div class="bas"><div><div class="mono">Haftalık · fire ve kayıp kontrolü</div><h1>Sayım</h1></div><button class="btn v" onclick="sayimBitir()">Sayımı bitir</button></div>
+  <p style="color:var(--soluk);margin-bottom:12px">Depoda gerçekte olanı yazın. Sistemdeki ile fark büyükse fire, ikram veya kayıt dışı satış var demektir.</p>
+  <table id="sayimTablo"></table><div id="sayimSonuc" style="margin-top:12px"></div>
+</section>
+</main>
+<div class="bil" id="bil"></div>
+<script src="../ortak.js"></script>
+<script>
+const K=window.KAFE,$=s=>document.querySelector(s),tl=K.tl;
+function bil(t,r){const b=$("#bil");b.textContent=t;b.style.background=r||"var(--yesil)";b.classList.add("gor");clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove("gor"),3000)}
+function confirmSifirla(){K.sifirla();return true}
+document.querySelectorAll(".bar button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".bar button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".say").forEach(s=>s.classList.remove("on"));$("#s-"+b.dataset.s).classList.add("on");ciz()});
+const fm=(n,b)=>(b==="g"||b==="ml")&&n>=1000?(n/1000).toLocaleString("tr-TR",{maximumFractionDigits:2})+(b==="g"?" kg":" L"):Math.round(n).toLocaleString("tr-TR")+" "+b;
+function durum(h){return h.stok<=h.kritik*.5?"d":h.stok<=h.kritik?"o":"y"}
+function ciz(){const H=K.veri.ham;$("#kKalem").textContent=H.length;$("#kKritik").textContent=H.filter(h=>h.stok<=h.kritik).length;$("#kDeger").textContent=tl(H.reduce((t,h)=>t+h.stok*h.maliyet,0));$("#kFatura").textContent=K.veri.fatura.length+2;
+$("#stokTablo").innerHTML=`<tr><th>Ürün</th><th>Stok</th><th style="width:30%">Seviye</th><th>Kritik</th><th>Birim maliyet</th><th>Durum</th></tr>`+H.map(h=>{const d=durum(h),oran=Math.min(100,h.stok/(h.kritik*3)*100);return`<tr><td><b>${h.ad}</b></td><td>${fm(h.stok,h.birim)}</td><td><div class="cubuk"><i class="${d}" style="width:${oran}%"></i><em style="left:${100/3}%"></em></div></td><td>${fm(h.kritik,h.birim)}</td><td>${h.maliyet.toLocaleString("tr-TR",{maximumFractionDigits:3})} ₺/${h.birim}</td><td><span class="etiket ${d}">${d==="d"?"ACİL":d==="o"?"KRİTİK":"YETERLİ"}</span></td></tr>`}).join("");
+$("#fListe").innerHTML=`<tr><th>Tedarikçi</th><th>No</th><th>Tutar</th></tr>`+[...K.veri.fatura,{ted:"Çukurova Süt",no:"CS-44812",top:3150},{ted:"Metro Grossmarket",no:"MT-0921-77",top:5480}].map(f=>`<tr><td>${f.ted}</td><td>${f.no}</td><td class="r">${tl(f.top)}</td></tr>`).join("");
+$("#receteTablo").innerHTML=`<tr><th>Ürün</th><th>Reçete</th><th>Maliyet</th><th>Satış</th><th>Kâr</th><th>Marj</th><th>Bugün yapılabilir</th></tr>`+K.URUN.map(u=>{const m=K.maliyet(u),k=u.f-m,mj=k/u.f*100,y=Math.min(...Object.entries(u.r).map(([h,x])=>Math.floor(K.ham(h).stok/x)));return`<tr><td><b>${u.ad}</b></td><td style="font-size:13px;color:var(--soluk)">${Object.entries(u.r).map(([h,x])=>x+" "+K.ham(h).birim+" "+K.ham(h).ad.toLocaleLowerCase("tr")).join(" + ")}</td><td>${tl(m)}</td><td>${tl(u.f)}</td><td class="r">${tl(k)}</td><td class="marj ${mj<50?"d":"y"}">%${Math.round(mj)}</td><td>${y} adet</td></tr>`}).join("");
+const eks=H.filter(h=>h.stok<=h.kritik);$("#sipTablo").innerHTML=`<tr><th>Ürün</th><th>Stok</th><th>Önerilen sipariş</th></tr>`+(eks.length?eks.map(h=>`<tr><td><b>${h.ad}</b></td><td>${fm(h.stok,h.birim)}</td><td class="r">${fm(Math.ceil((h.kritik*3-h.stok)/(h.birim==="g"||h.birim==="ml"?500:1))*(h.birim==="g"||h.birim==="ml"?500:1),h.birim)}</td></tr>`).join(""):`<tr><td colspan="3">Kritik seviyede ürün yok.</td></tr>`);
+const metin=`Merhaba, KAFENİZİN ADI sipariş:\n`+eks.map(h=>"• "+h.ad+": "+fm(Math.ceil((h.kritik*3-h.stok)/(h.birim==="g"||h.birim==="ml"?500:1))*(h.birim==="g"||h.birim==="ml"?500:1),h.birim)).join("\n")+`\nTeslimat: yarın 10:00'dan önce. Teşekkürler.`;$("#sipMetin").textContent=metin;$("#sipGonder").href="https://wa.me/"+$("#ted").value+"?text="+encodeURIComponent(metin);
+$("#sayimTablo").innerHTML=`<tr><th>Ürün</th><th>Sistemde</th><th>Sayılan</th><th>Fark</th></tr>`+H.map((h,i)=>`<tr><td>${h.ad}</td><td>${fm(h.stok,h.birim)}</td><td style="width:160px"><input type="number" data-i="${i}" placeholder="${Math.round(h.stok)}"></td><td class="fark" data-i="${i}"></td></tr>`).join("");
+document.querySelectorAll("#sayimTablo input").forEach(x=>x.oninput=()=>{const h=H[+x.dataset.i];const f=(+x.value)-h.stok;document.querySelector(`.fark[data-i="${x.dataset.i}"]`).innerHTML=x.value===""?"":`<b style="color:${f<0?"var(--kirmizi)":"var(--yesil)"}">${f>0?"+":""}${fm(f,h.birim)} · ${tl(f*h.maliyet)}</b>`})}
+// fatura
+let satir=[{id:"kc",miktar:5000,tutar:5600},{id:"su",miktar:12000,tutar:540}];
+function satirCiz(){$("#satirlar").innerHTML=satir.map((s,i)=>`<div class="satir"><select onchange="satir[${i}].id=this.value;satirCiz()">${K.veri.ham.map(h=>`<option value="${h.id}" ${h.id===s.id?"selected":""}>${h.ad} (${h.birim})</option>`).join("")}</select><input type="number" value="${s.miktar}" oninput="satir[${i}].miktar=+this.value;topla()"><input type="number" value="${s.tutar}" oninput="satir[${i}].tutar=+this.value;topla()"><button onclick="satir.splice(${i},1);satirCiz()">×</button></div>`).join("");topla()}
+function topla(){$("#fTop").textContent=tl(satir.reduce((t,s)=>t+(s.tutar||0),0))}
+function satirEkle(){satir.push({id:"lm",miktar:30,tutar:180});satirCiz()}
+function faturaKaydet(){const k=satir.filter(s=>s.miktar>0);if(!k.length)return;K.faturaIsle({ted:$("#fTed").value,no:$("#fNo").value,top:k.reduce((t,s)=>t+s.tutar,0),kalem:k.map(s=>({id:s.id,miktar:s.miktar,tutar:s.tutar}))});bil("Fatura işlendi · "+k.length+" kalem stoğa eklendi, maliyetler güncellendi");satir=[];satirCiz();ciz()}
+function oku(inp){const f=inp.files[0];if(!f)return;$("#okuma").classList.add("calis");$("#okuma b").textContent="Okunuyor…";const r=new FileReader();r.onload=()=>{$("#fGorsel").innerHTML=`<img src="${r.result}"><div style="font-size:14px"><b>Metro Grossmarket</b><br>Fatura MT-1007-12 · 7 Eki 2026<br><span class="etiket y">4 KALEM OKUNDU</span></div>`};r.readAsDataURL(f);
+setTimeout(()=>{satir=[{id:"ek",miktar:60,tutar:192},{id:"ks",miktar:3000,tutar:1260},{id:"sd",miktar:48,tutar:336},{id:"bd",miktar:200,tutar:420}];$("#fTed").value="Metro Grossmarket";$("#fNo").value="MT-1007-12";satirCiz();$("#okuma").classList.remove("calis");$("#okuma b").textContent="Fatura fotoğrafı seç / çek";bil("4 kalem okundu. Kontrol edip 'Faturayı işle'ye basın.")},1600)}
+function sayimBitir(){const H=K.veri.ham;let kayip=0,n=0;document.querySelectorAll("#sayimTablo input").forEach(x=>{if(x.value==="")return;const h=H[+x.dataset.i];const f=(+x.value)-h.stok;if(f<0)kayip+=-f*h.maliyet;h.stok=+x.value;n++});K.kaydet();$("#sayimSonuc").innerHTML=n?`<div class="kutu" style="border-left:5px solid ${kayip>200?"var(--kirmizi)":"var(--yesil)"}"><b>${n} kalem sayıldı.</b> Fire / kayıp: <b>${tl(kayip)}</b>. ${kayip>200?"Bu haftaki kayıp yüksek: ikramların adisyona 'ikram' olarak girilmesi önerilir.":"Normal seviyede."}</div>`:"";if(n){bil("Sayım kaydedildi, stok güncellendi");ciz()}}
+$("#ted").onchange=ciz;satirCiz();ciz();
+</script></body></html>

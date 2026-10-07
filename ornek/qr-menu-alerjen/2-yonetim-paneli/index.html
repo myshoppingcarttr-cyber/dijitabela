@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-14T23:59:00+03:00" data-slug="qr-menu-alerjen"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>QR Menü Paneli · Alerjen Seçimi · Demo · Dijitabela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#f1eee8;--kart:#fff;--yazi:#1d1c1a;--soluk:#6a655d;--cizgi:#ddd6ca;--ana:#7a2e1f;--yesil:#2f6b45}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi);line-height:1.5}
+.demo{background:#16181d;color:#e9e6df;font-size:13px;padding:7px 16px}.demo a{color:#f2a93b}
+.bar{background:#2a2b2e;color:#fff;padding:12px 16px;font-weight:700}
+.bar small{font:500 11px "JetBrains Mono";color:#a9abb0;margin-left:8px}
+main{max-width:1100px;margin:0 auto;padding:20px 16px;display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.kutu{background:var(--kart);border:1px solid var(--cizgi);padding:18px}
+h1{font-variation-settings:"wdth" 66;font-size:28px;margin-bottom:12px}
+label.l{display:block;font:600 11px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--soluk);margin:12px 0 5px}
+input,textarea,select{width:100%;border:1px solid var(--cizgi);padding:10px;font:15px "Archivo"}
+.al{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.al label{display:flex;gap:8px;align-items:center;border:1.5px solid var(--cizgi);padding:8px;cursor:pointer;font-size:14px}
+.al label.on{border-color:var(--ana);background:#f8ebe7}
+.al input{width:18px;height:18px;accent-color:var(--ana)}
+.roz{display:flex;gap:6px;flex-wrap:wrap}
+.roz label{border:1.5px solid var(--cizgi);padding:7px 10px;cursor:pointer;font:700 12px "JetBrains Mono";display:flex;gap:6px;align-items:center}
+.btn{border:0;background:var(--yazi);color:#fff;font:700 15px "Archivo";padding:12px 16px;cursor:pointer;margin-top:14px}
+.onizle{border:1px solid var(--cizgi);padding:12px;background:#f6f3ee}
+.onizle h4{font-size:17px}
+.onizle p{font-size:13.5px;color:var(--soluk)}
+.ik{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1.4px solid var(--yazi);border-radius:50%;font:700 9px "JetBrains Mono";margin:4px 3px 0 0}
+.r{display:inline-block;font:700 10px "JetBrains Mono";padding:2px 5px;margin-right:4px;color:#fff;background:var(--yesil)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+td,th{padding:7px 6px;border-bottom:1px solid var(--cizgi);text-align:left}
+th{font:600 10.5px "JetBrains Mono";color:var(--soluk);text-transform:uppercase}
+.ok{color:var(--yesil);font-weight:700}
+.bil{position:fixed;left:50%;bottom:20px;transform:translate(-50%,180%);background:var(--yesil);color:#fff;padding:12px 16px;font-weight:700;transition:transform .3s}
+.bil.gor{transform:translate(-50%,0)}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+</style></head><body>
+<div class="demo">Demo · mevcut PHP panelinize eklenecek alan · <a href="../1-menu-demo/">Menü görünümü</a> · <a href="../">Teklif</a></div>
+<div class="bar">QR Menü Yönetimi <small>ÜRÜN DÜZENLE</small></div>
+<main>
+<div class="kutu"><h1>Ürün düzenle</h1>
+<label class="l">Ürün adı (TR / EN)</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><input id="ad" value="Fıstıklı baklava"><input id="en" value="Pistachio baklava"></div>
+<label class="l">Açıklama</label><textarea id="ac" rows="2">4 dilim, kaymaklı</textarea>
+<label class="l">Alerjenler (14)</label><div class="al" id="al"></div>
+<label class="l">Rozetler</label><div class="roz" id="roz"></div>
+<button class="btn" onclick="kaydet()">Kaydet</button></div>
+<div><div class="kutu"><div class="mono" style="font:600 11px 'JetBrains Mono';color:var(--soluk);margin-bottom:6px">MENÜDE NASIL GÖRÜNECEK</div><div class="onizle" id="on"></div></div>
+<div class="kutu" style="margin-top:16px"><div class="mono" style="font:600 11px 'JetBrains Mono';color:var(--soluk)">ALERJEN BİLGİSİ EKSİK ÜRÜNLER</div><table><tr><th>Ürün</th><th>Durum</th></tr><tr><td>Mercimek çorbası</td><td class="ok">✓ 3 alerjen</td></tr><tr><td>Humus</td><td class="ok">✓ 1 alerjen</td></tr><tr><td>Günün tatlısı</td><td style="color:#c0392b;font-weight:700">! işaretlenmedi</td></tr><tr><td>Ev yapımı limonata</td><td style="color:#c0392b;font-weight:700">! işaretlenmedi</td></tr></table><p style="font-size:13px;color:var(--soluk);margin-top:8px">Alerjeni hiç işaretlenmemiş ürünler burada listelenir; denetimde eksik kalmaz.</p></div></div>
+</main>
+<div class="bil" id="bil"></div>
+<script>
+const $=s=>document.querySelector(s);
+const A=[["gl","Gluten","GL"],["su","Süt","SÜ"],["yu","Yumurta","YU"],["yf","Yer fıstığı","YF"],["sk","Sert kabuklu yemiş","SK"],["so","Soya","SO"],["ba","Balık","BA"],["kd","Kabuklu deniz ürünü","KD"],["sm","Susam","SM"],["ha","Hardal","HA"],["ke","Kereviz","KE"],["ab","Acı bakla","AB"],["ym","Yumuşakça","YM"],["sl","Sülfit","SL"]];
+const R=[["v","VEGAN"],["vj","VEJETARYEN"],["a","ACI"],["gl","GLUTENSİZ"]];
+let sec=new Set(["gl","su","sk","yu"]),rs=new Set(["vj"]);
+function ciz(){$("#al").innerHTML=A.map(a=>`<label class="${sec.has(a[0])?"on":""}"><input type="checkbox" ${sec.has(a[0])?"checked":""} onchange="this.checked?sec.add('${a[0]}'):sec.delete('${a[0]}');ciz()"><span class="ik">${a[2]}</span>${a[1]}</label>`).join("");
+$("#roz").innerHTML=R.map(r=>`<label><input type="checkbox" ${rs.has(r[0])?"checked":""} onchange="this.checked?rs.add('${r[0]}'):rs.delete('${r[0]}');ciz()">${r[1]}</label>`).join("");
+const uy=rs.has("v")&&(sec.has("su")||sec.has("yu"))?`<p style="color:#c0392b;font-weight:700;margin-top:6px">⚠ Vegan işaretli ama süt/yumurta içeriyor. Kontrol edin.</p>`:rs.has("gl")&&sec.has("gl")?`<p style="color:#c0392b;font-weight:700;margin-top:6px">⚠ Glutensiz işaretli ama gluten içeriyor.</p>`:"";
+$("#on").innerHTML=`<h4>${$("#ad").value}</h4><div>${[...rs].map(r=>`<span class="r">${R.find(x=>x[0]===r)[1]}</span>`).join("")}</div><p>${$("#ac").value}</p>${A.filter(a=>sec.has(a[0])).map(a=>`<span class="ik" title="${a[1]}">${a[2]}</span>`).join("")}${uy}`}
+["ad","en","ac"].forEach(i=>$("#"+i).addEventListener("input",ciz));
+function kaydet(){const b=$("#bil");b.textContent="Kaydedildi · QR menüde hemen güncellendi";b.classList.add("gor");setTimeout(()=>b.classList.remove("gor"),2500)}
+ciz();
+</script></body></html>

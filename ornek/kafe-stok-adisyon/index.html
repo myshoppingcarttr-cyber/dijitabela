@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-14T23:59:00+03:00" data-slug="kafe-stok-adisyon"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kafe Adisyon, Stok ve Fiş Sistemi · Size Özel 3 Ekran · Dijitabela</title>
+<meta property="og:title" content="Kafe adisyon, stok ve fiş sistemi · çalışan ön gösterim">
+<meta property="og:description" content="Dokunmatik ekranda adisyon ve fiş, faturadan stok, reçeteye göre maliyet, gün sonu raporu ve QR masa siparişi.">
+<meta property="og:image" content="https://dijitabela.com.tr/ornek/kafe-stok-adisyon/_onizleme/1-dokunmatik-adisyon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--kagit:#f1eee8;--beyaz:#fff;--ana:#1c1b19;--vurgu:#c8742a;--yazi:#1c1b19;--soluk:#67625a;--cizgi:#d8d2c6;--yesil:#2f6b45}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--kagit);color:var(--yazi);line-height:1.55}
+.ic{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+header{padding:38px 0 28px;border-bottom:3px solid var(--ana)}
+h1{font-variation-settings:"wdth" 66;font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.03;margin:10px 0 14px}
+header p{color:var(--soluk);font-size:18px;max-width:880px}
+.serit{display:flex;gap:30px;flex-wrap:wrap;margin-top:22px}
+.serit b{display:block;font-size:30px;font-variation-settings:"wdth" 62;color:var(--vurgu);line-height:1}
+.serit span{font-size:14px;color:var(--soluk)}
+h2{font-variation-settings:"wdth" 70;font-weight:800;font-size:30px;margin:46px 0 8px}
+.alt{color:var(--soluk);margin-bottom:18px;max-width:840px}
+.izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sec{background:var(--beyaz);border:1px solid var(--cizgi);display:flex;flex-direction:column}
+.sec .gorsel{display:block;aspect-ratio:16/11;overflow:hidden;border-bottom:1px solid var(--cizgi)}
+.sec .gorsel img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.sec .y{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.sec h3{font-variation-settings:"wdth" 75;font-size:22px}
+.sec p{color:var(--soluk);font-size:15px}
+.sec ul{list-style:none;font-size:14px;flex:1}
+.sec li{padding:3px 0 3px 18px;position:relative}
+.sec li::before{content:"■";position:absolute;left:0;color:var(--vurgu);font-size:11px;top:6px}
+.dg{display:inline-block;text-align:center;font-weight:800;text-decoration:none;padding:12px 14px;color:#fff;background:var(--ana)}
+.dg.k{background:var(--vurgu)}
+table{width:100%;border-collapse:collapse;background:var(--beyaz);border:1px solid var(--cizgi);font-size:15px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--cizgi);vertical-align:top}
+th{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk);font-weight:600}
+td .ek{display:inline-block;background:var(--vurgu);color:#fff;font:600 10px "JetBrains Mono";padding:1px 5px;margin-left:4px}
+.paket{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pk{background:var(--beyaz);border:1px solid var(--cizgi);padding:20px;position:relative;display:flex;flex-direction:column}
+.pk.one{border:2px solid var(--vurgu)}
+.pk.one::before{content:"ÖNERİMİZ";position:absolute;top:-11px;left:18px;background:var(--vurgu);color:#fff;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;padding:3px 8px}
+.pk b{font-size:22px;font-variation-settings:"wdth" 72}
+.pk .fiyat{font-size:34px;font-variation-settings:"wdth" 62;font-weight:800;color:var(--vurgu);line-height:1.1;margin-top:6px}
+.pk .k{color:var(--soluk);font-size:14px}
+.pk ul{list-style:none;margin:12px 0 16px;font-size:15px;flex:1}
+.pk li{padding:4px 0 4px 22px;position:relative}
+.pk li::before{content:"✓";position:absolute;left:0;font-weight:800;color:var(--yesil)}
+.plan{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--ana)}
+.plan div{padding:16px 14px 0 0}
+.plan b{display:block;color:var(--vurgu);font-family:"JetBrains Mono",monospace;font-size:13px}
+.not{background:var(--beyaz);border-left:5px solid var(--vurgu);padding:16px 18px}
+.son{background:var(--ana);color:#fff;padding:26px;margin-top:40px;display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.son h3{font-variation-settings:"wdth" 70;font-size:26px}
+.son p{color:#c9c4ba}
+footer{color:var(--soluk);font-size:14px;padding:30px 0 70px}
+@media(max-width:900px){.izgara,.paket,.plan{grid-template-columns:1fr}table{font-size:13px}th,td{padding:9px 8px}}
+</style></head><body>
+<header><div class="ic">
+  <div class="mono">Dijitabela · R10 ilanınız için hazırlandı · Adana · kafe sistemi</div>
+  <h1>Dokunmatik ekranınızda sipariş, fiş ve stok. Cari yok, karmaşa yok.</h1>
+  <p>İstediğiniz her şey var: dokunmatik monitör ve mini PC'de çalışan sipariş ekranı, sipariş alınca fiş çıktısı, aldığınız faturaları işleyip stok takibi. Üstüne reçeteye göre maliyet, kritik stokta tedarikçiye WhatsApp siparişi, gün sonu raporu ve masadan QR sipariş ekledik. <b>Üç ekran birbirine bağlı:</b> adisyonda bir latte satın, stok ekranında kahve ve süt düşsün, gün sonu raporunda görünsün.</p>
+  <div class="serit"><div><b>3</b><span>bağlı ekran</span></div><div><b>İnternetsiz</b><span>çalışır</span></div><div><b>80 mm</b><span>termal yazıcı fişi</span></div><div><b>7.900 TL</b><span>tek sefer, aylık ücret yok</span></div></div>
+</div></header>
+<main class="ic">
+<h2>Üç ekran</h2>
+<p class="alt">Önce 1'i açıp birkaç satış yapın, sonra 2 ve 3'e bakın. Demo verileri tarayıcınızda tutulur.</p>
+<div class="izgara">
+  <div class="sec"><a class="gorsel" href="1-dokunmatik-adisyon/"><img src="_onizleme/1-dokunmatik-adisyon.png" alt="Dokunmatik adisyon" loading="lazy"></a><div class="y">
+    <h3>1 · Dokunmatik adisyon + fiş</h3><p>Parmakla kullanım için büyük butonlar. Mini PC'de tam ekran açılır.</p>
+    <ul><li>Masa planı, paket / gel-al</li><li>Bar ve mutfak fişi ayrı ayrı (80 mm yazıcı)</li><li>Nakit tuş takımı + para üstü, kart, hesabı bölme</li><li>Stokta biten ürün kendiliğinden kapanır, "son 3" uyarısı</li><li>İnternet kesilse de çalışır</li></ul>
+    <a class="dg" href="1-dokunmatik-adisyon/">Adisyonu aç</a></div></div>
+  <div class="sec"><a class="gorsel" href="2-stok-ve-fatura/"><img src="_onizleme/2-stok-ve-fatura.png" alt="Stok ve fatura" loading="lazy"></a><div class="y">
+    <h3>2 · Stok + fatura</h3><p>Aldığınız malın faturasını girin, stok artsın. Sattıkça reçeteye göre düşsün.</p>
+    <ul><li>Fatura işleme (cari takip yok, sadece stok ve maliyet)</li><li>Fatura fotoğrafından otomatik okuma</li><li>Reçete: hangi ürün kaç TL'ye mal oluyor, kâr marjı</li><li>Kritik stok listesi → tedarikçiye WhatsApp sipariş</li><li>Haftalık sayım, fire raporu</li></ul>
+    <a class="dg" href="2-stok-ve-fatura/">Stok ekranını aç</a></div></div>
+  <div class="sec"><a class="gorsel" href="3-gun-sonu-ve-qr/"><img src="_onizleme/3-gun-sonu-ve-qr.png" alt="Gün sonu ve QR" loading="lazy"></a><div class="y">
+    <h3>3 · Gün sonu + QR sipariş</h3><p>Akşam tek ekranda günün özeti; masada QR ile sipariş.</p>
+    <ul><li>Ciro, adisyon, brüt kâr, kasadaki nakit</li><li>Saatlik satış, en çok satanlar</li><li>Raporu patrona WhatsApp'tan gönder</li><li>Masa QR'ı: müşteri telefondan sipariş verir, adisyona aktarılır</li><li>Personel girişleri, ikram ve iptal takibi</li></ul>
+    <a class="dg" href="3-gun-sonu-ve-qr/">Raporu aç</a></div></div>
+</div>
+
+<h2>İstediğiniz ve bizim eklediğimiz</h2>
+<table>
+<tr><th>Özellik</th><th>Nerede</th></tr>
+<tr><td>Dokunmatik monitör ve mini PC ile uyumlu</td><td>Tüm ekranlar · büyük butonlar, tam ekran</td></tr>
+<tr><td>Aldığımız ürün faturalarını işleyebilmek</td><td>Stok · Fatura işle</td></tr>
+<tr><td>Cari değil stok takibi</td><td>Stok durumu · kritik seviye</td></tr>
+<tr><td>Sipariş alınca sipariş fişi çıktısı</td><td>Adisyon · bar / mutfak fişi + adisyon fişi</td></tr>
+<tr><td>Reçeteye göre otomatik stok düşümü + kâr marjı <span class="ek">EKSTRA</span></td><td>Stok · Reçete ve kâr</td></tr>
+<tr><td>Fatura fotoğrafından okuma <span class="ek">EKSTRA</span></td><td>Stok · Fatura işle</td></tr>
+<tr><td>Tedarikçiye WhatsApp sipariş listesi <span class="ek">EKSTRA</span></td><td>Stok · Sipariş listesi</td></tr>
+<tr><td>Gün sonu raporu + patrona WhatsApp <span class="ek">EKSTRA</span></td><td>Rapor</td></tr>
+<tr><td>QR masa siparişi <span class="ek">EKSTRA</span></td><td>Rapor · QR masa siparişi</td></tr>
+<tr><td>Sayım ve fire raporu <span class="ek">EKSTRA</span></td><td>Stok · Sayım</td></tr>
+</table>
+
+<h2>Kurulum uzaktan</h2>
+<div class="not"><p>Adana'ya gelmemize gerek yok. Sistem mini PC'nize uzaktan bağlanarak (AnyDesk) kurulur; menünüzü, fiyatlarınızı ve reçetelerinizi biz gireriz. Termal yazıcınızın modelini söylemeniz yeterli, yoksa uygun ve ucuz bir model öneririz (80 mm USB). Veriler mini PC'nizde durur, isterseniz her gece buluta yedeklenir.</p></div>
+
+<h2>Paketler</h2>
+<p class="alt">Tek seferlik ücret, aylık zorunlu ödeme yok. Fiyatlar KDV hariç, <b>14 Ekim 2026</b>'ya kadar geçerli.</p>
+<div class="paket">
+  <div class="pk"><b>Adisyon + stok</b><div class="fiyat">7.900 TL</div><div class="k">tek sefer</div><ul><li>Dokunmatik adisyon, masa planı</li><li>Bar / mutfak ve adisyon fişi</li><li>Fatura işleme, stok takibi</li><li>Reçeteye göre stok düşümü</li><li>Kritik stok uyarısı</li><li>Uzaktan kurulum + menü girişi</li></ul><a class="dg" href="https://wa.me/905019452184?text=Kafe%20sistemi%20-%20Adisyon%20%2B%20stok%20(7.900%20TL)">Bu paketi seçiyorum</a></div>
+  <div class="pk one"><b>Tam sistem</b><div class="fiyat">11.900 TL</div><div class="k">tek sefer</div><ul><li>Adisyon + stok paketindeki her şey</li><li>Fatura fotoğrafından okuma</li><li>Kâr marjı, tedarikçiye WhatsApp sipariş</li><li>Gün sonu raporu + WhatsApp</li><li>Sayım ve fire raporu</li><li>Personel girişi, ikram / iptal yetkisi</li></ul><a class="dg k" href="https://wa.me/905019452184?text=Kafe%20sistemi%20-%20Tam%20sistem%20(11.900%20TL)">Bu paketi seçiyorum</a></div>
+  <div class="pk"><b>Tam sistem + QR</b><div class="fiyat">15.900 TL</div><div class="k">+ 290 TL/ay bulut ve QR sunucusu</div><ul><li>Tam sistemdeki her şey</li><li>Masa QR siparişi + garson çağırma</li><li>Basılı QR masa kartları tasarımı</li><li>Telefondan uzaktan rapor görme</li><li>Her gece bulut yedeği</li></ul><a class="dg" href="https://wa.me/905019452184?text=Kafe%20sistemi%20-%20Tam%20sistem%20%2B%20QR%20(15.900%20TL)">Bu paketi seçiyorum</a></div>
+</div>
+
+<h2>Nasıl ilerliyoruz?</h2>
+<div class="plan"><div><b>1. GÜN</b>Menünüz, fiyatlarınız ve bir faturanızın fotoğrafı. Yazıcı modeliniz.</div><div><b>2–4. GÜN</b>Menü, reçeteler ve stok kalemleri giriliyor.</div><div><b>5. GÜN</b>Mini PC'nize uzaktan kurulum, yazıcı testi.</div><div><b>6–7. GÜN</b>Siz kullanırken telefonla yanınızdayız, ayarlar düzeltiliyor.</div></div>
+
+<div class="son"><div><h3>Menünüzü gönderin, bu demoyu kendi ürünlerinizle hazırlayalım.</h3><p>Alim Hoşlar · Dijitabela · 0501 945 21 84 · info@dijitabela.com</p></div><a class="dg k" href="https://wa.me/905019452184?text=Merhaba%2C%20kafe%20adisyon%20ve%20stok%20sistemi%20demosunu%20inceledim">WhatsApp'tan yazın</a></div>
+</main>
+<footer class="ic">Bu sayfa ve demolar size özel hazırlanmıştır; arama motorlarına kapalıdır. Demodaki ürünler, fiyatlar ve personel örnektir. "Fiş" bilgi fişidir; yazarkasa / e-arşiv yerine geçmez.</footer>
+</body></html>

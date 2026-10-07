@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr"><head><script src="/ornek/_sure.js" data-bitis="2026-10-14T23:59:00+03:00" data-slug="restoran-siparis"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Kurye Ekranı · Restoran Sipariş Sistemi · Dijitabela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--zemin:#111214;--kart:#1c1e22;--yazi:#f3f1ec;--soluk:#9ea2a9;--cizgi:#2e3137;--ana:#f2a93b;--iyi:#5fbf83;--kotu:#e5574b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:#2b2d31;color:var(--yazi);display:flex;gap:28px;justify-content:center;align-items:flex-start;padding:24px 16px;min-height:100vh}
+.yan{max-width:340px;color:#e9e6df;padding-top:8px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#a9abb0}
+.yan h1{font-variation-settings:"wdth" 66;font-size:38px;line-height:1.02;margin:8px 0 12px}
+.yan p{color:#c9c7c1;font-size:15px;margin-bottom:12px}
+.yan ol{list-style:none;counter-reset:s;font-size:14px}
+.yan li{counter-increment:s;padding:8px 0 8px 34px;position:relative;border-top:1px solid #45474d}
+.yan li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;font-family:"JetBrains Mono",monospace;color:#f2a93b;font-size:12px;top:10px}
+.yan li b{color:#fff}
+.ekstra{display:inline-block;background:#f2a93b;color:#1b1c1e;font-family:"JetBrains Mono",monospace;font-size:10px;padding:1px 5px;margin-left:4px}
+.geri{color:#f2a93b;font-size:14px;text-decoration:none}
+.tel{width:390px;max-width:100%;height:812px;max-height:calc(100vh - 48px);background:var(--zemin);border:10px solid #0d0e10;border-radius:38px;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.ust{padding:14px 16px 10px;border-bottom:1px solid var(--cizgi);display:flex;justify-content:space-between;align-items:center}
+.ust b{font-variation-settings:"wdth" 66;font-size:22px}
+.ust small{display:block;font:500 11px "JetBrains Mono";color:var(--soluk)}
+.vardiya{border:1.5px solid var(--iyi);color:var(--iyi);background:transparent;font:700 13px "Archivo";padding:8px 10px;cursor:pointer}
+.vardiya.kapali{border-color:var(--soluk);color:var(--soluk)}
+.ozet{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--cizgi)}
+.ozet div{padding:10px 12px;border-right:1px solid var(--cizgi)}
+.ozet div:last-child{border:0}
+.ozet b{display:block;font-size:22px;font-variation-settings:"wdth" 64}
+.ozet span{font:500 10.5px "JetBrains Mono";color:var(--soluk);letter-spacing:.04em}
+#harita{height:230px;border-bottom:1px solid var(--cizgi);background:#1c1e22}
+.koyu{filter:invert(.92) hue-rotate(180deg) brightness(.9) contrast(.9)}
+.icerik{flex:1;overflow-y:auto}
+.sip{border-bottom:1px solid var(--cizgi);padding:12px 16px}
+.sip.secili{background:var(--kart);border-left:4px solid var(--ana)}
+.sip .s1{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sip h4{font-size:17px}
+.sip .no{font:600 12px "JetBrains Mono";color:var(--ana)}
+.sip p{font-size:13.5px;color:var(--soluk);margin-top:3px}
+.etiket{display:inline-block;font:600 10.5px "JetBrains Mono";padding:2px 6px;border:1px solid var(--soluk);color:var(--soluk);margin:6px 4px 0 0}
+.etiket.para{border-color:var(--ana);color:var(--ana)}
+.etiket.acil{border-color:var(--kotu);color:var(--kotu)}
+.etiket.ok{border-color:var(--iyi);color:var(--iyi)}
+.dugmeler{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.btn{border:0;background:var(--ana);color:#111;font:700 14px "Archivo";padding:11px 12px;cursor:pointer;flex:1;text-align:center;text-decoration:none;min-width:110px}
+.btn.i{background:transparent;color:var(--yazi);border:1.5px solid var(--yazi)}
+.btn.y{background:var(--iyi)}
+.cek{position:absolute;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-end;z-index:900}
+.cek.ac{display:flex}
+.kutu{background:var(--zemin);width:100%;padding:18px 16px 22px;border-top:3px solid var(--ana);max-height:90%;overflow-y:auto}
+.kutu h3{font-variation-settings:"wdth" 70;font-size:22px;margin-bottom:6px}
+.kapat{float:right;background:transparent;border:0;color:var(--yazi);font-size:24px;cursor:pointer}
+canvas#imza{width:100%;height:150px;background:#fff;display:block;margin:8px 0;touch-action:none}
+.kucuk{font-size:12.5px;color:var(--soluk)}
+.sec{border:1px solid var(--cizgi);padding:10px 12px;margin:10px 0}
+.sec label{display:flex;justify-content:space-between;padding:7px 0;font-size:15px}
+.bildirim{position:absolute;top:12px;left:12px;right:12px;background:var(--ana);color:#111;padding:12px 14px;font-size:14px;z-index:950;transform:translateY(-150%);transition:transform .35s;font-weight:600}
+.bildirim.gor{transform:none}
+.foto{display:flex;gap:6px;margin-top:8px}
+.foto img{width:70px;height:70px;object-fit:cover}
+.tab{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--cizgi)}
+.tab button{background:transparent;border:0;color:var(--soluk);font:600 13px "Archivo";padding:10px;border-bottom:3px solid transparent;cursor:pointer}
+.tab button.on{color:var(--yazi);border-bottom-color:var(--ana)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:9px 16px;border-bottom:1px solid var(--cizgi)}
+td:last-child{text-align:right;font-weight:700}
+@media(max-width:820px){body{flex-direction:column;align-items:center;padding:12px}.yan{max-width:390px;order:2}}
+@media(max-width:430px){body{padding:0}.tel{border:0;border-radius:0;width:100%;height:100vh;max-height:none}.yan{padding:18px 16px;max-width:none}}
+</style></head><body>
+<aside class="yan">
+  <a class="geri" href="../">← Tüm tasarımlar</a>
+  <div class="mono" style="margin-top:14px">Tasarım 2 / 3 · Kurye ekranı</div>
+  <h1>Kuryeniz siparişin konumunu telefonunda görür.</h1>
+  <p>İstediğiniz "kuryeye gelen siparişin konumu düşsün" özelliği bu ekran. Kurye uygulamayı indirmez; telefonundaki bağlantıdan açar, giriş yapar.</p>
+  <ol>
+    <li><b>Konumlu sipariş listesi</b> + harita, en yakından sıralama</li>
+    <li><b>Tek dokunuşla yol tarifi</b> (Google Haritalar / Yandex)</li>
+    <li><b>Müşteriyi ara</b>, kapı tarifi, kapıda tahsilat tutarı</li>
+    <li><b>Teslim kanıtı</b>: imza veya kapı fotoğrafı <span class="ekstra">EKSTRA</span></li>
+    <li><b>Canlı konum paylaşımı</b>: müşteri kuryeyi görür <span class="ekstra">EKSTRA</span></li>
+    <li><b>Gün sonu hesabı</b>: paket, km, nakit/kart ayrımı <span class="ekstra">EKSTRA</span></li>
+  </ol>
+  <p class="kucuk" style="color:#a9abb0;margin-top:12px">Demo: her 25 saniyede bir yeni sipariş düşer. Konumlar örnektir.</p>
+</aside>
+<div class="tel">
+  <div class="bildirim" id="bil"></div>
+  <div class="ust"><div><b>Kurye · Mehmet</b><small>34 ABC 12 · LEZZET DURAĞI</small></div><button class="vardiya" id="vardiya" onclick="vardiya()">● Vardiyada</button></div>
+  <div class="ozet"><div><b id="oPaket">6</b><span>BUGÜN PAKET</span></div><div><b id="oKm">23,4</b><span>KM</span></div><div><b id="oNakit">640</b><span>NAKİT TL</span></div></div>
+  <div class="tab"><button class="on" data-t="aktif">Aktif (<span id="aSay">0</span>)</button><button data-t="biten">Teslim edilen</button><button data-t="hesap">Gün sonu</button></div>
+  <div id="harita"></div>
+  <div class="icerik" id="liste"></div>
+  <div class="cek" id="cTeslim"><div class="kutu" id="teslimKutu"></div></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const REST=[36.8869,30.6597];let ben=[36.8858,30.6585];
+let siparisler=[
+ {no:"#4831",ad:"Ayşe Y.",adres:"Liman Mah. 27. Sk. No:8 D:3",tarif:"Apartman girişi markete bakan taraf, zil 3",tel:"05320000000",ll:[36.8795,30.6442],tutar:430,odeme:"Online ödendi",urun:"2× Adana, 2× ayran, künefe",dk:6},
+ {no:"#4832",ad:"Burak K.",adres:"Arapsuyu Mah. Atatürk Blv. No:112, Kat 4 (ofis)",tarif:"Resepsiyona bırakılabilir",tel:"05330000000",ll:[36.8838,30.6632],tutar:215,odeme:"Kapıda nakit",para:true,urun:"Adana dürüm, ayran",dk:11},
+ {no:"#4833",ad:"Zeynep A.",adres:"Hurma Mah. 245. Sk. Gül Sitesi B Blok",tarif:"Site güvenliğine isim söyleyin",tel:"05340000000",ll:[36.8712,30.6371],tutar:780,odeme:"Kapıda kart",para:true,acil:true,urun:"Karışık ızgara 2 kişilik",dk:19}
+];
+let biten=[{no:"#4825",ad:"Ali Ç.",tutar:180,odeme:"Nakit",saat:"19:12",kanit:"İmza"},{no:"#4827",ad:"Elif T.",tutar:310,odeme:"Online",saat:"19:34",kanit:"Kapı fotoğrafı"}];
+let secili=0,acik=true,sayac=4834;
+const $=s=>document.querySelector(s);const tl=n=>n.toLocaleString("tr-TR")+" TL";
+function bil(t){const b=$("#bil");b.textContent=t;b.classList.add("gor");clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove("gor"),3500)}
+function km(a,b){const R=6371,r=x=>x*Math.PI/180;const d1=r(b[0]-a[0]),d2=r(b[1]-a[1]);const x=Math.sin(d1/2)**2+Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(d2/2)**2;return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))}
+const h=L.map("harita",{zoomControl:false}).setView(REST,13);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",className:"koyu"}).addTo(h);
+L.circleMarker(REST,{radius:7,color:"#e5574b",fillOpacity:1}).addTo(h).bindTooltip("Restoran");
+const benM=L.circleMarker(ben,{radius:9,color:"#111",weight:3,fillColor:"#f2a93b",fillOpacity:1}).addTo(h).bindTooltip("Siz");
+let isaret=[];
+let tab="aktif";
+function ciz(){isaret.forEach(m=>m.remove());isaret=[];
+siparisler.sort((a,b)=>km(ben,a.ll)-km(ben,b.ll));
+siparisler.forEach((s,i)=>{const m=L.marker(s.ll).addTo(h).bindTooltip((i+1)+". "+s.ad,{permanent:i===secili,direction:"top"});m.on("click",()=>{secili=i;ciz()});isaret.push(m)});
+$("#aSay").textContent=siparisler.length;
+if(tab==="aktif"){$("#harita").style.display="block";$("#liste").innerHTML=siparisler.length?siparisler.map((s,i)=>{const d=km(ben,s.ll);return`<div class="sip ${i===secili?"secili":""}" onclick="secili=${i};ciz();h.panTo(siparisler[${i}].ll)"><div class="s1"><h4>${i+1}. ${s.ad}</h4><span class="no">${s.no}</span></div><p>${s.adres}</p><p>Tarif: ${s.tarif}</p><p>${s.urun}</p>
+<span class="etiket">${d.toFixed(1).replace(".",",")} km · ~${Math.max(3,Math.round(d*3.2))} dk</span><span class="etiket ${s.para?"para":"ok"}">${s.odeme}${s.para?" · "+tl(s.tutar):""}</span><span class="etiket ${s.dk>15?"acil":""}">${s.dk} dk önce hazırlandı</span>
+${i===secili?`<div class="dugmeler"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${s.ll[0]},${s.ll[1]}&travelmode=driving">Yol tarifi</a><a class="btn i" href="tel:${s.tel}">Müşteriyi ara</a><button class="btn i" onclick="event.stopPropagation();vardim(${i})">Kapıdayım</button><button class="btn y" onclick="event.stopPropagation();teslimAc(${i})">Teslim et</button></div>`:""}</div>`}).join(""):`<div class="sip"><h4>Bekleyen paket yok</h4><p>Yeni sipariş gelince telefon titrer ve sesli uyarı verir.</p></div>`}
+else if(tab==="biten"){$("#harita").style.display="none";$("#liste").innerHTML=biten.map(b=>`<div class="sip"><div class="s1"><h4>${b.ad}</h4><span class="no">${b.no}</span></div><p>${b.saat} · ${b.odeme} · ${tl(b.tutar)}</p><span class="etiket ok">Kanıt: ${b.kanit}</span></div>`).join("")}
+else{$("#harita").style.display="none";const nakit=biten.filter(b=>b.odeme==="Nakit").reduce((t,b)=>t+b.tutar,0)+640,kart=biten.filter(b=>b.odeme==="Kart").reduce((t,b)=>t+b.tutar,0)+420;
+$("#liste").innerHTML=`<table><tr><td>Teslim edilen paket</td><td>${biten.length+4}</td></tr><tr><td>Toplam yol</td><td>${$("#oKm").textContent} km</td></tr><tr><td>Kasaya teslim edilecek nakit</td><td>${tl(nakit)}</td></tr><tr><td>Kapıda kartla alınan</td><td>${tl(kart)}</td></tr><tr><td>Ortalama teslim süresi</td><td>21 dk</td></tr><tr><td>Müşteri puanı</td><td>4,9 ★</td></tr><tr><td>Paket başı prim (12 TL)</td><td>${tl((biten.length+4)*12)}</td></tr></table><div style="padding:14px 16px"><button class="btn" style="width:100%" onclick="bil('Gün sonu raporu restoran paneline gönderildi.')">Gün sonunu kapat ve kasaya bildir</button></div>`}
+setTimeout(()=>h.invalidateSize(),30)}
+document.querySelectorAll(".tab button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab button").forEach(x=>x.classList.remove("on"));b.classList.add("on");tab=b.dataset.t;ciz()});
+function vardim(i){bil(siparisler[i].ad+" bilgilendirildi: “Kuryeniz kapıda.”")}
+function vardiya(){acik=!acik;const v=$("#vardiya");v.classList.toggle("kapali",!acik);v.textContent=acik?"● Vardiyada":"○ Mola";bil(acik?"Vardiyaya döndünüz, sipariş alabilirsiniz.":"Moladasınız. Yeni sipariş size atanmaz.")}
+let imzaVar=false;
+function teslimAc(i){const s=siparisler[i];$("#teslimKutu").innerHTML=`<button class="kapat" onclick="$('#cTeslim').classList.remove('ac')">×</button><h3>Teslim · ${s.ad}</h3><p class="kucuk">${s.no} · ${s.urun}</p>
+${s.para?`<div class="sec"><div class="mono">TAHSİLAT</div><label><span>Tutar</span><b>${tl(s.tutar)}</b></label><label><span>Nakit</span><input type="radio" name="t" checked></label><label><span>Kart (kurye POS)</span><input type="radio" name="t"></label></div>`:`<div class="sec"><label><span>Ödeme</span><b style="color:var(--iyi)">Online ödendi</b></label></div>`}
+<div class="mono" style="margin-top:6px">MÜŞTERİ İMZASI</div><canvas id="imza" width="600" height="220"></canvas><button class="btn i" style="width:100%" onclick="imzaTemizle()">İmzayı temizle</button>
+<div class="mono" style="margin-top:12px">VEYA KAPI FOTOĞRAFI (temassız teslimat)</div><label class="btn i" style="display:block;margin-top:6px">Fotoğraf çek<input type="file" accept="image/*" capture="environment" style="display:none" onchange="fotoSec(this)"></label><div class="foto" id="foto"></div>
+<button class="btn y" style="width:100%;margin-top:12px;padding:14px" onclick="teslim(${i})">Teslimi tamamla</button>`;
+$("#cTeslim").classList.add("ac");imzaVar=false;const c=$("#imza"),x=c.getContext("2d");x.lineWidth=4;x.lineCap="round";x.strokeStyle="#111";let ciziyor=false;
+const p=e=>{const r=c.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return[(t.clientX-r.left)*c.width/r.width,(t.clientY-r.top)*c.height/r.height]};
+c.onpointerdown=e=>{ciziyor=true;x.beginPath();x.moveTo(...p(e))};c.onpointermove=e=>{if(!ciziyor)return;x.lineTo(...p(e));x.stroke();imzaVar=true};c.onpointerup=c.onpointerleave=()=>ciziyor=false}
+function imzaTemizle(){const c=$("#imza");c.getContext("2d").clearRect(0,0,c.width,c.height);imzaVar=false}
+let fotoVar=false;function fotoSec(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$("#foto").innerHTML=`<img src="${r.result}">`;fotoVar=true};r.readAsDataURL(f)}
+function teslim(i){if(!imzaVar&&!fotoVar)return bil("İmza alın veya kapı fotoğrafı çekin.");const s=siparisler.splice(i,1)[0];biten.unshift({no:s.no,ad:s.ad,tutar:s.tutar,odeme:s.para?"Nakit":"Online",saat:new Date().toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"}),kanit:imzaVar?"İmza":"Kapı fotoğrafı"});
+ben=s.ll;benM.setLatLng(ben);$("#oPaket").textContent=+$("#oPaket").textContent+1;$("#oKm").textContent=(parseFloat($("#oKm").textContent.replace(",","."))+km(REST,s.ll)).toFixed(1).replace(".",",");if(s.para)$("#oNakit").textContent=+$("#oNakit").textContent+s.tutar;
+$("#cTeslim").classList.remove("ac");secili=0;fotoVar=false;ciz();bil("Teslim edildi. Müşteriye “Afiyet olsun, puan verir misiniz?” mesajı gitti.")}
+function bip(){try{const a=new (window.AudioContext||window.webkitAudioContext)();[0,.18].forEach(t=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=880;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(.2,a.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+t+.15);o.start(a.currentTime+t);o.stop(a.currentTime+t+.16)})}catch(e){}if(navigator.vibrate)navigator.vibrate([200,100,200])}
+const ADL=[["Murat D.","Gürsu Mah. 301. Sk. No:14",[36.8915,30.6402]],["Selin B.","Altınkum Mah. Akdeniz Blv. No:5",[36.8762,30.6524]],["Okan E.","Uncalı Mah. 1453. Sk. No:22",[36.8988,30.6455]],["Derya M.","Kuşkavağı Mah. 552. Sk. No:3",[36.8701,30.6219]]];
+setInterval(()=>{if(!acik||siparisler.length>4)return;const a=ADL[Math.floor(Math.random()*ADL.length)];const para=Math.random()<.5;siparisler.push({no:"#"+(sayac++),ad:a[0],adres:a[1],tarif:"Örnek tarif",tel:"05350000000",ll:a[2],tutar:150+Math.floor(Math.random()*40)*10,odeme:para?"Kapıda nakit":"Online ödendi",para,urun:"Lahmacun ×3, ayran",dk:1});bip();bil("Yeni paket: "+a[0]+" · "+a[1]);ciz()},25000);
+ciz();
+</script></body></html>
