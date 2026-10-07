@@ -51,13 +51,14 @@ button,select{font:inherit;cursor:pointer}
 <div class="giris" id="giris"><b>Bar Ekranı</b>Yeni siparişlerde ses çalabilmesi için ekrana bir kez dokunun.<br><button id="baslat">Bar ekranını aç</button></div>
 <div id="ana" hidden>
  <div class="ust"><div><b id="isletme">—</b><span class="canli" id="canli">● canlı</span></div>
-  <div class="sag"><select id="sube"></select><span class="s"><b id="bugun">0</b>bugün</span><button class="kucuk" id="tukBtn">Tükenenler</button><a class="kucuk" id="qrLink" target="_blank">Masa QR kartları</a><button class="kucuk ses" id="sesBtn">🔔 Ses açık</button></div></div>
+  <div class="sag"><select id="sube"></select><span class="s"><b id="bugun">0</b>bugün</span><button class="kucuk ses" id="kartBtn" style="background:#e5c08a">☕ Sadakat kartı</button><button class="kucuk" id="tukBtn">Tükenenler</button><a class="kucuk" id="qrLink" target="_blank">Masa QR kartları</a><button class="kucuk ses" id="sesBtn">🔔 Ses açık</button></div></div>
  <div class="kolonlar">
   <div class="kolon"><h2>Yeni <span id="n-yeni">0</span></h2><div id="k-yeni"></div></div>
   <div class="kolon"><h2>Hazırlanıyor <span id="n-hazirlaniyor">0</span></h2><div id="k-hazirlaniyor"></div></div>
   <div class="kolon"><h2>Hazır · teslim bekliyor <span id="n-hazir">0</span></h2><div id="k-hazir"></div></div>
  </div>
 </div>
+<div class="cekmece" id="kartC" hidden><div class="ic"><h3>Sadakat kartı</h3><p>Misafirin kartındaki 6 haneli kodu girin.</p><input id="kKod" maxlength="6" autocomplete="off" style="width:100%;font:600 28px JetBrains Mono,monospace;letter-spacing:.2em;text-transform:uppercase;padding:10px;border-radius:12px;border:1px solid #3a2d24;background:#211913;color:#fff;text-align:center"><button class="kucuk" id="kBul" style="width:100%;margin-top:10px;padding:12px">Kartı bul</button><div id="kSonuc" style="margin-top:14px"></div><button class="kucuk" style="margin-top:14px" onclick="kartC.hidden=true">Kapat</button></div></div>
 <div class="cekmece" id="cekmece" hidden><div class="ic"><h3>Tükenen ürünler</h3><p>Tükenen ürünü kapatın; bu şubenin QR menüsünden hemen kalkar.</p><div id="tkListe"></div><button class="kucuk" style="margin-top:14px" onclick="cekmece.hidden=true">Kapat</button></div></div>
 <script>
 const A=window.AJANS,SB=A.supabaseUrl,KEY=A.supabaseAnonKey,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -89,6 +90,13 @@ function ciz(){$("#isletme").textContent=VERI.isletme;document.title=VERI.isletm
  ILK=false;sureler();tukCiz();}
 function confirmIptal(b){if(b.dataset.onay)return true;b.dataset.onay=1;b.textContent="İptal?";b.style.width="auto";setTimeout(()=>{delete b.dataset.onay;b.textContent="✕";},3000);return false;}
 function sureler(){$$(".fis").forEach(f=>{const s=(Date.now()-new Date(f.dataset.t))/1000,m=Math.floor(s/60);f.querySelector(".sure").textContent=m+":"+String(Math.floor(s%60)).padStart(2,"0");f.classList.toggle("gec",m>=8&&!f.closest("#k-hazir"));});}
+const kartRpc=p=>fetch(SB+"/rest/v1/rpc/kart_bar",{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+KEY},body:JSON.stringify({p:Object.assign({token:TOKEN,sube:SUBE},p)})}).then(async r=>{const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.message||r.status);return j;});
+function kartGoster(k){$("#kSonuc").innerHTML=`<div style="background:#fffaf3;color:#231915;border-radius:12px;padding:14px"><b style="font-size:18px">${esc(k.ad||"Misafir")}</b> · <span style="font-family:JetBrains Mono,monospace">${k.kod}</span><div style="font-size:30px;font-weight:800;margin:6px 0">${k.damga}/${k.hedef} ☕</div>${k.damga>=k.hedef?`<div style="color:#3d8b5f;font-weight:800;margin-bottom:8px">🎁 Hediye hakkı var: ${esc(k.odul)}</div>`:""}<div style="display:flex;gap:6px"><button class="kucuk ses" id="kDamga" style="flex:1;padding:12px">+1 damga</button>${k.damga>=k.hedef?`<button class="kucuk" id="kOdul" style="flex:1;padding:12px;background:#3d8b5f;color:#fff;border:0">Hediyeyi kullan</button>`:""}</div></div>`;
+ $("#kDamga").onclick=async()=>{try{kartGoster(await kartRpc({kod:k.kod,islem:"damga"}));bip();}catch(e){$("#kSonuc").insertAdjacentHTML("beforeend",`<p style="color:#ffb3a7;margin-top:8px">${esc(e.message)}</p>`);}};
+ if($("#kOdul"))$("#kOdul").onclick=async()=>{try{kartGoster(await kartRpc({kod:k.kod,islem:"odul"}));}catch(e){alert(e.message);}};}
+$("#kartBtn").onclick=()=>{$("#kartC").hidden=false;$("#kKod").value="";$("#kSonuc").innerHTML="";$("#kKod").focus();};
+$("#kBul").onclick=async()=>{try{kartGoster(await kartRpc({kod:$("#kKod").value.trim().toUpperCase()}));}catch(e){$("#kSonuc").innerHTML=`<p style="color:#ffb3a7">${esc(e.message)}</p>`;}};
+$("#kKod").onkeydown=e=>{if(e.key==="Enter")$("#kBul").click();};
 $("#tukBtn").onclick=()=>{$("#cekmece").hidden=false;tukCiz();};
 function tukCiz(){if($("#cekmece").hidden||!VERI)return;$("#tkListe").innerHTML=VERI.urunler.map(u=>`<div class="tk"><div>${esc(u.ad)}<small>${esc(u.kategori)}</small></div><button class="${u.tukendi?"yok":""}" data-u="${u.id}" data-v="${u.tukendi?0:1}">${u.tukendi?"Tükendi · aç":"Var · kapat"}</button></div>`).join("");
  $$("#tkListe button").forEach(b=>b.onclick=()=>{b.disabled=true;yukle({urun:b.dataset.u,tukendi:b.dataset.v==="1"});});}

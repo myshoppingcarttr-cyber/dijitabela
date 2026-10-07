@@ -84,7 +84,7 @@ textarea{width:100%;font:inherit;font-size:15px;border:1px solid var(--cizgi);bo
 <section id="e-bekle" hidden>
  <div class="durum"><div class="s1"><div><span class="no">SİPARİŞ</span><b class="y" id="dYazi">Siparişiniz alındı</b></div><div class="buyuk" id="dNo">#—</div></div>
   <div class="adimlar" id="adimlar"><div class="on"><i></i>Alındı</div><div class="su"><i></i>Hazırlanıyor</div><div><i></i>Hazır</div></div>
-  <div class="ozet" id="dOzet"></div></div>
+  <div class="ozet" id="dOzet"></div><div class="ozet" id="kartBilgi" style="margin-top:8px;color:#6b4430"></div></div>
  <div id="oyunKutu"><div class="oyun-bas"><b>Çekirdek Yakala</b><span>Puan: <span id="puan">0</span> · <span id="sn">30</span> sn</span></div>
  <div class="oyun-alan"><canvas id="oyun"></canvas><div class="ortu" id="ortu"><b>Kahveniz hazırlanırken</b><p>Fincanı parmağınızla sağa sola kaydırın, düşen çekirdekleri yakalayın, şeker küplerinden kaçının. Altın çekirdek +5!</p><button class="btn" id="basla">Oyna ▶</button></div></div></div>
  <p class="not">Siparişiniz hazır olunca bu ekranda haber veririz; telefonunuz titrer. Sayfayı kapatmayın.<br><a href="#" id="yeniSiparis" style="color:#6b4430;font-weight:700">+ Yeni sipariş ver</a></p>
@@ -114,7 +114,7 @@ function ekran(id){["menu","bekle"].forEach(e=>$("#e-"+e).hidden=e!==id);sepetGu
  if(ay.oyun===false)$("#oyunKutu").hidden=true;
  KAT=[...new Set(M.urunler.map(u=>u.kategori))][0];
  const kayit=oku("qr-takip-"+MASA);
- if(kayit&&Date.now()-kayit.t<3*3600e3){TAKIP=kayit.takip;ekran("bekle");izle();}else{ekran("menu");menuCiz();}
+ if(kayit&&Date.now()-kayit.t<3*3600e3){TAKIP=kayit.takip;ekran("bekle");izle();kartBagla();}else{ekran("menu");menuCiz();}
 })();
 
 function menuCiz(){const kat=[...new Set(M.urunler.map(u=>u.kategori))];
@@ -153,8 +153,11 @@ function sepetAc(){if(!adet())return;const kart=(M.ayar||{}).kart_odeme===true;
  $("#ver").onclick=ver;}
 async function ver(){const b=$("#ver");b.disabled=true;b.textContent="Gönderiliyor…";
  try{const r=await rpc("qr_siparis_ver",{masa:MASA,kalemler:SEPET.map(x=>({urun:x.id,adet:x.adet,secim:x.sec})),not:$("#not").value.trim(),odeme:($("#odeme .ak")||{}).dataset?.v||"kasa"});
-  TAKIP=r.takip;yaz("qr-takip-"+MASA,{takip:r.takip,t:Date.now()});SEPET=[];sayfaKapa();ekran("bekle");SON_DURUM=null;izle();if(navigator.vibrate)navigator.vibrate(30);}
+  TAKIP=r.takip;yaz("qr-takip-"+MASA,{takip:r.takip,t:Date.now()});kartBagla();SEPET=[];sayfaKapa();ekran("bekle");SON_DURUM=null;izle();if(navigator.vibrate)navigator.vibrate(30);}
  catch(e){$("#hata").hidden=false;$("#hata").textContent=e.message;b.disabled=false;b.textContent="Siparişi ver";}}
+function kartAl(){try{return localStorage.getItem("kart-"+M.slug)}catch{return null}}
+function kartBagla(){const k=kartAl();if(k&&TAKIP)rpc("qr_siparis_kart",{takip:TAKIP,kart:k}).catch(()=>{});kartYaz();}
+function kartYaz(){const k=kartAl();$("#kartBilgi").innerHTML=k?`☕ Sadakat kartınıza teslimde <b>1 damga</b> eklenecek; oyunda 30 puanı geçerseniz <b>+1 damga</b>. <a href="kart.html?i=${encodeURIComponent(M.slug)}" target="_blank">Kartımı gör</a>`:`🎁 Sadakat kartınız yok mu? <a href="kart.html?i=${encodeURIComponent(M.slug)}" target="_blank">10 saniyede oluşturun</a>, bu siparişten itibaren damga kazanın.`;}
 $("#yeniSiparis").onclick=e=>{e.preventDefault();ekran("menu");menuCiz();};
 
 /* durum izleme (4 sn'de bir) */
@@ -173,7 +176,7 @@ const cv=$("#oyun"),cx=cv.getContext("2d");let W=360,H=400,O=null;const TUS={};
 function boyut(){const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);}
 function basla(){boyut();O={x:W/2,puan:0,parca:[],t:0,son:performance.now(),bitis:performance.now()+30000,ef:[]};$("#ortu").hidden=true;$("#puan").textContent=0;requestAnimationFrame(kare);}
 function dur(baslik){if(!O)return;const p=O.puan;O=null;if(TAKIP)rpc("qr_oyun_puan",{takip:TAKIP,puan:p}).catch(()=>{});
- $("#ortu").innerHTML=`<b>${baslik||"Süre doldu!"}</b><p>${p} puan topladınız.${p>=30?" 🎉 Harika! Kasada bu ekranı gösterin, sadakat kartınıza 1 damga ekleyelim.":" 30 puana az kaldı, bir daha?"}</p><button class="btn" id="basla">Tekrar oyna ▶</button>`;$("#ortu").hidden=false;$("#basla").onclick=basla;}
+ $("#ortu").innerHTML=`<b>${baslik||"Süre doldu!"}</b><p>${p} puan topladınız.${p>=30?(kartAl()?" 🎉 Harika! Siparişiniz teslim edilince kartınıza +1 damga eklenecek.":" 🎉 Harika! Sadakat kartı oluşturursanız bu puan damgaya dönüşür."):" 30 puana az kaldı, bir daha?"}</p><button class="btn" id="basla">Tekrar oyna ▶</button>`;$("#ortu").hidden=false;$("#basla").onclick=basla;}
 $("#basla").onclick=basla;
 function kare(now){if(!O)return;const dt=Math.min(40,now-O.son)/16.7;O.son=now;O.t+=dt;const kalan=Math.max(0,Math.ceil((O.bitis-now)/1000));$("#sn").textContent=kalan;if(kalan<=0){dur();return;}
  const hiz=1+(30-kalan)/22;if(Math.random()<.05*dt*hiz){const r=Math.random();O.parca.push({x:20+Math.random()*(W-40),y:-20,v:(2+Math.random()*1.6)*hiz,tur:r<.16?"seker":r<.24?"altin":"c",a:Math.random()*6});}

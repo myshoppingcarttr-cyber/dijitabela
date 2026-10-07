@@ -8,6 +8,7 @@ Disallow: /siparis.html
 Disallow: /bar.html
 Disallow: /qr-kart.html
 Disallow: /yonetim.html
+Disallow: /kart.html
 Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/

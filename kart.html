@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2a1b14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Sadakat Kartı</title>
+<script>if(location.protocol==="http:"&&/(^|.)dijitabela.com$/.test(location.hostname))location.replace("https:"+location.href.slice(5))</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Playfair+Display:wght@600&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<script src="assets/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--ana:#2a1b14;--vurgu:#e5c08a;--zemin:#f3ece1;--yazi:#231915;--soluk:#6e625a;--yesil:#3d8b5f}
+*{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi);max-width:480px;margin:0 auto;min-height:100vh;padding:18px 16px 40px}
+button,input{font:inherit}
+.ust{display:flex;align-items:center;gap:12px;margin-bottom:16px}.ust img{height:42px}.ust b{font-family:"Playfair Display",serif;font-size:22px;color:var(--ana)}
+.kart{background:var(--ana);color:#fff;border-radius:24px;padding:20px;box-shadow:0 24px 40px -20px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.kart::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(229,192,138,.12)}
+.kart .b{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;position:relative;z-index:1}.kart .b span{font-size:13px;color:#d9c3a5}.kart .b b{font-size:15px}
+.fincan{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;position:relative;z-index:1}
+.fincan i{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(255,255,255,.45);display:grid;place-items:center;font-style:normal;font-size:19px;transition:.4s}
+.fincan i.d{background:var(--vurgu);border:0;color:var(--ana)}.fincan i.h{border:1.5px solid var(--vurgu);color:var(--vurgu);font-size:10px;font-weight:800}
+.fincan i.yeni{animation:pat .7s}@keyframes pat{0%{transform:scale(.3)}60%{transform:scale(1.2)}}
+.durum{margin-top:14px;font-size:15px;position:relative;z-index:1}.durum b{color:var(--vurgu)}
+.kod{background:#fff;border-radius:20px;padding:18px;text-align:center;margin-top:14px}
+.kod small{color:var(--soluk);display:block;font-size:13px}
+.kod .k{font-family:"JetBrains Mono",monospace;font-size:38px;letter-spacing:.18em;color:var(--ana);margin:6px 0 10px}
+.kod #qr{display:inline-block;padding:6px;background:#fff}.kod #qr img,.kod #qr canvas{width:140px!important;height:140px!important}
+.hediye{background:var(--yesil);color:#fff;border-radius:16px;padding:14px;text-align:center;font-weight:800;margin-top:14px;font-size:16px}
+.gecmis{background:#fff;border-radius:18px;padding:14px;margin-top:14px;font-size:14px}.gecmis h3{font-size:14px;margin-bottom:8px;color:var(--soluk)}
+#hareket>div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #f0e8dc}#hareket>div:last-child{border:0}#hareket small{text-align:right;flex:none}.gecmis small{color:var(--soluk)}
+.ac{background:#fff;border-radius:20px;padding:22px;text-align:center}.ac h2{font-family:"Playfair Display",serif;font-size:24px;margin-bottom:6px}.ac p{color:var(--soluk);font-size:15px;margin-bottom:14px}
+.ac input{width:100%;border:1px solid #e0d5c6;border-radius:12px;padding:12px;font-size:16px;margin-bottom:10px}
+.btn{width:100%;border:0;border-radius:14px;padding:15px;font-weight:800;font-size:16px;background:var(--ana);color:#fff;cursor:pointer}
+.not{font-size:12.5px;color:var(--soluk);text-align:center;margin-top:16px;line-height:1.5}
+</style></head><body>
+<div class="ust"><img id="logo" alt="" hidden><b id="ad">Sadakat kartı</b></div>
+<section id="olustur" hidden><div class="ac"><h2>Kartınızı oluşturun</h2><p>Uygulama yok, üyelik yok. Her kahvede bir damga, <b id="hedefYazi">10.</b> kahve bizden.</p><input id="isim" placeholder="Adınız (isteğe bağlı)" maxlength="40"><button class="btn" id="olBtn">Kartımı oluştur</button></div>
+ <p class="not">Kartınız bu telefonda saklanır. Telefonu değiştirirseniz kasada 6 haneli kodunuzu söyleyin.</p></section>
+<section id="kartBolum" hidden>
+ <div class="kart"><div class="b"><b id="kIsim">Sadakat kartı</b><span id="kSay">0/10</span></div><div class="fincan" id="fincan"></div><div class="durum" id="kDurum"></div></div>
+ <div class="hediye" id="hediye" hidden>🎉 Hediyeniz hazır! Kasada bu ekranı gösterin.</div>
+ <div class="kod"><small>Kasada bu kodu gösterin</small><div class="k" id="kod">——————</div><div id="qr"></div></div>
+ <div class="gecmis" id="gecmis" hidden><h3>Son hareketler</h3><div id="hareket"></div></div>
+ <p class="not">📱 Kartı ana ekrana ekleyin: tarayıcı menüsü → "Ana ekrana ekle".<br>QR'dan sipariş verdiğinizde damga teslimde kendiliğinden eklenir; bekleme oyununda 30 puanı geçerseniz +1 damga.</p>
+</section>
+<div class="ac" id="hata" hidden><h2>Kart bulunamadı</h2><p>Bu bağlantı geçersiz.</p></div>
+<script>
+const A=window.AJANS,SB=A.supabaseUrl,KEY=A.supabaseAnonKey,$=s=>document.querySelector(s);
+const ISL=new URLSearchParams(location.search).get("i")||"";
+const rpc=(f,p)=>fetch(SB+"/rest/v1/rpc/"+f,{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+KEY},body:JSON.stringify({p})}).then(async r=>{const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.message||r.status);return j;});
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const oku=k=>{try{return localStorage.getItem(k)}catch{return null}},yaz=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
+let KART=oku("kart-"+ISL),SON=null,QR=false;
+async function goster(){let d;try{d=await rpc("kart_bilgi",{kart:KART});}catch{return;}
+ if(d.yok){try{localStorage.removeItem("kart-"+ISL);}catch{}KART=null;$("#olustur").hidden=false;$("#kartBolum").hidden=true;return;}
+ const ay=d.ayar||{};if(ay.renk)document.documentElement.style.setProperty("--ana",ay.renk);if(ay.vurgu)document.documentElement.style.setProperty("--vurgu",ay.vurgu);if(ay.logo){$("#logo").src=ay.logo;$("#logo").hidden=false;}
+ $("#ad").textContent=d.isletme;document.title=d.isletme+" · Kartım";$("#olustur").hidden=true;$("#kartBolum").hidden=false;
+ const h=d.hedef,dm=d.damga,yeni=SON!==null&&dm>SON;
+ $("#fincan").innerHTML=Array.from({length:h},(_,i)=>i===h-1?`<i class="${dm>=h?"d":"h"}${yeni&&i===Math.min(dm,h)-1?" yeni":""}">${dm>=h?"🎁":"HEDİYE"}</i>`:`<i class="${i<dm?"d":""}${yeni&&i===dm-1?" yeni":""}">${i<dm?"☕":""}</i>`).join("");
+ $("#kSay").textContent=Math.min(dm,h)+"/"+h;$("#kIsim").textContent=d.ad?d.ad+" · "+d.isletme:d.isletme;
+ $("#kDurum").innerHTML=dm>=h?`<b>${esc(d.odul)}</b> · kasada kullanın`:`<b>${h-dm}</b> kahve sonra ${esc(d.odul.toLowerCase())}`+(d.kullanilan?` · şimdiye kadar ${d.kullanilan} hediye`:"");
+ $("#hediye").hidden=dm<h;$("#kod").textContent=d.kod;
+ if(!QR){new QRCode($("#qr"),{text:d.kod,width:280,height:280,colorDark:"#2a1b14",colorLight:"#ffffff"});QR=true;}
+ const ad={damga:"☕ Damga",siparis:"🛎 QR sipariş damgası",oyun:"🎮 Oyun damgası",odul:"🎁 Hediye kullanıldı"};
+ $("#gecmis").hidden=!d.hareket.length;$("#hareket").innerHTML=d.hareket.map(x=>`<div><span>${ad[x.tur]||x.tur}${x.adet>1?" ×"+x.adet:""}</span><small>${esc(x.sube||"")} · ${new Date(x.zaman).toLocaleString("tr-TR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</small></div>`).join("");
+ if(yeni&&navigator.vibrate)navigator.vibrate([80,60,80]);SON=dm;}
+$("#olBtn").onclick=async()=>{$("#olBtn").disabled=true;try{const r=await rpc("kart_ac",{isletme:ISL,ad:$("#isim").value.trim()});KART=r.kart;yaz("kart-"+ISL,KART);await goster();}catch(e){$("#olBtn").disabled=false;alert(e.message);}};
+(async()=>{if(!/^[a-z0-9-]{2,60}$/.test(ISL)){$("#hata").hidden=false;return;}
+ if(KART){await goster();}else{$("#olustur").hidden=false;}
+ setInterval(()=>{if(KART&&!document.hidden)goster();},8000);
+ document.addEventListener("visibilitychange",()=>{if(KART&&!document.hidden)goster();});})();
+</script>
+</body></html>
