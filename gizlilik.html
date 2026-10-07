@@ -13,8 +13,8 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="marka/png/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,700..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,700..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"></noscript>
-<link rel="stylesheet" href="assets/style.css?v=muy869xc"><link rel="stylesheet" href="assets/vitrin.css?v=muy869xc"><link rel="stylesheet" href="assets/hikaye.css?v=muy869xc"><link rel="stylesheet" href="assets/sahne.css?v=muy869xc"><link rel="stylesheet" href="assets/teklif.css?v=muy869xc">
-<script src="assets/piksel.js?v=muy869xc" defer></script>
+<link rel="stylesheet" href="assets/style.css?v=muybqtyx"><link rel="stylesheet" href="assets/vitrin.css?v=muybqtyx"><link rel="stylesheet" href="assets/hikaye.css?v=muybqtyx"><link rel="stylesheet" href="assets/sahne.css?v=muybqtyx"><link rel="stylesheet" href="assets/teklif.css?v=muybqtyx">
+<script src="assets/piksel.js?v=muybqtyx" defer></script>
 </head>
 <body>
 <header class="hdr"><div class="wrap nav">
@@ -43,6 +43,15 @@
 <p><b>Proje takibi:</b> Dijitabela müşterileri, projelerinin adımlarını, onaylarını ve mesajlarını uygulamada görür; bu bilgiler yalnızca ilgili müşteri ve Dijitabela ekibine açıktır.</p>
 <p><b>Altyapı ve güvenlik:</b> Veriler şifreli bağlantı (HTTPS) ile iletilir ve Avrupa Birliği'nde (Frankfurt) bulunan Supabase sunucularında satır düzeyi erişim kurallarıyla korunarak saklanır. Uygulamada reklam, reklam kimliği veya üçüncü taraf izleme aracı kullanılmaz.</p>
 <p><b>Hesap ve verilerin silinmesi:</b> Uygulamada <i>Panel → Ayarlar → Hesabımı sil</i> ile hesabınızı ve tek sahibi olduğunuz işletmelerin tüm kayıtlarını kalıcı olarak silebilirsiniz. Uygulamaya erişemiyorsanız info@dijitabela.com adresine kayıtlı e-postanızdan "Hesabımı sil" konulu bir e-posta göndermeniz yeterlidir; talebiniz en geç 30 gün içinde yerine getirilir. Yasal saklama yükümlülüğü olan fatura/ödeme kayıtları süresi boyunca saklanır.</p>
+<h2 id="dijitabela-mali">Dijitabela Mali uygulaması (mali müşavirler için)</h2>
+<p><b>Roller:</b> Dijitabela Mali'yi kullanan mali müşavir, mükelleflerine ait verilerin <b>veri sorumlusudur</b>; Dijitabela bu verileri yalnızca müşavir adına ve hizmetin sunulması için işleyen <b>veri işleyendir</b>.</p>
+<p><b>Hesap ve ofis bilgileri:</b> Müşavirin e-posta adresi, adı, ofis unvanı, iletişim ve IBAN bilgileri.</p>
+<p><b>Mükellef verileri:</b> Müşavirin girdiği ya da içe aktardığı mükellef unvanı, ad soyad, VKN/TCKN, vergi dairesi, telefon, e-posta, adres; mali belgeler (fiş, fatura, e-Fatura, Z raporu, kira, dekont, tahakkuk), beyanname ve ödeme bilgileri, muhasebe ücreti ve tahsilat kayıtları.</p>
+<p><b>WhatsApp mesajları:</b> Mükellefler belgelerini Dijitabela'nın resmî WhatsApp Business hattına (0538 676 57 27, Meta WhatsApp Cloud API) gönderir. Gönderen numara bir müşavirin mükellef listesinde kayıtlıysa mesaj ve ekleri yalnızca o müşavirin ofisine iletilir. <b>Kayıtlı mükellef olmayan numaralardan gelen mesajlar Dijitabela Mali'de saklanmaz.</b> Bildirimler müşavirin onayıyla, ofisin adıyla gönderilir.</p>
+<p><b>Yapay zekâ ile belge okuma:</b> Belge görüntüleri ve metinleri, alanların (tarih, VKN, KDV, toplam) çıkarılması amacıyla hizmet sağlayıcılarımız Google (Gemini) ve Anthropic (Claude) yapay zekâ arayüzlerine iletilir. Bu sağlayıcılar verileri yalnızca isteği yanıtlamak için işler; Dijitabela bu verileri model eğitimi için paylaşmaz.</p>
+<p><b>Muhasebe programları:</b> Müşavirin talebiyle onaylı kayıtlar müşavirin kendi muhasebe programına (ör. Luca, Zirve, Logo) aktarılmak üzere dosya olarak hazırlanır ya da programın arayüzüne gönderilir.</p>
+<p><b>Saklama ve güvenlik:</b> Veriler şifreli bağlantıyla iletilir, Avrupa Birliği'nde (Frankfurt) Supabase sunucularında saklanır; her ofis yalnızca kendi verisini görebilir (satır düzeyi erişim kuralları). Uygulamada reklam veya üçüncü taraf izleme aracı yoktur.</p>
+<p><b>Silme:</b> Müşavir <i>Ayarlar → Veri ve hesap → Hesabı sil</i> ile hesabını ve sahibi olduğu ofislerin tüm verilerini kalıcı olarak silebilir; verilerini önce Excel olarak indirebilir. Mükellefler silme ve diğer KVKK taleplerini müşavirlerine iletir; uygulamaya erişemeyenler <a href="veri-silme.html">Veri Silme Talimatları</a> sayfasındaki adımları izleyebilir.</p>
 <h2>İletişim</h2><p>info@dijitabela.com</p></div><aside id="b-icindekiler" hidden></aside></div>
 <section class="yasal-diger"><div class="wrap narrow"><p class="v-etiket">Diğer yasal metinler</p><ul><li><a href="mesafeli-satis.html">Mesafeli Satış Sözleşmesi →</a></li><li><a href="iptal-iade.html">İptal ve İade Koşulları →</a></li><li><a href="teslimat-kosullari.html">Teslimat ve Kargo Koşulları →</a></li><li><a href="kvkk.html">KVKK Aydınlatma Metni →</a></li><li><a href="veri-silme.html">Veri Silme Talimatları →</a></li></ul>
 <p class="v-not">Sorunuz mu var? <a href="mailto:info@dijitabela.com">info@dijitabela.com</a> · 0501 945 21 84</p></div></section>
@@ -59,10 +68,10 @@
   <div class="ftr-b"><span>© 2026 <span data-marka>Dijitabela</span> · Alim Hoşlar (şahıs işletmesi) · Düden V.D. 4641290891 · Kepez / Antalya</span><span>Fiyatlara KDV dahil değildir.</span></div>
 </div></footer>
 <a class="wa-f" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." aria-label="WhatsApp" rel="nofollow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 21l1.9-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
-<script src="assets/config.js?v=muy869xc"></script>
-<script src="assets/asistan.js?v=muy869xc" defer></script>
+<script src="assets/config.js?v=muybqtyx"></script>
+<script src="assets/asistan.js?v=muybqtyx" defer></script>
 <script>document.querySelectorAll("[data-marka]").forEach(function(e){e.textContent=AJANS.marka})</script>
-<script src="assets/led.js?v=muy869xc"></script>
-<script src="assets/sahne.js?v=muy869xc"></script>
+<script src="assets/led.js?v=muybqtyx"></script>
+<script src="assets/sahne.js?v=muybqtyx"></script>
 </body>
 </html>
