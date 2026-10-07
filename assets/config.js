@@ -9,9 +9,13 @@ window.AJANS = {
   sehir: "Antalya",
   site: "https://dijitabela.com",  // GitHub Pages CNAME = dijitabela.com (www → 301 buraya). Kanonik adres bu olmalı.
   // Havale/EFT bilgileri (şahıs şirketi)
-  unvan: "Alim Hoşlar",                // vergi levhasındaki ad/unvan
-  vergiDairesi: "",
-  vergiNo: "",
+  unvan: "Dijitabela",                 // kullanıcı: ünvan Dijitabela (7 Eki)
+  yasalAd: "Alim Hoşlar",              // vergi levhasındaki gerçek kişi adı: havale alıcısı, yasal satıcı, KVKK veri sorumlusu
+  vergiDairesi: "Düden",               // vergi levhası 1 Eki 2026 (işe başlama), faaliyet 702001 İşletme ve idari danışmanlık
+  vergiNo: "4641290891",               // VKN (TC kimlik no ASLA yazılmaz)
+  // Levhadaki işyeri adresi Alim Bey'in EVİ (home office): sokak/bina/kapı no HİÇBİR YERDE yayınlanmaz, yalnız ilçe/il.
+  adres: "Kepez / Antalya",
+  adresParca: { ilce: "Kepez", il: "Antalya", ulke: "TR" },
   iban: "TR04 0006 4000 0016 2700 5489 50",                          // TR.. ile başlayan IBAN
   banka: "Türkiye İş Bankası",
   kartOdeme: false,                   // iyzico hesabı (vergi levhası sonrası) açılınca true yapın
