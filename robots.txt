@@ -3,6 +3,7 @@ Allow: /
 Disallow: /panel.html
 Disallow: /teklif.html
 Disallow: /yukle.html
+Disallow: /onay.html
 Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/

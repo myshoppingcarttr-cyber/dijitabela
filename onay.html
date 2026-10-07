@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>İçerik Onayı · Dijitabela</title>
+<script>if(location.protocol==="http:"&&/(^|.)dijitabela.com$/.test(location.hostname))location.replace("https:"+location.href.slice(5))</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<script src="assets/config.js"></script>
+<style>
+:root{--zemin:#f4f1ec;--kart:#fff;--yazi:#1d1a16;--soluk:#6f6860;--cizgi:#e3ddd3;--ana:#1d1a16;--yesil:#2f7a4f;--kirmizi:#b4483a;--altin:#b8863b}
+*{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--zemin);color:var(--yazi);line-height:1.5}
+button{font:inherit;cursor:pointer}
+.ust{background:var(--ana);color:#fff;position:sticky;top:0;z-index:10}
+.ust .ic{max-width:1100px;margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.ust small{display:block;font-size:12px;color:#c9c2b8;letter-spacing:.06em;text-transform:uppercase}
+.ust b{font-size:20px;font-variation-settings:"wdth" 80}
+.sek{display:flex;gap:6px;flex-wrap:wrap}
+.sek button{border:0;background:#2e2a25;color:#ddd;padding:8px 13px;border-radius:20px;font-weight:700;font-size:13.5px}
+.sek button.ak{background:#fff;color:var(--ana)}
+.sek button em{font-style:normal;background:var(--altin);color:#fff;border-radius:10px;padding:0 6px;margin-left:5px;font-size:12px}
+main{max-width:1100px;margin:0 auto;padding:18px 16px 80px}
+.bilgi{background:#fff;border:1px solid var(--cizgi);border-left:4px solid var(--altin);padding:12px 14px;font-size:14.5px;color:#4a4238;margin-bottom:16px}
+.toplu{display:flex;justify-content:flex-end;margin-bottom:12px}
+.oge{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;margin-bottom:18px;overflow:hidden;animation:gir .35s}
+@keyframes gir{from{opacity:0;transform:translateY(8px)}}
+.oge-ust{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--cizgi);flex-wrap:wrap;align-items:center}
+.oge-ust b{font-size:17px}.oge-ust small{color:var(--soluk);font-size:13px;display:block}
+.rozet{font-size:12px;font-weight:800;padding:4px 10px;border-radius:12px}
+.r-hazir{background:#fff1d6;color:#8a5a00}.r-onaylandi{background:#e7f3ec;color:#235a3a}.r-reddedildi{background:#fbe3df;color:#8f2c1f}.r-yayinlandi{background:#e5ebf6;color:#2c4a7a}
+.medya{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px 16px}
+.medya figure{margin:0}
+.medya figcaption{font-size:12px;font-weight:700;color:var(--soluk);margin-bottom:5px}
+.medya .k{border-radius:12px;overflow:hidden;background:#111;position:relative}
+.medya img,.medya video{width:100%;height:100%;object-fit:cover;display:block}
+.k.d916{aspect-ratio:9/16}.k.d45{aspect-ratio:4/5}.k.d11{aspect-ratio:1/1}
+.medya a.ind{font-size:12px;color:var(--soluk);display:inline-block;margin-top:4px}
+.metinler{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 14px}
+.metinler label{display:block;font-size:12.5px;font-weight:800;color:#5a4a36;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
+.metinler textarea,.metinler input{width:100%;font:inherit;font-size:14.5px;border:1px solid var(--cizgi);border-radius:10px;padding:9px 10px;resize:vertical;background:#fdfcfa}
+.metinler textarea:focus,.metinler input:focus{outline:2px solid var(--altin);background:#fff}
+.gorulen{grid-column:1/-1;font-size:13px;color:var(--soluk)}
+.karar{display:flex;gap:8px;justify-content:flex-end;align-items:center;padding:12px 16px;background:#faf8f4;border-top:1px solid var(--cizgi);flex-wrap:wrap}
+.btn{border:0;border-radius:10px;padding:11px 16px;font-weight:800;font-size:14.5px;background:var(--ana);color:#fff}
+.btn.yesil{background:var(--yesil)}.btn.cizgi{background:#fff;color:var(--kirmizi);border:1.5px solid var(--kirmizi)}.btn.sade{background:#fff;color:var(--ana);border:1.5px solid var(--cizgi)}
+.btn:disabled{opacity:.5}
+.karar input{flex:1;min-width:200px;font:inherit;font-size:14px;padding:10px;border:1px solid var(--cizgi);border-radius:10px;display:none}
+.bos{text-align:center;color:var(--soluk);padding:50px 10px;background:#fff;border:1px dashed var(--cizgi);border-radius:16px}
+.gecersiz{background:#fbe3df;color:#8f2c1f;border-radius:12px;padding:16px;margin-top:20px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ana);color:#fff;padding:12px 18px;border-radius:30px;font-weight:700;font-size:14px;opacity:0;transition:.3s;z-index:50}
+.toast.g{opacity:1;transform:translate(-50%,0)}
+@media(max-width:820px){.medya{grid-template-columns:1fr 1fr}.metinler{grid-template-columns:1fr}}
+</style></head><body>
+<div class="ust"><div class="ic"><div><small>Dijitabela · İçerik onayı</small><b id="baslik">Yükleniyor…</b></div>
+ <div class="sek" id="sek"><button data-d="hazir" class="ak">Onay bekleyen<em id="say-hazir">0</em></button><button data-d="onaylandi">Onaylanan</button><button data-d="reddedildi">Reddedilen</button><button data-d="yayinlandi">Yayınlanan</button></div></div></div>
+<main>
+ <div class="bilgi" id="bilgi" hidden>Şubelerinizin yüklediği her fotoğraf ve videodan hazırlanan içerikler burada. Metinleri dilediğiniz gibi düzeltebilirsiniz. <b>Onayla</b> derseniz takvimdeki saatte yayınlanır, <b>Reddet</b> derseniz kısa bir not bırakın, yenisini hazırlayalım.</div>
+ <div class="toplu" id="toplu" hidden><button class="btn yesil" id="hepsi">Bekleyenlerin hepsini onayla</button></div>
+ <div id="liste"></div>
+ <div class="gecersiz" id="gecersiz" hidden>Bu onay linki geçersiz. Lütfen Dijitabela'dan yeni link isteyin: 0501 945 21 84</div>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const A=window.AJANS,SB=A.supabaseUrl,KEY=A.supabaseAnonKey,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const TOKEN=new URLSearchParams(location.search).get("t")||"";
+const rpc=(f,p)=>fetch(SB+"/rest/v1/rpc/"+f,{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+KEY},body:JSON.stringify({p})}).then(async r=>{const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.message||r.status);return j;});
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const url=(kok,f)=>SB+"/storage/v1/object/public/icerik-cikti/"+kok.split("/").map(encodeURIComponent).join("/")+"/"+encodeURIComponent(f);
+let VERI=[],DURUM="hazir";
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("g");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("g"),2200);}
+const AD={"reels-9x16-kanca.mp4":["Reels (kancalı)","d916"],"reels-9x16.mp4":["Reels","d916"],"gonderi-4x5.jpg":["Gönderi","d45"],"gonderi-4x5.mp4":["Gönderi","d45"],"hikaye-9x16.jpg":["Hikâye","d916"],"hikaye-9x16.mp4":["Hikâye","d916"],"google-1x1.jpg":["Google gönderisi","d11"]};
+function medya(o){let c=(o.cikti||[]).slice();if(c.includes("reels-9x16-kanca.mp4"))c=c.filter(f=>f!=="reels-9x16.mp4");const SIRA=Object.keys(AD);c.sort((a,b)=>SIRA.indexOf(a)-SIRA.indexOf(b));
+ return c.map(f=>{const[a,d]=AD[f]||[f,"d11"],u=url(o.kok,f);return `<figure><figcaption>${a}</figcaption><div class="k ${d}">${f.endsWith(".mp4")?`<video src="${u}" muted loop playsinline controls preload="metadata"></video>`:`<img src="${u}" alt="${a}" loading="lazy">`}</div><a class="ind" href="${u}" download target="_blank">İndir</a></figure>`}).join("");}
+function ciz(){const l=VERI.filter(o=>o.durum===DURUM);$("#say-hazir").textContent=VERI.filter(o=>o.durum==="hazir").length;
+ $("#toplu").hidden=!(DURUM==="hazir"&&l.length>1);
+ $("#liste").innerHTML=l.length?l.map(o=>{const m=o.metin||{},duz=o.durum==="hazir";return `<div class="oge" data-id="${o.id}">
+  <div class="oge-ust"><div><b>${esc(o.sube||"Şube")}</b><small>${new Date(o.olusturma).toLocaleString("tr-TR",{dateStyle:"medium",timeStyle:"short"})}${o.kisi?" · "+esc(o.kisi):""}${o.not?" · Not: "+esc(o.not):""}</small></div><span class="rozet r-${o.durum}">${{hazir:"Onay bekliyor",onaylandi:"Onaylandı",reddedildi:"Reddedildi",yayinlandi:"Yayınlandı"}[o.durum]}</span></div>
+  <div class="medya">${medya(o)}</div>
+  <div class="metinler">
+   ${m.gorulen?`<div class="gorulen">🔍 ${esc(m.gorulen)}</div>`:""}
+   <div><label>Reels kancası (videonun üstünde · değiştirirseniz video yeniden hazırlanır)</label><input data-k="kanca" value="${esc(m.kanca)}" ${duz?"":"disabled"}></div>
+   <div><label>Hikâye anketi</label><input data-k="anket_soru" value="${esc(m.anket&&m.anket.soru)}" ${duz?"":"disabled"}></div>
+   <div><label>Reels açıklaması</label><textarea data-k="reels" rows="4" ${duz?"":"disabled"}>${esc(m.reels)}</textarea></div>
+   <div><label>Gönderi metni</label><textarea data-k="gonderi" rows="4" ${duz?"":"disabled"}>${esc(m.gonderi)}</textarea></div>
+   <div><label>Google gönderisi</label><textarea data-k="google" rows="3" ${duz?"":"disabled"}>${esc(m.google)}</textarea></div>
+   <div><label>Etiketler</label><textarea data-k="etiketler" rows="3" ${duz?"":"disabled"}>${esc((m.etiketler||[]).map(e=>String(e).startsWith("#")?e:"#"+e).join(" "))}</textarea></div>
+  </div>
+  <div class="karar">${o.karar_notu?`<span style="margin-right:auto;color:var(--soluk);font-size:13.5px">Not: ${esc(o.karar_notu)}</span>`:""}
+   ${duz?`<input class="redNot" placeholder="Neden reddediyorsunuz? (ör. ürün yanlış, ışık kötü)"><button class="btn cizgi red">Reddet</button><button class="btn yesil onay">Onayla</button>`:`<button class="btn sade geri">Onay bekleyenlere geri al</button>`}
+  </div></div>`}).join(""):`<div class="bos">${{hazir:"Onay bekleyen içerik yok. Şubeler yeni içerik yükledikçe burada görünecek.",onaylandi:"Henüz onaylanan içerik yok.",reddedildi:"Reddedilen içerik yok.",yayinlandi:"Henüz yayınlanan içerik yok."}[DURUM]}</div>`;
+ $$(".oge").forEach(e=>{const id=e.dataset.id;
+  const metin=()=>{const g={};e.querySelectorAll("[data-k]").forEach(i=>{const k=i.dataset.k,v=i.value.trim();if(k==="etiketler")g.etiketler=v.split(/\s+/).filter(Boolean);else if(k==="anket_soru")g.anket=Object.assign({},(VERI.find(o=>o.id===id).metin||{}).anket,{soru:v});else g[k]=v;});return g;};
+  const on=e.querySelector(".onay"),red=e.querySelector(".red"),geri=e.querySelector(".geri"),rn=e.querySelector(".redNot");
+  if(on)on.onclick=()=>karar(id,"onaylandi",null,metin(),on);
+  if(red)red.onclick=()=>{if(rn.style.display!=="block"){rn.style.display="block";rn.focus();red.textContent="Reddi gönder";return;}karar(id,"reddedildi",rn.value.trim(),null,red);};
+  if(geri)geri.onclick=()=>karar(id,"hazir",null,null,geri);});}
+async function karar(id,k,not,metin,b){b.disabled=true;try{await rpc("onay_karar",{token:TOKEN,id,karar:k,not,metin});const o=VERI.find(x=>x.id===id);o.durum=k;o.karar_notu=not;if(metin)o.metin=Object.assign({},o.metin,metin);toast(k==="onaylandi"?"✓ Onaylandı, yayın takvimine eklendi":k==="reddedildi"?"Reddedildi, yenisini hazırlayacağız":"Onay bekleyenlere alındı");ciz();}catch(e){b.disabled=false;toast("Kaydedilemedi: "+e.message);}}
+$$("#sek button").forEach(b=>b.onclick=()=>{DURUM=b.dataset.d;$$("#sek button").forEach(x=>x.classList.toggle("ak",x===b));ciz();});
+$("#hepsi").onclick=async()=>{const l=VERI.filter(o=>o.durum==="hazir");$("#hepsi").disabled=true;for(const o of l){try{await rpc("onay_karar",{token:TOKEN,id:o.id,karar:"onaylandi"});o.durum="onaylandi";}catch(e){}}$("#hepsi").disabled=false;toast("✓ "+l.length+" içerik onaylandı");ciz();};
+(async()=>{if(!/^[0-9a-f-]{36}$/.test(TOKEN)){$("#gecersiz").hidden=false;$("#baslik").textContent="İçerik onayı";return;}
+ try{const d=await rpc("onay_liste",{token:TOKEN});$("#baslik").textContent=d.ad;document.title=d.ad+" · İçerik Onayı";VERI=d.ogeler;$("#bilgi").hidden=false;ciz();}
+ catch(e){$("#gecersiz").hidden=false;$("#baslik").textContent="İçerik onayı";}})();
+</script>
+</body></html>
