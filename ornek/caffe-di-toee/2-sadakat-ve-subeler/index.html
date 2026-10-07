@@ -83,8 +83,34 @@ select{width:100%;font:inherit;padding:10px;border:1px solid var(--cizgi);border
 .pk b{display:block;font-size:28px;font-variation-settings:"wdth" 62;color:var(--kahve)}
 .pk span{font-size:13px;color:var(--soluk)}
 @media(max-width:960px){.sahne{grid-template-columns:1fr}.tel{position:static;max-width:410px;margin:0 auto}.pk{grid-template-columns:1fr 1fr}}
+.hb{max-width:1140px;margin:0 auto;padding:34px 20px 6px}
+.hb-ust{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.hb-ust small{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+.hb h2{font-family:"Playfair Display",serif;font-size:clamp(28px,4vw,42px);color:var(--espresso);line-height:1.1;margin-top:4px}
+.hb-izgara{display:grid;grid-template-columns:330px 1fr;border:1px solid var(--cizgi);background:#fff;height:520px}
+.hb-liste{overflow-y:auto;border-right:1px solid var(--cizgi)}
+.hb-liste .ust2{position:sticky;top:0;background:#fff;padding:12px;border-bottom:1px solid var(--cizgi);z-index:2}
+.hb-liste .ust2 .sehirler{margin-bottom:8px}
+.hb-s{padding:11px 14px;border-bottom:1px solid #f0e8dc;cursor:pointer;transition:background .2s}
+.hb-s:hover,.hb-s.sec{background:#f6efe4}
+.hb-s b{display:block;font-size:15px}.hb-s small{color:var(--soluk);font-size:13px}
+.hb-s .mesafe{float:right;font-size:12px;color:var(--kahve);font-weight:700}
+#buyukHarita{height:100%;z-index:0}
+.hb-alt{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:var(--espresso);color:var(--krem);padding:22px 24px;margin-top:0}
+.hb-alt b{font-family:"Playfair Display",serif;font-size:26px;color:#e5c08a;display:block}
+.hb-alt span{color:#d9c3a5}
+.hb-alt a{background:#e5c08a;color:var(--espresso);padding:13px 18px;font-weight:800;text-decoration:none;white-space:nowrap}
+@media(max-width:820px){.hb-izgara{grid-template-columns:1fr;height:auto}.hb-liste{order:2;max-height:360px;border-right:0;border-top:1px solid var(--cizgi)}#buyukHarita{height:340px}.hb-alt{grid-template-columns:1fr}}
 </style></head><body>
-<div class="demo">Dijitabela önizlemesi · Caffé Di Toeé için dijital sadakat kartı · Telefondaki her şey tıklanır · <a href="../">Tüm tasarımlara dön</a></div>
+<div class="demo">Dijitabela önizlemesi · Caffé Di Toeé için dijital sadakat kartı · Şube haritası hemen aşağıda · Telefondaki her şey tıklanır · <a href="../">Tüm tasarımlara dön</a></div>
+<section class="hb" id="harita-bolum">
+  <div class="hb-ust"><div><small>Şube bulucu · 3 şehir</small><h2>21 şubemiz haritada</h2></div><span style="color:var(--soluk)">Bir şubeye dokunun, haritada açılsın · <a href="#" id="hbYakin" style="color:var(--kahve);font-weight:700">📍 Bana en yakın şube</a></span></div>
+  <div class="hb-izgara">
+    <div class="hb-liste"><div class="ust2"><div class="sehirler" id="hbSehir"></div></div><div id="hbListe"></div></div>
+    <div id="buyukHarita"></div>
+  </div>
+  <div class="hb-alt"><div><b>Şubemiz olun</b><span>Bologna'nın kavurma geleneğini kendi şehrinize taşıyın. 3 şehirde 21 şubeyle büyüyen Caffé Di Toeé ailesine katılın.</span></div><a target="_blank" href="https://caffeditoee.com/pages/franchise">Franchise başvurusu →</a></div>
+</section>
 <div class="sahne">
   <div class="anlat">
     <small>Uygulama indirmeden · Telefona eklenir</small>
@@ -186,5 +212,21 @@ function ciz2(sigdir){const h=new Date(new Date().toLocaleString("en-US",{timeZo
 }
 document.querySelectorAll("#menu button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#menu button").forEach(x=>x.classList.remove("ak"));b.classList.add("ak");document.querySelectorAll(".sekme").forEach(s=>s.classList.toggle("ak",s.id==="s-"+b.dataset.s));if(b.dataset.s==="sube")setTimeout(()=>ciz2(true),60);});
 ciz();qr();subeler();
+</script>
+<script>
+(function(){if(!window.L)return;let S="Ankara",K=null,M=[];const H=L.map("buyukHarita",{scrollWheelZoom:false});
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(H);
+const ik=L.divIcon({className:"",html:'<div style="width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#2a1b14;border:2px solid #e5c08a;display:grid;place-items:center"><span style="transform:rotate(45deg);font-size:14px">☕</span></div>',iconSize:[30,30],iconAnchor:[15,30],popupAnchor:[0,-28]});
+M=SUBE.map(([a,adr,ac,kp,la,lo,u])=>L.marker([la,lo],{icon:ik}).addTo(H).bindPopup('<b>Caffé Di Toeé '+a+'</b><br>'+adr+'<br><a target="_blank" href="'+u+'">Yol tarifi →</a>'));
+const ciz=(sig)=>{document.getElementById("hbSehir").innerHTML=["Ankara","Antalya","Düzce","Tümü"].map(c=>'<button data-c="'+c+'" class="'+(c===S?"ak":"")+'">'+c+' <small>'+(c==="Tümü"?SUBE.length:SUBE.filter(x=>x[7]===c).length)+'</small></button>').join("");
+ document.querySelectorAll("#hbSehir button").forEach(b=>b.onclick=()=>{S=b.dataset.c;ciz(true);});
+ let Ls=SUBE.map((x,i)=>[x,i]).filter(([x])=>S==="Tümü"||x[7]===S);if(K)Ls.sort((p,q)=>km(K[0],K[1],p[0][4],p[0][5])-km(K[0],K[1],q[0][4],q[0][5]));
+ document.getElementById("hbListe").innerHTML=Ls.map(([x,i])=>'<div class="hb-s" data-i="'+i+'">'+(K?'<span class="mesafe">'+(d=>d<10?d.toFixed(1):Math.round(d))(km(K[0],K[1],x[4],x[5]))+' km</span>':"")+'<b>'+x[0]+'</b><small>'+x[1]+'</small></div>').join("");
+ document.querySelectorAll(".hb-s").forEach(d=>d.onclick=()=>{document.querySelectorAll(".hb-s").forEach(e=>e.classList.toggle("sec",e===d));const x=SUBE[d.dataset.i];H.setView([x[4],x[5]],15);M[d.dataset.i].openPopup();if(innerWidth<820)document.getElementById("buyukHarita").scrollIntoView({behavior:"smooth",block:"center"});});
+ if(sig){const P=SUBE.filter(x=>S==="Tümü"||x[7]===S).map(x=>[x[4],x[5]]);P.length===1?H.setView(P[0],14):H.fitBounds(P,{padding:[30,30]});}};
+ciz(true);
+document.getElementById("hbYakin").onclick=e=>{e.preventDefault();const bit=(la,lo)=>{K=[la,lo];S="Tümü";ciz(false);const i=SUBE.map((x,i)=>[km(la,lo,x[4],x[5]),i]).sort((a,b)=>a[0]-b[0])[0][1];H.setView([SUBE[i][4],SUBE[i][5]],13);M[i].openPopup();};
+ navigator.geolocation?navigator.geolocation.getCurrentPosition(p=>bit(p.coords.latitude,p.coords.longitude),()=>bit(39.9208,32.8541),{timeout:6000}):bit(39.9208,32.8541);};
+})();
 </script>
 </body></html>
