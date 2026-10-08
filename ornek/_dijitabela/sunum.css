@@ -1,0 +1,39 @@
+/* Dijitabela müşteri sunum sayfaları (prototip seçimi + teklif) ortak stili — 9 Eki 2026, Alim Bey: "prototipleri ilettiğimiz sayfa Dijitabela konsepti olsun".
+   Marka: açık zemin, mürekkep #16181D, LED sarısı #FFB000, Plus Jakarta Sans + Space Mono. Gradyan/kart süsü yok; fotoğraf önde. */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
+:root{--bg:#fff;--bg2:#F4F3EF;--fg:#16181D;--fg2:#3A404B;--mute:#646A75;--line:#E3E0D8;--led:#FFB000;--led-ink:#8A5A00;--off:#2C3038;--ok:#17a55a;--err:#c7362b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg2);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{display:block;max-width:100%}
+.dj-ust{background:var(--fg);color:#fff}
+.dj-ust .kap{display:flex;align-items:center;gap:14px;height:68px}
+.dj-ust svg{width:38px;height:38px;flex:none}
+.dj-ust b{font-weight:800;font-size:1.2rem;letter-spacing:-.01em}
+.dj-ust span{margin-left:auto;font-family:"Space Mono",monospace;font-size:.78rem;color:var(--led);letter-spacing:.06em}
+.kap{max-width:1100px;margin:0 auto;padding:0 20px}
+.dj-govde{padding:46px 0 60px}
+.dj-etiket{font-family:"Space Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--led-ink);background:#FFF3D6;display:inline-block;padding:4px 10px;margin-bottom:16px}
+h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.08;letter-spacing:-.02em;font-weight:800}
+h2{font-size:1.5rem;letter-spacing:-.01em;margin:44px 0 14px;font-weight:800}
+.dj-giris{color:var(--fg2);margin:16px 0 30px;max-width:740px;font-size:1.08rem}
+.dj-izg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dj-sk{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);transition:transform .2s,border-color .2s}
+.dj-sk:hover{transform:translateY(-3px);border-color:var(--fg)}
+.dj-sk img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.dj-sk .ic{padding:16px 18px}.dj-sk p{color:var(--mute);font-size:.92rem}
+.dj-sk .git{display:inline-block;margin-top:8px;font-weight:800;border-bottom:3px solid var(--led)}
+.dj-ozel{margin-top:30px;background:#fff;border:1px solid var(--line);padding:24px}
+.dj-ozel li{list-style:none;padding:10px 0 10px 28px;border-bottom:1px solid var(--line);position:relative}
+.dj-ozel li:before{content:"";position:absolute;left:4px;top:18px;width:10px;height:10px;border-radius:50%;background:var(--led);box-shadow:0 0 0 4px #FFF3D6}
+.dj-tesp{background:#fff;border:1px solid var(--line);border-left:4px solid var(--err);padding:16px 20px;margin:10px 0}
+.dj-tesp.s{border-left-color:var(--led)}.dj-tesp p{color:var(--mute);font-size:.95rem;margin-top:4px}
+.dj-yap li{list-style:none;padding:10px 0 10px 28px;border-bottom:1px solid var(--line);position:relative}
+.dj-yap li:before{content:"✓";position:absolute;left:4px;color:var(--ok);font-weight:900}
+.dj-fiyat{background:var(--fg);color:#fff;padding:28px;margin-top:22px}
+.dj-fiyat .t{font-size:2.6rem;font-weight:800;letter-spacing:-.02em}.dj-fiyat .t em{font-style:normal;color:var(--led)}
+.dj-fiyat p{color:#c9ccd3}
+.dj-dg{display:inline-flex;align-items:center;gap:8px;margin:24px 12px 0 0;background:#25d366;color:#fff;padding:15px 22px;text-decoration:none;font-weight:800}
+.dj-dg.i{background:var(--fg)}.dj-dg.s{background:var(--led);color:var(--fg)}
+.dj-alt{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;color:var(--mute);font-size:.9rem;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.dj-alt svg{width:26px;height:26px}
+@media(max-width:800px){.dj-izg{grid-template-columns:1fr}.dj-ust span{display:none}}
