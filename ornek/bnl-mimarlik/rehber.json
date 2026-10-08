@@ -11,7 +11,7 @@
   "t_giris": { "metin": "Merhaba, yine ben! Bu sayfada BNL Mimarlık için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum." },
   "t_tespit": { "metin": "İlk tespitimiz: alan adınız kayıtlı ama site açılmıyor, hata sayfası çıkıyor. İkincisi, Google Haritalar'da kaydınız yok; Ankara'da mimar arayan müşteri sizi göremiyor." },
   "t_yapacak": { "metin": "Bizim yapacaklarımız burada: seçtiğiniz tasarımla siteniz, mimarlığa özel araçlar, proje takip paneli, alan adınıza bağlama, Google İşletme Profili ve üç ay destek." },
-  "t_fiyat": { "metin": "Paket fiyatı yedi bin dokuz yüz lira artı KDV, tek seferlik. İçerikleriniz geldikten sonra beş iş gününde yayında. Sorularınız için WhatsApp düğmesi hemen aşağıda.", "dugme": ["3 tasarımı aç", "./"] },
+  "t_fiyat": { "metin": "Paket fiyatı yedi bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. İçerikleriniz geldikten sonra beş iş gününde yayında. Sorularınız için WhatsApp düğmesi hemen aşağıda.", "dugme": ["3 tasarımı aç", "./"] },
   "p_giris": { "metin": "Merhaba! Bu, BNL Mimarlık için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli." },
   "p_portfoy": { "metin": "Burası portföy. Üstteki düğmelerle konut, ofis, iç mimari ya da restorasyon diye süzün; bir görsele dokunun, büyük açılsın." },
   "p_oncesonra": { "metin": "Şimdi ortadaki çizgiyi sağa sola sürükleyin. Solda eski bina, sağda yenilenmiş cephe tasarımı görünüyor." },
