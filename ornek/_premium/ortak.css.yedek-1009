@@ -64,6 +64,3 @@ footer{padding:40px 0 90px;color:var(--soluk);font-size:.88rem;border-top:1px so
 .gor{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.gor.ok{opacity:1;transform:none}
 @media(max-width:960px){.i3,.i4{grid-template-columns:1fr 1fr}.menu{display:none}.ilet{grid-template-columns:1fr}}
 @media(max-width:620px){.i3,.i2,.i4{grid-template-columns:1fr}.galeri{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.galeri img:first-child{grid-column:span 2;grid-row:span 1}.bol{padding:60px 0}.arac{padding:20px}.dil{display:none}}
-
-/* 9 Eki 2026: sayfadaki .hero/.bolum{padding:64px 0 ...} kısaltması .kap yan boşluğunu sıfırlıyordu → telefonda metin ekran kenarına yapışıyordu (151 prototip). */
-.kap{padding-left:20px!important;padding-right:20px!important}
