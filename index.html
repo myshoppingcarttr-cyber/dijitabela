@@ -13,7 +13,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Dijitabela","url":"https://dijitabela.com.tr/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Dijitabela","url":"https://dijitabela.com.tr","logo":"https://dijitabela.com.tr/marka/png/uygulama-simgesi-512.png","image":"https://dijitabela.com.tr/marka/png/paylasim-gorseli-1200x630.png","telephone":"+905019452184","email":"info@dijitabela.com","areaServed":"TR","priceRange":"19.900 TL'den","address":{"@type":"PostalAddress","addressLocality":"Kepez","addressRegion":"Antalya","addressCountry":"TR"},"sameAs":["https://www.facebook.com/dijitabela","https://www.instagram.com/dijitabela/","https://www.youtube.com/@dijitabela","https://x.com/dijitabela","https://www.tiktok.com/@dijitabela","https://www.linkedin.com/company/dijitabela/"],"description":"Yerel işletmeler için web, yazılım ve yapay zekâ"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aylık ücret ödemek zorunda mıyım?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Paketler tek seferliktir ve ücretsiz destek süresi içerir. Asistan, içerik ve yorum toplama gibi aylık hizmetler isteğe bağlıdır."}},{"@type":"Question","name":"Ödemeyi nasıl yapıyorum?","acceptedAnswer":{"@type":"Answer","text":"Teklifi onaylayınca %50'sini başta, kalanını teslimde ödersiniz. Kredi kartıyla taksitli ya da havale ile ödeyebilirsiniz."}},{"@type":"Question","name":"Yapay zekâ müşterime yanlış bir şey söylerse?","acceptedAnswer":{"@type":"Answer","text":"Asistan yalnızca sizin verdiğiniz bilgilerle cevap verir. Emin olmadığı soruyu size aktarır; her konuşmayı panelden görürsünüz."}},{"@type":"Question","name":"Google'da ilk sırayı garanti ediyor musunuz?","acceptedAnswer":{"@type":"Answer","text":"Hiçbir dürüst ajans sıra garantisi veremez; sıralamaya Google karar verir. Öne çıkmanızı sağlayan bütün adımları eksiksiz kurar ve düzenli raporlarız."}},{"@type":"Question","name":"Başka şehirdeyim, nasıl çalışacağız?","acceptedAnswer":{"@type":"Answer","text":"Fotoğraf ve videoları siz gönderirsiniz, kurulumu ve eğitimi biz uzaktan yaparız. Yerinde çekim ya da ziyaret gerekmez."}},{"@type":"Question","name":"Beğenmezsem ne olur?","acceptedAnswer":{"@type":"Answer","text":"Taslaklar ücretsizdir; beğenmezseniz hiçbir şey ödemezsiniz."}}]}</script>
-<script src="assets/piksel.js?v=muzzhxfz" defer></script>
+<script src="assets/piksel.js?v=mv0117fy" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
@@ -196,6 +196,40 @@ a{color:inherit}
 .cerceve.tel .t-modern .ms-hero{grid-template-columns:1fr}
 .cerceve.tel .ms-nav nav{display:none}
 @media (max-width:860px){.onizle-sahne{grid-template-columns:1fr}.ayar{position:static}.ms-hiz{grid-template-columns:1fr}.t-modern .ms-hero{grid-template-columns:1fr}.ms-nav nav{display:none}}
+
+
+/* Önizleyici v2: fotoğraflı, zengin taslaklar */
+.mini-site{min-height:560px}
+.ms-marka{display:flex;align-items:center;gap:10px}
+.ms-logo{width:34px;height:34px;display:grid;place-items:center;background:var(--r);color:#fff;font:800 13px var(--f-govde);border-radius:var(--ms-k,4px);letter-spacing:.02em}
+.ms-hiz i{width:30px;height:30px;border-radius:var(--ms-k,0);background:color-mix(in srgb,var(--r) 14%,#fff);color:var(--r);opacity:1;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px}
+.ms-gal{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;padding:0 20px 18px}
+.ms-gal span{display:block;aspect-ratio:4/3;background-size:260% auto;border-radius:var(--ms-k,0)}
+.ms-yorum{margin:0 20px 18px;padding:14px 16px;background:#F5F6F8;border-left:4px solid var(--r);border-radius:var(--ms-k,0);display:grid;gap:4px;font-size:13.5px}
+.ms-yorum b{color:#B06000;letter-spacing:.1em}.ms-yorum p{margin:0;color:#333}.ms-yorum small{color:#888}
+.ms-ilet{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 20px}
+.ms-etk{font:700 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--r)}
+/* A · Vitrin: tam genişlik fotoğraf */
+.t-vitrin .ms-hero{background-size:cover;background-position:center;color:#fff;min-height:330px;align-content:end;padding:28px 22px}
+.t-vitrin .ms-hero p{color:#e3e5e8}
+.t-vitrin .ms-hero .ms-btn.bos{color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.t-vitrin .ms-puan{color:#e3e5e8}.t-vitrin .ms-puan b{color:#FFC233}
+.t-vitrin .ms-led{background:rgba(0,0,0,.55);padding:5px 8px;width:max-content;max-width:100%}
+.t-vitrin .ms-hiz{padding-top:18px}
+/* B · Modern: yuvarlak fotoğraf bloğu */
+.t-modern .ms-hero{grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch;background:#F4F5F7;padding:26px 20px}
+.t-modern .ms-sol{display:grid;gap:12px;align-content:center}
+.t-modern .ms-foto{min-height:230px;border-radius:18px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.t-modern .ms-foto::after{content:none}
+.t-modern .ms-rozet{position:absolute;left:12px;bottom:12px;background:#fff;color:#1b1d21;font:700 12px var(--f-govde);padding:6px 10px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.t-modern .ms-rozet::before{content:"● ";color:#1B9E4B}
+.t-modern .ms-hiz{padding-top:18px}
+/* C · Klasik: zarif başlık + fotoğraf bandı */
+.t-klasik .ms-bant{height:200px;background-size:cover;background-position:center;margin:0 20px 18px;border-top:3px solid var(--r);border-bottom:3px solid var(--r)}
+.t-klasik .ms-logo{border-radius:50%;background:transparent;color:var(--r);box-shadow:inset 0 0 0 2px var(--r)}
+.cerceve.tel .t-modern .ms-foto{min-height:200px}
+.cerceve.tel .ms-gal{grid-template-columns:1fr 1fr}.cerceve.tel .ms-gal span:first-child{grid-column:1/-1}
+@media (max-width:860px){.ms-gal{grid-template-columns:1fr 1fr}.ms-gal span:first-child{grid-column:1/-1}.t-modern .ms-foto{min-height:200px}}
 
 /* 4b · Asistanı deneyin */
 .wa-sekme{display:flex;gap:0;margin-bottom:12px;border:2px solid var(--gun-yazi);max-width:400px}
@@ -527,7 +561,7 @@ dialog.film button{display:block;margin:0 0 8px auto;background:var(--amber);bor
     <div class="serit" id="serit"></div>
     <div class="yaya" id="yaya" aria-hidden="true"></div>
   </div>
-  <p class="sar carsi-alt">Kaydırdıkça gün ilerler; her dükkânın tabelası kendi çözümünü yakar.</p>
+  <p class="sar carsi-alt">Kaydırdıkça gün ilerler; her dükkânın tabelası kendi çözümünü yakar. Çarşıda 9 dükkân var, biz 400'ü aşkın sektöre hizmet veriyoruz.</p>
   <div class="sar sektor-sec" id="sektor-sec" role="group" aria-label="Sektörünüzü seçin"><b>Sizin dükkânınız hangisi?</b></div>
 </section>
 
@@ -556,7 +590,7 @@ dialog.film button{display:block;margin:0 0 8px auto;background:var(--amber);bor
     <div class="onizle-sahne">
       <form class="ayar" id="ayar" onsubmit="return false">
         <label for="o-ad">İşletme adı<input id="o-ad" maxlength="28" placeholder="Örn. Kemal Usta Oto" autocomplete="organization"></label>
-        <label for="o-sek">Sektör<select id="o-sek"></select></label>
+        <label for="o-sek">Sektörünüz <small class="soluk" id="o-sayi"></small><input id="o-sek" list="sektor-liste" placeholder="Örn. kuyumcu, veteriner, düğün salonu" autocomplete="off" value="Oto servis"></label><datalist id="sektor-liste"></datalist>
         <fieldset><legend>Renk</legend><div class="renkler" id="renkler"></div></fieldset>
         <fieldset><legend>Tarz · 3 taslak</legend><div class="tarzlar" id="tarzlar"><button type="button" data-tarz="vitrin" aria-pressed="true">A · Vitrin</button><button type="button" data-tarz="modern" aria-pressed="false">B · Modern</button><button type="button" data-tarz="klasik" aria-pressed="false">C · Klasik</button></div></fieldset>
         <fieldset><legend>Görünüm</legend><div class="tarzlar" id="cihaz"><button type="button" data-cihaz="masa" aria-pressed="true">Bilgisayar</button><button type="button" data-cihaz="tel" aria-pressed="false">Telefon</button></div></fieldset>
@@ -1323,16 +1357,16 @@ function bolumeGir(id) {
   anlat(id);
 }
 // Sektör seçimi: duvar yazısı, teklif, form ve uygulama fikri kişiselleşir
-function sektorSec(kod) {
+function sektorSec(kod, sessiz) {
   const s = SEKTORLER.find((x) => x[0] === kod); if (!s) return;
   window.__sektor = s;
   document.querySelectorAll("[data-sektor]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.sektor === kod));
   Object.keys(fiyat).forEach((id) => ($("#k-" + id).checked = s[3].includes(id))); teklif();
   $("#f-sek").value = s[4]; $("#fikir-metin").value = s[5]; appCiz();
-  if (typeof siteCiz === "function") { $("#o-sek").value = kod; siteCiz(); demoKur(kod); }
+  if (!sessiz && typeof siteCiz === "function") { $("#o-sek").value = HIZLI_AD[kod] || kod; siteCiz(); demoKur(katBul(HIZLI_AD[kod]).map ? katBul(HIZLI_AD[kod])[0] : kod, HIZLI_AD[kod]); }
   evre = -1; evreSec(0);
   $("#sektor-r").hidden = true;
-  rehberDe(s[6], "goz", true);
+  if (!sessiz) rehberDe(s[6], "goz", true);
   try { localStorage.setItem("dt-sektor", kod); } catch (e) {}
 }
 SEKTORLER.forEach(([kod, ad]) => ["#sektor-sec", "#sektor-r"].forEach((k) => {
@@ -1397,59 +1431,142 @@ else if ("IntersectionObserver" in window) { const io = new IntersectionObserver
 if (GS) gsap.to("#rehber-tabela", { x: 26, duration: 4.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
 addEventListener("resize", () => { const a = aktif; aktif = ""; if (a) { const s = rehber.classList.contains("sag"); yanaGit(s); aktif = a; } });
 
-/* ---------- 3b · Canlı site önizleyici ---------- */
+/* ---------- Sektör veritabanı: 22 grup, her grupta sektör adları; önizleme + asistan demosu buradan ---------- */
+// [kod, grup adı, fotoğraf, ana (8 hızlı seçimden hangisi: teklif ve LED için), başlık, açıklama, 3 hizmet, ana düğme, demo [3 hizmet [desen, ad, örnek fiyat], saatler, adres, kampanya, 4 öneri], sektörler]
+const KATEGORI = [
+  ["oto", "Otomotiv servis", "oto", "oto", "Aracınız güvenilir ellerde.", "Periyodik bakım, arıza tespiti ve onarım. Randevunuzu WhatsApp'tan alın, aracınızın durumunu telefondan izleyin.", [["Periyodik bakım", "Üretici takvimine uygun"], ["Arıza tespiti", "Bilgisayarlı test"], ["Aynı gün teslim", "Küçük işlerde"]], "WhatsApp'tan randevu",
+    [[[/yağ|bakım/i, "Periyodik bakım", "4.500 TL'den"], [/fren|balata/i, "Fren balatası", "2.400 TL'den"], [/lastik|rot|balans/i, "Rot balans", "900 TL'den"]], "Pazartesi–Cumartesi 08:30–19:00", "Kepez Sanayi Sitesi", "Bu ay periyodik bakımda işçilik %10 indirimli.", ["Bakım ne kadar?", "Yarın 10'da yer var mı?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Oto servis, Oto tamirci, Oto elektrik, Oto kaporta boya, Lastikçi, Oto yıkama, Oto ekspertiz, Oto cam, Oto döşeme, Egzoz servisi, Akü servisi, Motosiklet servisi, Oto klima, Rot balans, Oto yedek parça, Çekici hizmeti, Oto kuaför, Seramik kaplama, Araç kaplama, Motor rektifiye, Şanzıman servisi, Oto anahtar, LPG servisi, Oto aksesuar"],
+  ["galeri", "Araç satış ve kiralama", "galeri", "oto", "Aradığınız araç burada.", "Güncel araç listesi, 360° fotoğraflar ve kredi hesaplama. Beğendiğiniz araç için test sürüşü randevusunu hemen alın.", [["Araç listesi", "Fotoğraflı ve güncel"], ["Kredi hesaplama", "Taksiti anında görün"], ["Test sürüşü", "Online randevu"]], "Araçları incele",
+    [[[/kira|günlük/i, "Günlük kiralama", "1.400 TL'den"], [/kredi|taksit/i, "Kredi ön onayı", "ücretsiz"], [/ekspertiz/i, "Ekspertiz raporu", "araçlarda hazır"]], "Her gün 09:00–20:00", "Kepez, Antalya", "Bu hafta peşin alımda noter masrafı bizden.", ["Günlük kiralama ne kadar?", "Cumartesi 11'de test sürüşü olur mu?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Oto galeri, İkinci el araç, Rent a car, Araç kiralama, Motosiklet bayi, Karavan kiralama, Tekne kiralama, Bisiklet satışı, Araç transfer, VIP transfer, Taksi durağı, Sürücü kursu, Oto bayi"],
+  ["klinik", "Sağlık", "klinik", "klinik", "Sağlığınız güvende.", "Muayene, tedavi planı ve randevu tek ekranda. Gece yazdığınız soruya asistanımız cevap verir, randevunuzu hatırlatır.", [["Muayene", "Ayrıntılı değerlendirme"], ["Tedavi planı", "Uzman kadro"], ["Online randevu", "Her saat"]], "Randevu al",
+    [[[/muayene|kontrol/i, "Muayene", "1.000 TL"], [/temizlik|seans/i, "Seans", "1.500 TL'den"], [/paket|tedavi/i, "Tedavi paketi", "muayenede belirlenir"]], "Pazartesi–Cumartesi 09:00–19:00", "Muratpaşa, Antalya", "Ekim boyunca ilk muayenede ön değerlendirme ücretsiz.", ["Muayene ücreti ne kadar?", "Perşembe 15:00 uygun mu?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Diş kliniği, Ortodonti, Göz kliniği, Estetik cerrahi, Saç ekimi, Fizik tedavi, Fizyoterapist, Diyetisyen, Psikolog, Psikiyatrist, Dermatoloji, Kadın doğum, Çocuk doktoru, Muayenehane, Tıp merkezi, Laboratuvar, Görüntüleme merkezi, Eczane, Optik, Gözlükçü, İşitme cihazı, Evde bakım, Hemşirelik hizmeti, Sağlık turizmi, Konuşma terapisti, Ergoterapi, Akupunktur, Kulak burun boğaz, Ortopedi, Kardiyoloji, Üroloji, Diyaliz merkezi"],
+  ["veteriner", "Evcil hayvan", "veteriner", "klinik", "Can dostunuz emin ellerde.", "Muayene, aşı takvimi ve bakım. Aşı zamanı gelince hatırlatma kendiliğinden gelir, randevunuzu WhatsApp'tan alırsınız.", [["Muayene ve aşı", "Aşı takvimi hatırlatması"], ["Bakım ve tıraş", "Sakin ortam"], ["Acil destek", "Mesajla ön bilgi"]], "Randevu al",
+    [[[/aşı/i, "Karma aşı", "900 TL'den"], [/muayene/i, "Muayene", "700 TL"], [/tıraş|bakım|banyo/i, "Bakım ve tıraş", "1.100 TL'den"]], "Pazartesi–Cumartesi 09:00–20:00", "Konyaaltı, Antalya", "Kısırlaştırma operasyonlarında ekim indirimi var.", ["Aşı ne kadar?", "Yarın akşam 6'da yer var mı?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Veteriner, Veteriner kliniği, Pet kuaför, Pet shop, Köpek eğitimi, Hayvan oteli, Akvaryumcu, Kedi oteli, Evcil hayvan maması"],
+  ["guzellik", "Güzellik ve bakım", "guzellik", "berber", "Kendinize zaman ayırın.", "Boş saati kendiniz seçin, küçük kaporayla yerinizi ayırın. Seans paketleriniz ve kalan seansınız telefonunuzda.", [["Bakım", "Uzman ekip"], ["Seans paketleri", "Kalan seans takibi"], ["Online randevu", "Bir gün önce hatırlatma"]], "Randevu al",
+    [[[/lazer|epilasyon/i, "Lazer epilasyon", "seans 900 TL'den"], [/cilt|bakım/i, "Cilt bakımı", "1.200 TL"], [/saç|fön|boya/i, "Saç bakımı", "600 TL'den"]], "Salı–Pazar 10:00–21:00", "Lara, Antalya", "Bu ay 6 seanslık paketlerde 1 seans hediye.", ["Lazer kaç seans?", "Cuma 14:00 boş mu?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Güzellik merkezi, Kuaför, Kadın kuaförü, Nail art, Manikür pedikür, Kalıcı makyaj, Lazer epilasyon, Cilt bakımı, Masaj salonu, Spa, Hamam, Kirpik uzatma, Kaş tasarımı, Solaryum, Gelin başı, Makyöz, Dövme stüdyosu, Piercing, Saç bakım merkezi, Zayıflama merkezi"],
+  ["berber", "Berber", "berber", "berber", "Sıra beklemeden, saatinde.", "Boş saati kendiniz seçin, yerinizi ayırın. Bir gün önce hatırlatma gelir, koltuk boş kalmaz.", [["Saç kesimi", "Usta ellerde"], ["Sakal tıraşı", "Sıcak havluyla"], ["Aylık paket", "Abonelik"]], "Randevu al",
+    [[[/saç|kesim/i, "Saç kesimi", "400 TL"], [/sakal/i, "Sakal tıraşı", "250 TL"], [/paket|abonelik/i, "Aylık paket", "1.200 TL"]], "Salı–Pazar 09:00–21:00", "Muratpaşa, Antalya", "İlk randevunuzda sakal tıraşı hediye.", ["Yarın akşam 7'de boş var mı?", "Saç kesimi ne kadar?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Berber, Erkek kuaförü, Sakal tasarımı, Çocuk berberi"],
+  ["kafe", "Kafe ve tatlı", "kafe", "kafe", "Kahveniz hazır, masanız ayrıldı.", "Taze kavrulmuş kahve, ev yapımı tatlılar. Masadaki karekodu okutun, siparişiniz mutfağa düşsün.", [["Menü", "Fotoğraflı, alerjen bilgili"], ["Masadan sipariş", "Garson beklemeden"], ["Rezervasyon", "Grup ve doğum günü"]], "Menüyü gör",
+    [[[/kahve|latte|espresso/i, "Kahveler", "90 TL'den"], [/tatlı|pasta|cheesecake|sebastian/i, "Tatlılar", "160 TL'den"], [/kahvaltı/i, "Serpme kahvaltı", "kişi başı 650 TL"]], "Her gün 08:00–23:00", "Lara, sahil yolu", "Hafta içi 14–17 arası kahve yanında tatlı %15 indirimli.", ["Cumartesi 4 kişilik masa var mı?", "Kahvaltı ne kadar?", "Saat kaça kadar açıksınız?", "Yetkiliyle görüşmek istiyorum"]],
+    "Kafe, Kahveci, Pastane, Çay bahçesi, Nargile kafe, Bar, Kokteyl bar, Dondurmacı, Waffle, Kumpir, Tatlıcı, Baklavacı, Bubble tea, Kitap kafe, Oyun kafe"],
+  ["restoran", "Restoran", "restoran", "kafe", "Masanız hazır, sofranız kurulu.", "Fotoğraflı menü, WhatsApp'tan sipariş ve masa rezervasyonu. Sipariş mutfak ekranına düşer, hazır olunca müşteriye haber gider.", [["Menü", "Günün yemekleri"], ["Paket sipariş", "WhatsApp'tan"], ["Rezervasyon", "Özel günler için"]], "Sipariş ver",
+    [[[/menü|yemek|günün/i, "Günün menüsü", "320 TL'den"], [/paket|sipariş|eve/i, "Paket servis", "500 TL üzeri ücretsiz"], [/grup|organizasyon|davet/i, "Grup menüsü", "kişi başı 900 TL'den"]], "Her gün 11:00–23:30", "Muratpaşa, Antalya", "Hafta içi öğle menüsünde tatlı ikramımız.", ["Bu akşam 8'de 6 kişilik yer var mı?", "Paket servis yapıyor musunuz?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Restoran, Lokanta, Kebapçı, Pideci, Pizzacı, Burger, Balık restoranı, Meyhane, Çiğ köfteci, Dönerci, Kahvaltı salonu, Ev yemekleri, Catering, Mantı evi, Köfteci, Sushi, Vegan restoran, Paket servis, Kokoreççi, Lahmacun salonu, Steakhouse, Ocakbaşı"],
+  ["otel", "Konaklama ve turizm", "otel", "klinik", "Deniz, güneş ve rahat bir oda.", "Müsaitliği anında görün, 4 dilde cevap alın. Rezervasyon ve kapora tek bağlantıda; gece gelen soruya asistan cevap verir.", [["Odalar", "Fotoğraflı, müsaitlikli"], ["Rezervasyon", "Kaporayla kesin"], ["4 dilde asistan", "TR, EN, DE, RU"]], "Müsaitlik sor",
+    [[[/oda|gece|konaklama/i, "Çift kişilik oda", "gecelik 2.400 TL'den"], [/kahvaltı/i, "Kahvaltı", "fiyata dahil"], [/transfer|havalimanı/i, "Havalimanı transferi", "1.200 TL"]], "Resepsiyon 7/24", "Kaleiçi, Antalya", "3 gece ve üzeri konaklamada %10 indirim.", ["Hafta sonu çift kişilik oda var mı?", "Kahvaltı dahil mi?", "Transfer var mı?", "Yetkiliyle görüşmek istiyorum"]],
+    "Otel, Butik otel, Pansiyon, Apart otel, Villa kiralama, Bungalov, Kamp alanı, Hostel, Tatil köyü, Tur şirketi, Seyahat acentesi, Turist rehberi, Yat turu, Dalış okulu, Yamaç paraşütü, Rafting, Günübirlik tur"],
+  ["emlak", "Emlak", "emlak", "emlak", "Aradığınız ev bu portföyde.", "Satılık ve kiralık ilanlar tek yerde, bir kez girilir her yerde yayınlanır. Beğendiğiniz daire için gösterim randevusunu hemen alın.", [["Satılık", "Güncel portföy"], ["Kiralık", "Doğrulanmış ilanlar"], ["Değerleme", "Ücretsiz ön değerleme"]], "Portföyü incele",
+    [[[/3\+1|üç oda|satılık/i, "3+1 daireler", "4.150.000 TL'den"], [/kira/i, "Kiralık daireler", "aylık 22.000 TL'den"], [/değer|ekspertiz/i, "Ön değerleme", "ücretsiz"]], "Pazartesi–Cumartesi 09:00–19:00", "Konyaaltı, Antalya", "Bu ay portföyümüze yeni daireler eklendi.", ["3+1 fiyatları ne kadar?", "Cumartesi 11'de gösterim olur mu?", "Ofisiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Emlak ofisi, Gayrimenkul danışmanı, Site yönetimi, Apartman yönetimi, Değerleme uzmanı, Konut projesi, Ofis kiralama, Depo kiralama, Arsa satışı"],
+  ["insaat", "İnşaat ve tadilat", "insaat", "usta", "Ölçüyü alalım, teklif hemen gelsin.", "Metrekareyi girin, teklifiniz fiyat listemizden anında WhatsApp'a gelsin. Keşif randevusu ve iş takibi telefonunuzda.", [["Tadilat", "Anahtar teslim"], ["Anında teklif", "Ölçüde hazır"], ["İş takibi", "Fotoğraflı ilerleme"]], "Teklif al",
+    [[[/boya|badana/i, "Boya", "m² 180 TL'den"], [/fayans|seramik/i, "Fayans", "m² 450 TL'den"], [/mutfak|banyo|tadilat/i, "Banyo tadilatı", "keşifte belirlenir"]], "Pazartesi–Cumartesi 08:00–18:00", "Kepez ve çevresi", "Bu ay boya işlerinde malzeme taşıma ücretsiz.", ["3+1 ev boyası ne kadar tutar?", "Yarın keşfe gelebilir misiniz?", "Hangi bölgelere geliyorsunuz?", "Yetkiliyle görüşmek istiyorum"]],
+    "İnşaat firması, Müteahhit, Tadilat, Boya badana, Alçı ustası, Fayans ustası, Parke ustası, Mantolama, Çatı ustası, Su yalıtımı, İç mimar, Mimarlık ofisi, Peyzaj, Havuz yapımı, Prefabrik, Çelik konstrüksiyon, Hazır beton, Hafriyat, Yapı denetim, Mühendislik bürosu, Mutfak dolabı, Banyo tadilatı"],
+  ["usta", "Usta ve teknik servis", "usta", "usta", "Arızanızı yazın, usta yolda.", "Arıza kaydını formdan bırakın, rota sırasına girsin. \"Usta yolda\" mesajı kendiliğinden gider, iş bitince garanti belgesi telefonunuza gelir.", [["Arıza kaydı", "Fotoğraflı bildirim"], ["Aynı gün servis", "Bölgeye göre"], ["Garanti takibi", "Belge telefonda"]], "Arıza bildir",
+    [[[/bakım|kombi|klima/i, "Yıllık bakım", "1.400 TL'den"], [/arıza|tamir/i, "Arıza tespiti", "500 TL"], [/montaj|kurulum/i, "Montaj", "keşifte belirlenir"]], "Her gün 08:00–20:00", "Antalya merkez ilçeler", "Kış öncesi bakımda filtre değişimi ücretsiz.", ["Kombi bakımı ne kadar?", "Bugün öğleden sonra gelebilir misiniz?", "Hangi bölgelere geliyorsunuz?", "Yetkiliyle görüşmek istiyorum"]],
+    "Tesisatçı, Elektrikçi, Kombi servisi, Klima servisi, Beyaz eşya servisi, Çilingir, Marangoz, Camcı, PVC pencere, Alüminyum doğrama, Demirci, Kaynakçı, Asansör servisi, Güvenlik kamerası, Uydu anten, Jeneratör, Güneş enerjisi, Doğalgaz tesisatı, Su arıtma, Böcek ilaçlama, Bilgisayar servisi, Telefon tamiri, Saat tamiri, Ayakkabı tamiri, Terzi, Kuru temizleme, Halı yıkama, Mobilya tamiri, Perde montajı"],
+  ["magaza", "Mağaza ve perakende", "magaza", "eticaret", "Vitrininiz her an açık.", "Ürünleriniz fotoğraflı katalogda, stok ve fiyat güncel. Müşteri WhatsApp'tan sorar, siparişini ayırtır ya da kapıya ister.", [["Katalog", "Fotoğraflı, güncel stok"], ["WhatsApp sipariş", "Ayırt ya da gönder"], ["Kampanyalar", "Kayıtlı müşteriye"]], "Kataloğu gör",
+    [[[/yeni|sezon|ürün/i, "Yeni sezon", "haftalık güncellenir"], [/kargo|gönder|teslim/i, "Teslimat", "aynı gün şehir içi"], [/değişim|iade/i, "Değişim", "14 gün içinde"]], "Pazartesi–Cumartesi 09:30–21:00", "Muratpaşa, Antalya", "Bu hafta ikinci üründe %20 indirim.", ["Bu ürün stokta var mı?", "Cumartesi gelip bakabilir miyim?", "Mağazanız nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Butik, Giyim mağazası, Ayakkabıcı, Çanta mağazası, Kuyumcu, Saatçi, Çiçekçi, Hediyelik eşya, Kırtasiye, Kitapçı, Oyuncakçı, Spor mağazası, Elektronik mağazası, Telefoncu, Beyaz eşya bayi, Mobilya mağazası, Ev tekstili, Perdeci, Halı mağazası, Züccaciye, Hırdavat, Nalbur, Boya bayi, Market, Bakkal, Kasap, Manav, Şarküteri, Kuruyemişçi, Baharatçı, Aktar, Tekel bayi, Zeytinyağı satışı, Bal satışı, Antikacı, Müzik aleti, Bisikletçi, Av malzemeleri, Kamp malzemeleri, Gelinlik, Abiye, Damatlık, Kozmetik mağazası, Parfümeri, Tesettür giyim, Çocuk giyim, İç giyim, Bebek mağazası, Gümüşçü"],
+  ["eticaret", "E-ticaret", "eticaret", "eticaret", "Siparişiniz yarın kapınızda.", "Özenle seçilmiş ürünler, hızlı kargo, kolay iade. \"Kargom nerede?\" sorusuna takip bağlantısı kendiliğinden gider.", [["Yeni ürünler", "Her hafta"], ["Hızlı kargo", "Aynı gün kargoda"], ["Kolay iade", "14 gün içinde"]], "Alışverişe başla",
+    [[[/kargo|teslim|nerede/i, "Kargo", "500 TL üzeri ücretsiz"], [/iade|değişim/i, "İade", "14 gün içinde ücretsiz"], [/beden|ölçü/i, "Beden değişimi", "ücretsiz"]], "Her gün 09:00–22:00 (asistan 7/24)", "Online mağaza · depo Antalya", "Bu hafta ikinci üründe %20 indirim.", ["Kargom nerede?", "İade nasıl yapılıyor?", "Kargo ücretli mi?", "Yetkiliyle görüşmek istiyorum"]],
+    "E-ticaret, Online butik, Instagram mağazası, Pazaryeri satıcısı, El yapımı ürün, Takı tasarımı, Doğal kozmetik, Organik ürün, Kahve satışı, Yöresel ürün, Dropshipping, Dijital ürün"],
+  ["ofis", "Profesyonel hizmet", "ofis", "mali", "İşiniz düzenli, içiniz rahat.", "Randevu, belge toplama ve hatırlatmalar tek yerde. Belgelerinizi WhatsApp'tan gönderin, doğru klasöre düşsün; süreç adım adım telefonunuzda.", [["Danışmanlık", "Randevuyla"], ["Belge takibi", "Eksik belgeye hatırlatma"], ["Süreç takibi", "Adım adım"]], "Görüşme ayarla",
+    [[[/şirket|kuruluş/i, "Şirket kuruluşu", "8.000 TL'den"], [/muhasebe|defter|beyan/i, "Aylık hizmet", "3.500 TL'den"], [/danışman|görüşme/i, "İlk görüşme", "ücretsiz"]], "Pazartesi–Cuma 09:00–18:00", "Muratpaşa, Antalya", "Yeni müşterilerimize ilk ay danışmanlık ücretsiz.", ["Şirket kuruluşu ne kadar?", "Çarşamba 14:00 görüşebilir miyiz?", "Ofisiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Mali müşavir, Muhasebe bürosu, Avukat, Hukuk bürosu, Noter, Arabulucu, Sigorta acentesi, Danışmanlık, İnsan kaynakları, Tercüme bürosu, Patent ve marka, Gümrük müşaviri, İhracat danışmanı, Yatırım danışmanı, Reklam ajansı, Matbaa, Fotoğrafçı, Video prodüksiyon, Grafik tasarım, Yazılım firması, Bilişim, Güvenlik şirketi, Kargo şubesi, Emlak hukuku, Vize danışmanlığı"],
+  ["egitim", "Eğitim", "egitim", "berber", "Doğru yerde, doğru eğitim.", "Ders programı, kayıt ve ödemeler veli ile öğrencinin telefonunda. Deneme dersi randevusunu hemen alın.", [["Kurslar", "Seviyeye göre gruplar"], ["Ders programı", "Haftalık takvim"], ["Deneme dersi", "Ücretsiz"]], "Deneme dersi al",
+    [[[/kurs|ders|kayıt/i, "Aylık kurs", "3.200 TL'den"], [/özel|birebir/i, "Birebir ders", "saati 900 TL"], [/deneme/i, "Deneme dersi", "ücretsiz"]], "Pazartesi–Cumartesi 09:00–21:00", "Muratpaşa, Antalya", "Kardeş kayıtlarında %15 indirim.", ["Kurs ücreti ne kadar?", "Cumartesi 11'de deneme dersi olur mu?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Dershane, Etüt merkezi, Özel ders, Dil kursu, Müzik kursu, Dans okulu, Resim kursu, Kodlama kursu, Anaokulu, Kreş, Özel okul, Yüzme kursu, Satranç kulübü, Mesleki kurs, Rehberlik merkezi, Online eğitim, Yoga eğitimi, Matematik kursu, Robotik kodlama"],
+  ["spor", "Spor ve sağlıklı yaşam", "spor", "berber", "Hedefinize bir antrenman yakınsınız.", "Üyelik, ders programı ve kişisel antrenör randevusu telefonunuzda. Üyeliğin bitmesine yakın hatırlatma gelir.", [["Üyelik", "Aylık ve yıllık"], ["Grup dersleri", "Haftalık program"], ["Kişisel antrenör", "Randevuyla"]], "Deneme antrenmanı",
+    [[[/üyelik|aylık/i, "Aylık üyelik", "1.900 TL"], [/pilates|yoga|ders/i, "Grup dersi", "8 ders 2.800 TL"], [/antrenör|pt|özel/i, "Kişisel antrenör", "seans 1.000 TL"]], "Her gün 07:00–23:00", "Konyaaltı, Antalya", "Bu ay yıllık üyelikte 2 ay hediye.", ["Aylık üyelik ne kadar?", "Yarın 7'de pilates dersi var mı?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Spor salonu, Fitness, Pilates stüdyosu, Yoga stüdyosu, Crossfit, Kişisel antrenör, Dövüş sanatları, Boks salonu, Tenis kulübü, Halı saha, Yüzme havuzu, Binicilik, Golf, Dans stüdyosu, Basketbol okulu, Futbol okulu"],
+  ["nakliyat", "Nakliyat ve lojistik", "nakliyat", "usta", "Taşınma derdi bizde.", "Oda sayısını ve katı girin, fiyat aralığı anında çıksın. Fotoğraflı ön keşif, taşınma günü takvimden seçilir.", [["Fiyat hesaplama", "Anında aralık"], ["Ön keşif", "Fotoğrafla"], ["Sigortalı taşıma", "Paketlemeyle"]], "Fiyat hesapla",
+    [[[/ev|daire|taşın/i, "Evden eve (2+1)", "14.000 TL'den"], [/parça|eşya/i, "Parça eşya", "2.500 TL'den"], [/depo/i, "Depolama", "aylık 3.000 TL'den"]], "Her gün 07:00–21:00", "Antalya ve şehirlerarası", "Hafta içi taşınmalarda paketleme malzemesi ücretsiz.", ["2+1 ev taşıma ne kadar?", "Cumartesi sabah taşınabilir miyiz?", "Şehirlerarası yapıyor musunuz?", "Yetkiliyle görüşmek istiyorum"]],
+    "Nakliyat, Evden eve nakliyat, Ofis taşıma, Parça eşya taşıma, Depolama, Kurye, Lojistik, Yük taşıma, Asansörlü taşıma, Vinç kiralama, Forklift kiralama, Soğuk zincir"],
+  ["temizlik", "Temizlik ve bakım hizmeti", "temizlik", "usta", "Eviniz pırıl pırıl, siz rahat.", "Hizmeti seçin, saati belirleyin, ekip zamanında kapınızda. Periyodik temizlikte hatırlatma kendiliğinden gelir.", [["Ev temizliği", "Güvenilir ekip"], ["Koltuk ve halı", "Yerinde yıkama"], ["Periyodik plan", "Haftalık ya da aylık"]], "Randevu al",
+    [[[/ev|daire/i, "Ev temizliği (3+1)", "2.800 TL'den"], [/koltuk|kanepe/i, "Koltuk yıkama", "1.500 TL'den"], [/halı/i, "Halı yıkama", "m² 60 TL"]], "Her gün 08:00–19:00", "Antalya merkez ilçeler", "İlk temizlikte koltuk lekesi çıkarma hediye.", ["3+1 ev temizliği ne kadar?", "Perşembe sabah 9'da gelebilir misiniz?", "Hangi bölgelere geliyorsunuz?", "Yetkiliyle görüşmek istiyorum"]],
+    "Temizlik şirketi, Ev temizliği, Ofis temizliği, Koltuk yıkama, Cam silme, İnşaat sonrası temizlik, Dezenfeksiyon, Bahçe bakımı, Havuz bakımı, Çamaşırhane, Ütü hizmeti, Yat temizliği"],
+  ["gida", "Gıda ve tarım", "gida", "kafe", "Taze, yerel, kapınızda.", "Günün ürünleri fotoğraflı listede, sipariş WhatsApp'tan gelir. Toptan müşteriye fiyat listesi ve tekrar sipariş tek dokunuşla.", [["Günün ürünleri", "Taze ve yerel"], ["Sipariş", "WhatsApp'tan"], ["Toptan", "Fiyat listesi"]], "Sipariş ver",
+    [[[/ekmek|simit|unlu/i, "Unlu mamuller", "günlük taze"], [/toptan|kilo|kasa/i, "Toptan satış", "fiyat listesiyle"], [/teslim|gönder|kargo/i, "Teslimat", "şehir içi aynı gün"]], "Her gün 06:30–21:00", "Kepez, Antalya", "Hafta sonu siparişlerinde teslimat ücretsiz.", ["Toptan fiyatınız var mı?", "Yarın sabah 8'de teslim olur mu?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
+    "Fırın, Simitçi, Unlu mamuller, Toptan gıda, Su bayi, Tüp bayi, Süt ürünleri, Peynirci, Et ürünleri, Tavukçu, Balıkçı, Yumurta satışı, Organik pazar, Çiftlik, Sera, Fidancı, Tarım ilaçları, Yem bayi, Arıcı, Zeytin işleme, Şarap evi, Kurutulmuş meyve, Lokum ve şekerleme"],
+  ["etkinlik", "Etkinlik ve eğlence", "etkinlik", "kafe", "Özel gününüz kusursuz geçsin.", "Müsait tarihleri görün, paketleri karşılaştırın, kaporayla tarihinizi ayırın. Tüm hazırlık adımları telefonunuzda.", [["Müsait tarihler", "Takvimden seçin"], ["Paketler", "Fiyatı baştan belli"], ["Kaporayla kesin", "Online"]], "Tarih sor",
+    [[[/düğün|nişan|kına/i, "Düğün paketi", "120 kişi 180.000 TL'den"], [/doğum günü|parti/i, "Doğum günü", "450.000? "], [/kiralama|ses|ışık|dj/i, "Ses ve ışık", "8.000 TL'den"]], "Her gün 10:00–20:00 (randevuyla)", "Döşemealtı, Antalya", "Hafta içi düğünlerde %15 indirim.", ["Mayıs'ta cumartesi boş var mı?", "Düğün paketi ne kadar?", "Salonu gelip görebilir miyiz?", "Yetkiliyle görüşmek istiyorum"]],
+    "Düğün salonu, Kır düğünü, Organizasyon firması, Doğum günü organizasyonu, Nişan organizasyonu, DJ, Orkestra, Ses ışık sistemi, Çadır kiralama, Masa sandalye kiralama, Balon süsleme, Davetiye, Gelin arabası, Fotoğraf stüdyosu, Toplantı salonu, Konferans salonu, Kaçış oyunu, Oyun salonu, Bowling, Sinema, Lunapark, Çocuk oyun alanı"],
+  ["uretim", "Üretim ve atölye", "uretim", "usta", "Ölçünüzü gönderin, fiyatınız hazır.", "Teknik çizim ya da ölçü yükleyin, adet ve malzemeye göre fiyat anında çıksın. Sipariş durumu ve sevkiyat müşterinin panelinde.", [["Anında fiyat", "Ölçü ve adete göre"], ["Numune", "Seri üretim öncesi"], ["Sipariş takibi", "Sevkiyata kadar"]], "Fiyat al",
+    [[[/baskı|3d|stl/i, "3D baskı", "gram başına 6 TL'den"], [/kesim|lazer|cnc/i, "Lazer kesim", "dakika 25 TL'den"], [/numune|örnek/i, "Numune", "seri siparişte ücretsiz"]], "Pazartesi–Cumartesi 08:00–18:00", "Antalya OSB", "İlk siparişte numune ücretsiz.", ["100 adet fiyatı ne olur?", "Perşembe atölyeye gelebilir miyim?", "Teslim süresi ne kadar?", "Yetkiliyle görüşmek istiyorum"]],
+    "Atölye, Üretim tesisi, Tekstil atölyesi, Konfeksiyon, Mobilya üretimi, Metal işleme, CNC işleme, 3D baskı, Plastik enjeksiyon, Ambalaj, Gıda üretimi, Kozmetik üretimi, Kalıpçı, Lazer kesim, Tabela üretimi, Reklam tabelası, Promosyon ürünleri, Cam işleme, Mermer işleme, Seramik atölyesi, Deri atölyesi"]
+];
+// Etkinlik doğum günü fiyatı: yer tutucu düzeltmesi
+KATEGORI.find((k) => k[0] === "etkinlik")[8][0][1][2] = "kişi başı 650 TL'den";
+const GENEL = ["genel", "Diğer işletmeler", "magaza", "", "İşiniz büyüsün, angarya bitsin.", "Müşteriniz sizi Google'da bulsun, gece gelen mesaja asistan cevap versin, randevu ve takip kendiliğinden işlesin.", [["Hizmetler", "Fotoğraflı ve güncel"], ["WhatsApp asistanı", "Gece de cevap"], ["Müşteri takibi", "Kimse unutulmaz"]], "Bize yazın",
+  [[[/fiyat|ücret|ne kadar/i, "Hizmet bedeli", "işe göre belirlenir"], [/randevu|görüşme/i, "İlk görüşme", "ücretsiz"], [/teslim|süre/i, "Teslim süresi", "işe göre"]], "Pazartesi–Cumartesi 09:00–19:00", "Antalya", "Yeni müşterilerimize ilk ay ücretsiz destek.", ["Fiyatlarınız nasıl?", "Yarın 11'de görüşebilir miyiz?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]], ""];
+const SEKTOR_AD = []; const SEKTOR_KAT = {};
+const trk = (s) => s.toLocaleLowerCase("tr-TR").trim();
+KATEGORI.forEach((k) => k[9].split(",").map((s) => s.trim()).filter(Boolean).forEach((s) => { if (!SEKTOR_KAT[trk(s)]) { SEKTOR_KAT[trk(s)] = k; SEKTOR_AD.push(s); } }));
+const SEKTOR_SAYI = SEKTOR_AD.length;
+// Sık aranan sektörlerin kendi fotoğrafı (yoksa grubun fotoğrafı)
+const FOTO = [[/kuyumcu|gümüş|saatçi|takı/, "kuyumcu"], [/çiçek/, "cicekci"], [/market|bakkal|manav|şarküteri|kasap|kuruyemiş|baharat|aktar/, "market"], [/eczane/, "eczane"], [/avukat|hukuk|noter|arabulucu|patent/, "hukuk"], [/fotoğraf|video prodüksiyon/, "fotograf"], [/pastane|tatlıcı|baklava|lokum|şekerleme/, "pastane"], [/mobilya|ev tekstili|perde|halı mağazası/, "mobilya"], [/optik|gözlük/, "optik"], [/yıkama|kuaför \(oto\)|seramik kaplama|araç kaplama|oto kuaför/, "otoyikama"]];
+const fotoBul = (ad, k) => { const t = trk(ad || ""); const x = FOTO.find(([re]) => re.test(t)); return x ? x[1] : k[2]; };
+const tamAd = (ad) => { const t = trk(ad || ""); return SEKTOR_AD.find((s) => trk(s) === t) || SEKTOR_AD.find((s) => trk(s).startsWith(t)) || SEKTOR_AD.find((s) => trk(s).includes(t)) || (ad || "").trim(); };
+function katBul(ad) {
+  const t = trk(ad || ""); if (!t) return KATEGORI[0];
+  if (SEKTOR_KAT[t]) return SEKTOR_KAT[t];
+  const kismi = SEKTOR_AD.find((s) => trk(s).includes(t) || t.includes(trk(s))); if (kismi) return SEKTOR_KAT[trk(kismi)];
+  const kelime = t.split(/\s+/).find((w) => w.length > 3 && SEKTOR_AD.some((s) => trk(s).includes(w))); if (kelime) return SEKTOR_KAT[trk(SEKTOR_AD.find((s) => trk(s).includes(kelime)))];
+  return GENEL;
+}
+// 8 hızlı seçimin önizlemedeki karşılığı
+const HIZLI_AD = { oto: "Oto servis", eticaret: "E-ticaret", kafe: "Kafe", berber: "Berber", emlak: "Emlak ofisi", klinik: "Diş kliniği", usta: "Tadilat", mali: "Mali müşavir" };
+
+/* ---------- 3b · Canlı site önizleyici (fotoğraflı, sektör veritabanından) ---------- */
 const RENKLER = [["Lacivert", "#1F3A5F"], ["Bordo", "#7A1F2B"], ["Yeşil", "#1E6B4F"], ["Turuncu", "#C2561A"], ["Antrasit", "#2B2F36"]];
-// sektör → [başlık, açıklama, 3 hizmet, ana düğme]
-const SITE = {
-  oto: ["Aracınız güvenilir ellerde.", "Periyodik bakım, yağ değişimi, fren ve elektrik. Randevunuzu WhatsApp'tan alın, aracınızın durumunu telefondan izleyin.", [["Periyodik bakım", "Üretici takvimine uygun"], ["Fren ve balata", "Aynı gün teslim"], ["Arıza tespiti", "Bilgisayarlı test"]], "WhatsApp'tan randevu"],
-  eticaret: ["Siparişiniz yarın kapınızda.", "Özenle seçilmiş ürünler, hızlı kargo, kolay iade. Takip bağlantısı siparişle birlikte kendiliğinden gelir.", [["Yeni sezon", "Her hafta yeni ürün"], ["Hızlı kargo", "Aynı gün kargoda"], ["Kolay iade", "14 gün içinde"]], "Alışverişe başla"],
-  kafe: ["Kahveniz hazır, masanız ayrıldı.", "Taze kavrulmuş kahve, ev yapımı tatlılar. Masadaki karekodu okutun, siparişiniz mutfağa düşsün.", [["Menü", "Fotoğraflı, alerjen bilgili"], ["Masadan sipariş", "Garson beklemeden"], ["Rezervasyon", "Grup ve doğum günü"]], "Menüyü gör"],
-  berber: ["Sıra beklemeden, saatinde.", "Boş saati kendiniz seçin, küçük kaporayla yerinizi ayırın. Bir gün önce hatırlatma gelsin.", [["Saç kesimi", "Usta ellerde"], ["Sakal tıraşı", "Sıcak havluyla"], ["Paketler", "Aylık abonelik"]], "Randevu al"],
-  emlak: ["Aradığınız ev bu portföyde.", "Satılık ve kiralık ilanlar tek yerde. Beğendiğiniz daire için gösterim randevusunu hemen alın.", [["Satılık", "Güncel portföy"], ["Kiralık", "Doğrulanmış ilanlar"], ["Değerleme", "Ücretsiz ön değerleme"]], "Portföyü incele"],
-  klinik: ["Gülüşünüz güvende.", "Muayene, tedavi planı ve randevu tek ekranda. Gece yazdığınız soruya asistanımız cevap verir.", [["Muayene", "Ayrıntılı tedavi planı"], ["Tedaviler", "Uzman hekim kadrosu"], ["Randevu", "Online, her saat"]], "Randevu al"],
-  usta: ["Ölçüyü alalım, teklif hemen gelsin.", "Boya, alçı, tadilat. Metrekareyi girin, teklifiniz fiyat listemizden anında WhatsApp'a gelsin.", [["Boya badana", "Temiz ve hızlı"], ["Tadilat", "Anahtar teslim"], ["Anında teklif", "Ölçüde hazır"]], "Teklif al"],
-  mali: ["Defteriniz düzenli, içiniz rahat.", "Beyanname takvimi, eksik belge hatırlatması ve güncel duyurular. Belgelerinizi WhatsApp'tan gönderin, klasörünüze düşsün.", [["Defter ve beyan", "Zamanında, eksiksiz"], ["Şirket kuruluşu", "Baştan sona"], ["Danışmanlık", "Teşvik ve vergi"]], "Belge gönder"]
-};
 const oAd = $("#o-ad"), oSek = $("#o-sek"), cerceve = $("#cerceve"), miniSite = $("#mini-site");
 let oRenk = RENKLER[0][1], oTarz = "vitrin";
-SEKTORLER.forEach(([kod, ad]) => { const o = document.createElement("option"); o.value = kod; o.textContent = ad; oSek.appendChild(o); });
-RENKLER.forEach(([ad, r], i) => { const b = document.createElement("button"); b.type = "button"; b.style.background = r; b.setAttribute("aria-label", ad); b.setAttribute("aria-pressed", i === 0); b.onclick = () => { oRenk = r; [...$("#renkler").children].forEach((x) => x.setAttribute("aria-pressed", x === b)); siteCiz(); }; $("#renkler").appendChild(b); });
+$("#sektor-liste").innerHTML = SEKTOR_AD.slice().sort((x, y) => x.localeCompare(y, "tr")).map((s) => `<option value="${s}">`).join("");
+$("#o-sayi").textContent = "· " + SEKTOR_SAYI + " sektör arasından yazın";
+RENKLER.forEach(([ad, rk], i) => { const b = document.createElement("button"); b.type = "button"; b.style.background = rk; b.setAttribute("aria-label", ad); b.setAttribute("aria-pressed", i === 0); b.onclick = () => { oRenk = rk; [...$("#renkler").children].forEach((x) => x.setAttribute("aria-pressed", x === b)); siteCiz(); }; $("#renkler").appendChild(b); });
 const kisa = (s) => s.toLocaleLowerCase("tr-TR").replace(/ç/g, "c").replace(/ğ/g, "g").replace(/ı/g, "i").replace(/ö/g, "o").replace(/ş/g, "s").replace(/ü/g, "u").replace(/[^a-z0-9]/g, "");
-const kac = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const kac = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const bas = (ad) => ad.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toLocaleUpperCase("tr-TR");
 function siteCiz() {
-  const kod = oSek.value, s = SITE[kod], sk = SEKTORLER.find((x) => x[0] === kod);
-  const ad = kac(oAd.value.trim() || isim.value.trim() || "Örnek " + sk[1].split(" /")[0]);
+  const sekAd = oSek.value.trim() || "Oto servis", k = katBul(sekAd);
+  const ad = kac(oAd.value.trim() || isim.value.trim() || "Örnek " + sekAd), foto = `assets/yeni/img/sektor/${fotoBul(sekAd, k)}.jpg`;
   $("#o-adres").textContent = (kisa(oAd.value.trim() || isim.value.trim()) || "ornekisletme") + ".com.tr";
-  const nav = `<div class="ms-nav"><span>${ad}</span><nav><span>Hizmetler</span><span>Hakkımızda</span><span>İletişim</span></nav><span class="ms-btn">${s[3]}</span></div>`;
-  const hiz = `<div class="ms-hiz">${s[2].map(([h, a]) => `<div><i></i><b>${h}</b>${a}</div>`).join("")}</div>`;
-  const alt = `<div class="ms-alt"><span>© ${ad}</span><span>Konum · Telefon · WhatsApp</span></div>`;
-  const puan = `<span class="ms-puan"><b>4,8 ★★★★★</b> · Google yorumları</span>`;
-  const dug = `<div class="ms-btns"><span class="ms-btn">${s[3]}</span><span class="ms-btn bos">Bizi arayın</span></div>`;
-  let hero;
-  if (oTarz === "vitrin") hero = `<div class="ms-hero"><span class="ms-led">● AÇIK · ${sk[2]} · AÇIK ·</span><h4>${ad}</h4><p>${s[0]} ${s[1]}</p>${dug}${puan}</div>`;
-  else if (oTarz === "modern") hero = `<div class="ms-hero"><div style="display:grid;gap:12px"><h4>${s[0]}</h4><p>${s[1]}</p>${dug}${puan}</div><div class="ms-blok" aria-hidden="true"></div></div>`;
-  else hero = `<div class="ms-hero"><span class="ms-puan">${sk[1]}</span><h4>${ad}</h4><p>${s[0]} ${s[1]}</p>${dug}${puan}</div>`;
+  const logo = `<span class="ms-logo">${kac(bas(oAd.value.trim() || isim.value.trim() || "Örnek İşletme"))}</span>`;
+  const nav = `<div class="ms-nav"><span class="ms-marka">${logo}${ad}</span><nav><span>Hizmetler</span><span>Galeri</span><span>Yorumlar</span><span>İletişim</span></nav><span class="ms-btn">${k[7]}</span></div>`;
+  const hiz = `<div class="ms-hiz">${k[6].map(([hz, ac], i) => `<div><i>${i + 1}</i><b>${hz}</b>${ac}</div>`).join("")}</div>`;
+  const gal = `<div class="ms-gal"><span style="background-image:url(${foto});background-position:10% 50%"></span><span style="background-image:url(${foto});background-position:55% 40%"></span><span style="background-image:url(${foto});background-position:95% 60%"></span></div>`;
+  const yorum = `<div class="ms-yorum"><b>★★★★★</b><p>"Randevumu gece WhatsApp'tan aldım, sabah her şey hazırdı. Çok memnun kaldık."</p><small>Örnek müşteri yorumu</small></div>`;
+  const ilet = `<div class="ms-ilet"><span class="ms-btn">WhatsApp</span><span class="ms-btn bos">Ara</span><span class="ms-btn bos">Yol tarifi</span></div>`;
+  const alt = `<div class="ms-alt"><span>© ${ad} · ${kac(sekAd)}</span><span>Antalya</span></div>`;
+  const puan = `<span class="ms-puan"><b>4,8 ★★★★★</b> Google</span>`;
+  const dug = `<div class="ms-btns"><span class="ms-btn">${k[7]}</span><span class="ms-btn bos">Bizi arayın</span></div>`;
+  let ic;
+  if (oTarz === "vitrin") ic = nav + `<div class="ms-hero" style="background-image:linear-gradient(180deg,rgba(10,11,13,.35),rgba(10,11,13,.88)),url(${foto})"><span class="ms-led">● AÇIK · ${kac(sekAd.toLocaleUpperCase("tr-TR"))} · ONLINE RANDEVU ·</span><h4>${ad}</h4><p>${k[4]} ${k[5]}</p>${dug}${puan}</div>` + hiz + gal + yorum + ilet + alt;
+  else if (oTarz === "modern") ic = nav + `<div class="ms-hero"><div class="ms-sol"><span class="ms-etk">${kac(sekAd)} · Antalya</span><h4>${k[4]}</h4><p>${k[5]}</p>${dug}${puan}</div><div class="ms-foto" style="background-image:url(${foto})"><span class="ms-rozet">Bugün açık · 19:00'a kadar</span></div></div>` + hiz + yorum + ilet + alt;
+  else ic = nav + `<div class="ms-hero"><span class="ms-etk">${kac(sekAd)}</span><h4>${ad}</h4><p>${k[4]}</p>${dug}</div><div class="ms-bant" style="background-image:url(${foto})"></div>` + hiz + gal + ilet + alt;
   miniSite.classList.add("gec");
-  setTimeout(() => { miniSite.className = "mini-site t-" + oTarz; miniSite.style.setProperty("--r", oRenk); miniSite.innerHTML = nav + hero + hiz + alt; }, AZ ? 0 : 160);
+  setTimeout(() => { miniSite.className = "mini-site t-" + oTarz; miniSite.style.setProperty("--r", oRenk); miniSite.innerHTML = ic; }, AZ ? 0 : 160);
 }
 document.querySelectorAll("#tarzlar button").forEach((b) => (b.onclick = () => { oTarz = b.dataset.tarz; document.querySelectorAll("#tarzlar button").forEach((x) => x.setAttribute("aria-pressed", x === b)); siteCiz(); }));
 document.querySelectorAll("#cihaz button").forEach((b) => (b.onclick = () => { cerceve.classList.toggle("tel", b.dataset.cihaz === "tel"); document.querySelectorAll("#cihaz button").forEach((x) => x.setAttribute("aria-pressed", x === b)); }));
 oAd.addEventListener("input", () => { clearTimeout(oAd._t); oAd._t = setTimeout(() => { isim.value = oAd.value; evre = -1; evreSec(0); appCiz(); siteCiz(); }, 250); });
-oSek.addEventListener("change", () => sektorSec(oSek.value));
-$("#onizle-iste").addEventListener("click", () => { const s = $("#secim"); s.hidden = false; s.textContent = `Önizleme: ${SEKTORLER.find((x) => x[0] === oSek.value)[1]} · ${oTarz} tarzı · ${RENKLER.find((x) => x[1] === oRenk)[0].toLowerCase()} renk`; ozetMetin = s.textContent.replace("Önizleme: ", "önizleme "); if (oAd.value.trim()) $("#f-ad").value = oAd.value.trim(); });
+// Sektör yazınca: önizleme + asistan demosu o sektöre; 8 ana gruptan birine düşüyorsa teklif/LED de sessizce ayarlanır
+function sektorAra(ad) { const k = katBul(ad); siteCiz(); demoKur(k[0], tamAd(ad)); if (k[3]) sektorSec(k[3], true); }
+oSek.addEventListener("input", () => { clearTimeout(oSek._t); oSek._t = setTimeout(() => sektorAra(oSek.value), 350); });
+oSek.addEventListener("change", () => sektorAra(oSek.value));
+$("#onizle-iste").addEventListener("click", () => { const s = $("#secim"); s.hidden = false; s.textContent = `Önizleme: ${oSek.value.trim() || "Oto servis"} · ${oTarz} tarzı · ${RENKLER.find((x) => x[1] === oRenk)[0].toLocaleLowerCase("tr-TR")} renk`; ozetMetin = s.textContent.replace("Önizleme: ", "önizleme "); if (oAd.value.trim()) $("#f-ad").value = oAd.value.trim(); });
 
 /* ---------- 4b · Asistanı deneyin ---------- */
 // sektör → [işletme, hizmetler [desen, ad, örnek fiyat], saatler, adres, kampanya, öneri çipleri]
-const DEMO = {
-  oto: ["Örnek Oto Servis", [[/yağ/i, "Yağ değişimi", "1.850 TL'den"], [/bakım/i, "Periyodik bakım", "4.500 TL'den"], [/fren|balata/i, "Fren balatası", "2.400 TL'den"]], "Pazartesi–Cumartesi 08:30–19:00", "Kepez Sanayi Sitesi, 4. blok", "Bu ay yağ değişiminde %10 indirim var.", ["Yağ değişimi ne kadar?", "Yarın 10'da yer var mı?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
-  eticaret: ["Örnek Butik", [[/kargo|teslim/i, "Kargo", "500 TL üzeri ücretsiz"], [/iade|değişim/i, "İade", "14 gün içinde ücretsiz"], [/beden|ölçü/i, "Beden değişimi", "ücretsiz"]], "Her gün 09:00–22:00 (asistan 7/24)", "Online mağaza · depo Antalya", "Bu hafta ikinci üründe %20 indirim.", ["Kargom nerede?", "İade nasıl yapılıyor?", "Kargo ücretli mi?", "Yetkiliyle görüşmek istiyorum"]],
-  kafe: ["Örnek Kafe", [[/kahve|latte|espresso/i, "Kahveler", "90 TL'den"], [/tatlı|pasta|cheesecake|sebastian/i, "Tatlılar", "160 TL'den"], [/kahvaltı/i, "Serpme kahvaltı", "kişi başı 650 TL"]], "Her gün 08:00–23:00", "Lara, sahil yolu üzeri", "Hafta içi 14–17 arası kahve yanında tatlı %15 indirimli.", ["Cumartesi 4 kişilik masa var mı?", "Kahvaltı ne kadar?", "Saat kaça kadar açıksınız?", "Yetkiliyle görüşmek istiyorum"]],
-  berber: ["Örnek Berber", [[/saç|kesim/i, "Saç kesimi", "400 TL"], [/sakal/i, "Sakal tıraşı", "250 TL"], [/paket|abonelik/i, "Aylık paket", "1.200 TL"]], "Salı–Pazar 09:00–21:00", "Muratpaşa, Işıklar caddesi", "İlk randevunuzda sakal tıraşı hediye.", ["Yarın akşam 7'de boş var mı?", "Saç kesimi ne kadar?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
-  emlak: ["Örnek Emlak", [[/3\+1|üç oda/i, "3+1 daireler", "4.150.000 TL'den"], [/kira/i, "Kiralık daireler", "aylık 22.000 TL'den"], [/değer|ekspertiz/i, "Ön değerleme", "ücretsiz"]], "Pazartesi–Cumartesi 09:00–19:00", "Konyaaltı, Liman mahallesi", "Bu ay portföyümüze 12 yeni daire eklendi.", ["3+1 daire fiyatları ne kadar?", "Cumartesi 11'de gösterim olur mu?", "Ofisiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
-  klinik: ["Örnek Diş Kliniği", [[/muayene|kontrol/i, "Muayene", "1.000 TL"], [/temizlik|diş taşı/i, "Diş taşı temizliği", "2.500 TL'den"], [/beyazlat/i, "Beyazlatma", "6.000 TL'den"]], "Pazartesi–Cumartesi 09:00–19:00", "Muratpaşa, Fener mahallesi", "Ekim boyunca ilk muayenede panoramik röntgen ücretsiz.", ["Muayene ücreti ne kadar?", "Perşembe 15:00 uygun mu?", "Adresiniz nerede?", "Yetkiliyle görüşmek istiyorum"]],
-  usta: ["Örnek Boya Tadilat", [[/boya|badana/i, "Boya", "m² başına 180 TL'den"], [/alçı/i, "Alçı", "m² başına 220 TL'den"], [/fayans|seramik/i, "Fayans", "m² başına 450 TL'den"]], "Pazartesi–Cumartesi 08:00–18:00", "Kepez ve çevresine hizmet", "Bu ay boya işlerinde malzeme taşıma ücretsiz.", ["3+1 ev boyası ne kadar tutar?", "Yarın keşfe gelebilir misiniz?", "Hangi bölgelere geliyorsunuz?", "Yetkiliyle görüşmek istiyorum"]],
-  mali: ["Örnek Mali Müşavirlik", [[/şirket|kuruluş/i, "Şirket kuruluşu", "8.000 TL'den"], [/defter|muhasebe/i, "Aylık muhasebe", "3.500 TL'den"], [/beyan/i, "Beyanname", "pakete dahil"]], "Pazartesi–Cuma 09:00–18:00", "Muratpaşa, Kızıltoprak", "Yeni mükelleflerimize ilk ay danışmanlık ücretsiz.", ["Şirket kuruluşu ne kadar?", "Çarşamba 14:00 görüşebilir miyiz?", "Ofisiniz nerede?", "Yetkiliyle görüşmek istiyorum"]]
-};
+// Asistan demosu: sektör grubunun örnek işletme bilgileri (fiyatlar temsilî)
+const DEMO = {}; [...KATEGORI, GENEL].forEach((k) => { const d = k[8]; DEMO[k[0]] = ["Örnek " + k[1], d[0], d[1], d[2], d[3], d[4]]; });
+let demoAd = "";
 const GUNLER = ["pazartesi", "salı", "çarşamba", "perşembe", "cumartesi", "cuma", "pazar"];
 let demoKod = "oto", demoBek = {}, pM = 0, pR = 0, pA = 0;
 const akis = $("#wa-akis"), saatSimdi = () => { const d = new Date(); return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0"); };
@@ -1482,9 +1599,9 @@ function demoCevap(m) {
     if (!demoBek.saat) { demoBek.soruldu = true; return `${demoBek.gun} için saat kaç uygun? Çalışma saatlerimiz: ${D[2]}.`; }
     const sh = +demoBek.saat.slice(0, 2);
     if (sh < 8 || sh > 21) { demoBek.saat = null; demoBek.soruldu = true; return `O saatte kapalıyız. ${D[2]} arası bir saat söyler misiniz?`; }
-    const h = demoBek.hizmet || (demoKod === "kafe" ? "Masa rezervasyonu" : "Randevu"); pR++;
+    const h = demoBek.hizmet || ((demoKod === "kafe" || demoKod === "restoran") ? "Masa rezervasyonu" : "Randevu"); pR++;
     kayit("RANDEVU", `${demoBek.gun} ${demoBek.saat} · ${h}`, "WhatsApp asistanı yazdı · hatırlatma kuruldu");
-    const ne = demoKod === "kafe" ? "masanızı ayırdım" : (demoBek.hizmet ? demoBek.hizmet.toLocaleLowerCase("tr-TR") + " randevunuzu yazdım" : "randevunuzu yazdım");
+    const ne = (demoKod === "kafe" || demoKod === "restoran") ? "masanızı ayırdım" : (demoBek.hizmet ? demoBek.hizmet.toLocaleLowerCase("tr-TR") + " randevunuzu yazdım" : "randevunuzu yazdım");
     const c = `${demoBek.gun} ${demoBek.saat} için ${ne} ✅ Bir gün önce hatırlatma gelecek. Adres: ${D[3]}.`;
     demoBek = {}; return c;
   }
@@ -1504,8 +1621,9 @@ function demoGonder(m) {
   const y = balonEkle("yazıyor…"); y.classList.add("yaz");
   setTimeout(() => { y.remove(); balonEkle(demoCevap(m)); sayacGuncelle(); }, AZ ? 0 : 750);
 }
-function demoKur(kod) {
-  demoKod = DEMO[kod] ? kod : "oto"; demoBek = {}; const D = DEMO[demoKod];
+function demoKur(kod, sekAd) {
+  demoKod = DEMO[kod] ? kod : (DEMO[(KATEGORI.find((k) => k[3] === kod) || [])[0]] ? KATEGORI.find((k) => k[3] === kod)[0] : "oto"); demoBek = {};
+  if (sekAd) DEMO[demoKod][0] = "Örnek " + sekAd.trim().replace(/^./, (c) => c.toLocaleUpperCase("tr-TR")); const D = DEMO[demoKod];
   $("#wa-ad").textContent = D[0]; $("#wa-harf").textContent = D[0].split(" ")[1][0];
   if (typeof demoSekme !== "undefined" && demoSekme === "sonra") { akis.innerHTML = ""; otoMesaj("Aşağıdaki düğmelerle zamanı ileri sarın."); return; }
   akis.innerHTML = ""; balonEkle(`Merhaba, burası ${D[0]}. Ben yapay zekâ asistanıyım; fiyat sorabilir, randevu alabilirsiniz.`);
@@ -1555,7 +1673,7 @@ function olcHepsi() { ledler.forEach((l) => l.olc()); }
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { olcHepsi(); evre = -1; evreSec(0); if (AZ) ledler.forEach((l) => { l.kirli = true; l.ciz(); }); }, 200); });
 </script>
 
-<script src="assets/config.js?v=muzzhxfz"></script>
-<script src="assets/data.js?v=muzzhxfz"></script>
+<script src="assets/config.js?v=mv0117fy"></script>
+<script src="assets/data.js?v=mv0117fy"></script>
 </body>
 </html>
