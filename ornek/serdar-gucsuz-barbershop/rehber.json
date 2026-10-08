@@ -1,24 +1,99 @@
 {
-  "giris": { "metin": "Öncelikle merhabalar! Serdar Güçsüz Barbershop için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım." },
-  "tasarimlar": { "metin": "Burada üç tasarım var. Siyah Altın, logonuzun renklerinde; Chester, dükkânınızdaki yeşil koltuk ve kırmızı perdeden ilhamla; Mermer ise açık ve ferah. Birine dokunup içine girin, randevu alıp deneyin.", "dugme": ["Siyah Altın'ı aç", "1-altin/"] },
-  "oz1": { "metin": "İlk ve en önemli özellik online randevu. Müşteri hizmeti, günü ve boş saati seçiyor; çalışma saatlerinize göre işliyor, pazar kapalı. Onay sizin WhatsApp'ınıza geliyor, müşteri de randevuyu telefon takvimine ekliyor.", "dugme": ["Randevu al", "1-altin/#randevu"] },
-  "oz2": { "metin": "İkincisi canlı durum: dükkân şu an açık mı kapalı mı, tahmini bekleme ne kadar, müşteri girmeden görüyor." },
-  "oz3": { "metin": "Üçüncüsü yüz şekline göre saç modeli önerisi. Müşteri yüz şeklini seçiyor, ona yakışan kesimleri görüyor ve beğendiğiyle doğrudan randevu alıyor.", "dugme": ["Model seç", "2-chester/#model"] },
-  "oz4": { "metin": "Dördüncüsü dijital sadakat kartı: beş tıraşa bir bedava. Kâğıt kart kaybolur, bu telefonda durur.", "dugme": ["Kartı dene", "1-altin/#sadakat"] },
-  "oz5": { "metin": "Beşincisi tıraş hatırlatıcısı. Müşteri kesim türünü seçiyor, bir sonraki tıraş tarihini telefonuna hatırlatma olarak ekliyor; zamanı gelince size geri geliyor." },
-  "oz6": { "metin": "Ayrıca damat tıraşı paketi ve sağdıç grup randevusu, hediye tıraş çeki, galeri, yol tarifi ve Google için berber bilgileri de hazır." },
-  "son": { "metin": "Şimdi bir tasarıma girip randevu almayı deneyin. Beğendiğinizi söyleyin; kendi fotoğraf ve videolarınızla yayına alalım. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.", "dugme": ["Tespitler ve teklif", "teklif.html"] },
-  "t_giris": { "metin": "Merhaba, yine ben! Bu sayfada Serdar Güçsüz Barbershop için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum." },
-  "t_tespit": { "metin": "İlk tespitimiz: randevular Instagram mesajından alınıyor; makas elinizdeyken cevap yetişmiyor, bekleyen müşteri başka berbere gidiyor. İkincisi, Google'da hiç yorumunuz ve siteniz yok." },
-  "t_yapacak": { "metin": "Bizim yapacaklarımız burada: online randevu ve yönetim paneli, sadakat kartı ve hatırlatıcı, alan adı, Google profilinizin düzenlenmesi ve Instagram'a randevu bağlantısı." },
-  "t_fiyat": { "metin": "Paket fiyatı dört bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. Fotoğraflarınız geldikten sonra beş iş gününde yayında.", "dugme": ["3 tasarımı aç", "./"] },
-  "p_giris": { "metin": "Merhaba! Bu, Serdar Güçsüz Barbershop için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli." },
-  "p_hizmet": { "metin": "Hizmetler ve süreleri burada. Taslaktaki fiyatlar örnek; yayında sizin fiyatlarınızla güncellenecek." },
-  "p_randevu": { "metin": "Online randevu. Önce hizmeti, sonra günü, sonra boş saati seçin. Dolu saatler üstü çizili. Adınızı yazıp onay düğmesine basınca randevu WhatsApp'a gidiyor; takvim düğmesi de telefonunuza ekliyor." },
-  "p_model": { "metin": "Yüz şekline göre model önerisi. Dört yüz şeklinden birine dokunun; size yakışan kesimler listelensin." },
-  "p_sadakat": { "metin": "Dijital sadakat kartı. Damga ekle düğmesiyle deneyin; altıncı tıraş bedava." },
-  "p_hatirlat": { "metin": "Tıraş hatırlatıcısı. Kesim türünü seçin; önerilen tarih çıkıyor ve tek dokunuşla telefon takviminize ekleniyor." },
-  "p_damat": { "metin": "Damat tıraşı paketi. Düğün tarihini ve kişi sayısını seçin, talep doğrudan WhatsApp'a gitsin. Hediye çeki düğmesi de yanında." },
-  "p_galeri": { "metin": "Galeri. Görseller dükkânınızın temasına göre hazırlandı; yayında kendi fotoğraf ve videolarınızla değişecek." },
-  "p_iletisim": { "metin": "Son olarak adres, çalışma saatleri ve yol tarifi. Bugünün saati kalın görünüyor. Beğendiyseniz diğer tasarımlara da göz atın.", "dugme": ["Tüm tasarımlar", "../"] }
+ "giris": {
+  "metin": "Öncelikle merhabalar! Serdar Güçsüz Barbershop için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım."
+ },
+ "tasarimlar": {
+  "metin": "Burada üç tasarım var. Siyah Altın, logonuzun renklerinde; Chester, dükkânınızdaki yeşil koltuk ve kırmızı perdeden ilhamla; Mermer ise açık ve ferah. Birine dokunup içine girin, randevu alıp deneyin.",
+  "dugme": [
+   "Siyah Altın'ı aç",
+   "1-altin/"
+  ]
+ },
+ "oz1": {
+  "metin": "İlk ve en önemli özellik online randevu. Müşteri hizmeti, günü ve boş saati seçiyor; çalışma saatlerinize göre işliyor, pazar kapalı. Onay sizin WhatsApp'ınıza geliyor, müşteri de randevuyu telefon takvimine ekliyor.",
+  "dugme": [
+   "Randevu al",
+   "1-altin/#randevu"
+  ]
+ },
+ "oz2": {
+  "metin": "İkincisi canlı durum: dükkân şu an açık mı kapalı mı, tahmini bekleme ne kadar, müşteri girmeden görüyor."
+ },
+ "oz3": {
+  "metin": "Üçüncüsü yüz şekline göre saç modeli. Müşteri yüz şeklini seçiyor; ona yakışan üç modelin fotoğrafı çıkıyor, birine dokununca büyük görünüyor ve o modelle doğrudan randevu alıyor.",
+  "dugme": [
+   "Model seç",
+   "2-chester/#model"
+  ]
+ },
+ "oz4": {
+  "metin": "Dördüncüsü dijital sadakat kartı: beş tıraşa bir bedava. Kâğıt kart kaybolur, bu telefonda durur.",
+  "dugme": [
+   "Kartı dene",
+   "1-altin/#sadakat"
+  ]
+ },
+ "oz5": {
+  "metin": "Beşincisi tıraş hatırlatıcısı. Müşteri kesim türünü seçiyor, bir sonraki tıraş tarihini telefonuna hatırlatma olarak ekliyor; zamanı gelince size geri geliyor."
+ },
+ "oz6": {
+  "metin": "Ayrıca damat tıraşı paketi ve sağdıç grup randevusu, hediye tıraş çeki, galeri, yol tarifi ve Google için berber bilgileri de hazır."
+ },
+ "son": {
+  "metin": "Şimdi bir tasarıma girip randevu almayı deneyin. Beğendiğinizi söyleyin; kendi fotoğraf ve videolarınızla yayına alalım. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Tespitler ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada Serdar Güçsüz Barbershop için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum."
+ },
+ "t_tespit": {
+  "metin": "İlk tespitimiz: randevular Instagram mesajından alınıyor; makas elinizdeyken cevap yetişmiyor, bekleyen müşteri başka berbere gidiyor. İkincisi, Google'da hiç yorumunuz ve siteniz yok."
+ },
+ "t_yapacak": {
+  "metin": "Bizim yapacaklarımız burada: online randevu ve yönetim paneli, sadakat kartı ve hatırlatıcı, alan adı, Google profilinizin düzenlenmesi ve Instagram'a randevu bağlantısı."
+ },
+ "t_fiyat": {
+  "metin": "Paket fiyatı dört bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. Fotoğraflarınız geldikten sonra beş iş gününde yayında.",
+  "dugme": [
+   "3 tasarımı aç",
+   "./"
+  ]
+ },
+ "p_giris": {
+  "metin": "Merhaba! Bu, Serdar Güçsüz Barbershop için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli."
+ },
+ "p_hizmet": {
+  "metin": "Hizmetler fotoğraflarıyla burada. Birine dokunduğunuzda randevu bölümünde o hizmet seçili geliyor. Taslaktaki fiyatlar örnek."
+ },
+ "p_randevu": {
+  "metin": "Online randevu. Önce hizmeti, sonra günü, sonra boş saati seçin. Dolu saatler üstü çizili. Adınızı yazıp onay düğmesine basınca randevu WhatsApp'a gidiyor; takvim düğmesi de telefonunuza ekliyor."
+ },
+ "p_model": {
+  "metin": "Yüz şekline göre model önerisi. Dört yüz şeklinden birine dokunun; size yakışan üç saç modelinin fotoğrafı çıkıyor. Birini seçip bu modelle randevu al düğmesine basabilirsiniz."
+ },
+ "p_sadakat": {
+  "metin": "Dijital sadakat kartı. Damga ekle düğmesiyle deneyin; altıncı tıraş bedava."
+ },
+ "p_hatirlat": {
+  "metin": "Tıraş hatırlatıcısı. Kesim türünü seçin; önerilen tarih çıkıyor ve tek dokunuşla telefon takviminize ekleniyor."
+ },
+ "p_damat": {
+  "metin": "Damat tıraşı paketi. Düğün tarihini ve kişi sayısını seçin, talep doğrudan WhatsApp'a gitsin. Hediye çeki düğmesi de yanında."
+ },
+ "p_galeri": {
+  "metin": "Galeri. Görseller dükkânınızın temasına göre hazırlandı; yayında kendi fotoğraf ve videolarınızla değişecek."
+ },
+ "p_iletisim": {
+  "metin": "Son olarak adres, çalışma saatleri ve yol tarifi. Bugünün saati kalın görünüyor. Beğendiyseniz diğer tasarımlara da göz atın.",
+  "dugme": [
+   "Tüm tasarımlar",
+   "../"
+  ]
+ },
+ "p_instagram": {
+  "metin": "Burada Instagram videolarınız akıyor; yeni paylaştığınız iş sitede de görünecek."
+ }
 }

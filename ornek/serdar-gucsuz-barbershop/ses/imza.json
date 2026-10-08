@@ -3,7 +3,7 @@
  "tasarimlar": "e11bd9d32e1c",
  "oz1": "bc7a8de95bbb",
  "oz2": "840c8fe58120",
- "oz3": "586a52776260",
+ "oz3": "26639fc92508",
  "oz4": "f94fd4daacc2",
  "oz5": "5c24d96c9313",
  "oz6": "030809b57bb9",
@@ -13,12 +13,13 @@
  "t_yapacak": "b3d70244f870",
  "t_fiyat": "243603abef6d",
  "p_giris": "cb199e4f1565",
- "p_hizmet": "3dc4c659f32d",
+ "p_hizmet": "9af57d3d7807",
  "p_randevu": "f82da06ca20f",
- "p_model": "1a917f804900",
+ "p_model": "9982620fc0ea",
  "p_sadakat": "de545f3e6563",
  "p_hatirlat": "34d18579759b",
  "p_damat": "5ae2704a11d5",
  "p_galeri": "564d254b9f99",
- "p_iletisim": "31954d4e19e3"
+ "p_iletisim": "31954d4e19e3",
+ "p_instagram": "3ac241d9724d"
 }

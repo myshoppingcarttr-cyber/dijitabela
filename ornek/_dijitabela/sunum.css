@@ -37,3 +37,13 @@ h2{font-size:1.5rem;letter-spacing:-.01em;margin:44px 0 14px;font-weight:800}
 .dj-alt{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;color:var(--mute);font-size:.9rem;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .dj-alt svg{width:26px;height:26px}
 @media(max-width:800px){.dj-izg{grid-template-columns:1fr}.dj-ust span{display:none}}
+/* Teklif sayfası (9 Eki v2): önizleme şeridi, paket tablosu, iş takvimi, ekstralar, SSS */
+.dj-onizle{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.dj-onizle a{display:block;background:#fff;border:1px solid var(--line);text-decoration:none}.dj-onizle img{width:100%;aspect-ratio:4/3;object-fit:cover}.dj-onizle span{display:block;padding:10px 12px;font-weight:700;font-size:.9rem}
+@media(max-width:700px){.dj-onizle{grid-template-columns:1fr 1fr}}
+.dj-tablo{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);margin-top:10px}.dj-tablo td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}.dj-tablo td:first-child{width:34px;color:var(--ok);font-weight:900}.dj-tablo td small{display:block;color:var(--mute)}
+.dj-takvim{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;counter-reset:a}.dj-takvim div{background:#fff;border:1px solid var(--line);border-top:3px solid var(--led);padding:14px}.dj-takvim div:before{counter-increment:a;content:"0" counter(a);font-family:"Space Mono",monospace;color:var(--led-ink);font-weight:700;display:block}.dj-takvim b{display:block;margin:4px 0}.dj-takvim p{color:var(--mute);font-size:.88rem}
+@media(max-width:700px){.dj-takvim{grid-template-columns:1fr 1fr}}
+.dj-ekstra{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.dj-ekstra div{background:#fff;border:1px dashed var(--line);padding:14px}.dj-ekstra b{display:flex;justify-content:space-between;gap:10px}.dj-ekstra b em{font-style:normal;color:var(--led-ink);white-space:nowrap}.dj-ekstra p{color:var(--mute);font-size:.88rem;margin-top:4px}
+@media(max-width:700px){.dj-ekstra{grid-template-columns:1fr}}
+.dj-sss details{background:#fff;border:1px solid var(--line);padding:14px 16px;margin-top:8px}.dj-sss summary{font-weight:700;cursor:pointer}.dj-sss p{color:var(--fg2);margin-top:8px}
+.dj-guven{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;color:var(--fg2);font-size:.9rem}.dj-guven span:before{content:"✓ ";color:var(--ok);font-weight:900}

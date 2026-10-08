@@ -1,22 +1,103 @@
 {
-  "giris": { "metin": "Öncelikle merhabalar! By Kadir Tekstil için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım." },
-  "tasarimlar": { "metin": "Burada üç farklı tasarım var. Lacivert, logonuzun renklerinde ve kurumsal; İpek, koyu zeminde kumaşları parlatan lüks bir görünüm; Atölye ise açık ve katalog odaklı. Birine dokunup içine girin, her şeyi deneyebilirsiniz.", "dugme": ["Lacivert tasarımı aç", "1-lacivert/"] },
-  "oz1": { "metin": "İlk özellik numune sepeti. Alıcı beğendiği kumaşları seçiyor, adetlerini yazıyor ve tek mesajla sizin WhatsApp'ınıza gönderiyor.", "dugme": ["Numune sepetini dene", "1-lacivert/#katalog"] },
-  "oz2": { "metin": "İkincisi elbisede gör. Bir kumaşa dokununca elbise silüetinde nasıl duracağı anında görünüyor. Butikler ve atölyeler karar vermeden önce en çok bunu istiyor.", "dugme": ["Elbisede gör", "2-ipek/#elbise"] },
-  "oz3": { "metin": "Üçüncüsü desen yükleme. Dijital baskı müşteriniz kendi desenini seçiyor, kumaş üzerindeki tekrarını görüyor, ölçeği ayarlıyor ve baskı teklifi istiyor.", "dugme": ["Desen yükle", "1-lacivert/#baski"] },
-  "oz4": { "metin": "Dördüncüsü metraj hesaplayıcı. Ürün ve adet girilince kaç metre kumaş gerektiği çıkıyor; toptan teklif mesajı da hazır oluyor.", "dugme": ["Metrajı hesapla", "3-atolye/#metraj"] },
-  "oz5": { "metin": "Beşincisi koleksiyon adlarınızla filtrelenebilir kumaş kataloğu: Gülipek, Carmela, Linda, Belmando ve diğerleri. Görsele dokununca büyük açılıyor." },
-  "oz6": { "metin": "Ayrıca Türkçe, İngilizce ve Rusça dil desteği var; yurt dışı alıcılarınız kumaşları kendi dilinde inceleyebiliyor. Instagram'daki yüz altmış beş bin takipçinize de bağlantı hazır." },
-  "son": { "metin": "Şimdi bir tasarıma girip deneyin. Beğendiğiniz seçeneği söyleyin; kendi kumaş fotoğraflarınızla yayına alalım. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.", "dugme": ["Tespitler ve teklif", "teklif.html"] },
-  "t_giris": { "metin": "Merhaba, yine ben! Bu sayfada By Kadir Tekstil için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum." },
-  "t_tespit": { "metin": "İlk tespitimiz: alan adınız Instagram'da ve Google'da yazıyor ama hiçbir siteye açılmıyor. İkincisi, Google profilinizde hiç fotoğraf ve yorum yok; Bursa'da toptan kumaş arayan müşteri sizi rakiplerin gerisinde görüyor." },
-  "t_yapacak": { "metin": "Bizim yapacaklarımız burada: seçtiğiniz tasarımla siteniz, numune sepeti ve diğer araçlar, ilk otuz kumaşınızın görselleri, üç dil, alan adınıza bağlama ve Google profilinizin düzenlenmesi." },
-  "t_fiyat": { "metin": "Paket fiyatı dört bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. Fotoğraflarınız geldikten sonra beş iş gününde yayında. Sorularınız için WhatsApp düğmesi hemen aşağıda.", "dugme": ["3 tasarımı aç", "./"] },
-  "p_giris": { "metin": "Merhaba! Bu, By Kadir Tekstil için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli." },
-  "p_katalog": { "metin": "Burası kumaş kataloğu. Üstteki düğmelerle türe göre süzün; bir kumaşı numune sepetine eklemek için artı numune düğmesine dokunun. Sağ üstteki sepette adetleri yazıp tek mesajla gönderebilirsiniz." },
-  "p_elbise": { "metin": "Şimdi soldaki kumaş karelerinden birine dokunun; elbise silüetinde nasıl durduğunu görün." },
-  "p_baski": { "metin": "Dijital baskı bölümü. Telefonunuzdan bir desen seçin; kumaş üzerindeki tekrarını görün, ölçek çubuğuyla büyütüp küçültün." },
-  "p_metraj": { "metin": "Metraj hesaplayıcı. Ürünü ve adedi değiştirin; gereken kumaş metresi fire payıyla birlikte hesaplanıyor." },
-  "p_hakkimizda": { "metin": "Hakkımızda bölümünde firmanızı ve Buttim'deki showroom'unuzu anlatıyoruz; yayında kendi fotoğraflarınızla güncellenecek." },
-  "p_iletisim": { "metin": "Son olarak iletişim: adresiniz, iki telefonunuz, e-postanız ve harita burada. Beğendiyseniz diğer tasarımlara da göz atın.", "dugme": ["Tüm tasarımlar", "../"] }
+ "giris": {
+  "metin": "Öncelikle merhabalar! By Kadir Tekstil için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım."
+ },
+ "tasarimlar": {
+  "metin": "Burada üç farklı tasarım var. Lacivert, logonuzun renklerinde ve kurumsal; İpek, koyu zeminde kumaşları parlatan lüks bir görünüm; Atölye ise açık ve katalog odaklı. Birine dokunup içine girin, her şeyi deneyebilirsiniz.",
+  "dugme": [
+   "Lacivert tasarımı aç",
+   "1-lacivert/"
+  ]
+ },
+ "oz1": {
+  "metin": "İlk özellik numune sepeti. Alıcı beğendiği kumaşları seçiyor, adetlerini yazıyor ve tek mesajla sizin WhatsApp'ınıza gönderiyor.",
+  "dugme": [
+   "Numune sepetini dene",
+   "1-lacivert/#katalog"
+  ]
+ },
+ "oz2": {
+  "metin": "İkincisi kumaşı model üzerinde görmek. Bir kumaşa dokununca, o kumaştan dikilmiş elbiseyi giyen model fotoğrafı ve kumaşın parlaklık, döküm, ağırlık özellikleri anında çıkıyor.",
+  "dugme": [
+   "Elbisede gör",
+   "2-ipek/#elbise"
+  ]
+ },
+ "oz3": {
+  "metin": "Üçüncüsü desen yükleme. Dijital baskı müşteriniz kendi desenini seçiyor, kumaş üzerindeki tekrarını görüyor, ölçeği ayarlıyor ve baskı teklifi istiyor.",
+  "dugme": [
+   "Desen yükle",
+   "1-lacivert/#baski"
+  ]
+ },
+ "oz4": {
+  "metin": "Dördüncüsü beden dağılımlı metraj hesaplayıcı. Atölye S, M, L, XL adetlerini giriyor; beden payı ve fire dahil gereken metre çıkıyor, toptan teklif mesajı da hazır oluyor.",
+  "dugme": [
+   "Metrajı hesapla",
+   "3-atolye/#metraj"
+  ]
+ },
+ "oz5": {
+  "metin": "Beşincisi akıllı kumaş sihirbazı ve karşılaştırma. Alıcı ne dikeceğini, mevsimi ve istediği görünümü seçiyor; koleksiyonunuzdan en uygun üç kumaş model fotoğraflarıyla öneriliyor. İki kumaşı yan yana da karşılaştırabiliyor."
+ },
+ "oz6": {
+  "metin": "Ayrıca Türkçe, İngilizce ve Rusça dil desteği var; yurt dışı alıcılarınız kumaşları kendi dilinde inceleyebiliyor. Instagram'daki yüz altmış beş bin takipçinize de bağlantı hazır."
+ },
+ "son": {
+  "metin": "Şimdi bir tasarıma girip deneyin. Beğendiğiniz seçeneği söyleyin; kendi kumaş fotoğraflarınızla yayına alalım. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Tespitler ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada By Kadir Tekstil için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum."
+ },
+ "t_tespit": {
+  "metin": "İlk tespitimiz: alan adınız Instagram'da ve Google'da yazıyor ama hiçbir siteye açılmıyor. İkincisi, Google profilinizde hiç fotoğraf ve yorum yok; Bursa'da toptan kumaş arayan müşteri sizi rakiplerin gerisinde görüyor."
+ },
+ "t_yapacak": {
+  "metin": "Bizim yapacaklarımız burada: seçtiğiniz tasarımla siteniz, numune sepeti ve diğer araçlar, ilk otuz kumaşınızın görselleri, üç dil, alan adınıza bağlama ve Google profilinizin düzenlenmesi."
+ },
+ "t_fiyat": {
+  "metin": "Paket fiyatı dört bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. Fotoğraflarınız geldikten sonra beş iş gününde yayında. Sorularınız için WhatsApp düğmesi hemen aşağıda.",
+  "dugme": [
+   "3 tasarımı aç",
+   "./"
+  ]
+ },
+ "p_giris": {
+  "metin": "Merhaba! Bu, By Kadir Tekstil için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli."
+ },
+ "p_katalog": {
+  "metin": "Burası kumaş kataloğu. Üstteki düğmelerle türe göre süzün; bir kumaşı numune sepetine eklemek için artı numune düğmesine dokunun. Sağ üstteki sepette adetleri yazıp tek mesajla gönderebilirsiniz."
+ },
+ "p_elbise": {
+  "metin": "Soldaki kumaş karelerinden birine dokunun; o kumaştan dikilmiş elbiseyi giyen model ve kumaşın özellikleri anında değişiyor."
+ },
+ "p_baski": {
+  "metin": "Dijital baskı bölümü. Telefonunuzdan bir desen seçin; kumaş üzerindeki tekrarını görün, ölçek çubuğuyla büyütüp küçültün."
+ },
+ "p_metraj": {
+  "metin": "Metraj hesaplayıcı. Beden adetlerini değiştirin; gereken kumaş metresi beden payı ve fire dahil hesaplanıyor."
+ },
+ "p_hakkimizda": {
+  "metin": "Hakkımızda bölümünde firmanızı ve Buttim'deki showroom'unuzu anlatıyoruz; yayında kendi fotoğraflarınızla güncellenecek."
+ },
+ "p_iletisim": {
+  "metin": "Son olarak iletişim: adresiniz, iki telefonunuz, e-postanız ve harita burada. Beğendiyseniz diğer tasarımlara da göz atın.",
+  "dugme": [
+   "Tüm tasarımlar",
+   "../"
+  ]
+ },
+ "p_sihirbaz": {
+  "metin": "Akıllı öneri. Ne dikeceğinizi, mevsimi ve görünümü seçin; en uygun üç kumaş model fotoğraflarıyla çıkıyor, numuneye tek dokunuşla ekleniyor."
+ },
+ "p_karsilastir": {
+  "metin": "Karşılaştırma. İki kumaşı seçin; parlaklık, döküm, ağırlık ve nefes alma yan yana görünsün."
+ },
+ "p_instagram": {
+  "metin": "Burada Instagram gönderileriniz akıyor; yeni paylaştığınız kumaş sitede de görünecek."
+ }
 }
