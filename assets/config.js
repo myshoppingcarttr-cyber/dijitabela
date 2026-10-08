@@ -18,7 +18,7 @@ window.AJANS = {
   adresParca: { ilce: "Kepez", il: "Antalya", ulke: "TR" },
   iban: "TR04 0006 4000 0016 2700 5489 50",                          // TR.. ile başlayan IBAN
   banka: "Türkiye İş Bankası",
-  kartOdeme: false,                   // 7 Eki: PayTR canlı mod onayına kadar GİZLİ (test modunda gerçek kart reddedilir). Onay gelince true + Secrets PAYTR_TEST=0. KURULUM.md §3
+  kartOdeme: true,                    // 8 Eki: PayTR canlı moda alındı (mağaza 758710), Secrets PAYTR_TEST=0. KURULUM.md §3
   // Veritabanı (Supabase) — boşsa DEMO modunda çalışır
   supabaseUrl: "https://ctlbhwbccqgwmtqbwtfs.supabase.co",
   supabaseAnonKey: "sb_publishable_8MszpUT5gCp6cFhAKn-0VA_gW9_1hvy",  // herkese açık anahtar (RLS açık); gizli anahtar ASLA buraya yazılmaz
