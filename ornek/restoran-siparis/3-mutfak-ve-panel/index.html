@@ -189,4 +189,4 @@ const s=$("#saat"),y=s.getContext("2d"),W2=s.width=s.clientWidth*2,H2=s.height=3
 // hesap
 function hesapla(){const a=+$("#hAdet").value,s=+$("#hSepet").value,k=+$("#hKom").value/100,o=+$("#hOran").value/100;$("#hOranY").textContent="%"+Math.round(o*100);const kalan=a*o*s*k-490;$("#hSonuc").textContent=tl(Math.max(0,kalan));$("#hDetay").innerHTML=`Ayda <b>${Math.round(a*o)}</b> sipariş kendi uygulamanızdan gelirse, platforma gidecek <b>${tl(a*o*s*k)}</b> komisyonun tamamı sizde kalır (sunucu + bakım 490 TL düşüldü).`;const gun=kalan>0?Math.ceil(19900/(kalan/30)):"—";$("#hGeri").textContent=gun==="—"?"—":gun+" gün"}
 hesapla();
-</script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

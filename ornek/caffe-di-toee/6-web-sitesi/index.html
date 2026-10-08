@@ -455,4 +455,4 @@ $("#kisi").oninput=hes;$("#fin").oninput=hes;hes();
 $("#frGonder").onclick=()=>{const ad=$("#frAd").value.trim()||"Aday",sh=$("#frSehir").value.trim()||"Şehriniz";let p=40;if($("#frBut").value)p+=$("#frBut").selectedIndex*10;if($("#frDen").value)p+=$("#frDen").selectedIndex*8;p=Math.min(96,p+(sh.length>2?6:0));
  $$("#frForm>*:not(#frOk)").forEach(e=>e.style.display="none");$("#frOk").style.display="block";$("#frOk b").textContent="Teşekkürler "+ad.split(" ")[0]+"!";setTimeout(()=>$("#frPb").style.width=p+"%",80);$("#frP").textContent="Ön uygunluk puanı: "+p+"/100 · "+sh;};
 </script>
-</body></html>
+<script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

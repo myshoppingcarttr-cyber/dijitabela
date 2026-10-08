@@ -320,4 +320,4 @@ if(mod==="gelal"){ad(2,"Siparişiniz hazır, gelebilirsiniz",90,["Hazır!","Tezg
 else{ad(2,"Kurye yola çıktı",65,["Kurye yolda","Mehmet siparişinizle yola çıktı."]);zam.push(setTimeout(()=>{let t=0;const iv=setInterval(()=>{t+=.04;if(t>=1){clearInterval(iv);["a1","a2","a3","a4"].forEach(a=>$("#"+a).className="adim ok");$("#takipBaslik").textContent="Teslim edildi · afiyet olsun";$("#takipBar").style.width="100%";toast("Teslim edildi","Siparişinizi puanlar mısınız? ★★★★★");return}kurye&&kurye.setLatLng([REST[0]+(hedef[0]-REST[0])*t+Math.sin(t*9)*.0012,REST[1]+(hedef[1]-REST[1])*t]);$("#takipBar").style.width=(65+t*33)+"%"},300)},3*4500+1500))}}
 sepetGuncel();
 </script>
-</body></html>
+<script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

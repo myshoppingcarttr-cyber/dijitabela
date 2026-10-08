@@ -121,4 +121,4 @@ const B=[["Girne","Kyrenia"],["Lefkoşa","Nicosia"],["Gazimağusa","Famagusta"],
 function bolgeCiz(){$("#bolgeler").innerHTML=B.map(b=>`<a href="#iletisim">${dil==="en"?b[1]:b[0]}<small>${dil==="en"?"plumber "+b[1].toLowerCase():b[0].toLocaleLowerCase("tr")+" tesisatçı"}</small></a>`).join("")}
 function dilDegis(l){dil=l;document.documentElement.lang=l;document.querySelectorAll("[data-tr]").forEach(e=>{if(e.dataset[l])e.innerHTML=e.dataset[l]});document.querySelectorAll(".dil button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));planCiz();rapor();bolgeCiz()}
 document.querySelectorAll(".dil button").forEach(b=>b.onclick=()=>dilDegis(b.dataset.l));dilDegis("tr");
-</script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

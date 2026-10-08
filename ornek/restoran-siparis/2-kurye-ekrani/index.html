@@ -144,4 +144,4 @@ function bip(){try{const a=new (window.AudioContext||window.webkitAudioContext)(
 const ADL=[["Murat D.","Gürsu Mah. 301. Sk. No:14",[36.8915,30.6402]],["Selin B.","Altınkum Mah. Akdeniz Blv. No:5",[36.8762,30.6524]],["Okan E.","Uncalı Mah. 1453. Sk. No:22",[36.8988,30.6455]],["Derya M.","Kuşkavağı Mah. 552. Sk. No:3",[36.8701,30.6219]]];
 setInterval(()=>{if(!acik||siparisler.length>4)return;const a=ADL[Math.floor(Math.random()*ADL.length)];const para=Math.random()<.5;siparisler.push({no:"#"+(sayac++),ad:a[0],adres:a[1],tarif:"Örnek tarif",tel:"05350000000",ll:a[2],tutar:150+Math.floor(Math.random()*40)*10,odeme:para?"Kapıda nakit":"Online ödendi",para,urun:"Lahmacun ×3, ayran",dk:1});bip();bil("Yeni paket: "+a[0]+" · "+a[1]);ciz()},25000);
 ciz();
-</script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

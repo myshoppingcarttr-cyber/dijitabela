@@ -110,4 +110,4 @@ function depo(){const t=+$("#dTon").value,k=+$("#dKisi").value,hv=$("#dHavuz").c
 function dilDegis(l){dil=l;document.documentElement.lang=l;document.querySelectorAll("[data-tr]").forEach(e=>e.innerHTML=e.dataset[l]);document.querySelectorAll(".dil button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));bolgeCiz();ustaCiz();hizCiz();kesCiz();depo()}
 document.querySelectorAll(".dil button").forEach(b=>b.onclick=()=>dilDegis(b.dataset.l));
 dilDegis("tr");
-</script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

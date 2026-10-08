@@ -68,4 +68,4 @@ $('#rc').innerHTML=N.map((n,i)=>`<option value="${i}" ${i<3?'selected':''}>${n[1
 function rh(){const s=[...$('#rc').selectedOptions].length,h=+$('#rs').value;$('#rg').textContent=(s*180).toLocaleString('tr-TR')+' kişi';$('#rt').textContent=(s*h*750).toLocaleString('tr-TR')+' ₺'}
 $('#rc').onchange=rh;$('#rs').onchange=rh;rh();$('#rf').onsubmit=e=>{e.preventDefault();$('#modIc').innerHTML='<h2>Reklam talebi alındı ✓</h2><p class="g">Gerçek sistemde iyzico/PayTR ile ödeme alınır, görsel bayi onayına düşer, onaylanınca seçilen cihazların ekranında yayına girer.</p>';mod.classList.add('on')};
 $('#gt').innerHTML=N.slice(0,8).map(n=>`<tr><td>${n[1]}</td><td><span class="etk ${n[4]==='kapali-google'?'e-hata':n[4]==='bakim'?'e-uy':'e-ok'}">${n[4]==='kapali-google'?'Kalıcı olarak kapalı ⚠':n[4]==='bakim'?'Geçici kapalı':'Açık ✓'}</span></td></tr>`).join('');
-</script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

@@ -133,4 +133,4 @@ $("#ilceSayfa").innerHTML=`<div class="mono">${i} · İstanbul</div><h3 style="f
 <table style="width:100%;border-collapse:collapse;font-size:15px;max-width:700px"><tr><td style="padding:8px 0;border-bottom:1px solid var(--cizgi)">${i}'de keşif günleri</td><td style="text-align:right;border-bottom:1px solid var(--cizgi)"><b>Salı ve Perşembe</b></td></tr><tr><td style="padding:8px 0;border-bottom:1px solid var(--cizgi)">${i}'ye nakliye</td><td style="text-align:right;border-bottom:1px solid var(--cizgi)"><b>Ücretsiz</b></td></tr><tr><td style="padding:8px 0">Ortalama montaj</td><td style="text-align:right"><b>${(p.reduce((t,x)=>t+x.gun,0)/Math.max(1,p.length)).toFixed(1).replace(".",",")} gün</b></td></tr></table>
 <a class="btn" style="margin-top:14px" href="../1-vitrin-ve-hesaplayici/#hesap">${i} için fiyat hesapla</a>`}
 $("#ilceSec").onchange=ilce;ilce();
-</script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
