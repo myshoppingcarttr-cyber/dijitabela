@@ -13,7 +13,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Dijitabela","url":"https://dijitabela.com.tr/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Dijitabela","url":"https://dijitabela.com.tr","logo":"https://dijitabela.com.tr/marka/png/uygulama-simgesi-512.png","image":"https://dijitabela.com.tr/marka/png/paylasim-gorseli-1200x630.png","telephone":"+905019452184","email":"info@dijitabela.com","areaServed":"TR","priceRange":"19.900 TL'den","address":{"@type":"PostalAddress","addressLocality":"Kepez","addressRegion":"Antalya","addressCountry":"TR"},"sameAs":["https://www.facebook.com/dijitabela","https://www.instagram.com/dijitabela/","https://www.youtube.com/@dijitabela","https://x.com/dijitabela","https://www.tiktok.com/@dijitabela","https://www.linkedin.com/company/dijitabela/"],"description":"Yerel işletmeler için web, yazılım ve yapay zekâ"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aylık ücret ödemek zorunda mıyım?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Paketler tek seferliktir ve ücretsiz destek süresi içerir. Asistan, içerik ve yorum toplama gibi aylık hizmetler isteğe bağlıdır."}},{"@type":"Question","name":"Ödemeyi nasıl yapıyorum?","acceptedAnswer":{"@type":"Answer","text":"Teklifi onaylayınca %50'sini başta, kalanını teslimde ödersiniz. Kredi kartıyla taksitli ya da havale ile ödeyebilirsiniz."}},{"@type":"Question","name":"Yapay zekâ müşterime yanlış bir şey söylerse?","acceptedAnswer":{"@type":"Answer","text":"Asistan yalnızca sizin verdiğiniz bilgilerle cevap verir. Emin olmadığı soruyu size aktarır; her konuşmayı panelden görürsünüz."}},{"@type":"Question","name":"Google'da ilk sırayı garanti ediyor musunuz?","acceptedAnswer":{"@type":"Answer","text":"Hiçbir dürüst ajans sıra garantisi veremez; sıralamaya Google karar verir. Öne çıkmanızı sağlayan bütün adımları eksiksiz kurar ve düzenli raporlarız."}},{"@type":"Question","name":"Başka şehirdeyim, nasıl çalışacağız?","acceptedAnswer":{"@type":"Answer","text":"Fotoğraf ve videoları siz gönderirsiniz, kurulumu ve eğitimi biz uzaktan yaparız. Yerinde çekim ya da ziyaret gerekmez."}},{"@type":"Question","name":"Beğenmezsem ne olur?","acceptedAnswer":{"@type":"Answer","text":"Taslaklar ücretsizdir; beğenmezseniz hiçbir şey ödemezsiniz."}},{"@type":"Question","name":"${s}","acceptedAnswer":{"@type":"Answer","text":"${kac(c)}"}}]}</script>
-<script src="assets/piksel.js?v=mv01vg7x" defer></script>
+<script src="assets/piksel.js?v=mv0239ew" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..900&family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
@@ -242,6 +242,10 @@ a{color:inherit}
 
 
 /* ===== Taslak v3: tam sayfa siteler (kendi içinde kayar) ===== */
+.mini-site.tur{overflow:hidden}
+.ms-govde{will-change:transform;position:relative;z-index:1}
+.v-serit,.v-nav,.m-nav,.k-ust,.k-nav{position:relative;z-index:3}
+.k-nav{background:#fff}.v-nav{position:sticky}.m-nav{position:sticky}
 .mini-site table,.mini-site th,.mini-site td{color:inherit;font:inherit}
 .v-hero,.k-hero,.m-sol,.v-bol,.m-bol,.k-bol{grid-template-columns:minmax(0,1fr)}
 .v-hero>*,.k-hero>*,.m-sol>*{min-width:0;max-width:100%}
@@ -1708,13 +1712,20 @@ const ik = (a, s = 20) => `<svg class="ik" width="${s}" height="${s}" viewBox="0
 const HIZ_IK = ["kalkan", "parilti", "takvim"];
 const YORUMLAR = [["Ayşe K.", "Randevumu gece WhatsApp'tan aldım, sabah her şey hazırdı. İlgi ve özen çok iyiydi."], ["Murat T.", "Fiyatı baştan söylediler, sürpriz çıkmadı. Hızlı ve temiz iş, kesinlikle tavsiye ederim."], ["Elif S.", "Hatırlatma mesajı sayesinde randevumu unutmadım. Her şey çok düzenli."]];
 let turZaman = null;
-function taslakGez() {   // önizlemeyi yavaşça aşağı kaydırır; kullanıcı dokunursa durur
-  cancelAnimationFrame(turZaman); miniSite.scrollTop = 0; if (AZ) return;
-  const bas0 = performance.now() + 900, sure = 9000, son = () => miniSite.scrollHeight - miniSite.clientHeight;
-  const adim = (t) => { if (t < bas0) { turZaman = requestAnimationFrame(adim); return; } const p = Math.min(1, (t - bas0) / sure); miniSite.scrollTop = son() * (p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2); if (p < 1) turZaman = requestAnimationFrame(adim); };
+let turY = 0;
+function turBitir() {   // transform ile gelinen yeri gerçek kaydırmaya çevir
+  cancelAnimationFrame(turZaman); const g = miniSite.querySelector(".ms-govde");
+  if (g && g.style.transform) { g.style.transform = ""; miniSite.classList.remove("tur"); miniSite.scrollTop = turY; }
+}
+function taslakGez() {   // önizlemeyi yavaşça aşağı gezdirir; kullanıcı dokunursa durur
+  cancelAnimationFrame(turZaman); const g = miniSite.querySelector(".ms-govde"); miniSite.scrollTop = 0; turY = 0; if (AZ || !g) return;
+  const ust = g.offsetTop, son = Math.max(0, g.offsetHeight - (miniSite.clientHeight - ust));
+  miniSite.classList.add("tur");
+  const bas0 = performance.now() + 900, sure = 9000;
+  const adim = (t) => { if (t < bas0) { turZaman = requestAnimationFrame(adim); return; } const p = Math.min(1, (t - bas0) / sure); turY = son * (p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2); g.style.transform = "translate3d(0," + (-turY).toFixed(1) + "px,0)"; if (p < 1) turZaman = requestAnimationFrame(adim); else turBitir(); };
   turZaman = requestAnimationFrame(adim);
 }
-["wheel", "touchstart", "pointerdown"].forEach((e) => miniSite.addEventListener(e, () => cancelAnimationFrame(turZaman), { passive: true }));
+["wheel", "touchstart", "pointerdown", "keydown"].forEach((e) => miniSite.addEventListener(e, turBitir, { passive: true }));
 miniSite.setAttribute("data-lenis-prevent", "");
 function siteCiz() {
   const sekAd = oSek.value.trim() || "Oto servis", k = katBul(sekAd), D = k[8];
@@ -1769,7 +1780,9 @@ function siteCiz() {
 <section class="k-bol k-saat"><span class="k-etk">Ziyaret</span><table><tr><th>Saatler</th><td>${kac(D[1])}</td></tr><tr><th>Adres</th><td>${kac(D[2])}</td></tr><tr><th>İletişim</th><td>WhatsApp · Telefon</td></tr></table>${harita}</section>
 <footer class="ms-son k-son"><span class="k-ad">${ad}</span><small>© 2026 · ${alan}</small></footer>`;
   miniSite.classList.add("gec");
-  setTimeout(() => { miniSite.className = "mini-site t-" + oTarz; miniSite.style.setProperty("--r", oRenk); miniSite.innerHTML = ic; taslakGez(); }, AZ ? 0 : 160);
+  setTimeout(() => { miniSite.className = "mini-site t-" + oTarz; miniSite.style.setProperty("--r", oRenk); miniSite.innerHTML = ic;
+    const cocuk = [...miniSite.children], hi = cocuk.findIndex((e) => /(^| )(v-nav|m-nav|k-nav)( |$)/.test(e.className)), g = document.createElement("div"); g.className = "ms-govde";
+    cocuk.slice(hi + 1).forEach((e) => g.appendChild(e)); miniSite.appendChild(g); taslakGez(); }, AZ ? 0 : 160);
 }
 
 document.querySelectorAll("#tarzlar button").forEach((b) => (b.onclick = () => { oTarz = b.dataset.tarz; document.querySelectorAll("#tarzlar button").forEach((x) => x.setAttribute("aria-pressed", x === b)); siteCiz(); }));
@@ -1893,7 +1906,7 @@ function olcHepsi() { ledler.forEach((l) => l.olc()); }
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { olcHepsi(); evre = -1; evreSec(0); if (AZ) ledler.forEach((l) => { l.kirli = true; l.ciz(); }); }, 200); });
 </script>
 
-<script src="assets/config.js?v=mv01vg7x"></script>
-<script src="assets/data.js?v=mv01vg7x"></script>
+<script src="assets/config.js?v=mv0239ew"></script>
+<script src="assets/data.js?v=mv0239ew"></script>
 </body>
 </html>
