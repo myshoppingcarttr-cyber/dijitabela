@@ -1,0 +1,47 @@
+{
+ "giris": {
+  "metin": "Öncelikle merhabalar! Durlanık Tesisat için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım."
+ },
+ "tasarimlar": {
+  "metin": "Burada üç farklı tasarım var: büyük fotoğraflı Prestij, tam ekran ve koyu Gece, uygulama gibi kartlarla çalışan Modern. Hepsi Google'daki gerçek bilgileriniz ve fotoğraflarınızla hazırlandı. Birine dokunup içine girin.",
+  "dugme": [
+   "Prestij'i aç",
+   "1-prestij/"
+  ]
+ },
+ "oz1": {
+  "metin": "Arıza çözücü. belirtiye göre evde güvenli adımlar ve olası neden, fotoğrafıyla"
+ },
+ "oz2": {
+  "metin": "Bakım ve tasarruf hesabı. bakımsız kombinin fazladan harcaması, bakım hatırlatıcısı"
+ },
+ "oz3": {
+  "metin": "Servis randevusu ve usta takibi. usta yola çıkınca müşteri görür"
+ },
+ "oz4": {
+  "metin": "Gaz kokusunda tek dokunuşla 187 acil hattı"
+ },
+ "son": {
+  "metin": "Şimdi bir tasarıma girip araçları deneyin. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Tespitler ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada Durlanık Tesisat için yaptığımız tespitleri ve teklifimizi anlatacağım."
+ },
+ "t_tespit": {
+  "metin": "Tespitlerimiz burada: web sitesi, google yorum sayısı, profilde web sitesi."
+ },
+ "t_yapacak": {
+  "metin": "Pakete dahil olanlar burada: siteniz, sektörünüze özel araçlar, Google profil düzenlemesi ve üç ay destek."
+ },
+ "t_fiyat": {
+  "metin": "Paket fiyatı dört bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir.",
+  "dugme": [
+   "3 tasarımı aç",
+   "./"
+  ]
+ }
+}
