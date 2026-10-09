@@ -68,8 +68,8 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
 <script>
 (function () {
   var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
-  var RENK = { gm: "#16181D", selin: "#D2558A", murat: "#2F6FEB", kerem: "#E07A1F", deniz: "#7A4FD6", can: "#14918A", ece: "#B8860B", arda: "#C2412D", zeynep: "#1E9E5A" };
-  var BIRIM = { selin: "mesaj gönderdi", murat: "cevap verdi", kerem: "tur attı", deniz: "tur attı", can: "tur attı", ece: "kontrol yaptı", arda: "tur attı", zeynep: "tur attı", gm: "" };
+  var RENK = { gm: "#16181D", selin: "#D2558A", murat: "#2F6FEB", kerem: "#E07A1F", deniz: "#7A4FD6", can: "#14918A", ece: "#B8860B", arda: "#C2412D", zeynep: "#1E9E5A", elif: "#8E44AD" };
+  var BIRIM = { selin: "mesaj gönderdi", murat: "cevap verdi", kerem: "işletme buldu", deniz: "tur attı", can: "tur attı", ece: "kontrol yaptı", arda: "tur attı", zeynep: "tur attı", elif: "proje", gm: "" };
   var DURUM = { calisiyor: "● Çalışıyor", bosta: "Masasında · sıradaki işi bekliyor", hata: "⚠ Son işte hata", kapali: "Kapalı (görev devre dışı)" };
   var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
   var saat = function (d) { if (!d) return "–"; d = new Date(d); var bugun = new Date().toDateString() === d.toDateString(); return d.toLocaleString("tr-TR", bugun ? { hour: "2-digit", minute: "2-digit" } : { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }); };
