@@ -14,7 +14,7 @@
       '<div class="box" style="max-width:440px;margin:30px auto"><h2 style="margin-bottom:12px">Yönetim paneli</h2>' + (msg ? '<p class="err">' + e(msg) + "</p>" : "") +
       '<form id="g" class="frm" style="grid-template-columns:1fr"><label>E-posta<input name="e" type="email" required value="' + e(S.eposta || "") + '"></label>' +
       (adim === "kod" && API.mode !== "demo" ? '<p class="small" style="margin-bottom:10px">E-postanıza bir <b>giriş bağlantısı</b> gönderdik. Bağlantıya tıklayın, panel açılır (bu sekme de kendiliğinden yenilenir). E-postada 6 haneli kod varsa aşağıya da yazabilirsiniz.</p>' : "") +
-      (adim === "kod" ? '<label>Giriş kodu<input name="k" inputmode="numeric" maxlength="6" required></label>' : "") +
+      (adim === "kod" ? '<label>Giriş kodu<input name="k" inputmode="numeric" maxlength="10" autocomplete="one-time-code" required></label>' : "") +
       '</form><button class="btn btn-p" id="gb">' + (adim === "kod" ? "Giriş" : "Giriş bağlantısı gönder") + "</button></div>";
     document.getElementById("gb").onclick = function () {
       var f = document.getElementById("g"); if (!f.reportValidity()) return; S.eposta = f.e.value.trim();

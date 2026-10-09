@@ -55,9 +55,10 @@ h2{font-size:1rem;margin:24px 0 10px;display:flex;align-items:center;gap:8px}h2 
 <p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
 <div class="giris" id="giris" hidden>
   <h1 style="margin-bottom:8px">Canlı Sayaç</h1>
-  <p>CRM ile aynı giriş. E-postanıza giriş bağlantısı gelir; bağlantıyı açtığınız tarayıcıda bu sayfa açık kalır (WhatsApp içinden değil, Chrome/Safari'de açın).</p>
+  <p>CRM ile aynı giriş. E-postanıza giriş kodu gelir; kodu buraya yazın.</p>
   <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
-  <button id="gonder">Giriş bağlantısı gönder</button>
+  <button id="gonder">Giriş kodu gönder</button>
+  <div id="kodalan" hidden><input id="kod" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="E-postadaki kod"><button id="kodgir">Giriş</button></div>
   <p id="gmsg" style="margin-top:10px"></p>
 </div>
 <script src="assets/config.js"></script>
@@ -124,7 +125,12 @@ h2{font-size:1rem;margin:24px 0 10px;display:flex;align-items:center;gap:8px}h2 
   document.querySelectorAll("#donem button").forEach(function (b) { b.onclick = function () { document.querySelectorAll("#donem button").forEach(function (x) { x.classList.toggle("on", x === b); }); gun = +b.dataset.g; yukle(); }; });
   $("gonder").onclick = async function () {
     var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
-    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "Bağlantı gönderildi. E-postanızdaki bağlantıya dokunun.";
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın (bağlantıya dokunmanız gerekmez).";
+    if (!r.error) $("kodalan").hidden = false;
+  };
+  $("kodgir").onclick = async function () {
+    var r = await sb.auth.verifyOtp({ email: $("eposta").value.trim(), token: $("kod").value.replace(/D/g, ""), type: "email" });
+    if (r.error) $("gmsg").textContent = "Kod olmadı: " + r.error.message; else if (!basladi) { basladi = true; $("yuk").hidden = true; basla(); }
   };
   var basladi = false, girisGoster = function (m) { if (basladi) return; $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; };
   setTimeout(function () { girisGoster(); }, 4000); // bazı uygulama içi tarayıcılarda oturum kontrolü cevap vermiyor
