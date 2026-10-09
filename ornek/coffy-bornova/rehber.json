@@ -1,0 +1,23 @@
+{
+  "giris": { "metin": "Öncelikle merhabalar! Coffy Bornova Küçükpark şubesi için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım." },
+  "tasarimlar": { "metin": "Burada üç tasarım var. Karamel, Coffy'nin beyaz, siyah ve karamel kimliğinde; Gece, akşam müşterisi için koyu; Kampüs ise öğrenciler için sıcak tonlarda. Birine dokunup içine girin, sipariş vermeyi deneyin.", "dugme": ["Karamel'i aç", "1-karamel/"] },
+  "oz1": { "metin": "İlk özellik fotoğraflı QR menü. Masadaki kod bu sayfayı açıyor; sıcak, soğuk ve tatlı diye süzülüyor, kafein ve alerjen bilgisi de yanında.", "dugme": ["Menüyü aç", "1-karamel/#menu"] },
+  "oz2": { "metin": "İkincisi yoldayım, hazır olsun siparişi. Müşteri menüden ekliyor, alış saatini seçiyor, sipariş kodunu alıyor; geldiğinde sıra beklemeden alıyor.", "dugme": ["Sipariş ver", "1-karamel/#siparis"] },
+  "oz3": { "metin": "Üçüncüsü bugün ne içsem sihirbazı. Ruh hâlini ve süt tercihini seçen müşteriye üç içecek fotoğraflarıyla öneriliyor.", "dugme": ["Sihirbazı dene", "2-gece/#ne-icsem"] },
+  "oz4": { "metin": "Dördüncüsü öğrencilere ders çalışmaya uygun saatler. Saatlik yoğunluk, prizli masa ve Wi-Fi bilgisi; Bornova'daki öğrenciler sakin saatte geliyor.", "dugme": ["Ders saatleri", "3-kampus/#ders"] },
+  "oz5": { "metin": "Beşincisi kampanyalar: Coffy App'te ilk kahve ücretsiz bağlantısı ve ofisler için toplu sipariş talebi." },
+  "oz6": { "metin": "Ayrıca Google'daki dört virgül altı puanınız ve beş yüz kırk dokuz yorumunuz, Instagram paylaşımlarınız, üç yüz altmış derece konum ve metrodan yol tarifi sayfada." },
+  "son": { "metin": "Şimdi bir tasarıma girip sipariş vermeyi deneyin. Beğendiğinizi söyleyin; menünüz ve fotoğraflarınızla yayına alalım. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.", "dugme": ["Tespitler ve teklif", "teklif.html"] },
+  "t_giris": { "metin": "Merhaba, yine ben! Bu sayfada Coffy Bornova şubeniz için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum." },
+  "t_tespit": { "metin": "İlk tespitimiz: güçlü bir Google profiliniz var ama site bağlantısı merkezin genel sayfasına gidiyor; şubenizin menüsü ve saatleri orada yok. İkincisi, yoldayken sipariş verip sıra beklemeden almak için şubeye özel bir yol yok." },
+  "t_yapacak": { "metin": "Pakete dahil olanlar burada: şube sayfanız, QR menü ve masa kodları, gel-al sipariş paneli, sihirbaz ve ders saatleri, Google profil düzenlemesi ve üç ay destek." },
+  "t_fiyat": { "metin": "Paket fiyatı iki bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. Menünüz geldikten sonra beş iş gününde yayında.", "dugme": ["3 tasarımı aç", "./"] },
+  "p_giris": { "metin": "Merhaba! Bu, Coffy Bornova şubeniz için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli." },
+  "p_menu": { "metin": "Fotoğraflı QR menü. Üstteki düğmelerle süzün; bir içeceği siparişe eklemek için altındaki düğmeye dokunun." },
+  "p_siparis": { "metin": "Gel-al sipariş. Eklediğiniz ürünler burada; alış saatini seçip siparişi verin, sipariş kodunuz ve hazır olma saati çıksın." },
+  "p_neicsem": { "metin": "Bugün ne içsem? Ruh hâlinizi ve süt tercihinizi seçin; size uygun üç içecek fotoğraflarıyla çıkıyor." },
+  "p_ders": { "metin": "Ders çalışmaya uygun saatler. Grafikte şu anki saat vurgulu; sakin saat önerisi de yazıyor." },
+  "p_kampanya": { "metin": "Kampanyalar ve ofis siparişi. Coffy App bağlantısı ve toplu sipariş talebi burada." },
+  "p_instagram": { "metin": "Şubenizin Instagram paylaşımları burada akıyor; yeni ürün paylaştığınızda sitede de görünecek." },
+  "p_iletisim": { "metin": "Son olarak konum, saatler ve metrodan yol tarifi. Beğendiyseniz diğer tasarımlara da göz atın.", "dugme": ["Tüm tasarımlar", "../"] }
+}
