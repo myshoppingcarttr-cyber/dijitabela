@@ -1,0 +1,47 @@
+{
+ "giris": {
+  "metin": "Öncelikle merhabalar! MS EMLAK için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım."
+ },
+ "tasarimlar": {
+  "metin": "Burada üç farklı tasarım var: büyük fotoğraflı Prestij, tam ekran ve koyu Gece, uygulama gibi kartlarla çalışan Modern. Hepsi Google'daki gerçek bilgileriniz ve fotoğraflarınızla hazırlandı. Birine dokunup içine girin.",
+  "dugme": [
+   "Prestij'i aç",
+   "1-prestij/"
+  ]
+ },
+ "oz1": {
+  "metin": "Yatırımla vatandaşlık hesaplayıcı. mülk bedeli dört yüz bin dolar eşiğine göre eksik tutar ve süreç"
+ },
+ "oz2": {
+  "metin": "Kira getirisi hesaplayıcı. fiyat ve kiraya göre yıllık getiri ve amorti süresi"
+ },
+ "oz3": {
+  "metin": "Türkçe / İngilizce dil düğmesi; yabancı yatırımcıya hazır"
+ },
+ "oz4": {
+  "metin": "Google'daki fotoğraflarınız, çalışma saatleriniz ve üç yüz altmış derece konum"
+ },
+ "son": {
+  "metin": "Şimdi bir tasarıma girip araçları deneyin. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Tespitler ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada MS EMLAK için yaptığımız tespitleri ve teklifimizi anlatacağım."
+ },
+ "t_tespit": {
+  "metin": "Tespitlerimiz burada: web sitesi, profilde web sitesi, yorumların tazeliği."
+ },
+ "t_yapacak": {
+  "metin": "Pakete dahil olanlar burada: siteniz, sektörünüze özel araçlar, Google profil düzenlemesi ve üç ay destek."
+ },
+ "t_fiyat": {
+  "metin": "Paket fiyatı dört bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir.",
+  "dugme": [
+   "3 tasarımı aç",
+   "./"
+  ]
+ }
+}
