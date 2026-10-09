@@ -110,4 +110,4 @@ $('#yorumlar').innerHTML=Y.map(kart).join('');$('#dmler').innerHTML=D.map(kart).
 function duzenle(b){const c=b.closest('.mesaj').querySelector('.cevap');const t=c.textContent.replace(/^(Önerilen cevap|Asistanın cevabı)/,'');c.innerHTML='<small>Düzenle</small><textarea style="width:100%;min-height:80px;border:1px solid var(--c);border-radius:8px;padding:8px;font:14px DM Sans">'+t+'</textarea>'}
 const gunler=['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],P=[['Yeni nokta: Bodrum Konacık açıldı 📍'],['Bayi hikâyesi: Bergama\'daki ilk yılımız'],[],['Su nasıl arıtılıyor? (Reels)'],['Şişeni getir: bu ay 12.000 plastik şişe tasarrufu ♻'],['Bayilik çağrısı: senin şehrin hangisi?'],[]];
 $('#takvim').innerHTML=gunler.map((g,i)=>`<div class="gun"><b>${g}</b>${(P[i]||[]).map(p=>`<div class="p">${p}<br><span class="durum d-bek">● Onay bekliyor</span></div>`).join('')||'<span class="g">—</span>'}</div>`).join('');
-</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

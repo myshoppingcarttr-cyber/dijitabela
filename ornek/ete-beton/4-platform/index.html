@@ -192,4 +192,4 @@ document.querySelectorAll("[data-dok]").forEach(function(b){b.onclick=function()
 f.querySelector(".dok-iptal").onclick=function(){m.hidden=true};
 f.onsubmit=function(e){e.preventDefault();try{var l=JSON.parse(localStorage.getItem("ete-talepler")||"[]");l.unshift({id:Date.now(),tarih:new Date().toISOString(),ad:f.ad.value,firma:f.firma.value||f.meslek.value,tel:f.eposta.value,tur:"Doküman: "+d,alan:0,il:"—",kaynak:"Doküman Merkezi",asama:"yeni"});localStorage.setItem("ete-talepler",JSON.stringify(l))}catch(x){}f.querySelector(".dok-sonuc").textContent="✓ Kaydınız alındı; dosya e-postanıza gönderilecek (taslak).";setTimeout(function(){m.hidden=true},1800)}});
 </script><script src="../ortak/ete.js"></script>
-<script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

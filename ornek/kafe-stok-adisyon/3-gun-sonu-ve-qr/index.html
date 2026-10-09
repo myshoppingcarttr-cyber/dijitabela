@@ -103,4 +103,4 @@ function garson(){gelenler.unshift({masa:"M3",garson:true,t:new Date()});gelenCi
 function gelenCiz(){$("#gelen").innerHTML=gelenler.map((g,i)=>`<div class="gelen"><b>${g.masa} · ${g.t.toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"})}</b> ${g.garson?"· <b>garson çağırıyor</b>":"· "+g.k.map(k=>k.adet+"× "+K.urun(k.id).ad).join(", ")+" · "+tl(K.toplam(g.k))}${g.garson?"":`<div style="margin-top:8px"><button class="btn v" onclick="aktar(${i})">Adisyona aktar</button></div>`}</div>`).join("")}
 function aktar(i){const g=gelenler[i];const a=K.veri.acik||(K.veri.acik={});a[g.masa]=(a[g.masa]||[]).concat(g.k);K.kaydet();gelenler.splice(i,1);gelenCiz();bil(g.masa+" adisyonuna eklendi. Adisyon ekranında görünür.")}
 rapor();if(location.hash.startsWith("#masa-")){document.querySelector('.bar button[data-s=qr]').click()}
-</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

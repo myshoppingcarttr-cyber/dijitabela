@@ -101,4 +101,4 @@ catch(e){s.innerHTML=`<div class="yukleniyor"><b>Ölçüm şu an yapılamadı.</
 $("#url").addEventListener("keydown",e=>{if(e.key==="Enter")olc()});
 const ORN=[[59,["LCP 6,8 sn","TBT 740 ms","Sayfa 5,4 MB","Görsel 3,9 MB (JPEG/PNG)","Engelleyen 14 CSS/JS","Sunucu yanıtı 1,4 sn"]],[88,["LCP 2,3 sn","TBT 160 ms","Sayfa 1,6 MB","Görsel 0,9 MB (WebP)","Engelleyen 2 CSS","Sunucu yanıtı 0,4 sn"]]];
 ["onceG","sonraG"].forEach((id,i)=>$("#"+id).innerHTML=`<div style="display:flex;gap:16px;align-items:center;margin-top:8px">${halka(ORN[i][0],"Performans").replace('class="gosterge"','class="gosterge" style="border:0;padding:0"')}<ul style="list-style:none;font-size:15px">${ORN[i][1].map(x=>`<li style="padding:3px 0">${x}</li>`).join("")}</ul></div>`);
-</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

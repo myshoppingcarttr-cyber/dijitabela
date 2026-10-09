@@ -272,5 +272,5 @@ footer a{color:#fff;text-decoration:none;margin-right:18px}
 var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.preload = "auto"; e.target.play().catch(function () {}); } else e.target.pause(); }); }, { threshold: .4 });
 document.querySelectorAll(".is video").forEach(function (v) { io.observe(v); });
 </script>
-<script src="/ornek/_dijitabela/izle.js" defer></script></body>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body>
 </html>

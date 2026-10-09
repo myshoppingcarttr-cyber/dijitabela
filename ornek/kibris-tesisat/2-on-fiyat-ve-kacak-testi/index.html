@@ -121,4 +121,4 @@ const EV=[["Daire","2–3 kişi",[["Depo","2 ton (çatı)"],["Hidrofor","0,5 HP 
 $("#evTip").innerHTML=EV.map((e,i)=>`<button data-i="${i}" class="${i===1?"on":""}">${e[0]}<small>${e[1]}</small></button>`).join("");
 function ev(i){document.querySelectorAll("#evTip button").forEach((b,j)=>b.classList.toggle("on",i===j));$("#evSonuc").innerHTML=EV[i][2].map(r=>`<tr><td>${r[0]}</td><td class="r">${r[1]}</td></tr>`).join("")+`<tr><td>Montaj süresi</td><td class="r">${i<2?"1 gün":"2–3 gün"}</td></tr><tr><td>Garanti</td><td class="r">2 yıl pompa · 5 yıl depo</td></tr>`}
 document.querySelectorAll("#evTip button").forEach(b=>b.onclick=()=>ev(+b.dataset.i));ev(1);
-</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

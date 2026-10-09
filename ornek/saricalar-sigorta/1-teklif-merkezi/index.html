@@ -627,4 +627,4 @@ function balon(m, ben) { var b = document.createElement("div"); b.className = "b
 function asAdim(k) { var d = AS[k]; balon(d[0]); var s = document.getElementById("secenek"); s.innerHTML = ""; d[1].forEach(function (o) { var b = document.createElement("button"); b.textContent = o; b.onclick = function () { balon(o, true); if (EYLEM[o]) EYLEM[o](); else setTimeout(function () { asAdim(o); }, 350); }; s.appendChild(b); }); }
 function asistan() { var a = document.getElementById("asistan"); a.classList.toggle("ac"); if (a.classList.contains("ac") && !document.getElementById("akis").children.length) asAdim("bas"); }
 </script>
-<script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

@@ -51,7 +51,7 @@
     if (!sesAcik) { var d = document.createElement("button"); d.className = "djr-ses"; d.textContent = "🔊 Sesli dinle"; d.onclick = function () { sesAcik = true; anlat(aktif || "giris", true); }; alt.appendChild(d); }
     if (s && s.dugme) { var g = document.createElement("a"); g.className = "djr-git"; g.textContent = s.dugme[0]; g.href = s.dugme[1]; alt.appendChild(g); }
     var k = document.createElement("button"); k.className = "djr-kapa"; k.textContent = sesAcik ? "Sustur" : "Kapat";
-    k.onclick = function () { if (sesAcik) { sesAcik = false; ses.pause(); konusuyor = false; dugmeler(s); } else bal.hidden = true; };
+    k.onclick = function () { if (sesAcik) { sesAcik = false; ses.pause(); if (window.speechSynthesis) speechSynthesis.cancel(); konusuyor = false; dugmeler(s); } else bal.hidden = true; };
     alt.appendChild(k);
   }
   // Anlatım bitince balon kendiliğinden kapanır (telefonda içeriği kapatmasın); tabelaya dokununca yeniden açılır
@@ -68,7 +68,13 @@
     var s = C.satirlar[id]; if (!s) return;
     if (konusuyor && !zorla) { bekleyen = id; return; }
     sonAnlatilan = id; soyle(s.metin); dugmeler(s);
-    if (sesAcik && C.ses !== false) {
+    if (sesAcik && C.tts && window.speechSynthesis) {
+      // Otomatik tabela (tabela-oto.js): kayıtlı ses yok, cihazın Türkçe sesi
+      var u = new SpeechSynthesisUtterance(s.metin); u.lang = "tr-TR"; u.rate = 1.02;
+      var v = speechSynthesis.getVoices().filter(function (x) { return /^tr/i.test(x.lang); })[0]; if (v) u.voice = v;
+      u.onend = u.onerror = function () { konusuyor = false; sonraki(); };
+      speechSynthesis.cancel(); konusuyor = true; speechSynthesis.speak(u);
+    } else if (sesAcik && C.ses !== false) {
       ses.pause(); ses.src = (C.ses || "ses/") + (s.dosya || id) + ".mp3"; konusuyor = true;
       var p = ses.play(); if (p && p.catch) p.catch(function () { konusuyor = false; sesAcik = false; dugmeler(s); });
     }

@@ -155,4 +155,4 @@ const DIL = { en: { altlogo: "SOFA CLEANING · ANTALYA", m1: "Price", m2: "Booki
 const TRM = {}; document.querySelectorAll("[data-t]").forEach((e) => (TRM[e.dataset.t] = e.textContent));
 document.querySelectorAll(".dil button").forEach((b) => (b.onclick = () => { document.querySelectorAll(".dil button").forEach((x) => x.classList.toggle("on", x === b)); const s = DIL[b.dataset.d] || TRM; document.querySelectorAll("[data-t]").forEach((e) => { if (s[e.dataset.t]) e.textContent = s[e.dataset.t]; }); document.documentElement.lang = b.dataset.d; }));
 </script>
-<script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

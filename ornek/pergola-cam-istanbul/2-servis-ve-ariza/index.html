@@ -150,4 +150,4 @@ kontrol(0);
 // takip
 function sorgula(){const no=$("#kayitNo").value.trim().toUpperCase()||"SRV-2481";const a=[["Kayıt alındı","Bugün 09:14 · fotoğraf ile",1],["Fiyat onaylandı","Bugün 09:41 · 1.650 TL (motor kartı + işçilik)",1],["Parça hazırlandı","Bugün 11:20 · Somfy RTS alıcı kart",1],["Usta yolda","Ahmet Usta · tahmini varış 14:30",2],["Tamamlandı","Servis formu + 1 yıl işçilik garantisi",0]];$("#cizgi").innerHTML=`<div class="mono" style="margin-bottom:12px">${no}</div>`+a.map(x=>`<div class="${x[2]===1?"ok":x[2]===2?"su":""}"><b>${x[0]}</b><small>${x[1]}</small></div>`).join("")}
 sorgula();
-</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
+</script><script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

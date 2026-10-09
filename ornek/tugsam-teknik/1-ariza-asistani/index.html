@@ -175,5 +175,5 @@ function goster() {
 function kodLink() { $("waKod").href = "https://wa.me/905314367872?text=" + encodeURIComponent("Merhaba, kombimin ekranında hata kodu var.\nMarka: " + $("marka").value + "\nKod: " + ($("hk").value || "-") + "\nKonum: " + ($("ilce").value || "-")); }
 ["marka", "hk", "ilce"].forEach(function (i) { $(i).addEventListener("input", kodLink); }); kodLink();
 </script>
-<script src="/ornek/_dijitabela/izle.js" defer></script></body>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body>
 </html>
