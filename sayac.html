@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Canlı Sayaç · Dijitabela</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#F4F3EF;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#E3E0D8;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--mavi:#2F6FEB}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.kap{max-width:980px;margin:0 auto;padding:18px 16px 60px}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.logo{width:40px;height:40px;border-radius:10px;background:#16181D;display:grid;place-items:center;color:var(--sari);font:700 1.3rem 'Space Mono',monospace}
+h1{font-size:1.25rem;font-weight:800}.canli{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--soluk)}.canli i{width:8px;height:8px;border-radius:50%;background:var(--yesil);animation:n 1.6s infinite}@keyframes n{50%{opacity:.25}}
+.donem{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}.donem button{font:inherit;font-weight:700;font-size:.85rem;padding:8px 12px;border-radius:999px;border:1px solid var(--cizgi);background:var(--kart);cursor:pointer}.donem button.on{background:var(--yazi);color:#fff;border-color:var(--yazi)}
+.ana{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}@media(max-width:760px){.ana{grid-template-columns:1fr 1fr}}
+.k{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:16px}.k b{display:block;font:700 2.6rem/1 'Space Mono',monospace;margin:8px 0 4px}.k span{font-size:.82rem;color:var(--soluk);font-weight:600}.k small{font-size:.78rem;color:var(--soluk)}
+.k.sari{border-top:4px solid var(--sari)}.k.mavi{border-top:4px solid var(--mavi)}.k.yesil{border-top:4px solid var(--yesil)}.k.kirmizi{border-top:4px solid var(--kirmizi)}.k.kirmizi b{color:var(--kirmizi)}
+.alt{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}@media(max-width:760px){.alt{grid-template-columns:1fr 1fr}}.alt .k b{font-size:1.7rem}
+h2{font-size:1rem;margin:24px 0 10px;display:flex;align-items:center;gap:8px}h2 em{font-style:normal;background:var(--kirmizi);color:#fff;border-radius:999px;padding:1px 9px;font-size:.8rem}
+.liste{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;overflow:hidden}.sat{display:flex;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--cizgi)}.sat:first-child{border-top:0}
+.sat .ad{font-weight:700;font-size:.92rem}.sat .not{font-size:.8rem;color:var(--soluk);margin-top:2px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.sat .z{margin-left:auto;font-size:.75rem;color:var(--soluk);white-space:nowrap;text-align:right}
+.sat a.wa{display:inline-block;margin-top:4px;background:#25D366;color:#fff;font-weight:800;font-size:.75rem;padding:5px 9px;border-radius:8px;text-decoration:none}
+.etk{font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:6px;margin-right:6px;vertical-align:1px}.etk.sicak{background:#FFE8CC;color:#9A4A00}.etk.cevap{background:#E3EDFF;color:#1F4FB8}.etk.dur{background:#EEE;color:#555}.etk.devret{background:#FFE0E0;color:#A12}
+.bos{padding:16px;color:var(--soluk);font-size:.9rem}
+.giris{max-width:380px;margin:12vh auto;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:24px}.giris input{width:100%;font:inherit;padding:12px;border:1px solid var(--cizgi);border-radius:10px;margin:10px 0}.giris button{width:100%;font:inherit;font-weight:800;padding:12px;border:0;border-radius:10px;background:var(--sari);cursor:pointer}.giris p{font-size:.88rem;color:var(--soluk)}
+.son{font-size:.78rem;color:var(--soluk);margin-top:18px;text-align:center}
+</style>
+</head>
+<body>
+<div class="kap" id="uyg" hidden>
+  <header><div class="logo">d</div><div><h1>Canlı Sayaç</h1><span class="canli"><i></i> 30 sn'de bir yenilenir</span></div>
+    <div class="donem" id="donem"><button data-g="0" class="on">Bugün</button><button data-g="1">Dün</button><button data-g="7">7 gün</button><button data-g="30">30 gün</button></div></header>
+  <div class="ana">
+    <div class="k sari"><span>📤 Teklif iletilen</span><b id="s-teklif">–</b><small id="s-takip"></small></div>
+    <div class="k mavi"><span>📥 Dönüş yapan</span><b id="s-donus">–</b><small id="s-sicak"></small></div>
+    <div class="k yesil"><span>✅ Cevap verilen</span><b id="s-cevap">–</b><small id="s-oran"></small></div>
+    <div class="k kirmizi"><span>⚠️ Cevap bekleyen</span><b id="s-bekl">–</b><small>size kalan</small></div>
+  </div>
+  <div class="alt">
+    <div class="k"><span>🎨 Yeni prototip</span><b id="s-proto">–</b></div>
+    <div class="k"><span>🔥 Görüşmek isteyen</span><b id="s-gorus">–</b></div>
+    <div class="k"><span>🙅 İlgilenmiyor / DUR</span><b id="s-red">–</b></div>
+    <div class="k"><span>🏆 Kazanılan</span><b id="s-kazan">–</b></div>
+  </div>
+  <h2>Cevap bekleyenler <em id="b-say">0</em></h2>
+  <div class="liste" id="bekleyen"></div>
+  <h2>Son dönüşler</h2>
+  <div class="liste" id="donusler"></div>
+  <p class="son" id="son"></p>
+</div>
+<div class="giris" id="giris" hidden>
+  <h1 style="margin-bottom:8px">Canlı Sayaç</h1>
+  <p>CRM ile aynı giriş. E-postanıza giriş bağlantısı gelir.</p>
+  <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
+  <button id="gonder">Giriş bağlantısı gönder</button>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<script src="assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
+  var $ = function (i) { return document.getElementById(i); }, gun = 0, zam;
+  var GELEN = /^(cevap|sicak|devret|ilgilenmiyor|dur)$/, GIDEN = /^(bizden|wa_gonderim)$/, TAKIP = /^(takip-nobetci|bir-ay-sonra)$/;
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var son10 = function (t) { return String(t || "").replace(/\D/g, "").slice(-10); };
+  function aralik() { // Türkiye saatine göre gün başı
+    var simdi = new Date(), tr = new Date(simdi.getTime() + 3 * 3600e3); tr.setUTCHours(0, 0, 0, 0);
+    var bas = new Date(tr.getTime() - 3 * 3600e3), bit = new Date(simdi.getTime() + 60e3);
+    if (gun === 1) { bit = bas; bas = new Date(bas.getTime() - 864e5); } else if (gun > 1) bas = new Date(bas.getTime() - (gun - 1) * 864e5);
+    return [bas, bit];
+  }
+  var saat = function (d) { d = new Date(d); return d.toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }); };
+  async function yukle() {
+    var r = aralik(), bas = r[0], bit = r[1], ici = function (t) { t = new Date(t); return t >= bas && t < bit; };
+    var a = await sb.from("adaylar").select("id,isletme,tel,slug,asama,olusturma,notlar").order("guncelleme", { ascending: false }).limit(5000);
+    if (a.error) { $("son").textContent = "Veri okunamadı: " + a.error.message; return; }
+    var s = await sb.from("sohbetler").select("oturum,kim,zaman,metin").eq("kanal", "whatsapp").gte("zaman", bas.toISOString()).lt("zaman", bit.toISOString()).order("zaman").limit(5000);
+    var teklif = 0, takip = 0, proto = 0, gorus = 0, red = 0, kazan = 0, D = {};
+    (a.data || []).forEach(function (x) {
+      var n = x.notlar || [], k = son10(x.tel) || x.id;
+      if (x.slug && ici(x.olusturma)) proto++;
+      var ilk = n.some(function (e) { return GIDEN.test(e.tur) && !TAKIP.test(e.kim || "") && ici(e.tarih); });
+      if (ilk) teklif++; else if (n.some(function (e) { return TAKIP.test(e.kim || "") && ici(e.tarih); })) takip++;
+      if (x.asama === "kazanildi" && n.some(function (e) { return ici(e.tarih); })) kazan++;
+      var gelen = n.filter(function (e) { return GELEN.test(e.tur) && ici(e.tarih); });
+      if (!gelen.length) return;
+      var sonG = gelen[gelen.length - 1], tSon = new Date(sonG.tarih);
+      if (gelen.some(function (e) { return e.tur === "sicak"; })) gorus++;
+      if (gelen.some(function (e) { return e.tur === "ilgilenmiyor" || e.tur === "dur"; })) red++;
+      var cev = /ilgilenmiyor|dur/.test(sonG.tur) || n.some(function (e) { return GIDEN.test(e.tur) && new Date(e.tarih) > tSon; });
+      D[k] = { ad: x.isletme, tel: x.tel, tur: sonG.tur, metin: sonG.metin, zaman: sonG.tarih, cevap: cev };
+    });
+    var S = {};
+    (s.data || []).forEach(function (m) { var o = S[m.oturum] || (S[m.oturum] = {}); if (m.kim === "ziyaretci") { o.gelen = m.zaman; o.metin = m.metin; } else o.cevap = m.zaman; });
+    Object.keys(S).forEach(function (o) {
+      var v = S[o]; if (!v.gelen) return; var k = son10(o), d = D[k];
+      var bot = v.cevap && new Date(v.cevap) >= new Date(v.gelen);
+      if (d) { d.cevap = d.cevap || bot; if (new Date(v.gelen) > new Date(d.zaman)) { d.zaman = v.gelen; d.metin = v.metin; } }
+      else D[k] = { ad: "+" + o, tel: o, tur: "cevap", metin: v.metin, zaman: v.gelen, cevap: bot };
+    });
+    var liste = Object.keys(D).map(function (k) { return D[k]; }).sort(function (x, y) { return new Date(y.zaman) - new Date(x.zaman); });
+    var bekl = liste.filter(function (x) { return !x.cevap; }), cevaplanan = liste.length - bekl.length;
+    $("s-teklif").textContent = teklif; $("s-takip").textContent = takip ? "+" + takip + " takip mesajı" : "";
+    $("s-donus").textContent = liste.length; $("s-sicak").textContent = gorus ? gorus + " sıcak" : "";
+    $("s-cevap").textContent = cevaplanan; $("s-oran").textContent = teklif ? "dönüş oranı %" + Math.round(liste.length / teklif * 100) : "";
+    $("s-bekl").textContent = bekl.length; $("b-say").textContent = bekl.length;
+    $("s-proto").textContent = proto; $("s-gorus").textContent = gorus; $("s-red").textContent = red; $("s-kazan").textContent = kazan;
+    var satir = function (x) {
+      var wa = "90" + son10(x.tel), et = { sicak: "SICAK", cevap: "CEVAP", devret: "İNSAN", ilgilenmiyor: "İLGİLENMİYOR", dur: "DUR" }[x.tur] || x.tur;
+      return '<div class="sat"><div><div class="ad"><span class="etk ' + (x.tur === "ilgilenmiyor" ? "dur" : esc(x.tur)) + '">' + et + "</span>" + esc(x.ad) + '</div><div class="not">' + esc(x.metin || "") + "</div>" +
+        (wa.length === 12 && !x.cevap ? '<a class="wa" href="https://wa.me/' + wa + '" target="_blank" rel="noopener">WhatsApp\'tan yaz</a>' : "") + '</div><div class="z">' + saat(x.zaman) + (x.cevap ? "<br>✅" : "<br>⏳") + "</div></div>";
+    };
+    $("bekleyen").innerHTML = bekl.map(satir).join("") || '<div class="bos">Cevap bekleyen yok 👍</div>';
+    $("donusler").innerHTML = liste.slice(0, 30).map(satir).join("") || '<div class="bos">Bu dönemde dönüş yok.</div>';
+    $("son").textContent = "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR");
+  }
+  function basla() { $("uyg").hidden = false; $("giris").hidden = true; yukle(); clearInterval(zam); zam = setInterval(yukle, 30000); }
+  document.querySelectorAll("#donem button").forEach(function (b) { b.onclick = function () { document.querySelectorAll("#donem button").forEach(function (x) { x.classList.toggle("on", x === b); }); gun = +b.dataset.g; yukle(); }; });
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "Bağlantı gönderildi. E-postanızdaki bağlantıya dokunun.";
+  };
+  sb.auth.getSession().then(function (r) { if (r.data.session) basla(); else $("giris").hidden = false; });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses) basla(); });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && !$("uyg").hidden) yukle(); });
+})();
+</script>
+</body>
+</html>
