@@ -6,7 +6,7 @@
   const liste = bols.map((s, i) => {
     if (!s.id) s.id = "b" + (i + 1);
     const et = s.querySelector(".etiket"), h = s.querySelector("h2");
-    const ad = ((et && et.textContent) || (h && h.textContent) || "Bölüm " + (i + 1)).replace(/^[^p{L}p{N}]+/u, "").split(/s+[·|]s+/)[0].trim();
+    const ad = ((et && et.textContent) || (h && h.textContent) || "Bölüm " + (i + 1)).replace(/^[^\p{L}\p{N}]+/u, "").split(/\s+[·|]\s+/)[0].trim();
     return { s, et, h, ad };
   });
   const kisa = (t) => (t.length > 16 ? t.split(/\s+/).slice(0, 2).join(" ") : t);
