@@ -1,0 +1,21 @@
+{
+  "giris": { "metin": "Öncelikle merhabalar! Kardeşler Tesisat için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Aşağı indikçe her şeyi size tek tek anlatacağım." },
+  "tasarimlar": { "metin": "Burada üç tasarım var. Mavi, logonuzun renkleriyle güven veren tasarım; Güneş, güneş enerjisini öne çıkaran sıcak tonlarda; Acil servis ise tıkanık ve kaçak gibi acil işler için koyu ve hızlı. Birine dokunup içine girin.", "dugme": ["Mavi'yi aç", "1-mavi/"] },
+  "oz1": { "metin": "İlk özellik hızlı arıza çağrısı. Müşteri sorununu ve ilçesini seçiyor, mesajı hazır olarak WhatsApp'ınıza geliyor.", "dugme": ["Arıza bildir", "1-mavi/#ariza"] },
+  "oz2": { "metin": "İkincisi güneş enerjisi hesaplayıcı. Kişi sayısını giren müşteri, kaç litrelik depo gerektiğini ve yaklaşık tasarrufunu görüyor.", "dugme": ["Hesapla", "2-gunes/#gunes"] },
+  "oz3": { "metin": "Üçüncüsü 'peteğim neden ısınmıyor' testi. Belirtiye göre nedeni söylüyor ve makinalı petek temizliği kampanyanıza yönlendiriyor." },
+  "oz4": { "metin": "Dördüncüsü su kaçağı belirti testi; müşteri işaretliyor, tespit talebi size geliyor." },
+  "oz5": { "metin": "Beşincisi her hizmete ayrı sayfa ve malzeme kataloğu. Mersin'de tıkanık açma ya da güneş enerjisi arayan doğrudan size gelir." },
+  "oz6": { "metin": "Son olarak Instagram videolarınız sitede akıyor ve Google profilinizdeki site bağlantısı artık sitenize gidecek." },
+  "son": { "metin": "Teklifimizi ve tespitlerimizi bir sonraki sayfada bulabilirsiniz. Sorunuz olursa WhatsApp'tan yazmanız yeterli." },
+  "p_giris": { "metin": "Burası sitenizin ana sayfası. Müşteri ilk bakışta ne iş yaptığınızı, telefonunuzu ve Google puanınızı görüyor. Aşağı indikçe anlatmaya devam edeceğim." },
+  "p_ariza": { "metin": "Burada müşteri sorununu, ilçesini ve ne zaman istediğini seçiyor; mesaj hazır olarak WhatsApp'ınıza düşüyor. Su kaçağında önce vanayı kapatın uyarısı da çıkıyor." },
+  "p_gunes": { "metin": "Bu güneş enerjisi hesaplayıcı. Kişi sayısına göre depo ve panel öneriyor, tasarrufu gösteriyor; müşteri tek dokunuşla fiyat istiyor." },
+  "p_petek": { "metin": "Burada müşteri peteklerindeki belirtiyi işaretliyor, nedenini öğreniyor. Hemen altında üç bin liralık makinalı petek temizliği kampanyanız var." },
+  "p_kacak": { "metin": "Su kaçağı testi; belirtiler arttıkça uyarı güçleniyor ve müşteri tespit talebi gönderiyor." },
+  "p_hizmet": { "metin": "Hizmetleriniz. Yayında her biri ayrı bir sayfa olacak ve Google aramalarında tek tek çıkacak." },
+  "p_urun": { "metin": "Pazarlama tarafınız: malzeme kataloğu. Müşteri ürüne dokunup fiyatı WhatsApp'tan soruyor." },
+  "p_instagram": { "metin": "Instagram videolarınız burada; yeni paylaşımınız sitede kendiliğinden görünür." },
+  "p_iletisim": { "metin": "Son olarak hizmet verdiğiniz Mersin ilçeleri ve iletişim bilgileriniz. Dinlediğiniz için teşekkürler." },
+  "t_giris": { "metin": "Bu sayfada tespitlerimizi ve teklifimizi bulacaksınız. En önemlisi: Google profilinizdeki web sitesi bağlantısı şu an Instagram'a gidiyor. Fiyat ve dahil olanlar aşağıda." }
+}
