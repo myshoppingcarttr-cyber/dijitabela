@@ -1,13 +1,15 @@
 {
- "giris": "d49388c9dd41",
- "tasarimlar": "9aff77898e18",
+ "giris": "e9eb40efccaf",
+ "tasarimlar": "268b6e31d86d",
  "oz1": "bf61b11dfab2",
  "oz2": "a7014608afc4",
  "oz3": "79767b5766d4",
  "oz4": "5126a9ae1dcf",
- "son": "4f140cd02485",
- "t_giris": "5afe678ad87d",
+ "son": "074493344a8f",
+ "t_giris": "d5cc77dd8d22",
  "t_tespit": "6db7db887051",
- "t_yapacak": "798e48aed990",
- "t_fiyat": "a71b89361329"
+ "t_yapacak": "0b5d5f140d5f",
+ "t_fiyat": "0c171a670d4f",
+ "plan": "a5415640aa9e",
+ "t_plan": "56fcf4978bdf"
 }

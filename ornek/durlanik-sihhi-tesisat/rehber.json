@@ -1,9 +1,12 @@
 {
  "giris": {
-  "metin": "Öncelikle merhabalar! Durlanık Tesisat için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım."
+  "metin": "Öncelikle merhabalar! Durlanık Tesisat için hazırladığımız iş geliştirme planını anlatmak üzere Dijitabela tarafından ben görevlendirildim. Biz yalnızca site yapmıyoruz; işinizi büyütmek için sektörünüzde ne gerekiyorsa onda yardımcı oluyoruz. Aşağı indikçe tek tek anlatacağım."
+ },
+ "plan": {
+  "metin": "İş geliştirme planınız dört adımdan oluşuyor: sezonluk bakım kampanyası, bakım sözleşmesiyle düzenli gelir, arıza kaydı whatsapp'tan, bölgede ilk akla gelen. Her birinin size ne kazandıracağı kartlarda yazıyor."
  },
  "tasarimlar": {
-  "metin": "Burada üç farklı tasarım var: büyük fotoğraflı Prestij, tam ekran ve koyu Gece, uygulama gibi kartlarla çalışan Modern. Hepsi Google'daki gerçek bilgileriniz ve fotoğraflarınızla hazırlandı. Birine dokunup içine girin.",
+  "metin": "Planın hediyesi olarak üç web sitesi tasarımı da hazır: büyük fotoğraflı Prestij, tam ekran ve koyu Gece, uygulama gibi kartlarla çalışan Modern. Hepsi Google'daki gerçek bilgileriniz ve fotoğraflarınızla hazırlandı. Birine dokunup içine girin.",
   "dugme": [
    "Prestij'i aç",
    "1-prestij/"
@@ -22,25 +25,28 @@
   "metin": "Gaz kokusunda tek dokunuşla 187 acil hattı"
  },
  "son": {
-  "metin": "Şimdi bir tasarıma girip araçları deneyin. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.",
+  "metin": "Bir tasarıma girip araçları deneyin. Tespitlerimizi, planın ayrıntısını ve size uygun çalışma modellerini aşağıdaki düğmede bulabilirsiniz.",
   "dugme": [
-   "Tespitler ve teklif",
+   "Plan ve teklif",
    "teklif.html"
   ]
  },
  "t_giris": {
-  "metin": "Merhaba, yine ben! Bu sayfada Durlanık Tesisat için yaptığımız tespitleri ve teklifimizi anlatacağım."
+  "metin": "Merhaba, yine ben! Bu sayfada Durlanık Tesisat için yaptığımız tespitleri, iş geliştirme planınızı ve çalışma modellerimizi anlatacağım."
+ },
+ "t_plan": {
+  "metin": "İş geliştirme planınız burada. Amacımız size daha çok müşteri ve daha düzenli gelir getirmek; web sitesi bunun yalnızca bir parçası."
  },
  "t_tespit": {
   "metin": "Tespitlerimiz burada: web sitesi, google yorum sayısı, profilde web sitesi."
  },
  "t_yapacak": {
-  "metin": "Pakete dahil olanlar burada: siteniz, sektörünüze özel araçlar, Google profil düzenlemesi ve üç ay destek."
+  "metin": "Planın kurulumunda neler var burada: hediye web siteniz, sektörünüze özel araçlar, Google profil düzenlemesi ve üç ay destek."
  },
  "t_fiyat": {
-  "metin": "Paket fiyatı dört bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir.",
+  "metin": "Üç çalışma modelimiz var: düşük başlangıç ücreti ve kâr payı, aylık iş geliştirme ya da dört bin dokuz yüz lira sabit fiyat. Fiyatlara KDV dahil değildir; hepsinde web sitesi hediye.",
   "dugme": [
-   "3 tasarımı aç",
+   "Hediye tasarımları aç",
    "./"
   ]
  }
