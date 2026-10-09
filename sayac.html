@@ -124,8 +124,8 @@ h2{font-size:1rem;margin:24px 0 10px;display:flex;align-items:center;gap:8px}h2 
     var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
     $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "Bağlantı gönderildi. E-postanızdaki bağlantıya dokunun.";
   };
-  sb.auth.getSession().then(function (r) { if (r.data.session) basla(); else $("giris").hidden = false; });
-  sb.auth.onAuthStateChange(function (e, ses) { if (ses) basla(); });
+  var basladi = false; sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; basla(); } else $("giris").hidden = false; });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; basla(); } });
   document.addEventListener("visibilitychange", function () { if (!document.hidden && !$("uyg").hidden) yukle(); });
 })();
 </script>

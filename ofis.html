@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dijitabela Ofisi · Canlı</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#EDEBE4;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#DDD9CF;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--gri:#9AA0A8;--mavi:#2F6FEB}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.kap{max-width:1180px;margin:0 auto;padding:16px 16px 60px}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.logo{width:42px;height:42px;border-radius:10px;background:#16181D;display:grid;place-items:center;color:var(--sari);font:700 1.35rem 'Space Mono',monospace}
+h1{font-size:1.25rem;font-weight:800}.alt-b{font-size:.8rem;color:var(--soluk);display:flex;align-items:center;gap:6px}.alt-b i{width:8px;height:8px;border-radius:50%;background:var(--yesil);animation:n 1.6s infinite}@keyframes n{50%{opacity:.25}}
+header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);padding:8px 12px;border-radius:999px;text-decoration:none}
+.uyari{display:none;background:#FDE2E2;color:#8A1F1F;border:1px solid #F3B4B4;border-radius:12px;padding:10px 14px;font-weight:600;font-size:.9rem;margin-bottom:12px}
+.sayac{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}@media(max-width:760px){.sayac{grid-template-columns:repeat(2,1fr)}.sayac .s:last-child{grid-column:span 2}}
+.s{background:#16181D;color:#fff;border-radius:14px;padding:12px 14px}.s span{font-size:.75rem;opacity:.7;font-weight:600}.s b{display:block;font:700 2rem/1.1 'Space Mono',monospace;color:var(--sari);margin-top:4px}.s.k b{color:#FF8A8A}.s.y b{color:#7EE2A8}
+.oda{background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:16px;display:flex;gap:16px;align-items:flex-start;margin-bottom:14px;position:relative;overflow:hidden}
+.oda:before{content:"GENEL MÜDÜRLÜK";position:absolute;top:10px;right:14px;font:700 .65rem 'Space Mono',monospace;letter-spacing:.12em;color:var(--soluk)}
+.zemin{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:900px){.zemin{grid-template-columns:1fr 1fr}}@media(max-width:600px){.zemin{grid-template-columns:1fr}}
+.masa{background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;position:relative}
+.masa.calisiyor{border-color:var(--yesil);box-shadow:0 0 0 3px rgba(30,158,90,.12)}.masa.hata{border-color:var(--kirmizi)}.masa.kapali{opacity:.6}
+.ust{display:flex;gap:12px;align-items:center}
+.av{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:1.25rem;color:#fff;position:relative}
+.av:after{content:"";position:absolute;right:-1px;bottom:-1px;width:15px;height:15px;border-radius:50%;border:3px solid var(--kart);background:var(--gri)}
+.calisiyor .av:after{background:var(--yesil);animation:n 1.2s infinite}.hata .av:after{background:var(--kirmizi)}.kapali .av:after{background:#444}
+.ad{font-weight:800}.rol{font-size:.78rem;color:var(--soluk);line-height:1.35}
+.chip{align-self:flex-start;font-size:.72rem;font-weight:800;padding:4px 9px;border-radius:999px;background:#EEE;color:#555}
+.calisiyor .chip{background:#DFF5E8;color:#14703F}.hata .chip{background:#FDE2E2;color:#A12}
+.balon{background:#F6F5F1;border-radius:4px 14px 14px 14px;padding:10px 12px;font-size:.84rem;line-height:1.45;min-height:44px}
+.calisiyor .balon:after{content:"▍";animation:n 1s infinite;margin-left:2px}
+.dip{display:flex;gap:10px;font-size:.74rem;color:var(--soluk);flex-wrap:wrap}.dip b{color:var(--yazi)}
+.ekran{width:100%;height:6px;border-radius:3px;background:#E9E6DE;overflow:hidden}.calisiyor .ekran span{display:block;height:100%;width:40%;background:var(--yesil);animation:kay 1.6s linear infinite}@keyframes kay{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+.gorevler{font-size:.72rem;color:var(--soluk)}.gorevler span{display:inline-block;margin:2px 6px 0 0}
+.son{font-size:.78rem;color:var(--soluk);margin-top:18px;text-align:center}
+.giris{max-width:380px;margin:12vh auto;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:24px}.giris input{width:100%;font:inherit;padding:12px;border:1px solid var(--cizgi);border-radius:10px;margin:10px 0}.giris button{width:100%;font:inherit;font-weight:800;padding:12px;border:0;border-radius:10px;background:var(--sari);cursor:pointer}.giris p{font-size:.88rem;color:var(--soluk)}
+</style>
+</head>
+<body>
+<div class="kap" id="uyg" hidden>
+  <header><div class="logo">d</div><div><h1>Dijitabela Ofisi</h1><span class="alt-b"><i></i> canlı · 20 sn'de bir yenilenir</span></div><a href="sayac.html">📊 Ayrıntılı sayaç</a></header>
+  <div class="uyari" id="uyari"></div>
+  <div class="sayac">
+    <div class="s"><span>📤 Bugün teklif iletilen</span><b id="c-teklif">–</b></div>
+    <div class="s"><span>📥 Dönüş yapan</span><b id="c-donus">–</b></div>
+    <div class="s y"><span>✅ Cevap verilen</span><b id="c-cevap">–</b></div>
+    <div class="s k"><span>⚠️ Cevap bekleyen</span><b id="c-bekl">–</b></div>
+    <div class="s"><span>🎨 Yeni prototip</span><b id="c-proto">–</b></div>
+  </div>
+  <div id="gm"></div>
+  <div class="zemin" id="zemin"></div>
+  <p class="son" id="son"></p>
+</div>
+<div class="giris" id="giris" hidden>
+  <h1 style="margin-bottom:8px">Dijitabela Ofisi</h1>
+  <p>CRM ile aynı giriş. E-postanıza giriş bağlantısı gelir.</p>
+  <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
+  <button id="gonder">Giriş bağlantısı gönder</button>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<script src="assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
+  var RENK = { gm: "#16181D", selin: "#D2558A", murat: "#2F6FEB", kerem: "#E07A1F", deniz: "#7A4FD6", can: "#14918A", ece: "#B8860B", arda: "#C2412D", zeynep: "#1E9E5A" };
+  var BIRIM = { selin: "mesaj gönderdi", murat: "cevap verdi", kerem: "tur attı", deniz: "tur attı", can: "tur attı", ece: "kontrol yaptı", arda: "tur attı", zeynep: "tur attı", gm: "" };
+  var DURUM = { calisiyor: "● Çalışıyor", bosta: "Masasında · sıradaki işi bekliyor", hata: "⚠ Son işte hata", kapali: "Kapalı (görev devre dışı)" };
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var saat = function (d) { if (!d) return "–"; d = new Date(d); var bugun = new Date().toDateString() === d.toDateString(); return d.toLocaleString("tr-TR", bugun ? { hour: "2-digit", minute: "2-digit" } : { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }); };
+  var son10 = function (t) { return String(t || "").replace(/\D/g, "").slice(-10); };
+  function masa(p, buyuk) {
+    var g = (p.detay && p.detay.gorevler) || [];
+    return '<div class="' + (buyuk ? "oda " : "masa ") + esc(p.durum) + '"><div class="ust"><div class="av" style="background:' + (RENK[p.kod] || "#555") + '">' + esc(p.ad[0]) + '</div><div><div class="ad">' + esc(p.ad) + " · " + esc(p.rol.split(" · ")[0]) + '</div><div class="rol">' + esc(p.rol.split(" · ").slice(1).join(" · ")) + "</div></div></div>" +
+      (buyuk ? "" : '<span class="chip">' + DURUM[p.durum] + "</span>") +
+      '<div class="balon">' + esc(p.faaliyet || "") + '</div><div class="ekran"><span></span></div>' +
+      '<div class="dip"><span>Son iş: <b>' + saat(p.son) + "</b></span>" + (p.sonraki ? "<span>Sıradaki: <b>" + saat(p.sonraki) + "</b></span>" : "") + (BIRIM[p.kod] ? "<span>Bugün: <b>" + p.bugun + "</b> " + BIRIM[p.kod] + "</span>" : "") + "</div>" +
+      (g.length ? '<div class="gorevler">' + g.map(function (x) { return "<span>" + (x.durum === "Running" ? "🟢" : x.durum === "Disabled" ? "⚫" : "⚪") + " " + esc(x.ad) + "</span>"; }).join("") + "</div>" : "") + "</div>";
+  }
+  async function sayac() {
+    var simdi = new Date(), tr = new Date(simdi.getTime() + 3 * 3600e3); tr.setUTCHours(0, 0, 0, 0); var bas = new Date(tr.getTime() - 3 * 3600e3), ici = function (t) { return new Date(t) >= bas; };
+    var a = await sb.from("adaylar").select("tel,slug,olusturma,notlar").order("guncelleme", { ascending: false }).limit(5000);
+    var s = await sb.from("sohbetler").select("oturum,kim,zaman").eq("kanal", "whatsapp").gte("zaman", bas.toISOString()).order("zaman").limit(5000);
+    var teklif = 0, proto = 0, D = {};
+    (a.data || []).forEach(function (x) {
+      var n = x.notlar || [], k = son10(x.tel);
+      if (x.slug && ici(x.olusturma)) proto++;
+      if (n.some(function (e) { return /^(bizden|wa_gonderim)$/.test(e.tur) && !/^(takip-nobetci|bir-ay-sonra)$/.test(e.kim || "") && ici(e.tarih); })) teklif++;
+      var gel = n.filter(function (e) { return /^(cevap|sicak|devret|ilgilenmiyor|dur)$/.test(e.tur) && ici(e.tarih); }); if (!gel.length) return;
+      var son = gel[gel.length - 1], ts = new Date(son.tarih);
+      D[k] = /ilgilenmiyor|dur/.test(son.tur) || n.some(function (e) { return /^(bizden|wa_gonderim)$/.test(e.tur) && new Date(e.tarih) > ts; });
+    });
+    var S = {}; (s.data || []).forEach(function (m) { var o = S[m.oturum] || (S[m.oturum] = {}); if (m.kim === "ziyaretci") o.g = m.zaman; else o.c = m.zaman; });
+    Object.keys(S).forEach(function (o) { if (!S[o].g) return; var bot = S[o].c && new Date(S[o].c) >= new Date(S[o].g), k = son10(o); D[k] = (D[k] || false) || !!bot; });
+    var top = Object.keys(D).length, bekl = Object.keys(D).filter(function (k) { return !D[k]; }).length;
+    $("c-teklif").textContent = teklif; $("c-donus").textContent = top; $("c-cevap").textContent = top - bekl; $("c-bekl").textContent = bekl; $("c-proto").textContent = proto;
+  }
+  async function yukle() {
+    var r = await sb.from("ofis_durum").select("*").order("sira");
+    if (r.error) { $("son").textContent = "Okunamadı: " + r.error.message; return; }
+    var L = r.data || [], gm = L.filter(function (p) { return p.kod === "gm"; })[0];
+    $("gm").innerHTML = gm ? masa(gm, true) : "";
+    $("zemin").innerHTML = L.filter(function (p) { return p.kod !== "gm"; }).map(function (p) { return masa(p); }).join("");
+    var taze = L.reduce(function (m, p) { return Math.max(m, new Date(p.guncelleme).getTime()); }, 0), gec = (Date.now() - taze) / 60000;
+    $("uyari").style.display = gec > 4 ? "block" : "none";
+    $("uyari").textContent = "⚠ Ofis bilgisayarından " + Math.round(gec) + " dakikadır haber gelmiyor: bilgisayar kapalı, uykuda ya da internet yok. Gösterilenler son bilinen durum.";
+    $("son").textContent = "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR") + " · ofis bilgisayarı: " + saat(taze);
+    sayac().catch(function () {});
+  }
+  function basla() { $("uyg").hidden = false; $("giris").hidden = true; yukle(); setInterval(yukle, 20000); }
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "Bağlantı gönderildi. E-postanızdaki bağlantıya dokunun.";
+  };
+  var basladi = false;
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; basla(); } else $("giris").hidden = false; });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; basla(); } });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && !$("uyg").hidden) yukle(); });
+})();
+</script>
+</body>
+</html>
