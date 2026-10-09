@@ -1,0 +1,23 @@
+{
+  "giris": { "metin": "Öncelikle merhabalar! Sancak Bayrak için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım." },
+  "tasarimlar": { "metin": "Burada üç tasarım var. Kırmızı, bayrakçının klasik ve güçlü dili; Lacivert, firmalara ve kurumlara hitap eden kurumsal tasarım; Atölye ise otuz yıllık atölye emeğinizi öne çıkaran sıcak tonlarda. Birine dokunup içine girin, logonuzu bayrakta görün.", "dugme": ["Kırmızı'yı aç", "1-kirmizi/"] },
+  "oz1": { "metin": "İlk ve en dikkat çeken özellik logonuz bayrakta. Müşteri logosunu yüklüyor; gönder, yelken, kırlangıç ya da masa bayrağında, seçtiği zemin renginde rüzgârda dalgalanırken görüyor.", "dugme": ["Logomu dene", "1-kirmizi/#onizle"] },
+  "oz2": { "metin": "İkincisi ebat önerici. Direk boyu giriliyor, standart ebatlardan uygun olanlar öneriliyor." },
+  "oz3": { "metin": "Üçüncüsü teklif sepeti. Birden çok ürün; ebat, kumaş, baskı, adet ve teslim tarihiyle tek bir WhatsApp talebinde size geliyor.", "dugme": ["Sepeti dene", "2-lacivert/#teklif"] },
+  "oz4": { "metin": "Dördüncüsü ürün kategorileriniz: her biri Google'da ayrı bir sayfa olacak." },
+  "oz5": { "metin": "Beşincisi sektöre göre hazır setler: kurumsal firma, benzinlik, okul, otel ve spor kulübü." },
+  "oz6": { "metin": "Son olarak üç alan adınız için tek güçlü site ve arama planı, Google profili düzenlemesi ve üç yüz altmış derece konum." },
+  "son": { "metin": "Şimdi bir tasarıma girip logonuzu bayrakta görün. Beğendiğinizi söyleyin; kendi ürün fotoğraflarınızla yayına alalım. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.", "dugme": ["Tespitler ve teklif", "teklif.html"] },
+  "t_giris": { "metin": "Merhaba, yine ben! Bu sayfada Sancak Bayrak için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum." },
+  "t_tespit": { "metin": "İlk tespitimiz: oysalbayrak noktası com bu sabah açılmıyordu. İkincisi, üç siteniz aynı aramalar için birbiriyle yarışıyor, güç bölünüyor. Üçüncüsü, ana sitenizde teklif isteme yolu yalnız telefon. Dördüncüsü, Google profilinizde henüz yorum yok." },
+  "t_yapacak": { "metin": "Pakete dahil olanlar burada: yeni ana siteniz, logonuz bayrakta önizlemesi ve teklif sepeti, sekiz kategori sayfası, üç alan adı için arama planı, ürün görsellerinin yenilenmesi, Google profil düzenlemesi ve üç ay destek." },
+  "t_fiyat": { "metin": "Paket fiyatı yedi bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. Fotoğraflarınız geldikten sonra beş iş gününde yayında.", "dugme": ["3 tasarımı aç", "./"] },
+  "p_giris": { "metin": "Merhaba! Bu, Sancak Bayrak için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli." },
+  "p_onizle": { "metin": "Logonuz bayrakta. Logo dosyanızı seçin, bayrak tipini ve zemin rengini değiştirin; rüzgârı da ayarlayabilirsiniz." },
+  "p_urun": { "metin": "Ürünler. Her kart yayında ayrı bir sayfa; teklif sepetine ekle düğmesiyle sepete atın." },
+  "p_ebat": { "metin": "Ebat önerici. Direk boyunu yazın, uygun bayrak ebatları çıksın." },
+  "p_teklif": { "metin": "Teklif sepeti. Ürün, ebat, kumaş, baskı ve adedi seçip ekleyin; firma adınız ve teslim tarihiyle tek mesajda gönderin." },
+  "p_sektor": { "metin": "Sektörünüze göre hazır setler. Birine dokunun, önerilen set ve teklif düğmesi çıksın." },
+  "p_surec": { "metin": "Siparişten teslime dört adım: ölçü, tasarım onayı, atölyede üretim ve teslim." },
+  "p_iletisim": { "metin": "Son olarak Bahçelievler'deki atölyeniz, telefonlarınız ve yol tarifi. Beğendiyseniz diğer tasarımlara da göz atın.", "dugme": ["Tüm tasarımlar", "../"] }
+}
