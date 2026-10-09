@@ -62,7 +62,7 @@
     oneri.sort(function (a, b) { return sira.indexOf(a) - sira.indexOf(b); });
     var adSoyle = ist && ist.ad ? ist.ad : (girdi.isletme || (girdi.url || "").replace(/^https?:\/\//, "") || "işletmem");
     var waLink = A.whatsapp ? "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ücretsiz ekspertiz yaptım (" + skor + "/100). Eksikleri ve çözüm planını konuşmak istiyorum.") : "";
-    var dugmeler = '<div class="v-dugmeler eks-dugmeler">' + (waLink ? '<a class="v-btn ana" href="' + waLink + '" target="_blank" rel="noopener">WhatsApp\'tan hemen yazın →</a>' : "") + '<a class="v-btn" href="#eks-rapor">Beni arayın</a>' + (A.telefon ? '<a class="v-btn" href="tel:+90' + A.telefon.replace(/\D/g, "").replace(/^0/, "") + '">☎ ' + e(A.telefon) + "</a>" : "") + "</div>";
+    var dugmeler = '<div class="v-dugmeler eks-dugmeler">' + (waLink ? '<a class="v-btn ana" href="' + waLink + '" target="_blank" rel="noopener">WhatsApp\'tan hemen yazın →</a>' : "") + (A.whatsapp2 ? '<a class="v-btn" href="https://wa.me/' + A.whatsapp2 + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ekspertiz yaptım (" + skor + "/100). Ücretsiz taslak istiyorum.") + '" target="_blank" rel="noopener">7/24 asistan · ' + e(A.telefon2) + "</a>" : "") + '<a class="v-btn" href="#eks-rapor">Beni arayın</a>' + (A.telefon ?'<a class="v-btn" href="tel:+90' + A.telefon.replace(/\D/g, "").replace(/^0/, "") + '">☎ ' + e(A.telefon) + "</a>" : "") + "</div>";
     var ALAN = Object.keys(d.alanlar || {});
     var ilk3 = ciddi.slice(0, 3);
     var googleNot = d.google === "kapali" || d.google === "hata" ? '<p class="eks-not">Google profil karşılaştırması bu analizde yapılamadı; arayıp profilinizi birlikte kontrol edelim.</p>'

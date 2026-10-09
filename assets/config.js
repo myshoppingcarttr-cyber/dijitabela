@@ -5,6 +5,8 @@ window.AJANS = {
   sahip: "Alim Hoşlar",
   telefon: "0501 945 21 84",
   whatsapp: "905019452184",
+  telefon2: "0538 676 57 27",          // 9 Eki: 0538 resmî WhatsApp hattı (7/24 asistan + ücretsiz taslak düğmesi)
+  whatsapp2: "905386765727",
   eposta: "info@dijitabela.com",       // Natro ücretsiz mail kutusu (alan adı aktif olunca kurulacak)
   sehir: "Antalya",
   site: "https://dijitabela.com.tr",  // 7 Eki 2026: KANONİK ADRES .com.tr (dijitabela.com BTK Güvenli İnternet'te eski sahibinden kalma etiketle engelli). dijitabela.com aynı içeriği sunmaya devam eder (kartvizit QR).
