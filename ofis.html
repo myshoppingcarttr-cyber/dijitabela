@@ -54,9 +54,10 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
   <div class="zemin" id="zemin"></div>
   <p class="son" id="son"></p>
 </div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
 <div class="giris" id="giris" hidden>
   <h1 style="margin-bottom:8px">Dijitabela Ofisi</h1>
-  <p>CRM ile aynı giriş. E-postanıza giriş bağlantısı gelir.</p>
+  <p>CRM ile aynı giriş. E-postanıza giriş bağlantısı gelir; bağlantıyı açtığınız tarayıcıda bu sayfa açık kalır (WhatsApp içinden değil, Chrome/Safari'de açın).</p>
   <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
   <button id="gonder">Giriş bağlantısı gönder</button>
   <p id="gmsg" style="margin-top:10px"></p>
@@ -101,7 +102,9 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
   async function yukle() {
     var r = await sb.from("ofis_durum").select("*").order("sira");
     if (r.error) { $("son").textContent = "Okunamadı: " + r.error.message; return; }
-    var L = r.data || [], gm = L.filter(function (p) { return p.kod === "gm"; })[0];
+    var L = r.data || [];
+    if (!L.length) { $("zemin").innerHTML = '<div class="masa"><div class="balon">Bu hesapla ofis verisi görünmüyor. alimhoslar16@gmail.com ile giriş yaptığınızdan emin olun.</div></div>'; return; }
+    var gm = L.filter(function (p) { return p.kod === "gm"; })[0];
     $("gm").innerHTML = gm ? masa(gm, true) : "";
     $("zemin").innerHTML = L.filter(function (p) { return p.kod !== "gm"; }).map(function (p) { return masa(p); }).join("");
     var taze = L.reduce(function (m, p) { return Math.max(m, new Date(p.guncelleme).getTime()); }, 0), gec = (Date.now() - taze) / 60000;
@@ -115,9 +118,10 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
     var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
     $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "Bağlantı gönderildi. E-postanızdaki bağlantıya dokunun.";
   };
-  var basladi = false;
-  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; basla(); } else $("giris").hidden = false; });
-  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; basla(); } });
+  var basladi = false, girisGoster = function (m) { if (basladi) return; $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; };
+  setTimeout(function () { girisGoster(); }, 4000); // bazı uygulama içi tarayıcılarda oturum kontrolü cevap vermiyor
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
   document.addEventListener("visibilitychange", function () { if (!document.hidden && !$("uyg").hidden) yukle(); });
 })();
 </script>

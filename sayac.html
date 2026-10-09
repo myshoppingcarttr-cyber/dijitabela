@@ -51,9 +51,10 @@ h2{font-size:1rem;margin:24px 0 10px;display:flex;align-items:center;gap:8px}h2 
   <div class="liste" id="donusler"></div>
   <p class="son" id="son"></p>
 </div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
 <div class="giris" id="giris" hidden>
   <h1 style="margin-bottom:8px">Canlı Sayaç</h1>
-  <p>CRM ile aynı giriş. E-postanıza giriş bağlantısı gelir.</p>
+  <p>CRM ile aynı giriş. E-postanıza giriş bağlantısı gelir; bağlantıyı açtığınız tarayıcıda bu sayfa açık kalır (WhatsApp içinden değil, Chrome/Safari'de açın).</p>
   <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
   <button id="gonder">Giriş bağlantısı gönder</button>
   <p id="gmsg" style="margin-top:10px"></p>
@@ -124,8 +125,10 @@ h2{font-size:1rem;margin:24px 0 10px;display:flex;align-items:center;gap:8px}h2 
     var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
     $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "Bağlantı gönderildi. E-postanızdaki bağlantıya dokunun.";
   };
-  var basladi = false; sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; basla(); } else $("giris").hidden = false; });
-  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; basla(); } });
+  var basladi = false, girisGoster = function (m) { if (basladi) return; $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; };
+  setTimeout(function () { girisGoster(); }, 4000); // bazı uygulama içi tarayıcılarda oturum kontrolü cevap vermiyor
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
   document.addEventListener("visibilitychange", function () { if (!document.hidden && !$("uyg").hidden) yukle(); });
 })();
 </script>
