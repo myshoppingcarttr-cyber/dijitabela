@@ -35,7 +35,7 @@
     return (API.mode === "demo" ? '<div class="demo">Demo modu · <button class="btn btn-o sm" id="rs">Demo verilerini sıfırla</button></div>' : "") +
       '<div class="pn-ust"><h1>Yönetim paneli</h1><div class="pn-gor">' +
       [["satis", "Satış takibi"], ["teklif", "Teklifler"]].map(function (x) { return '<button data-g="' + x[0] + '"' + (S.gorunum === x[0] ? ' class="on"' : "") + ">" + x[1] + "</button>"; }).join("") +
-      '</div><button class="btn btn-o sm" id="out">Çıkış</button></div>';
+      '</div><a class="btn sm" href="ofis.html" style="background:#FFB000;color:#16181D;font-weight:800;text-decoration:none">🏢 Sanal ofis</a> <a class="btn btn-o sm" href="sayac.html" style="text-decoration:none">📊 Canlı sayaç</a> <button class="btn btn-o sm" id="out">Çıkış</button></div>';
   }
   function baglaUst() {
     R.querySelectorAll("[data-g]").forEach(function (b) { b.onclick = function () { S.gorunum = b.dataset.g; try { sessionStorage.setItem("panel_gorunum", S.gorunum); } catch (x) {} yukle(); }; });
