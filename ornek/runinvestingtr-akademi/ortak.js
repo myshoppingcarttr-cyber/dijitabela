@@ -77,6 +77,7 @@
     }
     function bitir() {
       clearInterval(zam); var yuzde = Math.round(puan / adet * 100); kaydet(yuzde);
+      if (o.bitince) { var konu = {}; set.forEach(function (q, n) { konu[q.k] = konu[q.k] || [0, 0]; konu[q.k][1]++; if (cevaplar[n]) konu[q.k][0]++; }); try { o.bitince({ yuzde: yuzde, puan: puan, adet: adet, konu: konu }); } catch (e) {} }
       var not = yuzde >= 70 ? "Sınav eşiğinin üzerindesiniz. Deneme sınavıyla kendinizi zorlayın." : yuzde >= 50 ? "Yaklaştınız. Yanlış yaptığınız konuların derslerine dönün." : "Temelden başlayalım: A ve C programları sizin için ideal başlangıç.";
       el.innerHTML = '<div class="sv-sonuc"><div class="sv-yuzde" style="--p:' + yuzde + '"><span>%' + yuzde + "</span></div><h4>" + puan + " / " + adet + " doğru</h4><p>" + not + "</p><p class=\"sv-eniyi\">En iyi skorunuz: %" + enIyi() + "</p>" +
         '<div class="sv-cubuk">' + cevaplar.map(function (d) { return '<i class="' + (d ? "d" : "y") + '"></i>'; }).join("") + '</div><button class="sv-btn">🔁 Yeni soru seti üret</button></div>';
@@ -127,6 +128,17 @@
       var n = e.target.querySelectorAll("[data-say]"); n.forEach(function (x) { var hedef = +x.dataset.say, t0 = performance.now(); (function f(t) { var p = Math.min(1, (t - t0) / 1200); x.textContent = Math.round(hedef * (1 - Math.pow(1 - p, 3))) + (x.dataset.ek || ""); if (p < 1) requestAnimationFrame(f); })(t0); }); }); }, { threshold: .15 });
     document.querySelectorAll(".gor").forEach(function (x) { io.observe(x); });
   };
+
+  // Canlı dersi takvime ekle (.ics indirir — telefon/Outlook/Google Takvim açar)
+  R.takvimeEkle = function (c) {
+    var z = function (d) { return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); }, bit = new Date(c.t.getTime() + 90 * 6e4);
+    var ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//RunInvestingTR//Akademi//TR", "BEGIN:VEVENT", "UID:" + c.t.getTime() + "@runinvestingtr", "DTSTAMP:" + z(new Date()), "DTSTART:" + z(c.t), "DTEND:" + z(bit),
+      "SUMMARY:RunInvestingTR Canlı Eğitim · " + c.ad, "DESCRIPTION:Katılım bağlantısı üye panelinde yayın başlamadan açılır.", "BEGIN:VALARM", "TRIGGER:-PT15M", "ACTION:DISPLAY", "DESCRIPTION:Canlı eğitim 15 dk sonra", "END:VALARM", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+    var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "runinvestingtr-canli-egitim.ics"; document.body.appendChild(a); a.click(); a.remove();
+  };
+
+  // Hareket azaltma tercihi
+  R.azHareket = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Demo bildirimi (form gönderimleri prototipte gerçek gönderim yapmaz)
   R.bildir = function (m) { var t = document.createElement("div"); t.textContent = m; t.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#111827;color:#fff;padding:12px 18px;border-radius:12px;font:600 14px system-ui;z-index:99999;box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:90vw;text-align:center"; document.body.appendChild(t); setTimeout(function () { t.remove(); }, 3200); };
