@@ -51,6 +51,7 @@ h1{font-size:1.05rem;font-weight:800}.canli{font-size:.74rem;color:var(--soluk);
 .b.giden{align-self:flex-end;background:var(--balon-giden);border-top-right-radius:2px}.b.giden .kim{color:#17643A}
 .b.bot{align-self:flex-end;background:var(--balon-bot);border-top-right-radius:2px}.b.bot .kim{color:#1F4FB8}
 .b.taslak{align-self:flex-end;background:#fff;border:1px dashed #b9b4a8;box-shadow:none;opacity:.8}.b.taslak .kim{color:var(--soluk)}
+.b.not{align-self:center;max-width:92%;background:#F1F0EC;border:1px dashed #C9C4B8;box-shadow:none;font-size:.78rem;color:#555}.b.not .kim{color:#8a8578;text-transform:uppercase;letter-spacing:.04em}
 .b.olay{align-self:center;max-width:90%;background:#FFF6DF;font-size:.75rem;box-shadow:none;text-align:center;color:#6b5a2a}
 .b a{color:var(--mavi)}
 .bos{margin:auto;text-align:center;color:var(--soluk);padding:30px;font-size:.92rem}
@@ -122,7 +123,16 @@ h1{font-size:1.05rem;font-weight:800}.canli{font-size:.74rem;color:var(--soluk);
       var etk = notlar.filter(function (e) { return ETIKET.test(e.tur); });
       if (!giden.length && !etk.length && !Y[k]) return;
       var c = sohbet(k); c.ad = x.isletme; c.tel = x.tel; c.slug = x.slug; c.asama = x.asama;
-      giden.forEach(function (e) { if (e.metin) c.m.push({ t: e.tarih, tur: e.tur === "wa" ? "taslak" : "giden", kim: e.tur === "wa" ? "Hazırlanan mesaj" : (/takip/.test(e.kim || "") ? "Takip mesajı" : "Biz · 0538"), metin: e.metin }); });
+      // 11 Eki: CRM'deki "bizden/wa_gonderim" kayıtlarının bir kısmı İÇ NOT ("6 Eki 00:2x Uğur Bey 'Tmm' dedi…", "takip mesajı kuyruğunda").
+      // Bunlar müşteriye gitmedi; mesaj balonu olarak gösterilmez. Yalnız selamlama ile başlayan gerçek mesaj metni yeşil balon olur.
+      var MESAJ = /^\s*(\[[^\]]{1,20}\]\s*)?(merhaba|selam|iyi günler|iyi akşamlar|günaydın|sayın|değerli)/i;
+      giden.forEach(function (e) {
+        if (!e.metin) return;
+        var temiz = String(e.metin).replace(/^\s*\[[^\]]{1,20}\]\s*/, "");
+        if (e.tur === "wa") c.m.push({ t: e.tarih, tur: "taslak", kim: "Hazırlanan mesaj (gönderim kaydı ayrı)", metin: temiz });
+        else if (MESAJ.test(e.metin)) c.m.push({ t: e.tarih, tur: "giden", kim: /takip/.test(e.kim || "") || /^\s*\[takip\]/i.test(e.metin) ? "Takip mesajı · gönderildi" : "Gönderilen mesaj", metin: temiz });
+        else c.m.push({ t: e.tarih, tur: "not", kim: "İç not · müşteriye gönderilmedi", metin: temiz });
+      });
       etk.forEach(function (e) { c.et[e.tur === "dur" ? "ilgilenmiyor" : e.tur] = e.tarih; });
     });
     (s.data || []).forEach(function (r) {
@@ -137,7 +147,7 @@ h1{font-size:1.05rem;font-weight:800}.canli{font-size:.74rem;color:var(--soluk);
       c.m = c.m.filter(function (m) { return !(m.tur === "taslak" && gidenler[m.metin]); });
       var gelen = c.m.filter(function (m) { return m.tur === "gelen"; }), sonGelen = gelen[gelen.length - 1];
       c.son = c.m[c.m.length - 1]; c.sonT = c.son ? c.son.t : null; c.gelenSay = gelen.length;
-      c.bekliyor = !!sonGelen && !c.et.ilgilenmiyor && !c.m.some(function (m) { return m.tur !== "gelen" && m.tur !== "taslak" && new Date(m.t) > new Date(sonGelen.t); });
+      c.bekliyor = !!sonGelen && !c.et.ilgilenmiyor && !c.m.some(function (m) { return (m.tur === "giden" || m.tur === "bot") && new Date(m.t) > new Date(sonGelen.t); });
       c.ad = c.ad || ("+" + "90" + k);
     });
     S = Y; ciz();
@@ -163,7 +173,7 @@ h1{font-size:1.05rem;font-weight:800}.canli{font-size:.74rem;color:var(--soluk);
     $("f-red").textContent = hep.filter(function (c) { return c.et.ilgilenmiyor; }).length;
     var l = hep.filter(uygun);
     $("liste").innerHTML = l.map(function (c) {
-      var son = c.son ? (c.son.tur === "gelen" ? "" : c.son.tur === "bot" ? "🤖 " : "✓ ") + c.son.metin : "";
+      var son = c.son ? (c.son.tur === "gelen" ? "" : c.son.tur === "bot" ? "🤖 " : c.son.tur === "not" ? "📝 " : c.son.tur === "taslak" ? "✎ " : "✓ ") + c.son.metin : "";
       return '<div class="oge' + (secili === c.k ? " secili" : "") + '" data-k="' + c.k + '"><div class="av" style="background:' + renk(c.k) + '">' + esc(bas2(c.ad)) + '</div><div class="orta"><div class="ad">' + esc(c.ad) + '</div><div class="son">' + esc(son) + "</div>" +
         (c.bekliyor ? '<span class="etk bekliyor">CEVAP BEKLİYOR</span>' : "") + (c.et.sicak ? '<span class="etk sicak">SICAK</span>' : "") + (c.et.devret ? '<span class="etk devret">İNSANA DEVREDİLDİ</span>' : "") + (c.et.ilgilenmiyor ? '<span class="etk red">İLGİLENMİYOR</span>' : "") +
         '</div><div class="sag">' + (c.sonT ? saatK(c.sonT) : "") + (c.bekliyor ? '<br><span class="rozet">!</span>' : "") + "</div></div>";
