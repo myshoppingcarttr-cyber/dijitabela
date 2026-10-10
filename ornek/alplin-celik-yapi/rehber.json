@@ -1,0 +1,74 @@
+{
+ "giris": {
+  "metin": "Öncelikle merhabalar! Alplin Çelik Yapı ve Tadilat için hazırladığımız iş geliştirme planını anlatmak üzere Dijitabela tarafından ben görevlendirildim. Biz yalnızca site yapmıyoruz; işinizi büyütmek için ne gerekiyorsa onda yardımcı oluyoruz. Aşağı indikçe tek tek anlatacağım."
+ },
+ "plan": {
+  "metin": "İş geliştirme planınız dört adımdan oluşuyor: keşif talebi toplama, Google'da bölge aramalarında üst sıra, proje portföyüyle güven ve Google Ads ile anında talep. Her birinin size ne kazandıracağı kartlarda yazıyor."
+ },
+ "tasarimlar": {
+  "metin": "Planın hediyesi olarak üç web sitesi tasarımı da hazır: tam ekran fotoğraflı Çelik, dergi düzenli Antrasit ve telefonda uygulama gibi açılan Galvaniz. Birine dokunup içine girin; hesaplayıcıyı ve önce sonra kaydırıcısını deneyin.",
+  "dugme": [
+   "Çelik'i aç",
+   "1-celik/"
+  ]
+ },
+ "oz1": {
+  "metin": "Yaklaşık maliyet hesaplayıcı. metrekare ve yapı tipini girin, aralığı görün; \"keşif sonrası netleşir\" notuyla dürüst bir ön fiyat"
+ },
+ "oz2": {
+  "metin": "Önce/sonra proje galerisi. kaydırarak iki fotoğrafı karşılaştırın (yayında kendi proje fotoğraflarınızla)"
+ },
+ "oz3": {
+  "metin": "Keşif randevusu. hizmet, bölge, gün ve saat seçilir; hazır mesaj tek dokunuşla WhatsApp'ta açılır"
+ },
+ "oz4": {
+  "metin": "Kepez, Konyaaltı, Muratpaşa ve Döşemealtı bölüm/sayfaları; her biri o bölgedeki aramalar için"
+ },
+ "oz5": {
+  "metin": "Sık sorulan sorular ve üç yüz altmış derece konum görünümü"
+ },
+ "son": {
+  "metin": "Bir tasarıma girip araçları deneyin. Tespitlerimizi, planın ayrıntısını ve size uygun çalışma modellerini aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Plan ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada Alplin için tespitlerimizi, iş geliştirme planınızı ve çalışma modellerimizi anlatacağım. Tespitler, alplinmetal.com sizin siteniz ise geçerlidir."
+ },
+ "t_plan": {
+  "metin": "İş geliştirme planınız burada. Amacımız size daha çok keşif talebi ve daha düzenli iş getirmek; web sitesi bunun yalnızca bir parçası."
+ },
+ "t_tespit": {
+  "metin": "Tespitlerimiz burada: sosyal medya bağlantıları, kapalı reklam hesabının etiketi, yeni kimlikle uyumsuz hizmet listesi ve bölge sayfalarının olmaması."
+ },
+ "t_yapacak": {
+  "metin": "Planın kurulumunda neler var burada: hediye web siteniz, maliyet hesaplayıcı, keşif randevusu, bölge sayfaları, Google profil düzenlemesi, Google Ads hesabının yeniden açılması ve ilk kampanya, ve üç ay destek."
+ },
+ "t_fiyat": {
+  "metin": "Üç çalışma modelimiz var: düşük başlangıç ücreti ve kâr payı, aylık iş geliştirme ya da dört bin dokuz yüz lira sabit fiyat. Fiyatlara KDV dahil değildir; hepsinde web sitesi hediye.",
+  "dugme": [
+   "Hediye tasarımları aç",
+   "./"
+  ]
+ },
+ "p_giris": {
+  "metin": "Merhaba! Burada Alplin Çelik Yapı ve Tadilat için hazırlanmış bir site taslağı görüyorsunuz. Metrekarenizi girip yaklaşık maliyeti, önce sonra galerisini ve keşif randevusunu deneyebilirsiniz."
+ },
+ "p_hizmet": {
+  "metin": "Hizmetleriniz tek tek listelendi: çelik konstrüksiyon, çelik çatı, prefabrik, tadilat, ferforje kapı, korkuluk ve gölgelik. Yayında her biri ayrı bir sayfa olur."
+ },
+ "p_hesap": {
+  "metin": "Bu, maliyet hesaplayıcı. Metrekareyi ve yapı tipini seçin, yaklaşık aralığı görün. Rakamlar örnektir; yayında sizin birim fiyatlarınızla çalışır ve keşif sonrası netleşir notunu taşır."
+ },
+ "p_galeri": {
+  "metin": "Önce sonra galerisi. Çizgiyi kaydırarak iki fotoğrafı karşılaştırın. Bu görseller örnektir; yayında kendi projelerinizin fotoğraflarını koyarız."
+ },
+ "p_kesif": {
+  "metin": "Keşif randevusu. Hizmeti, bölgeyi, günü ve saati seçince hazır mesaj WhatsApp'ta açılır. Müşteri aramadan, istediği zaman talebini bırakır."
+ },
+ "p_bolge": {
+  "metin": "Kepez, Konyaaltı, Muratpaşa ve Döşemealtı için ayrı bölümler var. Yayında her biri ayrı sayfa olur; böylece o bölgeyi arayan kişi doğrudan size ulaşır."
+ }
+}
