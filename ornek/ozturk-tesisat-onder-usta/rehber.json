@@ -1,0 +1,53 @@
+{
+ "giris": {
+  "metin": "Öncelikle merhabalar! Öztürk Tesisat için hazırladığımız iş geliştirme planını anlatmak üzere Dijitabela tarafından ben görevlendirildim. Biz yalnızca site yapmıyoruz; işinizi büyütmek için sektörünüzde ne gerekiyorsa onda yardımcı oluyoruz. Aşağı indikçe tek tek anlatacağım."
+ },
+ "plan": {
+  "metin": "İş geliştirme planınız dört adımdan oluşuyor: sezonluk bakım kampanyası, bakım sözleşmesiyle düzenli gelir, arıza kaydı whatsapp'tan, bölgede ilk akla gelen. Her birinin size ne kazandıracağı kartlarda yazıyor."
+ },
+ "tasarimlar": {
+  "metin": "Planın hediyesi olarak üç web sitesi tasarımı da hazır: büyük fotoğraflı Prestij, tam ekran ve koyu Gece, uygulama gibi kartlarla çalışan Modern. Hepsi Google'daki gerçek bilgileriniz ve fotoğraflarınızla hazırlandı. Birine dokunup içine girin.",
+  "dugme": [
+   "Prestij'i aç",
+   "1-prestij/"
+  ]
+ },
+ "oz1": {
+  "metin": "Arıza çözücü. belirtiye göre evde güvenli adımlar ve olası neden, fotoğrafıyla"
+ },
+ "oz2": {
+  "metin": "Bakım ve tasarruf hesabı. bakımsız kombinin fazladan harcaması, bakım hatırlatıcısı"
+ },
+ "oz3": {
+  "metin": "Servis randevusu ve usta takibi. usta yola çıkınca müşteri görür"
+ },
+ "oz4": {
+  "metin": "Gaz kokusunda tek dokunuşla 187 acil hattı"
+ },
+ "son": {
+  "metin": "Bir tasarıma girip araçları deneyin. Tespitlerimizi, planın ayrıntısını ve size uygun çalışma modellerini aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Plan ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada Öztürk Tesisat için yaptığımız tespitleri, iş geliştirme planınızı ve çalışma modellerimizi anlatacağım."
+ },
+ "t_plan": {
+  "metin": "İş geliştirme planınız burada. Amacımız size daha çok müşteri ve daha düzenli gelir getirmek; web sitesi bunun yalnızca bir parçası."
+ },
+ "t_tespit": {
+  "metin": "Tespitlerimiz burada: web sitesi, profilde web sitesi, yorumların tazeliği."
+ },
+ "t_yapacak": {
+  "metin": "Planın kurulumunda neler var burada: hediye web siteniz, sektörünüze özel araçlar, Google profil düzenlemesi ve üç ay destek."
+ },
+ "t_fiyat": {
+  "metin": "Üç çalışma modelimiz var: aylık bin dokuz yüz lira taban ve yeni müşterilerden yüzde on pay, aylık üç bin dokuz yüz lira iş geliştirme ya da yedi bin dokuz yüz lira tek seferlik kurulum. Fiyatlara KDV dahil değildir; hepsinde web sitesi hediye.",
+  "dugme": [
+   "Hediye tasarımları aç",
+   "./"
+  ]
+ }
+}
