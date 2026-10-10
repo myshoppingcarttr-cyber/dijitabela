@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>RunInvestingTR Akademi · 3 tasarım</title>
+<meta name="description" content="RunInvestingTR Akademi için hazırlanmış 3 çalışan web sitesi prototipi: Terminal, Kurumsal Akademi, Uygulama.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1020;--kart:#121a30;--y:#eef2fa;--g:#9aa5bd;--c:#24304d;--k:#e53935;--m:#2b7fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--y);font:16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
+.kap{max-width:1160px;margin:0 auto;padding:0 16px}
+header{padding:60px 0 30px;background:radial-gradient(700px 400px at 80% 0,rgba(229,57,53,.25),transparent 60%),radial-gradient(700px 400px at 0 100%,rgba(43,127,255,.25),transparent 60%)}
+.logo{font-weight:800;font-size:26px}.logo .r{color:#ff5a52}.logo .i{color:#6aa6ff}
+.ust{font-weight:800;letter-spacing:.16em;font-size:12px;color:#ffb4ae;margin-top:24px}
+h1{font-size:clamp(30px,5vw,50px);line-height:1.1;margin:10px 0 14px;letter-spacing:-.03em;max-width:860px}
+header p{max-width:760px;color:#c3cbdc;font-size:17px;margin:0}
+.liste{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:30px 0 50px}
+.kart{background:var(--kart);border:1px solid var(--c);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.25s}
+.kart:hover{transform:translateY(-6px);border-color:var(--m)}
+.onizleme{height:200px;position:relative;overflow:hidden}
+.onizleme iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform:scale(.25);transform-origin:0 0;pointer-events:none}
+.kart .ic{padding:20px}.kart b{font-size:12px;letter-spacing:.14em;color:var(--g)}.kart h2{margin:6px 0 8px;font-size:22px}.kart p{margin:0 0 14px;color:var(--g);font-size:14px}
+.kart ul{margin:0 0 16px;padding-left:18px;color:#c3cbdc;font-size:14px}
+.ac{margin-top:auto;font-weight:800;color:#fff;background:var(--k);text-align:center;padding:12px;border-radius:12px}
+.ortak{background:var(--kart);border:1px solid var(--c);border-radius:20px;padding:26px;margin-bottom:50px}
+.ortak h3{margin:0 0 12px}.ortak div{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 24px;font-size:14px;color:#c3cbdc}
+footer{padding:0 0 40px;color:var(--g);font-size:13px}
+@media (max-width:900px){.liste,.ortak div{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><div class="kap">
+  <div class="logo"><span class="r">Run</span><span class="i">InvestingTR</span> Akademi</div>
+  <div class="ust">3 TASARIM · 3 FARKLI YERLEŞİM · HEPSİ ÇALIŞIR</div>
+  <h1>Finans akademiniz için üç yeni nesil web sitesi.</h1>
+  <p>Mevcut sitenizdeki tüm içerik ve özellikler (4 program / 36 ders, SPL robotu, canlı eğitim, forum rütbeleri, piyasa & takvim, sertifika, üyelik sözleşmesi) baştan tasarlandı ve geliştirildi. Her tasarımı açıp gezebilir, araçları kullanabilirsiniz.</p>
+</div></header>
+<main class="kap">
+  <div class="liste">
+    <a class="kart" href="1-terminal/"><div class="onizleme"><iframe src="1-terminal/" loading="lazy" tabindex="-1" title="Terminal önizleme"></iframe></div><div class="ic"><b>TASARIM 1</b><h2>Terminal</h2><p>Koyu, profesyonel piyasa terminali hissi. Trader’lara hitap eder.</p><ul><li>Canlı fiyat bandı + piyasa görünümü</li><li>Pozisyon, bileşik ve reel getiri hesaplayıcıları</li><li>Süreli SPL mini sınavı</li></ul><span class="ac">Tasarımı aç →</span></div></a>
+    <a class="kart" href="2-akademi/"><div class="onizleme"><iframe src="2-akademi/" loading="lazy" tabindex="-1" title="Akademi önizleme"></iframe></div><div class="ic"><b>TASARIM 2</b><h2>Kurumsal Akademi</h2><p>Finans gazetesi düzeninde, güven veren kurumsal eğitim kurumu.</p><ul><li>Seviye testi → kişisel ders rotası</li><li>Uzun analiz okuma deneyimi (Tera/Pusula)</li><li>Canlı sertifika önizleme, doküman kütüphanesi</li></ul><span class="ac">Tasarımı aç →</span></div></a>
+    <a class="kart" href="3-uygulama/"><div class="onizleme"><iframe src="3-uygulama/" loading="lazy" tabindex="-1" title="Uygulama önizleme"></iframe></div><div class="ic"><b>TASARIM 3</b><h2>Uygulama</h2><p>Mobil uygulama gibi, oyunlaştırılmış üye deneyimi.</p><ul><li>Çalışan üye paneli: görevler, puan, rütbe</li><li>Ders oynatıcı + not alma, canlı ders sohbeti</li><li>Rütbeli forum, izleme listesi</li></ul><span class="ac">Tasarımı aç →</span></div></a>
+  </div>
+  <div class="ortak"><h3>Üç tasarımda ortak olarak geliştirilenler</h3><div>
+    <span>✓ SPL robotu: her girişte yeni soru seti, açıklamalı cevap</span><span>✓ Haftalık canlı eğitim geri sayımı</span><span>✓ TradingView canlı fiyat ve ekonomik takvim</span>
+    <span>✓ 4 program / 36 ders müfredat yapısı</span><span>✓ Forum kategorileri ve 5 rütbe sistemi</span><span>✓ Üyelik: 250 + 250 = 500 USD, cayma hakkı</span>
+    <span>✓ Kayıt → yönetici onayı → erişim akışı</span><span>✓ Mobil uyumlu, hızlı, tek dosya</span><span>✓ “Yatırım tavsiyesi değildir” uyarıları</span>
+  </div></div>
+</main>
+<footer class="kap">Dijitabela tarafından hazırlanmış önizlemedir · ders başlıkları ve doküman adları örnektir, gerçek içerikle değiştirilecektir.</footer>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

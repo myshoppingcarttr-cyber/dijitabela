@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>RunInvestingTR Akademi · Uygulama</title>
+<meta name="description" content="Cebinizdeki finans akademisi: kişisel öğrenme rotası, günlük görevler, SPL robotu, canlı ders odası, rütbeli forum ve izleme listesi.">
+<meta name="theme-color" content="#0b1530">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5fb;--kart:#fff;--y:#0b1530;--g:#667089;--c:#e3e8f3;--k:#e53935;--m:#2b7fff;--mor:#6d5dfc;--yes:#12b76a;--sar:#f79009;--golge:0 10px 30px rgba(11,21,48,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--y);font:15px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}.kap{max-width:1240px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font:800 14px Manrope,sans-serif;padding:13px 20px;border-radius:14px;text-decoration:none;transition:.2s}
+.btn.k{background:linear-gradient(135deg,var(--k),#ff6f61);color:#fff;box-shadow:0 10px 24px rgba(229,57,53,.3)}.btn.k:hover{transform:translateY(-2px)}
+.btn.b{background:#fff;color:var(--y)}.btn.s{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25)}
+/* hero */
+.hero{background:radial-gradient(800px 500px at 85% 10%,rgba(229,57,53,.35),transparent 60%),radial-gradient(700px 500px at 10% 90%,rgba(43,127,255,.45),transparent 60%),#0b1530;color:#fff;padding:0 0 90px;position:relative;overflow:hidden}
+nav{display:flex;align-items:center;gap:20px;height:78px}
+.logo{font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.02em;white-space:nowrap}.logo .r{color:#ff5a52}.logo .i{color:#6aa6ff}
+.logo small{font-size:10px;letter-spacing:.35em;opacity:.6;margin-left:6px}
+nav .menu{margin-left:auto;display:flex;gap:24px;font-weight:600;font-size:14px;opacity:.85}nav .menu a{text-decoration:none}
+.hero-ic{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding-top:40px}
+.cip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:7px 14px;border-radius:99px;font-size:13px;font-weight:700}
+h1{font-size:clamp(36px,5.6vw,66px);line-height:1.02;letter-spacing:-.04em;margin:18px 0 18px;font-weight:800}
+h1 span{background:linear-gradient(90deg,#ff7a6e,#ffd36e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:18px;opacity:.82;max-width:520px;margin:0 0 28px}
+.magaza{display:flex;gap:12px;flex-wrap:wrap}
+.guven{display:flex;gap:22px;margin-top:30px;font-size:13px;opacity:.75;flex-wrap:wrap}.guven b{display:block;font-size:22px;opacity:1}
+/* telefon */
+.telefon-alan{position:relative;display:flex;justify-content:center}
+.telefon{width:300px;height:610px;border-radius:46px;background:#0a0f1f;padding:12px;box-shadow:0 40px 90px rgba(0,0,0,.5),inset 0 0 0 2px #2a3352;position:relative;transform:rotate(-4deg)}
+.telefon:before{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:90px;height:24px;background:#000;border-radius:20px;z-index:3}
+.ekran{width:100%;height:100%;border-radius:36px;background:var(--bg);overflow:hidden;color:var(--y);padding:52px 14px 14px;font-size:12px}
+.ekran .ust{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.ekran .ust b{font-size:16px}
+.mini-kart{background:#fff;border-radius:16px;padding:12px;margin-bottom:10px;box-shadow:0 4px 14px rgba(11,21,48,.06)}
+.mini-kart.koyu{background:linear-gradient(135deg,#1a2a5e,#0b1530);color:#fff}
+.mini-bar{height:6px;border-radius:9px;background:var(--c);overflow:hidden;margin-top:6px}.mini-bar i{display:block;height:100%;background:var(--m)}
+.yuzen{position:absolute;background:#fff;color:var(--y);border-radius:16px;padding:12px 14px;box-shadow:0 20px 40px rgba(0,0,0,.25);font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center;animation:yuz 4s ease-in-out infinite}
+.yuzen small{display:block;color:var(--g);font-weight:600;font-size:11px}
+.yuzen.a{left:0;top:90px}.yuzen.b{right:0;bottom:120px;animation-delay:1.5s}
+@keyframes yuz{50%{transform:translateY(-10px)}}
+/* özellikler */
+section{padding:90px 0}
+.bb{text-align:center;max-width:720px;margin:0 auto 44px}.bb small{font-weight:800;letter-spacing:.16em;color:var(--k);font-size:12px}
+h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.035em;line-height:1.08;margin:10px 0 12px}.bb p{color:var(--g);font-size:17px;margin:0}
+.ozellikler{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.oz{background:var(--kart);border-radius:22px;padding:26px;box-shadow:var(--golge);border:1px solid var(--c)}
+.oz .ik{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:24px;margin-bottom:14px}
+.oz h3{margin:0 0 6px;font-size:18px}.oz p{margin:0;color:var(--g);font-size:14px}
+/* uygulama demosu */
+.demo-sar{background:#0b1530;padding:90px 0;color:#fff}
+.demo-sar .bb p{color:#aab4cc}
+.uyg{display:grid;grid-template-columns:230px 1fr;background:var(--bg);color:var(--y);border-radius:26px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.45);min-height:680px;border:6px solid #1a2546}
+.yan{background:#fff;border-right:1px solid var(--c);padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+.yan .logo{font-size:18px;margin:0 8px 18px;color:var(--y)}.yan .logo .r{color:var(--k)}.yan .logo .i{color:var(--m)}
+.yan button{all:unset;cursor:pointer;display:flex;gap:12px;align-items:center;padding:11px 12px;border-radius:12px;font-weight:700;font-size:14px;color:var(--g);transition:.15s}
+.yan button:hover{background:var(--bg)}.yan button.aktif{background:linear-gradient(135deg,rgba(43,127,255,.12),rgba(109,93,252,.12));color:var(--m)}
+.yan .alt{margin-top:auto;padding:14px;border-radius:16px;background:linear-gradient(135deg,#1a2a5e,#0b1530);color:#fff;font-size:13px}
+.yan .alt b{display:block;font-size:15px}
+.icerik{padding:26px;overflow:auto;max-height:780px}
+.ic-ust{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:10px;flex-wrap:wrap}
+.ic-ust h3{margin:0;font-size:24px;letter-spacing:-.02em}.ic-ust p{margin:2px 0 0;color:var(--g)}
+.profil{display:flex;align-items:center;gap:10px;background:#fff;padding:6px 12px 6px 6px;border-radius:99px;box-shadow:var(--golge);font-weight:700;font-size:13px}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--k),var(--sar));display:grid;place-items:center;color:#fff;font-weight:800}
+.grid{display:grid;gap:16px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1.3fr 1fr}
+.kart{background:#fff;border-radius:20px;padding:20px;box-shadow:var(--golge)}
+.kart h4{margin:0 0 12px;font-size:15px;display:flex;justify-content:space-between;align-items:center}
+.kart h4 small{color:var(--g);font-weight:600}
+.rutbe-kart{background:linear-gradient(135deg,#6d5dfc,#2b7fff);color:#fff;display:flex;gap:18px;align-items:center}
+.halka{--p:0;width:96px;height:96px;flex:none;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#ffd36e calc(var(--p)*1%),rgba(255,255,255,.2) 0);transition:--p 1s}
+.halka span{width:76px;height:76px;border-radius:50%;background:#4f5fe8;display:grid;place-items:center;font-size:32px}
+.rutbe-kart b{font-size:20px;display:block}.rutbe-kart small{opacity:.85}
+.seri{display:flex;gap:6px;margin-top:10px}.seri i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800;background:var(--bg);color:var(--g)}.seri i.d{background:#fff1e6;color:var(--sar)}
+.prog-satir{margin-bottom:12px}.prog-satir div{display:flex;justify-content:space-between;font-weight:700;font-size:13px}.prog-satir span{color:var(--g)}
+.bar{height:8px;border-radius:9px;background:var(--c);overflow:hidden;margin-top:5px}.bar i{display:block;height:100%;border-radius:9px;transition:width .8s}
+.gorev{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--c);cursor:pointer;user-select:none}.gorev:last-child{border:0}
+.gorev .tik{width:24px;height:24px;border-radius:8px;border:2px solid var(--c);display:grid;place-items:center;flex:none;transition:.2s;color:#fff;font-size:13px}
+.gorev.ok .tik{background:var(--yes);border-color:var(--yes)}.gorev.ok span{text-decoration:line-through;color:var(--g)}
+.gorev em{margin-left:auto;font-style:normal;font-weight:800;color:var(--mor);font-size:12px;background:#f0eeff;padding:4px 8px;border-radius:8px}
+.canli-mini{background:linear-gradient(135deg,#ff5a52,#e53935);color:#fff}
+.canli-mini .sayac{display:flex;gap:6px;margin-top:10px}.canli-mini .sayac div{flex:1;background:rgba(255,255,255,.18);border-radius:10px;text-align:center;padding:8px 0}.canli-mini .sayac b{display:block;font-size:20px}.canli-mini .sayac span{font-size:10px;opacity:.85}
+/* dersler */
+.oynatici{aspect-ratio:16/9;border-radius:18px;background:linear-gradient(135deg,#1a2a5e,#0b1530);position:relative;display:grid;place-items:center;color:#fff;overflow:hidden}
+.oynatici .oynat{width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:28px;cursor:pointer;backdrop-filter:blur(6px);transition:.2s}.oynatici .oynat:hover{transform:scale(1.08)}
+.oynatici .baslik{position:absolute;left:18px;bottom:16px;font-weight:800}.oynatici .baslik small{display:block;opacity:.7;font-weight:600}
+.oynatici .zaman{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.2)}.oynatici .zaman i{display:block;height:100%;width:0;background:var(--k);transition:width .3s linear}
+.ders-liste{max-height:380px;overflow:auto}
+.ders-sat{display:flex;gap:10px;align-items:center;padding:10px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:600}.ders-sat:hover{background:var(--bg)}.ders-sat.aktif{background:#eef4ff;color:var(--m)}
+.ders-sat .d{width:24px;height:24px;border-radius:8px;background:var(--bg);display:grid;place-items:center;font-size:11px;flex:none}.ders-sat.bitti .d{background:var(--yes);color:#fff}
+.program-sec{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}.program-sec button{all:unset;cursor:pointer;padding:6px 12px;border-radius:9px;font-weight:800;font-size:12px;background:var(--bg)}.program-sec button.aktif{background:var(--y);color:#fff}
+textarea{width:100%;min-height:110px;border:1px solid var(--c);border-radius:12px;padding:12px;font:500 14px Manrope;resize:vertical}
+/* SPL */
+.sinav{min-height:420px}
+.sv-ust{display:flex;justify-content:space-between;font-weight:700;font-size:13px;color:var(--g)}.sv-ust em{font-style:normal;color:var(--mor)}.sv-sure{color:var(--k)}
+.sv-ilerleme{height:8px;background:var(--c);border-radius:9px;margin:10px 0 18px;overflow:hidden}.sv-ilerleme i{display:block;height:100%;background:linear-gradient(90deg,var(--mor),var(--m));transition:.4s}
+.sv-soru{font-size:19px;line-height:1.35;margin:0 0 16px;letter-spacing:-.01em}
+.sv-sik{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:12px;align-items:center;width:100%;padding:13px 14px;margin-bottom:9px;border:2px solid var(--c);border-radius:14px;font-weight:600;transition:.15s}
+.sv-sik b{width:28px;height:28px;flex:none;border-radius:9px;background:var(--bg);display:grid;place-items:center;font-size:13px}
+.sv-sik:hover:not(:disabled){border-color:var(--m)}.sv-sik.dogru{border-color:var(--yes);background:#ecfdf3}.sv-sik.dogru b{background:var(--yes);color:#fff}.sv-sik.yanlis{border-color:var(--k);background:#fef3f2}.sv-sik.yanlis b{background:var(--k);color:#fff}
+.sv-aciklama{margin:4px 0 14px;padding:12px 14px;border-radius:12px;background:#f0eeff;color:#3b2fb8;font-weight:600;font-size:14px}
+.sv-btn{all:unset;cursor:pointer;background:linear-gradient(135deg,var(--mor),var(--m));color:#fff;font-weight:800;padding:12px 20px;border-radius:12px}
+.sv-sonuc{text-align:center}.sv-yuzde{--p:0;width:140px;height:140px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--mor) calc(var(--p)*1%),var(--c) 0)}
+.sv-yuzde span{width:112px;height:112px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:30px;font-weight:800}
+.sv-sonuc h4{font-size:20px;margin:4px 0}.sv-sonuc p{color:var(--g)}
+.sv-cubuk{display:flex;gap:4px;justify-content:center;margin:10px 0 18px}.sv-cubuk i{width:20px;height:8px;border-radius:4px}.sv-cubuk .d{background:var(--yes)}.sv-cubuk .y{background:var(--k)}
+.istat{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--c);font-weight:700;font-size:14px}.istat span{color:var(--g);font-weight:600}
+/* canlı oda */
+.oda{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.yayin{aspect-ratio:16/9;border-radius:18px;background:#0b1530;position:relative;overflow:hidden}
+.yayin svg{position:absolute;inset:0;width:100%;height:100%}
+.yayin .etk{position:absolute;top:12px;left:12px;background:var(--k);color:#fff;font-weight:800;font-size:11px;padding:5px 10px;border-radius:8px;letter-spacing:.08em}
+.yayin .izl{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:12px;padding:5px 10px;border-radius:8px}
+.sohbet{display:flex;flex-direction:column;height:100%;min-height:300px}
+.mesajlar{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;padding-right:4px;max-height:320px}
+.msj{font-size:13px;background:var(--bg);padding:8px 11px;border-radius:12px}.msj b{font-size:12px}.msj b span{font-weight:600;color:var(--g);margin-left:4px}.msj.ben{background:#eef4ff}
+.sohbet form{display:flex;gap:8px;margin-top:10px}.sohbet input{flex:1;border:1px solid var(--c);border-radius:12px;padding:10px 12px;font:600 14px Manrope}
+/* forum */
+.kat-satir{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.kat-satir button{all:unset;cursor:pointer;padding:7px 13px;border-radius:99px;background:#fff;font-weight:700;font-size:13px;box-shadow:0 2px 8px rgba(11,21,48,.06)}.kat-satir button.aktif{background:var(--y);color:#fff}
+.gonderi{display:flex;gap:14px;padding:16px;background:#fff;border-radius:16px;margin-bottom:10px;box-shadow:var(--golge)}
+.gonderi .avatar{flex:none}.gonderi h5{margin:0;font-size:15px}.gonderi p{margin:4px 0 8px;color:var(--g);font-size:14px}
+.r-et{font-size:11px;font-weight:800;padding:3px 8px;border-radius:7px;background:#f0eeff;color:var(--mor);margin-left:6px}
+.g-alt{display:flex;gap:14px;font-size:12px;font-weight:700;color:var(--g)}.g-alt button{all:unset;cursor:pointer}.g-alt button.b{color:var(--k)}
+/* piyasa */
+.izleme{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.izleme .kart{padding:8px;min-height:190px}
+/* fiyat + sss */
+.fiyatlar{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.fiyat{background:#fff;border-radius:24px;padding:30px;box-shadow:var(--golge);border:2px solid transparent;display:flex;flex-direction:column}
+.fiyat.one{border-color:var(--k);transform:scale(1.03)}
+.fiyat h3{margin:0;font-size:18px}.fiyat .t{font-size:46px;font-weight:800;letter-spacing:-.04em;margin:10px 0 0}.fiyat ul{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:9px;font-size:14px}.fiyat li:before{content:"✓";color:var(--yes);font-weight:800;margin-right:8px}
+.fiyat .btn{margin-top:auto}
+.not{text-align:center;color:var(--g);font-size:13px;margin-top:22px}
+.cta{background:linear-gradient(135deg,#6d5dfc,#2b7fff);border-radius:30px;color:#fff;padding:54px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.cta h2{margin:0;color:#fff}.cta p{margin:6px 0 0;opacity:.85}
+footer{padding:40px 0;color:var(--g);font-size:13px}footer .kap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.gizli{display:none!important}
+.gor{opacity:0;transform:translateY(24px);transition:.8s cubic-bezier(.2,.7,.2,1)}.gorundu{opacity:1;transform:none}
+@media (max-width:1020px){.hero-ic,.g2,.oda{grid-template-columns:1fr}.ozellikler,.fiyatlar{grid-template-columns:1fr 1fr}.uyg{grid-template-columns:1fr}.yan{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--c);padding:10px}.yan .logo,.yan .alt{display:none}.yan button{white-space:nowrap}.g3{grid-template-columns:1fr 1fr}.izleme{grid-template-columns:1fr 1fr}nav .menu{display:none}.fiyat.one{transform:none}}
+@media (max-width:620px){.kap{padding:0 16px}.ozellikler,.fiyatlar,.g3,.izleme{grid-template-columns:1fr}.telefon{transform:none;width:270px;height:550px}.yuzen{display:none}.icerik{padding:16px;max-height:none}.uyg{border-width:3px;border-radius:18px}section,.demo-sar{padding:60px 0}.cta{padding:30px}.hero{padding-bottom:60px}nav .btn{padding:10px 14px}}
+</style></head>
+<body>
+<header class="hero"><div class="kap">
+  <nav><a href="#" class="logo"><span class="r">Run</span><span class="i">InvestingTR</span><small>AKADEMİ</small></a>
+    <div class="menu"><a href="#ozellikler">Özellikler</a><a href="#demo">Uygulamayı Dene</a><a href="#uyelik">Üyelik</a></div>
+    <a href="#uyelik" class="btn k">Üye Ol</a></nav>
+  <div class="hero-ic">
+    <div>
+      <span class="cip">🔥 Günde 15 dakika · kişisel öğrenme rotası</span>
+      <h1>Finans eğitimi, <span>cebinizde bir akademi.</span></h1>
+      <p>Kişisel ders rotanız, günlük görevleriniz, SPL sınav robotu, canlı ders odası ve rütbe kazandığınız topluluk. Bilgiyi değere, disiplini başarıya dönüştüren bir uygulama deneyimi.</p>
+      <div class="magaza"><a href="#demo" class="btn b">▶ Uygulamayı canlı deneyin</a><a href="#uyelik" class="btn s">Ücretsiz kayıt</a></div>
+      <div class="guven"><div><b>36</b>video ders</div><div><b>4</b>program</div><div><b>Haftalık</b>canlı eğitim</div><div><b>5</b>rütbe</div></div>
+    </div>
+    <div class="telefon-alan">
+      <div class="yuzen a">🏆 <div>Rütbe atladınız!<small>Yatırımcı → Deneyimli</small></div></div>
+      <div class="telefon"><div class="ekran">
+        <div class="ust"><div><small style="color:var(--g)">Günaydın 👋</small><b>Bugünün rotası</b></div><div class="avatar" style="width:30px;height:30px;font-size:12px">AY</div></div>
+        <div class="mini-kart koyu"><small style="opacity:.7">SIRADAKİ CANLI</small><div style="font-weight:800;font-size:14px" id="tel-canli">Haftalık Piyasa Analizi</div><div style="font-weight:800;font-size:20px;margin-top:4px" id="tel-sayac">--</div></div>
+        <div class="mini-kart"><b>D · Teknik Analiz</b><div style="color:var(--g)">Ders 5 · RSI, MACD ve momentum</div><div class="mini-bar"><i style="width:44%"></i></div></div>
+        <div class="mini-kart"><b>Günlük görevler</b><div style="margin-top:6px">✅ 1 ders izle<br>⬜ SPL'de 5 soru<br>⬜ Foruma yorum yaz</div></div>
+        <div class="mini-kart"><b>🧠 SPL 1. Düzey</b><div style="color:var(--g)">En iyi skor %75 · hedef %70 ✓</div></div>
+        <div class="mini-kart"><b>💬 #Altın</b><div style="color:var(--g)">“2.650 direnci kırılırsa…” · 12 yorum</div></div>
+      </div></div>
+      <div class="yuzen b">🎯 <div>SPL skoru %75<small>Sınav eşiğinin üstünde</small></div></div>
+    </div>
+  </div>
+</div></header>
+
+<section id="ozellikler"><div class="kap">
+  <div class="bb gor"><small>NEDEN RUNINVESTINGTR</small><h2>Ders izlemekten fazlası: yatırımcı olma alışkanlığı.</h2><p>Akademinin tüm bileşenleri tek, akıllı bir panelde birleşir. İlerlemeniz ölçülür, motivasyonunuz korunur.</p></div>
+  <div class="ozellikler">
+    <div class="oz gor"><div class="ik" style="background:#eef4ff">🧭</div><h3>Kişisel rota</h3><p>Kayıtta seçtiğiniz seviye ve ilgi alanlarına (BIST, ABD, Forex, Altın, Kripto, Makro) göre size özel ders sırası.</p></div>
+    <div class="oz gor"><div class="ik" style="background:#fff1e6">🔥</div><h3>Günlük görev & seri</h3><p>Her gün 3 küçük görev. Seriyi bozmayın, disiplin alışkanlığa dönüşsün.</p></div>
+    <div class="oz gor"><div class="ik" style="background:#f0eeff">🧠</div><h3>SPL robotu</h3><p>Her girişte yeni soru seti, anında açıklama, en iyi skor takibi ve 25 soruluk deneme sınavı.</p></div>
+    <div class="oz gor"><div class="ik" style="background:#fef3f2">🔴</div><h3>Canlı ders odası</h3><p>Haftalık canlı eğitimlerde soru sorun, grafiği birlikte okuyun. Bir sonraki yayın her zaman ekranınızda.</p></div>
+    <div class="oz gor"><div class="ik" style="background:#ecfdf3">🏆</div><h3>Rütbeli topluluk</h3><p>Paylaşım +2, yorum +1 puan. Acemi Yatırımcı’dan Usta Yatırımcı’ya beş rütbe.</p></div>
+    <div class="oz gor"><div class="ik" style="background:#fffaeb">📊</div><h3>İzleme listesi & takvim</h3><p>Altın, gümüş, petrol, pariteler, DAX, Nasdaq ve BIST: canlı fiyatlar ve ekonomik takvim panelde.</p></div>
+  </div>
+</div></section>
+
+<div class="demo-sar" id="demo"><div class="kap">
+  <div class="bb gor"><small style="color:#ffb4ae">CANLI DEMO</small><h2 style="color:#fff">Üye panelini şimdi deneyin.</h2><p>Aşağıdaki uygulama gerçekten çalışır: görevleri tamamlayın, ders izleyin, SPL’de sınava girin, canlı odada soru sorun, forumda beğenin.</p></div>
+  <div class="uyg gor">
+    <aside class="yan">
+      <a class="logo"><span class="r">Run</span><span class="i">InvestingTR</span></a>
+      <button data-s="panel" class="aktif">🏠 Panelim</button>
+      <button data-s="ders">🎬 Derslerim</button>
+      <button data-s="spl">🧠 SPL Robotu</button>
+      <button data-s="canli">🔴 Canlı Oda</button>
+      <button data-s="forum">💬 Forum</button>
+      <button data-s="piyasa">📊 Piyasa</button>
+      <div class="alt"><b id="yan-rutbe">📈 Yatırımcı</b><span id="yan-puan">24 puan</span><div class="mini-bar" style="background:rgba(255,255,255,.2)"><i id="yan-bar" style="background:#ffd36e;width:10%"></i></div></div>
+    </aside>
+    <div class="icerik">
+      <div class="ic-ust"><div><h3 id="s-baslik">Hoş geldiniz, Ayşe 👋</h3><p id="s-alt">Bugün rotanızda 3 görev var.</p></div><div class="profil"><span class="avatar">AY</span><span id="profil-rutbe">📈 Yatırımcı</span></div></div>
+
+      <div data-sayfa="panel">
+        <div class="grid g3">
+          <div class="kart rutbe-kart"><div class="halka" id="halka"><span id="halka-e">📈</span></div><div><small>RÜTBENİZ</small><b id="r-ad">Yatırımcı</b><small id="r-sonraki">Sonraki rütbeye 26 puan</small></div></div>
+          <div class="kart"><h4>Gün serisi <small>🔥 <span id="seri-say">5</span> gün</small></h4><div class="seri" id="seri"></div><small style="color:var(--g);display:block;margin-top:10px">Görevleri tamamlayıp seriyi sürdürün.</small></div>
+          <div class="kart canli-mini"><small style="font-weight:800;letter-spacing:.08em">🔴 SIRADAKİ CANLI</small><div style="font-weight:800;font-size:16px" id="p-canli">Haftalık Piyasa Analizi</div><div class="sayac" id="p-sayac"></div></div>
+        </div>
+        <div class="grid g2" style="margin-top:16px">
+          <div class="kart"><h4>Program ilerlemesi <small>36 dersin <span id="top-bitti">9</span>’u tamam</small></h4><div id="ilerleme"></div></div>
+          <div class="kart"><h4>Bugünün görevleri <small id="xp-kazanc">+0 puan</small></h4><div id="gorevler"></div></div>
+        </div>
+      </div>
+
+      <div data-sayfa="ders" class="gizli">
+        <div class="grid g2">
+          <div>
+            <div class="oynatici"><div class="oynat" id="oynat">▶</div><div class="baslik" id="o-baslik">D5 · RSI, MACD ve momentum<small>Teknik Analiz · 18 dk</small></div><div class="zaman"><i id="o-zaman"></i></div></div>
+            <div class="kart" style="margin-top:14px"><h4>📝 Ders notlarım <small>otomatik kaydedilir</small></h4><textarea id="notlar" placeholder="Bu derste öğrendiklerinizi yazın…"></textarea><button class="btn k" id="bitir" style="margin-top:10px;width:100%">✓ Dersi tamamladım (+2 puan)</button></div>
+          </div>
+          <div class="kart"><h4>Müfredat</h4><div class="program-sec" id="program-sec"></div><div class="ders-liste" id="ders-liste"></div></div>
+        </div>
+      </div>
+
+      <div data-sayfa="spl" class="gizli">
+        <div class="grid g2"><div class="kart sinav" id="sinav"></div>
+          <div class="kart"><h4>SPL istatistiklerim</h4>
+            <div class="istat">SPL 1. Düzey <span>Aktif</span></div><div class="istat">En iyi skor <span id="spl-eniyi">%0</span></div><div class="istat">Deneme sınavı <span>25 soru · süreli</span></div><div class="istat">SPL 2. Düzey <span>Yakında</span></div><div class="istat">SPL 3. Düzey <span>Yakında</span></div>
+            <p style="color:var(--g);font-size:13px;margin:14px 0 0">Robot her girişte soru ve şıkları yeniden karıştırır; ezber değil, kavrayış ölçülür.</p></div></div>
+      </div>
+
+      <div data-sayfa="canli" class="gizli">
+        <div class="oda">
+          <div><div class="yayin"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><g id="mumlar"></g><line x1="0" y1="80" x2="400" y2="80" stroke="#f79009" stroke-dasharray="6 6"/><text x="8" y="74" fill="#f79009" font-size="10" font-family="Manrope" font-weight="800">DİRENÇ 2.650</text><line x1="0" y1="170" x2="400" y2="170" stroke="#12b76a" stroke-dasharray="6 6"/><text x="8" y="164" fill="#12b76a" font-size="10" font-family="Manrope" font-weight="800">DESTEK 2.590</text></svg><span class="etk">● CANLI</span><span class="izl" id="izleyici">👁 128</span></div>
+            <div class="kart" style="margin-top:14px"><h4 id="o-canli">Haftalık Piyasa Analizi</h4><p style="margin:0;color:var(--g);font-size:14px">Bu bir demo yayın ekranıdır. Gerçek sitede canlı ders, yönetici panelinden başlatılır ve üyelere bildirim gider.</p></div></div>
+          <div class="kart sohbet"><h4>Canlı sohbet <small>soru sorun</small></h4><div class="mesajlar" id="mesajlar"></div><form id="sohbet-form"><input id="sohbet-in" placeholder="Eğitmene sorunuz…" maxlength="140"><button class="btn k" style="padding:10px 14px">Gönder</button></form></div>
+        </div>
+      </div>
+
+      <div data-sayfa="forum" class="gizli">
+        <div class="kat-satir" id="kat-satir"></div>
+        <div id="gonderiler"></div>
+      </div>
+
+      <div data-sayfa="piyasa" class="gizli">
+        <div class="izleme" id="izleme"></div>
+        <div class="kart" style="margin-top:14px;padding:8px" id="takvim"></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<section id="uyelik"><div class="kap">
+  <div class="bb gor"><small>ÜYELİK</small><h2>Bir kez üye olun, akademinin tamamı sizin.</h2><p>Kayıt ücretsiz, yönetici onayıyla hesabınız aktifleşir. Ücretlendirme üyelik sözleşmesine göredir.</p></div>
+  <div class="fiyatlar">
+    <div class="fiyat gor"><h3>Çevrimiçi</h3><div class="t">$250</div><span style="color:var(--g)">tek seferlik</span><ul><li>36 video ders</li><li>Canlı ders odası</li><li>SPL robotu</li><li>Forum ve rütbeler</li></ul><a href="#" class="btn b" style="border:2px solid var(--c)" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak');return false">Seç</a></div>
+    <div class="fiyat one gor"><h3>Tam Üyelik ⭐</h3><div class="t">$500</div><span style="color:var(--g)">çevrimiçi + çevrimdışı</span><ul><li>Tüm çevrimiçi özellikler</li><li>PDF doküman kütüphanesi</li><li>Çevrimdışı eğitim kaynakları</li><li>Program sertifikaları</li><li>Deneme sınavları</li></ul><a href="#" class="btn k" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak');return false">Hemen başla →</a></div>
+    <div class="fiyat gor"><h3>Çevrimdışı</h3><div class="t">$250</div><span style="color:var(--g)">tek seferlik</span><ul><li>PDF ders notları</li><li>Çalışma kitapçıkları</li><li>Doküman kütüphanesi</li><li>Sertifika</li></ul><a href="#" class="btn b" style="border:2px solid var(--c)" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak');return false">Seç</a></div>
+  </div>
+  <p class="not">14 gün cayma hakkı, Teknik Analiz setinin ilk dersine erişilene kadar geçerlidir. İçerikler yatırım tavsiyesi değildir; yalnızca eğitim amaçlıdır.</p>
+  <div class="cta gor" style="margin-top:50px"><div><h2>Bugün başlayın, yarın farkı görün.</h2><p>Seviyenizi seçin, rotanız hazır olsun.</p></div><a href="#" class="btn b" onclick="RIT.bildir('Prototip: kayıt formu gerçek sitede açılır');return false">Ücretsiz kayıt ol →</a></div>
+</div></section>
+
+<footer><div class="kap"><span>© 2026 RunInvestingTR Akademi · RunInvestingTR Finansal Eğitim ve Danışmanlık Hizmetleri Ltd. Şti.</span><span>Üyelik Sözleşmesi · KVKK · İletişim</span></div></footer>
+
+<script src="../ortak.js"></script>
+<script>
+(function(){
+  var K=RIT.konular,R=RIT.rutbeler;
+  var D={puan:24,gorev:[0,0,0],bitti:{A:[0,1,2,3,4,5],B:[0,1],C:[0],D:[]},notlar:{}};
+  try{var k=JSON.parse(localStorage.getItem("rit-demo"));if(k)D=k}catch(e){}
+  function kaydet(){try{localStorage.setItem("rit-demo",JSON.stringify(D))}catch(e){}}
+  function rutbe(p){var r=R[0];R.forEach(function(x){if(p>=x.min)r=x});return r}
+  function sonraki(p){for(var i=0;i<R.length;i++)if(R[i].min>p)return R[i];return null}
+
+  // gezinme
+  var bas={panel:["Hoş geldiniz, Ayşe 👋","Bugün rotanızda 3 görev var."],ders:["Derslerim","Kaldığınız yerden devam edin."],spl:["SPL Hazırlık Robotu","Her girişte yeni bir sınav."],canli:["Canlı Ders Odası","Haftalık canlı eğitimler."],forum:["Forum","Paylaş, yorumla, rütbe atla."],piyasa:["Piyasa & Takvim","İzleme listeniz ve ekonomik takvim."]};
+  var piyasaYuklendi=false;
+  document.querySelectorAll(".yan button").forEach(function(b){b.onclick=function(){git(b.dataset.s)}});
+  function git(s){document.querySelectorAll(".yan button").forEach(function(b){b.classList.toggle("aktif",b.dataset.s===s)});document.querySelectorAll("[data-sayfa]").forEach(function(x){x.classList.toggle("gizli",x.dataset.sayfa!==s)});
+    document.getElementById("s-baslik").textContent=bas[s][0];document.getElementById("s-alt").textContent=bas[s][1];if(s==="piyasa"&&!piyasaYuklendi){piyasaYukle();piyasaYuklendi=true}}
+
+  // puan / rütbe
+  function puanCiz(eski){var r=rutbe(D.puan),s=sonraki(D.puan),onceki=r.min,p=s?(D.puan-onceki)/(s.min-onceki)*100:100;
+    document.getElementById("halka").style.setProperty("--p",p);document.getElementById("halka-e").textContent=r.e;document.getElementById("r-ad").textContent=r.ad;
+    document.getElementById("r-sonraki").textContent=s?"Sonraki rütbeye "+(s.min-D.puan)+" puan · "+D.puan+" puan":"En yüksek rütbe · "+D.puan+" puan";
+    document.getElementById("yan-rutbe").textContent=r.e+" "+r.ad;document.getElementById("profil-rutbe").textContent=r.e+" "+r.ad;document.getElementById("yan-puan").textContent=D.puan+" puan";document.getElementById("yan-bar").style.width=p+"%";
+    if(eski!==undefined&&rutbe(eski).ad!==r.ad)RIT.bildir("🏆 Tebrikler! Yeni rütbeniz: "+r.ad)}
+  function puanEkle(n){var e=D.puan;D.puan+=n;kaydet();puanCiz(e)}
+
+  // seri
+  var gunler=["Pt","Sa","Ça","Pe","Cu","Ct","Pz"],bugun=(new Date().getDay()+6)%7;
+  document.getElementById("seri").innerHTML=gunler.map(function(g,i){return '<i class="'+(i<=bugun&&i>bugun-5?"d":"")+'">'+(i<=bugun&&i>bugun-5?"🔥":g)+'</i>'}).join("");
+
+  // ilerleme
+  function ilerlemeCiz(){var top=0;document.getElementById("ilerleme").innerHTML=K.map(function(k){var n=D.bitti[k.k].length;top+=n;return '<div class="prog-satir"><div>'+k.k+' · '+k.ad+'<span>'+n+'/9</span></div><div class="bar"><i style="width:'+(n/9*100)+'%;background:'+k.renk+'"></i></div></div>'}).join("");document.getElementById("top-bitti").textContent=top}
+
+  // görevler
+  var G=[["1 ders izle ve tamamla",2,"ders"],["SPL’de mini sınava gir",2,"spl"],["Foruma bir yorum yaz",1,"forum"]];
+  function gorevCiz(){var kaz=0;document.getElementById("gorevler").innerHTML=G.map(function(g,i){if(D.gorev[i])kaz+=g[1];return '<div class="gorev'+(D.gorev[i]?" ok":"")+'" data-i="'+i+'"><span class="tik">'+(D.gorev[i]?"✓":"")+'</span><span>'+g[0]+'</span><em>+'+g[1]+'</em></div>'}).join("")+'<button class="btn k" style="width:100%;margin-top:12px" id="gorev-git">Sıradaki göreve git →</button>';
+    document.getElementById("xp-kazanc").textContent="+"+kaz+" puan";
+    document.querySelectorAll(".gorev").forEach(function(x){x.onclick=function(){var i=+x.dataset.i;if(!D.gorev[i]){D.gorev[i]=1;puanEkle(G[i][1]);gorevCiz()}}});
+    document.getElementById("gorev-git").onclick=function(){var i=D.gorev.indexOf(0);if(i<0)return RIT.bildir("🎉 Bugünün tüm görevleri tamam!");git(G[i][2])}}
+  function gorevTamam(i){if(!D.gorev[i]){D.gorev[i]=1;puanEkle(G[i][1]);gorevCiz()}}
+
+  // canlı geri sayım
+  var c=RIT.geriSayim(document.getElementById("p-sayac"),function(p){return ["GÜN","SA","DK","SN"].map(function(e,i){return '<div><b>'+p[i]+'</b><span>'+e+'</span></div>'}).join("")});
+  RIT.geriSayim(document.getElementById("tel-sayac"),function(p){return (+p[0]?p[0]+"g ":"")+p[1]+":"+p[2]+":"+p[3]});
+  ["p-canli","tel-canli","o-canli"].forEach(function(id){document.getElementById(id).textContent=c.ad});
+
+  // dersler
+  var aktifP="D",aktifD=4;
+  function programCiz(){document.getElementById("program-sec").innerHTML=K.map(function(k){return '<button class="'+(k.k===aktifP?"aktif":"")+'" data-k="'+k.k+'">'+k.k+'</button>'}).join("");
+    document.querySelectorAll("#program-sec button").forEach(function(b){b.onclick=function(){aktifP=b.dataset.k;aktifD=0;programCiz();dersSec()}});
+    var k=K.filter(function(x){return x.k===aktifP})[0];
+    document.getElementById("ders-liste").innerHTML=k.dersler.map(function(d,i){var b=D.bitti[aktifP].indexOf(i)>=0;return '<div class="ders-sat'+(i===aktifD?" aktif":"")+(b?" bitti":"")+'" data-i="'+i+'"><span class="d">'+(b?"✓":i+1)+'</span>'+d+'</div>'}).join("");
+    document.querySelectorAll(".ders-sat").forEach(function(x){x.onclick=function(){aktifD=+x.dataset.i;programCiz();dersSec()}})}
+  var zam,oyn=0;
+  function dersSec(){var k=K.filter(function(x){return x.k===aktifP})[0];document.getElementById("o-baslik").innerHTML=aktifP+(aktifD+1)+" · "+k.dersler[aktifD]+"<small>"+k.ad+" · "+(12+aktifD*2)+" dk</small>";
+    clearInterval(zam);oyn=0;document.getElementById("o-zaman").style.width="0";document.getElementById("oynat").textContent="▶";
+    document.getElementById("notlar").value=D.notlar[aktifP+aktifD]||""}
+  document.getElementById("oynat").onclick=function(){var o=this;if(zam){clearInterval(zam);zam=null;o.textContent="▶";return}o.textContent="❚❚";zam=setInterval(function(){oyn=Math.min(100,oyn+2);document.getElementById("o-zaman").style.width=oyn+"%";if(oyn>=100){clearInterval(zam);zam=null;o.textContent="↺"}},200)};
+  document.getElementById("notlar").oninput=function(){D.notlar[aktifP+aktifD]=this.value;kaydet()};
+  document.getElementById("bitir").onclick=function(){var l=D.bitti[aktifP];if(l.indexOf(aktifD)<0){l.push(aktifD);puanEkle(2);RIT.bildir("✓ Ders tamamlandı · +2 puan");if(l.length===9)RIT.bildir("🏆 Program tamamlandı! Sertifikanız hazır.")}else RIT.bildir("Bu ders zaten tamamlanmış");gorevTamam(0);ilerlemeCiz();programCiz()};
+
+  // SPL
+  var sEl=document.getElementById("sinav");RIT.sinav(sEl,{adet:6,sure:300,ad:"t3"});
+  function eniyi(){try{document.getElementById("spl-eniyi").textContent="%"+(localStorage.getItem("rit-en-iyi-t3")||0)}catch(e){}}eniyi();
+  new MutationObserver(function(){if(sEl.querySelector(".sv-sonuc")){eniyi();gorevTamam(1)}}).observe(sEl,{childList:true});
+
+  // canlı oda
+  var mg=document.getElementById("mumlar"),f=150,h="";for(var i=0;i<40;i++){var a=f,kp=a+(Math.random()-.45)*16;var x=i*10+5,yu=Math.min(a,kp)-Math.random()*8,ya=Math.max(a,kp)+Math.random()*8,cl=kp<a?"#12b76a":"#e53935";h+='<line x1="'+x+'" x2="'+x+'" y1="'+yu+'" y2="'+ya+'" stroke="'+cl+'"/><rect x="'+(x-3)+'" y="'+Math.min(a,kp)+'" width="6" height="'+Math.max(2,Math.abs(kp-a))+'" fill="'+cl+'"/>';f=Math.max(70,Math.min(190,kp))}mg.innerHTML=h;
+  var M=[["Mert K.","🏆","Altında 2.650 kırılırsa hedef ne olur?"],["Eğitmen","🎓","Önce kapanış teyidi bekliyoruz; hacimsiz kırılım tuzak olabilir."],["Selin A.","💼","RSI uyumsuzluğu var mı şu an?"],["Eğitmen","🎓","4 saatlikte negatif uyumsuzluk oluşuyor, temkinli olmakta fayda var."],["Burak T.","📈","Stop seviyesini nereye koyardınız?"],["Eğitmen","🎓","Son dip olan 2.590 altı. Pozisyon büyüklüğünü buna göre hesaplayın."],["Deniz Y.","🌱","DAX tarafında bugün veri var mı?"],["Eğitmen","🎓","Takvimde Almanya ZEW var; oynaklık artabilir."]];
+  var me=document.getElementById("mesajlar"),mi=0;
+  function msj(a,e,t,ben){var d=document.createElement("div");d.className="msj"+(ben?" ben":"");d.innerHTML="<b>"+e+" "+a+"<span>"+new Date().toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"})+"</span></b><div></div>";d.lastChild.textContent=t;me.appendChild(d);me.scrollTop=me.scrollHeight}
+  for(;mi<3;mi++)msj.apply(null,M[mi]);
+  setInterval(function(){if(mi<M.length){msj.apply(null,M[mi]);mi++}document.getElementById("izleyici").textContent="👁 "+(120+Math.floor(Math.random()*25))},4500);
+  document.getElementById("sohbet-form").onsubmit=function(e){e.preventDefault();var v=document.getElementById("sohbet-in").value.trim();if(!v)return;msj("Siz",rutbe(D.puan).e,v,1);document.getElementById("sohbet-in").value="";setTimeout(function(){msj("Eğitmen","🎓","Güzel soru, yayının soru-cevap bölümünde detaylı ele alacağım.")},1800)};
+
+  // forum
+  var P=[["Altın","Mert K.",142,"2.650 direnci kırılırsa sıradaki hedef","Haftalık kapanışı bu seviyenin üzerinde görürsek…",12,31],["FX","Selin A.",68,"EUR/USD’de ECB öncesi pozisyon","Faiz kararı öncesi pozisyon küçültmek mantıklı mı?",8,14],["DAX","Burak T.",215,"DAX 19.000 desteği ve hacim","Hacim düşerken gelen yükselişe güvenmiyorum çünkü…",21,47],["Eğitim & Sorular","Deniz Y.",9,"Fibonacci seviyelerini nasıl çiziyorsunuz?","D8 dersini izledim, dipten tepeye mi çekiyoruz?",5,6],["Nasdaq","Ece S.",55,"Nasdaq’ta bilanço sezonu stratejisi","Bilanço haftasında oynaklık için pozisyon büyüklüğü…",9,18],["Gümüş","Can D.",104,"Altın/gümüş oranı ne söylüyor?","Oran tarihsel ortalamanın üstünde, gümüş ucuz mu?",14,26],["Petrol","Okan B.",33,"Brent’te OPEC+ beklentisi","Toplantı öncesi teknik görünüm ve takvim…",7,11]];
+  var aktifK="Tümü",begeni={};
+  function forumCiz(){document.getElementById("kat-satir").innerHTML=["Tümü"].concat(RIT.forumKategoriler).map(function(k){return '<button class="'+(k===aktifK?"aktif":"")+'">'+(k==="Tümü"?k:"#"+k)+'</button>'}).join("");
+    document.querySelectorAll("#kat-satir button").forEach(function(b){b.onclick=function(){aktifK=b.textContent.replace("#","");forumCiz()}});
+    var l=P.filter(function(p){return aktifK==="Tümü"||p[0]===aktifK});
+    document.getElementById("gonderiler").innerHTML=l.length?l.map(function(p,i){var r=rutbe(p[2]),id=p[1]+p[3];return '<div class="gonderi"><span class="avatar">'+p[1].split(" ").map(function(x){return x[0]}).join("")+'</span><div style="flex:1"><h5>'+p[3]+'</h5><p>'+p[4]+'</p><div class="g-alt"><span>'+p[1]+'<span class="r-et">'+r.e+" "+r.ad+'</span></span><span>#'+p[0]+'</span><span>💬 '+p[5]+'</span><button class="'+(begeni[id]?"b":"")+'" data-id="'+id+'">♥ '+(p[6]+(begeni[id]?1:0))+'</button></div></div></div>'}).join(""):'<div class="kart" style="text-align:center;color:var(--g)">Bu kategoride henüz paylaşım yok. İlk paylaşımı siz yapın (+2 puan).</div>';
+    document.querySelectorAll(".g-alt button").forEach(function(b){b.onclick=function(){begeni[b.dataset.id]=!begeni[b.dataset.id];if(begeni[b.dataset.id])gorevTamam(2);forumCiz()}})}
+
+  // piyasa
+  function piyasaYukle(){var iz=document.getElementById("izleme");[["OANDA:XAUUSD","Altın"],["OANDA:XAGUSD","Gümüş"],["TVC:UKOIL","Brent"],["FX:EURUSD","EUR/USD"],["XETR:DAX","DAX"],["NASDAQ:NDX","Nasdaq 100"]].forEach(function(s){var d=document.createElement("div");d.className="kart";iz.appendChild(d);RIT.tv(d,"mini-symbol-overview",{symbol:s[0],width:"100%",height:180,dateRange:"1M",colorTheme:"light",trendLineColor:"rgba(43,127,255,1)",underLineColor:"rgba(43,127,255,.12)"})});
+    RIT.tv(document.getElementById("takvim"),"events",{colorTheme:"light",width:"100%",height:420,importanceFilter:"0,1",countryFilter:"tr,us,eu,de"})}
+
+  puanCiz();ilerlemeCiz();gorevCiz();programCiz();dersSec();forumCiz();RIT.canlandir();
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
