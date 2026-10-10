@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>RunInvestingTR Akademi · Terminal</title>
+<meta name="description" content="Bilginin değere, disiplinin başarıya dönüştüğü finans akademisi: 36 ders, haftalık canlı eğitim, SPL sınav robotu, canlı piyasa terminali.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b14;--p1:#0c1322;--p2:#111a2e;--cz:#1c2741;--y:#e8edf7;--g:#8b97b1;--k:#d32f2f;--m:#2b7fff;--yes:#16c784;--kir:#ea3943;--sar:#f5b301;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--y);font:15px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}.kap{max-width:1240px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono)}
+/* üst bant + menü */
+.bant{border-bottom:1px solid var(--cz);background:#050810;min-height:46px}
+nav{position:sticky;top:0;z-index:50;background:rgba(7,11,20,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--cz)}
+nav .kap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.02em;white-space:nowrap}.logo .r{color:var(--k)}.logo .i{color:var(--m)}
+.logo small{display:block;font:600 9px/1 var(--mono);letter-spacing:.42em;color:var(--g);margin-top:3px}
+.menu{display:flex;gap:22px;margin-left:auto;font-size:14px;color:var(--g)}.menu a{text-decoration:none}.menu a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:700 14px Inter,sans-serif;padding:11px 18px;border-radius:10px;text-decoration:none;transition:.2s}
+.btn.k{background:var(--k);color:#fff;box-shadow:0 8px 24px rgba(211,47,47,.35)}.btn.k:hover{transform:translateY(-2px)}
+.btn.c{background:transparent;color:#fff;border:1px solid var(--cz)}.btn.c:hover{border-color:var(--m)}
+.durum{display:flex;align-items:center;gap:8px;font:600 12px var(--mono);color:var(--g)}
+.nokta{width:8px;height:8px;border-radius:50%;background:var(--yes);box-shadow:0 0 0 0 rgba(22,199,132,.6);animation:nab 1.6s infinite}
+@keyframes nab{70%{box-shadow:0 0 0 9px rgba(22,199,132,0)}100%{box-shadow:0 0 0 0 rgba(22,199,132,0)}}
+/* hero */
+.hero{position:relative;padding:70px 0 40px;overflow:hidden}
+#grafik{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 15% 30%,rgba(7,11,20,.2),var(--bg) 75%);pointer-events:none}
+.hero .kap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.etiket{display:inline-flex;gap:8px;align-items:center;font:600 12px var(--mono);color:var(--sar);border:1px solid rgba(245,179,1,.35);background:rgba(245,179,1,.08);padding:6px 12px;border-radius:99px}
+h1{font-size:clamp(34px,5.4vw,64px);line-height:1.03;letter-spacing:-.035em;margin:18px 0 18px;font-weight:800}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--k),#ff7a59 40%,var(--m));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.alt{font-size:18px;color:#b9c3d8;max-width:560px;margin:0 0 26px}
+.hizli{display:flex;gap:12px;flex-wrap:wrap}
+.metrik{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--cz);border:1px solid var(--cz);border-radius:14px;overflow:hidden;margin-top:34px;max-width:620px}
+.metrik div{background:var(--p1);padding:14px 16px}.metrik b{display:block;font:700 24px var(--mono)}.metrik span{font-size:12px;color:var(--g)}
+/* terminal kartı */
+.terminal{background:linear-gradient(180deg,var(--p2),var(--p1));border:1px solid var(--cz);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.55);overflow:hidden}
+.t-ust{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--cz);font:600 12px var(--mono);color:var(--g)}
+.t-ust i{width:10px;height:10px;border-radius:50%;background:#2a3550}.t-ust i:nth-child(1){background:#ea3943}.t-ust i:nth-child(2){background:#f5b301}.t-ust i:nth-child(3){background:#16c784}
+.t-ust span{margin-left:auto}
+.t-govde{padding:18px}
+.t-satir{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed var(--cz);font:500 13px var(--mono)}
+.t-satir:last-child{border:0}.t-satir .ad{color:#fff;font-weight:700}.yes{color:var(--yes)}.kir{color:var(--kir)}
+.canli-kutu{margin-top:14px;background:rgba(211,47,47,.1);border:1px solid rgba(211,47,47,.35);border-radius:12px;padding:14px}
+.canli-kutu .ust{display:flex;align-items:center;gap:8px;font:700 11px var(--mono);letter-spacing:.12em;color:#ff8a80}
+.canli-kutu .ust .nokta{background:var(--k);animation:nabk 1.4s infinite}@keyframes nabk{70%{box-shadow:0 0 0 9px rgba(211,47,47,0)}}
+.canli-kutu h5{margin:6px 0 8px;font-size:16px}
+.sayac{display:flex;gap:8px}.sayac div{flex:1;text-align:center;background:var(--bg);border:1px solid var(--cz);border-radius:8px;padding:8px 0}
+.sayac b{display:block;font:700 22px var(--mono)}.sayac span{font-size:10px;color:var(--g);letter-spacing:.1em}
+/* bölümler */
+section{padding:84px 0;position:relative}
+.bb{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:34px;flex-wrap:wrap}
+.ust-yazi{font:700 12px var(--mono);letter-spacing:.2em;color:var(--m);text-transform:uppercase}
+h2{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.03em;line-height:1.1;margin:10px 0 0;max-width:720px}
+.bb p{color:var(--g);max-width:440px;margin:0}
+.panel{background:var(--p1);border:1px solid var(--cz);border-radius:18px}
+/* piyasa */
+.piyasa{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.piyasa .panel{padding:8px;min-height:520px;overflow:hidden}
+.panel-bas{display:flex;justify-content:space-between;align-items:center;padding:10px 12px 6px;font:700 13px var(--mono);color:var(--g)}
+/* müfredat */
+.rota{display:grid;grid-template-columns:300px 1fr;gap:20px}
+.sekmeler{display:flex;flex-direction:column;gap:10px}
+.sekme{all:unset;cursor:pointer;display:flex;gap:14px;align-items:center;padding:16px;border-radius:14px;border:1px solid var(--cz);background:var(--p1);transition:.2s}
+.sekme b{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:11px;font:800 18px var(--mono);background:var(--cz)}
+.sekme span{font-weight:700;font-size:15px;line-height:1.3}.sekme small{display:block;color:var(--g);font-weight:500;font-size:12px}
+.sekme.aktif{border-color:var(--rk);background:linear-gradient(90deg,color-mix(in srgb,var(--rk) 16%,transparent),var(--p1))}.sekme.aktif b{background:var(--rk);color:#fff}
+.ders-panel{padding:26px}
+.ders-panel h3{margin:0 0 6px;font-size:24px}.ders-panel>p{color:var(--g);margin:0 0 20px}
+.dersler{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ders{display:flex;gap:12px;align-items:center;padding:13px 14px;border-radius:12px;background:var(--bg);border:1px solid var(--cz);font-size:14px}
+.ders i{font:700 12px var(--mono);color:var(--g);min-width:26px}.ders .kil{margin-left:auto;color:var(--g);font-size:13px}
+.ders.acik .kil{color:var(--yes)}
+.ilerleme-bar{height:6px;background:var(--cz);border-radius:9px;overflow:hidden;margin:18px 0 6px}.ilerleme-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--rk),#fff);width:0;transition:1s}
+/* SPL */
+.spl{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px;align-items:start}
+.spl-bilgi .duzey{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid var(--cz);border-radius:14px;margin-bottom:10px;background:var(--p1)}
+.duzey b{font-size:15px}.duzey small{display:block;color:var(--g)}.rozet{font:700 11px var(--mono);padding:5px 10px;border-radius:99px;background:rgba(22,199,132,.12);color:var(--yes)}.rozet.y{background:rgba(139,151,177,.12);color:var(--g)}
+.sinav{padding:26px;min-height:470px}
+.sv-ust{display:flex;justify-content:space-between;font:600 12px var(--mono);color:var(--g)}.sv-ust em{color:var(--sar);font-style:normal}
+.sv-sure{color:var(--k);font-weight:700}
+.sv-ilerleme{height:4px;background:var(--cz);border-radius:9px;margin:10px 0 18px;overflow:hidden}.sv-ilerleme i{display:block;height:100%;background:var(--m);transition:.4s}
+.sv-soru{font-size:20px;line-height:1.35;margin:0 0 18px}
+.sv-sik{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:12px;align-items:center;width:100%;padding:14px 16px;margin-bottom:10px;border:1px solid var(--cz);border-radius:12px;background:var(--bg);font-size:15px;transition:.15s}
+.sv-sik b{width:28px;height:28px;flex:none;display:grid;place-items:center;border-radius:8px;background:var(--cz);font:700 13px var(--mono)}
+.sv-sik:hover:not(:disabled){border-color:var(--m)}.sv-sik.dogru{border-color:var(--yes);background:rgba(22,199,132,.1)}.sv-sik.dogru b{background:var(--yes)}
+.sv-sik.yanlis{border-color:var(--kir);background:rgba(234,57,67,.1)}.sv-sik.yanlis b{background:var(--kir)}
+.sv-aciklama{margin:6px 0 14px;padding:12px 14px;border-left:3px solid var(--m);background:rgba(43,127,255,.08);border-radius:0 10px 10px 0;color:#c9d4ea;font-size:14px}
+.sv-btn{all:unset;cursor:pointer;background:var(--m);color:#fff;font-weight:700;padding:12px 18px;border-radius:10px}
+.sv-sonuc{text-align:center;padding:10px 0}.sv-yuzde{--p:0;width:150px;height:150px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--yes) calc(var(--p)*1%),var(--cz) 0)}
+.sv-yuzde span{width:118px;height:118px;border-radius:50%;background:var(--p1);display:grid;place-items:center;font:800 32px var(--mono)}
+.sv-sonuc h4{font-size:22px;margin:6px 0}.sv-sonuc p{color:var(--g)}.sv-eniyi{font:600 13px var(--mono)}
+.sv-cubuk{display:flex;gap:4px;justify-content:center;margin:12px 0 20px}.sv-cubuk i{width:22px;height:8px;border-radius:4px}.sv-cubuk .d{background:var(--yes)}.sv-cubuk .y{background:var(--kir)}
+/* araçlar */
+.araclar{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.arac{padding:24px}.arac h3{margin:0 0 4px;font-size:18px}.arac>p{color:var(--g);font-size:13px;margin:0 0 16px}
+.alan{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:block;font:600 11px var(--mono);color:var(--g);letter-spacing:.06em}
+input,select{width:100%;margin-top:5px;background:var(--bg);border:1px solid var(--cz);color:#fff;border-radius:9px;padding:10px 11px;font:600 14px var(--mono)}
+input:focus{outline:none;border-color:var(--m)}
+.sonuc{margin-top:16px;padding:16px;border-radius:12px;background:var(--bg);border:1px solid var(--cz)}
+.sonuc .b{font:800 26px var(--mono)}.sonuc small{color:var(--g);display:block}
+.cubuk2{display:flex;height:10px;border-radius:6px;overflow:hidden;margin-top:10px}.cubuk2 i{display:block;height:100%}
+/* canlı + topluluk */
+.ikili{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.canli-oda{padding:0;overflow:hidden}
+.oda-ekran{aspect-ratio:16/9;background:linear-gradient(135deg,#0e1a33,#1a0d14);position:relative;display:grid;place-items:center;border-bottom:1px solid var(--cz)}
+.oda-ekran svg{width:80%;opacity:.9}
+.oda-ekran .rozet-c{position:absolute;top:14px;left:14px;background:var(--k);color:#fff;font:700 11px var(--mono);padding:5px 10px;border-radius:6px;letter-spacing:.1em}
+.oda-ekran .izleyici{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.5);font:600 12px var(--mono);padding:5px 10px;border-radius:6px}
+.oda-alt{padding:20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.oda-alt h3{margin:0;font-size:18px}.oda-alt p{margin:2px 0 0;color:var(--g);font-size:13px}
+.oda-alt .sayac{margin-left:auto;min-width:230px}
+.rutbe-merdiven{padding:24px}
+.rutbe{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--cz)}.rutbe:last-child{border:0}
+.rutbe .e{font-size:24px;width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:var(--bg)}
+.rutbe b{font-size:15px}.rutbe small{display:block;color:var(--g);font:500 12px var(--mono)}
+.rutbe .bar{margin-left:auto;width:120px;height:6px;background:var(--cz);border-radius:9px;overflow:hidden}.rutbe .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--m),var(--yes))}
+.kategoriler{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.kategoriler span{font:600 12px var(--mono);padding:7px 12px;border-radius:99px;border:1px solid var(--cz);background:var(--bg)}
+/* analiz */
+.analiz{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.makale{padding:30px;background:linear-gradient(135deg,#1a0d14,var(--p1) 60%)}
+.makale .ust-yazi{color:#ff8a80}.makale h3{font-size:28px;line-height:1.2;margin:10px 0 12px;letter-spacing:-.02em}.makale p{color:#c3cbdc}
+.sss-kucuk details{border-bottom:1px solid var(--cz);padding:14px 0}.sss-kucuk summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.sss-kucuk summary:after{content:"+";font:700 18px var(--mono);color:var(--m)}.sss-kucuk details[open] summary:after{content:"−"}
+.sss-kucuk details p{color:var(--g);margin:10px 0 0;font-size:14px}
+/* fiyat */
+.fiyatlar{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.fiyat{padding:28px;display:flex;flex-direction:column}.fiyat h3{margin:0;font-size:18px}.fiyat .tutar{font:800 44px var(--mono);margin:14px 0 4px;letter-spacing:-.03em}.fiyat .tutar small{font-size:16px;color:var(--g)}
+.fiyat ul{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:9px;font-size:14px;color:#c9d2e3}.fiyat li:before{content:"✓";color:var(--yes);font-weight:800;margin-right:9px}
+.fiyat .btn{margin-top:auto;justify-content:center}
+.fiyat.one{border-color:var(--k);background:linear-gradient(180deg,rgba(211,47,47,.12),var(--p1));position:relative}
+.fiyat.one:before{content:"EN ÇOK TERCİH EDİLEN";position:absolute;top:-12px;left:28px;background:var(--k);font:700 10px var(--mono);letter-spacing:.12em;padding:5px 10px;border-radius:6px}
+.akis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.akis div{padding:18px;border:1px dashed var(--cz);border-radius:14px}.akis b{font:700 13px var(--mono);color:var(--m)}.akis p{margin:6px 0 0;font-size:14px;color:#c9d2e3}
+.uyari{margin-top:24px;font-size:13px;color:var(--g);border:1px solid var(--cz);border-radius:12px;padding:14px 16px;background:var(--p1)}
+footer{border-top:1px solid var(--cz);padding:50px 0 30px;color:var(--g);font-size:14px}
+footer .kap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}footer h6{color:#fff;font-size:13px;margin:0 0 12px}footer a{display:block;text-decoration:none;margin-bottom:7px}footer a:hover{color:#fff}
+.alt-cizgi{grid-column:1/-1;border-top:1px solid var(--cz);padding-top:20px;font-size:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.gor{opacity:0;transform:translateY(24px);transition:.8s cubic-bezier(.2,.7,.2,1)}.gorundu{opacity:1;transform:none}
+@media (max-width:980px){.hero .kap,.piyasa,.rota,.spl,.ikili,.analiz{grid-template-columns:1fr}.araclar,.fiyatlar{grid-template-columns:1fr}.menu{display:none}.akis{grid-template-columns:1fr 1fr}footer .kap{grid-template-columns:1fr 1fr}.sekmeler{flex-direction:row;overflow-x:auto;padding-bottom:4px}.sekme{min-width:230px}}
+@media (max-width:560px){.kap{padding:0 16px}.metrik{grid-template-columns:1fr 1fr}.dersler{grid-template-columns:1fr}.akis{grid-template-columns:1fr}nav .btn.c{display:none}.durum{display:none}section{padding:60px 0}.oda-alt .sayac{min-width:0;width:100%}.alan{grid-template-columns:1fr}footer .kap{grid-template-columns:1fr}.piyasa .panel{min-height:420px}}
+</style></head>
+<body>
+<div class="bant" id="bant"></div>
+<nav><div class="kap">
+  <a href="#" class="logo"><span class="r">Run</span> <span class="i">InvestingTR</span><small>AKADEMİ</small></a>
+  <div class="menu"><a href="#piyasa">Piyasa</a><a href="#mufredat">Müfredat</a><a href="#spl">SPL Robotu</a><a href="#araclar">Araçlar</a><a href="#canli">Canlı Eğitim</a><a href="#uyelik">Üyelik</a></div>
+  <span class="durum"><span class="nokta"></span><span id="saat">--:--</span> İST</span>
+  <a href="#uyelik" class="btn c">Giriş</a><a href="#uyelik" class="btn k">Üye Ol</a>
+</div></nav>
+
+<header class="hero">
+  <canvas id="grafik"></canvas>
+  <div class="kap">
+    <div>
+      <span class="etiket">● FİNANS AKADEMİSİ · 2026</span>
+      <h1>Bilginin değere, <em>disiplinin başarıya</em> dönüştüğü yer.</h1>
+      <p class="alt">Teknik analiz, temel analiz, makroekonomi ve yatırımcı psikolojisi. 36 video ders, haftalık canlı eğitimler, SPL sınav robotu ve canlı piyasa terminali tek platformda.</p>
+      <div class="hizli"><a href="#uyelik" class="btn k">Ücretsiz Üye Ol →</a><a href="#spl" class="btn c">🧠 SPL Robotunu Dene</a></div>
+      <div class="metrik gor">
+        <div><b data-say="36">0</b><span>Video ders</span></div>
+        <div><b data-say="4">0</b><span>Ana program</span></div>
+        <div><b data-say="45" data-ek="+">0</b><span>Saat içerik</span></div>
+        <div><b>7/24</b><span>Erişim</span></div>
+      </div>
+    </div>
+    <div class="terminal gor">
+      <div class="t-ust"><i></i><i></i><i></i>&nbsp; rit-terminal ~ izleme listesi<span id="t-saat"></span></div>
+      <div class="t-govde">
+        <div id="izleme"></div>
+        <div class="canli-kutu">
+          <div class="ust"><span class="nokta"></span> SIRADAKİ CANLI EĞİTİM</div>
+          <h5 id="canli-ad">Haftalık Piyasa Analizi</h5>
+          <div class="sayac" id="sayac1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="piyasa"><div class="kap">
+  <div class="bb gor"><div><span class="ust-yazi">// Piyasa & Takvim</span><h2>Derste öğrendiğinizi canlı piyasada okuyun.</h2></div><p>Altın, gümüş, petrol, pariteler, DAX, Nasdaq ve BIST: forum kategorilerimizdeki tüm enstrümanlar ve haftanın ekonomik takvimi tek ekranda.</p></div>
+  <div class="piyasa gor">
+    <div class="panel"><div class="panel-bas"><span>PİYASA GENEL GÖRÜNÜM</span><span class="yes">● CANLI</span></div><div id="tv-genel"></div></div>
+    <div class="panel"><div class="panel-bas"><span>EKONOMİK TAKVİM</span><span>TR · US · EU</span></div><div id="tv-takvim"></div></div>
+  </div>
+</div></section>
+
+<section id="mufredat" style="background:linear-gradient(180deg,transparent,#0a1020 30%,transparent)"><div class="kap">
+  <div class="bb gor"><div><span class="ust-yazi">// Müfredat · 4 program · 36 ders</span><h2>Sıfırdan profesyonel seviyeye, adım adım bir rota.</h2></div><p>Her program 9 dersten oluşur. Dersleri bitirdikçe ilerlemeniz kaydedilir; programı tamamlayınca dijital sertifikanız hazırlanır.</p></div>
+  <div class="rota gor">
+    <div class="sekmeler" id="sekmeler"></div>
+    <div class="panel ders-panel" id="ders-panel"></div>
+  </div>
+</div></section>
+
+<section id="spl"><div class="kap">
+  <div class="bb gor"><div><span class="ust-yazi">// SPL Hazırlık Robotu</span><h2>Her girişte yeni bir sınav. Ezber değil, gerçek hazırlık.</h2></div><p>Sermaye Piyasası Lisanslama sınavlarına hazırlık: sorular ve şıklar her denemede yeniden karışır, her cevabın açıklaması anında gelir.</p></div>
+  <div class="spl">
+    <div class="spl-bilgi gor">
+      <div class="duzey"><div><b>SPL 1. Düzey</b><small>Mevzuat · Piyasalar · Finans matematiği</small></div><span class="rozet">AKTİF</span></div>
+      <div class="duzey"><div><b>Deneme Sınavı</b><small>25 soru · süreli · daha zor</small></div><span class="rozet">AKTİF</span></div>
+      <div class="duzey"><div><b>SPL 2. Düzey</b><small>Soru havuzu hazırlanıyor</small></div><span class="rozet y">YAKINDA</span></div>
+      <div class="duzey"><div><b>SPL 3. Düzey</b><small>Soru havuzu hazırlanıyor</small></div><span class="rozet y">YAKINDA</span></div>
+      <p style="color:var(--g);font-size:13px;margin-top:16px">Sağdaki demo, platformdaki robotun aynısıdır: 8 soruluk, 6 dakikalık mini sınav. En iyi skorunuz cihazınızda saklanır.</p>
+    </div>
+    <div class="panel sinav gor" id="sinav"></div>
+  </div>
+</div></section>
+
+<section id="araclar" style="background:linear-gradient(180deg,transparent,#0a1020 30%,transparent)"><div class="kap">
+  <div class="bb gor"><div><span class="ust-yazi">// Yatırımcı Araçları</span><h2>Disiplin bir hesapla başlar.</h2></div><p>B programındaki risk yönetimi ve C programındaki reel getiri derslerinin uygulama araçları. Üyelerimiz her gün kullanıyor.</p></div>
+  <div class="araclar">
+    <div class="panel arac gor">
+      <h3>🎯 Pozisyon Büyüklüğü</h3><p>Sermayenizin yüzde kaçını riske ettiğinize göre doğru lot.</p>
+      <div class="alan"><label>SERMAYE ₺<input id="p-s" type="number" value="100000"></label><label>RİSK %<input id="p-r" type="number" value="1" step=".25"></label>
+      <label>GİRİŞ<input id="p-g" type="number" value="42.50" step=".01"></label><label>ZARAR KES<input id="p-z" type="number" value="40.80" step=".01"></label></div>
+      <div class="sonuc" id="p-sonuc"></div>
+    </div>
+    <div class="panel arac gor">
+      <h3>📈 Bileşik Getiri</h3><p>Düzenli yatırımın zamanla nasıl büyüdüğünü görün.</p>
+      <div class="alan"><label>BAŞLANGIÇ ₺<input id="b-a" type="number" value="50000"></label><label>AYLIK EK ₺<input id="b-m" type="number" value="5000"></label>
+      <label>YILLIK GETİRİ %<input id="b-y" type="number" value="35"></label><label>SÜRE (YIL)<input id="b-n" type="number" value="5"></label></div>
+      <div class="sonuc" id="b-sonuc"></div>
+    </div>
+    <div class="panel arac gor">
+      <h3>🔥 Reel Getiri</h3><p>Enflasyondan arındırılmış gerçek kazancınız.</p>
+      <div class="alan"><label>NOMİNAL GETİRİ %<input id="r-n" type="number" value="45"></label><label>ENFLASYON %<input id="r-e" type="number" value="33"></label></div>
+      <div class="sonuc" id="r-sonuc"></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="canli"><div class="kap">
+  <div class="bb gor"><div><span class="ust-yazi">// Canlı Eğitim & Topluluk</span><h2>Her hafta canlı. Her gün toplulukla.</h2></div><p>Canlı derslerde piyasayı birlikte okuyoruz; forumda paylaştıkça puan kazanır, rütbenizi yükseltirsiniz.</p></div>
+  <div class="ikili">
+    <div class="panel canli-oda gor">
+      <div class="oda-ekran"><span class="rozet-c">● CANLI ODA</span><span class="izleyici">👁 Üyelere özel</span>
+        <svg viewBox="0 0 400 160" fill="none"><polyline points="0,120 30,110 60,118 90,90 120,96 150,70 180,78 210,55 240,64 270,40 300,52 330,30 360,38 400,18" stroke="#16c784" stroke-width="3"/><line x1="0" y1="64" x2="400" y2="64" stroke="#f5b301" stroke-dasharray="6 6"/><text x="6" y="58" fill="#f5b301" font-family="monospace" font-size="11">DİRENÇ</text></svg>
+      </div>
+      <div class="oda-alt"><div><h3 id="canli-ad2">Haftalık Piyasa Analizi</h3><p>Çarşamba 21:00 · Pazar 20:00 Teknik Analiz Atölyesi</p></div><div class="sayac" id="sayac2"></div></div>
+    </div>
+    <div class="panel rutbe-merdiven gor">
+      <h3 style="margin:0 0 4px">Forum rütbeleri</h3><p style="color:var(--g);margin:0 0 6px;font-size:14px">Paylaşım +2, yorum +1 puan. Her rütbe bir öncekinin üstüne kurulur.</p>
+      <div id="rutbeler"></div>
+      <div class="kategoriler" id="kategoriler"></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="analiz" style="padding-top:20px"><div class="kap">
+  <div class="analiz">
+    <article class="panel makale gor">
+      <span class="ust-yazi">// Akademi Analizi · Eylül 2026</span>
+      <h3>Tera ve Pusula Fon Krizi: Haftalar Öncesinden Yapılan Uyarılar ve Krizin Anatomisi</h3>
+      <p>Sığ hisselerde devasa yoğunlaşmalar, ilişkili taraf işlemleri ve likidite riski. SPK'nın Ağustos 2026 düzenlemesinin ardından gelen çıkış dalgası ve tasfiye süreci, soru-cevap formatında, en yalın haliyle.</p>
+      <p style="color:var(--g);font-size:14px">Canlı yayınlarda haftalarca dikkat çekilen sistemik riskler, bugün risk yönetimi derslerimizin vaka çalışması.</p>
+      <a href="#uyelik" class="btn c" style="margin-top:8px">Analizin tamamı üyelere açık →</a>
+    </article>
+    <div class="panel gor sss-kucuk" style="padding:10px 26px">
+      <details open><summary>Kriz nereden başladı?</summary><p>Bazı portföy yönetim şirketlerinin fonlarında, piyasa değeri ve dolaşımı düşük hisselerde aşırı yoğunlaşma oluşması ve fiyatların suni biçimde yukarı taşınmasıyla.</p></details>
+      <details><summary>Asıl risk neydi?</summary><p>Likidite: sığ hisselere bağlanmış bir fon, iade talebi geldiğinde o hisseleri satıp nakit yaratamaz.</p></details>
+      <details><summary>Bundan ne öğreniyoruz?</summary><p>Yüksek getiri vaadinin arkasındaki yoğunlaşma ve likidite riskini okumayı. B programı tam olarak bunun için var.</p></details>
+    </div>
+  </div>
+</div></section>
+
+<section id="uyelik"><div class="kap">
+  <div class="bb gor"><div><span class="ust-yazi">// Üyelik</span><h2>Tek üyelik, tüm akademi.</h2></div><p>Kayıt ücretsizdir; yönetici onayının ardından içeriklere erişim açılır. Ücretlendirme üyelik sözleşmesine göredir.</p></div>
+  <div class="fiyatlar">
+    <div class="panel fiyat gor"><h3>Çevrimiçi Kaynaklar</h3><div class="tutar">$250</div><span style="color:var(--g);font-size:13px">tek seferlik</span>
+      <ul><li>36 video ders, 4 program</li><li>Haftalık canlı eğitimler</li><li>SPL sınav robotu</li><li>Forum ve topluluk</li></ul><a href="#" class="btn c" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak');return false">Seç</a></div>
+    <div class="panel fiyat one gor"><h3>Tam Üyelik</h3><div class="tutar">$500</div><span style="color:var(--g);font-size:13px">çevrimiçi + çevrimdışı kaynaklar</span>
+      <ul><li>Çevrimiçi kaynakların tamamı</li><li>İndirilebilir PDF doküman kütüphanesi</li><li>Çevrimdışı eğitim kaynakları</li><li>Program sertifikaları</li><li>Öncelikli canlı soru-cevap</li></ul><a href="#" class="btn k" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak');return false">Hemen Başla →</a></div>
+    <div class="panel fiyat gor"><h3>Çevrimdışı Kaynaklar</h3><div class="tutar">$250</div><span style="color:var(--g);font-size:13px">tek seferlik</span>
+      <ul><li>PDF ders notları</li><li>Doküman kütüphanesi</li><li>Çalışma kitapçıkları</li><li>Sertifika</li></ul><a href="#" class="btn c" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak');return false">Seç</a></div>
+  </div>
+  <div class="akis gor">
+    <div><b>01 · KAYIT</b><p>Bilgi seviyenizi ve ilgi alanlarınızı (BIST, ABD, Forex, Altın, Kripto, Makro) seçin.</p></div>
+    <div><b>02 · ONAY</b><p>Yönetici onayıyla hesabınız aktifleşir; size e-posta ile haber verilir.</p></div>
+    <div><b>03 · ÖĞREN</b><p>Kişisel rotanızla derslere, canlı eğitimlere ve SPL robotuna başlayın.</p></div>
+    <div><b>04 · SERTİFİKA</b><p>Programı tamamlayınca sertifikanızı PDF olarak indirin.</p></div>
+  </div>
+  <div class="uyari">⚠️ Sunulan içerikler yatırım tavsiyesi niteliği taşımaz, yalnızca genel eğitim amaçlıdır. 14 günlük cayma hakkı, Teknik Analiz setinin ilk dersine erişilene kadar geçerlidir (Mesafeli Sözleşmeler Yönetmeliği).</div>
+</div></section>
+
+<footer><div class="kap">
+  <div><a href="#" class="logo"><span class="r">Run</span> <span class="i">InvestingTR</span><small>AKADEMİ</small></a><p style="margin-top:14px;max-width:320px">RunInvestingTR Finansal Eğitim ve Danışmanlık Hizmetleri Limited Şirketi</p></div>
+  <div><h6>Akademi</h6><a href="#mufredat">Müfredat</a><a href="#canli">Canlı Eğitimler</a><a href="#spl">SPL Hazırlık</a><a href="#analiz">Analizler</a></div>
+  <div><h6>Topluluk</h6><a href="#canli">Forum</a><a href="#piyasa">Piyasa & Takvim</a><a href="#araclar">Araçlar</a></div>
+  <div><h6>Kurumsal</h6><a href="#">Hakkımızda</a><a href="#">Üyelik Sözleşmesi</a><a href="#">KVKK Aydınlatma Metni</a><a href="#">İletişim</a></div>
+  <div class="alt-cizgi"><span>© 2026 RunInvestingTR Akademi · Tüm hakları saklıdır.</span><span>Yatırım tavsiyesi değildir.</span></div>
+</div></footer>
+
+<script src="../ortak.js"></script>
+<script>
+(function(){
+  RIT.tv(document.getElementById("bant"),"ticker-tape",{symbols:RIT.sembolBant,colorTheme:"dark",displayMode:"adaptive",showSymbolLogo:true});
+  RIT.tv(document.getElementById("tv-genel"),"market-overview",{colorTheme:"dark",dateRange:"1D",showChart:true,width:"100%",height:500,showSymbolLogo:true,plotLineColorGrowing:"rgba(43,127,255,1)",plotLineColorFalling:"rgba(211,47,47,1)",gridLineColor:"rgba(28,39,65,1)",scaleFontColor:"rgba(139,151,177,1)",belowLineFillColorGrowing:"rgba(43,127,255,.12)",belowLineFillColorFalling:"rgba(211,47,47,.12)",
+    tabs:[{title:"Emtia",symbols:[{s:"OANDA:XAUUSD",d:"Altın"},{s:"OANDA:XAGUSD",d:"Gümüş"},{s:"TVC:UKOIL",d:"Brent Petrol"}]},
+          {title:"Endeks",symbols:[{s:"BIST:XU100",d:"BIST 100"},{s:"XETR:DAX",d:"DAX"},{s:"NASDAQ:NDX",d:"Nasdaq 100"},{s:"FOREXCOM:SPXUSD",d:"S&P 500"}]},
+          {title:"FX",symbols:[{s:"FX_IDC:USDTRY",d:"USD/TRY"},{s:"FX_IDC:EURTRY",d:"EUR/TRY"},{s:"FX:EURUSD",d:"EUR/USD"},{s:"FX:GBPUSD",d:"GBP/USD"}]}]});
+  RIT.tv(document.getElementById("tv-takvim"),"events",{colorTheme:"dark",width:"100%",height:500,importanceFilter:"0,1",countryFilter:"tr,us,eu,de"});
+
+  // saat
+  function saat(){var s=new Date().toLocaleTimeString("tr-TR",{timeZone:"Europe/Istanbul",hour:"2-digit",minute:"2-digit",second:"2-digit"});document.getElementById("saat").textContent=s.slice(0,5);document.getElementById("t-saat").textContent=s}
+  saat();setInterval(saat,1000);
+
+  // izleme listesi (temsili akış; gerçek sitede TradingView/veri sağlayıcısından)
+  var liste=[["XAUUSD","Altın",2650.4],["XAGUSD","Gümüş",31.2],["UKOIL","Brent",74.1],["EURUSD","Parite",1.0921],["GER40","DAX",19250],["NAS100","Nasdaq",20420]];
+  var iz=document.getElementById("izleme");
+  function izCiz(){iz.innerHTML=liste.map(function(x){var d=(Math.random()-.47)*.9;x[3]=(x[3]||0)*.7+d*.3;var f=x[2]*(1+x[3]/100);var c=x[3]>=0?"yes":"kir";
+    return '<div class="t-satir"><span><span class="ad">'+x[0]+'</span> <span style="color:var(--g)">'+x[1]+'</span></span><span>'+f.toLocaleString("tr-TR",{maximumFractionDigits:x[2]<10?4:2})+' <span class="'+c+'">'+(x[3]>=0?"▲ +":"▼ ")+x[3].toFixed(2)+'%</span></span></div>'}).join("")+'<div style="font:500 10px var(--mono);color:var(--g);margin-top:6px">* temsili akış · canlı veriler yukarıdaki bantta</div>'}
+  izCiz();setInterval(izCiz,2500);
+
+  // geri sayımlar
+  function bicim(p){return ["GÜN","SAAT","DAK","SN"].map(function(e,i){return '<div><b>'+p[i]+'</b><span>'+e+'</span></div>'}).join("")}
+  var c=RIT.geriSayim(document.getElementById("sayac1"),bicim);RIT.geriSayim(document.getElementById("sayac2"),bicim);
+  document.getElementById("canli-ad").textContent=c.ad;document.getElementById("canli-ad2").textContent=c.ad;
+
+  // müfredat sekmeleri
+  var sk=document.getElementById("sekmeler"),dp=document.getElementById("ders-panel");
+  RIT.konular.forEach(function(k,i){var b=document.createElement("button");b.className="sekme";b.style.setProperty("--rk",k.renk);b.innerHTML='<b>'+k.k+'</b><span>'+k.ad+'<small>9 ders · '+(i===0?"Başlangıç":i===3?"İleri":"Orta")+'</small></span>';b.onclick=function(){sec(i)};sk.appendChild(b)});
+  function sec(i){var k=RIT.konular[i];sk.querySelectorAll(".sekme").forEach(function(b,j){b.classList.toggle("aktif",i===j)});dp.style.setProperty("--rk",k.renk);
+    dp.innerHTML='<span class="ust-yazi" style="color:'+k.renk+'">PROGRAM '+k.k+'</span><h3>'+k.ad+'</h3><p>'+k.ozet+'</p><div class="dersler">'+k.dersler.map(function(d,n){return '<div class="ders'+(n<2?" acik":"")+'"><i>'+k.k+(n+1)+'</i>'+d+'<span class="kil">'+(n<2?"▶ önizleme":"🔒")+'</span></div>'}).join("")+'</div><div class="ilerleme-bar"><i></i></div><small style="color:var(--g);font-family:var(--mono)">İlk 2 ders önizlemeye açık · tamamlayınca sertifika 🏆</small>';
+    setTimeout(function(){dp.querySelector(".ilerleme-bar i").style.width="22%"},50)}
+  sec(0);
+
+  // SPL
+  RIT.sinav(document.getElementById("sinav"),{adet:8,sure:360,ad:"t1"});
+
+  // araçlar
+  function $(i){return +document.getElementById(i).value}
+  function hesapla(){
+    var p=RIT.hesap.pozisyon($("p-s"),$("p-r"),$("p-g"),$("p-z"));
+    document.getElementById("p-sonuc").innerHTML=p?'<small>ALINABİLECEK ADET</small><div class="b">'+p.adet.toLocaleString("tr-TR")+' adet</div><small>Pozisyon '+RIT.tl(p.tutar)+' · sermayenin %'+p.oran.toFixed(1)+'\'i · azami zarar '+RIT.tl(p.risk)+'</small>':'<small>Giriş ve zarar kes farklı olmalı</small>';
+    var b=RIT.hesap.bilesik($("b-a"),$("b-m"),$("b-y"),$("b-n")),kaz=b.toplam-b.yatirilan,o=b.yatirilan/b.toplam*100;
+    document.getElementById("b-sonuc").innerHTML='<small>VADE SONU</small><div class="b">'+RIT.tl(Math.round(b.toplam))+'</div><small>Yatırılan '+RIT.tl(Math.round(b.yatirilan))+' · getiri '+RIT.tl(Math.round(kaz))+'</small><div class="cubuk2"><i style="width:'+o+'%;background:var(--m)"></i><i style="width:'+(100-o)+'%;background:var(--yes)"></i></div>';
+    var r=RIT.hesap.reel($("r-n"),$("r-e"));
+    document.getElementById("r-sonuc").innerHTML='<small>REEL GETİRİ (Fisher)</small><div class="b '+(r>=0?"yes":"kir")+'">%'+r.toFixed(2)+'</div><small>'+(r>=0?"Enflasyonun üzerinde, satın alma gücünüz arttı.":"Enflasyonun altında: kâğıt üzerinde kazanç, gerçekte kayıp.")+'</small>';
+  }
+  document.querySelectorAll("#araclar input").forEach(function(x){x.oninput=hesapla});hesapla();
+
+  // rütbeler + kategoriler
+  document.getElementById("rutbeler").innerHTML=RIT.rutbeler.map(function(r,i){var s=RIT.rutbeler[i+1];return '<div class="rutbe"><span class="e">'+r.e+'</span><div><b>'+r.ad+'</b><small>'+r.min+(s?"–"+(s.min-1):"+")+' puan</small></div><span class="bar"><i style="width:'+(20+i*20)+'%"></i></span></div>'}).join("");
+  document.getElementById("kategoriler").innerHTML=RIT.forumKategoriler.map(function(k){return "<span># "+k+"</span>"}).join("");
+
+  // arka plan mum grafiği
+  var cv=document.getElementById("grafik"),cx=cv.getContext("2d"),mumlar=[],w,h,dpr=Math.min(2,window.devicePixelRatio||1);
+  function boyut(){w=cv.clientWidth;h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+  boyut();addEventListener("resize",boyut);
+  var fiyat=100;for(var i=0;i<140;i++)ekle();
+  function ekle(){var a=fiyat,k=a+(Math.random()-.46)*3.2;mumlar.push({a:a,k:k,y:Math.max(a,k)+Math.random()*1.6,d:Math.min(a,k)-Math.random()*1.6});fiyat=k;if(mumlar.length>140)mumlar.shift()}
+  var son=0;function ciz(t){requestAnimationFrame(ciz);if(t-son<70)return;son=t;if(Math.random()<.12)ekle();else{var m=mumlar[mumlar.length-1];m.k+=(Math.random()-.48)*.6;m.y=Math.max(m.y,m.k);m.d=Math.min(m.d,m.k);fiyat=m.k}
+    var mn=Infinity,mx=-Infinity;mumlar.forEach(function(m){mn=Math.min(mn,m.d);mx=Math.max(mx,m.y)});var bw=w/140,Y=function(v){return h*.85-(v-mn)/(mx-mn||1)*h*.6};
+    cx.clearRect(0,0,w,h);cx.strokeStyle="rgba(28,39,65,.6)";cx.lineWidth=1;for(var g=0;g<6;g++){cx.beginPath();cx.moveTo(0,h*g/6);cx.lineTo(w,h*g/6);cx.stroke()}
+    mumlar.forEach(function(m,i){var x=i*bw+bw/2,c=m.k>=m.a?"#16c784":"#ea3943";cx.strokeStyle=c;cx.fillStyle=c;cx.beginPath();cx.moveTo(x,Y(m.y));cx.lineTo(x,Y(m.d));cx.stroke();var y1=Y(Math.max(m.a,m.k)),y2=Y(Math.min(m.a,m.k));cx.fillRect(x-bw*.32,y1,bw*.64,Math.max(1,y2-y1))});
+    cx.strokeStyle="rgba(245,179,1,.8)";cx.lineWidth=1.6;cx.beginPath();mumlar.forEach(function(m,i){if(i<20)return;var s=0;for(var j=i-20;j<i;j++)s+=mumlar[j].k;var x=i*bw+bw/2,y=Y(s/20);i===20?cx.moveTo(x,y):cx.lineTo(x,y)});cx.stroke()}
+  requestAnimationFrame(ciz);
+  RIT.canlandir();
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
