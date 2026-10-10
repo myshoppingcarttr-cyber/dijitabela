@@ -311,7 +311,7 @@ footer .kap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}footer
   saat();setInterval(saat,1000);
 
   // izleme listesi (temsili akış; gerçek sitede TradingView/veri sağlayıcısından)
-  var liste=[["XAUUSD","Altın",2650.4],["XAGUSD","Gümüş",31.2],["UKOIL","Brent",74.1],["EURUSD","Parite",1.0921],["GER40","DAX",19250],["NAS100","Nasdaq",20420]];
+  var liste=[["XAUUSD","Altın",4194.6],["XAGUSD","Gümüş",60.82],["UKOIL","Brent",104.5],["EURUSD","Parite",1.1197],["USDTRY","Dolar/TL",49.26]];
   var iz=document.getElementById("izleme");
   function izCiz(){iz.innerHTML=liste.map(function(x){var d=(Math.random()-.47)*.9;x[3]=(x[3]||0)*.7+d*.3;var f=x[2]*(1+x[3]/100);var c=x[3]>=0?"yes":"kir";
     return '<div class="t-satir"><span><span class="ad">'+x[0]+'</span> <span style="color:var(--g)">'+x[1]+'</span></span><span>'+f.toLocaleString("tr-TR",{maximumFractionDigits:x[2]<10?4:2})+' <span class="'+c+'">'+(x[3]>=0?"▲ +":"▼ ")+x[3].toFixed(2)+'%</span></span></div>'}).join("")+'<div style="font:500 10px var(--mono);color:var(--g);margin-top:6px">* temsili akış · canlı veriler yukarıdaki bantta</div>'}
