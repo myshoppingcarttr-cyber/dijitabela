@@ -1,0 +1,74 @@
+{
+ "giris": {
+  "metin": "Öncelikle merhabalar! Depo Lukas için hazırladığımız iş geliştirme planını anlatmak üzere Dijitabela tarafından ben görevlendirildim. Biz yalnızca site yapmıyoruz; işinizi büyütmek için ne gerekiyorsa onda yardımcı oluyoruz. Aşağı indikçe tek tek anlatacağım."
+ },
+ "plan": {
+  "metin": "İş geliştirme planınız dört adımdan oluşuyor: daha çok bayi kazanma, bayi başvurusunu otomatikleştirme, XML entegrasyonunu kolaylaştıran rehber sayfaları, ve Google ile sosyal medyada görünürlük. Her birinin size ne kazandıracağı kartlarda yazıyor."
+ },
+ "tasarimlar": {
+  "metin": "Planın hediyesi olarak üç web sitesi tasarımı da hazır: tam ekran depo fotoğraflı Depo, dergi düzenli Butik ve telefonda uygulama gibi açılan Panel. Birine dokunup içine girin; kâr hesaplayıcıyı ve XML sayfasını deneyin.",
+  "dugme": [
+   "Depo'yu aç",
+   "1-depo/"
+  ]
+ },
+ "oz1": {
+  "metin": "Kâr hesaplayıcı. alış fiyatı, kargo, komisyon ve satış fiyatını girin; net kâr, marj ve başabaş fiyatı anında görün"
+ },
+ "oz2": {
+  "metin": "XML entegrasyon sayfası. örnek bağlantı, kopyala düğmesi ve platform platform kurulum adımları"
+ },
+ "oz3": {
+  "metin": "Bayi başvuru formu. satış kanalı ve platformu seçilir, hazır mesaj tek dokunuşla WhatsApp'ta açılır"
+ },
+ "oz4": {
+  "metin": "Kategori ve ürün vitrini. örnek ürün kartından tek dokunuşla kâr hesaplamaya geçiş"
+ },
+ "oz5": {
+  "metin": "Dropshipping nasıl çalışır (3 adım), stok ve fiyat güncelleme bilgisi, sık sorulan sorular ve üç yüz altmış derece konum görünümü"
+ },
+ "son": {
+  "metin": "Bir tasarıma girip araçları deneyin. Tespitlerimizi, planın ayrıntısını ve size uygun çalışma modellerini aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Plan ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada Depo Lukas için tespitlerimizi, iş geliştirme planınızı ve çalışma modellerimizi anlatacağım."
+ },
+ "t_plan": {
+  "metin": "İş geliştirme planınız burada. Amacımız size daha çok bayi ve daha düzenli sipariş getirmek; web sitesi bunun yalnızca bir parçası."
+ },
+ "t_tespit": {
+  "metin": "Tespitlerimiz burada: iade süresinin iki sayfada farklı yazılması, XML kurulum rehberinin olmaması, kâr hesaplayıcının olmaması ve küçük metin hataları."
+ },
+ "t_yapacak": {
+  "metin": "Planın kurulumunda neler var burada: hediye web siteniz, kâr hesaplayıcı, XML entegrasyon rehberi, bayi başvuru formu, bölüm sayfaları, Google profil düzenlemesi ve üç ay destek."
+ },
+ "t_fiyat": {
+  "metin": "Üç çalışma modelimiz var: düşük taban ücret ve kâr payı, aylık iş geliştirme ya da tek seferlik sabit fiyat. Fiyatlara KDV dahil değildir; hepsinde web sitesi hediye.",
+  "dugme": [
+   "Hediye tasarımları aç",
+   "./"
+  ]
+ },
+ "p_giris": {
+  "metin": "Merhaba! Burada Depo Lukas için hazırlanmış bir site taslağı görüyorsunuz. Kâr hesaplayıcıyı, XML sayfasını ve bayi başvuru formunu deneyebilirsiniz."
+ },
+ "p_kat": {
+  "metin": "Kategoriler sitenizdeki gibi: üst giyim, alt giyim, elbise, eşofman, aksesuar ve ayakkabı. Kartlardaki ürünler ve fiyatlar örnektir. Bir karttaki düğmeye dokunursanız alış fiyatı kâr hesaplayıcıya taşınır."
+ },
+ "p_kar": {
+  "metin": "Bu, kâr hesaplayıcı. Alış fiyatını, kargo ve komisyonu girin; net kârı, marjı ve başabaş fiyatı görün. Hedef marjı seçince önerilen satış fiyatı çıkar. Oranlar örnektir, kendi komisyonunuza göre değiştirin."
+ },
+ "p_xml": {
+  "metin": "XML entegrasyon sayfası. Kendi platformunuzu seçin, kurulum adımlarını görün. Bağlantı örnektir; gerçek link bayi kaydından sonra verilir. Platformlar için entegrasyon desteği sunulur."
+ },
+ "p_nasil": {
+  "metin": "Dropshipping üç adımda: bayi olun ve XML bağlantınızı alın, ürünleri kendi fiyatınızla yayınlayın, sipariş gelince bize iletin. Biz hazırlayıp kargoya veririz."
+ },
+ "p_bayi": {
+  "metin": "Bayi başvuru formu. Satış kanalınızı ve platformunuzu seçin, hazır mesaj WhatsApp'ta açılsın. Başvurudan sonra kayıt ve paket adımları sitenizdeki akışla devam eder."
+ }
+}
