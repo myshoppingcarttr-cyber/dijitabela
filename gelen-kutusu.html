@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16181D">
+<title>0538 Gelen Kutusu · Dijitabela</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+/* 11 Eki 2026 · Alim Bey: "0538'den gönderilen mesajları telefondan takip edemiyorum, panelden görsem yeter."
+   Kaynaklar: sohbetler (kanal whatsapp: müşteri + asistan) + adaylar.notlar (bizden giden şablon/teklif mesajları, etiketler). Yalnız okuma. */
+:root{--zemin:#F4F3EF;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#E3E0D8;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--mavi:#2F6FEB;--balon-gelen:#fff;--balon-giden:#DCF8C6;--balon-bot:#E8F0FE;--sohbet-zemin:#EFE9E1}
+*{box-sizing:border-box;margin:0;padding:0}html,body{height:100%}
+body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.uyg{display:grid;grid-template-columns:360px 1fr;height:100dvh}
+.sol{border-right:1px solid var(--cizgi);background:var(--kart);display:flex;flex-direction:column;min-height:0}
+.ust{padding:14px 14px 10px;border-bottom:1px solid var(--cizgi)}
+.ust .sat1{display:flex;align-items:center;gap:10px}
+.logo{width:36px;height:36px;border-radius:10px;background:#16181D;display:grid;place-items:center;color:var(--sari);font:700 1.1rem 'Space Mono',monospace;flex:none}
+h1{font-size:1.05rem;font-weight:800}.canli{font-size:.74rem;color:var(--soluk);display:flex;align-items:center;gap:5px}.canli i{width:7px;height:7px;border-radius:50%;background:var(--yesil);animation:n 1.6s infinite}@keyframes n{50%{opacity:.25}}
+.ust a.dug{margin-left:auto;font-size:.78rem;font-weight:800;color:#16181D;background:var(--sari);padding:7px 10px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.ara{width:100%;margin-top:10px;font:inherit;font-size:.9rem;padding:10px 12px;border:1px solid var(--cizgi);border-radius:10px;background:var(--zemin)}
+.filtre{display:flex;gap:6px;margin-top:8px;overflow-x:auto;scrollbar-width:none}.filtre::-webkit-scrollbar{display:none}
+.filtre button{font:inherit;font-size:.78rem;font-weight:700;padding:6px 10px;border-radius:999px;border:1px solid var(--cizgi);background:var(--kart);cursor:pointer;white-space:nowrap}
+.filtre button.on{background:var(--yazi);color:#fff;border-color:var(--yazi)}.filtre b{font-family:'Space Mono',monospace;margin-left:4px}
+.liste{overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
+.oge{display:flex;gap:10px;padding:12px 14px;border-bottom:1px solid var(--cizgi);cursor:pointer;align-items:flex-start}
+.oge:hover{background:#FAF9F6}.oge.secili{background:#FFF6DF}
+.av{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;color:#fff;font-size:.95rem}
+.oge .orta{min-width:0;flex:1}.oge .ad{font-weight:800;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.oge .son{font-size:.8rem;color:var(--soluk);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.oge .sag{text-align:right;flex:none;font-size:.7rem;color:var(--soluk)}
+.rozet{display:inline-block;min-width:20px;padding:2px 6px;border-radius:999px;background:var(--kirmizi);color:#fff;font-weight:800;font-size:.68rem;margin-top:5px}
+.etk{display:inline-block;font-size:.62rem;font-weight:800;padding:2px 6px;border-radius:6px;margin:3px 4px 0 0}
+.etk.sicak{background:#FFE8CC;color:#9A4A00}.etk.bekliyor{background:#FFE0E0;color:#A12}.etk.red{background:#EEE;color:#555}.etk.devret{background:#E3EDFF;color:#1F4FB8}.etk.asama{background:#EAF6EE;color:#17643A}
+.sag-alan{display:flex;flex-direction:column;min-height:0;background:var(--sohbet-zemin)}
+.sohbet-ust{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--kart);border-bottom:1px solid var(--cizgi);min-height:62px}
+.geri{display:none;font:inherit;font-size:1.3rem;border:0;background:none;cursor:pointer;padding:4px 8px 4px 0}
+.sohbet-ust .ad{font-weight:800}.sohbet-ust small{display:block;color:var(--soluk);font-size:.76rem}
+.sohbet-ust .islem{margin-left:auto;display:flex;gap:6px}
+.sohbet-ust .islem a{font-size:.75rem;font-weight:800;padding:6px 9px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.wa{background:#25D366;color:#fff}.pr{background:#16181D;color:#fff}
+.mesajlar{flex:1;overflow-y:auto;padding:14px clamp(10px,4vw,40px);display:flex;flex-direction:column;gap:6px;-webkit-overflow-scrolling:touch}
+.gun{align-self:center;background:#E1F3FB;color:#3b5463;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:8px;margin:8px 0}
+.b{max-width:min(78%,560px);padding:7px 10px 5px;border-radius:10px;font-size:.88rem;line-height:1.42;white-space:pre-wrap;word-wrap:break-word;box-shadow:0 1px .5px rgba(0,0,0,.13);position:relative}
+.b .kim{display:block;font-size:.68rem;font-weight:800;margin-bottom:2px}
+.b .z{display:block;text-align:right;font-size:.66rem;color:#667;margin-top:3px}
+.b.gelen{align-self:flex-start;background:var(--balon-gelen);border-top-left-radius:2px}.b.gelen .kim{color:#B35A00}
+.b.giden{align-self:flex-end;background:var(--balon-giden);border-top-right-radius:2px}.b.giden .kim{color:#17643A}
+.b.bot{align-self:flex-end;background:var(--balon-bot);border-top-right-radius:2px}.b.bot .kim{color:#1F4FB8}
+.b.taslak{align-self:flex-end;background:#fff;border:1px dashed #b9b4a8;box-shadow:none;opacity:.8}.b.taslak .kim{color:var(--soluk)}
+.b.olay{align-self:center;max-width:90%;background:#FFF6DF;font-size:.75rem;box-shadow:none;text-align:center;color:#6b5a2a}
+.b a{color:var(--mavi)}
+.bos{margin:auto;text-align:center;color:var(--soluk);padding:30px;font-size:.92rem}
+.bos b{display:block;font-size:2.4rem;margin-bottom:8px}
+.alt-not{padding:8px 14px;background:var(--kart);border-top:1px solid var(--cizgi);font-size:.74rem;color:var(--soluk);text-align:center}
+.giris{max-width:380px;margin:12vh auto;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:24px}.giris input{width:100%;font:inherit;padding:12px;border:1px solid var(--cizgi);border-radius:10px;margin:10px 0}.giris button{width:100%;font:inherit;font-weight:800;padding:12px;border:0;border-radius:10px;background:var(--sari);cursor:pointer}.giris p{font-size:.88rem;color:var(--soluk)}
+@media (max-width:760px){.uyg{grid-template-columns:1fr}.sag-alan{display:none}.uyg.acik .sol{display:none}.uyg.acik .sag-alan{display:flex}.geri{display:block}.sohbet-ust .islem a span{display:none}}
+</style>
+</head>
+<body>
+<div class="uyg" id="uyg" hidden>
+  <aside class="sol">
+    <div class="ust">
+      <div class="sat1"><div class="logo">d</div><div><h1>0538 Gelen Kutusu</h1><span class="canli"><i></i><span id="durum">30 sn'de bir yenilenir</span></span></div><a class="dug" href="sayac.html">📊 Sayaç</a></div>
+      <input class="ara" id="ara" type="search" placeholder="İşletme, numara ya da mesaj ara…">
+      <div class="filtre" id="filtre">
+        <button data-f="hepsi" class="on">Tümü<b id="f-hepsi">0</b></button>
+        <button data-f="bekliyor">⏳ Cevap bekleyen<b id="f-bekliyor">0</b></button>
+        <button data-f="sicak">🔥 Sıcak<b id="f-sicak">0</b></button>
+        <button data-f="cevap">💬 Dönüş yapan<b id="f-cevap">0</b></button>
+        <button data-f="red">🙅 İlgilenmiyor<b id="f-red">0</b></button>
+      </div>
+    </div>
+    <div class="liste" id="liste"><div class="bos">Yükleniyor…</div></div>
+  </aside>
+  <section class="sag-alan">
+    <div class="sohbet-ust" id="s-ust"><button class="geri" id="geri" aria-label="Geri">←</button><div><div class="ad">Bir sohbet seçin</div><small>Soldan bir işletmeye dokunun</small></div></div>
+    <div class="mesajlar" id="mesajlar"><div class="bos"><b>💬</b>0538 hattına gelen ve giden tüm mesajlar burada görünür.<br>Müşteri mesajı · asistanın cevabı · bizim gönderdiğimiz teklifler.</div></div>
+    <div class="alt-not">Bu sayfa yalnız görüntüleme içindir. 0538 resmî hat olduğu için cevaplar asistan ya da otomasyon üzerinden gider.</div>
+  </section>
+</div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
+<div class="giris" id="giris" hidden>
+  <h1 style="margin-bottom:8px">0538 Gelen Kutusu</h1>
+  <p>CRM ile aynı giriş. E-postanıza giriş kodu gelir; kodu buraya yazın.</p>
+  <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
+  <button id="gonder">Giriş kodu gönder</button>
+  <div id="kodalan" hidden><input id="kod" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="E-postadaki kod"><button id="kodgir">Giriş</button></div>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<script src="assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
+  var $ = function (i) { return document.getElementById(i); };
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var son10 = function (t) { return String(t || "").replace(/\D/g, "").slice(-10); };
+  var linkle = function (t) { return esc(t).replace(/https?:\/\/[^\s<]+/g, function (u) { return '<a href="' + u + '" target="_blank" rel="noopener">' + u + "</a>"; }); };
+  var RENK = ["#E76F51", "#2A9D8F", "#264653", "#8E44AD", "#D35400", "#2F6FEB", "#1E9E5A", "#B5838D", "#6D597A", "#C0392B"];
+  var renk = function (s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return RENK[h % RENK.length]; };
+  var bas2 = function (ad) { var p = String(ad || "?").replace(/^\+/, "").trim().split(/\s+/); return ((p[0] || "?")[0] + ((p[1] || "")[0] || "")).toUpperCase(); };
+  var GIDEN = /^(bizden|wa_gonderim)$/, ETIKET = /^(sicak|devret|ilgilenmiyor|dur)$/;
+  var S = {}, secili = null, filtre = "hepsi", zam;
+  var saatK = function (d) { d = new Date(d); var b = new Date(); return d.toDateString() === b.toDateString() ? d.toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" }) : d.toLocaleDateString("tr-TR", { day: "2-digit", month: "short" }); };
+  var gunAd = function (d) { d = new Date(d); var b = new Date(), dun = new Date(b.getTime() - 864e5); if (d.toDateString() === b.toDateString()) return "Bugün"; if (d.toDateString() === dun.toDateString()) return "Dün"; return d.toLocaleDateString("tr-TR", { day: "numeric", month: "long", weekday: "long" }); };
+
+  async function yukle() {
+    var bas = new Date(Date.now() - 45 * 864e5).toISOString();
+    var a = await sb.from("adaylar").select("id,isletme,tel,slug,asama,notlar,guncelleme").gte("guncelleme", bas).order("guncelleme", { ascending: false }).limit(3000);
+    var s = await sb.from("sohbetler").select("oturum,kim,zaman,metin").eq("kanal", "whatsapp").gte("zaman", bas).order("zaman").limit(8000);
+    if (a.error || s.error) { $("durum").textContent = "Veri okunamadı: " + (a.error || s.error).message; return; }
+    var Y = {};
+    var sohbet = function (k) { return Y[k] || (Y[k] = { k: k, ad: null, tel: null, slug: null, asama: null, m: [], et: {} }); };
+    (a.data || []).forEach(function (x) {
+      var k = son10(x.tel); if (k.length !== 10) return;
+      var notlar = Array.isArray(x.notlar) ? x.notlar : [];
+      var giden = notlar.filter(function (e) { return GIDEN.test(e.tur) || e.tur === "wa"; });
+      var etk = notlar.filter(function (e) { return ETIKET.test(e.tur); });
+      if (!giden.length && !etk.length && !Y[k]) return;
+      var c = sohbet(k); c.ad = x.isletme; c.tel = x.tel; c.slug = x.slug; c.asama = x.asama;
+      giden.forEach(function (e) { if (e.metin) c.m.push({ t: e.tarih, tur: e.tur === "wa" ? "taslak" : "giden", kim: e.tur === "wa" ? "Hazırlanan mesaj" : (/takip/.test(e.kim || "") ? "Takip mesajı" : "Biz · 0538"), metin: e.metin }); });
+      etk.forEach(function (e) { c.et[e.tur === "dur" ? "ilgilenmiyor" : e.tur] = e.tarih; });
+    });
+    (s.data || []).forEach(function (r) {
+      var k = son10(r.oturum); if (k.length !== 10) return; var c = sohbet(k);
+      if (!c.tel) c.tel = "+" + r.oturum;
+      c.m.push({ t: r.zaman, tur: r.kim === "ziyaretci" ? "gelen" : "bot", kim: r.kim === "ziyaretci" ? (c.ad || "Müşteri") : "Asistan (otomatik)", metin: r.metin });
+    });
+    Object.keys(Y).forEach(function (k) {
+      var c = Y[k]; c.m.sort(function (x, y) { return new Date(x.t) - new Date(y.t) || (x.tur === "gelen" ? -1 : 1); });
+      // aynı metnin "hazırlanan" ve "giden" kopyası varsa taslağı at
+      var gidenler = {}; c.m.forEach(function (m) { if (m.tur === "giden") gidenler[m.metin] = 1; });
+      c.m = c.m.filter(function (m) { return !(m.tur === "taslak" && gidenler[m.metin]); });
+      var gelen = c.m.filter(function (m) { return m.tur === "gelen"; }), sonGelen = gelen[gelen.length - 1];
+      c.son = c.m[c.m.length - 1]; c.sonT = c.son ? c.son.t : null; c.gelenSay = gelen.length;
+      c.bekliyor = !!sonGelen && !c.et.ilgilenmiyor && !c.m.some(function (m) { return m.tur !== "gelen" && m.tur !== "taslak" && new Date(m.t) > new Date(sonGelen.t); });
+      c.ad = c.ad || ("+" + "90" + k);
+    });
+    S = Y; ciz();
+    $("durum").textContent = "Son güncelleme " + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
+  }
+
+  function uygun(c) {
+    if (filtre === "bekliyor" && !c.bekliyor) return false;
+    if (filtre === "sicak" && !c.et.sicak) return false;
+    if (filtre === "cevap" && !c.gelenSay) return false;
+    if (filtre === "red" && !c.et.ilgilenmiyor) return false;
+    var q = $("ara").value.trim().toLocaleLowerCase("tr");
+    if (q) { var h = (c.ad + " " + c.tel + " " + c.m.map(function (m) { return m.metin; }).join(" ")).toLocaleLowerCase("tr"); if (h.indexOf(q) < 0) return false; }
+    return true;
+  }
+  function ciz() {
+    var hep = Object.keys(S).map(function (k) { return S[k]; }).filter(function (c) { return c.m.length; });
+    hep.sort(function (x, y) { return (y.bekliyor - x.bekliyor) || new Date(y.sonT) - new Date(x.sonT); });
+    $("f-hepsi").textContent = hep.length;
+    $("f-bekliyor").textContent = hep.filter(function (c) { return c.bekliyor; }).length;
+    $("f-sicak").textContent = hep.filter(function (c) { return c.et.sicak; }).length;
+    $("f-cevap").textContent = hep.filter(function (c) { return c.gelenSay; }).length;
+    $("f-red").textContent = hep.filter(function (c) { return c.et.ilgilenmiyor; }).length;
+    var l = hep.filter(uygun);
+    $("liste").innerHTML = l.map(function (c) {
+      var son = c.son ? (c.son.tur === "gelen" ? "" : c.son.tur === "bot" ? "🤖 " : "✓ ") + c.son.metin : "";
+      return '<div class="oge' + (secili === c.k ? " secili" : "") + '" data-k="' + c.k + '"><div class="av" style="background:' + renk(c.k) + '">' + esc(bas2(c.ad)) + '</div><div class="orta"><div class="ad">' + esc(c.ad) + '</div><div class="son">' + esc(son) + "</div>" +
+        (c.bekliyor ? '<span class="etk bekliyor">CEVAP BEKLİYOR</span>' : "") + (c.et.sicak ? '<span class="etk sicak">SICAK</span>' : "") + (c.et.devret ? '<span class="etk devret">İNSANA DEVREDİLDİ</span>' : "") + (c.et.ilgilenmiyor ? '<span class="etk red">İLGİLENMİYOR</span>' : "") +
+        '</div><div class="sag">' + (c.sonT ? saatK(c.sonT) : "") + (c.bekliyor ? '<br><span class="rozet">!</span>' : "") + "</div></div>";
+    }).join("") || '<div class="bos">Bu filtrede sohbet yok.</div>';
+    document.querySelectorAll(".oge").forEach(function (o) { o.onclick = function () { ac(o.dataset.k); }; });
+    if (secili && S[secili]) sohbetCiz(S[secili], true);
+  }
+  function ac(k) { secili = k; $("uyg").classList.add("acik"); document.querySelectorAll(".oge").forEach(function (o) { o.classList.toggle("secili", o.dataset.k === k); }); sohbetCiz(S[k]); history.replaceState(null, "", "#" + k); }
+  function sohbetCiz(c, yenile) {
+    var kutu = $("mesajlar"), altta = kutu.scrollHeight - kutu.scrollTop - kutu.clientHeight < 80;
+    var wa = "90" + c.k;
+    $("s-ust").innerHTML = '<button class="geri" id="geri" aria-label="Geri">←</button><div class="av" style="background:' + renk(c.k) + ';width:38px;height:38px">' + esc(bas2(c.ad)) + '</div><div><div class="ad">' + esc(c.ad) + "</div><small>" + esc(c.tel || "") + (c.asama ? " · " + esc(c.asama) : "") + '</small></div><div class="islem">' +
+      (c.slug ? '<a class="pr" href="https://dijitabela.com.tr/ornek/' + encodeURIComponent(c.slug) + '/" target="_blank" rel="noopener">🎨<span> Prototip</span></a>' : "") +
+      '<a class="wa" href="https://wa.me/' + wa + '" target="_blank" rel="noopener">💬<span> 0501\'den yaz</span></a></div>';
+    $("geri").onclick = function () { $("uyg").classList.remove("acik"); secili = null; history.replaceState(null, "", location.pathname); ciz(); };
+    var h = "", gunEski = "";
+    c.m.forEach(function (m) {
+      var g = gunAd(m.t); if (g !== gunEski) { h += '<div class="gun">' + g + "</div>"; gunEski = g; }
+      h += '<div class="b ' + m.tur + '"><span class="kim">' + esc(m.kim) + "</span>" + linkle(m.metin) + '<span class="z">' + new Date(m.t).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" }) + (m.tur === "giden" || m.tur === "bot" ? " ✓" : "") + "</span></div>";
+    });
+    Object.keys(c.et).forEach(function (e) { h += '<div class="b olay">' + { sicak: "🔥 Sıcak müşteri olarak işaretlendi", devret: "🙋 Asistan konuşmayı size devretti", ilgilenmiyor: "🙅 İlgilenmiyor / DUR dedi — bu numaraya yeniden yazılmaz" }[e] + " · " + saatK(c.et[e]) + "</div>"; });
+    kutu.innerHTML = h || '<div class="bos">Mesaj yok.</div>';
+    if (!yenile || altta) kutu.scrollTop = kutu.scrollHeight;
+  }
+  document.querySelectorAll("#filtre button").forEach(function (b) { b.onclick = function () { document.querySelectorAll("#filtre button").forEach(function (x) { x.classList.toggle("on", x === b); }); filtre = b.dataset.f; ciz(); }; });
+  $("ara").oninput = ciz;
+  function basla() { $("uyg").hidden = false; $("giris").hidden = true; yukle().then(function () { var h = location.hash.slice(1); if (h && S[h]) ac(h); }); clearInterval(zam); zam = setInterval(yukle, 30000); }
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın (bağlantıya dokunmanız gerekmez).";
+    if (!r.error) $("kodalan").hidden = false;
+  };
+  $("kodgir").onclick = async function () {
+    var r = await sb.auth.verifyOtp({ email: $("eposta").value.trim(), token: $("kod").value.replace(/\D/g, ""), type: "email" });
+    if (r.error) $("gmsg").textContent = "Kod olmadı: " + r.error.message; else if (!basladi) { basladi = true; $("yuk").hidden = true; basla(); }
+  };
+  var basladi = false, girisGoster = function (m) { if (basladi) return; $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; };
+  setTimeout(function () { girisGoster(); }, 4000);
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && !$("uyg").hidden) yukle(); });
+})();
+</script>
+</body>
+</html>
