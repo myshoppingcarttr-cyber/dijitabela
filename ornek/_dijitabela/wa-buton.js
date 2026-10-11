@@ -26,7 +26,7 @@
     ".djwa-fy{color:#FFB000;font-weight:800;white-space:nowrap}" +
     ".taslak a.djwa-b{min-height:44px;padding:0 14px;font-size:.85rem;background:#25D366;color:#0B2E17!important;border-radius:999px}.taslak .djwa-b span{margin:0;font-size:inherit}" +
     ".taslak span.djwa-kisa{flex-direction:column;line-height:1.2;font-size:.74rem;margin-right:auto}.taslak span.djwa-kisa span{margin:0;font-size:inherit;white-space:nowrap}" +
-    "@media(max-width:400px){.taslak.djwa-ici .djwa-bs{display:none}.taslak.djwa-ici .kap{gap:8px!important}.taslak.djwa-ici a{padding-left:10px!important;padding-right:10px!important}.taslak.djwa-ici a.djwa-b{padding:0!important;width:42px;min-height:42px}}" +
+    "@media(max-width:400px){.taslak.djwa-ici .djwa-bs{display:none}.taslak.djwa-ici .kap{gap:8px!important}.taslak.djwa-ici a{padding-left:10px!important;padding-right:10px!important}.taslak.djwa-ici a.djwa-b{padding:0!important;width:40px;min-height:40px}}" +
     "@media(max-width:600px){#djwa .djwa-ic{gap:10px;padding-left:12px;padding-right:12px}#djwa .djwa-f{font-size:.84rem}#djwa .djwa-f small{display:none}.djwa-b{padding:0 14px;font-size:.88rem}" +
     ".taslak.djwa-ici i,.taslak.djwa-ici .djwa-uzun{display:none}.taslak.djwa-ici .djwa-b span{display:none}.taslak.djwa-ici .djwa-b{width:44px;padding:0}}" +
     "@media(max-width:600px){.taslak span.djwa-kisa{display:flex}}@media(min-width:601px){.taslak span.djwa-kisa{display:none}}" +
@@ -56,13 +56,15 @@
   // Konuşan tabela, ekranın altındaki tam genişlik sabit çubukların (bizim çubuk / taslak çubuğu / sayfanın alt menüsü) üstünde durur → buton hiç örtülmez
   var root = document.documentElement; root.classList.add("djwa-acik");
   function olc() {
-    var ust = innerHeight;
+    var ust = innerHeight, adaylar = [];
     [].forEach.call(document.body.querySelectorAll("*"), function (e) {
       if (e.closest(".djr")) return;
       var cs = getComputedStyle(e); if (cs.position !== "fixed" || cs.display === "none" || cs.visibility === "hidden") return;
       var r = e.getBoundingClientRect();
-      if (r.height > 0 && r.height < innerHeight * 0.4 && r.width >= innerWidth * 0.6 && r.bottom >= innerHeight - 2) ust = Math.min(ust, r.top);
+      if (r.height > 0 && r.height < innerHeight * 0.4 && r.width >= innerWidth * 0.6 && r.bottom > innerHeight * 0.6) adaylar.push(r);
     });
+    // alttan üste üst üste binen çubuklar (taslak çubuğu + üstündeki alt menü gibi) birlikte sayılır
+    adaylar.sort(function (a, b) { return b.bottom - a.bottom; }).forEach(function (r) { if (r.bottom >= ust - 4) ust = Math.min(ust, r.top); });
     root.style.setProperty("--djwa-h", Math.round(innerHeight - ust) + "px");
   }
   olc(); addEventListener("resize", olc); addEventListener("load", olc); setTimeout(olc, 1500);

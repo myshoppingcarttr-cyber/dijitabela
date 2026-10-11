@@ -1,0 +1,34 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Mesut Oto için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "15ded0dc821c"
+ },
+ "b1": {
+  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında.",
+  "dosya": "213ce91c01ea"
+ },
+ "b2": {
+  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün.",
+  "dosya": "c2349044b900"
+ },
+ "b3": {
+  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın.",
+  "dosya": "5d0d5ea5222c"
+ },
+ "b4": {
+  "metin": "Servis hizmetleri. Yağ ve filtre değişimi dahil, aracınızın düzenli bakım ihtiyaçları karşılanır.",
+  "dosya": "17443d73f279"
+ },
+ "b5": {
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
+ },
+ "b6": {
+  "metin": "Neden Mesut Oto? Müşterilerimiz Mesut Usta'yı işini hakkıyla yapan, profesyonel bir usta olarak tarif ediyor.",
+  "dosya": "c4ef9124543d"
+ },
+ "b7": {
+  "metin": "Bize ulaşın. 📍 Fikirtepe mah, Hasanpaşa, Özbey Cd.",
+  "dosya": "75560af9a0ad"
+ }
+}
