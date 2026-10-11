@@ -1,29 +1,38 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Antalvia Teknik için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Antalvia Teknik için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "a3f3df588193"
  },
  "b1": {
-  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün."
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
  },
  "b2": {
-  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın."
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
  },
  "b3": {
-  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin."
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Kombinin çalışmama, ısıtmama gibi sorunlarında arıza tespit edilir ve yerinde ya da atölyede onarılır."
+  "metin": "Servis hizmetleri. Kombinin çalışmama, ısıtmama gibi sorunlarında arıza tespit edilir ve yerinde ya da atölyede onarılır.",
+  "dosya": "e1af99d7c165"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Antalvia Teknik? Müşterilerimiz sorunların kısa sürede tespit edilip giderildiğini söylüyor."
+  "metin": "Neden Antalvia Teknik? Müşterilerimiz sorunların kısa sürede tespit edilip giderildiğini söylüyor.",
+  "dosya": "fa953a849061"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Altındağ, Teoman Paşa Cd."
+  "metin": "Bize ulaşın. 📍 Altındağ, Teoman Paşa Cd.",
+  "dosya": "2b84db2e31f6"
  },
  "b8": {
-  "metin": "Gelmeden önce bizi görün. Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın."
+  "metin": "Gelmeden önce bizi görün. Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın.",
+  "dosya": "2e082bbe802f"
  }
 }

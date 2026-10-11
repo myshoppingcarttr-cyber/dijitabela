@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Doğa Veteriner için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Doğa Veteriner için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "df57b47dbebb"
  },
  "b1": {
-  "metin": "Dostunuzun aşı takvimi tarihleriyle birlikte. Türünü seçin, doğum tarihini girin: karma aşı, kuduz ve parazit uygulamalarının tarihleri çıksın; hepsi tek dokunuşla takviminize hatırlatma olarak düşsün."
+  "metin": "Dostunuzun aşı takvimi tarihleriyle birlikte. Türünü seçin, doğum tarihini girin: karma aşı, kuduz ve parazit uygulamalarının tarihleri çıksın; hepsi tek dokunuşla takviminize hatırlatma olarak düşsün.",
+  "dosya": "1ee35fa2d480"
  },
  "b2": {
-  "metin": "Endişelendiniz mi? Ne kadar acil olduğunu hemen görün. Belirtileri seçin; beklemeli mi, bugün mü gelmeli, hemen mi aramalı, sade bir dille söyleyelim."
+  "metin": "Endişelendiniz mi? Ne kadar acil olduğunu hemen görün. Belirtileri seçin; beklemeli mi, bugün mü gelmeli, hemen mi aramalı, sade bir dille söyleyelim.",
+  "dosya": "644c8fe9ecc8"
  },
  "b3": {
-  "metin": "Muayene, aşı, tıraş: sıra beklemeden. Boş saatleri görün, dostunuzun adıyla randevu talebinizi gönderin."
+  "metin": "Muayene, aşı, tıraş: sıra beklemeden. Boş saatleri görün, dostunuzun adıyla randevu talebinizi gönderin.",
+  "dosya": "d114872d15c7"
  },
  "b4": {
-  "metin": "Klinik hizmetleri. Kedi ve köpeğinizin genel durumu ayrıntılı biçimde değerlendirilir."
+  "metin": "Klinik hizmetleri. Kedi ve köpeğinizin genel durumu ayrıntılı biçimde değerlendirilir.",
+  "dosya": "5db894b12fa4"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Doğa Veteriner? Müşterilerimiz kliniğin temizliğini ve gösterilen özeni sıkça övüyor."
+  "metin": "Neden Doğa Veteriner? Müşterilerimiz kliniğin temizliğini ve gösterilen özeni sıkça övüyor.",
+  "dosya": "0369cfc653c3"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Orman İşletme Müdürlüğünün arkasında polis evine yakın adres için arayabilirsiniz, Kemeraltı, 99."
+  "metin": "Bize ulaşın. 📍 Orman İşletme Müdürlüğünün arkasında polis evine yakın adres için arayabilirsiniz, Kemeraltı, 99.",
+  "dosya": "25b7611b74f4"
  }
 }

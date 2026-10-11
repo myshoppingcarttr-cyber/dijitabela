@@ -1,29 +1,38 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Sarıcalar Sigorta için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Sarıcalar Sigorta için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "a93675cf6092"
  },
  "b1": {
-  "metin": "Ne sigortalatmak istiyorsunuz? Branşı seçin, birkaç bilgi girin; şirketlerin tekliflerini ve teminatlarını yan yana görün."
+  "metin": "Ne sigortalatmak istiyorsunuz? Branşı seçin, birkaç bilgi girin; şirketlerin tekliflerini ve teminatlarını yan yana görün.",
+  "dosya": "27853cb168f7"
  },
  "b2": {
-  "metin": "Üç küçük araç, en çok sorulan üç soru. \"Trafik sigortam neden pahalandı?\", \"DASK'ım ne zaman bitiyor?\", \"Poliçemi nereden sorgularım?\""
+  "metin": "Üç küçük araç, en çok sorulan üç soru. \"Trafik sigortam neden pahalandı?\", \"DASK'ım ne zaman bitiyor?\", \"Poliçemi nereden sorgularım?\"",
+  "dosya": "8520d9189ce1"
  },
  "b3": {
-  "metin": "19 branşta sigorta. En çok sorulan altı branşın ne karşıladığını, ne karşılamadığını ve hangi belgelerin gerektiğini açıkça yazdık."
+  "metin": "19 branşta sigorta. En çok sorulan altı branşın ne karşıladığını, ne karşılamadığını ve hangi belgelerin gerektiğini açıkça yazdık.",
+  "dosya": "cfcd10fadb94"
  },
  "b4": {
-  "metin": "Kaza oldu. Şimdi ne olacak? Hasar dosyanızı biz açarız, eksper ve servis sürecini biz takip ederiz."
+  "metin": "Kaza oldu. Şimdi ne olacak? Hasar dosyanızı biz açarız, eksper ve servis sürecini biz takip ederiz.",
+  "dosya": "04f3917420c7"
  },
  "b5": {
-  "metin": "Kendime yapılmasını istemediğimi müşterime yapmam. Sarıcalar Sigorta, Korkuteli Kiremitli Mahallesi'nde Bahattin Sarıcalar'ın yönettiği sigorta aracılık acentesidir."
+  "metin": "Kendime yapılmasını istemediğimi müşterime yapmam. Sarıcalar Sigorta, Korkuteli Kiremitli Mahallesi'nde Bahattin Sarıcalar'ın yönettiği sigorta aracılık acentesidir.",
+  "dosya": "05d071260713"
  },
  "b6": {
-  "metin": "Gelmeden önce kapımızı görün. Kiremitli Mahallesi'ndeki ofisimizin önündesiniz."
+  "metin": "Gelmeden önce kapımızı görün. Kiremitli Mahallesi'ndeki ofisimizin önündesiniz.",
+  "dosya": "a6e9407913ee"
  },
  "b7": {
-  "metin": "Merak edilenler. Trafik sigortası zorunludur ve yalnızca karşı tarafa verdiğiniz zararı öder."
+  "metin": "Merak edilenler. Trafik sigortası zorunludur ve yalnızca karşı tarafa verdiğiniz zararı öder.",
+  "dosya": "9e4b9001981d"
  },
  "b8": {
-  "metin": "Bize ulaşın. "
+  "metin": "Bize ulaşın. ",
+  "dosya": "8af4dfaa4a27"
  }
 }

@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Öztürk Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Öztürk Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "a85e4c3ef310"
  },
  "b1": {
-  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün."
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
  },
  "b2": {
-  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın."
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
  },
  "b3": {
-  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin."
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Su kaçıran veya düzgün çalışmayan klozet iç takımını değiştirir, kaçağı kısa sürede giderir."
+  "metin": "Servis hizmetleri. Su kaçıran veya düzgün çalışmayan klozet iç takımını değiştirir, kaçağı kısa sürede giderir.",
+  "dosya": "49f7c49bca21"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Öztürk Tesisat? Müşterilerimiz aradıktan kısa süre sonra Önder Usta'nın kapılarında olduğunu söylüyor."
+  "metin": "Neden Öztürk Tesisat? Müşterilerimiz aradıktan kısa süre sonra Önder Usta'nın kapılarında olduğunu söylüyor.",
+  "dosya": "3c480be0b88f"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Etlik, İncili Sk. 15/A, 06010 Keçiören/Ankara"
+  "metin": "Bize ulaşın. 📍 Etlik, İncili Sk. 15/A, 06010 Keçiören/Ankara",
+  "dosya": "1939b0ad9d9c"
  }
 }

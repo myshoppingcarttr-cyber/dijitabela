@@ -24,7 +24,10 @@
   });
   var hero = document.querySelector(".hero, .kah, header + section, main > section");
   if (hero && !hero.hasAttribute("data-anlat")) hero.setAttribute("data-anlat", "giris");
-  // 11 Eki: _build/tabela-ses.js Cartesia kaydını ses-oto/ altına üretir, tabela-ekle.js DJ_OTO_SES ile bildirir; cihaz sesi yalnız yedek
-  window.DJ_REHBER = { tts: true, ses: window.DJ_OTO_SES || false, satirlar: satirlar };
+  // 11 Eki: _build/tabela-ses.js Cartesia kaydını ornek/_ses-oto/<imza>.mp3 merkezine üretir; tabela-ekle.js DJ_OTO_SES = {kok, dosya:{anahtar: imza}} ekler.
+  // Kaydı olan satır mp3 çalar; kaydı olmayan (sayfa sonradan değişmiş) satır cihaz sesiyle (yedek) okunur.
+  var K = window.DJ_OTO_SES, kayitli = K && K.kok && K.dosya ? K : null;
+  if (kayitli) Object.keys(satirlar).forEach(function (k) { if (kayitli.dosya[k]) satirlar[k].dosya = kayitli.dosya[k]; else satirlar[k].tts = true; });
+  window.DJ_REHBER = { tts: true, ses: kayitli ? kayitli.kok : false, satirlar: satirlar };
   var s = document.createElement("script"); s.src = "/ornek/_dijitabela/rehber.js"; s.defer = true; document.body.appendChild(s);
 })();

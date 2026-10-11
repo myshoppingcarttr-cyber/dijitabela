@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Etiler Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Etiler Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "99f3e69d211b"
  },
  "b1": {
-  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün."
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
  },
  "b2": {
-  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın."
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
  },
  "b3": {
-  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin."
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Mutfak, banyo ve tuvalet giderlerindeki tıkanıklıkları giderir, borunun yeniden rahat akmasını sağlarız."
+  "metin": "Servis hizmetleri. Mutfak, banyo ve tuvalet giderlerindeki tıkanıklıkları giderir, borunun yeniden rahat akmasını sağlarız.",
+  "dosya": "6f90847e5310"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Etiler Tesisat? Onur Usta işini severek yapıyor; arızanın nerede olduğunu tecrübesiyle hızlıca bulur."
+  "metin": "Neden Etiler Tesisat? Onur Usta işini severek yapıyor; arızanın nerede olduğunu tecrübesiyle hızlıca bulur.",
+  "dosya": "c9f902e17e10"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Etiler, 883. Sk. No: 67/4, 07100 Muratpaşa/Antalya"
+  "metin": "Bize ulaşın. 📍 Etiler, 883. Sk. No: 67/4, 07100 Muratpaşa/Antalya",
+  "dosya": "593f530be7c9"
  }
 }

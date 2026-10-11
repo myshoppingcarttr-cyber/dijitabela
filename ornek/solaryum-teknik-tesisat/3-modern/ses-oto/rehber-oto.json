@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Solaryum Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Solaryum Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "6743d5b47e01"
  },
  "b1": {
-  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün."
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
  },
  "b2": {
-  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın."
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
  },
  "b3": {
-  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin."
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Konyaaltı ve çevresinde kombinizle ilgili sorunlarda yerinde servis sunuyoruz."
+  "metin": "Servis hizmetleri. Konyaaltı ve çevresinde kombinizle ilgili sorunlarda yerinde servis sunuyoruz.",
+  "dosya": "71cc03ded107"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Solaryum Tesisat? Müşterilerimiz aradıktan kısa süre sonra ustanın geldiğini ve sorunun çözüldüğünü anlatıyor."
+  "metin": "Neden Solaryum Tesisat? Müşterilerimiz aradıktan kısa süre sonra ustanın geldiğini ve sorunun çözüldüğünü anlatıyor.",
+  "dosya": "8876319a6279"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Uncalı, 1230. Sk. 14AB, 07070 Konyaaltı/Antalya"
+  "metin": "Bize ulaşın. 📍 Uncalı, 1230. Sk. 14AB, 07070 Konyaaltı/Antalya",
+  "dosya": "ba3b01ec8563"
  }
 }

@@ -1,20 +1,26 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Terraura için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Terraura için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "e81f5405667a"
  },
  "b1": {
-  "metin": "Anında fiyat hesaplayıcı. Fiyatlar Terraura'nın güncel fiyat listesinden geliyor."
+  "metin": "Anında fiyat hesaplayıcı. Fiyatlar Terraura'nın güncel fiyat listesinden geliyor.",
+  "dosya": "e5771717091b"
  },
  "b2": {
-  "metin": "Online randevu. Takvim, ekiplerin o gün hangi bölgede olduğuna göre açılır."
+  "metin": "Online randevu. Takvim, ekiplerin o gün hangi bölgede olduğuna göre açılır.",
+  "dosya": "381f6e0088f8"
  },
  "b3": {
-  "metin": "Nasıl çalışıyoruz? Kumaş türüne göre bu adımların tamamı veya bir kısmı uygulanır."
+  "metin": "Nasıl çalışıyoruz? Kumaş türüne göre bu adımların tamamı veya bir kısmı uygulanır.",
+  "dosya": "5ea43f60699b"
  },
  "b4": {
-  "metin": "Koltuğunuzdan çıkan su, farkı anlatıyor. Her işin sonunda kovadaki suyun fotoğrafı müşteriye WhatsApp'tan otomatik gönderilir."
+  "metin": "Koltuğunuzdan çıkan su, farkı anlatıyor. Her işin sonunda kovadaki suyun fotoğrafı müşteriye WhatsApp'tan otomatik gönderilir.",
+  "dosya": "50651db28de5"
  },
  "b5": {
-  "metin": "Son işlerimiz. "
+  "metin": "Son işlerimiz. ",
+  "dosya": "c38aa6a0e631"
  }
 }

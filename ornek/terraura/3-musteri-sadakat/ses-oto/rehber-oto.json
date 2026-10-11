@@ -1,23 +1,30 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Terraura için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Terraura için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "e81f5405667a"
  },
  "b1": {
-  "metin": "Müşteriler. İsimler kurgusaldır. Gerçek sistemde her randevu ve WhatsApp yazışması müşteri kartına kendiliğinden işlenir."
+  "metin": "Müşteriler. İsimler kurgusaldır. Gerçek sistemde her randevu ve WhatsApp yazışması müşteri kartına kendiliğinden işlenir.",
+  "dosya": "6b8d13ad3dca"
  },
  "b2": {
-  "metin": "Tekrar yıkama hatırlatmaları. Koltuk yıkama tekrar eden bir hizmet: evlerde 6–12 ay, kafe ve ofislerde 1–3 ay."
+  "metin": "Tekrar yıkama hatırlatmaları. Koltuk yıkama tekrar eden bir hizmet: evlerde 6–12 ay, kafe ve ofislerde 1–3 ay.",
+  "dosya": "3b04e2bd6b83"
  },
  "b3": {
-  "metin": "Sözleşmeli paketler. Antalya'da kafe, restoran, otel, ofis ve kısa dönem kiralık ev sahipleri düzenli temizliğe ihtiyaç duyuyor."
+  "metin": "Sözleşmeli paketler. Antalya'da kafe, restoran, otel, ofis ve kısa dönem kiralık ev sahipleri düzenli temizliğe ihtiyaç duyuyor.",
+  "dosya": "2b670f96b59d"
  },
  "b4": {
-  "metin": "Google yorum akışı. İş bittikten 2 saat sonra memnuniyet sorusu gider."
+  "metin": "Google yorum akışı. İş bittikten 2 saat sonra memnuniyet sorusu gider.",
+  "dosya": "c6accc7ed974"
  },
  "b5": {
-  "metin": "Hedefli kampanya. 64 kişi · Çocuklu evler · Konu: Bahar temizliği"
+  "metin": "Hedefli kampanya. 64 kişi · Çocuklu evler · Konu: Bahar temizliği",
+  "dosya": "487a57afa5d0"
  },
  "b6": {
-  "metin": "Aylık ciro (örnek veri). ■ yeni müşteri ■ tekrar gelen müşteri."
+  "metin": "Aylık ciro (örnek veri). ■ yeni müşteri ■ tekrar gelen müşteri.",
+  "dosya": "ecc52fae80e7"
  }
 }

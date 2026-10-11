@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Alpha Veteriner için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Alpha Veteriner için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "3a1d1be95efc"
  },
  "b1": {
-  "metin": "Dostunuzun aşı takvimi tarihleriyle birlikte. Türünü seçin, doğum tarihini girin: karma aşı, kuduz ve parazit uygulamalarının tarihleri çıksın; hepsi tek dokunuşla takviminize hatırlatma olarak düşsün."
+  "metin": "Dostunuzun aşı takvimi tarihleriyle birlikte. Türünü seçin, doğum tarihini girin: karma aşı, kuduz ve parazit uygulamalarının tarihleri çıksın; hepsi tek dokunuşla takviminize hatırlatma olarak düşsün.",
+  "dosya": "1ee35fa2d480"
  },
  "b2": {
-  "metin": "Endişelendiniz mi? Ne kadar acil olduğunu hemen görün. Belirtileri seçin; beklemeli mi, bugün mü gelmeli, hemen mi aramalı, sade bir dille söyleyelim."
+  "metin": "Endişelendiniz mi? Ne kadar acil olduğunu hemen görün. Belirtileri seçin; beklemeli mi, bugün mü gelmeli, hemen mi aramalı, sade bir dille söyleyelim.",
+  "dosya": "644c8fe9ecc8"
  },
  "b3": {
-  "metin": "Muayene, aşı, tıraş: sıra beklemeden. Boş saatleri görün, dostunuzun adıyla randevu talebinizi gönderin."
+  "metin": "Muayene, aşı, tıraş: sıra beklemeden. Boş saatleri görün, dostunuzun adıyla randevu talebinizi gönderin.",
+  "dosya": "d114872d15c7"
  },
  "b4": {
-  "metin": "Klinik hizmetleri. Dostunuzun genel sağlık durumu değerlendirilir; iştahsızlık, halsizlik gibi şikâyetler ayrıntılı biçimde incelenir."
+  "metin": "Klinik hizmetleri. Dostunuzun genel sağlık durumu değerlendirilir; iştahsızlık, halsizlik gibi şikâyetler ayrıntılı biçimde incelenir.",
+  "dosya": "09935742dab0"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Alpha Veteriner? Müşterilerimiz, hekimimizin bilgisini ve tecrübesini ilk muayeneden itibaren hissettiklerini söylüyor."
+  "metin": "Neden Alpha Veteriner? Müşterilerimiz, hekimimizin bilgisini ve tecrübesini ilk muayeneden itibaren hissettiklerini söylüyor.",
+  "dosya": "507f2c1b8ecb"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Altınkum, 460. Sk."
+  "metin": "Bize ulaşın. 📍 Altınkum, 460. Sk.",
+  "dosya": "1327c82d8019"
  }
 }

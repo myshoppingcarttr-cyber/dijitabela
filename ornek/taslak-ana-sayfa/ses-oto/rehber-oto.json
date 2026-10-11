@@ -1,23 +1,30 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Dijitabela için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Dijitabela için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "0c21c102c477"
  },
  "b1": {
-  "metin": "Anlatmıyoruz,gösteriyoruz. Bize yazan her işletmeye birkaç gün içinde 3 farklı, çalışan prototip hazırlıyoruz."
+  "metin": "Anlatmıyoruz,gösteriyoruz. Bize yazan her işletmeye birkaç gün içinde 3 farklı, çalışan prototip hazırlıyoruz.",
+  "dosya": "c2767d9da7b3"
  },
  "b2": {
-  "metin": "Tek adres,birbirine bağlı sistem. Telefonda hızlı açılan, fiyatı ve iletişimi ilk bakışta gösteren site."
+  "metin": "Tek adres,birbirine bağlı sistem. Telefonda hızlı açılan, fiyatı ve iletişimi ilk bakışta gösteren site.",
+  "dosya": "3278ece4f8a8"
  },
  "b3": {
-  "metin": "Önce görün,sonra karar verin. Google kaydınızı, sitenizi, mesajlarınızı inceliyoruz."
+  "metin": "Önce görün,sonra karar verin. Google kaydınızı, sitenizi, mesajlarınızı inceliyoruz.",
+  "dosya": "49409209bea1"
  },
  "b4": {
-  "metin": "Fiyat baştan belli. Google'da görünür olun, müşteri sizi bulsun."
+  "metin": "Fiyat baştan belli. Google'da görünür olun, müşteri sizi bulsun.",
+  "dosya": "cb436866ac0b"
  },
  "b5": {
-  "metin": "Sık sorulanlar. Evet. Ekspertiz ve 3 prototip ücretsizdir."
+  "metin": "Sık sorulanlar. Evet. Ekspertiz ve 3 prototip ücretsizdir.",
+  "dosya": "41fefd661f65"
  },
  "b6": {
-  "metin": "Tabelanızıbirlikte kuralım. Sıradaki prototip sizin olsun"
+  "metin": "Tabelanızıbirlikte kuralım. Sıradaki prototip sizin olsun",
+  "dosya": "2950ec3375d2"
  }
 }

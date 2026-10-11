@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Papağan Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Papağan Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "8b0a47167903"
  },
  "b1": {
-  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün."
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
  },
  "b2": {
-  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın."
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
  },
  "b3": {
-  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin."
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Çeşme, batarya, klozet ve lavabo gibi tesisat parçalarının tamiri ve değişimi."
+  "metin": "Servis hizmetleri. Çeşme, batarya, klozet ve lavabo gibi tesisat parçalarının tamiri ve değişimi.",
+  "dosya": "441673d95f62"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Papağan Tesisat? Klozet tamiri gibi günlük arızalardan atık su kanalı sorunlarına kadar işi bilen bir ustayla çalışırsınız."
+  "metin": "Neden Papağan Tesisat? Klozet tamiri gibi günlük arızalardan atık su kanalı sorunlarına kadar işi bilen bir ustayla çalışırsınız.",
+  "dosya": "4f03ed9a65dc"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Harmancık, Antalya Çevre Yolu Cd."
+  "metin": "Bize ulaşın. 📍 Harmancık, Antalya Çevre Yolu Cd.",
+  "dosya": "af6ec640d482"
  }
 }

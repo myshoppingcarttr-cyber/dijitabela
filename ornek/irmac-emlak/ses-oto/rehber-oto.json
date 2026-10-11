@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Irmaç Emlak için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Irmaç Emlak için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "0ace92e112cd"
  },
  "b1": {
-  "metin": "Portföyden seçmeler. Örnek ilanlar. Portföyünüz sahibinden.com / emlakjet ilanlarınızdan otomatik aktarılabilir."
+  "metin": "Portföyden seçmeler. Örnek ilanlar. Portföyünüz sahibinden.com / emlakjet ilanlarınızdan otomatik aktarılabilir.",
+  "dosya": "6c0c028583ed"
  },
  "b2": {
-  "metin": "Konut kredisi hesaplayın. Evin fiyatını, peşinatı ve vadeyi seçin; aylık taksiti ve toplam geri ödemeyi anında görün."
+  "metin": "Konut kredisi hesaplayın. Evin fiyatını, peşinatı ve vadeyi seçin; aylık taksiti ve toplam geri ödemeyi anında görün.",
+  "dosya": "b8e251066ddd"
  },
  "b3": {
-  "metin": "Neden Irmaç Emlak? Mahallenin köklü esnaflarından biri olarak bölgenin dinamiklerini çok iyi biliyoruz."
+  "metin": "Neden Irmaç Emlak? Mahallenin köklü esnaflarından biri olarak bölgenin dinamiklerini çok iyi biliyoruz.",
+  "dosya": "6bf7bc831405"
  },
  "b4": {
-  "metin": "Müşterilerimiz ne diyor? “Bayındır mahallesinin en eski esnaflarından Cafer bey işini ahlakıyla yapan bir emlak ofisi her şey için teşekkürler Irmaç emlak .”"
+  "metin": "Müşterilerimiz ne diyor? “Bayındır mahallesinin en eski esnaflarından Cafer bey işini ahlakıyla yapan bir emlak ofisi her şey için teşekkürler Irmaç emlak .”",
+  "dosya": "c3126f4e0367"
  },
  "b5": {
-  "metin": "Evinizin değerini öğrenin. 3 kısa adım: bölge verileriyle 24 saat içinde ücretsiz değerleme raporu hazırlayalım."
+  "metin": "Evinizin değerini öğrenin. 3 kısa adım: bölge verileriyle 24 saat içinde ücretsiz değerleme raporu hazırlayalım.",
+  "dosya": "01ea6d030c1c"
  },
  "b6": {
-  "metin": "Bize uğrayın. "
+  "metin": "Bize uğrayın. ",
+  "dosya": "00969589a20f"
  },
  "b7": {
-  "metin": "Gelmeden önce bizi görün. Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın."
+  "metin": "Gelmeden önce bizi görün. Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın.",
+  "dosya": "2e082bbe802f"
  }
 }

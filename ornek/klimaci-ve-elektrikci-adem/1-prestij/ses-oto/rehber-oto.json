@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Klimacı Adem için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Klimacı Adem için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "a5a09493e265"
  },
  "b1": {
-  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün."
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
  },
  "b2": {
-  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın."
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
  },
  "b3": {
-  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin."
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Yeni klimanızın kurulumu, ölçülü ve düzenli bir işçilikle yapılır."
+  "metin": "Servis hizmetleri. Yeni klimanızın kurulumu, ölçülü ve düzenli bir işçilikle yapılır.",
+  "dosya": "b4e161002d78"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Klimacı Adem? Müşterilerin en çok vurguladığı nokta işin özenle yapılması."
+  "metin": "Neden Klimacı Adem? Müşterilerin en çok vurguladığı nokta işin özenle yapılması.",
+  "dosya": "069127fba717"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Duygu Cafe arkası, Mahfesığmaz, Baraj Yolu, 01220 Seyhan/Adana"
+  "metin": "Bize ulaşın. 📍 Duygu Cafe arkası, Mahfesığmaz, Baraj Yolu, 01220 Seyhan/Adana",
+  "dosya": "5d3dc5fbca7c"
  }
 }

@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Fethiye Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Fethiye Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "425c74dd99f6"
  },
  "b1": {
-  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün."
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
  },
  "b2": {
-  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın."
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
  },
  "b3": {
-  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin."
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Görünen ya da gizli kalmış su kaçaklarının nedenini bulur, gerekli onarımı yapar."
+  "metin": "Servis hizmetleri. Görünen ya da gizli kalmış su kaçaklarının nedenini bulur, gerekli onarımı yapar.",
+  "dosya": "31506a93034d"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Fethiye Tesisat? Arızanın nedenini kısa sürede tespit eder ve doğru çözüme geçer."
+  "metin": "Neden Fethiye Tesisat? Arızanın nedenini kısa sürede tespit eder ve doğru çözüme geçer.",
+  "dosya": "7d2cf6b1fda0"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Tuzla, 530 nolu sokak 39/1, 48300 Fethiye/Muğla"
+  "metin": "Bize ulaşın. 📍 Tuzla, 530 nolu sokak 39/1, 48300 Fethiye/Muğla",
+  "dosya": "8c3cef49c7f2"
  }
 }

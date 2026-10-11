@@ -1,23 +1,30 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Kadıköy için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Kadıköy için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "0ba8ebca413a"
  },
  "b1": {
-  "metin": "Size uygun günü ve saati seçin. Takvimden gün ve saat seçin; randevunuz WhatsApp'tan onaylansın."
+  "metin": "Size uygun günü ve saati seçin. Takvimden gün ve saat seçin; randevunuz WhatsApp'tan onaylansın.",
+  "dosya": "b3a8f34bd857"
  },
  "b2": {
-  "metin": "Tedaviler. Kanal tedavisi uzmanı hekimimiz tarafından, dişin ihtiyacına göre planlanarak yürütülür."
+  "metin": "Tedaviler. Kanal tedavisi uzmanı hekimimiz tarafından, dişin ihtiyacına göre planlanarak yürütülür.",
+  "dosya": "def7e5ac4f41"
  },
  "b3": {
-  "metin": "Yurt dışından gelen hastalarımız için süreç. "
+  "metin": "Yurt dışından gelen hastalarımız için süreç. ",
+  "dosya": "a2e23637ac9d"
  },
  "b4": {
-  "metin": "Neden Kadıköy Diş? Şikâyetinizin tamamıyla ilgilenir, süreci sakin ve anlaşılır biçimde ilerletiriz."
+  "metin": "Neden Kadıköy Diş? Şikâyetinizin tamamıyla ilgilenir, süreci sakin ve anlaşılır biçimde ilerletiriz.",
+  "dosya": "f480979f4e09"
  },
  "b5": {
-  "metin": "Kadıköy Diş yakından. Fotoğrafa dokunun, tam ekran açılsın."
+  "metin": "Kadıköy Diş yakından. Fotoğrafa dokunun, tam ekran açılsın.",
+  "dosya": "77ae24aeea4b"
  },
  "b6": {
-  "metin": "Bize uğrayın. Bu sayfadaki bilgiler tanıtım ve bilgilendirme amaçlıdır; tanı ve tedavi için hekim muayenesi gereklidir."
+  "metin": "Bize uğrayın. Bu sayfadaki bilgiler tanıtım ve bilgilendirme amaçlıdır; tanı ve tedavi için hekim muayenesi gereklidir.",
+  "dosya": "f42ae5874961"
  }
 }

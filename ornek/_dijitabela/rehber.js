@@ -76,7 +76,7 @@
     var s = C.satirlar[id]; if (!s) return;
     if (konusuyor && !zorla) { bekleyen = id; return; }
     sonAnlatilan = id; soyle(s.metin); dugmeler(s);
-    if (sesAcik && C.ses === false && C.tts) {
+    if (sesAcik && (C.ses === false || s.tts) && C.tts) {
       // Kayıtlı ses yoksa (henüz üretilmemiş otomatik tabela) cihazın Türkçe sesi
       cihazSesi(s.metin);
     } else if (sesAcik && C.ses !== false) {

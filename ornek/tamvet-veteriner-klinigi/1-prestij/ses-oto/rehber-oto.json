@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Tamvet Veteriner için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Tamvet Veteriner için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "950641c3d558"
  },
  "b1": {
-  "metin": "Dostunuzun aşı takvimi tarihleriyle birlikte. Türünü seçin, doğum tarihini girin: karma aşı, kuduz ve parazit uygulamalarının tarihleri çıksın; hepsi tek dokunuşla takviminize hatırlatma olarak düşsün."
+  "metin": "Dostunuzun aşı takvimi tarihleriyle birlikte. Türünü seçin, doğum tarihini girin: karma aşı, kuduz ve parazit uygulamalarının tarihleri çıksın; hepsi tek dokunuşla takviminize hatırlatma olarak düşsün.",
+  "dosya": "1ee35fa2d480"
  },
  "b2": {
-  "metin": "Endişelendiniz mi? Ne kadar acil olduğunu hemen görün. Belirtileri seçin; beklemeli mi, bugün mü gelmeli, hemen mi aramalı, sade bir dille söyleyelim."
+  "metin": "Endişelendiniz mi? Ne kadar acil olduğunu hemen görün. Belirtileri seçin; beklemeli mi, bugün mü gelmeli, hemen mi aramalı, sade bir dille söyleyelim.",
+  "dosya": "644c8fe9ecc8"
  },
  "b3": {
-  "metin": "Muayene, aşı, tıraş: sıra beklemeden. Boş saatleri görün, dostunuzun adıyla randevu talebinizi gönderin."
+  "metin": "Muayene, aşı, tıraş: sıra beklemeden. Boş saatleri görün, dostunuzun adıyla randevu talebinizi gönderin.",
+  "dosya": "d114872d15c7"
  },
  "b4": {
-  "metin": "Klinik hizmetleri. Kedi ve köpeğinizin genel durumu muayene edilir, şikâyetleriniz dinlenir ve süreç hakkında bilgi verilir."
+  "metin": "Klinik hizmetleri. Kedi ve köpeğinizin genel durumu muayene edilir, şikâyetleriniz dinlenir ve süreç hakkında bilgi verilir.",
+  "dosya": "729bab010186"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Tamvet Veteriner? Müşterilerimiz Tamer Hoca ve ekibini işini severek yapan, canlarını gönül rahatlığıyla emanet edebildikleri bir ekip olarak anlatıyor."
+  "metin": "Neden Tamvet Veteriner? Müşterilerimiz Tamer Hoca ve ekibini işini severek yapan, canlarını gönül rahatlığıyla emanet edebildikleri bir ekip olarak anlatıyor.",
+  "dosya": "1f6ac14d05c7"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Altınkum, Anadolu Cd Kıvılcım apartmanı No:1 43/B, 07070 Konyaaltı/Antalya"
+  "metin": "Bize ulaşın. 📍 Altınkum, Anadolu Cd Kıvılcım apartmanı No:1 43/B, 07070 Konyaaltı/Antalya",
+  "dosya": "8784d376fc97"
  }
 }

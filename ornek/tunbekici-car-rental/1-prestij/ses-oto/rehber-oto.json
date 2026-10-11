@@ -1,23 +1,30 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Tunbekici Rent a Car için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Tunbekici Rent a Car için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "f87f37693f9c"
  },
  "b1": {
-  "metin": "Havalimanında sizi biz karşılayalım. Uçuş numaranızı yazın, rötar olursa ücretsiz bekleriz."
+  "metin": "Havalimanında sizi biz karşılayalım. Uçuş numaranızı yazın, rötar olursa ücretsiz bekleriz.",
+  "dosya": "68eeb8121bae"
  },
  "b2": {
-  "metin": "Dijital teslim kontrolü. Araca dokunup mevcut çizikleri işaretleyin."
+  "metin": "Dijital teslim kontrolü. Araca dokunup mevcut çizikleri işaretleyin.",
+  "dosya": "8371a42ca368"
  },
  "b3": {
-  "metin": "Hizmetlerimiz. "
+  "metin": "Hizmetlerimiz. ",
+  "dosya": "dcbfc550173c"
  },
  "b4": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b5": {
-  "metin": "Neden Tunbekici Rent a Car? Müşterilerimiz bizi güvenilir, samimi ve dürüst bir firma olarak anlatıyor."
+  "metin": "Neden Tunbekici Rent a Car? Müşterilerimiz bizi güvenilir, samimi ve dürüst bir firma olarak anlatıyor.",
+  "dosya": "14e40d6bbad7"
  },
  "b6": {
-  "metin": "Bize ulaşın. 📍 h.cetin, Şirinyalı, 1508."
+  "metin": "Bize ulaşın. 📍 h.cetin, Şirinyalı, 1508.",
+  "dosya": "c5a19aae0597"
  }
 }

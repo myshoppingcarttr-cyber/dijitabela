@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Master Oto Servis için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Master Oto Servis için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "094c214a0033"
  },
  "b1": {
-  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında."
+  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında.",
+  "dosya": "213ce91c01ea"
  },
  "b2": {
-  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün."
+  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün.",
+  "dosya": "c2349044b900"
  },
  "b3": {
-  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın."
+  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın.",
+  "dosya": "5d0d5ea5222c"
  },
  "b4": {
-  "metin": "Servis hizmetleri. VAG grubu araçlardaki DSG şanzımanlar için arıza analizi, bakım ve onarım yapılır."
+  "metin": "Servis hizmetleri. VAG grubu araçlardaki DSG şanzımanlar için arıza analizi, bakım ve onarım yapılır.",
+  "dosya": "c8b0e1040724"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Master Oto Servis? Müşterilerimiz gereksiz işlem önerilmemesini ve açık konuşulmasını sık sık belirtiyor."
+  "metin": "Neden Master Oto Servis? Müşterilerimiz gereksiz işlem önerilmemesini ve açık konuşulmasını sık sık belirtiyor.",
+  "dosya": "d1c1f445256e"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Yukarı Dudullu, Özgürlük Cd."
+  "metin": "Bize ulaşın. 📍 Yukarı Dudullu, Özgürlük Cd.",
+  "dosya": "ec41628e923f"
  }
 }

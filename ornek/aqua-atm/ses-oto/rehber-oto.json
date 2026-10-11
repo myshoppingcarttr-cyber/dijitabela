@@ -1,20 +1,26 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Aqua ATM için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Aqua ATM için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "887493047bfb"
  },
  "b1": {
-  "metin": "Ne gördük? "
+  "metin": "Ne gördük? ",
+  "dosya": "4373667f2ed6"
  },
  "b2": {
-  "metin": "Bayilik satışı, tüketici, bayi ağı ve müşteri uygulaması. "
+  "metin": "Bayilik satışı, tüketici, bayi ağı ve müşteri uygulaması. ",
+  "dosya": "54b4e7b144e0"
  },
  "b3": {
-  "metin": "Google'da bayilik arayan sizi bulsun. "
+  "metin": "Google'da bayilik arayan sizi bulsun. ",
+  "dosya": "3bbfe8e22b7a"
  },
  "b4": {
-  "metin": "İhtiyacınıza göre başlayın. Fiyatlara KDV dahil değildir."
+  "metin": "İhtiyacınıza göre başlayın. Fiyatlara KDV dahil değildir.",
+  "dosya": "cf552e72e27f"
  },
  "b5": {
-  "metin": "15 dakikalık bir görüşmede prototipleri birlikte gezelim. Hangi paketin size uygun olduğuna birlikte karar verelim; isterseniz önce yalnız Google kayıtlarınızı ücretsiz kontrol edip rapor sunalım."
+  "metin": "15 dakikalık bir görüşmede prototipleri birlikte gezelim. Hangi paketin size uygun olduğuna birlikte karar verelim; isterseniz önce yalnız Google kayıtlarınızı ücretsiz kontrol edip rapor sunalım.",
+  "dosya": "b668966db476"
  }
 }

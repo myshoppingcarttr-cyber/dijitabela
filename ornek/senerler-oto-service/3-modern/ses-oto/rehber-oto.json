@@ -1,29 +1,38 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Şenerler Oto için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Şenerler Oto için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "7cc4e7587ed5"
  },
  "b1": {
-  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında."
+  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında.",
+  "dosya": "213ce91c01ea"
  },
  "b2": {
-  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün."
+  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün.",
+  "dosya": "c2349044b900"
  },
  "b3": {
-  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın."
+  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın.",
+  "dosya": "5d0d5ea5222c"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Önden veya yandan darbe almış araçların hasar tespiti ve onarımı titizlikle yapılır."
+  "metin": "Servis hizmetleri. Önden veya yandan darbe almış araçların hasar tespiti ve onarımı titizlikle yapılır.",
+  "dosya": "77e36d64c6b5"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Şenerler Oto? Önden kazalı araçlarda direk ve şasi düzeltmeleri özenle yapılır; müşterilerimiz aracı ilk günkü gibi teslim aldıklarını anlatıyor."
+  "metin": "Neden Şenerler Oto? Önden kazalı araçlarda direk ve şasi düzeltmeleri özenle yapılır; müşterilerimiz aracı ilk günkü gibi teslim aldıklarını anlatıyor.",
+  "dosya": "ec844505de74"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Altınova Düden, PTT Cd."
+  "metin": "Bize ulaşın. 📍 Altınova Düden, PTT Cd.",
+  "dosya": "f6730d16163f"
  },
  "b8": {
-  "metin": "Gelmeden önce bizi görün. Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın."
+  "metin": "Gelmeden önce bizi görün. Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın.",
+  "dosya": "2e082bbe802f"
  }
 }

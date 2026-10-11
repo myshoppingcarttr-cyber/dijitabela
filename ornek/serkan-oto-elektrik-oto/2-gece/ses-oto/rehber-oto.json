@@ -1,26 +1,34 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Serkan Oto Klima için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Serkan Oto Klima için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "a00287e06883"
  },
  "b1": {
-  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında."
+  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında.",
+  "dosya": "213ce91c01ea"
  },
  "b2": {
-  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün."
+  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün.",
+  "dosya": "c2349044b900"
  },
  "b3": {
-  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın."
+  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın.",
+  "dosya": "5d0d5ea5222c"
  },
  "b4": {
-  "metin": "Servis hizmetleri. Soğutmayan araç kliması için gaz dolumu ve gerekirse gaz değişimi yapılır."
+  "metin": "Servis hizmetleri. Soğutmayan araç kliması için gaz dolumu ve gerekirse gaz değişimi yapılır.",
+  "dosya": "da6182c5e5d3"
  },
  "b5": {
-  "metin": "Google'daki fotoğraflarınızdan. "
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
  },
  "b6": {
-  "metin": "Neden Serkan Oto Klima? Aracınızdaki sorun hızlıca tespit edilir, gereksiz bekleme yaşamazsınız."
+  "metin": "Neden Serkan Oto Klima? Aracınızdaki sorun hızlıca tespit edilir, gereksiz bekleme yaşamazsınız.",
+  "dosya": "ba907ae65130"
  },
  "b7": {
-  "metin": "Bize ulaşın. 📍 Muğla, Taşyaka, 254."
+  "metin": "Bize ulaşın. 📍 Muğla, Taşyaka, 254.",
+  "dosya": "745c63023f5b"
  }
 }
