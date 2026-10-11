@@ -216,7 +216,7 @@ footer{padding:100px 0 30px;overflow:hidden}
   <a href="#uyelik" class="btn ikinci">Giriş</a><a href="#uyelik" class="btn ana">Üye Ol</a>
 </div></header>
 
-<section class="hero" id="ust-bolum">
+<section class="hero" id="ust-bolum" data-anlat="giris">
   <canvas id="sahne"></canvas>
   <div class="kaydir-ipucu mono">KAYDIR ↓</div>
   <div class="kap">
@@ -230,7 +230,7 @@ footer{padding:100px 0 30px;overflow:hidden}
   <div class="bant" id="bant"></div>
 </section>
 
-<section class="bolum" id="seans"><div class="kap">
+<section class="bolum" id="seans" data-anlat="seans"><div class="kap">
   <div class="bb"><span class="mono">01 · Piyasa saatleri</span><div><h2 class="bas"><span class="kel"><span>Dünya</span></span> <span class="kel"><span>şu an</span></span> <span class="kel"><span>işlem</span></span> <span class="kel"><span>yapıyor.</span></span></h2><p>Hangi borsa açık, hangi seans çakışıyor? Oynaklığın en yüksek olduğu saatleri bilen yatırımcı işlemini doğru zamanda açar. Saatler İstanbul saatine göre, canlı hesaplanır.</p></div></div>
   <div class="seans-alan">
     <div class="zaman-cizelge" id="cizelge"></div>
@@ -238,14 +238,14 @@ footer{padding:100px 0 30px;overflow:hidden}
   </div>
 </div></section>
 
-<section class="ray-alan" id="programlar">
+<section class="ray-alan" id="programlar" data-anlat="programlar">
   <div class="ray" id="ray">
     <div class="ray-giris"><span class="mono" style="color:var(--k)">02 · Müfredat</span><h2 class="bas" style="margin-top:16px">4 program.<br>36 ders.<br><span style="color:var(--k)">Tek rota.</span></h2><p>Her program 9 dersten oluşur. Dersleri bitirdikçe ilerlemeniz kaydedilir; programı tamamlayınca sertifikanız hazırlanır. Yana kaydırın →</p></div>
   </div>
   <div class="ray-ilerleme"><i id="ray-bar"></i></div>
 </section>
 
-<section class="kriz" id="kriz"><div class="kap">
+<section class="kriz" id="kriz" data-anlat="kriz"><div class="kap">
   <div class="kriz-metin"><span class="mono">03 · Akademi analizi · Eylül 2026</span><h2 class="bas" style="margin-top:14px">Tera ve Pusula krizinin anatomisi.</h2>
     <p>Sığ hisselerde devasa yoğunlaşma, ilişkili taraf işlemleri ve likidite riski. Canlı yayınlarda haftalarca uyarılan çöküş, bugün risk yönetimi derslerimizin vaka çalışması.</p>
     <div class="kriz-adim" id="kriz-adim">
@@ -259,7 +259,7 @@ footer{padding:100px 0 30px;overflow:hidden}
   <div class="kriz-grafik"><svg viewBox="0 0 600 440" preserveAspectRatio="none" id="kriz-svg"></svg><div class="kriz-deger"><small id="kriz-et">FON BİRİM PAY DEĞERİ</small><b id="kriz-sayi">100</b></div><span class="temsil">temsilî grafik · eğitim amaçlı</span></div>
 </div></section>
 
-<section class="bolum" id="lab"><div class="kap">
+<section class="bolum" id="lab" data-anlat="lab"><div class="kap">
   <div class="bb"><span class="mono">04 · Risk laboratuvarı</span><div><h2 class="bas"><span class="kel"><span>Disiplin</span></span> <span class="kel"><span>bir</span></span> <span class="kel"><span>hesapla</span></span> <span class="kel"><span>başlar.</span></span></h2><p>Grafikteki giriş, zarar kes ve hedef çizgilerini sürükleyin. Risk/ödül oranı, alınabilecek adet ve bu stratejinin kâra geçmesi için gereken başarı oranı anında hesaplanır.</p></div></div>
   <div class="lab">
     <div class="lab-grafik" id="lab-grafik"><span class="lab-ipucu mono">↕ çizgileri sürükleyin</span><canvas id="lab-cv"></canvas></div>
@@ -275,7 +275,7 @@ footer{padding:100px 0 30px;overflow:hidden}
   </div>
 </div></section>
 
-<section class="bolum gun" id="spl"><div class="kap">
+<section class="bolum gun" id="spl" data-anlat="spl"><div class="kap">
   <div class="bb"><span class="mono">05 · SPL hazırlık robotu</span><div><h2 class="bas"><span class="kel"><span>Her</span></span> <span class="kel"><span>girişte</span></span> <span class="kel"><span>yeni</span></span> <span class="kel"><span>bir</span></span> <span class="kel"><span>sınav.</span></span></h2><p>Sermaye Piyasası Lisanslama sınavlarına hazırlık. Sorular ve şıklar her denemede yeniden karışır, her cevap anında açıklanır, sonunda konu radarınız çıkar: hangi konuya dönmeniz gerektiğini görürsünüz.</p></div></div>
   <div class="spl">
     <div class="sinav" id="sinav"></div>
@@ -284,7 +284,7 @@ footer{padding:100px 0 30px;overflow:hidden}
   </div>
 </div></section>
 
-<section class="canli" id="canli"><img src="../img/yayin-studyo.jpg" alt="" loading="lazy"><div class="kap">
+<section class="canli" id="canli" data-anlat="canli"><img src="../img/yayin-studyo.jpg" alt="" loading="lazy"><div class="kap">
   <span class="rozet"><span class="nab" style="background:#fff"></span> SIRADAKİ CANLI EĞİTİM</span>
   <h2 class="bas" id="canli-ad">Haftalık Piyasa Analizi</h2>
   <div class="mono" style="color:#c8ccd4" id="canli-zaman"></div>
@@ -292,20 +292,20 @@ footer{padding:100px 0 30px;overflow:hidden}
   <div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn ana" id="takvime">📅 Takvimime ekle <span class="ok">→</span></button><a href="#uyelik" class="btn">Katılmak için üye ol</a></div>
 </div></section>
 
-<section class="bolum" id="topluluk"><div class="kap">
+<section class="bolum" id="topluluk" data-anlat="topluluk"><div class="kap">
   <div class="bb"><span class="mono">06 · Topluluk</span><div><h2 class="bas"><span class="kel"><span>Paylaş.</span></span> <span class="kel"><span>Tartış.</span></span> <span class="kel"><span style="color:var(--k)">Rütbe atla.</span></span></h2><p>Forumda her paylaşım +2, her yorum +1 puan. Acemi Yatırımcı'dan Usta Yatırımcı'ya beş basamak.</p></div></div>
   <div class="merdiven" id="merdiven"></div>
   <div class="puan-kural"><div><b>+2</b><span>her paylaşım</span></div><div><b>+1</b><span>her yorum</span></div><div><b>9</b><span>tartışma kategorisi</span></div></div>
   <div class="etiketler" id="etiketler"></div>
 </div></section>
 
-<section class="bolum" id="piyasa" style="padding-top:40px"><div class="kap">
+<section class="bolum" id="piyasa" data-anlat="piyasa" style="padding-top:40px"><div class="kap">
   <div class="bb"><span class="mono">07 · Canlı piyasa</span><div><h2 class="bas"><span class="kel"><span>Derste</span></span> <span class="kel"><span>öğren,</span></span> <span class="kel"><span>grafikte</span></span> <span class="kel"><span>gör.</span></span></h2><p>Forum kategorilerimizdeki tüm enstrümanlar profesyonel grafik ekranında; çizim araçları ve indikatörler dahil. Yanında haftanın ekonomik takvimi.</p></div></div>
   <div class="sembol-sec" id="sembol-sec"></div>
   <div class="tv-alan"><div id="tv-grafik"></div><div id="tv-takvim"></div></div>
 </div></section>
 
-<section class="bolum gun" id="uyelik"><div class="kap">
+<section class="bolum gun" id="uyelik" data-anlat="uyelik"><div class="kap">
   <div class="bb"><span class="mono">08 · Üyelik</span><div><h2 class="bas"><span class="kel"><span>Tek</span></span> <span class="kel"><span>üyelik.</span></span> <span class="kel"><span>Tüm</span></span> <span class="kel"><span>akademi.</span></span></h2><p>Kayıt ücretsiz; yönetici onayıyla erişiminiz açılır. Ücretlendirme üyelik sözleşmesine göredir. TL karşılıkları güncel kurla hesaplanır.</p></div></div>
   <div class="fiyat-alan">
     <div class="fiyat"><h3>Çevrimiçi</h3><div class="t">$250</div><span class="tl" data-usd="250">≈ — ₺</span><ul><li>36 video ders, 4 program</li><li>Haftalık canlı eğitimler</li><li>SPL sınav robotu</li><li>Forum ve rütbe sistemi</li></ul><button class="btn" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak')">Seç</button></div>
@@ -486,4 +486,4 @@ if(GS){document.querySelectorAll(".bolum h2").forEach(function(h){gsap.fromTo(h.
   gsap.fromTo("#dev-logo",{xPercent:12},{xPercent:-8,ease:"none",scrollTrigger:{trigger:"footer",start:"top bottom",end:"bottom bottom",scrub:true}});}
 })();
 </script>
-<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
+<script>if(window.top===window){window.DJ_REHBER={ses:"../ses/",satirlar:{"giris":{"metin":"Terminal tasarımındasınız. Arkada hareket eden mum grafikleri, gece borsası havasını veriyor. Aşağı indikçe bölümleri anlatacağım.","dosya":"t1-giris"},"seans":{"metin":"Dünya borsalarının seans saatleri canlı. Hangi piyasanın şu an açık olduğunu üye tek bakışta görüyor.","dosya":"t1-seans"},"programlar":{"metin":"Dört eğitim programı yana kayan bir rayda. Her programda dokuz ders var; üye nereden başlayacağını kolayca seçiyor.","dosya":"t1-programlar"},"kriz":{"metin":"Kaydırdıkça bir kriz grafiği adım adım çiziliyor. Ders anlatımı burada hikâyeye dönüşüyor.","dosya":"t1-kriz"},"lab":{"metin":"Risk laboratuvarı. Giriş, zarar kes ve hedef çizgilerini parmakla sürükleyin; risk ödül oranı ve pozisyon büyüklüğü anında hesaplanıyor.","dosya":"t1-lab"},"spl":{"metin":"SPL deneme sınavı burada çalışıyor. Sınav bitince konu radarında hangi konuda eksik olduğunuzu görüyorsunuz.","dosya":"t1-spl"},"canli":{"metin":"Sıradaki canlı yayına geri sayım var. Tek dokunuşla takviminize ekleniyor.","dosya":"t1-canli"},"topluluk":{"metin":"Rütbe merdiveni ve topluluk. Üye ilerledikçe yükseliyor, akademiye bağlanıyor.","dosya":"t1-topluluk"},"piyasa":{"metin":"Gerçek TradingView grafiği. Sembolü değiştirip piyasayı sitenin içinden izleyebiliyorsunuz.","dosya":"t1-piyasa"},"uyelik":{"metin":"Üyelik paketleri en sonda, dolar bazlı fiyatlar güncel kurla Türk lirasına çevriliyor. İsterseniz diğer tasarımlara da bakın.","dosya":"t1-uyelik"}}};var _r=document.createElement("script");_r.src="/ornek/_dijitabela/rehber.js";_r.defer=true;document.addEventListener("DOMContentLoaded",function(){document.body.appendChild(_r)});}</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>

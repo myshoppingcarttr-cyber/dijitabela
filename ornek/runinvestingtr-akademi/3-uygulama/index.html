@@ -128,7 +128,7 @@ footer{padding:40px 0;color:var(--s);font-size:13px}footer .kap{display:flex;jus
   <a href="#demo" class="btn iki">Demoyu dene</a><a href="#uyelik" class="btn ana">Üye ol</a>
 </div></header>
 
-<section class="tur" id="tur">
+<section class="tur" id="tur" data-anlat="giris">
   <div class="tur-yapis">
     <div class="tur-sol">
       <div class="tur-adim on"><span class="mono" style="color:var(--alt)">● Cebinizdeki finans akademisi</span><h1 class="bas">Günde 15 dakika. <span style="color:var(--k)">Her gün.</span></h1><p>Kişisel ders rotanız, günlük görevleriniz ve rütbe kazandığınız topluluk. Bilgiyi alışkanlığa dönüştüren bir uygulama.</p></div>
@@ -154,7 +154,7 @@ footer{padding:40px 0;color:var(--s);font-size:13px}footer .kap{display:flex;jus
   </div>
 </section>
 
-<section class="bolum gun" id="demo"><div class="kap">
+<section class="bolum gun" id="demo" data-anlat="demo"><div class="kap">
   <div class="bb"><span class="mono">Canlı demo</span><div><h2 class="bas">Üye panelini şimdi deneyin.</h2><p>Aşağıdaki uygulama gerçekten çalışır: görevleri tamamlayın, ders izleyin, SPL'de sınava girin, canlı odada soru sorun, forumda beğenin. İlerlemeniz bu cihazda saklanır.</p></div></div>
   <div class="uyg">
     <aside class="yan" id="yan">
@@ -194,7 +194,7 @@ footer{padding:40px 0;color:var(--s);font-size:13px}footer .kap{display:flex;jus
   </div>
 </div></section>
 
-<section class="bolum gun" id="ozellikler" style="padding-top:20px"><div class="kap">
+<section class="bolum gun" id="ozellikler" data-anlat="ozellikler" style="padding-top:20px"><div class="kap">
   <div class="bb"><span class="mono">Neden RunInvestingTR</span><div><h2 class="bas">Ders izlemekten fazlası: alışkanlık.</h2></div></div>
   <div class="ozellik">
     <div><b>01</b><h3>Kişisel rota</h3><p>Kayıtta seçtiğiniz seviye ve ilgi alanına (BIST, ABD, Forex, Altın, Kripto, Makro) göre ders sırası.</p></div>
@@ -206,7 +206,7 @@ footer{padding:40px 0;color:var(--s);font-size:13px}footer .kap{display:flex;jus
   </div>
 </div></section>
 
-<section class="bolum" id="uyelik"><div class="kap">
+<section class="bolum" id="uyelik" data-anlat="uyelik"><div class="kap">
   <div class="bb" style="color:var(--y)"><span class="mono">Üyelik</span><div><h2 class="bas">Bir kez üye olun, akademinin tamamı sizin.</h2><p>Kayıt ücretsiz; yönetici onayıyla hesabınız aktifleşir. Ücretlendirme üyelik sözleşmesine göredir.</p></div></div>
   <div class="fiyat-alan">
     <div class="fiyat"><h3>Çevrimiçi</h3><div class="t">$250</div><span class="tl" data-usd="250">≈ — ₺</span><ul><li>36 video ders</li><li>Canlı ders odası</li><li>SPL robotu</li><li>Forum ve rütbeler</li></ul><button class="btn" onclick="RIT.bildir('Prototip: ödeme adımı sözleşme netleşince bağlanacak')">Seç</button></div>
@@ -298,4 +298,4 @@ if(GS){gsap.from(".uyg",{y:120,scale:.94,opacity:.3,scrollTrigger:{trigger:".uyg
   gsap.fromTo("#son-bas",{scale:.6},{scale:1,ease:"none",scrollTrigger:{trigger:".son",start:"top bottom",end:"center center",scrub:true}})}
 })();
 </script>
-<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
+<script>if(window.top===window){window.DJ_REHBER={ses:"../ses/",satirlar:{"giris":{"metin":"Uygulama tasarımındasınız. Aşağı kaydırın; telefon dönerek uygulamayı altı ekranda tanıtıyor.","dosya":"t3-giris"},"demo":{"metin":"Bu üye paneli gerçekten çalışıyor. Günlük görevleri tamamlayın, puan toplayın, rütbeniz yükselsin. Ders izleyip not alabilir, canlı odada sohbet edebilirsiniz.","dosya":"t3-demo"},"ozellikler":{"metin":"Uygulamanın tüm özellikleri tek bakışta: forum, liderlik tablosu, izleme listesi ve piyasa ekranları.","dosya":"t3-ozellikler"},"uyelik":{"metin":"Üyelik paketleri en sonda. Hangi tasarım içinize sinerse, onu gerçek içeriklerle tamamlayalım.","dosya":"t3-uyelik"}}};var _r=document.createElement("script");_r.src="/ornek/_dijitabela/rehber.js";_r.defer=true;document.addEventListener("DOMContentLoaded",function(){document.body.appendChild(_r)});}</script><script src="/ornek/_dijitabela/izle.js" defer></script></body></html>
