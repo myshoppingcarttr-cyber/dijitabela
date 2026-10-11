@@ -101,4 +101,4 @@ $("#hepsi").onclick=async()=>{const l=VERI.filter(o=>o.durum==="hazir");$("#heps
  try{const d=await rpc("onay_liste",{token:TOKEN});$("#baslik").textContent=d.ad;document.title=d.ad+" · İçerik Onayı";VERI=d.ogeler;$("#bilgi").hidden=false;ciz();}
  catch(e){$("#gecersiz").hidden=false;$("#baslik").textContent="İçerik onayı";}})();
 </script>
-</body></html>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
