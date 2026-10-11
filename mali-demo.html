@@ -179,7 +179,8 @@ footer{color:var(--s);font-size:13px;text-align:center;padding:26px 16px}
   function onayla(yol) {
     if (aktif === null || $("#onayla").disabled) return; var f = FISLER[aktif];
     islenen.push(aktif);
-    if (window.djIzle) djIzle("demo:onay " + islenen.length + "/" + FISLER.length + (yol === "F9" ? " (F9)" : " (tık)") + (islenen.length === FISLER.length ? " · demo tamamlandı" : "")); // 12 Eki ölçüm aktif = null; $("#onayla").disabled = true; $("#durum").textContent = "Deftere işlendi"; $("#not").textContent = "Kayıt deftere ve Luca aktarımına eklendi.";
+    if (window.djIzle) djIzle("demo:onay " + islenen.length + "/" + FISLER.length + (yol === "F9" ? " (F9)" : " (tık)") + (islenen.length === FISLER.length ? " · demo tamamlandı" : "")); /* 12 Eki ölçüm */
+    aktif = null; $("#onayla").disabled = true; $("#durum").textContent = "Deftere işlendi"; $("#not").textContent = "Kayıt deftere ve Luca aktarımına eklendi.";
     var tb = $("#defter"); if (islenen.length === 1) tb.innerHTML = "";
     var tr = document.createElement("tr"); tr.className = "yeni";
     tr.innerHTML = "<td>" + f.tarih + "</td><td>" + f.unvan + '<div class="yevmiye">770 B ' + tl(f.matrah) + " · 191 B " + tl(f.kdv) + " · 100 A " + tl(f.toplam) + "</div></td><td>770 / 191</td><td class=p>" + tl(f.matrah) + "</td><td class=p>" + tl(f.kdv) + "</td><td class=p>" + tl(f.toplam) + "</td>";
