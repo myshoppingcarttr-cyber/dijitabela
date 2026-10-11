@@ -1,12 +1,12 @@
-// P-10 (Patron onayı 12 Eki 2026): teklif ve prototip seçim/giriş sayfalarında SABİT WhatsApp butonu + "Giriş paketi 5.900 TL'den başlar".
+// P-10 (Patron onayı 12 Eki 2026): teklif ve prototip seçim/giriş sayfalarında SABİT WhatsApp butonu + "Giriş paketi 4.900 TL'den başlar".
 // Gerekçe: 35 prototip, 49 oturum, yalnız 2 teklif tıklaması. _build/wa-buton-ekle.js yalnız ornek/<slug>/index.html ve teklif.html'e ekler.
-// FİYAT TEK DİL: giriş paketi 5.900 TL (başka başlangıç fiyatı yazmayın; değişirse yalnız FIYAT satırını değiştirin).
+// FİYAT TEK DİL: giriş paketi 4.900 TL (başka başlangıç fiyatı yazmayın; değişirse yalnız FIYAT satırını değiştirin).
 // Yerleşim: sayfada kendi "taslak" alt çubuğu varsa (tek sayfalık prototipler) ikinci çubuk açılmaz, buton o çubuğun içine girer;
 // yoksa ekranın altına ince bir çubuk konur, konuşan tabela (.djr) ve uygulama alt menüsü (.yz-alt) çubuğun üstüne kaydırılır.
 (function () {
   "use strict";
   if (window.DJ_WA_BUTON === false || document.getElementById("djwa") || document.querySelector(".djwa-b")) return;
-  var TEL = "905019452184", FIYAT = "5.900 TL";
+  var TEL = "905019452184", FIYAT = "4.900 TL";
   var temiz = function (t) { return String(t || "").replace(/\s+/g, " ").trim(); };
   var ad = temiz(document.title.split(/\s[·|–]\s/)[0]) || temiz((document.querySelector("h1") || {}).textContent).slice(0, 60);
   if (ad.length > 70) ad = ad.slice(0, 70).replace(/\s+\S*$/, "");
