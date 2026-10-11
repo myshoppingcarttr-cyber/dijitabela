@@ -1,0 +1,20 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Terraura için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+ },
+ "b1": {
+  "metin": "Anında fiyat hesaplayıcı. Fiyatlar Terraura'nın güncel fiyat listesinden geliyor."
+ },
+ "b2": {
+  "metin": "Online randevu. Takvim, ekiplerin o gün hangi bölgede olduğuna göre açılır."
+ },
+ "b3": {
+  "metin": "Nasıl çalışıyoruz? Kumaş türüne göre bu adımların tamamı veya bir kısmı uygulanır."
+ },
+ "b4": {
+  "metin": "Koltuğunuzdan çıkan su, farkı anlatıyor. Her işin sonunda kovadaki suyun fotoğrafı müşteriye WhatsApp'tan otomatik gönderilir."
+ },
+ "b5": {
+  "metin": "Son işlerimiz. "
+ }
+}

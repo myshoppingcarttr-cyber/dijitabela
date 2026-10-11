@@ -1,0 +1,29 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Show Oto Servis için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+ },
+ "b1": {
+  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında."
+ },
+ "b2": {
+  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün."
+ },
+ "b3": {
+  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın."
+ },
+ "b4": {
+  "metin": "Servis hizmetleri. Yağ ve filtre değişimi dahil aracınızın düzenli bakımı, üreticinin önerdiği kontrollere uygun şekilde yapılır."
+ },
+ "b5": {
+  "metin": "Google'daki fotoğraflarınızdan. "
+ },
+ "b6": {
+  "metin": "Neden Show Oto Servis? Müşterilerimiz işini bilen ve değer verdiği ekibiyle çalışan ustaları, Şükrü usta başta olmak üzere, özellikle öne çıkarıyor."
+ },
+ "b7": {
+  "metin": "Bize ulaşın. 📍 Şafak, 5001. Sk. no:44 D:ç, 07220 Kepez/Antalya"
+ },
+ "b8": {
+  "metin": "Gelmeden önce bizi görün. Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın."
+ }
+}
