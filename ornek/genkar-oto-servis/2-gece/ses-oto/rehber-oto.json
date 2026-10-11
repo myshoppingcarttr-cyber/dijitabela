@@ -1,0 +1,26 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Genkar Oto Servis için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+ },
+ "b1": {
+  "metin": "Aracınızda ne var? Belirtiyi seçin, ne yapmanız gerektiğini görün. Sesi, lambayı ya da hissi seçin: olası nedenler, ne kadar acil olduğu ve tahmini servis süresi anında."
+ },
+ "b2": {
+  "metin": "Bir sonraki bakımınız ne zaman, neler değişecek? Son bakım kilometresini ve yılda ne kadar yol yaptığınızı girin; değişmesi gereken parçalar ve tahmini tarih çıksın, takviminize hatırlatma düşsün."
+ },
+ "b3": {
+  "metin": "Sıra beklemeden randevu, aracınızın durumunu telefondan izleyin. Boş saatleri görüp randevu alın."
+ },
+ "b4": {
+  "metin": "Servis hizmetleri. Yağ ve filtre değişimi dahil aracınızın üreticinin önerdiği bakım adımlarına uygun şekilde bakımı yapılır."
+ },
+ "b5": {
+  "metin": "Google'daki fotoğraflarınızdan. "
+ },
+ "b6": {
+  "metin": "Neden Genkar Oto Servis? Müşterilerimiz her gelişlerinde aynı ilgiyi ve dürüst yaklaşımı gördüklerini söylüyor."
+ },
+ "b7": {
+  "metin": "Bize ulaşın. 📍 Ferhatpaşa, 17. Sk."
+ }
+}
