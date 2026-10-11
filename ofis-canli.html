@@ -161,7 +161,31 @@ body.gece .sahne::after{content:"";position:absolute;inset:0;background:rgba(10,
 
   /* veri */
   var onceki = {}, ilk = true;
+  /* TOPLANTI (11 Eki, Patron): ofis_durum'da kod "_toplanti" durum "aktif" → herkes toplantı odasına yürür, detay.konusmalar sırayla konuşulur,
+     sonda yönetici detay.onay der. Satır silinince / durum "bitti" olunca herkes masasına döner. */
+  var TOP = null, TOP_T = null, topSira = 0;
+  function koltuklar() { var s = [[92, 805]]; for (var i = 0; i < 8; i++) s.push([150 + i * 46, 712]); for (var j = 0; j < 8; j++) s.push([150 + j * 46, 905]); s.push([92, 745], [528, 760], [528, 820], [528, 880], [92, 870]); return s; }
+  function toplantiGuncelle(T) {
+    var aktif = T && T.durum === "aktif" && T.detay && T.detay.konusmalar;
+    if (aktif && !TOP) {
+      TOP = T.detay; topSira = 0; var s = koltuklar(), n = 0;
+      olay({ kod: "yonetici", ad: "Yönetici Asistan" }, "📣 Herkes toplantı odasına: " + (TOP.konu || "toplantı"));
+      ["yonetici", "gm"].concat(Object.keys(KISI).filter(function (k) { return k !== "yonetici" && k !== "gm"; })).forEach(function (kod) {
+        var K = KISI[kod]; if (!K || (DURUM[kod] && DURUM[kod].durum === "kapali")) return; var yer = s[n++] || [300, 950];
+        K.mesgul = true; rota(kod, yer[0], yer[1]).then(function () { K.el.classList.remove("yuruyor", "yaziyor"); K.el.classList.add("oturuyor"); });
+      });
+      TOP_T = setInterval(function () {
+        var L = TOP.konusmalar; if (!L.length) return;
+        if (topSira < L.length) { var k = L[topSira++]; if (KISI[k.kod]) { konus(k.kod, k.metin, 7600); olay(DURUM[k.kod] || { kod: k.kod, ad: k.kod }, "🗣️ " + k.metin); } }
+        else { konus("yonetici", TOP.onay || "Tüm görevler net, onaylıyorum ✅", 7600); olay({ kod: "yonetici", ad: "Yönetici Asistan" }, "✅ " + (TOP.onay || "Görevler onaylandı")); topSira = 0; }
+      }, 8000);
+    } else if (!aktif && TOP) {
+      TOP = null; clearInterval(TOP_T); Object.keys(KISI).forEach(function (kod) { masayaDon(kod).then(function () { KISI[kod].mesgul = false; }); });
+    }
+  }
   function isle(satirlar) {
+    toplantiGuncelle(satirlar.filter(function (r) { return r.kod === "_toplanti"; })[0]);
+    satirlar = satirlar.filter(function (r) { return String(r.kod).charAt(0) !== "_"; });
     var say = { calisiyor: 0, bosta: 0, hata: 0 };
     satirlar.forEach(function (r, i) {
       if (!KISI[r.kod]) kisiKur(r, i);
@@ -195,6 +219,7 @@ body.gece .sahne::after{content:"";position:absolute;inset:0;background:rgba(10,
   }
   /* boşta davranışları */
   setInterval(function () {
+    if (TOP) return; // toplantıdayken kahve/ziyaret yok
     Object.keys(KISI).forEach(function (kod) {
       var r = DURUM[kod], K = KISI[kod]; if (!r || K.mesgul || r.durum === "kapali") return;
       var z = Math.random();

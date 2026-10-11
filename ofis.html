@@ -103,7 +103,7 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
   async function yukle() {
     var r = await sb.from("ofis_durum").select("*").order("sira");
     if (r.error) { $("son").textContent = "Okunamadı: " + r.error.message; return; }
-    var L = r.data || [];
+    var L = (r.data || []).filter(function (p) { return String(p.kod).charAt(0) !== "_"; }); // "_toplanti" gibi sistem satırları personel değil
     if (!L.length) { $("zemin").innerHTML = '<div class="masa"><div class="balon">Bu hesapla ofis verisi görünmüyor. alimhoslar16@gmail.com ile giriş yaptığınızdan emin olun.</div></div>'; return; }
     var gm = L.filter(function (p) { return p.kod === "gm"; })[0];
     $("gm").innerHTML = gm ? masa(gm, true) : "";
