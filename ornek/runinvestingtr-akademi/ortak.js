@@ -5,14 +5,14 @@
   var R = (window.RIT = {});
 
   R.konular = [
-    { k: "A", ad: "Finansal Yatırım", ozet: "Finansal yatırımın temel kavramları, piyasaların işleyişi ve yatırım araçları.", renk: "#2b7fff",
-      dersler: ["Tasarruftan yatırıma: temel kavramlar", "Finansal piyasaların yapısı", "Para ve sermaye piyasaları", "Hisse senetleri ve halka arzlar", "Tahvil, bono ve kira sertifikaları", "Yatırım fonları ve borsa yatırım fonları", "Türev araçlar: vadeli işlem ve opsiyon", "Emtia: altın, gümüş, petrol", "Döviz ve parite piyasaları"] },
-    { k: "B", ad: "Finansal Piyasalarda Yatırımcı Olmak", ozet: "Yatırımcı psikolojisi, davranışları, risk yönetimi ve yatırımcı disiplini.", renk: "#d32f2f",
-      dersler: ["Yatırımcı psikolojisi", "Davranışsal tuzaklar: FOMO, kayıptan kaçınma", "Risk ve getiri ilişkisi", "Risk yönetimi ve pozisyon büyüklüğü", "Zarar kes ve kâr al disiplini", "Portföy çeşitlendirme", "İşlem günlüğü tutmak", "Kişisel yatırım planı", "Kriz dönemlerinde yatırımcı davranışı"] },
-    { k: "C", ad: "Finansal Okuryazarlık", ozet: "Enflasyon, faiz, para politikaları, arz-talep ve ekonomik gelişmeler.", renk: "#f59e0b",
-      dersler: ["Enflasyon ve reel getiri", "Faiz ve para politikası", "Merkez bankaları nasıl çalışır", "Arz-talep ve fiyat oluşumu", "Makro göstergeler: GSYH, işsizlik, cari denge", "Ekonomik takvim nasıl okunur", "Bileşik getirinin gücü", "Kur, dış ticaret ve sermaye akımları", "Haber akışını doğru yorumlamak"] },
-    { k: "D", ad: "Teknik Analiz", ozet: "Grafik okuma, trendler, indikatörler ve formasyonlar.", renk: "#10b981",
-      dersler: ["Grafik türleri ve mum çubukları", "Trend ve trend çizgileri", "Destek ve direnç", "Hareketli ortalamalar", "RSI, MACD ve momentum", "Hacim analizi", "Formasyonlar: OBO, üçgen, bayrak", "Fibonacci düzeltmeleri", "Strateji kurmak ve geriye dönük test"] }
+    { k: "A", ad: "Finansal Yatırım", ozet: "Finansal yatırımın temel kavramları, finansal piyasaların işleyişi ve yatırım araçları.", renk: "#2b7fff",
+      dersler: ["Finansal Yatırım Nedir ve Finansal Piyasa Türleri", "Finansal Piyasaların Fonksiyonları", "Finansal Yatırım Araçları ve Ürünler", "Para ve Sermaye Piyasaları ve Genel Bilgiler"] },
+    { k: "B", ad: "Finansal Piyasalarda Yatırımcı Olmak", ozet: "Yatırımcı psikolojisi, yatırımcı davranışları, risk yönetimi ve yatırımcı disiplininin temel prensipleri.", renk: "#d32f2f",
+      dersler: ["Yatırımcı Psikolojisi", "Yatırımcı Davranışları ve Yatırımcı Prensipleri", "Piyasayla Birlikte Hareket Etmek", "Risk Yönetimi", "Yatırımcı Disiplininin Önemi"] },
+    { k: "C", ad: "Finansal Okuryazarlık", ozet: "Ekonomik ve finansal gelişmeleri doğru değerlendirebilmek için gerekli temel bilgiler.", renk: "#f59e0b",
+      dersler: [] },
+    { k: "D", ad: "Teknik Analiz", ozet: "Grafik okuma, trend analizi, indikatörler, formasyonlar ve teknik analiz stratejileri.", renk: "#10b981",
+      dersler: [] }
   ];
 
   // Forum rütbeleri (zip: forum-gonderi.php rutbeHesapla) ve kategoriler (forum-kategori-yorum.sql)
