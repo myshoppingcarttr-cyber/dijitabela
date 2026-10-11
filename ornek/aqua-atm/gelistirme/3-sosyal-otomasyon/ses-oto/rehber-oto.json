@@ -1,0 +1,23 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Aqua ATM için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+ },
+ "b1": {
+  "metin": "Sosyal medyanız kendi kendine çalışsın. 3 şikâyet ve 1 sözleşme sorusu otomatik cevaplanmadı; ekibinizin onayını bekliyor."
+ },
+ "b2": {
+  "metin": "Gönderilerinize gelen yorumlar. Yapay zekâ asistanı sizin kurallarınızla cevap yazar."
+ },
+ "b3": {
+  "metin": "Mesajlar (Instagram · Facebook · WhatsApp). Tüm kanallar tek kutuda."
+ },
+ "b4": {
+  "metin": "Facebook gruplarında aday taraması. Üye olduğunuz yerel gruplarda \"ek gelir\", \"yatırım\", \"dükkânımın önüne ne koyabilirim\", \"su otomatı\" gibi gönderiler taranır."
+ },
+ "b5": {
+  "metin": "Paylaşım takvimi. Haftada 5 paylaşım hazırlanır: yeni açılan nokta, bayi hikâyesi, su ve sağlık bilgisi, çevre ve plastik tasarrufu, bayilik çağrısı."
+ },
+ "b6": {
+  "metin": "Kurallar. Asistanın neyi kendi başına yapacağını siz belirlersiniz."
+ }
+}

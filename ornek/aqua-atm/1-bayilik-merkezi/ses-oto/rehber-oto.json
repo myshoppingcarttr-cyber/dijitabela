@@ -1,0 +1,26 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Aqua ATM Bayilik için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım."
+ },
+ "b1": {
+  "metin": "Tahmin değil, kendi rakamlarınız. \"Ayda şu kadar kazanırsınız\" demek yerine ziyaretçinin kendi lokasyonuna göre hesap yapmasını sağlıyoruz."
+ },
+ "b2": {
+  "metin": "350.000 ₺'lik karar tahmine bırakılmaz. 5 soruyu yanıtlayın, lokasyonunuzun ön puanını görün."
+ },
+ "b3": {
+  "metin": "Başvurudan ilk doluma 5 adım. Bölge, geçiş yoğunluğu, rakip otomatlar ve görünürlük değerlendirilir."
+ },
+ "b4": {
+  "metin": "\"İzmir su otomatı bayiliği\" arayan sizi bulsun. Her il ve büyük ilçe için ayrı sayfa: o şehirdeki aktif cihazlar, uygun lokasyon tipleri, belediye işgaliye süreci, yerel SSS."
+ },
+ "b5": {
+  "metin": "Yatırımcının aradığı sorulara cevap veren yazılar. Belgeler, lokasyon, kurulum ve ilk ay: başvurmadan önce bilmeniz gereken her şey."
+ },
+ "b6": {
+  "metin": "Bayilik hakkında. Vergi levhanızda otomatik satış makineleriyle perakende ticaret (NACE 479910) ve gıda faaliyeti bulunmalı."
+ },
+ "b7": {
+  "metin": "Bölge temsilciniz sizi arasın. Hesap özetiniz başvuruya eklenecek: günlük ~35 × 19 lt, ~30 × 5 lt, tahmini aylık net 34.500 ₺."
+ }
+}
