@@ -3,7 +3,7 @@
  "tasarimlar": "1c103403de5c",
  "t1-giris": "6590f1d87ccd",
  "t1-seans": "6af8f13efbc8",
- "t1-programlar": "bcb6ef7a1865",
+ "t1-programlar": "66114553ff8c",
  "t1-kriz": "9e65c1ac4c4d",
  "t1-lab": "f143bdd42c1a",
  "t1-spl": "81fb0cecdfd4",
@@ -22,5 +22,10 @@
  "t3-giris": "9a974d5fd5e6",
  "t3-demo": "ec3689cfdffe",
  "t3-ozellikler": "7ba163a5b8b6",
- "t3-uyelik": "5cb9223bab04"
+ "t3-uyelik": "5cb9223bab04",
+ "t_giris": "2726babf8b78",
+ "t_plan": "cd743813aa6d",
+ "t_tespit": "353f96e5ac5e",
+ "t_yapacak": "7b6dae9b30ae",
+ "t_fiyat": "43a6873a538a"
 }

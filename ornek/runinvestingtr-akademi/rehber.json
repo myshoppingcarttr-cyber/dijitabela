@@ -1,29 +1,89 @@
 {
- "giris": { "metin": "Merhaba! RunInvestingTR akademisi için üç farklı web sitesi hazırladık. Üçü de çalışır hâlde; telefonda da açılıyor. Hangisini açarsanız onu size bölüm bölüm anlatacağım." },
- "tasarimlar": { "metin": "Birincisi Terminal: koyu, canlı piyasa hissi veren trader ekranı. İkincisi Kurumsal Akademi: güven veren, gazete düzeninde bir eğitim kurumu. Üçüncüsü Uygulama: görev, puan ve rütbeyle oyunlaştırılmış üye paneli. Birine dokunun." },
-
- "t1-giris": { "metin": "Terminal tasarımındasınız. Arkada hareket eden mum grafikleri, gece borsası havasını veriyor. Aşağı indikçe bölümleri anlatacağım." },
- "t1-seans": { "metin": "Dünya borsalarının seans saatleri canlı. Hangi piyasanın şu an açık olduğunu üye tek bakışta görüyor." },
- "t1-programlar": { "metin": "Dört eğitim programı yana kayan bir rayda; toplam otuz altı ders var. Üye nereden başlayacağını kolayca seçiyor." },
- "t1-kriz": { "metin": "Kaydırdıkça bir kriz grafiği adım adım çiziliyor. Ders anlatımı burada hikâyeye dönüşüyor." },
- "t1-lab": { "metin": "Risk laboratuvarı. Giriş, zarar kes ve hedef çizgilerini parmakla sürükleyin; risk ödül oranı ve pozisyon büyüklüğü anında hesaplanıyor." },
- "t1-spl": { "metin": "SPL deneme sınavı burada çalışıyor. Sınav bitince konu radarında hangi konuda eksik olduğunuzu görüyorsunuz." },
- "t1-canli": { "metin": "Sıradaki canlı yayına geri sayım var. Tek dokunuşla takviminize ekleniyor." },
- "t1-topluluk": { "metin": "Rütbe merdiveni ve topluluk. Üye ilerledikçe yükseliyor, akademiye bağlanıyor." },
- "t1-piyasa": { "metin": "Gerçek TradingView grafiği. Sembolü değiştirip piyasayı sitenin içinden izleyebiliyorsunuz." },
- "t1-uyelik": { "metin": "Üyelik paketleri en sonda, dolar bazlı fiyatlar güncel kurla Türk lirasına çevriliyor. İsterseniz diğer tasarımlara da bakın." },
-
- "t2-giris": { "metin": "Kurumsal Akademi tasarımındasınız. Kaydırdıkça açılan büyük görsel, kurumsal ve güven veren bir giriş yapıyor." },
- "t2-rota": { "metin": "Metro haritası. Dört program dört hat, otuz altı ders otuz altı durak. Kısa seviye testini çözün, size özel rotanız haritada çizilsin." },
- "t2-programlar": { "metin": "Programlar büyük harflerle tek tek sabitleniyor; her programın dersleri yanında akıyor." },
- "t2-analiz": { "metin": "Uzun analiz yazısı zaman çizelgesiyle okunuyor. Akademinin uzmanlığını gösteren bölüm bu." },
- "t2-spl": { "metin": "SPL deneme sınavı burada da çalışıyor; en iyi puanınız saklanıyor." },
- "t2-sertifika": { "metin": "Adınızı yazın, sertifikanız oluşsun. Üç boyutlu döndürebilir, resim olarak indirebilirsiniz." },
- "t2-kutuphane": { "metin": "Kütüphane: dersler, videolar ve dokümanlar konuya göre filtreleniyor." },
- "t2-uyelik": { "metin": "Üyelik paketleri ve sık sorulan sorular burada. İsterseniz diğer tasarımlara da bakın." },
-
- "t3-giris": { "metin": "Uygulama tasarımındasınız. Aşağı kaydırın; telefon dönerek uygulamayı altı ekranda tanıtıyor." },
- "t3-demo": { "metin": "Bu üye paneli gerçekten çalışıyor. Günlük görevleri tamamlayın, puan toplayın, rütbeniz yükselsin. Ders izleyip not alabilir, canlı odada sohbet edebilirsiniz." },
- "t3-ozellikler": { "metin": "Uygulamanın tüm özellikleri tek bakışta: forum, liderlik tablosu, izleme listesi ve piyasa ekranları." },
- "t3-uyelik": { "metin": "Üyelik paketleri en sonda. Hangi tasarım içinize sinerse, onu gerçek içeriklerle tamamlayalım." }
+ "giris": {
+  "metin": "Merhaba! RunInvestingTR akademisi için üç farklı web sitesi hazırladık. Üçü de çalışır hâlde; telefonda da açılıyor. Hangisini açarsanız onu size bölüm bölüm anlatacağım."
+ },
+ "tasarimlar": {
+  "metin": "Birincisi Terminal: koyu, canlı piyasa hissi veren trader ekranı. İkincisi Kurumsal Akademi: güven veren, gazete düzeninde bir eğitim kurumu. Üçüncüsü Uygulama: görev, puan ve rütbeyle oyunlaştırılmış üye paneli. Birine dokunun."
+ },
+ "t1-giris": {
+  "metin": "Terminal tasarımındasınız. Arkada hareket eden mum grafikleri, gece borsası havasını veriyor. Aşağı indikçe bölümleri anlatacağım."
+ },
+ "t1-seans": {
+  "metin": "Dünya borsalarının seans saatleri canlı. Hangi piyasanın şu an açık olduğunu üye tek bakışta görüyor."
+ },
+ "t1-programlar": {
+  "metin": "Dört eğitim programı yana kayan bir rayda; toplam otuz altı ders var. Üye nereden başlayacağını kolayca seçiyor."
+ },
+ "t1-kriz": {
+  "metin": "Kaydırdıkça bir kriz grafiği adım adım çiziliyor. Ders anlatımı burada hikâyeye dönüşüyor."
+ },
+ "t1-lab": {
+  "metin": "Risk laboratuvarı. Giriş, zarar kes ve hedef çizgilerini parmakla sürükleyin; risk ödül oranı ve pozisyon büyüklüğü anında hesaplanıyor."
+ },
+ "t1-spl": {
+  "metin": "SPL deneme sınavı burada çalışıyor. Sınav bitince konu radarında hangi konuda eksik olduğunuzu görüyorsunuz."
+ },
+ "t1-canli": {
+  "metin": "Sıradaki canlı yayına geri sayım var. Tek dokunuşla takviminize ekleniyor."
+ },
+ "t1-topluluk": {
+  "metin": "Rütbe merdiveni ve topluluk. Üye ilerledikçe yükseliyor, akademiye bağlanıyor."
+ },
+ "t1-piyasa": {
+  "metin": "Gerçek TradingView grafiği. Sembolü değiştirip piyasayı sitenin içinden izleyebiliyorsunuz."
+ },
+ "t1-uyelik": {
+  "metin": "Üyelik paketleri en sonda, dolar bazlı fiyatlar güncel kurla Türk lirasına çevriliyor. İsterseniz diğer tasarımlara da bakın."
+ },
+ "t2-giris": {
+  "metin": "Kurumsal Akademi tasarımındasınız. Kaydırdıkça açılan büyük görsel, kurumsal ve güven veren bir giriş yapıyor."
+ },
+ "t2-rota": {
+  "metin": "Metro haritası. Dört program dört hat, otuz altı ders otuz altı durak. Kısa seviye testini çözün, size özel rotanız haritada çizilsin."
+ },
+ "t2-programlar": {
+  "metin": "Programlar büyük harflerle tek tek sabitleniyor; her programın dersleri yanında akıyor."
+ },
+ "t2-analiz": {
+  "metin": "Uzun analiz yazısı zaman çizelgesiyle okunuyor. Akademinin uzmanlığını gösteren bölüm bu."
+ },
+ "t2-spl": {
+  "metin": "SPL deneme sınavı burada da çalışıyor; en iyi puanınız saklanıyor."
+ },
+ "t2-sertifika": {
+  "metin": "Adınızı yazın, sertifikanız oluşsun. Üç boyutlu döndürebilir, resim olarak indirebilirsiniz."
+ },
+ "t2-kutuphane": {
+  "metin": "Kütüphane: dersler, videolar ve dokümanlar konuya göre filtreleniyor."
+ },
+ "t2-uyelik": {
+  "metin": "Üyelik paketleri ve sık sorulan sorular burada. İsterseniz diğer tasarımlara da bakın."
+ },
+ "t3-giris": {
+  "metin": "Uygulama tasarımındasınız. Aşağı kaydırın; telefon dönerek uygulamayı altı ekranda tanıtıyor."
+ },
+ "t3-demo": {
+  "metin": "Bu üye paneli gerçekten çalışıyor. Günlük görevleri tamamlayın, puan toplayın, rütbeniz yükselsin. Ders izleyip not alabilir, canlı odada sohbet edebilirsiniz."
+ },
+ "t3-ozellikler": {
+  "metin": "Uygulamanın tüm özellikleri tek bakışta: forum, liderlik tablosu, izleme listesi ve piyasa ekranları."
+ },
+ "t3-uyelik": {
+  "metin": "Üyelik paketleri en sonda. Hangi tasarım içinize sinerse, onu gerçek içeriklerle tamamlayalım."
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada RunInvestingTR akademisi için hazırladığımız iş geliştirme planını, çalışma modellerimizi ve neleri kurduğumuzu anlatacağım."
+ },
+ "t_plan": {
+  "metin": "İş geliştirme planınız burada. Amacımız akademiye daha çok öğrenci ve daha düzenli gelir getirmek; web sitesi bunun yalnızca bir parçası."
+ },
+ "t_tespit": {
+  "metin": "Tespitlerimiz burada: tek yerleşim, üyelik akışı ve mobil deneyim."
+ },
+ "t_yapacak": {
+  "metin": "Planın kurulumunda neler var burada: üç tasarım, üye platformu, seviye testi ve sınav robotu, canlı yayın alanı ve üç ay destek."
+ },
+ "t_fiyat": {
+  "metin": "Üç çalışma modelimiz var. Fiyatlar kalem kalem aşağıda yazıyor; fiyatlara KDV dahil değildir. Size uygun olanı birlikte seçeriz."
+ }
 }
