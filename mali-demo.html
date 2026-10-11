@@ -176,9 +176,10 @@ footer{color:var(--s);font-size:13px;text-align:center;padding:26px 16px}
     var sira = [["tur", f.tur], ["tarih", f.tarih], ["unvan", f.unvan], ["vkn", f.vkn + " ✓"], ["no", f.no], ["hesap", f.hesap], ["oran", "%" + f.oran], ["matrah", tl(f.matrah)], ["kdvt", tl(f.kdv)], ["toplam", tl(f.toplam)]];
     sira.forEach(function (x, j) { setTimeout(function () { var e = document.querySelector('[data-a="' + x[0] + '"]'); e.textContent = x[1]; e.classList.add("doldu"); if (j === sira.length - 1) { fis.classList.remove("okunuyor"); $("#durum").textContent = "Okundu · onay bekliyor"; $("#onayla").disabled = false; $("#not").innerHTML = "Alanları kontrol edin; doğruysa <kbd>F9</kbd> ya da Onayla."; $("#onayla").focus(); } }, 1200 + j * 280); });
   }
-  function onayla() {
+  function onayla(yol) {
     if (aktif === null || $("#onayla").disabled) return; var f = FISLER[aktif];
-    islenen.push(aktif); aktif = null; $("#onayla").disabled = true; $("#durum").textContent = "Deftere işlendi"; $("#not").textContent = "Kayıt deftere ve Luca aktarımına eklendi.";
+    islenen.push(aktif);
+    if (window.djIzle) djIzle("demo:onay " + islenen.length + "/" + FISLER.length + (yol === "F9" ? " (F9)" : " (tık)") + (islenen.length === FISLER.length ? " · demo tamamlandı" : "")); // 12 Eki ölçüm aktif = null; $("#onayla").disabled = true; $("#durum").textContent = "Deftere işlendi"; $("#not").textContent = "Kayıt deftere ve Luca aktarımına eklendi.";
     var tb = $("#defter"); if (islenen.length === 1) tb.innerHTML = "";
     var tr = document.createElement("tr"); tr.className = "yeni";
     tr.innerHTML = "<td>" + f.tarih + "</td><td>" + f.unvan + '<div class="yevmiye">770 B ' + tl(f.matrah) + " · 191 B " + tl(f.kdv) + " · 100 A " + tl(f.toplam) + "</div></td><td>770 / 191</td><td class=p>" + tl(f.matrah) + "</td><td class=p>" + tl(f.kdv) + "</td><td class=p>" + tl(f.toplam) + "</td>";
@@ -192,12 +193,21 @@ footer{color:var(--s);font-size:13px;text-align:center;padding:26px 16px}
   }
   $("#fis-sec").addEventListener("click", function (e) { var b = e.target.closest("button[data-i]"); if (b && !b.disabled) gonder(+b.dataset.i); });
   $("#onayla").addEventListener("click", onayla);
-  document.addEventListener("keydown", function (e) { if (e.key === "F9") { e.preventDefault(); onayla(); } });
+  document.addEventListener("keydown", function (e) { if (e.key === "F9") { e.preventDefault(); onayla("F9"); } });
   $("#luca").addEventListener("click", function () {
     var s = "﻿Tarih;Fiş No;Hesap Kodu;Açıklama;Borç;Alacak\n"; FISLER.forEach(function (f) { var a = f.unvan.replace(/;/g, ","); s += [f.tarih, f.no, "770", a, f.matrah.toFixed(2).replace(".", ","), ""].join(";") + "\n" + [f.tarih, f.no, "191", "İndirilecek KDV %" + f.oran, f.kdv.toFixed(2).replace(".", ","), ""].join(";") + "\n" + [f.tarih, f.no, "100", a, "", f.toplam.toFixed(2).replace(".", ",")].join(";") + "\n"; });
     var x = document.createElement("a"); x.href = URL.createObjectURL(new Blob([s], { type: "text/csv" })); x.download = "luca-aktarim-ornek.csv"; x.click();
   });
   secimCiz();
+  // 12 Eki ölçüm (Patron: "Mali demo linkimize kaç kişi tıkladı?"): video oynatma/bitirme ve fiş seçimi izle.js'e (slug mali-demo) yazılır.
+  // WhatsApp ve diğer bağlantı/düğme tıklamalarını izle.js kendisi kaydeder. Alim Bey'in kendi ziyareti ?ben=1 ile sayılmaz.
+  var v = document.querySelector("video"), oynadi = false;
+  if (v) {
+    v.addEventListener("play", function () { if (window.djIzle && !oynadi) { oynadi = true; djIzle("video:oynat"); } });
+    v.addEventListener("ended", function () { if (window.djIzle) djIzle("video:bitti " + Math.round(v.duration || 0) + " sn"); });
+  }
+  $("#fis-sec").addEventListener("click", function (e) { var b = e.target.closest("button[data-i]"); if (b && window.djIzle) djIzle("demo:fiş seç " + (FISLER[+b.dataset.i] || {}).ad); });
 })();
 </script>
+<script src="/ornek/_dijitabela/izle.js" data-slug="mali-demo" data-sayfa="mali-demo" defer></script>
 <script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
