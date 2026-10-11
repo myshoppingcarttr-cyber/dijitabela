@@ -114,7 +114,10 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
     $("son").textContent = "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR") + " · ofis bilgisayarı: " + saat(taze);
     sayac().catch(function () {});
   }
-  function basla() { $("uyg").hidden = false; $("giris").hidden = true; yukle(); setInterval(yukle, 20000); }
+  // 12 Eki bellek: gizli sekmede çekme yok (görünür olunca visibilitychange tazeler); 6 saatte bir (tercihen gizliyken) sessiz yenileme
+  var ACILIS = Date.now(), ALTI_SAAT = 6 * 3600 * 1000;
+  function basla() { $("uyg").hidden = false; $("giris").hidden = true; yukle(); setInterval(function () { if (!document.hidden) yukle(); }, 20000);
+    setInterval(function () { var g = Date.now() - ACILIS; if (g > ALTI_SAAT && (document.hidden || g > ALTI_SAAT + 1800000)) location.reload(); }, 60000); }
   $("gonder").onclick = async function () {
     var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
     $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın (bağlantıya dokunmanız gerekmez).";

@@ -80,6 +80,7 @@ body.gece .sahne::after{content:"";position:absolute;inset:0;background:rgba(10,
 .bilgi.gor{display:block}
 .bilgi .kapat{position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;cursor:pointer}
 .durum-et{display:inline-block;font:700 11px "Space Mono";padding:2px 8px;border-radius:99px;color:#fff}
+body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:paused!important}
 #gir{color:#fff;text-align:center;margin:18vh 16px}#gir a{color:#f5b301;font-weight:800}
 </style>
 </head><body>
@@ -148,7 +149,7 @@ body.gece .sahne::after{content:"";position:absolute;inset:0;background:rgba(10,
   }
   function masayaDon(kod) { var p = MASA[kod]; return rota(kod, p[0], p[1]).then(function () { var K = KISI[kod]; K.el.classList.remove("yuruyor"); K.el.classList.add("oturuyor"); durumUygula(kod); }); }
   function konus(kod, metin, sure) { var K = KISI[kod]; if (!K) return; var b = K.el.querySelector(".balon"); b.textContent = metin; K.el.classList.add("konusuyor"); clearTimeout(K.bt); K.bt = setTimeout(function () { K.el.classList.remove("konusuyor"); }, sure || 3500); }
-  function uc(kod, s) { var K = KISI[kod]; if (!K) return; var u = el("div", "ucan", "left:" + (K.x - 8) + "px;top:" + (K.y - 80) + "px", s || SIMGE[kod] || "✨"); sahne.appendChild(u); setTimeout(function () { u.remove(); }, 2300); }
+  function uc(kod, s) { var K = KISI[kod]; if (!K || document.hidden || sahne.getElementsByClassName("ucan").length >= 20) return; var u = el("div", "ucan", "left:" + (K.x - 8) + "px;top:" + (K.y - 80) + "px", s || SIMGE[kod] || "✨"); sahne.appendChild(u); setTimeout(function () { u.remove(); }, 2300); }
   function gorev(kod, fn) { var K = KISI[kod]; if (!K || K.mesgul) return; K.mesgul = true; fn().then(function () { K.mesgul = false; }, function () { K.mesgul = false; }); }
 
   function durumUygula(kod) {
@@ -174,13 +175,15 @@ body.gece .sahne::after{content:"";position:absolute;inset:0;background:rgba(10,
         var K = KISI[kod]; if (!K || (DURUM[kod] && DURUM[kod].durum === "kapali")) return; var yer = s[n++] || [300, 950];
         K.mesgul = true; rota(kod, yer[0], yer[1]).then(function () { K.el.classList.remove("yuruyor", "yaziyor"); K.el.classList.add("oturuyor"); });
       });
+      clearInterval(TOP_T); // 12 Eki bellek: toplantı zamanlayıcısı tek olsun
       TOP_T = setInterval(function () {
+        if (!TOP || document.hidden) return;
         var L = TOP.konusmalar; if (!L.length) return;
         if (topSira < L.length) { var k = L[topSira++]; if (KISI[k.kod]) { konus(k.kod, k.metin, 7600); olay(DURUM[k.kod] || { kod: k.kod, ad: k.kod }, "🗣️ " + k.metin); } }
         else { konus("yonetici", TOP.onay || "Tüm görevler net, onaylıyorum ✅", 7600); olay({ kod: "yonetici", ad: "Yönetici Asistan" }, "✅ " + (TOP.onay || "Görevler onaylandı")); topSira = 0; }
       }, 8000);
     } else if (!aktif && TOP) {
-      TOP = null; clearInterval(TOP_T); Object.keys(KISI).forEach(function (kod) { masayaDon(kod).then(function () { KISI[kod].mesgul = false; }); });
+      TOP = null; clearInterval(TOP_T); TOP_T = null; Object.keys(KISI).forEach(function (kod) { masayaDon(kod).then(function () { KISI[kod].mesgul = false; }); });
     }
   }
   function isle(satirlar) {
@@ -218,8 +221,8 @@ body.gece .sahne::after{content:"";position:absolute;inset:0;background:rgba(10,
     gorev("ozan", function () { var p = MASA[kod]; return rota("ozan", p[0] + 50, p[1] + 30).then(function () { konus("ozan", "Kontrol ediyorum 🛠️ yeniden başlatıyorum"); return new Promise(function (ok) { setTimeout(ok, 3500); }); }).then(function () { return masayaDon("ozan"); }); });
   }
   /* boşta davranışları */
-  setInterval(function () {
-    if (TOP) return; // toplantıdayken kahve/ziyaret yok
+  var BOSTA_T = setInterval(function () {
+    if (TOP || document.hidden) return; // toplantıdayken kahve/ziyaret yok; sekme gizliyken animasyon üretilmez (12 Eki bellek)
     Object.keys(KISI).forEach(function (kod) {
       var r = DURUM[kod], K = KISI[kod]; if (!r || K.mesgul || r.durum === "kapali") return;
       var z = Math.random();
@@ -243,7 +246,16 @@ body.gece .sahne::after{content:"";position:absolute;inset:0;background:rgba(10,
   function saat() { var h = +new Date().toLocaleString("en-GB", { hour: "2-digit", hour12: false, timeZone: "Europe/Istanbul" }); document.body.classList.toggle("gece", h >= 20 || h < 7); $("r-saat").textContent = (h >= 20 || h < 7 ? "🌙 Gece mesaisi · " : "☀️ ") + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Istanbul" }); }
   window.addEventListener("resize", olcek);
 
-  function basla(cek) { $("duzen").hidden = false; plan(); olcek(); saat(); setInterval(saat, 30000); cek(); setInterval(cek, 20000); }
+  /* 12 Eki bellek (Patron'un sekmesi 5 saatte 14,5 GB): kurulum tek sefer; sekme gizliyken veri çekme ve CSS animasyonları durur,
+     görünür olunca hemen tazelenir; güvenlik ağı olarak sayfa 6 saatte bir (tercihen gizliyken, en geç 6,5 saatte) sessizce yenilenir. */
+  var KURULDU = false, ACILIS = Date.now(), ALTI_SAAT = 6 * 3600 * 1000;
+  function basla(cek) {
+    if (KURULDU) return; KURULDU = true;
+    $("duzen").hidden = false; plan(); olcek(); saat(); setInterval(saat, 30000);
+    cek(); setInterval(function () { if (!document.hidden) cek(); }, 20000);
+    document.addEventListener("visibilitychange", function () { document.body.classList.toggle("gizli", document.hidden); if (!document.hidden) cek(); });
+    setInterval(function () { var g = Date.now() - ACILIS; if (g > ALTI_SAAT && (document.hidden || g > ALTI_SAAT + 1800000)) location.reload(); }, 60000);
+  }
   if (DEMO) { // tanıtım: sahte veri, durumlar değişir
     var ADLAR = { gm: "Claude", yonetici: "Yönetici Asistan", selin: "Selin", murat: "Murat", kerem: "Kerem", deniz: "Deniz", can: "Can", ece: "Ece", arda: "Arda", zeynep: "Zeynep", elif: "Elif", mustafa: "Mustafa", defne: "Defne", ozan: "Ozan", ceren: "Ceren", burcu: "Burcu", kaan: "Kaan", nehir: "Nehir", emre: "Emre", bora: "Bora", tuna: "Tuna" };
     var veri = Object.keys(ADLAR).map(function (k, i) { return { kod: k, ad: ADLAR[k], rol: "Tanıtım", durum: i % 3 ? "bosta" : "calisiyor", bugun: i, faaliyet: "Tanıtım faaliyeti " + i, son: new Date().toISOString() }; });
