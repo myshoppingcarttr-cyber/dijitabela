@@ -1,5 +1,1 @@
-// Panel çevrimdışı açılabilsin: kabuk dosyaları önbellekte
-const A="hc-panel-v1",D=["./","index.html","panel.js","ikon.svg","manifest.webmanifest"];
-self.addEventListener("install",e=>e.waitUntil(caches.open(A).then(c=>c.addAll(D)).then(()=>self.skipWaiting())));
-self.addEventListener("activate",e=>e.waitUntil(self.clients.claim()));
-self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(fetch(e.request).then(r=>{const k=r.clone();caches.open(A).then(c=>c.put(e.request,k));return r}).catch(()=>caches.match(e.request)))});
+self.addEventListener("install",()=>self.skipWaiting());self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.map(x=>caches.delete(x)))).then(()=>self.registration.unregister()).then(()=>self.clients.matchAll()).then(c=>c.forEach(x=>x.navigate(x.url)))));
