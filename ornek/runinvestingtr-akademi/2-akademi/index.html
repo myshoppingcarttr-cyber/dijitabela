@@ -187,7 +187,7 @@ footer{background:var(--gece);color:#a0a6ad;padding:90px 0 30px;overflow:hidden}
 </div></section>
 
 <section class="bolum" id="programlar" data-anlat="programlar" style="padding-top:20px"><div class="kap">
-  <div class="bb"><span class="mono">III · Programlar</span><div><h2 class="bas"><span class="kel"><span>Dört</span></span> <span class="kel"><span>program,</span></span> <span class="kel"><span>tek</span></span> <span class="kel"><span>akademi.</span></span></h2><p>Her program dokuz dersten oluşur ve tamamlandığında sertifikayla belgelenir.</p></div></div>
+  <div class="bb"><span class="mono">III · Programlar</span><div><h2 class="bas"><span class="kel"><span>Dört</span></span> <span class="kel"><span>program,</span></span> <span class="kel"><span>tek</span></span> <span class="kel"><span>akademi.</span></span></h2><p>Dört program, toplam 36 ders; her program tamamlandığında sertifikayla belgelenir.</p></div></div>
   <div class="prog-alan">
     <div class="prog-sol"><div class="dev" id="p-harf">A</div><h3 id="p-ad">Finansal Yatırım</h3><p id="p-ozet"></p></div>
     <div id="p-bloklar"></div>
@@ -311,11 +311,12 @@ var svg=$("#metro"),ns="http://www.w3.org/2000/svg",DUR={};
 function el(t,a){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);return e}
 $("#lejant").innerHTML=K.map(function(k){return "<span><i style='background:"+k.renk+"'></i>"+k.k+" · "+k.ad.split(" ").slice(0,2).join(" ")+"</span>"}).join("");
 // aktarma bağlantıları (programlar arası geçiş)
-[[0,8,1,0],[1,8,2,0],[2,8,3,0]].forEach(function(b){var x1=60+b[1]*97.5,y1=110+b[0]*140,x2=60+b[3]*97.5,y2=110+b[2]*140;svg.appendChild(el("path",{d:"M"+x1+" "+y1+" C"+(x1+60)+" "+(y1+70)+" "+(x2-60)+" "+(y2-70)+" "+x2+" "+y2,fill:"none",stroke:"#cfd2cb","stroke-width":6,"stroke-dasharray":"2 10","stroke-linecap":"round"}))});
+var DX=function(i,n){var L=K[i].dersler.length;return 60+(L>1?n*780/(L-1):0)}; // 11 Eki: program başına ders sayısı farklı (4/5/9/18)
+[[0,1],[1,2],[2,3]].forEach(function(p){var b=[p[0],K[p[0]].dersler.length-1,p[1],0];var x1=DX(b[0],b[1]),y1=110+b[0]*140,x2=DX(b[2],b[3]),y2=110+b[2]*140;svg.appendChild(el("path",{d:"M"+x1+" "+y1+" C"+(x1+60)+" "+(y1+70)+" "+(x2-60)+" "+(y2-70)+" "+x2+" "+y2,fill:"none",stroke:"#cfd2cb","stroke-width":6,"stroke-dasharray":"2 10","stroke-linecap":"round"}))});
 K.forEach(function(k,i){var y=110+i*140;svg.appendChild(el("line",{x1:60,y1:y,x2:840,y2:y,stroke:k.renk,"stroke-width":10,"stroke-linecap":"round",opacity:.22,"class":"hat-zemin"}));
   var hat=el("line",{x1:60,y1:y,x2:840,y2:y,stroke:k.renk,"stroke-width":10,"stroke-linecap":"round","class":"hat","data-k":k.k});hat.style.strokeDasharray=780;hat.style.strokeDashoffset=780;svg.appendChild(hat);
   var etk=el("text",{x:20,y:y+6,"font-family":"Archivo","font-weight":900,"font-size":30,fill:k.renk});etk.textContent=k.k;svg.appendChild(etk);
-  k.dersler.forEach(function(d,n){var x=60+n*97.5,g=el("g",{"class":"durak",tabindex:0,style:"cursor:pointer"});
+  k.dersler.forEach(function(d,n){var x=DX(i,n),g=el("g",{"class":"durak",tabindex:0,style:"cursor:pointer"});
     var c=el("circle",{cx:x,cy:y,r:11,fill:"#fff",stroke:k.renk,"stroke-width":5});g.appendChild(c);
     var t=el("text",{x:x,y:y+(n%2?34:-22),"text-anchor":"middle","font-family":"Space Mono","font-size":11,"font-weight":700,fill:"#535960"});t.textContent=k.k+(n+1);g.appendChild(t);
     g.addEventListener("mouseenter",function(){bilgi(k,n)});g.addEventListener("click",function(){bilgi(k,n)});g.addEventListener("focus",function(){bilgi(k,n)});

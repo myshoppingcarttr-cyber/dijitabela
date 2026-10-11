@@ -6,13 +6,13 @@
 
   R.konular = [
     { k: "A", ad: "Finansal Yatırım", ozet: "Finansal yatırımın temel kavramları, finansal piyasaların işleyişi ve yatırım araçları.", renk: "#2b7fff",
-      dersler: ["Finansal Yatırım Nedir ve Finansal Piyasa Türleri", "Finansal Piyasaların Fonksiyonları", "Finansal Yatırım Araçları ve Ürünler", "Para ve Sermaye Piyasaları ve Genel Bilgiler"] },
+      dersler: ["Finansal Yatırım Nedir ve Finansal Yatırım Piyasa Türleri", "Finansal Piyasaların Fonksiyonları", "Finansal Yatırım Araçları ve Ürünler", "Para ve Sermaye Piyasaları ve Genel Bilgiler"] },
     { k: "B", ad: "Finansal Piyasalarda Yatırımcı Olmak", ozet: "Yatırımcı psikolojisi, yatırımcı davranışları, risk yönetimi ve yatırımcı disiplininin temel prensipleri.", renk: "#d32f2f",
       dersler: ["Yatırımcı Psikolojisi", "Yatırımcı Davranışları ve Yatırımcı Prensipleri", "Piyasayla Birlikte Hareket Etmek", "Risk Yönetimi", "Yatırımcı Disiplininin Önemi"] },
     { k: "C", ad: "Finansal Okuryazarlık", ozet: "Ekonomik ve finansal gelişmeleri doğru değerlendirebilmek için gerekli temel bilgiler.", renk: "#f59e0b",
-      dersler: [] },
+      dersler: ["Enflasyon Nedir ve Türleri", "Para (Faiz) Politikaları", "Enflasyon Faiz İlişkisi", "Piyasa Dışı Etkenler", "Paranın Zaman Değeri ve Fırsat Maliyeti", "Enflasyonist Verilerin Yorumlanması", "Enflasyona Karşı Korunmanın Etkili Yöntemleri", "Arz Talep Dengesi", "Dünya İktisat Tarihi Özeti"] },
     { k: "D", ad: "Teknik Analiz", ozet: "Grafik okuma, trend analizi, indikatörler, formasyonlar ve teknik analiz stratejileri.", renk: "#10b981",
-      dersler: [] }
+      dersler: ["Teknik Analize Giriş ve TradingView Kullanımı", "Dow Teorisi ve Teknik Analizin Temel Varsayımları", "Grafik Zaman Dilimleri", "Destek Direnç Çizimi ve Çalışma Prensibi", "Destek Dirençlerin Rol Değişimi ve Pozisyon Aç/Kapa", "Trend Kanalları ve Yön Tespiti", "Trend Yorumlanması ve Strateji Kurma", "Trend Kırılımları ve Trend Değişimi", "Mum Matematiği", "İndikatörler (RSI, MACD, Bollinger Bandı, DMI ve ADX)", "Hareketli Ortalamalar", "Fibonacci", "Uyumsuzluklar", "Formasyonların Çalışma Prensipleri", "Trend Devam Formasyonları", "Trend Dönüş Formasyonları", "Formasyonlar ve Göstergeler Arasındaki Etkileşim", "Harmonik Formasyonlar"] }
   ];
 
   // Forum rütbeleri (zip: forum-gonderi.php rutbeHesapla) ve kategoriler (forum-kategori-yorum.sql)

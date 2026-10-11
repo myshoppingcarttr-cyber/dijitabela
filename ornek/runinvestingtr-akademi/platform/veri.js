@@ -1,8 +1,8 @@
 /* RunInvestingTR Akademi · platform başlangıç verisi (11 Eki 2026, 1903'ün "düzenlemeler" notu + tanıtım videosuna göre)
-   Program ve ders adları hocanın kendi sitesinden birebir alındı; ders listesi olmayan programlara yönetici panelinden ders eklenir.
+   Program ve ders adları hocanın İçindekiler.xlsx dosyasından (11 Eki) birebir alındı.
    SPL soruları ÖRNEKTİR: hocanın özgün ders notlarıyla yönetici panelinden büyütülür. */
 window.RIT_VERI = {
-  surum: 3,
+  surum: 4,
   programlar: [
     { kod: "A", baslik: "Finansal Yatırım", aciklama: "Finansal yatırımın temel kavramları, finansal piyasaların işleyişi ve yatırım araçları.", gorsel: "../img/levent.jpg" },
     { kod: "B", baslik: "Finansal Piyasalarda Yatırımcı Olmak", aciklama: "Yatırımcı psikolojisi, yatırımcı davranışları, risk yönetimi ve yatırımcı disiplininin temel prensipleri.", gorsel: "../img/islem-odasi.jpg" },
@@ -11,7 +11,7 @@ window.RIT_VERI = {
   ],
   // video: YouTube (liste dışı) bağlantısı; boşsa "Video yakında eklenecek". demo: ücretsiz üyenin izleyebildiği ders.
   dersler: [
-    { id: "A1", program: "A", sira: 1, baslik: "Finansal Yatırım Nedir ve Finansal Piyasa Türleri", video: "", demo: true },
+    { id: "A1", program: "A", sira: 1, baslik: "Finansal Yatırım Nedir ve Finansal Yatırım Piyasa Türleri", video: "", demo: true },
     { id: "A2", program: "A", sira: 2, baslik: "Finansal Piyasaların Fonksiyonları", video: "" },
     { id: "A3", program: "A", sira: 3, baslik: "Finansal Yatırım Araçları ve Ürünler", video: "" },
     { id: "A4", program: "A", sira: 4, baslik: "Para ve Sermaye Piyasaları ve Genel Bilgiler", video: "" },
@@ -19,7 +19,34 @@ window.RIT_VERI = {
     { id: "B2", program: "B", sira: 2, baslik: "Yatırımcı Davranışları ve Yatırımcı Prensipleri", video: "" },
     { id: "B3", program: "B", sira: 3, baslik: "Piyasayla Birlikte Hareket Etmek", video: "" },
     { id: "B4", program: "B", sira: 4, baslik: "Risk Yönetimi", video: "" },
-    { id: "B5", program: "B", sira: 5, baslik: "Yatırımcı Disiplininin Önemi", video: "" }
+    { id: "B5", program: "B", sira: 5, baslik: "Yatırımcı Disiplininin Önemi", video: "" },
+    { id: "C1", program: "C", sira: 1, baslik: "Enflasyon Nedir ve Türleri", video: "", demo: true },
+    { id: "C2", program: "C", sira: 2, baslik: "Para (Faiz) Politikaları", video: "" },
+    { id: "C3", program: "C", sira: 3, baslik: "Enflasyon Faiz İlişkisi", video: "" },
+    { id: "C4", program: "C", sira: 4, baslik: "Piyasa Dışı Etkenler", video: "" },
+    { id: "C5", program: "C", sira: 5, baslik: "Paranın Zaman Değeri ve Fırsat Maliyeti", video: "" },
+    { id: "C6", program: "C", sira: 6, baslik: "Enflasyonist Verilerin Yorumlanması", video: "" },
+    { id: "C7", program: "C", sira: 7, baslik: "Enflasyona Karşı Korunmanın Etkili Yöntemleri", video: "" },
+    { id: "C8", program: "C", sira: 8, baslik: "Arz Talep Dengesi", video: "" },
+    { id: "C9", program: "C", sira: 9, baslik: "Dünya İktisat Tarihi Özeti", video: "" },
+    { id: "D1", program: "D", sira: 1, baslik: "Teknik Analize Giriş ve TradingView Kullanımı", video: "", demo: true },
+    { id: "D2", program: "D", sira: 2, baslik: "Dow Teorisi ve Teknik Analizin Temel Varsayımları", video: "" },
+    { id: "D3", program: "D", sira: 3, baslik: "Grafik Zaman Dilimleri", video: "" },
+    { id: "D4", program: "D", sira: 4, baslik: "Destek Direnç Çizimi ve Çalışma Prensibi", video: "" },
+    { id: "D5", program: "D", sira: 5, baslik: "Destek Dirençlerin Rol Değişimi ve Pozisyon Aç/Kapa", video: "" },
+    { id: "D6", program: "D", sira: 6, baslik: "Trend Kanalları ve Yön Tespiti", video: "" },
+    { id: "D7", program: "D", sira: 7, baslik: "Trend Yorumlanması ve Strateji Kurma", video: "" },
+    { id: "D8", program: "D", sira: 8, baslik: "Trend Kırılımları ve Trend Değişimi", video: "" },
+    { id: "D9", program: "D", sira: 9, baslik: "Mum Matematiği", video: "" },
+    { id: "D10", program: "D", sira: 10, baslik: "İndikatörler (RSI, MACD, Bollinger Bandı, DMI ve ADX)", video: "" },
+    { id: "D11", program: "D", sira: 11, baslik: "Hareketli Ortalamalar", video: "" },
+    { id: "D12", program: "D", sira: 12, baslik: "Fibonacci", video: "" },
+    { id: "D13", program: "D", sira: 13, baslik: "Uyumsuzluklar", video: "" },
+    { id: "D14", program: "D", sira: 14, baslik: "Formasyonların Çalışma Prensipleri", video: "" },
+    { id: "D15", program: "D", sira: 15, baslik: "Trend Devam Formasyonları", video: "" },
+    { id: "D16", program: "D", sira: 16, baslik: "Trend Dönüş Formasyonları", video: "" },
+    { id: "D17", program: "D", sira: 17, baslik: "Formasyonlar ve Göstergeler Arasındaki Etkileşim", video: "" },
+    { id: "D18", program: "D", sira: 18, baslik: "Harmonik Formasyonlar", video: "" }
   ],
   dokumanKategorileri: ["Haftalık Analizler", "Makroekonomik Araştırmalar", "Finansal Eğitimler", "SPL 1. Düzey", "SPL 2. Düzey", "SPL 3. Düzey", "Türev Araçlar", "Videolu Anlatım"],
   dokumanlar: [
@@ -45,10 +72,10 @@ window.RIT_VERI = {
   puan: { paylasim: 5, yorum: 2, begeniAl: 1, begeniVer: 1 },
   rutbeler: [
     { ad: "Acemi Yatırımcı", min: 0 }, { ad: "Yatırımcı", min: 30 }, { ad: "Deneyimli Yatırımcı", min: 100 },
-    { ad: "Uzman Yatırımcı", min: 300 }, { ad: "Kıdemli Yatırımcı", min: 800, odul: "Kitap / ücretsiz SPL erişimi gibi ödüller" }
+    { ad: "Uzman Yatırımcı", min: 300 }, { ad: "Kıdemli Yatırımcı", min: 800, odul: "Kitap, ücretsiz SPL erişimi gibi ödüller" }
   ],
   splDuzeyler: [
-    { kod: "spl1", ad: "SPL 1. Düzey" }, { kod: "spl2", ad: "SPL 2. Düzey" }, { kod: "spl3", ad: "SPL 3. Düzey" }, { kod: "turev", ad: "Türev Araçlar" }
+    { kod: "spl1", ad: "SPL 1. Düzey" }, { kod: "spl2", ad: "SPL 2. Düzey" }, { kod: "spl3", ad: "SPL 3. Düzey" }, { kod: "turev", ad: "Türev Araçlar" }, { kod: "kurum", ad: "Kurum Sınavları", yakinda: true }, { kod: "smmm", ad: "SMMM Staj Sınavı", yakinda: true }
   ],
   // c[0] doğru şık (gösterimde karışır) · a: açıklama · k: konu
   sorular: [
