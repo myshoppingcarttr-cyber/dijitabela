@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Personel Giriş-Çıkış ve Puantaj · 3 seçenek · Dijitabela</title>
+<meta name="description" content="QR, NFC kart ya da PIN ile personel giriş-çıkış, canlı yönetici panosu ve muhasebeye hazır aylık puantaj. Dijitabela örnek çalışması.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F3EF;--kart:#fff;--fg:#16181D;--fg2:#3A404B;--mute:#646A75;--line:#E3E0D8;--led:#FFB000;--led-ink:#8A5A00;--yesil:#16A35C}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{display:block;max-width:100%}
+.kap{max-width:1160px;margin:0 auto;padding:0 20px}
+.dj-ust{background:var(--fg);color:#fff}
+.dj-ust .kap{display:flex;align-items:center;gap:12px;height:64px}
+.dj-ust b{font-weight:800;font-size:1.15rem}
+.dj-ust span{margin-left:auto;font:400 .76rem "Space Mono",monospace;color:var(--led);letter-spacing:.06em;text-align:right}
+.led{width:34px;height:34px;border-radius:8px;background:#0B0C0F;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:5px}
+.led i{border-radius:50%;background:var(--led);opacity:.25;animation:yan 2.4s infinite}
+.led i:nth-child(3n){animation-delay:.4s}.led i:nth-child(4n+1){animation-delay:.9s}.led i:nth-child(5n){animation-delay:1.4s}
+@keyframes yan{50%{opacity:1;box-shadow:0 0 6px var(--led)}}
+/* hero */
+.hero{padding:64px 0 40px;position:relative;overflow:hidden}
+.etiket{font:700 .76rem "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--led-ink);background:#FFF3D6;display:inline-block;padding:5px 10px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,5.4vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:800;max-width:900px}
+.hero h1 s{font-size:.62em;display:inline-block;margin-bottom:6px;text-decoration-thickness:4px;text-decoration-color:#E0473A;color:var(--mute)}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--led) 62%)}
+.hero p.giris{font-size:clamp(16px,1.6vw,19px);color:var(--fg2);max-width:700px;margin-top:20px}
+.defter-sahne{margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.eski,.yeni{border-radius:22px;padding:22px;position:relative;overflow:hidden;min-height:250px}
+.eski{background:#FFFCF2;border:1px solid #EADFC3;background-image:repeating-linear-gradient(#FFFCF2 0 29px,#E9DEC1 29px 30px);font-family:"Space Mono",monospace;color:#5B4A2A}
+.eski h3,.yeni h3{font:800 .82rem "Plus Jakarta Sans";letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.eski li{list-style:none;font-size:.9rem;line-height:30px;display:flex;justify-content:space-between;gap:10px}
+.eski li span:last-child{transform:rotate(-1.5deg);color:#A33}
+.eski .leke{position:absolute;right:30px;bottom:24px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(150,100,40,.18) 40%,transparent 70%)}
+.yeni{background:#0F1216;color:#E9EDF2;border:1px solid #1F242B}
+.yeni li{list-style:none;display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.9rem;opacity:0;transform:translateY(8px);animation:dus .5s forwards}
+.yeni li:nth-child(2){animation-delay:.6s}.yeni li:nth-child(3){animation-delay:1.2s}.yeni li:nth-child(4){animation-delay:1.8s}.yeni li:nth-child(5){animation-delay:2.4s}
+@keyframes dus{to{opacity:1;transform:none}}
+.yeni time{font:700 .82rem "Space Mono";color:#8A93A0}
+.yeni b{font:700 .7rem "Space Mono";padding:3px 7px;border-radius:6px}
+.g{background:rgba(59,227,139,.14);color:#3BE38B}.m{background:rgba(255,181,71,.14);color:#FFB547}.c{background:rgba(255,107,94,.14);color:#FF6B5E}
+/* mekanizma */
+.bolum{padding:56px 0}
+.bolum h2{font-size:clamp(26px,3.4vw,40px);letter-spacing:-.03em;line-height:1.1;max-width:760px}
+.bolum p.alt{color:var(--mute);margin-top:10px;max-width:680px}
+.akis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;counter-reset:a}
+.akis div{background:var(--kart);border:1px solid var(--line);border-radius:20px;padding:20px;position:relative}
+.akis div:before{counter-increment:a;content:"0" counter(a);font:700 .8rem "Space Mono";color:var(--led-ink);display:block;margin-bottom:10px}
+.akis b{display:block;font-size:1.05rem;margin-bottom:4px}.akis span{color:var(--mute);font-size:.92rem}
+/* seçenekler */
+.secenekler{display:grid;gap:22px;margin-top:30px}
+.sec{display:grid;grid-template-columns:1.25fr 1fr;gap:0;background:var(--kart);border:1px solid var(--line);border-radius:26px;overflow:hidden;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.sec:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(0,0,0,.45)}
+.sec:nth-child(even){grid-template-columns:1fr 1.25fr}.sec:nth-child(even) .gor{order:2}
+.gor{background:#111;position:relative;overflow:hidden;min-height:300px}
+.gor img{width:100%;height:100%;object-fit:cover;object-position:left top;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.sec:hover .gor img{transform:scale(1.04)}
+.gor .no{position:absolute;left:16px;top:16px;font:700 .8rem "Space Mono";background:var(--led);color:#1A1200;padding:6px 10px;border-radius:8px}
+.metin{padding:30px 32px;display:flex;flex-direction:column;gap:10px}
+.metin small{font:700 .74rem "Space Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.metin h3{font-size:1.7rem;letter-spacing:-.025em;line-height:1.15}
+.metin p{color:var(--fg2)}
+.metin ul{list-style:none;display:grid;gap:6px;margin-top:4px}
+.metin li{display:flex;gap:10px;font-size:.95rem}.metin li:before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:6px;background:var(--yesil) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+.ac{margin-top:auto;align-self:flex-start;display:inline-flex;gap:8px;align-items:center;background:var(--fg);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700}
+.sec:hover .ac{background:#000}
+/* kimler */
+.kimler{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.kimler div{background:var(--kart);border:1px solid var(--line);border-radius:18px;padding:18px}
+.kimler b{display:block;font-size:1.02rem}.kimler span{color:var(--mute);font-size:.92rem}
+.sss{margin-top:22px;display:grid;gap:10px}
+.sss details{background:var(--kart);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.sss summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.sss summary:after{content:"+";font:700 1.2rem "Space Mono";color:var(--led-ink)}.sss details[open] summary:after{content:"–"}
+.sss p{color:var(--fg2);margin-top:8px}
+.son{background:var(--fg);color:#fff;border-radius:28px;padding:40px;margin:20px 0 60px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.son h2{font-size:clamp(24px,3vw,34px);letter-spacing:-.02em}.son p{color:#B9BEC8;margin-top:6px}
+.son a{background:var(--led);color:#1A1200;padding:14px 20px;border-radius:14px;font-weight:800;text-decoration:none;white-space:nowrap}
+.dj-alt{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--mute);font-size:.86rem}
+.gorun{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.gorun.on{opacity:1;transform:none}
+@media (max-width:900px){.defter-sahne,.sec,.sec:nth-child(even){grid-template-columns:1fr}.sec:nth-child(even) .gor{order:0}.gor{min-height:210px;max-height:260px}.akis{grid-template-columns:1fr 1fr}.kimler{grid-template-columns:1fr 1fr}.son{grid-template-columns:1fr}}
+@media (max-width:520px){.akis,.kimler{grid-template-columns:1fr}.metin{padding:22px}.hero{padding:40px 0 24px}.son{padding:26px}.dj-ust span{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.gorun{opacity:1;transform:none}.yeni li{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="dj-ust"><div class="kap"><div class="led" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><b>Dijitabela</b><span>ÖRNEK ÇALIŞMA · PERSONEL DEVAM &amp; PUANTAJ</span></div></header>
+<main>
+ <section class="hero"><div class="kap">
+  <span class="etiket">Restoran · kafe · mağaza · atölye · şube zincirleri</span>
+  <h1><s>İmza föyü, defter, ay sonu hesap.</s><br>Personel kapıda <em>telefonunu okutur</em>, puantaj kendiliğinden çıkar.</h1>
+  <p class="giris">Kim kaçta geldi, kim molada, bu ay kaç saat fazla mesai yapıldı? Kapıya konan bir tablet ya da eski bir telefon, çalışanın QR'ı, yaka kartı (NFC) veya PIN'i ile girişi kaydeder. Yönetici her şubeyi canlı görür; ay sonunda muhasebeye giden dosya hazırdır.</p>
+  <div class="defter-sahne">
+   <div class="eski gorun on"><h3>Bugün: kâğıt föy</h3><ul><li><span>Mehmet · giriş</span><span>8:1?</span></li><li><span>Zeynep · giriş</span><span>imza yok</span></li><li><span>Emre · mola</span><span>"15 dk" (?)</span></li><li><span>Selin · çıkış</span><span>arkadaşı imzaladı</span></li><li><span>Ay sonu toplam</span><span>3 saat sürdü</span></li></ul><i class="leke"></i></div>
+   <div class="yeni gorun on"><h3 style="color:#8A93A0">Yarın: Mesai terminali</h3><ul><li><time>07:57</time><span>Ayşe D. · QR · konum ✓</span><b class="g">GİRİŞ</b></li><li><time>08:14</time><span>Mehmet K. · NFC · +14 dk</span><b class="g">GİRİŞ</b></li><li><time>11:13</time><span>Emre Ç. · QR</span><b class="m">MOLA</b></li><li><time>11:41</time><span>Emre Ç. · 28 dk</span><b class="g">DÖNÜŞ</b></li><li><time>17:02</time><span>Ayşe D. · bugün 8 sa 35 dk</span><b class="c">ÇIKIŞ</b></li></ul></div>
+  </div>
+ </div></section>
+
+ <section class="bolum"><div class="kap gorun">
+  <h2>Nasıl çalışır: dört adım, ek donanım şart değil.</h2>
+  <p class="alt">Bilinen talep: "personel giriş-çıkış ve mola saatleri, puantajların muhasebeye aktarılması", "şubelerde NFC ile personel devam kontrolü". Bu örnek, iki ihtiyacı aynı sistemde gösterir.</p>
+  <div class="akis"><div><b>Kapıda kayıt</b><span>Tablet veya eski telefon terminal olur. QR, NFC kart ya da PIN ile 2 saniyede giriş.</span></div><div><b>Konum doğrulama</b><span>Kayıt şube konumunda mı? Başkası adına imza ve "yoldayım" girişi biter.</span></div><div><b>Canlı pano</b><span>Geç kalan, gelmeyen, uzun molada olan anında görünür; WhatsApp'tan tek dokunuşla sorulur.</span></div><div><b>Aylık puantaj</b><span>Fazla mesai, geç kalma, izin, rapor hesaplanmış hâlde CSV olarak muhasebeye gider.</span></div></div>
+ </div></section>
+
+ <section class="bolum" style="padding-top:10px"><div class="kap">
+  <h2 class="gorun">Üç ekran, üç ayrı yaklaşım. Hangisiyle başlamak istersiniz?</h2>
+  <p class="alt gorun">Hepsi çalışır durumda, tıklayıp deneyin. Kapı terminalinde yaptığınız giriş, aynı sekmede canlı panoya da düşer.</p>
+  <div class="secenekler">
+   <a class="sec gorun" href="1-kapi-terminali/"><div class="gor"><img src="img/s1.png" alt="Kapı terminali ekranı: büyük saat, QR/NFC/PIN seçimi ve günün kayıtları" loading="lazy"><span class="no">01</span></div>
+    <div class="metin"><small>Seçenek 1 · Çalışan ekranı</small><h3>Kapı Terminali</h3><p>Girişte duran, karanlık temalı, büyük saatli terminal. Çalışan yöntemini seçer, kimliği okunur, tek dokunuşla giriş, mola ya da çıkış yapar.</p><ul><li>QR, NFC yaka kartı ve 4 haneli PIN</li><li>Konum doğrulama ve sesli "Günaydın Ayşe" onayı</li><li>Geç girişte yöneticiye otomatik bildirim</li></ul><span class="ac">Terminali deneyin →</span></div></a>
+   <a class="sec gorun" href="2-canli-pano/"><div class="gor"><img src="img/s2.png" alt="Yönetici canlı panosu: zaman çizelgesi ve uyarılar" loading="lazy"><span class="no">02</span></div>
+    <div class="metin"><small>Seçenek 2 · Yönetici ekranı</small><h3>Canlı Pano</h3><p>Tüm şubeler tek ekranda. Günün zaman çizelgesi kimin ne zaman çalıştığını, mola verdiğini, geç kaldığını gösterir.</p><ul><li>Şube sekmeleri ve anlık sayılar</li><li>"Gelmedi / geç / uzun mola" uyarıları, WhatsApp'tan sor</li><li>Son 7 günün çalışma ve fazla mesai grafiği</li></ul><span class="ac">Panoyu açın →</span></div></a>
+   <a class="sec gorun" href="3-puantaj/"><div class="gor"><img src="img/s3.png" alt="Aylık puantaj tablosu ve muhasebeye aktarım" loading="lazy"><span class="no">03</span></div>
+    <div class="metin"><small>Seçenek 3 · Muhasebe ekranı</small><h3>Aylık Puantaj</h3><p>Defter görünümlü aylık tablo. Her gün otomatik dolar; yönetici bir hücreye dokunup izin ya da rapor işler, düzeltme kayda geçer.</p><ul><li>Fazla mesai, geç kalma, izin ve devamsızlık özeti</li><li>Kurallar ayarlanabilir: günlük saat, tolerans</li><li>Tek tıkla CSV: bordro ve ön muhasebe programına</li></ul><span class="ac">Puantajı görün →</span></div></a>
+  </div>
+ </div></section>
+
+ <section class="bolum" style="padding-top:20px"><div class="kap">
+  <h2 class="gorun">Kimler için?</h2>
+  <div class="kimler gorun"><div><b>Restoran ve kafe zincirleri</b><span>Vardiyalı ekip, şubeler arası geçen personel, mola takibi.</span></div><div><b>Pastane ve fırınlar</b><span>Erken vardiya, fazla mesai hesabı, ay sonu puantaj.</span></div><div><b>Mağaza ve market</b><span>Açılış-kapanış sorumlusu, kasiyer vardiyası.</span></div><div><b>Atölye ve üretim</b><span>Giriş-çıkış, mesai, devamsızlık kaydı.</span></div><div><b>Temizlik ve hizmet firmaları</b><span>Sahada, farklı adreslerde çalışan ekip; konumlu kayıt.</span></div><div><b>Klinik ve ofisler</b><span>Personel devamı, izin ve rapor takibi tek yerde.</span></div></div>
+  <div class="sss gorun">
+   <details><summary>Çalışanların konumu sürekli izleniyor mu?</summary><p>Hayır. Konum yalnız giriş-çıkış anında, kaydın şube adresinde yapıldığını doğrulamak için bir kez okunur. Parmak izi veya yüz tanıma gibi biyometrik veri kullanılmaz. KVKK aydınlatma metni kurulumla birlikte hazırlanır.</p></details>
+   <details><summary>Özel cihaz almak gerekiyor mu?</summary><p>Gerekmez. Kapıya konan herhangi bir tablet ya da eski telefon terminal olur. NFC yaka kartı isteğe bağlıdır; çalışanlar kendi telefonlarındaki QR ile de giriş yapabilir.</p></details>
+   <details><summary>Muhasebeci ne alır?</summary><p>Ay sonunda her çalışan için gün gün çalışma saati, fazla mesai, geç kalma, izin ve rapor bilgisi tek dosyada (CSV/Excel). Sütun düzeni muhasebecinizin programına göre ayarlanır.</p></details>
+   <details><summary>İnternet giderse?</summary><p>Terminal kayıtları cihazda saklar ve bağlantı gelince gönderir. Kayıt kaybolmaz.</p></details>
+  </div>
+ </div></section>
+
+ <div class="kap"><div class="son gorun"><div><h2>Kendi şubeleriniz ve vardiyalarınızla görmek ister misiniz?</h2><p>Ekip listenizi ve vardiya saatlerinizi paylaşın, örneği sizin işletmenize göre kuralım.</p></div><a href="https://dijitabela.com.tr/" target="_blank" rel="noopener">Dijitabela ile konuşun →</a></div></div>
+</main>
+<footer class="dj-alt"><div class="kap">Bu sayfa Dijitabela'nın hazırladığı örnek bir çalışmadır; çalışan ve şube adları kurgusaldır. © Dijitabela · İzinsiz kullanım ve yapay zekâ ile türetme yasaktır.</div></footer>
+<script>
+(function(){var g=document.querySelectorAll(".gorun:not(.on)");if(!("IntersectionObserver" in window)){g.forEach(function(e){e.classList.add("on")});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})},{threshold:.12});g.forEach(function(e){io.observe(e)});setTimeout(function(){g.forEach(function(e){e.classList.add("on")})},1600);})();
+</script>
+<script src="../_dijitabela/filigran.js" data-gucu="0.035" data-kredi="1"></script>
+<script src="../_dijitabela/izle.js" data-slug="personel-puantaj" defer></script>
+<script src="/ornek/_dijitabela/wa-buton.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body>
+</html>
