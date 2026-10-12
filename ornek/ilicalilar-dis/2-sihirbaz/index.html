@@ -1,0 +1,79 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Randevu Sihirbazı · Ilıcalılar Oral and Dental Health · Dijitabela</title><meta name="description" content="Ilıcalılar Oral and Dental Health için adım adım randevu sihirbazı prototipi (TR/EN): şikayet, zamanlama, gün-saat, hazır mesaj. Saatler ve metinler örnektir.">
+<meta name="theme-color" content="#08191D"><link rel="icon" href="https://dijitabela.com.tr/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08191D;--p:#0F2A30;--ln:#1E4750;--tx:#E9F4F5;--mu:#93B1B6;--ac:#5ED0D9;--hi:#E7714F}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.55 "Manrope",system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}button,input,textarea{font:inherit;color:inherit;max-width:100%}
+.w{max-width:1180px;margin:0 auto;padding:0 clamp(14px,3.6vw,40px)}.dd{font-family:"Fraunces",Georgia,serif;font-weight:500}
+.et{font:700 11px/1 "Manrope";letter-spacing:.18em;text-transform:uppercase;color:var(--ac)}
+header{border-bottom:1px solid var(--ln)}header .w{display:flex;align-items:center;gap:14px;height:64px}
+.logo{font:500 25px/1 "Fraunces",serif;text-decoration:none}.logo i{color:var(--ac)}.sg{margin-left:auto;display:flex;gap:10px;align-items:center}
+.dil{display:inline-flex;border:1px solid var(--ln);border-radius:999px;overflow:hidden}.dil button{border:0;background:transparent;min-height:40px;min-width:46px;cursor:pointer;font-weight:700;font-size:12px}.dil button.a{background:var(--ac);color:#06262b}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border:1px solid var(--ln);background:var(--p);border-radius:12px;font-weight:600;cursor:pointer;text-decoration:none;transition:.2s}.btn:hover{border-color:var(--ac)}.btn.p{background:var(--ac);border-color:var(--ac);color:#06262b}.btn.wa{background:#1f9d62;border-color:#1f9d62;color:#fff}.btn:disabled{opacity:.4;cursor:not-allowed}
+.top{padding:clamp(22px,4vw,44px) 0 14px}.top h1{font:500 clamp(38px,5.6vw,76px)/1 "Fraunces",serif;margin-top:10px;letter-spacing:-.015em}.top h1 em{color:var(--ac)}.top p{color:var(--mu);max-width:58ch;margin-top:10px}
+.dz{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(14px,2.4vw,30px);align-items:start;padding-bottom:50px}
+.ozt{background:var(--p);border:1px solid var(--ln);border-radius:20px;padding:20px;position:sticky;top:14px}.ozt h2{font:500 26px/1 "Fraunces",serif;margin:8px 0 12px}
+.ozt ol{list-style:none;counter-reset:a}.ozt li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed var(--ln);font-size:13px;color:var(--mu)}.ozt li:before{content:counter(a);width:26px;height:26px;border-radius:50%;border:1px solid var(--ln);display:grid;place-items:center;font-weight:700;font-size:12px}
+.ozt li.ok{color:var(--tx)}.ozt li.ok:before{background:var(--ac);border-color:var(--ac);color:#06262b;content:"✓"}.ozt li.su:before{border-color:var(--ac);color:var(--ac)}.ozt li b{display:block;color:var(--tx);font-size:14px}
+.sh{background:var(--p);border:1px solid var(--ln);border-radius:24px;padding:clamp(18px,3vw,34px);min-height:480px;display:flex;flex-direction:column}.sh h2{font:500 clamp(30px,4vw,48px)/1.05 "Fraunces",serif;margin:10px 0 6px}.sh .al{color:var(--mu);margin-bottom:16px}
+.ilr{height:4px;background:var(--ln);border-radius:9px;margin-bottom:18px;overflow:hidden}.ilr i{display:block;height:100%;background:var(--ac);transition:width .4s}
+.ch{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.ch button{min-height:46px;padding:0 16px;border:1px solid var(--ln);background:transparent;border-radius:999px;cursor:pointer;transition:.15s}.ch button:hover{border-color:var(--ac)}.ch button.a{background:var(--ac);color:#06262b;border-color:var(--ac);font-weight:600}
+.dis-svg{width:100%;max-width:520px;height:auto;display:block;margin:6px auto}.dis{cursor:pointer;outline:none}.dis rect{fill:var(--bg);stroke:#2f5b62;stroke-width:1.5;transition:.2s}.dis text{font:700 9px "Manrope",sans-serif;fill:var(--mu)}.dis:hover rect,.dis:focus-visible rect{stroke:var(--ac)}.dis.on rect{fill:var(--ac);stroke:var(--ac)}.dis.on text{fill:var(--tx)}
+.gn{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin:8px 0}.gn button{flex:0 0 auto;min-width:60px;min-height:66px;border:1px solid var(--ln);background:transparent;border-radius:14px;cursor:pointer;font-size:11px;line-height:1.25}.gn button b{display:block;font:500 22px "Fraunces",serif}.gn button.a{background:var(--ac);color:#06262b;border-color:var(--ac)}
+.sa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0}.sa button{min-height:46px;border:1px solid var(--ln);background:transparent;border-radius:10px;cursor:pointer}.sa button.a{background:var(--ac);color:#06262b;border-color:var(--ac)}.sa button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.sh input,.sh textarea{width:100%;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.on{white-space:pre-wrap;background:var(--bg);border:1px solid var(--ln);border-left:4px solid var(--ac);border-radius:12px;padding:14px;font-size:14px;margin-bottom:12px}
+.nv{margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;gap:10px}
+.ipu{margin-top:10px;font-size:12px;color:var(--mu)}
+footer{border-top:1px solid var(--ln);padding:24px 0 60px;color:var(--mu);font-size:13px}footer .w{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}footer b{display:block;color:var(--tx);font:500 22px "Fraunces",serif;margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);background:#fff;color:#222;padding:12px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}.toast.a{opacity:1;transform:translate(-50%,0)}
+.adm{animation:gel .35s ease both}@keyframes gel{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.dz,footer .w{grid-template-columns:minmax(0,1fr)}.ozt{position:static}.ozt ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}}
+@media(max-width:480px){.ozt ol{grid-template-columns:minmax(0,1fr)}.logo{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="w" id="hd"></div></header>
+<div class="top w" id="tp"></div>
+<main class="w dz"><aside class="ozt" id="oz"></aside><section class="sh" id="sh"></section></main>
+<footer><div class="w" id="ft"></div></footer>
+<div class="toast" id="ts" role="status"></div>
+<script src="../ortak.js"></script>
+<script>
+(function(){"use strict";var D=window.KLINIK,$=function(i){return document.getElementById(i)},adim=0,sik=[],dis=[],gun=null,saat=null,aci=0,ad="",nt="",mesaj="",G=D.gunler(7);
+function T(){return D.lang==="en"}
+function ad2(i){return [D.t("adim1"),D.t("adim2"),D.t("adim3"),D.t("adim4")][i]}
+function sg(){var h=[];h[0]=sik.length||dis.length?(sik.map(function(k){return D.L(D.sik.filter(function(x){return x.k===k})[0].ad)}).join(", ")+(dis.length?" · FDI "+dis.join(", "):"")):"";h[1]=D.ac(aci);h[2]=gun!==null&&saat!==null?D.gy(G[gun])+" "+G[gun].n+" "+D.ay(G[gun])+", "+D.saatler[saat]:"";h[3]=mesaj?(T()?"Prepared":"Hazır"):"";return h}
+function ust(){$("hd").innerHTML='<a class="logo" href="#">Ilıcalılar<i>.</i></a><div class="sg"><span class="dil" role="group" aria-label="Dil / Language"><button data-l="tr" class="'+(D.lang==="tr"?"a":"")+'">TR</button><button data-l="en" class="'+(D.lang==="en"?"a":"")+'">EN</button></span><a class="btn" href="tel:+905367764443">'+D.t("ara")+'</a></div>';
+ $("tp").innerHTML='<span class="et">Alanya · '+D.t("rand")+'</span><h1>'+(T()?'Four quick steps to <em>your appointment.</em>':'Randevunuz için <em>dört kısa adım.</em>')+'</h1><p>'+(T()?'Answer in your own time. At the end a message is prepared; you send it to the clinic on WhatsApp. Sample content, nothing is sent automatically.':'Kendi hızınızda yanıtlayın. Sonunda mesaj hazırlanır; kliniğe WhatsApp’tan siz gönderirsiniz. Örnek içerik, otomatik gönderim yok.')+'</p>';
+ $("ft").innerHTML='<div><b>Ilıcalılar Oral and Dental Health</b>'+D.t("adres")+': Şekerhane Mah. Tevfikiye Sk. No:13/1, Alanya<br>'+D.t("tel")+': <a href="tel:+905367764443">0536 776 44 43</a><br><a href="https://alanyailicalilar.com/en/" target="_blank" rel="noopener">alanyailicalilar.com</a> · <a id="yol" target="_blank" rel="noopener">'+D.t("yol")+'</a></div><div>'+(T()?'A draft prepared by Dijitabela. Concerns, times and texts are samples, not the clinic’s real calendar, and not medical advice. Option 2 / 3.':'Dijitabela’nın hazırladığı taslak. Şikayet listesi, saatler ve metinler örnektir; kliniğin gerçek takvimi değildir, tıbbi tavsiye değildir. Seçenek 2 / 3.')+'</div>';$("yol").href=D.harita}
+function oz(){var s=sg();$("oz").innerHTML='<span class="et">'+D.t("sec")+'</span><h2>'+D.t("rand")+'</h2><ol>'+[0,1,2,3].map(function(i){return '<li class="'+(s[i]?"ok":(i===adim?"su":""))+'"><div><b>'+ad2(i)+'</b>'+(s[i]||"")+'</div></li>'}).join("")+'</ol>'}
+function ic(){var h='<div class="ilr"><i style="width:'+((adim+1)*25)+'%"></i></div><div class="adm" id="ad'+adim+'">',il=D.ilgili(sik);
+ if(adim===0){h+='<span class="et">1 / 4</span><h2>'+D.t("adim1")+'</h2><p class="al">'+(T()?'Pick one or more, and tap teeth if you know which ones.':'Bir ya da birkaçını seçin; hangi dişler olduğunu biliyorsanız haritadan işaretleyin.')+'</p><div class="ch" id="cp">'+D.sik.map(function(s){return '<button data-s="'+s.k+'" class="'+(sik.indexOf(s.k)>-1?"a":"")+'">'+D.L(s.ad)+'</button>'}).join("")+'</div>'+D.disSvg(dis)+'<p class="al" style="text-align:center;margin:0">'+(dis.length?(T()?'Selected teeth: ':'Seçili dişler: ')+dis.join(", "):D.t("disAlt"))+'</p>'+(il.length?'<p class="ipu"><b>'+D.t("ilgili")+':</b> '+il.map(function(i){return D.L(D.bul(i).ad)}).join(", ")+'. '+D.t("ipucu")+'</p>':'<p class="ipu">'+D.t("ipucu")+'</p>')}
+ else if(adim===1){h+='<span class="et">2 / 4</span><h2>'+D.t("adim2")+'</h2><p class="al">'+(T()?'This helps the clinic plan.':'Kliniğin planlamasına yardımcı olur.')+'</p><div class="ch" id="ac">'+[0,1,2,3].map(function(i){return '<button data-a="'+i+'" class="'+(aci===i?"a":"")+'">'+D.ac(i)+'</button>'}).join("")+'</div>'}
+ else if(adim===2){h+='<span class="et">3 / 4</span><h2>'+D.t("adim3")+'</h2><p class="al">'+(T()?'Sample availability, not the clinic’s real calendar.':'Örnek doluluk, kliniğin gerçek takvimi değildir.')+'</p><div class="gn">'+G.map(function(g,i){return '<button data-g="'+i+'" class="'+(gun===i?"a":"")+'">'+D.gy(g)+'<b>'+g.n+'</b>'+D.ay(g)+'</button>'}).join("")+'</div><div class="sa">'+D.saatler.map(function(s,i){var d=gun===null||D.dolu(G[gun].idx,i);return '<button data-h="'+i+'" class="'+(saat===i?"a":"")+'"'+(d?" disabled":"")+'>'+s+'</button>'}).join("")+'</div>'}
+ else{h+='<span class="et">4 / 4</span><h2>'+D.t("adim4")+'</h2><input id="ad" placeholder="'+D.t("ad")+'" value="'+ad.replace(/"/g,"&quot;")+'" autocomplete="off"><textarea id="nt" rows="2" placeholder="'+D.t("not")+'">'+nt.replace(/</g,"&lt;")+'</textarea><div class="on" id="on">'+(mesaj?mesaj.replace(/</g,"&lt;"):(T()?'Press “Prepare message”.':'“Mesajı hazırla” düğmesine basın.'))+'</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn p" id="mh">'+D.t("hazirla")+'</button><a class="btn wa" id="wab" target="_blank" rel="noopener"'+(mesaj?' href="'+D.waLink(mesaj)+'"':' hidden')+'>'+D.t("wa")+'</a></div>'}
+ h+='</div><div class="nv"><button class="btn" id="geri"'+(adim===0?" disabled":"")+'>← '+D.t("geri")+'</button>'+(adim<3?'<button class="btn p" id="ileri">'+D.t("ileri")+' →</button>':'<button class="btn" id="bas">'+D.t("temizle")+'</button>')+'</div>';
+ $("sh").innerHTML=h}
+D.render=function(){ust();oz();ic()};
+function gor(){oz();ic()}
+document.addEventListener("click",function(e){var b;
+ if(b=e.target.closest("[data-l]")){D.dilDeg(b.dataset.l);return}
+ if(b=e.target.closest("[data-s]")){var i=sik.indexOf(b.dataset.s);if(i>-1)sik.splice(i,1);else sik.push(b.dataset.s);gor();D.iz("sihirbaz:sikayet");return}
+ if(b=e.target.closest("[data-d]")){D.disDeg(dis,b.dataset.d);gor();return}
+ if(b=e.target.closest("[data-a]")){aci=Number(b.dataset.a);gor();return}
+ if(b=e.target.closest("[data-g]")){gun=Number(b.dataset.g);saat=null;gor();return}
+ if(b=e.target.closest("[data-h]")){if(!b.disabled){saat=Number(b.dataset.h);gor()}return}
+ if(e.target.closest("#ileri")){adim=Math.min(3,adim+1);gor();D.iz("sihirbaz:adim "+adim);return}
+ if(e.target.closest("#geri")){adim=Math.max(0,adim-1);gor();return}
+ if(e.target.closest("#bas")){sik=[];dis=[];gun=null;saat=null;aci=0;mesaj="";ad="";nt="";adim=0;gor();return}
+ if(e.target.closest("#mh")){var g=gun!==null?D.gy(G[gun])+" "+G[gun].n+" "+D.ay(G[gun]):"";mesaj=D.mesaj({sik:sik,dis:dis,gun:g,saat:saat!==null?D.saatler[saat]:"",ac:D.ac(aci),ad:ad.trim(),not:nt.trim()});gor();D.iz("sihirbaz:mesaj")}});
+document.addEventListener("input",function(e){if(e.target.id==="ad")ad=e.target.value;if(e.target.id==="nt")nt=e.target.value});
+document.addEventListener("keydown",function(e){var n=e.target.closest&&e.target.closest("[data-d]");if(n&&(e.key==="Enter"||e.key===" ")){e.preventDefault();var no=n.dataset.d;D.disDeg(dis,no);gor();var y=document.querySelector('[data-d="'+no+'"]');if(y)y.focus()}});
+D.render();
+})();
+</script>
+<script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="ilicalilar-dis" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
