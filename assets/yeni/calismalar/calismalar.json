@@ -1,0 +1,66 @@
+[
+ {
+  "no": 1,
+  "sehir": "Antalya",
+  "sektor": "Emlak ofisi",
+  "tasarim": "Gece",
+  "d": "p1-d.jpg",
+  "m": "p1-m.jpg"
+ },
+ {
+  "no": 2,
+  "sehir": "Antalya",
+  "sektor": "Diş kliniği",
+  "tasarim": "Prestij",
+  "d": "p2-d.jpg",
+  "m": "p2-m.jpg"
+ },
+ {
+  "no": 3,
+  "sehir": "Antalya",
+  "sektor": "Araç kiralama",
+  "tasarim": "Modern",
+  "d": "p3-d.jpg",
+  "m": "p3-m.jpg"
+ },
+ {
+  "no": 4,
+  "sehir": "Adana",
+  "sektor": "Erkek kuaförü",
+  "tasarim": "Gece",
+  "d": "p4-d.jpg",
+  "m": "p4-m.jpg"
+ },
+ {
+  "no": 5,
+  "sehir": "Adana",
+  "sektor": "Veteriner kliniği",
+  "tasarim": "Prestij",
+  "d": "p5-d.jpg",
+  "m": "p5-m.jpg"
+ },
+ {
+  "no": 6,
+  "sehir": "Antalya",
+  "sektor": "Klima ve kombi servisi",
+  "tasarim": "Modern",
+  "d": "p6-d.jpg",
+  "m": "p6-m.jpg"
+ },
+ {
+  "no": 7,
+  "sehir": "Antalya",
+  "sektor": "Oto servis",
+  "tasarim": "Gece",
+  "d": "p7-d.jpg",
+  "m": "p7-m.jpg"
+ },
+ {
+  "no": 8,
+  "sehir": "Antalya",
+  "sektor": "Oto galeri",
+  "tasarim": "Prestij",
+  "d": "p8-d.jpg",
+  "m": "p8-m.jpg"
+ }
+]
