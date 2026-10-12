@@ -1,30 +1,6 @@
 {
  "giris": {
-  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa ÖZEL ADANA için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
-  "dosya": "a47b78913a24"
- },
- "b1": {
-  "metin": "Ehliyet sınıfları. Size uygun sınıfı seçin; yaş ve belge bilgisi anında görünsün.",
-  "dosya": "af90ad2c0bda"
- },
- "b2": {
-  "metin": "Ön kayıt. Formu doldurun, WhatsApp'ta hazır mesaj olarak açılsın.",
-  "dosya": "85b9d3e2b939"
- },
- "b3": {
-  "metin": "Seyhan ve Yüreğir'e hizmet. Yerel aramalar için ilçe bazlı sayfa yapısı (örnek).",
-  "dosya": "bf4185cb8285"
- },
- "b4": {
-  "metin": "Sık sorulan sorular. Sınav günü itibarıyla 18 yaş.",
-  "dosya": "de0a49303efe"
- },
- "b5": {
-  "metin": "Yapay zekâ ve arama uyumu (altyapı). İstediğiniz GEO altyapısı bu örnekte kurulu:",
-  "dosya": "72bdbfccc52b"
- },
- "b6": {
-  "metin": "Teklif. 5.900 TL + KDV · KDV dahil değildir · Teslim: 5 iş günü",
-  "dosya": "6ec4e644fd34"
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Adana Şehir Sürücü Kursu için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "f1c1591fad27"
  }
 }
