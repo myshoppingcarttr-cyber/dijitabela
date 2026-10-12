@@ -86,6 +86,37 @@ table.d td.p{text-align:right;font-family:"JetBrains Mono";white-space:nowrap}ta
 .son{background:var(--lacivert);color:#fff;border-radius:22px;padding:34px 22px;text-align:center}
 .son p{color:#cfe0f5;margin:10px auto 20px;max-width:560px}
 footer{color:var(--s);font-size:13px;text-align:center;padding:26px 16px}
+.sekmeler{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.sekmeler button{border:2px solid var(--cizgi);background:#fff;color:var(--yazi);font-weight:800;border-radius:999px;padding:10px 16px;font-size:15px}
+.sekmeler button[aria-selected=true]{background:var(--lacivert);border-color:var(--lacivert);color:#fff}
+.anlat{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--cizgi);border-left:5px solid var(--sari);border-radius:12px;padding:12px 14px;margin-top:18px;flex-wrap:wrap}
+.anlat .no{font:800 12px "JetBrains Mono";color:var(--s);letter-spacing:.08em;text-transform:uppercase}
+.anlat p{flex:1 1 260px;min-width:0;font-weight:600}
+.anlat button{border:2px solid var(--lacivert);background:#fff;color:var(--lacivert);border-radius:10px;padding:7px 12px;font-weight:800;font-size:13px}
+.anlat button[aria-pressed=true]{background:var(--lacivert);color:#fff}
+.ek-tel .sohbet{height:330px}.ek-tel .kisiler{display:flex;gap:6px;padding:8px 6px 0;overflow-x:auto}
+.ek-tel .kisiler button{flex:none;background:#202c33;color:#e9edef;border:1px solid #2a3942;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700}
+.ek-tel .kisiler button.on{border-color:var(--wa);color:#fff;background:#005c4b}
+.ek-tel .gun{align-self:center;background:#182229;color:#8696a0;font-size:11px;padding:3px 9px;border-radius:8px}
+.ek-tel .taslak{outline:2px dashed #f5b301;outline-offset:2px}
+.ek-tel .ek-aksiyon{padding:10px}
+.ek-tel .ek-aksiyon button{width:100%;background:#202c33;color:#e9edef;border:1px solid #2a3942;border-radius:12px;padding:10px;font-weight:700;font-size:13px}
+.ek-tel .ek-aksiyon button:hover:not([disabled]){border-color:var(--wa)}.ek-tel .ek-aksiyon button[disabled]{opacity:.4;cursor:not-allowed}
+table.bd{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}table.bd th,table.bd td{padding:9px 10px;border-bottom:1px solid var(--cizgi);text-align:left;vertical-align:middle}table.bd th{background:#f1f5fa;font-size:12px;color:var(--s);text-transform:uppercase;letter-spacing:.04em}
+.chip{display:inline-block;border:1.5px solid transparent;border-radius:999px;padding:4px 10px;font-weight:700;font-size:12px;white-space:nowrap;background:transparent}
+.chip.geldi{background:#eaf7ef;color:#0e6b3a;border-color:#9ed8b6;cursor:default}
+.chip.gelmedi{background:#fff;color:#5f6b7c;border:1.5px dashed #9aa6b8;cursor:pointer}.chip.gelmedi:hover{border-color:var(--kirmizi);color:var(--kirmizi)}
+.chip.eksik{background:#fdecea;color:#b3261e;border-color:#f1a9a4;cursor:pointer}
+.chip.tamam{background:#eaf7ef;color:#0e6b3a;border-color:#9ed8b6}
+.ek-ozet{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 14px;border-top:1px solid var(--cizgi);background:#fafcff}
+.ek-ozet .not{font-size:13px;color:var(--s);flex:1 1 200px}
+.mesajkart{border:1px solid var(--cizgi);border-radius:12px;padding:12px;background:#fff;margin-top:10px}
+.mesajkart b{display:block;margin-bottom:6px;font-size:14px}.mesajkart pre{white-space:pre-wrap;font:500 13px/1.5 "Plus Jakarta Sans",sans-serif;background:#e7f7ee;border-radius:10px;padding:10px;margin:0;overflow-wrap:anywhere}
+.ek-adim{margin-top:14px}.ek-adim h3{font-size:16px;margin-bottom:2px}
+.ek-sonuc{display:none;margin-top:18px;background:linear-gradient(135deg,#0f2a4a,#1d6fe0);color:#fff;border-radius:var(--r);padding:20px}.ek-sonuc.gor{display:block;animation:gir .5s}
+.ek-sonuc p{color:#cfe0f5;margin:6px 0 14px}
+.kurgu{font-size:13px;color:var(--s);margin-top:12px}
+[hidden]{display:none!important}
 </style>
 </head><body>
 <header><div class="kap"><a class="logo" href="/"><i>d</i>Dijitabela Mali</a><a class="wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Mali%20i%C3%A7in%20%C3%BCcretsiz%20deneme%20hesab%C4%B1%20istiyorum." target="_blank" rel="noopener">Ücretsiz deneme</a></div></header>
@@ -99,6 +130,8 @@ footer{color:var(--s);font-size:13px;text-align:center;padding:26px 16px}
 
 <section id="dene"><div class="kap">
   <h2>1 dakikada kendiniz deneyin</h2>
+  <div class="sekmeler" id="sekmeler" role="tablist"></div>
+  <div id="sek-fis">
   <p class="alt">Soldaki telefondan bir fiş gönderin, programda okunuşunu izleyin ve <kbd>F9</kbd> ile onaylayın. Üç fişi de işleyince ay sonu raporu çıkar. Örnek fişler kurgudur; gerçek programda mükellefin gönderdiği her fiş böyle okunur.</p>
   <div class="demo">
     <div class="telefon"><div class="ust"><i>d</i>Mükellef · WhatsApp</div>
@@ -127,7 +160,31 @@ footer{color:var(--s);font-size:13px;text-align:center;padding:26px 16px}
         <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn sari" id="luca">⬇ Luca aktarım dosyası (örnek)</button><a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Mali%20demosunu%20denedim%2C%20b%C3%BCrom%20i%C3%A7in%20deneme%20hesab%C4%B1%20istiyorum." target="_blank" rel="noopener">Büroma deneme hesabı istiyorum</a></div>
       </div>
     </div>
+  </div></div>
+<div id="sek-eksik" role="tabpanel" hidden>
+  <p class="alt">Ay sonu "faturanızı atar mısınız?" diye tek tek aramak yerine: gelmeyen belgeyi işaretleyin, hatırlatma WhatsApp'tan gitsin. Örnek mükellefler ve mesajlar kurgudur; gerçek programda kendi mükellef listeniz görünür.</p>
+  <div class="anlat" aria-live="polite"><span class="no" id="ek-no">Adım 1 / 4</span><p id="ek-yazi"></p><button type="button" id="ek-ses" aria-pressed="false">🔊 Sesli anlat</button></div>
+  <div class="demo" style="margin-top:14px">
+    <div class="telefon ek-tel"><div class="ust"><i>d</i><span id="ek-tel-baslik">Mükellef · WhatsApp</span></div>
+      <div class="kisiler" id="ek-kisiler"></div>
+      <div class="sohbet" id="ek-sohbet"></div>
+      <div class="ek-aksiyon"><button type="button" id="ek-cevap" disabled>📷 Mükellef belgeyi gönderdi (örnek)</button></div>
+    </div>
+    <div>
+      <div class="uyg"><div class="bar">Belge durumu · Ekim 2026<span id="ek-durum">Eksikleri işaretleyin</span></div>
+        <div class="tablo" style="border:0;border-radius:0"><table class="bd"><thead><tr><th>Mükellef</th><th>Alış faturaları</th><th>Satış faturaları</th><th>Banka dökümü</th><th>Gider fişleri</th></tr></thead><tbody id="ek-liste"></tbody></table></div>
+        <div class="ek-ozet"><span class="not" id="ek-not"></span><button type="button" class="btn mavi" id="ek-hazirla" disabled>Hatırlatma hazırla</button></div>
+      </div>
+      <div class="ek-adim" id="ek-onizleme" hidden><h3>WhatsApp hatırlatma önizlemesi</h3><p class="kurgu" style="margin:0 0 4px">Planlanan gönderim: yarın 10:00. Mesaj, mükellefin adı ve eksik belgesiyle kendiliğinden yazılır.</p><div id="ek-kartlar"></div>
+        <div style="margin-top:12px"><button type="button" class="btn yesil" id="ek-gonder">✓ Hatırlatmaları gönder</button></div></div>
+      <div class="ek-adim" id="ek-gonderildi" hidden><h3>Gönderilenler</h3>
+        <div class="tablo"><table class="bd"><thead><tr><th>Mükellef</th><th>Eksik belge</th><th>Saat</th><th>Durum</th></tr></thead><tbody id="ek-glist"></tbody></table></div></div>
+      <div class="ek-sonuc" id="ek-sonuc"><h3>✅ Ay sonu telefon trafiği yerine tek liste</h3><p id="ek-sonuc-yazi"></p>
+        <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Mali%20eksik%20belge%20hat%C4%B1rlatma%20demosunu%20denedim%2C%20b%C3%BCrom%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Büroma uygulayalım: WhatsApp'tan yazın</a></div>
+    </div>
   </div>
+  <p class="kurgu">Örnek kurgudur: mükellef adları, belgeler ve mesajlar gerçek değildir.</p>
+</div>
 </div></section>
 
 <section style="padding-top:10px"><div class="kap">
@@ -208,6 +265,134 @@ footer{color:var(--s);font-size:13px;text-align:center;padding:26px 16px}
     v.addEventListener("ended", function () { if (window.djIzle) djIzle("video:bitti " + Math.round(v.duration || 0) + " sn"); });
   }
   $("#fis-sec").addEventListener("click", function (e) { var b = e.target.closest("button[data-i]"); if (b && window.djIzle) djIzle("demo:fiş seç " + (FISLER[+b.dataset.i] || {}).ad); });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  // --- sekmeler ---
+  var sekmeler = [["fis", "Fiş okuma", "sek-fis"], ["eksik", "Eksik belge hatırlatma", "sek-eksik"]];
+  var bar = $("#sekmeler");
+  function sekme(k, izle) {
+    sekmeler.forEach(function (s) { var p = document.getElementById(s[2]); if (p) p.hidden = s[0] !== k; });
+    bar.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.k === k ? "true" : "false"); });
+    if (izle && window.djIzle) djIzle("sekme:" + k);
+  }
+  bar.innerHTML = sekmeler.map(function (s) { return '<button type="button" role="tab" data-k="' + s[0] + '">' + s[1] + "</button>"; }).join("");
+  bar.addEventListener("click", function (e) { var b = e.target.closest("button[data-k]"); if (b) sekme(b.dataset.k, true); });
+  var hh = (location.hash || "").replace("#", "");
+  sekme(sekmeler.some(function (s) { return s[0] === hh; }) ? hh : "fis");
+  window.addEventListener("hashchange", function () { var x = (location.hash || "").replace("#", ""); if (sekmeler.some(function (s) { return s[0] === x; })) sekme(x); });
+
+  // --- Eksik belge hatırlatma ---
+  var BEL = ["Alış faturaları", "Satış faturaları", "Banka dökümü", "Gider fişleri"];
+  var MUK = [
+    { ad: "Kepez Yapı Ltd.", kisi: "Mehmet Bey", gel: [1, 0, 0, 1] },
+    { ad: "Lara Market", kisi: "Ayşe Hanım", gel: [1, 1, 0, 1] },
+    { ad: "Demo Nakliyat A.Ş.", kisi: "Cemal Bey", gel: [1, 1, 1, 1] },
+    { ad: "Örnek Kafe", kisi: "Elif Hanım", gel: [1, 1, 1, 0] },
+    { ad: "Akdeniz Turizm Ltd.", kisi: "Kemal Bey", gel: [1, 1, 1, 1] }
+  ];
+  var ADIM = [
+    "Ekim ayı belge durumu. Gelmeyen belgelerin kesikli çizgili etiketine tıklayıp eksik olarak işaretleyin.",
+    "Eksik belge olan her mükellef için WhatsApp mesajı hazır; ad ve eksik belge kendiliğinden yazıldı. Göndermeden önce okuyun.",
+    "Hatırlatma gitti: telefonda mesaj göründü, gönderilenler listesinde saati var. Şimdi mükellef belgeyi atsın.",
+    "Mükellef belgeyi atınca satır TAMAM oluyor. Ay sonu telefon trafiği yerine tek bir liste."
+  ];
+  var adim = 0, sesAcik = false, au = null, eksik = {}, secili = 0, gonderildi = false, dk = 9 * 60 + 40, tamam = {}, gecmis = {};
+  var zaman = function (a) { dk += a || 1; return String(Math.floor(dk / 60)).padStart(2, "0") + ":" + String(dk % 60).padStart(2, "0"); };
+  var sohbet = $("#ek-sohbet");
+  function cal() { try { if (au) au.pause(); au = new Audio("assets/yeni/demo-ses/mali-eksik-" + (adim + 1) + ".mp3"); au.play().catch(function () {}); } catch (e) {} }
+  function adimGit(n) { adim = n; $("#ek-no").textContent = "Adım " + (n + 1) + " / 4"; $("#ek-yazi").textContent = ADIM[n]; if (sesAcik) cal(); }
+  $("#ek-ses").addEventListener("click", function () {
+    sesAcik = !sesAcik; this.setAttribute("aria-pressed", sesAcik); this.textContent = sesAcik ? "🔇 Sesi kapat" : "🔊 Sesli anlat";
+    if (sesAcik) cal(); else if (au) au.pause();
+    if (window.djIzle) djIzle("demo-eksik:ses " + (sesAcik ? "açık" : "kapalı"));
+  });
+  var eksikSayi = function () { return Object.keys(eksik).length; };
+  var eksikBelgeler = function (i) { return BEL.filter(function (b, j) { return eksik[i + "_" + j] || tamam[i + "_" + j]; }); };
+  var eksikMuk = function () { return MUK.filter(function (m, i) { return eksikBelgeler(i).length; }); };
+  function listeCiz() {
+    $("#ek-liste").innerHTML = MUK.map(function (m, i) {
+      return "<tr><td><b>" + m.ad + "</b></td>" + BEL.map(function (b, j) {
+        var k = i + "_" + j, c;
+        if (m.gel[j]) c = '<span class="chip geldi">✓ geldi</span>';
+        else if (tamam[k]) c = '<span class="chip tamam">✓ TAMAM</span>';
+        else if (eksik[k]) c = '<button type="button" class="chip eksik" data-k="' + k + '"' + (gonderildi ? " disabled" : "") + ">Eksik ✕</button>";
+        else c = '<button type="button" class="chip gelmedi" data-k="' + k + '"' + (gonderildi ? " disabled" : "") + ">? gelmedi</button>";
+        return "<td>" + c + "</td>";
+      }).join("") + "</tr>";
+    }).join("");
+    var n = eksikSayi();
+    $("#ek-hazirla").disabled = !n || gonderildi;
+    $("#ek-not").textContent = gonderildi ? "Hatırlatmalar gönderildi." : n ? n + " eksik belge işaretli · " + eksikMuk().length + " mükellefe hatırlatma gidecek." : 'Kesikli çizgili "? gelmedi" etiketlerine tıklayın.';
+    $("#ek-durum").textContent = gonderildi ? "Hatırlatma gönderildi" : n ? n + " eksik işaretli" : "Eksikleri işaretleyin";
+  }
+  $("#ek-liste").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-k]"); if (!b || gonderildi) return; var k = b.dataset.k;
+    if (eksik[k]) delete eksik[k]; else eksik[k] = 1;
+    if (window.djIzle && eksik[k]) djIzle("demo-eksik:işaretle " + eksikSayi());
+    $("#ek-onizleme").hidden = true; listeCiz();
+  });
+  function mesaj(i) {
+    var m = MUK[i], e = BEL.filter(function (b, j) { return eksik[i + "_" + j] || tamam[i + "_" + j]; });
+    return "Merhaba " + m.kisi + " 👋\nEkim ayı kayıtlarınız için şu belgeler henüz bize ulaşmadı:\n" + e.map(function (x) { return "• " + x; }).join("\n") + "\nFotoğrafını ya da dosyasını bu yazışmaya atmanız yeterli. Teşekkürler 🙏\n— Örnek Mali Müşavirlik";
+  }
+  var esc = function (t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>"); };
+  function kisiCiz() {
+    var ms = eksikMuk();
+    $("#ek-kisiler").innerHTML = ms.map(function (m) { var i = MUK.indexOf(m); return '<button type="button" data-i="' + i + '" class="' + (i === secili ? "on" : "") + '">' + m.ad.split(" ").slice(0, 2).join(" ") + "</button>"; }).join("");
+    $("#ek-tel-baslik").textContent = MUK[secili].kisi + " · WhatsApp";
+  }
+  function sohbetCiz(i) {
+    if (gecmis[i]) { sohbet.innerHTML = '<div class="gun">Bugün</div>' + gecmis[i].join(""); }
+    else if (!gonderildi && eksikMuk().length && eksikBelgeler(i).length) { sohbet.innerHTML = '<div class="gun">Taslak önizleme</div><div class="msj ben taslak" style="align-self:flex-end">' + esc(mesaj(i)) + "<time>taslak · yarın 10:00</time></div>"; }
+    else sohbet.innerHTML = '<div class="gun">Bugün</div>';
+    sohbet.scrollTop = 1e5;
+  }
+  $("#ek-hazirla").addEventListener("click", function () {
+    var ms = eksikMuk(); if (!ms.length) return;
+    $("#ek-kartlar").innerHTML = ms.map(function (m) { var i = MUK.indexOf(m); return '<div class="mesajkart"><b>' + m.ad + " · " + eksikBelgeler(i).join(", ") + "</b><pre></pre></div>"; }).join("");
+    $("#ek-kartlar").querySelectorAll("pre").forEach(function (p, j) { p.textContent = mesaj(MUK.indexOf(ms[j])); });
+    $("#ek-onizleme").hidden = false; adimGit(1);
+    secili = MUK.indexOf(ms[0]); kisiCiz(); sohbetCiz(secili);
+    $("#ek-onizleme").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (window.djIzle) djIzle("demo-eksik:önizleme " + ms.length + " mükellef");
+  });
+  $("#ek-kisiler").addEventListener("click", function (e) { var b = e.target.closest("button[data-i]"); if (!b) return; secili = +b.dataset.i; kisiCiz(); sohbetCiz(secili); $("#ek-cevap").disabled = !(gonderildi && gecmis[secili] && !tamam[secili + "_x"]); });
+  $("#ek-gonder").addEventListener("click", function () {
+    if (gonderildi) return; var ms = eksikMuk(); gonderildi = true; $("#ek-gonder").disabled = true; listeCiz(); adimGit(2);
+    $("#ek-gonderildi").hidden = false;
+    $("#ek-glist").innerHTML = ms.map(function (m) { var i = MUK.indexOf(m); return "<tr data-i=" + i + "><td><b>" + m.ad + "</b></td><td>" + eksikBelgeler(i).join(", ") + '</td><td class="sa">—</td><td class="du">Gönderiliyor…</td></tr>'; }).join("");
+    ms.forEach(function (m, j) {
+      var i = MUK.indexOf(m);
+      setTimeout(function () {
+        var t = zaman();
+        gecmis[i] = ['<div class="msj ben" style="align-self:flex-end">' + esc(mesaj(i)) + "<time>" + t + " ✓✓</time></div>"];
+        var tr = document.querySelector('#ek-glist tr[data-i="' + i + '"]'); tr.querySelector(".sa").textContent = t; tr.querySelector(".du").innerHTML = '<span class="chip geldi">Gönderildi ✓✓</span>';
+        if (i === secili) { sohbetCiz(i); $("#ek-cevap").disabled = false; }
+      }, 500 + j * 700);
+    });
+    setTimeout(function () { $("#ek-gonderildi").scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 400);
+    if (window.djIzle) djIzle("demo-eksik:gönderildi " + ms.length);
+  });
+  $("#ek-cevap").addEventListener("click", function () {
+    var i = secili; if (tamam[i + "_x"] || !gecmis[i]) return;
+    var e = eksikBelgeler(i);
+    BEL.forEach(function (b, j) { if (eksik[i + "_" + j]) { tamam[i + "_" + j] = 1; delete eksik[i + "_" + j]; } });
+    gecmis[i].push('<div class="msj o"><div class="foto">📷 ' + e[0] + "</div>" + e.join(", ") + " gönderiyorum 👍<time>" + zaman(2) + "</time></div>");
+    gecmis[i].push('<div class="msj ben" style="align-self:flex-end">✅ Teşekkürler, belgeniz alındı.<time>' + zaman() + " ✓✓</time></div>");
+    tamam[i + "_x"] = 1; sohbetCiz(i);
+    var tr = document.querySelector('#ek-glist tr[data-i="' + i + '"]'); if (tr) tr.querySelector(".du").innerHTML = '<span class="chip tamam">Belge geldi · TAMAM</span>';
+    adimGit(3); listeCiz();
+    var bekleyen = Object.keys(gecmis).map(Number).filter(function (x) { return !tamam[x + "_x"]; }), biten = Object.keys(gecmis).length - bekleyen.length;
+    $("#ek-cevap").disabled = true;
+    if (bekleyen.length) { secili = bekleyen[0]; kisiCiz(); sohbetCiz(secili); $("#ek-cevap").disabled = false; }
+    $("#ek-sonuc").classList.add("gor");
+    $("#ek-sonuc-yazi").textContent = biten + " mükellef belgesini gönderdi" + (bekleyen.length ? "; " + bekleyen.length + " mükellef bekleniyor. Telefonun üstünden sıradakini seçip belgeyi gönderdirebilirsiniz." : ". Hepsi tamam; kimseyi aramadınız.");
+    if (window.djIzle) djIzle("demo-eksik:belge geldi " + biten + (bekleyen.length ? "" : " · demo tamamlandı"));
+  });
+  listeCiz(); adimGit(0); kisiCiz(); sohbet.innerHTML = '<div class="gun">Bugün</div><div class="msj o" style="align-self:center;background:#182229;color:#8696a0;font-size:12px">Hatırlatma gidince mesaj burada görünür.</div>';
 })();
 </script>
 <script src="/ornek/_dijitabela/izle.js" data-slug="mali-demo" data-sayfa="mali-demo" defer></script>

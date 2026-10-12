@@ -21,7 +21,7 @@
   var URL_ = "https://ctlbhwbccqgwmtqbwtfs.supabase.co/functions/v1/prototip-izle";
   var oturum; try { oturum = sessionStorage.getItem("dj-o") || (Math.random().toString(36).slice(2) + Date.now().toString(36)); sessionStorage.setItem("dj-o", oturum); } catch (e) { oturum = Math.random().toString(36).slice(2); }
   var cihaz = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent) ? "telefon" : "bilgisayar";
-  function gonder(o) { o.slug = slug; o.sayfa = sayfa; o.oturum = oturum; o.cihaz = cihaz; var b = JSON.stringify(o); if (navigator.sendBeacon) navigator.sendBeacon(URL_, new Blob([b], { type: "text/plain" })); else fetch(URL_, { method: "POST", body: b, keepalive: true }).catch(function () {}); }
+  function gonder(o) { o.slug = slug; o.sayfa = sayfa; o.yol = location.pathname.slice(0, 120); /* 12 Eki: /ornek dışı sayfa → bildirim günlük özete */ o.oturum = oturum; o.cihaz = cihaz; var b = JSON.stringify(o); if (navigator.sendBeacon) navigator.sendBeacon(URL_, new Blob([b], { type: "text/plain" })); else fetch(URL_, { method: "POST", body: b, keepalive: true }).catch(function () {}); }
   gonder({ olay: "ac" });
   // Sayfaya özel adımlar (video oynatma, demo adımı…) için: window.djIzle("demo:F9 onay 1/3") → olay "tikla", hedef bu metin
   window.djIzle = function (hedef) { gonder({ olay: "tikla", hedef: String(hedef || "").slice(0, 160) }); };
