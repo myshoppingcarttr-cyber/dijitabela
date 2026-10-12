@@ -17,7 +17,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 .kap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
 .mono{font:500 11.5px/1.4 var(--m);letter-spacing:.14em;text-transform:uppercase}
-.d{font-family:var(--d);font-optical-sizing:auto;letter-spacing:-.025em;line-height:.98;font-weight:700}
+.d{font-family:var(--d);font-optical-sizing:auto;letter-spacing:-.018em;line-height:.98;font-weight:700}
 .vurgu{color:var(--mavi2)}
 .koyu{background:var(--gece);color:#EEF1FF}
 .koyu .soluk,.koyu .alt-y{color:var(--soluk-k)}
@@ -107,6 +107,12 @@ button{cursor:pointer}
 .harita .h-m.soluk{opacity:.28}
 .harita .h-atolye rect{fill:var(--mavi);stroke:#fff;stroke-width:2}
 .harita .h-atolye path{fill:#fff}
+.harita.yakin .h-m text{font-size:8.5px;stroke-width:3px}
+.harita.yakin .h-etk text{font-size:9px}
+.harita.yakin .h-m circle:not(.h-hit){r:3}
+.harita.yakin .h-m.sec circle:not(.h-hit){r:5;stroke-width:1.5}
+.harita.yakin .h-atolye{scale:.7;transform-box:fill-box;transform-origin:center}
+.harita.yakin .h-yol path{stroke-width:2}
 
 /* telefon (WhatsApp önizleme) */
 .tel-cer{width:min(330px,100%);aspect-ratio:330/660;border-radius:46px;padding:11px;background:linear-gradient(145deg,#2B2F45,#0B0D18);box-shadow:0 40px 80px -30px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.1);position:relative;margin:0 auto}

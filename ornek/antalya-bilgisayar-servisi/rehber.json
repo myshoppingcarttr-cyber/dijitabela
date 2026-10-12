@@ -1,0 +1,41 @@
+{
+ "giris": {
+  "metin": "Merhaba! Antalya BB Bilgisayar için çalışan bir prototip hazırladık. Müşteri bilgisayarını servise taşımıyor; kapıdan alınıyor, onarılıyor, geri geliyor. Aşağı indikçe her bölümü anlatacağım."
+ },
+ "nasil": {
+  "metin": "Dört adım: arıza kaydı, kapıdan alım, teşhis ve onay, sonra teslim. Müşteri hiçbir adımda evden çıkmıyor."
+ },
+ "kayit": {
+  "metin": "Arıza kaydı sihirbazı. Cihaz, marka ve belirti seçildikçe sağdaki kart olası nedenleri gösteriyor. Fotoğraf da eklenebiliyor."
+ },
+ "fiyat": {
+  "metin": "Fiyat tahmini sihirbazı tahmini bir aralık veriyor. Kesin fiyat teşhisten sonra yazılı geliyor; onay olmadan işlem yapılmıyor."
+ },
+ "randevu": {
+  "metin": "Kapıdan alım randevusu. Mahalle haritadan seçiliyor, kurye saat aralığı da rotaya göre açılıyor."
+ },
+ "takip": {
+  "metin": "Canlı onarım takibi. Müşteri her adımı görüyor, fiyat onayını tek dokunuşla veriyor. Aynı bilgi WhatsApp'a da düşüyor."
+ },
+ "kurumsal": {
+  "metin": "Ofis, okul ve oteller için bakım aboneliği önerisi; düzenli gelir demek. İşletme paneli de bir tık ötede."
+ },
+ "panel-giris": {
+  "metin": "Burası işletmenin paneli. Müşterinin açtığı her kayıt buraya düşüyor: iş emirleri, kurye rotası, parça stoku, bildirimler ve aylık rapor."
+ },
+ "kanban": {
+  "metin": "İş emirleri panosu. Kart bir sonraki aşamaya geçince müşteriye WhatsApp mesajı kendiliğinden gidiyor."
+ },
+ "rota": {
+  "metin": "Kurye rotası. Bugünkü alım ve teslim durakları mahallelere göre iki hatta bölünüyor; optimize düğmesi sırayı kısaltıyor."
+ },
+ "stok": {
+  "metin": "Parça stoku. Azalan parça kırmızıya dönüyor ve tek tıkla sipariş taslağına ekleniyor."
+ },
+ "bildirim": {
+  "metin": "Bildirim şablonları. Her mesaj düzenlenebiliyor, telefonda nasıl görüneceği anında önizleniyor."
+ },
+ "rapor": {
+  "metin": "Aylık rapor. Buradaki rakamlar örnek; sistem kurulunca iş emirlerinden otomatik doluyor."
+ }
+}

@@ -9,7 +9,7 @@
     aksu: "M604,290 L626,192 L764,190 L822,300 L832,440 C805,448 782,455 760,462 L700,362 Z",
     serik: "M764,190 L1000,158 L1000,478 C930,462 870,438 832,440 L822,300 Z"
   };
-  var ETK = { konyaalti: [150, 360, "KONYAALTI"], dosemealti: [390, 110, "DÖŞEMEALTI"], kepez: [470, 222, "KEPEZ"], muratpasa: [560, 404, "MURATPAŞA"], aksu: [730, 260, "AKSU"], serik: [900, 250, "SERİK"] };
+  var ETK = { konyaalti: [150, 360, "KONYAALTI"], dosemealti: [390, 110, "DÖŞEMEALTI"], kepez: [470, 222, "KEPEZ"], muratpasa: [612, 372, "MURATPAŞA"], aksu: [730, 260, "AKSU"], serik: [900, 250, "SERİK"] };
   var KIYI = "M0,505 C90,492 210,478 320,448 C400,428 470,462 560,474 C640,486 700,488 760,462 C805,448 870,438 932,462 C960,470 985,476 1000,478";
   function el(t, a, p) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; }
 

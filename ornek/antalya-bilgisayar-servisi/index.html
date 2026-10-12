@@ -13,7 +13,7 @@
 .hero{position:relative;overflow:hidden;background:radial-gradient(900px 600px at 78% 30%,rgba(36,106,244,.32),transparent 60%),radial-gradient(700px 500px at 10% 110%,rgba(255,122,46,.14),transparent 60%),var(--gece);color:#fff;padding:clamp(40px,6vw,80px) 0 0}
 .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(169,195,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(169,195,255,.06) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 75%)}
 .hero .kap{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:20px 40px;align-items:center}
-.hero h1{font-size:clamp(46px,7.4vw,108px);font-weight:700;letter-spacing:-.04em;line-height:.92;font-variation-settings:"wdth" 85}
+.hero h1{font-size:clamp(44px,6.6vw,96px);font-weight:700;letter-spacing:-.03em;line-height:.95;font-variation-settings:"wdth" 92}
 .hero h1 .cizik{position:relative;display:inline-block;color:var(--mavi2)}
 .hero h1 .cizik svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.28em;overflow:visible}
 .hero h1 .cizik path{stroke:var(--kor);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:ciz 1.4s .6s cubic-bezier(.6,0,.2,1) forwards}
@@ -33,7 +33,7 @@
 .patlat .lbl circle{fill:var(--kor)}
 .yuzen{position:absolute;background:rgba(15,19,44,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(169,195,255,.18);border-radius:16px;padding:12px 14px;color:#fff;box-shadow:0 20px 40px -20px #000;font-size:13px;animation:yuz 6s ease-in-out infinite}
 .yuzen small{display:block;font:500 10.5px var(--m);letter-spacing:.1em;color:var(--mavi3);margin-bottom:4px}
-.yuzen.y1{left:-4%;top:10%}.yuzen.y2{right:0;bottom:16%;animation-delay:-3s}
+.yuzen.y1{left:-4%;top:10%}.yuzen.y2{left:2%;bottom:20%;animation-delay:-3s}
 @keyframes yuz{50%{transform:translateY(-10px)}}
 .serit-hiz{margin-top:clamp(40px,6vw,70px);border-top:1px solid var(--cz-k);border-bottom:1px solid var(--cz-k);overflow:hidden;white-space:nowrap;position:relative;background:rgba(255,255,255,.02)}
 .serit-hiz div{display:inline-flex;gap:36px;padding:16px 0;animation:kay 48s linear infinite;font:500 15px var(--g);color:#AEB8E2}
@@ -78,6 +78,8 @@
 @media(max-width:700px){.cihaz-izg{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:420px){.cihaz-izg{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .yongalar{display:flex;flex-wrap:wrap;gap:8px}
+.hizli{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px;padding:16px 18px;border-radius:16px;background:var(--kagit);border:1px dashed var(--cz)}
+.hizli b{display:block;font-size:14.5px}.hizli span{font-size:13.5px;color:var(--soluk)}
 .iki{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:560px){.iki{grid-template-columns:1fr}}
 .birak{border:2px dashed var(--cz);border-radius:18px;padding:30px 18px;text-align:center;background:var(--kagit);transition:all .2s;cursor:pointer;display:block}
@@ -167,21 +169,21 @@
 .tkp-bas h3{font:700 26px/1.1 var(--d);letter-spacing:-.02em}
 .tkp-bas p{font-size:14px;color:var(--soluk-k);margin-top:4px}
 .zc{list-style:none;position:relative}
-.zc li{position:relative;padding:18px 0 18px 48px}
-.zc li:before{content:"";position:absolute;left:15px;top:0;bottom:0;width:2px;background:var(--cz-k)}
-.zc li:first-child:before{top:28px}.zc li:last-child:before{bottom:calc(100% - 28px)}
-.zc li.ok:before{background:var(--mavi)}
+.zc>li{position:relative;padding:18px 0 18px 48px}
+.zc>li:before{content:"";position:absolute;left:15px;top:0;bottom:0;width:2px;background:var(--cz-k)}
+.zc>li:first-child:before{top:28px}.zc>li:last-child:before{bottom:calc(100% - 28px)}
+.zc>li.ok:before{background:var(--mavi)}
 .zc .nk{position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#161B3D;border:2px solid var(--cz-k);z-index:1;transition:all .4s}
 .zc .nk svg{width:15px;height:15px}
-.zc li.ok .nk{background:var(--mavi);border-color:var(--mavi)}
-.zc li.ak .nk{background:var(--kor);border-color:var(--kor);box-shadow:0 0 0 6px rgba(255,122,46,.2);animation:nabizK 1.6s infinite}
+.zc>li.ok .nk{background:var(--mavi);border-color:var(--mavi)}
+.zc>li.ak .nk{background:var(--kor);border-color:var(--kor);box-shadow:0 0 0 6px rgba(255,122,46,.2);animation:nabizK 1.6s infinite}
 @keyframes nabizK{50%{box-shadow:0 0 0 12px rgba(255,122,46,0)}}
 .zc .ust-s{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .zc b{font-weight:600;font-size:16px}
 .zc time{font:500 12px var(--m);color:var(--soluk-k);white-space:nowrap}
 .zc p{font-size:14px;color:#AEB8E2;margin-top:4px;display:none}
-.zc li.ok p,.zc li.ak p{display:block}
-.zc li:not(.ok):not(.ak){opacity:.5}
+.zc>li.ok p,.zc>li.ak p{display:block}
+.zc>li:not(.ok):not(.ak){opacity:.5}
 .teklif{margin-top:14px;padding:16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,122,46,.4)}
 .teklif li{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:5px 0;list-style:none;color:#D5DBFA}
 .teklif .top{border-top:1px solid var(--cz-k);margin-top:6px;padding-top:10px;font-weight:700;color:#fff;font-size:16px}
@@ -223,7 +225,7 @@
   <button class="menu-dg" aria-label="Menü"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></header>
 
-<section class="hero" id="ust" data-anlat="giris">
+<section class="hero koyu" id="ust" data-anlat="giris">
   <div class="kap">
     <div>
       <div class="ust-etk mono"><b>YENİ</b> Kapıdan al · onar · kapına getir</div>
@@ -279,7 +281,8 @@
     <div class="sih">
       <div class="sih-kut yuz" data-gir="olcek">
         <div class="ilerleme" id="ilerleme"><div>Cihaz</div><div>Marka</div><div>Belirti</div><div>Fotoğraf</div><div>İletişim</div></div>
-        <div class="adimk ac" data-a="0"><h3>Hangi cihaz arızalı?</h3><p>Birini seçin.</p><div class="cihaz-izg" id="cihaz-izg"></div></div>
+        <div class="adimk ac" data-a="0"><h3>Hangi cihaz arızalı?</h3><p>Birini seçin.</p><div class="cihaz-izg" id="cihaz-izg"></div>
+          <div class="hizli"><div><b>Neden bu kadar soru?</b><span>Kurye doğru çanta ve parçayla gelir, teşhis kısalır.</span></div><button class="dg cizgi kucuk" id="demo-doldur" type="button">Örnekle doldur (demo)</button></div></div>
         <div class="adimk" data-a="1"><h3>Marka ve model</h3><p>Model adı cihazın altındaki etikette yazar; bilmiyorsanız boş bırakın.</p>
           <div class="yongalar" id="marka-l"></div>
           <div class="iki" style="margin-top:20px"><div class="alan"><label for="model">Model (isteğe bağlı)</label><input id="model" placeholder="ör. IdeaPad 3 15ITL6"></div>
@@ -311,7 +314,7 @@
   </div>
 </section>
 
-<section class="bol fiyat" id="fiyat" data-anlat="fiyat">
+<section class="bol fiyat koyu" id="fiyat" data-anlat="fiyat">
   <div class="kap">
     <div class="bol-bas">
       <div><div class="etk mono"><i></i>Fiyat tahmini</div><h2 class="d" data-gir="perde">"Kaç para tutar?"<br><span class="vurgu">Önce aralığı görün.</span></h2></div>
@@ -358,7 +361,7 @@
   </div>
 </section>
 
-<section class="bol takip" id="takip" data-anlat="takip">
+<section class="bol takip koyu" id="takip" data-anlat="takip">
   <div class="kap">
     <div class="bol-bas">
       <div><div class="etk mono"><i></i>Canlı onarım takibi</div><h2 class="d" data-gir="yukari">"Bilgisayarım ne<br>durumda?" <span class="vurgu">Bakın.</span></h2></div>
@@ -410,5 +413,5 @@
 <div id="tost"></div>
 <script src="veri.js"></script><script src="ortak.js"></script><script src="harita.js"></script><script src="musteri.js"></script>
 <script src="../_dijitabela/filigran.js" data-gucu="0.035" data-kredi="1"></script>
-<script>if(window.top===window){window.DJ_REHBER={ses:"ses/",satirlar:{"giris":{"metin":"Merhaba! Antalya BB Bilgisayar için çalışan bir prototip hazırladık. Müşteri bilgisayarını servise taşımıyor; kapıdan alınıyor, onarılıyor, geri geliyor. Aşağı indikçe her bölümü anlatacağım."},"nasil":{"metin":"Dört adım: arıza kaydı, kapıdan alım, teşhis ve onay, sonra teslim. Müşteri hiçbir adımda evden çıkmıyor."},"kayit":{"metin":"Arıza kaydı sihirbazı. Cihaz, marka ve belirti seçildikçe sağdaki kart olası nedenleri gösteriyor. Fotoğraf da eklenebiliyor."},"fiyat":{"metin":"Fiyat tahmini sihirbazı tahmini bir aralık veriyor. Kesin fiyat teşhisten sonra yazılı geliyor; onay olmadan işlem yapılmıyor."},"randevu":{"metin":"Kapıdan alım randevusu. Mahalle haritadan seçiliyor, kurye saat aralığı da rotaya göre açılıyor."},"takip":{"metin":"Canlı onarım takibi. Müşteri her adımı görüyor, fiyat onayını tek dokunuşla veriyor. Aynı bilgi WhatsApp'a da düşüyor."},"kurumsal":{"metin":"Ofis, okul ve oteller için bakım aboneliği önerisi; düzenli gelir demek. İşletme paneli de bir tık ötede.","dugme":["İşletme paneli","panel.html"]}}};var _r=document.createElement("script");_r.src="../_dijitabela/rehber.js";_r.defer=true;document.addEventListener("DOMContentLoaded",function(){document.body.appendChild(_r)});}</script>
+<script>if(window.top===window){window.DJ_REHBER={ses:"ses/",tts:true,satirlar:{"giris":{"metin":"Merhaba! Antalya BB Bilgisayar için çalışan bir prototip hazırladık. Müşteri bilgisayarını servise taşımıyor; kapıdan alınıyor, onarılıyor, geri geliyor. Aşağı indikçe her bölümü anlatacağım."},"nasil":{"metin":"Dört adım: arıza kaydı, kapıdan alım, teşhis ve onay, sonra teslim. Müşteri hiçbir adımda evden çıkmıyor."},"kayit":{"metin":"Arıza kaydı sihirbazı. Cihaz, marka ve belirti seçildikçe sağdaki kart olası nedenleri gösteriyor. Fotoğraf da eklenebiliyor."},"fiyat":{"metin":"Fiyat tahmini sihirbazı tahmini bir aralık veriyor. Kesin fiyat teşhisten sonra yazılı geliyor; onay olmadan işlem yapılmıyor."},"randevu":{"metin":"Kapıdan alım randevusu. Mahalle haritadan seçiliyor, kurye saat aralığı da rotaya göre açılıyor."},"takip":{"metin":"Canlı onarım takibi. Müşteri her adımı görüyor, fiyat onayını tek dokunuşla veriyor. Aynı bilgi WhatsApp'a da düşüyor."},"kurumsal":{"metin":"Ofis, okul ve oteller için bakım aboneliği önerisi; düzenli gelir demek. İşletme paneli de bir tık ötede.","dugme":["İşletme paneli","panel.html"]}}};var _r=document.createElement("script");_r.src="../_dijitabela/rehber.js";_r.defer=true;document.addEventListener("DOMContentLoaded",function(){document.body.appendChild(_r)});}</script>
 <script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/wa-buton.js" defer></script></body></html>
