@@ -1,0 +1,92 @@
+<!doctype html><html lang="tr" data-yerlesim="ozel"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Randevu hatırlatma paneli · Lina Beauty Studio (örnek)</title><meta name="theme-color" content="#2a1d24">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--z:#f7f1ee;--k:#fffdfc;--y:#2a1d24;--s:#7a6670;--cz:#eaded8;--v:#b2456e;--v2:#f3d6e1;--wa:#1fa855;--wab:#e7f8ee;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%}body{background:var(--z);color:var(--y);font:500 15px/1.5 Manrope,system-ui,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit;color:inherit;max-width:100%}img{display:block;max-width:100%}
+.serit{background:#2a1d24;color:#f3d6e1;text-align:center;font-size:.78rem;padding:7px 12px}.serit a{color:#fff}
+.ust{display:flex;align-items:center;gap:14px;padding:16px clamp(14px,3vw,32px);border-bottom:1px solid var(--cz);background:var(--k);position:sticky;top:0;z-index:20}
+.logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#b2456e,#e08aa8);color:#fff;display:grid;place-items:center;font:600 1.2rem Fraunces,serif}
+.ust b{font:600 1.15rem Fraunces,serif;display:block}.ust small{color:var(--s)}.saat{margin-left:auto;text-align:right;font:600 .8rem/1.3 'JetBrains Mono',monospace;color:var(--s)}.saat b{font-size:1.4rem;color:var(--y);font-family:'JetBrains Mono',monospace}
+main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:22px;padding:22px clamp(14px,3vw,32px) 60px;max-width:1360px;margin:0 auto}
+@media(max-width:980px){main{grid-template-columns:minmax(0,1fr)}}
+.kart{background:var(--k);border:1px solid var(--cz);border-radius:var(--r);padding:18px}.kart h2{font:600 1.25rem/1.2 Fraunces,serif;margin-bottom:4px}.kart>p.a{color:var(--s);font-size:.9rem;margin-bottom:14px}
+.ozet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:18px}@media(max-width:640px){.ozet{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ozet div{background:var(--k);border:1px solid var(--cz);border-radius:16px;padding:14px}.ozet b{display:block;font:600 1.9rem/1 Fraunces,serif}.ozet span{font-size:.78rem;color:var(--s)}.ozet .v b{color:var(--v)}.ozet .g b{color:var(--wa)}
+.zaman{display:grid;gap:10px;margin-bottom:18px}.zaman input{width:100%;accent-color:var(--v)}.zaman .ci{display:flex;justify-content:space-between;font:600 .74rem 'JetBrains Mono',monospace;color:var(--s)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}.dg{border:0;border-radius:12px;padding:10px 14px;min-height:44px;background:var(--v);color:#fff;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}.dg.i{background:transparent;color:var(--y);box-shadow:inset 0 0 0 1.5px var(--cz)}.dg.i:hover{box-shadow:inset 0 0 0 1.5px var(--v)}
+.liste{display:grid;gap:8px}.r{display:grid;grid-template-columns:62px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;border-radius:14px;border:1.5px solid var(--cz);background:#fff;cursor:pointer;transition:border-color .2s,transform .2s}
+.r:hover{transform:translateX(3px)}.r.sec{border-color:var(--v);box-shadow:0 10px 24px -18px rgba(178,69,110,.8)}.r .s{font:600 1.05rem 'JetBrains Mono',monospace}.r .s small{display:block;font-size:.68rem;color:var(--s)}
+.r b{display:block}.r .h{font-size:.84rem;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cip{font-size:.72rem;font-weight:800;padding:5px 9px;border-radius:99px;white-space:nowrap;background:#f1ebe8;color:var(--s)}.cip.h24,.cip.h2{background:var(--v2);color:var(--v)}.cip.ok{background:var(--wab);color:#137a3d}.cip.ip{background:#fde4e1;color:#b3261e}.cip.er{background:#fff1d6;color:#8a5a00}
+.kural{display:grid;gap:10px}.kural label{display:flex;align-items:center;gap:10px;font-weight:600}.kural input[type=checkbox]{width:20px;height:20px;accent-color:var(--v)}
+.kural textarea{width:100%;min-height:96px;border:1.5px solid var(--cz);border-radius:12px;padding:10px;background:#fff;resize:vertical}.etk{font:600 .7rem 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--s)}
+.degisken{display:flex;gap:6px;flex-wrap:wrap}.degisken button{border:1px dashed var(--v);background:transparent;color:var(--v);border-radius:8px;padding:4px 8px;font-size:.78rem;cursor:pointer}
+.tel{position:sticky;top:96px;max-width:360px;margin:0 auto;border-radius:42px;padding:12px;background:#1b1418;box-shadow:0 40px 80px -40px rgba(42,29,36,.7)}
+.ekran{border-radius:32px;overflow:hidden;background:#efe7de url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23e3d8cc' stroke-width='.6'/%3E%3C/svg%3E");height:620px;display:flex;flex-direction:column}
+.wa-ust{background:#075e54;color:#fff;padding:14px 14px 12px;display:flex;align-items:center;gap:10px}.wa-ust i{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#b2456e,#e08aa8);display:grid;place-items:center;font:600 1rem Fraunces,serif;font-style:normal}
+.wa-ust b{display:block;font-size:.95rem}.wa-ust small{opacity:.8;font-size:.72rem}.akis{flex:1;overflow-y:auto;padding:14px 10px;display:flex;flex-direction:column;gap:8px}
+.bal{max-width:86%;padding:8px 10px 6px;border-radius:12px;font-size:.86rem;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08);white-space:pre-line;animation:gel .35s ease}@keyframes gel{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.bal.biz{background:#fff;align-self:flex-start;border-top-left-radius:2px}.bal.mus{background:#d9fdd3;align-self:flex-end;border-top-right-radius:2px}.bal small{display:block;text-align:right;font-size:.66rem;color:#8a8a8a;margin-top:2px}
+.bal .sb{font-size:.7rem;font-weight:800;color:var(--v);margin-bottom:2px}.hy{display:grid;gap:4px;margin-top:6px}.hy button{border:0;background:#fff;color:#027eb5;font-weight:700;padding:9px;border-radius:10px;cursor:pointer;box-shadow:0 1px 1px rgba(0,0,0,.08)}.hy button:disabled{opacity:.45;cursor:default}
+.bos{margin:auto;text-align:center;color:#6b5f55;font-size:.86rem;padding:20px}
+.bild{position:fixed;right:18px;bottom:18px;z-index:50;display:grid;gap:8px;max-width:min(360px,calc(100% - 36px))}.bild div{background:#2a1d24;color:#fff;border-radius:14px;padding:12px 14px;font-size:.86rem;box-shadow:0 18px 40px -18px rgba(0,0,0,.6);animation:gel .3s ease}.bild b{color:#f3d6e1}
+.ent{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}@media(max-width:640px){.ent{grid-template-columns:minmax(0,1fr)}}.ent div{border:1px solid var(--cz);border-radius:14px;padding:12px;background:#fff}.ent b{display:block;margin-bottom:2px}.ent span{font-size:.84rem;color:var(--s)}
+.gunluk{font:600 .78rem/1.6 'JetBrains Mono',monospace;color:var(--s);max-height:180px;overflow:auto;background:#fbf8f6;border-radius:12px;padding:10px;border:1px solid var(--cz)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="serit">Çalışan örnek · Lina Beauty Studio ve randevular temsilîdir · gerçek gönderim yapılmaz · <a href="../">Sunuma dön</a></div>
+<header class="ust"><span class="logo">L</span><div><b>Lina Beauty Studio</b><small>WhatsApp randevu hatırlatma paneli</small></div><div class="saat">Simülasyon saati<br><b id="saat">—</b></div></header>
+<main><div>
+<div class="ozet"><div><b id="o-top">0</b><span>yaklaşan randevu</span></div><div class="v"><b id="o-gid">0</b><span>hatırlatma gitti</span></div><div class="g"><b id="o-ok">0</b><span>müşteri onayladı</span></div><div><b id="o-bos">0</b><span>boşalan saat doldu</span></div></div>
+<section class="kart" data-anlat="zaman"><h2>Zamanı ilerletin, hatırlatmalar kendiliğinden gitsin</h2><p class="a">Sistem her dakika randevularınıza bakar. Kurala uyan randevuya, sizin hiçbir şey yapmanıza gerek kalmadan WhatsApp mesajı gider.</p>
+<div class="zaman"><input type="range" id="zaman" min="0" max="1800" step="5" value="0" aria-label="Simülasyon saati"><div class="ci"><span>Bugün 09:00</span><span>Bugün 21:00</span><span>Yarın 15:00</span></div></div>
+<div class="btns"><button class="dg" id="oynat">▶ Otomatik oynat</button><button class="dg i" id="sifirla">Başa al</button></div></section>
+<section class="kart" style="margin-top:18px" data-anlat="liste"><h2>Randevular</h2><p class="a">Bir randevuya dokunun; telefonda o müşterinin WhatsApp ekranını görün.</p><div class="liste" id="liste"></div></section>
+<section class="kart" style="margin-top:18px" data-anlat="kural"><h2>Kurallar ve mesaj şablonu</h2><p class="a">Ne zaman, hangi metinle gideceğini siz belirlersiniz. Meta'nın onayladığı şablon bir kez onaylanır; sonra her randevuda otomatik gider.</p>
+<div class="kural"><label><input type="checkbox" id="k24" checked> Randevudan 24 saat önce hatırlat</label><label><input type="checkbox" id="k2" checked> Randevudan 2 saat önce hatırlat</label><label><input type="checkbox" id="kbek" checked> İptal olursa boşalan saati bekleme listesine teklif et</label>
+<span class="etk">Şablon metni</span><textarea id="sablon">Merhaba {ad} 🌸 Lina Beauty Studio randevunuzu hatırlatırız: {gun} saat {saat}, {hizmet} ({uzman}). Gelebilecek misiniz?</textarea>
+<div class="degisken"><button type="button" data-d="{ad}">{ad}</button><button type="button" data-d="{gun}">{gun}</button><button type="button" data-d="{saat}">{saat}</button><button type="button" data-d="{hizmet}">{hizmet}</button><button type="button" data-d="{uzman}">{uzman}</button></div></div></section>
+<section class="kart" style="margin-top:18px" data-anlat="baglanti"><h2>Mevcut sisteminize nasıl bağlanır?</h2><p class="a">Yeni program kurmanız gerekmez; randevular nerede tutuluyorsa oradan okunur.</p>
+<div class="ent"><div><b>Kendi yazılımınız</b><span>Veritabanı ya da API'den randevuyu okuruz; iptal ve onaylar geri yazılır.</span></div><div><b>Google Takvim / Sheets</b><span>Randevu tablonuz yeterli; satır eklendikçe hatırlatma planlanır.</span></div><div><b>Resmî WhatsApp hattı</b><span>Meta Cloud API ile kendi numaranızdan gider; numaranız engellenme riskine girmez.</span></div></div>
+<p class="etk" style="margin:14px 0 6px">Sistem günlüğü</p><div class="gunluk" id="gunluk"></div></section>
+</div>
+<aside><div class="tel" data-anlat="telefon"><div class="ekran"><div class="wa-ust"><i>L</i><div><b>Lina Beauty Studio</b><small>işletme hesabı · resmî</small></div></div><div class="akis" id="akis"><p class="bos">Soldan bir randevu seçin ve zamanı ilerletin.</p></div></div></div></aside></main>
+<div class="bild" id="bild" aria-live="polite"></div>
+<script>
+(function(){"use strict";var $=function(s){return document.querySelector(s)},R=[["Ayşe Kaya","Gel tırnak + bakım","Selin",1,"10:30",60],["Merve Demir","Fön + saç bakımı","Derya",1,"11:00",45],["Zeynep Arslan","Kaş-kirpik lifting","Selin",1,"12:15",50],["Elif Şahin","Saç boyama (dip)","Derya",1,"14:00",90],["Burcu Yıldız","Cilt bakımı","Ece",1,"15:30",60],["Seda Koç","Manikür","Selin",0,"17:00",40],["Gizem Aydın","Ombre + kesim","Derya",0,"18:30",120],["Nazlı Öztürk","Kalıcı oje","Ece",1,"17:45",45]],BEK=[["Hande Ç.","Saç boyama","öğleden sonra"],["Pelin T.","Cilt bakımı","her saat"]];
+var bas=new Date();bas.setHours(9,0,0,0);var dk=0,sec=0,oynuyor=null,gid=0,ok=0,dolan=0;
+var L=R.map(function(r,i){var d=new Date(bas);d.setDate(d.getDate()+r[3]);var p=r[4].split(":");d.setHours(+p[0],+p[1],0,0);return{i:i,ad:r[0],hiz:r[1],uz:r[2],t:d,sure:r[5],durum:"plan",msj:[],g24:false,g2:false}}).sort(function(a,b){return a.t-b.t});
+var simdi=function(){return new Date(bas.getTime()+dk*6e4)},hh=function(d){return d.toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"})};
+var gun=function(d,ref){var a=new Date(ref||simdi());a.setHours(0,0,0,0);var b=new Date(d);b.setHours(0,0,0,0);var f=(b-a)/864e5;return f===0?"bugün":f===1?"yarın":d.toLocaleDateString("tr-TR",{day:"numeric",month:"long"})};
+var CIP={plan:["Planlandı",""],h24:["24 s hatırlatma gitti","h24"],h2:["2 s hatırlatma gitti","h2"],ok:["Onayladı","ok"],ip:["İptal etti","ip"],er:["Ertelemek istiyor","er"],gecti:["Tamamlandı",""]};
+function doldur(x){return $("#sablon").value.replace(/\{ad\}/g,x.ad.split(" ")[0]+" Hanım").replace(/\{gun\}/g,gun(x.t)).replace(/\{saat\}/g,hh(x.t)).replace(/\{hizmet\}/g,x.hiz.toLowerCase()).replace(/\{uzman\}/g,x.uz)}
+function gl(m){var g=$("#gunluk");g.innerHTML="<div>"+hh(simdi())+" · "+m+"</div>"+g.innerHTML}
+function bildir(m){var d=document.createElement("div");d.innerHTML=m;$("#bild").appendChild(d);setTimeout(function(){d.remove()},5200)}
+function gonder(x,tur){var m=doldur(x);x.msj.push({k:"biz",m:m,t:simdi(),hy:true,tur:tur});x.durum=x.durum==="ok"?"ok":tur;gid++;gl("WhatsApp → "+x.ad+" ("+(tur==="h24"?"24 saat":"2 saat")+" önce)");if(L.indexOf(x)===sec)ciz()}
+function tik(){var n=simdi();L.forEach(function(x){var f=(x.t-n)/36e5;if(x.durum==="ip"||x.durum==="gecti")return;
+if($("#k24").checked&&!x.g24&&f<=24&&f>2.05){x.g24=true;gonder(x,"h24")}
+if($("#k2").checked&&!x.g2&&f<=2&&f>0){x.g2=true;gonder(x,"h2")}
+if(f<=0&&x.durum!=="ip"){x.durum="gecti";x.msj.forEach(function(m){m.hy=false})}});ciz()}
+function yanit(x,c){var n=simdi();if(x.durum==="gecti"||x.durum==="ip")return;x.msj.forEach(function(m){m.hy=false});
+if(c==="ok"){x.msj.push({k:"mus",m:"Onaylıyorum ✅",t:n});x.msj.push({k:"biz",m:"Teşekkürler "+x.ad.split(" ")[0]+" Hanım, sizi "+hh(x.t)+" bekliyoruz 💕",t:n});x.durum="ok";ok++;gl(x.ad+" onayladı")}
+if(c==="er"){x.msj.push({k:"mus",m:"Ertelemek istiyorum",t:n});x.msj.push({k:"biz",m:"Tabii! "+x.uz+" için uygun saatler: yarın 16:00 · yarın 17:30 · cumartesi 11:00. Hangisi size uyar?",t:n});x.durum="er";gl(x.ad+" erteleme istedi, uygun saatler gönderildi");bildir("<b>Erteleme:</b> "+x.ad+" · "+x.hiz)}
+if(c==="ip"){x.msj.push({k:"mus",m:"İptal etmem gerekiyor",t:n});x.msj.push({k:"biz",m:"Anlaşıldı, randevunuzu iptal ettik. Yeni randevu için buraya yazmanız yeterli 🌸",t:n});x.durum="ip";gl(x.ad+" iptal etti, "+hh(x.t)+" boşaldı");
+var b=BEK[0];if($("#kbek").checked&&b){BEK.shift();dolan++;gl("Boşalan "+hh(x.t)+" bekleme listesinden "+b[0]+"'e teklif edildi → kabul");bildir("<b>"+hh(x.t)+" boşaldı</b> · bekleme listesinden "+b[0]+" ("+b[1]+") kabul etti, saat doldu ✨")}else bildir("<b>İptal:</b> "+x.ad+" · "+hh(x.t)+" boşaldı")}
+ciz()}
+function ciz(){$("#saat").textContent=gun(simdi(),bas).replace(/^./,function(c){return c.toUpperCase()})+" "+hh(simdi());
+$("#liste").innerHTML=L.map(function(x,k){var c=CIP[x.durum];return'<div class="r'+(k===sec?" sec":"")+'" data-k="'+k+'" role="button" tabindex="0"><div class="s">'+hh(x.t)+"<small>"+gun(x.t,bas)+'</small></div><div style="min-width:0"><b>'+x.ad+'</b><div class="h">'+x.hiz+" · "+x.uz+'</div></div><span class="cip '+c[1]+'">'+c[0]+"</span></div>"}).join("");
+[].forEach.call(document.querySelectorAll(".r"),function(r){r.onclick=r.onkeydown=function(e){if(e.type==="keydown"&&e.key!=="Enter")return;sec=+r.dataset.k;ciz()}});
+var x=L[sec],a=$("#akis");if(!x.msj.length){a.innerHTML='<p class="bos">'+x.ad+" için henüz mesaj gitmedi.<br>Randevu: "+gun(x.t)+" "+hh(x.t)+"<br><br>Zamanı ilerletin; 24 saat ve 2 saat kala hatırlatma otomatik gider.</p>"}
+else{a.innerHTML=x.msj.map(function(m,j){return'<div class="bal '+m.k+'">'+(m.k==="biz"&&m.tur?'<div class="sb">Otomatik hatırlatma</div>':"")+m.m.replace(/</g,"&lt;")+"<small>"+hh(m.t)+(m.k==="mus"?" ✓✓":"")+"</small>"+(m.hy?'<div class="hy"><button data-c="ok">Onaylıyorum</button><button data-c="er">Ertele</button><button data-c="ip">İptal</button></div>':"")+"</div>"}).join("");
+[].forEach.call(a.querySelectorAll(".hy button"),function(b){b.onclick=function(){yanit(x,b.dataset.c)}});a.scrollTop=a.scrollHeight}
+$("#o-top").textContent=L.filter(function(x){return x.durum!=="gecti"&&x.durum!=="ip"}).length;$("#o-gid").textContent=gid;$("#o-ok").textContent=ok;$("#o-bos").textContent=dolan}
+$("#zaman").oninput=function(){dk=+this.value;tik()};
+$("#oynat").onclick=function(){if(oynuyor){clearInterval(oynuyor);oynuyor=null;this.textContent="▶ Otomatik oynat";return}this.textContent="❚❚ Durdur";var z=$("#zaman");oynuyor=setInterval(function(){if(+z.value>=1800){clearInterval(oynuyor);oynuyor=null;$("#oynat").textContent="▶ Otomatik oynat";return}z.value=+z.value+10;dk=+z.value;tik()},120)};
+$("#sifirla").onclick=function(){location.reload()};
+[].forEach.call(document.querySelectorAll(".degisken button"),function(b){b.onclick=function(){var t=$("#sablon"),p=t.selectionStart||t.value.length;t.value=t.value.slice(0,p)+b.dataset.d+t.value.slice(p);t.focus()}});
+$("#sablon").oninput=ciz;gl("Sistem açıldı · "+L.length+" randevu okundu (örnek veri)");tik();
+})();
+</script><script src="/ornek/_dijitabela/filigran.js" defer></script><script src="/ornek/_dijitabela/izle.js" data-slug="guzellik-randevu-hatirlatma" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
