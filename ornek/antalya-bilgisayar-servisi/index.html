@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Antalya BB Bilgisayar · Kapıdan Bilgisayar Servisi · Prototip</title>
+<meta name="description" content="Antalya BB Bilgisayar için hazırlanan çalışan prototip: arıza kaydı, kapıdan alım randevusu, fiyat tahmini, canlı onarım takibi ve WhatsApp bildirimleri.">
+<meta name="theme-color" content="#0A0D1C">
+<link rel="icon" href="img/bb-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ortak.css">
+<style>
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;background:radial-gradient(900px 600px at 78% 30%,rgba(36,106,244,.32),transparent 60%),radial-gradient(700px 500px at 10% 110%,rgba(255,122,46,.14),transparent 60%),var(--gece);color:#fff;padding:clamp(40px,6vw,80px) 0 0}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(169,195,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(169,195,255,.06) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 75%)}
+.hero .kap{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:20px 40px;align-items:center}
+.hero h1{font-size:clamp(46px,7.4vw,108px);font-weight:700;letter-spacing:-.04em;line-height:.92;font-variation-settings:"wdth" 85}
+.hero h1 .cizik{position:relative;display:inline-block;color:var(--mavi2)}
+.hero h1 .cizik svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.28em;overflow:visible}
+.hero h1 .cizik path{stroke:var(--kor);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:ciz 1.4s .6s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes ciz{to{stroke-dashoffset:0}}
+.hero .ust-etk{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--cz-k);color:#C9D3FF;margin-bottom:26px}
+.hero .ust-etk b{background:var(--mavi);color:#fff;border-radius:999px;padding:3px 9px;font-weight:600}
+.hero p.giris{font-size:clamp(17px,1.5vw,19.5px);color:#BFC7EA;max-width:46ch;margin:26px 0 32px}
+.hero .dgler{display:flex;gap:12px;flex-wrap:wrap}
+.guven{display:flex;gap:26px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--cz-k)}
+.guven div{min-width:0}.guven b{display:block;font:700 26px/1 var(--d);letter-spacing:-.02em}.guven span{font-size:13px;color:var(--soluk-k)}
+.guven .yildiz{color:#FFC24B;letter-spacing:2px;font-size:15px}
+.patlat{position:relative;aspect-ratio:1/1.02;width:100%;max-width:640px;justify-self:end}
+.patlat svg{width:100%;height:100%;overflow:visible}
+.patlat .kat{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.patlat .lbl text{font:500 13px var(--m);letter-spacing:.08em;fill:#C9D3FF}
+.patlat .lbl line{stroke:rgba(169,195,255,.45);stroke-width:1;stroke-dasharray:3 3}
+.patlat .lbl circle{fill:var(--kor)}
+.yuzen{position:absolute;background:rgba(15,19,44,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(169,195,255,.18);border-radius:16px;padding:12px 14px;color:#fff;box-shadow:0 20px 40px -20px #000;font-size:13px;animation:yuz 6s ease-in-out infinite}
+.yuzen small{display:block;font:500 10.5px var(--m);letter-spacing:.1em;color:var(--mavi3);margin-bottom:4px}
+.yuzen.y1{left:-4%;top:10%}.yuzen.y2{right:0;bottom:16%;animation-delay:-3s}
+@keyframes yuz{50%{transform:translateY(-10px)}}
+.serit-hiz{margin-top:clamp(40px,6vw,70px);border-top:1px solid var(--cz-k);border-bottom:1px solid var(--cz-k);overflow:hidden;white-space:nowrap;position:relative;background:rgba(255,255,255,.02)}
+.serit-hiz div{display:inline-flex;gap:36px;padding:16px 0;animation:kay 48s linear infinite;font:500 15px var(--g);color:#AEB8E2}
+.serit-hiz span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--mavi);margin-right:14px;transform:rotate(45deg) translateY(-2px)}
+@keyframes kay{to{transform:translateX(-50%)}}
+@media(max-width:900px){.hero .kap{grid-template-columns:1fr}.patlat{justify-self:center;max-width:520px;margin-top:10px}.patlat .lbl{display:none}.yuzen.y1{left:0;top:4%}}
+
+/* ---------- NASIL ---------- */
+.nasil{background:var(--kagit)}
+.yol-sahne{position:relative}
+.yol-svg{width:100%;height:150px;overflow:visible}
+.yol-svg path.iz{stroke:var(--cz);stroke-width:2.5;fill:none;stroke-dasharray:2 10;stroke-linecap:round}
+.yol-svg path.dolu{stroke:var(--mavi);stroke-width:3;fill:none;stroke-linecap:round}
+.adimlar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:-6px}
+.adim{padding:26px 24px 28px;position:relative;overflow:hidden}
+.adim .no{font:700 64px/1 var(--d);color:transparent;-webkit-text-stroke:1.5px var(--cz);position:absolute;right:16px;top:12px}
+.adim .ik{width:52px;height:52px;border-radius:16px;background:var(--buz);display:grid;place-items:center;color:var(--mavi);margin-bottom:22px}
+.adim .ik svg{width:26px;height:26px}
+.adim h3{font:700 22px/1.15 var(--d);letter-spacing:-.02em;margin-bottom:8px}
+.adim p{color:var(--soluk);font-size:15px}
+@media(max-width:900px){.adimlar{grid-template-columns:1fr 1fr}.yol-svg{display:none}}
+@media(max-width:560px){.adimlar{grid-template-columns:1fr}}
+
+/* ---------- KAYIT SİHİRBAZI ---------- */
+.kayit{background:#fff}
+.sih{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:start}
+.sih-kut{padding:clamp(20px,3vw,36px);min-height:540px;display:flex;flex-direction:column}
+.ilerleme{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:30px}
+.ilerleme div{font:500 11px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--soluk);min-width:0}
+.ilerleme div:before{content:"";display:block;height:4px;border-radius:4px;background:var(--kagit2);margin-bottom:9px;transition:background .4s}
+.ilerleme div.ok:before{background:var(--mavi)}.ilerleme div.ak{color:var(--murekkep)}.ilerleme div.ak:before{background:linear-gradient(90deg,var(--mavi) 50%,var(--kagit2) 50%)}
+.adimk{display:none;flex:1;animation:waGir .5s both}.adimk.ac{display:block}
+.adimk h3{font:700 clamp(26px,3vw,36px)/1.05 var(--d);letter-spacing:-.025em;margin-bottom:8px}
+.adimk>p{color:var(--soluk);margin-bottom:22px}
+.cihaz-izg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.cihaz{border:1.5px solid var(--cz);border-radius:18px;padding:18px 10px 14px;background:#fff;text-align:center;transition:all .25s;position:relative}
+.cihaz svg{width:100%;height:62px;margin-bottom:10px;color:var(--murekkep)}
+.cihaz b{font-size:14px;font-weight:600;display:block;line-height:1.25}
+.cihaz:hover{border-color:var(--mavi2);transform:translateY(-3px)}
+.cihaz.sec{border-color:var(--mavi);background:var(--buz);box-shadow:0 0 0 4px rgba(36,106,244,.12)}
+.cihaz.sec svg{color:var(--mavi)}
+@media(max-width:700px){.cihaz-izg{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:420px){.cihaz-izg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.yongalar{display:flex;flex-wrap:wrap;gap:8px}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.iki{grid-template-columns:1fr}}
+.birak{border:2px dashed var(--cz);border-radius:18px;padding:30px 18px;text-align:center;background:var(--kagit);transition:all .2s;cursor:pointer;display:block}
+.birak:hover,.birak.ust{border-color:var(--mavi);background:var(--buz)}
+.birak svg{width:40px;height:40px;margin:0 auto 10px;color:var(--mavi)}
+.kucukler{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.kucukler figure{width:92px;height:92px;border-radius:14px;overflow:hidden;position:relative;animation:waGir .4s both;box-shadow:var(--gol)}
+.kucukler img{width:100%;height:100%;object-fit:cover}
+.kucukler figure button{position:absolute;top:4px;right:4px;width:24px;height:24px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:13px;line-height:1}
+.onay-k{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--soluk);margin-top:6px}
+.onay-k input{width:18px;height:18px;margin-top:2px;accent-color:var(--mavi);flex:none}
+.sih-alt{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--kagit2)}
+.teshis{position:sticky;top:96px;padding:28px;background:linear-gradient(160deg,#141A44,#0A0D1C);color:#fff;border-radius:var(--r);overflow:hidden}
+.teshis:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(36,106,244,.45),transparent 70%)}
+.teshis h4{font:700 24px/1.1 var(--d);margin:12px 0 18px;position:relative;z-index:1}
+.teshis dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:14px;position:relative;z-index:1}
+.teshis dt{color:var(--soluk-k);font:500 11px/1.9 var(--m);letter-spacing:.1em;text-transform:uppercase}
+.teshis dd{color:#fff;font-weight:500;min-width:0;overflow-wrap:anywhere}
+.nedenler{margin-top:20px;border-top:1px solid var(--cz-k);padding-top:16px;position:relative;z-index:1}
+.nedenler li{list-style:none;display:flex;gap:10px;align-items:center;padding:7px 0;font-size:14px;color:#D9DFFF;animation:waGir .4s both}
+.nedenler li i{width:22px;height:22px;flex:none;border-radius:7px;background:rgba(92,141,255,.2);color:var(--mavi3);display:grid;place-items:center;font:600 11px var(--m);font-style:normal}
+.teshis .uyari{margin-top:18px;font-size:12.5px;color:var(--soluk-k);position:relative;z-index:1}
+.basari{text-align:center;padding:30px 10px}
+.basari .tik{width:84px;height:84px;margin:0 auto 18px;border-radius:50%;background:var(--iyi);display:grid;place-items:center;color:#fff;animation:waGir .6s both}
+.basari .kod{font:700 40px/1 var(--d);letter-spacing:-.02em;color:var(--mavi);margin:8px 0}
+@media(max-width:960px){.sih{grid-template-columns:1fr}.teshis{position:relative;top:0}}
+
+/* ---------- FİYAT ---------- */
+.fiyat{background:radial-gradient(800px 500px at 90% 0%,rgba(36,106,244,.22),transparent 60%),var(--gece);color:#fff}
+.fiy{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:start}
+.fiy-sol{padding:clamp(20px,3vw,32px)}
+.fiy-sol h4{font:500 11px var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--soluk-k);margin:22px 0 12px}
+.fiy-sol h4:first-child{margin-top:0}
+.islem-l{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.islem{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 14px;border-radius:14px;border:1.5px solid var(--cz-k);background:rgba(255,255,255,.03);text-align:left;transition:all .2s;font-size:14px;color:#DDE3FF;min-width:0}
+.islem small{font:500 10.5px var(--m);color:var(--soluk-k);white-space:nowrap}
+.islem:hover{border-color:var(--mavi2)}.islem.sec{border-color:var(--mavi);background:rgba(36,106,244,.18);color:#fff}
+@media(max-width:560px){.islem-l{grid-template-columns:1fr}}
+.anahtar{display:inline-flex;background:rgba(255,255,255,.05);border:1px solid var(--cz-k);border-radius:999px;padding:4px;gap:4px;flex-wrap:wrap}
+.anahtar button{border:0;background:none;padding:9px 16px;border-radius:999px;font-size:14px;color:#C9D0EE;font-weight:500}
+.anahtar button.sec{background:#fff;color:var(--murekkep)}
+.fiy-sonuc{padding:clamp(22px,3vw,34px);position:sticky;top:96px}
+.aralik{font:700 clamp(40px,5.4vw,68px)/1 var(--d);letter-spacing:-.035em;margin:10px 0 6px;white-space:nowrap}
+.aralik span{color:var(--soluk-k);font-weight:400;margin:0 .12em}
+.cetvel{position:relative;height:56px;margin:26px 0 8px}
+.cetvel .zemin{position:absolute;left:0;right:0;top:20px;height:10px;border-radius:10px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 2px,transparent 2px 10%),rgba(255,255,255,.05)}
+.cetvel .bant{position:absolute;top:16px;height:18px;border-radius:10px;background:linear-gradient(90deg,var(--mavi),var(--mavi2));box-shadow:0 0 30px rgba(92,141,255,.6);transition:left .6s cubic-bezier(.2,.8,.2,1),width .6s cubic-bezier(.2,.8,.2,1)}
+.cetvel .ol{position:absolute;top:40px;font:500 10.5px var(--m);color:var(--soluk-k);transform:translateX(-50%)}
+.kirilim{list-style:none;margin:18px 0;border-top:1px solid var(--cz-k)}
+.kirilim li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--cz-k);font-size:14px;color:#C9D0EE}
+.kirilim li b{color:#fff;font-weight:600;white-space:nowrap}
+.uyari-kut{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:rgba(255,178,127,.1);border:1px solid rgba(255,178,127,.35);color:#FFD9C2;font-size:14px;line-height:1.5}
+.uyari-kut svg{width:22px;height:22px;flex:none;color:var(--kor2);margin-top:1px}
+@media(max-width:960px){.fiy{grid-template-columns:1fr}.fiy-sonuc{position:relative;top:0}}
+
+/* ---------- RANDEVU ---------- */
+.randevu{background:var(--kagit)}
+.rnd{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
+.harita-cer{padding:10px;background:#0E1230;border-radius:24px;position:relative}
+.harita-cer .lej{position:absolute;left:22px;top:20px;display:flex;gap:8px;flex-wrap:wrap}
+.harita-cer .lej span{font:500 10.5px var(--m);letter-spacing:.08em;color:#C9D3FF;background:rgba(10,13,28,.7);padding:6px 10px;border-radius:999px;border:1px solid var(--cz-k)}
+.rnd-form{padding:clamp(20px,3vw,30px)}
+.gunler{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:6px 0 18px}
+.gun{border:1.5px solid var(--cz);border-radius:14px;background:#fff;padding:9px 2px;text-align:center;transition:all .2s;min-width:0}
+.gun small{display:block;font:500 10px var(--m);letter-spacing:.06em;color:var(--soluk);text-transform:uppercase}
+.gun b{font:700 20px/1.2 var(--d)}
+.gun.sec{background:var(--murekkep);border-color:var(--murekkep);color:#fff}.gun.sec small{color:var(--mavi3)}
+.slotlar{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.slot{border:1.5px solid var(--cz);border-radius:14px;background:#fff;padding:12px;text-align:left;transition:all .2s}
+.slot b{display:block;font-weight:600;font-size:15px}
+.slot small{font-size:12px;color:var(--iyi);font-weight:500}
+.slot.az small{color:#B37300}.slot.dolu{opacity:.45;pointer-events:none;background:var(--kagit)}.slot.dolu small{color:var(--soluk)}
+.slot.sec{border-color:var(--mavi);background:var(--buz);box-shadow:0 0 0 4px rgba(36,106,244,.12)}
+.rnd-ozet{margin-top:18px;padding:14px 16px;border-radius:14px;background:var(--kagit);font-size:14px;display:grid;gap:4px}
+.rnd-ozet b{font-weight:600}
+@media(max-width:960px){.rnd{grid-template-columns:1fr}}
+@media(max-width:400px){.gun b{font-size:17px}}
+
+/* ---------- TAKİP ---------- */
+.takip{background:radial-gradient(700px 500px at 0% 20%,rgba(36,106,244,.2),transparent 60%),var(--gece);color:#fff}
+.tkp{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);gap:28px;align-items:start}
+.sorgu{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.sorgu input{flex:1;min-width:0;min-height:52px;border-radius:999px;border:1.5px solid var(--cz-k);background:rgba(255,255,255,.05);padding:0 20px;font:600 16px var(--m);letter-spacing:.06em;color:#fff;outline:none}
+.sorgu input:focus{border-color:var(--mavi2)}
+.tkp-kart{padding:clamp(20px,3vw,30px)}
+.tkp-bas{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid var(--cz-k);margin-bottom:8px}
+.tkp-bas h3{font:700 26px/1.1 var(--d);letter-spacing:-.02em}
+.tkp-bas p{font-size:14px;color:var(--soluk-k);margin-top:4px}
+.zc{list-style:none;position:relative}
+.zc li{position:relative;padding:18px 0 18px 48px}
+.zc li:before{content:"";position:absolute;left:15px;top:0;bottom:0;width:2px;background:var(--cz-k)}
+.zc li:first-child:before{top:28px}.zc li:last-child:before{bottom:calc(100% - 28px)}
+.zc li.ok:before{background:var(--mavi)}
+.zc .nk{position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#161B3D;border:2px solid var(--cz-k);z-index:1;transition:all .4s}
+.zc .nk svg{width:15px;height:15px}
+.zc li.ok .nk{background:var(--mavi);border-color:var(--mavi)}
+.zc li.ak .nk{background:var(--kor);border-color:var(--kor);box-shadow:0 0 0 6px rgba(255,122,46,.2);animation:nabizK 1.6s infinite}
+@keyframes nabizK{50%{box-shadow:0 0 0 12px rgba(255,122,46,0)}}
+.zc .ust-s{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.zc b{font-weight:600;font-size:16px}
+.zc time{font:500 12px var(--m);color:var(--soluk-k);white-space:nowrap}
+.zc p{font-size:14px;color:#AEB8E2;margin-top:4px;display:none}
+.zc li.ok p,.zc li.ak p{display:block}
+.zc li:not(.ok):not(.ak){opacity:.5}
+.teklif{margin-top:14px;padding:16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,122,46,.4)}
+.teklif li{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:5px 0;list-style:none;color:#D5DBFA}
+.teklif .top{border-top:1px solid var(--cz-k);margin-top:6px;padding-top:10px;font-weight:700;color:#fff;font-size:16px}
+.teklif .dgler{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.teshis-foto{display:flex;gap:8px;margin-top:10px}
+.teshis-foto svg{width:86px;height:64px;border-radius:10px}
+.kurye-harita{margin-top:12px;border-radius:16px;overflow:hidden;border:1px solid var(--cz-k)}
+.sim{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;align-items:center}
+.sim small{color:var(--soluk-k);font-size:12.5px}
+.tel-yan{position:sticky;top:90px}
+.tel-yan .not{text-align:center;font-size:12.5px;color:var(--soluk-k);margin-top:14px}
+@media(max-width:960px){.tkp{grid-template-columns:1fr}.tel-yan{position:relative;top:0}}
+
+/* ---------- KURUMSAL + YORUM ---------- */
+.kurumsal{background:#fff}
+.kur{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.kur .yuz{padding:28px;position:relative;overflow:hidden}
+.kur h3{font:700 23px/1.15 var(--d);letter-spacing:-.02em;margin:16px 0 8px}
+.kur p{color:var(--soluk);font-size:15px}
+.kur .ik{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--murekkep);color:#fff}
+.kur .ik svg{width:24px;height:24px}
+.yorumlar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.yorum{padding:26px;background:var(--kagit);border-radius:var(--r)}
+.yorum q{display:block;font:500 19px/1.4 var(--d);letter-spacing:-.01em;quotes:"“" "”"}
+.yorum span{display:block;margin-top:14px;font:500 12px var(--m);color:var(--soluk);letter-spacing:.06em}
+@media(max-width:900px){.kur,.yorumlar{grid-template-columns:1fr}}
+.panel-cagri{margin-top:clamp(50px,7vw,90px);border-radius:28px;background:linear-gradient(120deg,#0E1438,#1B2C7A 60%,#246AF4);color:#fff;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:24px;align-items:center;position:relative;overflow:hidden}
+.panel-cagri h3{font:700 clamp(30px,4vw,52px)/1 var(--d);letter-spacing:-.03em}
+.panel-cagri p{color:#C9D5FF;margin-top:12px;max-width:56ch}
+@media(max-width:760px){.panel-cagri{grid-template-columns:1fr}}
+</style>
+</head><body>
+<div class="serit"><b>ÖRNEK PROTOTİP</b> · Dijitabela, Antalya BB Bilgisayar için hazırladı · kayıt, fiyat ve takip verileri örnektir <a href="panel.html">İşletme paneline geç →</a></div>
+
+<header class="ust"><div class="kap">
+  <a class="logo" href="#ust" aria-label="Antalya BB Bilgisayar"><img src="img/bb-logo.png" alt="BB bilgisayar" width="150" height="26"><small>ANTALYA<br>BİLGİSAYAR SERVİSİ</small></a>
+  <nav id="nav"><a href="#kayit">Arıza kaydı</a><a href="#fiyat">Fiyat tahmini</a><a href="#randevu">Kapıdan alım</a><a href="#takip">Onarım takibi</a><a href="#kurumsal">Kurumsal</a><a href="panel.html">İşletme paneli</a></nav>
+  <a class="tel" href="tel:+905537230599"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>0553 723 05 99</span></a>
+  <button class="menu-dg" aria-label="Menü"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+
+<section class="hero" id="ust" data-anlat="giris">
+  <div class="kap">
+    <div>
+      <div class="ust-etk mono"><b>YENİ</b> Kapıdan al · onar · kapına getir</div>
+      <h1 class="d">Bilgisayarınız <span class="cizik">kapıdan<svg viewBox="0 0 400 30" preserveAspectRatio="none"><path d="M4 20 C 90 6, 200 4, 396 16"/></svg></span> alınır. Onarılır. Geri gelir.</h1>
+      <p class="giris">Antalya BB Bilgisayar: marka bağımsız teknik servis. Arızayı iki dakikada kaydedin, kurye saatini seçin; teşhis, onay ve onarımın her adımını telefonunuzdan izleyin.</p>
+      <div class="dgler">
+        <a class="dg" href="#kayit">Arıza kaydı oluştur <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="dg cizgi" href="#takip">Onarımımı takip et</a>
+      </div>
+      <div class="guven">
+        <div><span class="yildiz">★★★★★</span><b>118</b><span>Google değerlendirmesi*</span></div>
+        <div><b>4 bölge</b><span>Kepez · Konyaaltı · Lara · Serik</span></div>
+        <div><b>0 sürpriz</b><span>Onayınız olmadan işlem yok</span></div>
+      </div>
+    </div>
+    <div class="patlat" id="patlat">
+      <svg id="laptop" viewBox="-40 -30 680 680" aria-label="Laptop parçalarının açılmış görünümü"></svg>
+      <div class="yuzen y1"><small>ABS-24117 · CANLI</small><span class="roz kor canli" style="background:rgba(255,122,46,.18);color:#FFB27F"><span class="n"></span>Teşhis tamam · onay bekliyor</span></div>
+      <div class="yuzen y2"><small>KURYE · ŞİRİNYALI</small><b style="font-size:15px">Emre yolda · ~14 dk</b></div>
+    </div>
+  </div>
+  <div class="serit-hiz" aria-hidden="true"><div id="hiz-serit"></div></div>
+</section>
+
+<section class="bol nasil" id="nasil" data-anlat="nasil">
+  <div class="kap">
+    <div class="bol-bas">
+      <div><div class="etk mono"><i></i>Nasıl çalışır</div><h2 class="d" data-gir="yukari">Trafikte siz değil,<br>bilgisayarınız gider.</h2></div>
+      <p class="soluk" data-gir="yukari">Antalya'da bilgisayarı servise götürmek yarım gün demek. Burada dört adım var ve hiçbirinde evden çıkmanız gerekmiyor.</p>
+    </div>
+    <div class="yol-sahne">
+      <svg class="yol-svg" id="yol-svg" viewBox="0 0 1200 150" preserveAspectRatio="none" aria-hidden="true">
+        <path class="iz" id="yol-iz" d="M30,110 C200,20 330,140 450,80 S700,10 800,80 S1050,140 1170,50"/>
+        <path class="dolu" id="yol-dolu" d="M30,110 C200,20 330,140 450,80 S700,10 800,80 S1050,140 1170,50"/>
+        <g id="minibus"><rect x="-26" y="-15" width="52" height="26" rx="7" fill="#246AF4"/><rect x="10" y="-11" width="13" height="10" rx="2" fill="#A9C3FF"/><circle cx="-14" cy="12" r="5.5" fill="#0E1230"/><circle cx="14" cy="12" r="5.5" fill="#0E1230"/><text x="-18" y="3" font-family="Geist Mono" font-size="9" fill="#fff" font-weight="600">BB</text></g>
+      </svg>
+      <div class="adimlar">
+        <div class="adim yuz" data-gir="yukari"><span class="no">01</span><div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Arızayı kaydedin</h3><p>Cihaz, marka ve belirtiyi seçin, fotoğraf ekleyin. Kayıt numaranız anında gelir.</p></div>
+        <div class="adim yuz" data-gir="yukari" style="transition-delay:.1s"><span class="no">02</span><div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div><h3>Kurye kapınızdan alır</h3><p>Mahallenizi ve saat aralığını seçin. Cihaz mühürlü servis poşetinde atölyeye gelir.</p></div>
+        <div class="adim yuz" data-gir="yukari" style="transition-delay:.2s"><span class="no">03</span><div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5M8 11h6M11 8v6"/></svg></div><h3>Teşhis ve onay</h3><p>Teknisyen arızayı bulur, net fiyatı WhatsApp'tan yollar. Siz onaylamadan vida sökülmez.</p></div>
+        <div class="adim yuz" data-gir="yukari" style="transition-delay:.3s"><span class="no">04</span><div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Onarılır, kapınıza döner</h3><p>Test edilen cihaz seçtiğiniz saatte geri gelir. Her adımı canlı takip edersiniz.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bol kayit" id="kayit" data-anlat="kayit">
+  <div class="kap">
+    <div class="bol-bas">
+      <div><div class="etk mono"><i></i>Arıza kaydı <em>2 dakika</em></div><h2 class="d" data-gir="sol">Derdinizi anlatın,<br>gerisini biz soralım.</h2></div>
+      <p class="soluk" data-gir="sol">Telefonda "nasıl bir ses geliyor?" diye uğraşmayın. Seçtikçe sağdaki ön teşhis kartı olası nedenleri gösterir; teknisyen cihazınızı görmeden önce ne getireceğini bilir.</p>
+    </div>
+    <div class="sih">
+      <div class="sih-kut yuz" data-gir="olcek">
+        <div class="ilerleme" id="ilerleme"><div>Cihaz</div><div>Marka</div><div>Belirti</div><div>Fotoğraf</div><div>İletişim</div></div>
+        <div class="adimk ac" data-a="0"><h3>Hangi cihaz arızalı?</h3><p>Birini seçin.</p><div class="cihaz-izg" id="cihaz-izg"></div></div>
+        <div class="adimk" data-a="1"><h3>Marka ve model</h3><p>Model adı cihazın altındaki etikette yazar; bilmiyorsanız boş bırakın.</p>
+          <div class="yongalar" id="marka-l"></div>
+          <div class="iki" style="margin-top:20px"><div class="alan"><label for="model">Model (isteğe bağlı)</label><input id="model" placeholder="ör. IdeaPad 3 15ITL6"></div>
+          <div class="alan"><label for="yas">Cihaz yaşı</label><select id="yas"><option>1 yıldan yeni</option><option selected>1–3 yıl</option><option>3–5 yıl</option><option>5 yıldan eski</option></select></div></div></div>
+        <div class="adimk" data-a="2"><h3>Ne oluyor?</h3><p>Birden fazla seçebilirsiniz.</p><div class="yongalar" id="belirti-l"></div>
+          <div class="alan" style="margin-top:20px"><label for="aciklama">Kendi cümlenizle (isteğe bağlı)</label><textarea id="aciklama" placeholder="ör. Oyun açınca 10 dakikada kapanıyor, fan çok ses yapıyor."></textarea></div></div>
+        <div class="adimk" data-a="3"><h3>Fotoğraf ekleyin</h3><p>Kırık ekran, sıvı izi ya da hata mesajı; teşhisi hızlandırır.</p>
+          <label class="birak" id="birak"><input type="file" id="foto" accept="image/*" multiple class="sr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg><b>Fotoğraf çekin ya da sürükleyin</b><div class="soluk" style="font-size:14px">Telefonda doğrudan kamera açılır · en fazla 6 fotoğraf</div></label>
+          <div style="margin-top:12px"><button class="dg cizgi kucuk" id="ornek-foto" type="button">Örnek fotoğraf ekle (demo)</button></div>
+          <div class="kucukler" id="kucukler"></div></div>
+        <div class="adimk" data-a="4"><h3>Size nasıl ulaşalım?</h3><p>Kayıt numarası ve takip bağlantısı WhatsApp'tan gelir.</p>
+          <div class="iki"><div class="alan"><label for="ad">Ad soyad</label><input id="ad" value="Selin K." autocomplete="name"></div>
+          <div class="alan"><label for="tel">Cep telefonu</label><input id="tel" inputmode="tel" value="05__ ___ __ __" autocomplete="tel"></div></div>
+          <div class="alan" style="margin-top:14px"><label for="mah">Mahalle</label><select id="mah"></select></div>
+          <label class="onay-k" style="margin-top:16px"><input type="checkbox" checked> Kaydım ve onarım durumu için WhatsApp ve SMS ile bilgilendirilmeyi kabul ediyorum (KVKK aydınlatma metni).</label>
+          <label class="onay-k"><input type="checkbox"> Kampanya ve 6 aylık bakım hatırlatmaları almak istiyorum (isteğe bağlı, İYS).</label></div>
+        <div class="adimk" data-a="5"><div class="basari"><div class="tik"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></div><div class="mono soluk">Kaydınız alındı</div><div class="kod" id="kayit-kod">ABS-24132</div><p class="soluk" style="max-width:40ch;margin:0 auto 22px">Takip bağlantısı WhatsApp'a gönderildi (önizleme aşağıda). Şimdi kuryenin geleceği saati seçin.</p><a class="dg" href="#randevu">Kapıdan alım saatini seç →</a></div></div>
+        <div class="sih-alt" id="sih-alt"><button class="dg cizgi kucuk" id="geri" type="button">← Geri</button><span class="mono soluk" id="adim-yazi">1 / 5</span><button class="dg kucuk" id="ileri" type="button">Devam →</button></div>
+      </div>
+      <aside class="teshis" data-gir="sag">
+        <div class="mono" style="color:var(--mavi3)">Ön teşhis kartı · canlı</div>
+        <h4 id="t-baslik">Cihaz seçin</h4>
+        <dl><dt>Cihaz</dt><dd id="t-cihaz">—</dd><dt>Marka</dt><dd id="t-marka">—</dd><dt>Belirti</dt><dd id="t-belirti">—</dd><dt>Foto</dt><dd id="t-foto">0</dd></dl>
+        <div class="nedenler"><div class="mono" style="color:var(--soluk-k);margin-bottom:6px">Olası nedenler</div><ul id="t-neden"><li style="color:var(--soluk-k)">Belirti seçince burada görünür.</li></ul></div>
+        <div id="t-islem" style="margin-top:16px;position:relative;z-index:1"></div>
+        <p class="uyari">Ön teşhis yol göstericidir; kesin teşhisi teknisyen cihazı inceleyince koyar.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="bol fiyat" id="fiyat" data-anlat="fiyat">
+  <div class="kap">
+    <div class="bol-bas">
+      <div><div class="etk mono"><i></i>Fiyat tahmini</div><h2 class="d" data-gir="perde">"Kaç para tutar?"<br><span class="vurgu">Önce aralığı görün.</span></h2></div>
+      <p class="soluk" data-gir="perde">Müşterinin ilk sorusu hep bu. Sihirbaz tahmini bir aralık verir; net fiyat teşhisten sonra yazılı gelir. Telefonda pazarlık yerine şeffaf başlangıç.</p>
+    </div>
+    <div class="fiy">
+      <div class="fiy-sol yuz" data-gir="sol">
+        <h4>1 · Cihaz</h4><div class="yongalar" id="f-cihaz"></div>
+        <h4>2 · İşlem</h4><div class="islem-l" id="f-islem"></div>
+        <h4>3 · Parça</h4><div class="anahtar" id="f-parca"><button class="sec" data-v="muadil">Muadil / uyumlu</button><button data-v="orijinal">Orijinal</button></div>
+        <h4>4 · Hız</h4><div class="anahtar" id="f-hiz"><button class="sec" data-v="std">Standart</button><button data-v="eks">Ekspres (öncelikli)</button></div>
+        <h4>5 · Bölge</h4><div class="anahtar" id="f-bolge"></div>
+      </div>
+      <div class="fiy-sonuc yuz" data-gir="sag">
+        <div class="mono" style="color:var(--mavi3)">Tahmini aralık</div>
+        <div class="aralik" id="f-aralik">₺900<span>–</span>₺1.600</div>
+        <div class="soluk" id="f-sure">Süre: aynı gün</div>
+        <div class="cetvel"><div class="zemin"></div><div class="bant" id="f-bant"></div><span class="ol" style="left:0%">₺0</span><span class="ol" style="left:50%">₺5.000</span><span class="ol" style="left:100%">₺10.000</span></div>
+        <ul class="kirilim" id="f-kirilim"></ul>
+        <div class="uyari-kut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><div><b>Bu tahmini bir aralıktır.</b> Kesin fiyat teşhisten sonra size yazılı (WhatsApp) bildirilir; onayınız olmadan işlem yapılmaz.<div style="font-size:12px;opacity:.75;margin-top:6px">Prototipteki tutarlar örnektir; işletme kendi tarifesini panelden girer.</div></div></div>
+        <button class="dg kor" style="width:100%;margin-top:18px" id="f-kayit" type="button">Bu işlem için arıza kaydı aç →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bol randevu" id="randevu" data-anlat="randevu">
+  <div class="kap">
+    <div class="bol-bas">
+      <div><div class="etk mono"><i></i>Kapıdan alım randevusu</div><h2 class="d" data-gir="sag">Mahallenizi seçin,<br>kurye saatinde kapıda.</h2></div>
+      <p class="soluk" data-gir="sag">Haritadan mahallenize dokunun ya da listeden seçin. Kurye rotası mahallelere göre planlanır; bu yüzden size yakın saatler önce açılır.</p>
+    </div>
+    <div class="rnd">
+      <div class="harita-cer" data-gir="olcek"><div class="lej"><span>● Hizmet mahallesi</span><span style="color:#FFB27F">● Seçiminiz</span><span>■ Atölye (örnek konum)</span></div><svg id="r-harita"></svg></div>
+      <div class="rnd-form yuz" data-gir="yukari">
+        <div class="alan"><label for="r-mah">Mahalle</label><select id="r-mah"></select></div>
+        <div class="alan" style="margin-top:16px"><label>Gün</label></div><div class="gunler" id="r-gun"></div>
+        <div class="alan"><label>Saat aralığı</label></div><div class="slotlar" id="r-slot" style="margin-top:6px"></div>
+        <div class="alan" style="margin-top:16px"><label for="r-adres">Adres tarifi</label><input id="r-adres" placeholder="Sokak, bina, kat — kurye için"></div>
+        <div class="rnd-ozet" id="r-ozet"></div>
+        <button class="dg" style="width:100%;margin-top:16px" id="r-onay" type="button">Randevuyu onayla</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bol takip" id="takip" data-anlat="takip">
+  <div class="kap">
+    <div class="bol-bas">
+      <div><div class="etk mono"><i></i>Canlı onarım takibi</div><h2 class="d" data-gir="yukari">"Bilgisayarım ne<br>durumda?" <span class="vurgu">Bakın.</span></h2></div>
+      <p class="soluk" data-gir="yukari">Müşteri aramadan önce cevabı telefonunda görür. Her adım WhatsApp'a da düşer; fiyat onayı tek dokunuşla verilir.</p>
+    </div>
+    <div class="tkp">
+      <div>
+        <div class="sorgu"><input id="t-kod" value="ABS-24117" aria-label="Kayıt numarası"><button class="dg" id="t-sorgu" type="button">Sorgula</button></div>
+        <div class="tkp-kart yuz" data-gir="sol">
+          <div class="tkp-bas"><div><div class="mono" style="color:var(--mavi3)" id="tk-no">ABS-24117 · ÖRNEK KAYIT</div><h3 id="tk-cihaz">Lenovo IdeaPad 3 15</h3><p id="tk-alt">Selin K. · Şirinyalı · Aşırı ısınma, fan sesi</p></div><span class="roz kor canli" id="tk-durum" style="background:rgba(255,122,46,.16);color:#FFB27F"><span class="n"></span>Onay bekliyor</span></div>
+          <ol class="zc" id="zc"></ol>
+          <div class="sim"><button class="dg cizgi kucuk" id="sim-ileri" type="button">Sonraki adımı canlandır ▸</button><button class="dg cizgi kucuk" id="sim-bas" type="button">Baştan</button><small>Demo: görüşmede süreci adım adım gösterin.</small></div>
+        </div>
+      </div>
+      <div class="tel-yan" data-gir="sag"><div id="wa"></div><p class="not">WhatsApp bildirim önizlemesi · mesajlar işletmenin numarasından otomatik gider</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bol kurumsal" id="kurumsal" data-anlat="kurumsal">
+  <div class="kap">
+    <div class="bol-bas">
+      <div><div class="etk mono"><i></i>Kurumsal <em>önerilen yeni paket</em></div><h2 class="d" data-gir="sol">Ofis, okul, otel:<br>bilgisayarı aksamayan iş.</h2></div>
+      <p class="soluk" data-gir="sol">Sitenizdeki "Özelleştirilmiş İş Çözümleri" bir abonelik paketine dönüşebilir. Belek ve Lara otelleri, muhasebe ofisleri ve okullar için düzenli gelir.</p>
+    </div>
+    <div class="kur">
+      <div class="yuz" data-gir="yukari"><div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Periyodik bakım ziyareti</h3><p>Ayda bir yerinde toz/fan bakımı, güncelleme ve yedek kontrolü. Tüm cihazların kartı panelde.</p></div>
+      <div class="yuz" data-gir="yukari" style="transition-delay:.1s"><div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Onarımda yedek cihaz</h3><p>Personelin bilgisayarı servisteyken iş durmasın; yerine geçici cihaz bırakılır.</p></div>
+      <div class="yuz" data-gir="yukari" style="transition-delay:.2s"><div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Öncelikli müdahale</h3><p>Abonelere ekspres sıra ve aynı gün kapıdan alım. Aylık rapor yöneticiye otomatik gider.</p></div>
+    </div>
+    <div class="etk mono" style="margin-top:clamp(56px,7vw,90px)"><i></i>Müşterileriniz ne diyor</div>
+    <div class="yorumlar">
+      <div class="yorum" data-gir="yukari"><q>Herkese öneriyorum, normal bir bilgisayarcıdan kat kat daha hızlılar; güler yüzlü ve dürüstler.</q><span>ALİ E. A. · GOOGLE</span></div>
+      <div class="yorum" data-gir="yukari" style="transition-delay:.1s"><q>Oğluma aldığım masaüstü bilgisayarı hızlı ve uygun fiyata topladılar; sonrasında telefonla uzaktan destek verdiler.</q><span>NURULLAH K. · GOOGLE</span></div>
+      <div class="yorum" data-gir="yukari" style="transition-delay:.2s"><q>Çok samimi insanlar, güvenle bilgisayarımı teslim ettim.</q><span>FATİH Ç. · GOOGLE</span></div>
+    </div>
+    <p class="soluk" style="font-size:12.5px;margin-top:14px">* Değerlendirme sayısı ve yorumlar işletmenin kendi sitesinde yer alan Google yorumlarından (Trustindex) alınmıştır.</p>
+    <div class="panel-cagri" data-gir="olcek"><div><div class="mono" style="color:var(--mavi3)">Perde arkası</div><h3>Bu kayıtlar işletme paneline düşer.</h3><p>İş emirleri panosu, kurye rotası, parça stoku, otomatik WhatsApp bildirimleri ve aylık rapor. Hepsi tek ekranda.</p></div><a class="dg beyaz" href="panel.html">İşletme panelini aç →</a></div>
+  </div>
+</section>
+
+<footer class="alt"><div class="kap">
+  <div><img src="img/bb-logo.png" alt="BB bilgisayar" style="height:24px;filter:invert(1);margin-bottom:14px"><p>Marka bağımsız teknik destek hizmeti. Laptop, masaüstü, oyun bilgisayarı, All In One ve yazıcı.</p></div>
+  <div><b>Hizmetler</b>Laptop Ekran Tamiri<br>Anakart Tamiri<br>BGA Reballing<br>BIOS ve IO Programlama</div>
+  <div><b>Bölgeler</b>Kepez<br>Konyaaltı<br>Lara<br>Serik</div>
+  <div><b>İletişim</b><a href="tel:+905537230599">0553 723 05 99</a><br>info@antalyabilgisayarservisi.com</div>
+  <div class="not">Bu sayfa satış görüşmesi için hazırlanmış bir prototiptir; yayında değildir. Kayıt, fiyat, takip ve kurye bilgileri örnektir.</div>
+</div></footer>
+<div id="tost"></div>
+<script src="veri.js"></script><script src="ortak.js"></script><script src="harita.js"></script><script src="musteri.js"></script>
+<script src="../_dijitabela/filigran.js" data-gucu="0.035" data-kredi="1"></script>
+<script>if(window.top===window){window.DJ_REHBER={ses:"ses/",satirlar:{"giris":{"metin":"Merhaba! Antalya BB Bilgisayar için çalışan bir prototip hazırladık. Müşteri bilgisayarını servise taşımıyor; kapıdan alınıyor, onarılıyor, geri geliyor. Aşağı indikçe her bölümü anlatacağım."},"nasil":{"metin":"Dört adım: arıza kaydı, kapıdan alım, teşhis ve onay, sonra teslim. Müşteri hiçbir adımda evden çıkmıyor."},"kayit":{"metin":"Arıza kaydı sihirbazı. Cihaz, marka ve belirti seçildikçe sağdaki kart olası nedenleri gösteriyor. Fotoğraf da eklenebiliyor."},"fiyat":{"metin":"Fiyat tahmini sihirbazı tahmini bir aralık veriyor. Kesin fiyat teşhisten sonra yazılı geliyor; onay olmadan işlem yapılmıyor."},"randevu":{"metin":"Kapıdan alım randevusu. Mahalle haritadan seçiliyor, kurye saat aralığı da rotaya göre açılıyor."},"takip":{"metin":"Canlı onarım takibi. Müşteri her adımı görüyor, fiyat onayını tek dokunuşla veriyor. Aynı bilgi WhatsApp'a da düşüyor."},"kurumsal":{"metin":"Ofis, okul ve oteller için bakım aboneliği önerisi; düzenli gelir demek. İşletme paneli de bir tık ötede.","dugme":["İşletme paneli","panel.html"]}}};var _r=document.createElement("script");_r.src="../_dijitabela/rehber.js";_r.defer=true;document.addEventListener("DOMContentLoaded",function(){document.body.appendChild(_r)});}</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/wa-buton.js" defer></script></body></html>
