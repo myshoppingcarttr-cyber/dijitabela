@@ -45,6 +45,7 @@ main{padding:36px 0 90px;min-height:70vh}
 .i2{grid-template-columns:repeat(2,minmax(0,1fr))}.i3{grid-template-columns:repeat(3,minmax(0,1fr))}.i4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:900px){.i3,.i4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.i2,.i3,.i4{grid-template-columns:1fr}}
+@media(max-width:420px){.ust .kap{gap:10px}.logo b{font-size:20px}.btn.kucuk{padding:0 10px}.kim{gap:6px}}   /* 12 Eki: 375px üst çubuk taşması (Üye Ol 11px dışarıdaydı) */
 .kart{background:var(--panel);border:1px solid var(--cizgi);border-radius:var(--r);padding:22px;position:relative;min-width:0}
 .kart.tik{cursor:pointer;transition:border-color .2s,transform .2s}.kart.tik:hover{border-color:var(--m);transform:translateY(-2px)}
 .kart h3+p{margin-top:6px}
@@ -130,7 +131,7 @@ td input[type=checkbox]{width:18px;height:18px;accent-color:var(--iyi)}
 .sohbet form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--cizgi)}
 /* bildirim */
 #tost{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--y);color:var(--gece);font-weight:800;padding:13px 20px;border-radius:12px;z-index:200;transition:transform .35s;max-width:calc(100vw - 32px)}
-#tost.gor{transform:translateX(-50%) translateY(0)}
+#tost.gor{transform:translateX(-50%) translateY(0)}#tost:not(.gor){visibility:hidden}
 /* modal */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:150;display:grid;place-items:center;padding:16px}
 .modal .kart{max-width:520px;width:100%;max-height:90vh;overflow:auto}
