@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dijitabela Oto Servis Demo</title>
+<meta name="description" content="Dijitabela Oto Servis canlı demo: aracı plakasıyla kaydedin, bakım takvimi kendiliğinden çıksın, bakımı gelen müşteriye hatırlatma mesajı hazır olsun. Oto servisler için.">
+<link rel="canonical" href="https://dijitabela.com.tr/oto-servis-demo.html">
+<meta property="og:title" content="Dijitabela Oto Servis · Bakımı gelen müşteri sizi arasın">
+<meta name="theme-color" content="#0f2a4a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/yeni/demo.css">
+<style>
+.plaka{font:800 15px "JetBrains Mono";background:#fff;border:2px solid #132033;border-left:14px solid #1d6fe0;border-radius:6px;padding:2px 8px;white-space:nowrap;display:inline-block}
+tr.sec-satir{background:#fff6d6}tr[data-p]{cursor:pointer}tr[data-p]:hover{background:#f5f8fc}
+</style>
+</head><body>
+<header><div class="kap"><a class="logo" href="/"><i>d</i>Dijitabela Oto Servis</a><a class="wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Oto%20Servis%20demosunu%20g%C3%B6rd%C3%BCm%2C%20servisim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a></div></header>
+<div class="hero"><div class="kap">
+  <span class="etiket">Oto servisler için</span>
+  <h1>Aracı plakasıyla kaydedin, <em>bakımı gelince</em> müşteri sizi arasın.</h1>
+  <p>"Bu aracın bakımı ne zamandı?" diye defter karıştırmak yerine: plaka, kilometre ve tarihle bakım takvimi çıkar; zamanı gelen müşteri için hatırlatma mesajı hazır olur.</p>
+  <div class="dugmeler"><a class="btn sari" href="#dene">Şimdi deneyin ↓</a><a class="btn cizgi" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Oto%20Servis%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Servisim için sorun</a></div>
+</div></div>
+
+<section id="dene"><div class="kap">
+  <h2>1 dakikada kendiniz deneyin</h2>
+  <p class="alt">Bir araç kaydedin, bakım takvimini görün, hatırlatma mesajını gönderin. Plaka, müşteri ve kilometreleri değiştirebilirsiniz; takvim hesabı gerçekten buna göre değişir. Servis, müşteri ve araçlar kurgudur.</p>
+  <div class="anlat" aria-live="polite"><span class="no" id="d-no"></span><p id="d-yazi"></p><button type="button" id="d-ses" aria-pressed="false">🔊 Sesli anlat</button></div>
+  <div class="demo">
+    <div class="telefon"><div class="ust"><i>d</i><span id="tel-baslik">Müşteri · WhatsApp</span></div>
+      <div class="sohbet" id="sohbet"></div>
+      <div class="aksiyon"><button type="button" id="cevap" disabled>💬 Müşteri cevap yazdı (örnek)</button></div>
+    </div>
+    <div>
+      <div class="uyg"><div class="bar">Yeni araç kaydı<span id="durum">Plakayı girin</span></div>
+        <div class="ic"><div class="form">
+          <label>Plaka<input id="f-plaka" type="text" value="07 DEM 123" maxlength="12" autocomplete="off"></label>
+          <label>Araç<select id="f-arac"><option>Renault Clio 2019</option><option>Fiat Egea 2021</option><option>Dacia Duster 2020</option></select></label>
+          <label>Müşteri<input id="f-musteri" type="text" value="Ali Yıldız"></label>
+          <label>Güncel kilometre<input id="f-km" type="number" min="1000" step="100" value="150600"></label>
+          <label>Son yağ bakımı (km)<input id="f-yagkm" type="number" min="0" step="100" value="141200"></label>
+          <label>Son yağ bakımı (tarih)<input id="f-yagtar" type="date" value="2025-10-14"></label>
+        </div></div>
+        <div class="ek-ozet"><span class="not" id="not">Plakayı ve kilometreleri değiştirebilirsiniz.</span><button type="button" class="btn mavi" id="kaydet">Aracı kaydet</button></div>
+      </div>
+      <div class="adim"><h3>Kayıtlı araçlar</h3>
+        <div class="tablo"><table class="bd"><thead><tr><th>Plaka</th><th>Araç</th><th>Müşteri</th><th>Güncel km</th></tr></thead><tbody id="araclar"></tbody></table></div></div>
+      <div class="adim" id="takvim" hidden><h3 id="takvim-b">Bakım takvimi</h3><p class="kurgu" style="margin:0 0 8px">Bugün: 12 Ekim 2026. Son bakım km/tarihine ve bakım aralığına göre hesaplanır; sarı "yaklaştı", kırmızı "zamanı geldi".</p>
+        <div class="tablo"><table class="bd" style="min-width:0"><thead><tr><th>Bakım</th><th>Aralık</th><th>Sıradaki</th><th>Durum</th></tr></thead><tbody id="bakimlar"></tbody></table></div>
+        <div style="margin-top:12px"><button type="button" class="btn yesil" id="gonder">✓ Hatırlatma mesajını gönder</button> <span class="kurgu" id="gonder-not"></span></div></div>
+      <div class="adim" id="gonderildi" hidden><h3>Gönderilenler ve randevular</h3><div class="tablo"><table class="bd"><thead><tr><th>Plaka</th><th>Müşteri</th><th>Saat</th><th>Durum</th></tr></thead><tbody id="glist"></tbody></table></div></div>
+      <div class="sonuc" id="sonuc"><h3>✅ Bakımı gelen müşteri sizi aradı</h3><p id="sonuc-yazi"></p>
+        <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Oto%20Servis%20demosunu%20denedim%2C%20servisim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Servisime uygulayalım: WhatsApp'tan yazın</a></div>
+    </div>
+  </div>
+  <p class="kurgu">Örnek kurgudur: servis, müşteri adları, plakalar ve kilometreler gerçek değildir.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="kap">
+  <h2>Programda başka neler var</h2>
+  <div class="ozellik">
+    <div>🚗<h3>Plakayla müşteri ve araç kaydı</h3><p>Plaka yazın, aracın tüm servis geçmişi ve müşteri bilgisi açılsın.</p></div>
+    <div>⏰<h3>Kilometre ve tarihe göre hatırlatma</h3><p>Bakım zamanı yaklaşan araç için müşteriye hazır mesaj.</p></div>
+    <div>✅<h3>"Aracınız hazır" mesajı</h3><p>İş bitince müşteriye tek dokunuşla bilgi mesajı.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="kap"><div class="son"><h2>Servisinizde nasıl çalışır, konuşalım</h2><p>Mevcut müşteri ve araç listenizi birlikte aktaralım; ilk hatırlatmayı deneyin.</p><a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Oto%20Servis%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a></div></div></section>
+<footer>Dijitabela · Antalya · dijitabela.com.tr · Demo verileri kurgudur.</footer>
+
+<script src="assets/yeni/demo-ortak.js"></script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var BUGUN = new Date(2026, 9, 12);
+  var ARACLAR = [
+    { plaka: "07 ABC 456", arac: "Fiat Egea 2021", musteri: "Ayşe Demir", km: 94500, yagkm: 88000, yagtar: "2026-02-10" },
+    { plaka: "34 XYZ 789", arac: "Dacia Duster 2020", musteri: "Cemal Aksoy", km: 71000, yagkm: 60000, yagtar: "2025-08-01" }
+  ];
+  var secili = null, gonderildi = false, gecmis = [], cevap = false, sohbet = $("#sohbet");
+  var tl = function (n) { return Number(n).toLocaleString("tr-TR"); };
+  var gunFark = function (tar) { return Math.round((tar - BUGUN) / 864e5); };
+  var tarStr = function (d) { return d.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" }); };
+  var ayEkle = function (iso, ay) { var p = iso.split("-"); return new Date(+p[0], +p[1] - 1 + ay, +p[2]); };
+  var ton = function (ad) { var k = ad.trim().split(/\s+/); return k[0] + (/^(ayşe|zeynep|selin|elif|fatma|derya|pınar|hande|gizem|merve|buse)/i.test(k[0]) ? " Hanım" : " Bey"); };
+  DEMO.kur({ onek: "oto", adimlar: [
+    "Yeni aracı plakasıyla kaydedin. Plaka, müşteri ve kilometreleri değiştirebilirsiniz.",
+    "Araç kaydedildi. Bakım takvimi kilometre ve tarihe göre kendiliğinden çıktı; yaklaşan ve zamanı gelenler renkli. Mesajı telefonda okuyup gönderin.",
+    "Hatırlatma mesajı gitti. Şimdi müşteri randevu için cevap yazsın.",
+    "Müşteri cevap yazdı, randevu listesine işlendi. Bakımı gelen müşteri sizi aradı."
+  ] });
+  function bakimlar(a) {
+    var yagKalanKm = a.yagkm + 10000 - a.km, yagTar = ayEkle(a.yagtar, 12), yagGun = gunFark(yagTar);
+    var kontrolTar = ayEkle(a.yagtar, 12);
+    var frenKalan = (a.yagkm + 20000) - a.km;
+    var durum = function (km, gun) { if (km <= 0 || (gun !== null && gun <= 0)) return ["kirmizi", "Zamanı geldi"]; if (km <= 1000 || (gun !== null && gun <= 30)) return ["sari", "Yaklaştı"]; return ["gri", "İleride"]; };
+    return [
+      { ad: "Yağ ve filtre", aralik: "10.000 km / 12 ay", sira: tl(a.yagkm + 10000) + " km veya " + tarStr(yagTar), d: durum(yagKalanKm, yagGun), kalan: yagKalanKm },
+      { ad: "Fren balatası kontrolü", aralik: "20.000 km", sira: tl(a.yagkm + 20000) + " km", d: durum(frenKalan, null), kalan: frenKalan },
+      { ad: "Genel kontrol (lastik, akü, sıvılar)", aralik: "12 ay", sira: tarStr(kontrolTar), d: durum(99999, gunFark(kontrolTar)), kalan: gunFark(kontrolTar) }
+    ];
+  }
+  function aracCiz() {
+    $("#araclar").innerHTML = ARACLAR.map(function (a, i) { return '<tr data-p="' + i + '" class="' + (secili === i ? "sec-satir" : "") + '"><td><span class="plaka">' + DEMO.esc(a.plaka) + "</span></td><td>" + a.arac + "</td><td>" + DEMO.esc(a.musteri) + "</td><td>" + tl(a.km) + " km</td></tr>"; }).join("");
+  }
+  function takvimCiz() {
+    var a = ARACLAR[secili], B = bakimlar(a);
+    $("#takvim-b").innerHTML = 'Bakım takvimi · <span class="plaka">' + DEMO.esc(a.plaka) + "</span> " + a.arac;
+    $("#bakimlar").innerHTML = B.map(function (b) { return "<tr><td><b>" + b.ad + "</b></td><td>" + b.aralik + "</td><td>" + b.sira + '</td><td><span class="chip ' + b.d[0] + '">' + b.d[1] + (b.d[0] !== "gri" && b.ad.indexOf("Yağ") === 0 ? (b.kalan > 0 && b.kalan < 99999 ? " · " + tl(b.kalan) + " km kaldı" : b.kalan <= 0 ? " · " + tl(-b.kalan) + " km geçti" : "") : "") + "</span></td></tr>"; }).join("");
+    $("#takvim").hidden = false;
+    var yag = B[0]; var gonder = yag.d[0] !== "gri";
+    $("#gonder").disabled = !gonder || (gonderildi && secili === gonderildiAraci);
+    $("#gonder-not").textContent = gonder ? "" : "Bu araçta yaklaşan bakım yok; mesaj gerekmiyor. Başka bir araç seçin ya da kilometreyi değiştirip yeniden kaydedin.";
+    sohbetCiz();
+  }
+  var gonderildiAraci = -1;
+  function mesaj(a) {
+    var B = bakimlar(a), yag = B[0], model = a.arac.split(" ").slice(0, 2).join(" ");
+    var yakin = B.filter(function (b) { return b.d[0] !== "gri"; }).map(function (b) { return b.ad.replace(/ (.*)/, "").toLowerCase(); });
+    return "Merhaba " + ton(a.musteri) + ", " + a.plaka + " plakalı " + model + " aracınızın " + yakin.join(" ve ") + " zamanı " + (yag.d[0] === "kirmizi" ? "geldi" : "yaklaştı") + " (son yağ bakımı " + tl(a.yagkm) + " km). Uygun olduğunuz günü yazın, size yer ayıralım.\n— Örnek Oto Servis";
+  }
+  function sohbetCiz() {
+    if (secili === null) { sohbet.innerHTML = '<div class="gun">Bugün</div><div class="msj o" style="align-self:center;background:#182229;color:#8696a0;font-size:12px">Araç kaydedilince mesaj önizlemesi burada görünür.</div>'; return; }
+    var a = ARACLAR[secili]; $("#tel-baslik").textContent = ton(a.musteri) + " · WhatsApp";
+    if (gecmis[secili]) sohbet.innerHTML = '<div class="gun">Bugün</div>' + gecmis[secili].join("");
+    else if (bakimlar(a)[0].d[0] !== "gri") { sohbet.innerHTML = '<div class="gun">Taslak önizleme</div>'; DEMO.balon(sohbet, DEMO.esc(mesaj(a)), true, "taslak", true); }
+    else sohbet.innerHTML = '<div class="gun">Bugün</div>';
+    sohbet.scrollTop = 1e5;
+  }
+  $("#kaydet").addEventListener("click", function () {
+    var pl = $("#f-plaka").value.trim().toUpperCase(), km = +$("#f-km").value, yk = +$("#f-yagkm").value, yt = $("#f-yagtar").value, mu = $("#f-musteri").value.trim();
+    if (pl.length < 5 || !mu || !km || !yt || yk > km) { $("#not").textContent = yk > km ? "Son bakım kilometresi güncel kilometreden büyük olamaz." : "Plaka, müşteri, kilometre ve tarihi doldurun."; return; }
+    ARACLAR.push({ plaka: pl, arac: $("#f-arac").value, musteri: mu, km: km, yagkm: yk, yagtar: yt });
+    secili = ARACLAR.length - 1; $("#araclar").innerHTML = ""; aracCiz();
+    var tr = $("#araclar").lastElementChild; if (tr) tr.classList.add("yeni");
+    $("#not").textContent = pl + " kaydedildi."; $("#durum").textContent = "Araç kaydedildi";
+    DEMO.git(1); takvimCiz();
+    $("#takvim").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    DEMO.izle("oto:araç kaydet " + bakimlar(ARACLAR[secili])[0].d[1]);
+  });
+  $("#araclar").addEventListener("click", function (e) { var tr = e.target.closest("tr[data-p]"); if (!tr) return; secili = +tr.dataset.p; aracCiz(); takvimCiz(); DEMO.git(1); $("#cevap").disabled = !(gecmis[secili] && !gecmis[secili].cevap); DEMO.izle("oto:araç seç"); });
+  $("#gonder").addEventListener("click", function () {
+    if (secili === null || gecmis[secili]) return; var a = ARACLAR[secili], i = secili;
+    $("#gonder").disabled = true; DEMO.git(2); $("#gonderildi").hidden = false;
+    var t = DEMO.saat(); gecmis[i] = ['<div class="msj ben" style="align-self:flex-end">' + DEMO.esc(mesaj(a)) + "<time>" + t + " ✓✓</time></div>"]; gonderildi = true; gonderildiAraci = i;
+    $("#glist").insertAdjacentHTML("beforeend", '<tr data-g="' + i + '"><td><span class="plaka">' + DEMO.esc(a.plaka) + "</span></td><td>" + DEMO.esc(a.musteri) + "</td><td>" + t + '</td><td class="du"><span class="chip ok">Gönderildi ✓✓</span></td></tr>');
+    sohbetCiz(); $("#cevap").disabled = false; cevap = false;
+    $("#gonderildi").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    DEMO.izle("oto:hatırlatma gönderildi");
+  });
+  var GUNLER = ["Perşembe sabah 09:00", "Cuma 10:30", "Cumartesi 09:30"];
+  $("#cevap").addEventListener("click", function () {
+    var i = secili; if (!gecmis[i] || gecmis[i].cevap) return; gecmis[i].cevap = true;
+    var n = ARACLAR.filter(function (a, k) { return gecmis[k] && gecmis[k].cevap; }).length, g = GUNLER[(n - 1) % GUNLER.length], soru = g.split(" ")[0] + " " + (g.indexOf("sabah") > -1 ? "sabah " : "") + "uygun mu?";
+    gecmis[i].push('<div class="msj o">' + soru + "<time>" + DEMO.saat(3) + "</time></div>");
+    gecmis[i].push('<div class="msj ben" style="align-self:flex-end">✅ ' + g + " için yazdık, bekleriz 🔧<time>" + DEMO.saat() + " ✓✓</time></div>");
+    sohbetCiz(); $("#cevap").disabled = true;
+    var tr = document.querySelector('#glist tr[data-g="' + i + '"] .du'); if (tr) tr.innerHTML = '<span class="chip sari">Randevu: ' + g + "</span>";
+    DEMO.git(3); $("#sonuc").classList.add("gor"); $("#sonuc-yazi").textContent = n + " müşteri bakım için randevu aldı. Kimseyi aramadınız; defter karıştırmadınız.";
+    DEMO.izle("oto:randevu " + n + " · demo tamamlandı");
+  });
+  aracCiz(); sohbetCiz();
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" data-slug="oto-servis-demo" data-sayfa="oto-servis-demo" defer></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>

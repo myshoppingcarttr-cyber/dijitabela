@@ -185,6 +185,31 @@ table.bd{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}tabl
   </div>
   <p class="kurgu">Örnek kurgudur: mükellef adları, belgeler ve mesajlar gerçek değildir.</p>
 </div>
+<div id="sek-tahsilat" role="tabpanel" hidden>
+  <p class="alt">Ay başında "ücretinizi hatırlatır mısınız?" demenin mahcubiyeti yerine: kimin ücreti gecikti tek listede görünsün, nazik hatırlatma büronuzun adıyla WhatsApp'tan gitsin. Örnek mükellefler ve mesajlar kurgudur.</p>
+  <div class="anlat" aria-live="polite"><span class="no" id="th-no">Adım 1 / 4</span><p id="th-yazi"></p><button type="button" id="th-ses" aria-pressed="false">🔊 Sesli anlat</button></div>
+  <div class="demo" style="margin-top:14px">
+    <div class="telefon ek-tel"><div class="ust"><i>d</i><span id="th-tel-baslik">Mükellef · WhatsApp</span></div>
+      <div class="kisiler" id="th-kisiler"></div>
+      <div class="sohbet" id="th-sohbet"></div>
+      <div class="ek-aksiyon"><button type="button" id="th-cevap" disabled>🧾 Mükellef ödedi, dekont gönderdi (örnek)</button></div>
+    </div>
+    <div>
+      <div class="uyg"><div class="bar">Tahsilat takibi · Ekim 2026<span id="th-durum"></span></div>
+        <div class="tablo" style="border:0;border-radius:0"><table class="bd" style="min-width:0"><thead><tr><th></th><th>Mükellef</th><th>Ekim ücreti</th><th>Gecikme</th></tr></thead><tbody id="th-liste"></tbody></table></div>
+        <div class="ek-ozet"><span class="not" id="th-not"></span><button type="button" class="btn mavi" id="th-hazirla">Hatırlatma hazırla</button></div>
+      </div>
+      <div class="ek-adim" id="th-onizleme" hidden><h3>Hatırlatma önizlemesi</h3><p class="kurgu" style="margin:0 0 8px">Mesaj büronuzun adıyla gider. Üslubu seçin:</p>
+        <div class="sekmeler" id="th-ton" style="margin:0 0 6px"><button type="button" data-t="nazik" aria-selected="true">Nazik</button><button type="button" data-t="net" aria-selected="false">Biraz daha net</button></div>
+        <div style="margin-top:12px"><button type="button" class="btn yesil" id="th-gonder">✓ Hatırlatmaları gönder</button></div></div>
+      <div class="ek-adim" id="th-gonderildi" hidden><h3>Gönderilenler</h3>
+        <div class="tablo"><table class="bd" style="min-width:0"><thead><tr><th>Mükellef</th><th>Saat</th><th>Durum</th></tr></thead><tbody id="th-glist"></tbody></table></div></div>
+      <div class="ek-sonuc" id="th-sonuc"><h3>✅ Ücret istemenin mahcubiyeti yerine tek liste</h3><p id="th-sonuc-yazi"></p>
+        <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Mali%20tahsilat%20takibi%20demosunu%20denedim%2C%20b%C3%BCrom%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Büroma uygulayalım: WhatsApp'tan yazın</a></div>
+    </div>
+  </div>
+  <p class="kurgu">Örnek kurgudur: mükellef adları, ödeme durumları ve mesajlar gerçek değildir.</p>
+</div>
 </div></section>
 
 <section style="padding-top:10px"><div class="kap">
@@ -271,7 +296,7 @@ table.bd{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}tabl
 (function () {
   var $ = function (s) { return document.querySelector(s); };
   // --- sekmeler ---
-  var sekmeler = [["fis", "Fiş okuma", "sek-fis"], ["eksik", "Eksik belge hatırlatma", "sek-eksik"]];
+  var sekmeler = [["fis", "Fiş okuma", "sek-fis"], ["eksik", "Eksik belge hatırlatma", "sek-eksik"], ["tahsilat", "Tahsilat takibi", "sek-tahsilat"]];
   var bar = $("#sekmeler");
   function sekme(k, izle) {
     sekmeler.forEach(function (s) { var p = document.getElementById(s[2]); if (p) p.hidden = s[0] !== k; });
@@ -393,6 +418,91 @@ table.bd{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}tabl
     if (window.djIzle) djIzle("demo-eksik:belge geldi " + biten + (bekleyen.length ? "" : " · demo tamamlandı"));
   });
   listeCiz(); adimGit(0); kisiCiz(); sohbet.innerHTML = '<div class="gun">Bugün</div><div class="msj o" style="align-self:center;background:#182229;color:#8696a0;font-size:12px">Hatırlatma gidince mesaj burada görünür.</div>';
+})();
+</script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var MUK = [
+    { ad: "Kepez Yapı Ltd.", kisi: "Mehmet Bey", ode: true, gun: 0 },
+    { ad: "Lara Market", kisi: "Ayşe Hanım", ode: false, gun: 5 },
+    { ad: "Demo Nakliyat A.Ş.", kisi: "Cemal Bey", ode: true, gun: 0 },
+    { ad: "Örnek Kafe", kisi: "Elif Hanım", ode: false, gun: 12 },
+    { ad: "Akdeniz Turizm Ltd.", kisi: "Kemal Bey", ode: false, gun: 20 }
+  ];
+  var ADIM = [
+    "Ekim ücretlerinin durumu. Ücreti gecikenleri işaretleyin; gecikme günü yanında yazıyor.",
+    "Mesaj büronuzun adıyla hazır. İsterseniz üslubu biraz daha net yapın. Telefonda okuyup gönderin.",
+    "Hatırlatma gitti: gönderilenler listesinde saati var. Şimdi mükellef ödesin.",
+    "Mükellef ödeyip dekontu gönderdi, satır ÖDENDİ oldu. Mahcubiyet yok, tek bir liste var."
+  ];
+  var adim = 0, sesAcik = false, au = null, sec = {}, ton = "nazik", gonderildi = false, odendi = {}, gecmis = {}, aktif = -1, dk = 9 * 60 + 40, hazir = false;
+  var sohbet = $("#th-sohbet");
+  var zaman = function (a) { dk += a || 1; return String(Math.floor(dk / 60)).padStart(2, "0") + ":" + String(dk % 60).padStart(2, "0"); };
+  var esc = function (t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>"); };
+  var izle = function (a) { if (window.djIzle) djIzle("demo-tahsilat:" + a); };
+  function cal() { try { if (au) au.pause(); au = new Audio("assets/yeni/demo-ses/mali-tahsilat-" + (adim + 1) + ".mp3"); au.play().catch(function () {}); } catch (e) {} }
+  function git(n) { adim = n; $("#th-no").textContent = "Adım " + (n + 1) + " / 4"; $("#th-yazi").textContent = ADIM[n]; if (sesAcik) cal(); }
+  $("#th-ses").addEventListener("click", function () { sesAcik = !sesAcik; this.setAttribute("aria-pressed", sesAcik); this.textContent = sesAcik ? "🔇 Sesi kapat" : "🔊 Sesli anlat"; if (sesAcik) cal(); else if (au) au.pause(); izle("ses " + (sesAcik ? "açık" : "kapalı")); });
+  var gecikenler = function () { var r = []; MUK.forEach(function (m, i) { if (!m.ode) r.push(i); }); return r; };
+  var secList = function () { return gecikenler().filter(function (i) { return sec[i] && !odendi[i]; }); };
+  function listeCiz() {
+    $("#th-liste").innerHTML = MUK.map(function (m, i) {
+      var ch = (m.ode || odendi[i]) ? '<span class="chip ' + (odendi[i] ? "tamam" : "geldi") + '">' + (odendi[i] ? "✓ ÖDENDİ" : "✓ Ödendi") + "</span>" : '<span class="chip eksik" style="cursor:default">Gecikti</span>';
+      var cb = (!m.ode && !odendi[i]) ? '<input type="checkbox" data-i="' + i + '" ' + (sec[i] ? "checked " : "") + (gonderildi ? "disabled " : "") + 'aria-label="' + m.ad + '">' : "";
+      return "<tr><td>" + cb + "</td><td><b>" + m.ad + "</b></td><td>" + ch + "</td><td>" + (m.ode || odendi[i] ? "—" : m.gun + " gün") + "</td></tr>";
+    }).join("");
+    var n = secList().length;
+    $("#th-hazirla").disabled = !n || gonderildi;
+    $("#th-not").textContent = gonderildi ? "Hatırlatmalar gönderildi." : n ? n + " gecikmiş mükellef seçili." : "Gecikmiş mükellefleri işaretleyin.";
+    $("#th-durum").textContent = gonderildi ? "Hatırlatma gönderildi" : gecikenler().length + " gecikmiş ücret";
+  }
+  $("#th-liste").addEventListener("change", function (e) { var c = e.target.closest("input[data-i]"); if (!c || gonderildi) return; sec[+c.dataset.i] = c.checked; $("#th-onizleme").hidden = true; hazir = false; listeCiz(); if (c.checked) izle("işaretle " + secList().length); });
+  function mesaj(i) {
+    var m = MUK[i];
+    return ton === "nazik" ? "Merhaba " + m.kisi + " 🌸\nEkim ayı muhasebe ücretiniz hesabımıza henüz görünmüyor; gözden kaçmış olabilir. Müsait olduğunuzda iletirseniz çok sevinirim, dekontu bu yazışmaya atmanız yeterli.\nTeşekkürler.\n— Örnek Mali Müşavirlik"
+      : "Merhaba " + m.kisi + ",\nEkim ayı muhasebe ücretiniz " + m.gun + " gündür ödenmedi. Bu hafta içinde iletmenizi rica ederiz; dekontu bu yazışmaya atabilirsiniz.\nTeşekkürler.\n— Örnek Mali Müşavirlik";
+  }
+  function kisiCiz() {
+    $("#th-kisiler").innerHTML = secList().concat(Object.keys(gecmis).map(Number)).filter(function (v, k, a) { return a.indexOf(v) === k; }).map(function (i) { return '<button type="button" data-i="' + i + '" class="' + (i === aktif ? "on" : "") + '">' + MUK[i].ad.split(" ").slice(0, 2).join(" ") + "</button>"; }).join("");
+    $("#th-tel-baslik").textContent = (aktif >= 0 ? MUK[aktif].kisi : "Mükellef") + " · WhatsApp";
+  }
+  function sohbetCiz() {
+    if (aktif >= 0 && gecmis[aktif]) sohbet.innerHTML = '<div class="gun">Bugün</div>' + gecmis[aktif].join("");
+    else if (aktif >= 0 && hazir && !gonderildi) sohbet.innerHTML = '<div class="gun">Taslak önizleme</div><div class="msj ben taslak" style="align-self:flex-end">' + esc(mesaj(aktif)) + "<time>taslak</time></div>";
+    else sohbet.innerHTML = '<div class="gun">Bugün</div><div class="msj o" style="align-self:center;background:#182229;color:#8696a0;font-size:12px">Hatırlatma hazırlanınca mesaj önizlemesi burada görünür.</div>';
+    sohbet.scrollTop = 1e5;
+  }
+  $("#th-hazirla").addEventListener("click", function () {
+    var s = secList(); if (!s.length) return; hazir = true; aktif = s[0]; $("#th-onizleme").hidden = false; git(1); kisiCiz(); sohbetCiz();
+    $("#th-onizleme").scrollIntoView({ behavior: "smooth", block: "nearest" }); izle("önizleme " + s.length);
+  });
+  $("#th-ton").addEventListener("click", function (e) { var b = e.target.closest("button[data-t]"); if (!b || gonderildi) return; ton = b.dataset.t; $("#th-ton").querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); }); sohbetCiz(); izle("üslup " + ton); });
+  $("#th-kisiler").addEventListener("click", function (e) { var b = e.target.closest("button[data-i]"); if (!b) return; aktif = +b.dataset.i; kisiCiz(); sohbetCiz(); $("#th-cevap").disabled = !(gonderildi && gecmis[aktif] && !odendi[aktif]); });
+  $("#th-gonder").addEventListener("click", function () {
+    var s = secList(); if (!s.length || gonderildi) return; gonderildi = true; $("#th-gonder").disabled = true; listeCiz(); git(2);
+    $("#th-gonderildi").hidden = false;
+    $("#th-glist").innerHTML = s.map(function (i) { return "<tr data-i=" + i + "><td><b>" + MUK[i].ad + '</b></td><td class="sa">—</td><td class="du">Gönderiliyor…</td></tr>'; }).join("");
+    s.forEach(function (i, j) { setTimeout(function () {
+      var t = zaman(); gecmis[i] = ['<div class="msj ben" style="align-self:flex-end">' + esc(mesaj(i)) + "<time>" + t + " ✓✓</time></div>"];
+      var tr = document.querySelector('#th-glist tr[data-i="' + i + '"]'); tr.querySelector(".sa").textContent = t; tr.querySelector(".du").innerHTML = '<span class="chip geldi">Gönderildi ✓✓</span>';
+      if (i === aktif) { sohbetCiz(); $("#th-cevap").disabled = false; }
+    }, 500 + j * 700); });
+    setTimeout(function () { $("#th-gonderildi").scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 400);
+    izle("gönderildi " + s.length);
+  });
+  $("#th-cevap").addEventListener("click", function () {
+    var i = aktif; if (i < 0 || odendi[i] || !gecmis[i]) return; odendi[i] = true;
+    gecmis[i].push('<div class="msj o"><div class="foto">🧾 dekont.pdf</div>Ödemeyi yaptım, dekont ekte 🙏<time>' + zaman(3) + "</time></div>");
+    gecmis[i].push('<div class="msj ben" style="align-self:flex-end">✅ Teşekkürler, ödemeniz alındı.<time>' + zaman() + " ✓✓</time></div>");
+    sohbetCiz(); var tr = document.querySelector('#th-glist tr[data-i="' + i + '"] .du'); if (tr) tr.innerHTML = '<span class="chip tamam">Ödedi · ÖDENDİ</span>';
+    git(3); listeCiz();
+    var bek = Object.keys(gecmis).map(Number).filter(function (x) { return !odendi[x]; }), biten = Object.keys(odendi).length;
+    $("#th-cevap").disabled = true; if (bek.length) { aktif = bek[0]; kisiCiz(); sohbetCiz(); $("#th-cevap").disabled = false; }
+    $("#th-sonuc").classList.add("gor"); $("#th-sonuc-yazi").textContent = biten + " mükellef ödedi" + (bek.length ? "; " + bek.length + " mükellef bekleniyor. Telefonun üstünden sıradakini seçebilirsiniz." : ". Kimseden ücret istemenin mahcubiyetini yaşamadınız.");
+    izle("ödendi " + biten + (bek.length ? "" : " · demo tamamlandı"));
+  });
+  gecikenler().forEach(function (i) { sec[i] = false; }); listeCiz(); git(0); kisiCiz(); sohbetCiz();
 })();
 </script>
 <script src="/ornek/_dijitabela/izle.js" data-slug="mali-demo" data-sayfa="mali-demo" defer></script>

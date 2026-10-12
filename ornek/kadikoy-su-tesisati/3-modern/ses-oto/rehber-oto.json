@@ -1,0 +1,34 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Kadıköy Tesisat için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "e8a3a7fd716b"
+ },
+ "b1": {
+  "metin": "Kombiniz mi çalışmıyor? Önce bunu deneyin. Belirtiyi seçin: evde güvenle yapabileceğiniz adımları, ne zaman usta çağırmanız gerektiğini ve olası nedeni görün.",
+  "dosya": "8b753fcafca2"
+ },
+ "b2": {
+  "metin": "Bakım zamanınız geldi mi, bakımsız kombi size kaça mal oluyor? Son bakım tarihini ve aylık doğalgaz faturanızı girin; bakım zamanı ve tahmini fazla harcama çıksın.",
+  "dosya": "49c368243da6"
+ },
+ "b3": {
+  "metin": "Ustanın ne zaman geleceğini bilin. Gün ve saat aralığı seçin.",
+  "dosya": "9e6c02b665be"
+ },
+ "b4": {
+  "metin": "Servis hizmetleri. Damlatan, akıtan ya da çalışmayan musluklar için yerinde kontrol ve onarım yapılır.",
+  "dosya": "5a426924a114"
+ },
+ "b5": {
+  "metin": "Google'daki fotoğraflarınızdan. ",
+  "dosya": "905c73e6ab7e"
+ },
+ "b6": {
+  "metin": "Neden Kadıköy Tesisat? Telefonda sorunu dinler, en kısa sürede yanınıza geliriz.",
+  "dosya": "46a916445444"
+ },
+ "b7": {
+  "metin": "Bize ulaşın. 📍 Acıbadem, Acıbadem Cd.",
+  "dosya": "50d43a1402e9"
+ }
+}

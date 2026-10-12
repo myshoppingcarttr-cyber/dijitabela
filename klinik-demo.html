@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dijitabela Klinik Demo</title>
+<meta name="description" content="Dijitabela Klinik canlı demo: yarının randevularına hatırlatma mesajı gitsin, hasta aynı mesaja cevap yazsın, takvim güncellensin. Diş klinikleri ve muayenehaneler için.">
+<link rel="canonical" href="https://dijitabela.com.tr/klinik-demo.html">
+<meta property="og:title" content="Dijitabela Klinik · Randevu hatırlatma">
+<meta name="theme-color" content="#0f2a4a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/yeni/demo.css">
+<style>
+.not-rıza{background:#eef6ff;border:1px solid #c9defa;border-radius:10px;padding:10px 12px;font-size:13px;color:#24415f;margin-top:10px}
+table.bd td.sa{font:700 13px "JetBrains Mono";white-space:nowrap}
+tr.bos td{color:#8a94a3;background:#fafcff}tr.iptal td{background:#fdf3f2}
+</style>
+</head><body>
+<header><div class="kap"><a class="logo" href="/"><i>d</i>Dijitabela Klinik</a><a class="wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Klinik%20demosunu%20g%C3%B6rd%C3%BCm%2C%20klini%C4%9Fim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a></div></header>
+<div class="hero"><div class="kap">
+  <span class="etiket">Diş klinikleri ve muayenehaneler için</span>
+  <h1>Yarının randevularına hatırlatma gitsin, <em>gelemeyen</em> aynı mesaja yazsın.</h1>
+  <p>Resepsiyon hatırlatma aramak yerine takvime bakar: onaylayan, gelemeyen ve saat değiştirmek isteyen tek listede görünür.</p>
+  <div class="dugmeler"><a class="btn sari" href="#dene">Şimdi deneyin ↓</a><a class="btn cizgi" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Klinik%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Kliniğim için sorun</a></div>
+</div></div>
+
+<section id="dene"><div class="kap">
+  <h2>1 dakikada kendiniz deneyin</h2>
+  <p class="alt">Yarının randevularını görün, hatırlatma mesajını gönderin, hastaların cevabıyla takvimin güncellendiğini izleyin. Klinik, hastalar ve randevular kurgudur; gerçek programda kendi takviminiz olur.</p>
+  <div class="anlat" aria-live="polite"><span class="no" id="d-no"></span><p id="d-yazi"></p><button type="button" id="d-ses" aria-pressed="false">🔊 Sesli anlat</button></div>
+  <div class="demo">
+    <div class="telefon"><div class="ust"><i>d</i><span id="tel-baslik">Hasta · WhatsApp</span></div>
+      <div class="kisiler" id="kisiler"></div>
+      <div class="sohbet" id="sohbet"></div>
+      <div class="aksiyon"><button type="button" id="cevap" disabled>💬 Hasta cevap yazdı (örnek)</button></div>
+    </div>
+    <div>
+      <div class="uyg"><div class="bar">Yarının randevuları<span id="durum">7 saat · 5 randevu</span></div>
+        <div class="tablo"><table class="bd"><thead><tr><th>Saat</th><th>Hasta</th><th>İşlem</th><th>Durum</th></tr></thead><tbody id="takvim"></tbody></table></div>
+        <div class="ek-ozet"><span class="not" id="not">Hatırlatma, mesaj izni (açık rıza) veren hastalara gider.</span><button type="button" class="btn mavi" id="hazirla">Hatırlatma hazırla</button></div>
+      </div>
+      <div class="adim" id="onizleme" hidden><h3>Hatırlatma gidecek hastalar</h3><p class="kurgu" style="margin:0 0 8px">Yalnızca mesaj izni olan hastalar seçilebilir; izni olmayan hasta resepsiyonun arama listesinde kalır.</p>
+        <div class="tablo"><table class="bd"><thead><tr><th></th><th>Hasta</th><th>Randevu</th><th>Mesaj izni</th></tr></thead><tbody id="hastalar"></tbody></table></div>
+        <div style="margin-top:12px"><button type="button" class="btn yesil" id="gonder">✓ Seçilenlere hatırlatma gönder</button></div></div>
+      <div class="adim" id="gonderildi" hidden><h3>Gönderilenler ve cevaplar</h3><div class="tablo"><table class="bd"><thead><tr><th>Hasta</th><th>Saat</th><th>Cevap</th></tr></thead><tbody id="glist"></tbody></table></div></div>
+      <div class="sonuc" id="sonuc"><h3>✅ Hatırlatma aramak yerine takvime bakın</h3><p id="sonuc-yazi"></p>
+        <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Klinik%20demosunu%20denedim%2C%20klini%C4%9Fim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Kliniğime uygulayalım: WhatsApp'tan yazın</a></div>
+    </div>
+  </div>
+  <div class="not-rıza">Hasta mesajları yalnızca açık rıza (mesaj izni) veren hastalara gider ve yalnızca randevu bilgisi içerir. Bu demodaki hasta ve randevular kurgudur.</div>
+</div></section>
+
+<section style="padding-top:0"><div class="kap">
+  <h2>Programda başka neler var</h2>
+  <div class="ozellik">
+    <div>📅<h3>Randevu takvimi</h3><p>Günün randevuları, boş saatler ve hasta kayıtları tek ekranda.</p></div>
+    <div>🔔<h3>Randevu hatırlatma</h3><p>Ertesi günün randevusu için hazır mesaj; hasta aynı mesaja cevap yazar.</p></div>
+    <div>🌐<h3>Klinik siteniz</h3><p>Hizmetleriniz, hekimleriniz ve konumunuz ile telefonda hızlı açılan kendi siteniz.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="kap"><div class="son"><h2>Kliniğinizde nasıl çalışır, konuşalım</h2><p>Takviminizi birlikte kuralım; yarının randevularıyla hatırlatmayı deneyin.</p><a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Klinik%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a></div></div></section>
+<footer>Dijitabela · Antalya · dijitabela.com.tr · Demo verileri kurgudur.</footer>
+
+<script src="assets/yeni/demo-ortak.js"></script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var SAATLER = ["09:30", "10:30", "11:30", "13:30", "14:30", "15:00", "16:30"];
+  var H = [
+    { ad: "Ayşe Kaya", ton: "Ayşe Hanım", saat: "09:30", islem: "Muayene", izin: true, cevap: "onay" },
+    { ad: "Mehmet Yıldız", ton: "Mehmet Bey", saat: "10:30", islem: "Kontrol", izin: true, cevap: "gelemez" },
+    { ad: "Zeynep Aksoy", ton: "Zeynep Hanım", saat: "11:30", islem: "Diş taşı temizliği", izin: true, cevap: "degis" },
+    { ad: "Cemal Demir", ton: "Cemal Bey", saat: "13:30", islem: "Kontrol", izin: false, cevap: "onay" },
+    { ad: "Selin Tunç", ton: "Selin Hanım", saat: "14:30", islem: "Muayene", izin: true, cevap: "onay" }
+  ];
+  var durum = {}, secHasta = {}, aktif = 0, hazir = false, gonderildi = false, gecmis = {}, cevaplandi = {}, sohbet = $("#sohbet");
+  DEMO.kur({ onek: "klinik", adimlar: [
+    "Yarının randevuları takvimde. Mesaj izni veren hastalara hatırlatma hazırlayın.",
+    "Hatırlatma mesajı hazır. İzni olmayan hasta listede seçilemez. Telefonda mesajı okuyun ve gönderin.",
+    "Hatırlatmalar gitti. Şimdi hastalar cevap yazsın.",
+    "Hasta cevap yazdı; takvim kendiliğinden güncellendi. Hatırlatma aramak yerine takvime bakmanız yeterli."
+  ] });
+  var mesaj = function (h) { return "Merhaba " + h.ton + ", yarın " + h.saat + "'te randevunuz var.\nGelemeyecekseniz bu mesaja \"gelemiyorum\" yazmanız yeterli; saat değiştirmek isterseniz de yazabilirsiniz.\n— Örnek Diş Kliniği"; };
+  var etiket = function (d) { return { yok: '<span class="chip gri">Hatırlatma bekliyor</span>', gonderildi: '<span class="chip ok">Hatırlatma gitti</span>', onay: '<span class="chip ok">Onayladı ✓</span>', iptal: '<span class="chip kirmizi">Gelemiyor</span>', degisti: '<span class="chip sari">Saat değişti</span>', ara: '<span class="chip sari">Telefonla aranacak</span>' }[d || "yok"]; };
+  function takvimCiz() {
+    $("#takvim").innerHTML = SAATLER.map(function (s) {
+      var h = H.filter(function (x) { return x.saat === s && durum[x.ad] !== "iptal"; })[0], ip = H.filter(function (x) { return x.saat0 === s && durum[x.ad] === "degisti" || (x.saat === s && durum[x.ad] === "iptal"); })[0];
+      if (h) return "<tr><td class=sa>" + s + "</td><td><b>" + h.ad + "</b></td><td>" + h.islem + "</td><td>" + etiket(durum[h.ad] || (hazir && !h.izin && gonderildi ? "ara" : "")) + "</td></tr>";
+      return '<tr class="' + (ip ? "iptal" : "bos") + '"><td class=sa>' + s + "</td><td>" + (ip ? "<s>" + ip.ad + "</s>" : "Boş") + "</td><td>" + (ip ? (durum[ip.ad] === "iptal" ? "İptal · saat boşaldı" : "Saat başka saate alındı") : "") + "</td><td>" + (ip ? "" : '<span class="chip gri">Boş saat</span>') + "</td></tr>";
+    }).join("");
+    var n = H.filter(function (x) { return durum[x.ad] !== "iptal"; }).length;
+    $("#durum").textContent = SAATLER.length + " saat · " + n + " randevu";
+  }
+  function kisiCiz() {
+    $("#kisiler").innerHTML = H.filter(function (h) { return h.izin && secHasta[h.ad]; }).map(function (h) { return '<button type="button" data-a="' + h.ad + '" class="' + (h.ad === aktif ? "on" : "") + '">' + h.ad.split(" ")[0] + "</button>"; }).join("");
+    var h = H.filter(function (x) { return x.ad === aktif; })[0]; $("#tel-baslik").textContent = (h ? h.ton : "Hasta") + " · WhatsApp";
+  }
+  function sohbetCiz() {
+    var h = H.filter(function (x) { return x.ad === aktif; })[0];
+    if (h && gecmis[h.ad]) sohbet.innerHTML = '<div class="gun">Bugün</div>' + gecmis[h.ad].join("");
+    else if (h && hazir && secHasta[h.ad]) { sohbet.innerHTML = '<div class="gun">Taslak önizleme</div>'; DEMO.balon(sohbet, DEMO.esc(mesaj(h)), true, "taslak", true); }
+    else sohbet.innerHTML = '<div class="gun">Bugün</div><div class="msj o" style="align-self:center;background:#182229;color:#8696a0;font-size:12px">Hatırlatma hazırlanınca mesaj önizlemesi burada görünür.</div>';
+    sohbet.scrollTop = 1e5;
+  }
+  $("#hazirla").addEventListener("click", function () {
+    hazir = true; secHasta = {}; H.forEach(function (h) { if (h.izin) secHasta[h.ad] = true; }); aktif = H.filter(function (h) { return h.izin; })[0].ad;
+    $("#hastalar").innerHTML = H.map(function (h) { return "<tr><td>" + (h.izin ? '<input type="checkbox" data-a="' + h.ad + '" checked aria-label="' + h.ad + '">' : '<input type="checkbox" disabled aria-label="' + h.ad + '">') + "</td><td><b>" + h.ad + "</b></td><td>" + h.saat + " · " + h.islem + "</td><td>" + (h.izin ? '<span class="chip ok">İzin var</span>' : '<span class="chip kirmizi">İzin yok · gönderilmez</span>') + "</td></tr>"; }).join("");
+    $("#onizleme").hidden = false; $("#gonder").disabled = false; DEMO.git(1); kisiCiz(); sohbetCiz();
+    $("#onizleme").scrollIntoView({ behavior: "smooth", block: "nearest" }); DEMO.izle("klinik:hatırlatma hazırla");
+  });
+  $("#hastalar").addEventListener("change", function (e) {
+    var c = e.target.closest("input[data-a]"); if (!c) return; secHasta[c.dataset.a] = c.checked;
+    var s = H.filter(function (h) { return h.izin && secHasta[h.ad]; }); $("#gonder").disabled = !s.length; if (s.length && !secHasta[aktif]) aktif = s[0].ad; kisiCiz(); sohbetCiz();
+  });
+  $("#kisiler").addEventListener("click", function (e) { var b = e.target.closest("button[data-a]"); if (!b) return; aktif = b.dataset.a; kisiCiz(); sohbetCiz(); $("#cevap").disabled = !(gonderildi && gecmis[aktif] && !cevaplandi[aktif]); });
+  $("#gonder").addEventListener("click", function () {
+    var s = H.filter(function (h) { return h.izin && secHasta[h.ad]; }); if (!s.length || gonderildi) return;
+    gonderildi = true; $("#gonder").disabled = true; document.querySelectorAll("#hastalar input").forEach(function (c) { c.disabled = true; });
+    DEMO.git(2); $("#gonderildi").hidden = false;
+    $("#glist").innerHTML = s.map(function (h) { return '<tr data-a="' + h.ad + '"><td><b>' + h.ad + '</b></td><td class="sa">—</td><td class="du">Gönderiliyor…</td></tr>'; }).join("");
+    s.forEach(function (h, j) { setTimeout(function () {
+      var t = DEMO.saat(); gecmis[h.ad] = ['<div class="msj ben" style="align-self:flex-end">' + DEMO.esc(mesaj(h)) + "<time>" + t + " ✓✓</time></div>"]; durum[h.ad] = "gonderildi";
+      var tr = document.querySelector('#glist tr[data-a="' + h.ad + '"]'); tr.querySelector(".sa").textContent = t; tr.querySelector(".du").innerHTML = '<span class="chip ok">Gönderildi ✓✓</span>';
+      takvimCiz(); if (h.ad === aktif) { sohbetCiz(); $("#cevap").disabled = false; }
+    }, 500 + j * 600); });
+    takvimCiz(); setTimeout(function () { $("#gonderildi").scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 400);
+    DEMO.izle("klinik:hatırlatma gönderildi " + s.length);
+  });
+  $("#cevap").addEventListener("click", function () {
+    var h = H.filter(function (x) { return x.ad === aktif; })[0]; if (!h || cevaplandi[h.ad] || !gecmis[h.ad]) return; cevaplandi[h.ad] = true;
+    var yazi, yanit, d, ozet;
+    if (h.cevap === "gelemez") { yazi = "Gelemiyorum"; yanit = "Anlaşıldı, randevunuzu iptal ettik. Yeniden randevu için yazabilirsiniz."; d = "iptal"; ozet = "Gelemiyorum yazdı · saat boşaldı"; }
+    else if (h.cevap === "degis" && SAATLER.indexOf("15:00") > -1 && !H.some(function (x) { return x.saat === "15:00" && durum[x.ad] !== "iptal"; })) { yazi = "15:00'e alabilir miyiz?"; yanit = "15:00'e aldık, bekliyoruz."; d = "degisti"; h.saat0 = h.saat; h.saat = "15:00"; ozet = "15:00'e almak istedi · takvim güncellendi"; }
+    else { yazi = "Tamamdır, geleceğim 👍"; yanit = "Teşekkürler, sizi bekliyoruz."; d = "onay"; ozet = "Onayladı"; }
+    durum[h.ad] = d; gecmis[h.ad].push('<div class="msj o">' + yazi + "<time>" + DEMO.saat(3) + "</time></div>"); gecmis[h.ad].push('<div class="msj ben" style="align-self:flex-end">' + yanit + "<time>" + DEMO.saat() + " ✓✓</time></div>");
+    sohbetCiz(); takvimCiz(); var tr = document.querySelector('#glist tr[data-a="' + h.ad + '"] .du'); if (tr) tr.innerHTML = '<span class="chip ' + (d === "onay" ? "ok" : d === "iptal" ? "kirmizi" : "sari") + '">' + ozet + "</span>";
+    DEMO.git(3);
+    var bek = H.filter(function (x) { return x.izin && secHasta[x.ad] && gecmis[x.ad] && !cevaplandi[x.ad]; });
+    $("#cevap").disabled = true; if (bek.length) { aktif = bek[0].ad; kisiCiz(); sohbetCiz(); $("#cevap").disabled = false; }
+    var n = Object.keys(cevaplandi).length;
+    $("#sonuc").classList.add("gor"); $("#sonuc-yazi").textContent = n + " hasta cevap yazdı, takvim güncellendi" + (bek.length ? "; " + bek.length + " hasta bekleniyor. Telefonun üstünden sıradakini seçebilirsiniz." : ". Hatırlatma aramadınız.");
+    DEMO.izle("klinik:cevap " + h.cevap + " " + n + (bek.length ? "" : " · demo tamamlandı"));
+  });
+  takvimCiz(); kisiCiz(); sohbetCiz();
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" data-slug="klinik-demo" data-sayfa="klinik-demo" defer></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
