@@ -76,3 +76,4 @@ h1,h2,h3{font-family:var(--bas);line-height:1.08;letter-spacing:-.015em}
 .sabit svg{width:18px;height:18px}
 .ill{border-radius:var(--r);overflow:hidden}.ill svg{width:100%;height:100%}
 .not-ill{font-size:.78rem;color:var(--s);margin-top:8px}
+@media(max-width:600px){.ust-c .kap{gap:12px}.ust-c .dg{font-size:.82rem;padding:9px 12px!important;white-space:nowrap}.logo small{letter-spacing:.12em}}
