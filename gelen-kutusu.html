@@ -186,7 +186,7 @@ h1{font-size:1.05rem;font-weight:800}.canli{font-size:.74rem;color:var(--soluk);
     var kutu = $("mesajlar"), altta = kutu.scrollHeight - kutu.scrollTop - kutu.clientHeight < 80;
     var wa = "90" + c.k;
     $("s-ust").innerHTML = '<button class="geri" id="geri" aria-label="Geri">←</button><div class="av" style="background:' + renk(c.k) + ';width:38px;height:38px">' + esc(bas2(c.ad)) + '</div><div><div class="ad">' + esc(c.ad) + "</div><small>" + esc(c.tel || "") + (c.asama ? " · " + esc(c.asama) : "") + '</small></div><div class="islem">' +
-      (c.slug ? '<a class="pr" href="https://dijitabela.com.tr/ornek/' + encodeURIComponent(c.slug) + '/" target="_blank" rel="noopener">🎨<span> Prototip</span></a>' : "") +
+      (c.slug ? '<a class="pr" href="https://dijitabela.com/ornek/' + encodeURIComponent(c.slug) + '/" target="_blank" rel="noopener">🎨<span> Prototip</span></a>' : "") +
       '<a class="wa" href="https://wa.me/' + wa + '" target="_blank" rel="noopener">💬<span> 0501\'den yaz</span></a></div>';
     $("geri").onclick = function () { $("uyg").classList.remove("acik"); secili = null; history.replaceState(null, "", location.pathname); ciz(); };
     var h = "", gunEski = "";

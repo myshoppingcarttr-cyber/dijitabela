@@ -5,25 +5,25 @@
 - Resmî adı: Dijitabela (vergi levhası: Alim Hoşlar, Düden V.D.)
 - Konum: Kepez / Antalya, Türkiye — hizmet bölgesi Türkiye geneli (uzaktan)
 - İletişim: WhatsApp 0501 945 21 84 (Alim Hoşlar) · WhatsApp 7/24 asistan ve ücretsiz taslak 0538 676 57 27 · info@dijitabela.com
-- Web: https://dijitabela.com.tr (alternatif: https://dijitabela.com)
+- Web: https://dijitabela.com (alternatif: https://dijitabela.com.tr)
 - Instagram: https://www.instagram.com/dijitabela/
 
 ## Hizmetler
 
-- [Antalya web tasarım](https://dijitabela.com.tr/antalya-web-tasarim.html): Esnafa özel, mobil uyumlu, hızlı kurumsal web sitesi; başlangıç 4.900 TL + KDV. Teklif öncesi 3 çalışan tasarım ücretsiz.
-- [Google İşletme Profili](https://dijitabela.com.tr/google-isletme-profili.html): Profil kurulumu, doğrulama, "kalıcı olarak kapandı" kurtarma, fotoğraf, yorum toplama.
-- [Yapay zekâ entegrasyonu](https://dijitabela.com.tr/yapay-zeka-entegrasyonu.html): 7/24 WhatsApp asistanı, randevu, müşteri takibi (CRM).
-- [Sosyal medya otomasyonu](https://dijitabela.com.tr/sosyal-medya-otomasyonu.html): İçerik üretimi, onaylı paylaşım, yorum ve mesaj yönetimi.
-- [Google reklam yönetimi](https://dijitabela.com.tr/google-reklam-yonetimi.html): Yerel işletmeler için bütçe odaklı Google Ads.
-- [İşletme büyütme / dijital iş ortaklığı](https://dijitabela.com.tr/isletme-buyutme.html): Esnafın dijital angaryasını üstlenen aylık iş ortaklığı.
-- [Ücretsiz dijital ekspertiz](https://dijitabela.com.tr/ekspertiz.html): Google kaydı, web sitesi ve rakipler 1 dakikada taranır; eksikler ve çözümleri gösterilir.
+- [Antalya web tasarım](https://dijitabela.com/antalya-web-tasarim.html): Esnafa özel, mobil uyumlu, hızlı kurumsal web sitesi; başlangıç 4.900 TL + KDV. Teklif öncesi 3 çalışan tasarım ücretsiz.
+- [Google İşletme Profili](https://dijitabela.com/google-isletme-profili.html): Profil kurulumu, doğrulama, "kalıcı olarak kapandı" kurtarma, fotoğraf, yorum toplama.
+- [Yapay zekâ entegrasyonu](https://dijitabela.com/yapay-zeka-entegrasyonu.html): 7/24 WhatsApp asistanı, randevu, müşteri takibi (CRM).
+- [Sosyal medya otomasyonu](https://dijitabela.com/sosyal-medya-otomasyonu.html): İçerik üretimi, onaylı paylaşım, yorum ve mesaj yönetimi.
+- [Google reklam yönetimi](https://dijitabela.com/google-reklam-yonetimi.html): Yerel işletmeler için bütçe odaklı Google Ads.
+- [İşletme büyütme / dijital iş ortaklığı](https://dijitabela.com/isletme-buyutme.html): Esnafın dijital angaryasını üstlenen aylık iş ortaklığı.
+- [Ücretsiz dijital ekspertiz](https://dijitabela.com/ekspertiz.html): Google kaydı, web sitesi ve rakipler 1 dakikada taranır; eksikler ve çözümleri gösterilir.
 
 ## Sektörler
 
-- [Emlak ofisleri](https://dijitabela.com.tr/sektor-emlak.html)
-- [Diş klinikleri](https://dijitabela.com.tr/sektor-dis-klinigi.html)
-- [Oto galeri](https://dijitabela.com.tr/sektor-oto-galeri.html) · [Oto servis](https://dijitabela.com.tr/sektor-oto-servis.html)
-- [Güzellik merkezi](https://dijitabela.com.tr/sektor-guzellik-merkezi.html) · [Saç ekimi](https://dijitabela.com.tr/sektor-sac-ekimi.html)
+- [Emlak ofisleri](https://dijitabela.com/sektor-emlak.html)
+- [Diş klinikleri](https://dijitabela.com/sektor-dis-klinigi.html)
+- [Oto galeri](https://dijitabela.com/sektor-oto-galeri.html) · [Oto servis](https://dijitabela.com/sektor-oto-servis.html)
+- [Güzellik merkezi](https://dijitabela.com/sektor-guzellik-merkezi.html) · [Saç ekimi](https://dijitabela.com/sektor-sac-ekimi.html)
 
 ## Sık sorulanlar
 
@@ -34,6 +34,6 @@
 
 ## Daha fazla
 
-- [Hakkımızda](https://dijitabela.com.tr/hakkimizda.html)
-- [Blog](https://dijitabela.com.tr/blog.html): Esnafa dijital büyüme rehberleri
-- [Teklif al](https://dijitabela.com.tr/teklif-al.html)
+- [Hakkımızda](https://dijitabela.com/hakkimizda.html)
+- [Blog](https://dijitabela.com/blog.html): Esnafa dijital büyüme rehberleri
+- [Teklif al](https://dijitabela.com/teklif-al.html)
