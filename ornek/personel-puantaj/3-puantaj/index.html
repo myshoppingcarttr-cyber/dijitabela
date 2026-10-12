@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aylık Puantaj · Muhasebeye Aktarım · Dijitabela örnek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--kagit:#FBF8F1;--zemin:#EFEADF;--murekkep:#1D1B16;--soluk:#7A7466;--cizgi:#E2DBCB;--yesil:#2E8B57;--amber:#C98A10;--kirmizi:#B8432F;--mavi:#3657C8;--mor:#7A4FB5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--zemin);color:var(--murekkep);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.mono{font-family:"IBM Plex Mono",monospace}
+.sar{max-width:1360px;margin:0 auto;padding:22px}
+.ust{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.geri{color:var(--soluk);text-decoration:none;font-size:13px}
+.kase{margin-left:auto;font:600 11px "IBM Plex Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--kirmizi);border:1.5px solid var(--kirmizi);padding:6px 10px;border-radius:6px;transform:rotate(-2deg)}
+.defter{background:var(--kagit);border:1px solid var(--cizgi);border-radius:24px;box-shadow:0 30px 60px -40px rgba(60,40,10,.35);overflow:hidden}
+.bas{padding:26px 28px 18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;border-bottom:1px solid var(--cizgi);background:linear-gradient(180deg,#FFFDF8,var(--kagit))}
+h1{font:800 clamp(28px,4vw,44px)/1 Fraunces,serif;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--yesil)}
+.bas p{color:var(--soluk);margin-top:8px;max-width:640px}
+.kontrol{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.kontrol select,.kontrol button{border:1px solid var(--cizgi);background:#fff;border-radius:12px;padding:10px 12px;font-weight:600;font-size:13.5px}
+.kontrol .ana{background:var(--murekkep);color:#fff;border-color:var(--murekkep)}
+.ozet{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--cizgi)}
+.ozet div{padding:14px 20px;border-right:1px solid var(--cizgi)}.ozet div:last-child{border-right:0}
+.ozet small{font:600 11px "IBM Plex Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--soluk)}
+.ozet b{display:block;font:800 28px Fraunces;margin-top:4px}
+.tablo-sar{overflow:auto;max-height:70vh;position:relative}
+table{border-collapse:separate;border-spacing:0;font-size:12.5px;min-width:100%}
+th,td{border-bottom:1px solid var(--cizgi);border-right:1px solid #EEE8DB;padding:0;text-align:center;white-space:nowrap}
+thead th{position:sticky;top:0;background:#F5F0E4;z-index:2;font:600 11px "IBM Plex Mono";color:var(--soluk);padding:8px 0;min-width:30px}
+thead th.hs{color:var(--kirmizi)}
+th.ad,td.ad{position:sticky;left:0;background:var(--kagit);z-index:1;text-align:left;padding:8px 12px;min-width:190px;border-right:2px solid var(--cizgi)}
+thead th.ad{z-index:3;background:#F5F0E4}
+td.ad b{font-size:13px}td.ad small{display:block;color:var(--soluk);font-size:11px}
+td.h button{width:30px;height:32px;font:600 10.5px "IBM Plex Mono";display:grid;place-items:center;transition:.12s}
+td.h button:hover{outline:2px solid var(--murekkep);outline-offset:-2px;position:relative;z-index:1}
+.N{background:rgba(46,139,87,var(--a,.25));color:#14472A}.FM{background:#F8DFA6;color:#6B4600}.H{background:#F1ECE0;color:#A39C8B}.Y{background:#DCE3FA;color:var(--mavi)}.R{background:#EBDDF7;color:var(--mor)}.D{background:#F6D3CC;color:var(--kirmizi)}.bos{color:#C9C2B2}
+td.h button.gec{box-shadow:inset 0 -3px 0 var(--kirmizi)}
+td.h button.duz{box-shadow:inset 0 0 0 2px var(--mavi)}
+td.top{font:600 12px "IBM Plex Mono";padding:0 10px;background:#FFFDF8}
+td.top.fm{color:#8A5A00}td.top.gc{color:var(--kirmizi)}
+tfoot td{background:#F5F0E4;font:600 12px "IBM Plex Mono";padding:8px 6px;position:sticky;bottom:0}
+.alt{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;border-top:1px solid var(--cizgi)}
+.alt>div{padding:18px 22px;border-right:1px solid var(--cizgi)}.alt>div:last-child{border-right:0}
+.alt h3{font:800 18px Fraunces;margin-bottom:8px}
+.lej{display:flex;flex-wrap:wrap;gap:6px}.lej span{font:600 11px "IBM Plex Mono";padding:5px 8px;border-radius:7px}
+.kural label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--cizgi)}
+.kural input[type=number]{width:70px;border:1px solid var(--cizgi);border-radius:8px;padding:5px 8px;font:600 13px "IBM Plex Mono";background:#fff}
+.kural input[type=checkbox]{width:18px;height:18px;accent-color:var(--yesil)}
+.gunluk{font-size:12.5px;color:var(--soluk);max-height:150px;overflow:auto;display:grid;gap:4px}
+.gunluk div{padding:6px 8px;border-radius:8px;background:#fff;border:1px solid var(--cizgi)}
+.gunluk b{color:var(--murekkep)}
+.menu{position:fixed;z-index:30;background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:6px;box-shadow:0 20px 40px -20px rgba(0,0,0,.4);display:none;min-width:190px}
+.menu button{display:flex;gap:10px;align-items:center;width:100%;padding:8px 10px;border-radius:9px;font-size:13px;text-align:left}
+.menu button:hover{background:var(--zemin)}
+.menu button span{width:26px;height:20px;border-radius:5px;display:grid;place-items:center;font:600 10px "IBM Plex Mono"}
+.menu p{font:600 11px "IBM Plex Mono";color:var(--soluk);padding:6px 10px}
+.not{font-size:12.5px;color:var(--soluk);margin:14px 4px}
+@media print{body{background:#fff}.kontrol,.alt,.geri,.kase,.not{display:none}.tablo-sar{max-height:none;overflow:visible}.defter{box-shadow:none;border:0}}
+@media (max-width:900px){.bas{grid-template-columns:1fr}.kontrol{justify-content:flex-start}.ozet{grid-template-columns:repeat(3,1fr)}.ozet div:nth-child(3){border-right:0}.alt{grid-template-columns:1fr}.alt>div{border-right:0;border-bottom:1px solid var(--cizgi)}}
+@media (max-width:560px){.sar{padding:10px}.bas{padding:18px}.ozet{grid-template-columns:1fr 1fr}.ozet div{padding:10px 14px;border-right:0}.ozet b{font-size:22px}th.ad,td.ad{min-width:128px;padding:6px 8px}td.ad small{display:none}.kase{display:none}}
+</style>
+</head>
+<body>
+<div class="sar">
+ <div class="ust"><a class="geri" href="../">‹ Seçenekler</a><span class="kase">Örnek · kurgusal veri</span></div>
+ <section class="defter">
+  <div class="bas">
+   <div><h1>Aylık puantaj, <em>kendiliğinden</em> hazır.</h1><p>Kapıdaki her giriş-çıkış buraya işlenir. Ay sonunda kimse defter toplamaz: fazla mesai, geç kalma ve izinler hesaplanmış olarak muhasebeye tek dosyada gider.</p></div>
+   <div class="kontrol"><select id="ay" aria-label="Ay"></select><select id="sube" aria-label="Şube"></select><button id="csv" class="ana">Muhasebeye aktar (CSV)</button><button id="yazdir">Yazdır</button></div>
+  </div>
+  <div class="ozet" id="ozet"></div>
+  <div class="tablo-sar"><table id="tablo"></table></div>
+  <div class="alt">
+   <div><h3>Kodlar</h3><div class="lej"><span class="N" style="--a:.35">N normal gün</span><span class="FM">FM fazla mesai</span><span class="H">H hafta tatili</span><span class="Y">Y yıllık izin</span><span class="R">R raporlu</span><span class="D">D devamsız</span><span style="box-shadow:inset 0 -3px 0 var(--kirmizi);background:#fff">geç giriş</span><span style="box-shadow:inset 0 0 0 2px var(--mavi);background:#fff">elle düzeltildi</span></div><p class="not" style="margin:10px 0 0">Bir hücreye dokunun: günü düzeltin. Her düzeltme kim/ne zaman bilgisiyle kayda geçer.</p></div>
+   <div class="kural"><h3>Hesap kuralları</h3>
+    <label>Günlük normal çalışma (saat)<input type="number" id="gunluk" value="9" min="6" max="11" step=".5"></label>
+    <label>Haftalık üst sınır (saat)<input type="number" id="haftalik" value="45" min="30" max="60"></label>
+    <label>Geç kalmayı çalışma süresinden düş<input type="checkbox" id="gecDus" checked></label>
+    <label>5 dk'ya kadar geç kalmayı yok say<input type="checkbox" id="tolerans" checked></label>
+   </div>
+   <div><h3>Düzeltme kaydı</h3><div class="gunluk" id="gunlukKayit"><div>Henüz düzeltme yok.</div></div></div>
+  </div>
+ </section>
+ <p class="not">Bu sayfa Dijitabela'nın hazırladığı bir örnektir; çalışanlar ve saatler kurgusaldır. Gerçek kurulumda CSV, kullandığınız bordro/ön muhasebe programının istediği sütun düzenine göre ayarlanır.</p>
+</div>
+<div class="menu" id="menu"></div>
+<script src="../ortak.js"></script>
+<script>
+(function(){
+ "use strict";
+ var P=window.PUANTAJ,$=function(s){return document.querySelector(s)},AY=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"],GN=["Pz","Pt","Sa","Ça","Pe","Cu","Ct"];
+ var bugun=new Date(),sec={y:bugun.getFullYear(),m:bugun.getMonth()},sube="hepsi",veri=null,duzelt={},kayit=[];
+ for(var i=0;i<4;i++){var d=new Date(bugun.getFullYear(),bugun.getMonth()-i,1),o=document.createElement("option");o.value=d.getFullYear()+"-"+d.getMonth();o.textContent=AY[d.getMonth()]+" "+d.getFullYear();$("#ay").appendChild(o)}
+ [["hepsi","Tüm şubeler"]].concat(P.SUBELER.map(function(s){return[s.id,s.ad]})).forEach(function(s){var o=document.createElement("option");o.value=s[0];o.textContent=s[1];$("#sube").appendChild(o)});
+ $("#ay").onchange=function(){var p=this.value.split("-");sec={y:+p[0],m:+p[1]};yukle()};
+ $("#sube").onchange=function(){sube=this.value;ciz()};
+ ["gunluk","haftalik","gecDus","tolerans"].forEach(function(id){$("#"+id).addEventListener("input",ciz)});
+ function yukle(){veri=P.ay(sec.y,sec.m);ciz()}
+ function hucre(kid,g){var a=duzelt[kid+"-"+g];return a||veri[kid][g-1]}
+ function hesap(kid){
+  var gunN=+$("#gunluk").value*60,gecDus=$("#gecDus").checked,tol=$("#tolerans").checked,t={gun:0,dk:0,fm:0,gec:0,izin:0,dev:0,rap:0};
+  veri[kid].forEach(function(x,i){var h=hucre(kid,i+1);if(h.kod==="N"||h.kod==="FM"){t.gun++;var gec=h.gec&&(!tol||h.gec>5)?h.gec:0;var dk=h.dk-(gecDus?gec:0);t.dk+=dk;t.fm+=Math.max(0,dk-gunN);t.gec+=gec}else if(h.kod==="Y")t.izin++;else if(h.kod==="D")t.dev++;else if(h.kod==="R")t.rap++;});
+  return t;
+ }
+ function sa(dk){return (dk/60).toFixed(1).replace(".",",")}
+ function ciz(){
+  var gs=new Date(sec.y,sec.m+1,0).getDate(),ks=P.KISILER.filter(function(k){return sube==="hepsi"||k.sube===sube}),gunN=+$("#gunluk").value*60;
+  var h='<thead><tr><th class="ad">Çalışan</th>';
+  for(var g=1;g<=gs;g++){var hg=new Date(sec.y,sec.m,g).getDay();h+='<th class="'+(hg===0?"hs":"")+'">'+g+'<br>'+GN[hg]+'</th>'}
+  h+='<th>Gün</th><th>Saat</th><th>F. mesai</th><th>Geç (dk)</th><th>İzin/Rapor</th><th>Devamsız</th></tr></thead><tbody>';
+  var T={gun:0,dk:0,fm:0,gec:0,izin:0,dev:0,rap:0};
+  ks.forEach(function(k){
+   h+='<tr><td class="ad"><b>'+k.ad+'</b><small>'+k.gorev+' · '+P.sube(k.sube).ad+'</small></td>';
+   for(var g=1;g<=gs;g++){var x=hucre(k.id,g),cls=x.kod==="-"?"bos":x.kod,etk=x.kod==="-"?"·":x.kod,stil="";
+    if(x.kod==="N"||x.kod==="FM"){var a=Math.min(.55,.12+(x.dk-420)/300);stil=x.kod==="N"?' style="--a:'+a.toFixed(2)+'"':"";etk=x.kod==="FM"?"FM":sa(x.dk)}
+    if(x.dk&&x.dk>gunN&&x.kod==="N"){cls="FM";etk="FM"}
+    h+='<td class="h"><button class="'+cls+(x.gec>5?" gec":"")+(duzelt[k.id+"-"+g]?" duz":"")+'" data-k="'+k.id+'" data-g="'+g+'" title="'+k.ad+' · '+g+' '+AY[sec.m]+(x.dk?' · '+sa(x.dk)+' sa':'')+(x.gec?' · '+x.gec+' dk geç':'')+'"'+stil+'>'+etk+'</button></td>'}
+   var t=hesap(k.id);Object.keys(T).forEach(function(z){T[z]+=t[z]});
+   h+='<td class="top">'+t.gun+'</td><td class="top">'+sa(t.dk)+'</td><td class="top fm">'+sa(t.fm)+'</td><td class="top gc">'+t.gec+'</td><td class="top">'+(t.izin+t.rap)+'</td><td class="top gc">'+t.dev+'</td></tr>';
+  });
+  h+='</tbody><tfoot><tr><td class="ad">Toplam · '+ks.length+' kişi</td><td colspan="'+gs+'"></td><td>'+T.gun+'</td><td>'+sa(T.dk)+'</td><td>'+sa(T.fm)+'</td><td>'+T.gec+'</td><td>'+(T.izin+T.rap)+'</td><td>'+T.dev+'</td></tr></tfoot>';
+  $("#tablo").innerHTML=h;
+  $("#ozet").innerHTML=[["Çalışılan saat",sa(T.dk)],["Fazla mesai",sa(T.fm)+" sa"],["Geç kalma",T.gec+" dk"],["İzin + rapor",(T.izin+T.rap)+" gün"],["Devamsızlık",T.dev+" gün"]].map(function(x){return '<div><small>'+x[0]+'</small><b>'+x[1]+'</b></div>'}).join("");
+ }
+ // hücre düzeltme menüsü
+ var menu=$("#menu"),hedef=null;
+ document.addEventListener("click",function(e){
+  var b=e.target.closest("td.h button");
+  if(b){hedef=b;var r=b.getBoundingClientRect(),k=P.kisi(b.dataset.k);menu.innerHTML='<p>'+k.ad.split(" ")[0]+' · '+b.dataset.g+' '+AY[sec.m]+'</p>'+[["N","Normal gün (9 sa)"],["FM","Fazla mesai (11 sa)"],["H","Hafta tatili"],["Y","Yıllık izin"],["R","Raporlu"],["D","Devamsız"]].map(function(x){return '<button data-kod="'+x[0]+'"><span class="'+x[0]+'" style="--a:.35">'+x[0]+'</span>'+x[1]+'</button>'}).join("");menu.style.display="block";menu.style.left=Math.min(r.left,innerWidth-210)+"px";menu.style.top=Math.min(r.bottom+6,innerHeight-280)+"px";return}
+  var m=e.target.closest("#menu button");
+  if(m&&hedef){var kod=m.dataset.kod,kid=hedef.dataset.k,g=+hedef.dataset.g,eski=hucre(kid,g).kod;duzelt[kid+"-"+g]={g:g,kod:kod,dk:kod==="N"?540:kod==="FM"?660:0,gec:0};
+   var d=new Date();kayit.unshift('<div><b>'+P.saat(d)+'</b> · Yönetici · '+P.kisi(kid).ad+' · '+g+' '+AY[sec.m]+': '+eski+' → <b>'+kod+'</b></div>');$("#gunlukKayit").innerHTML=kayit.join("");menu.style.display="none";ciz();return}
+  if(!e.target.closest("#menu"))menu.style.display="none";
+ });
+ $("#yazdir").onclick=function(){print()};
+ $("#csv").onclick=function(){
+  var gs=new Date(sec.y,sec.m+1,0).getDate(),ks=P.KISILER.filter(function(k){return sube==="hepsi"||k.sube===sube});
+  var bas=["Sicil","Ad Soyad","Gorev","Sube"];for(var g=1;g<=gs;g++)bas.push(P.iki(g)+"."+P.iki(sec.m+1));bas=bas.concat(["Calisilan Gun","Calisilan Saat","Fazla Mesai Saat","Gec Kalma Dk","Yillik Izin","Raporlu","Devamsiz"]);
+  var sat=[bas.join(";")];
+  ks.forEach(function(k){var t=hesap(k.id),r=[k.id.toUpperCase(),k.ad,k.gorev,P.sube(k.sube).ad];for(var g=1;g<=gs;g++){var x=hucre(k.id,g);r.push(x.kod==="N"||x.kod==="FM"?sa(x.dk):x.kod)}r=r.concat([t.gun,sa(t.dk),sa(t.fm),t.gec,t.izin,t.rap,t.dev]);sat.push(r.join(";"))});
+  var blob=new Blob(["﻿"+sat.join("\r\n")],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="puantaj-"+sec.y+"-"+P.iki(sec.m+1)+"-ornek.csv";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+ };
+ yukle();
+})();
+</script>
+<script src="../../_dijitabela/filigran.js" data-gucu="0.035" data-kredi="1"></script>
+<script src="../../_dijitabela/izle.js" data-slug="personel-puantaj" defer></script>
+<script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body>
+</html>
