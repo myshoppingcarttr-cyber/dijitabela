@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dijitabela Emlak Demo</title>
+<meta name="description" content="Dijitabela Emlak canlı demo: yeni ilanı girin, aranan müşterileri görün, fotoğraflı WhatsApp mesajı hazır olsun. Emlak ofisleri için.">
+<link rel="canonical" href="https://dijitabela.com.tr/emlak-demo.html">
+<meta property="og:title" content="Dijitabela Emlak · İlanı girin, aranan müşteriye fotoğraflı mesaj hazır">
+<meta name="theme-color" content="#0f2a4a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/yeni/demo.css">
+</head><body>
+<header><div class="kap"><a class="logo" href="/"><i>d</i>Dijitabela Emlak</a><a class="wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Emlak%20demosunu%20g%C3%B6rd%C3%BCm%2C%20ofisim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a></div></header>
+<div class="hero"><div class="kap">
+  <span class="etiket">Emlak ofisleri için</span>
+  <h1>İlanı girdiğiniz anda, <em>tam bunu arayan</em> müşterinizi görün.</h1>
+  <p>Kim hangi bölgede kaç odalı arıyordu diye defter karıştırmak yerine: talepler kayıtlı, yeni ilan eşleşenleri bulur, fotoğraflı mesaj hazır olur. Siz kontrol edip gönderirsiniz.</p>
+  <div class="dugmeler"><a class="btn sari" href="#dene">Şimdi deneyin ↓</a><a class="btn cizgi" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Emlak%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Ofisim için sorun</a></div>
+</div></div>
+
+<section id="dene"><div class="kap">
+  <h2>1 dakikada kendiniz deneyin</h2>
+  <p class="alt">Yeni bir ilan girin; programın kayıtlı müşteri taleplerinden kimleri bulduğunu izleyin, mesajı okuyup gönderin. Ofis adı, müşteriler, ilan ve fotoğraflar kurgudur; gerçek programda kendi talep kayıtlarınız ve ilanlarınız olur.</p>
+  <div class="anlat" aria-live="polite"><span class="no" id="d-no"></span><p id="d-yazi"></p><button type="button" id="d-ses" aria-pressed="false">🔊 Sesli anlat</button></div>
+  <div class="demo">
+    <div class="telefon"><div class="ust"><i>d</i><span id="tel-baslik">Müşteri · WhatsApp</span></div>
+      <div class="kisiler" id="kisiler"></div>
+      <div class="sohbet" id="sohbet"></div>
+      <div class="aksiyon"><button type="button" id="cevap" disabled>💬 Müşteri cevap yazdı (örnek)</button></div>
+    </div>
+    <div>
+      <div class="uyg"><div class="bar">Müşteri talep kayıtları<span id="durum">5 kayıtlı talep</span></div>
+        <div class="tablo"><table class="bd"><thead><tr><th>Müşteri</th><th>Bölge</th><th>Oda</th><th>Bütçe (en çok)</th><th>Amaç</th><th>Eşleşme</th></tr></thead><tbody id="talepler"></tbody></table></div>
+      </div>
+      <div class="uyg adim"><div class="bar">Yeni ilan<span>adım 2</span></div>
+        <div class="ic"><div class="form">
+          <label>Bölge<select id="f-bolge"><option>Konyaaltı</option><option>Lara</option><option>Muratpaşa</option></select></label>
+          <label>Oda sayısı<select id="f-oda"><option>2+1</option><option selected>3+1</option><option>4+1</option></select></label>
+          <label>Fiyat (₺)<input id="f-fiyat" type="number" min="500000" step="50000" value="5950000"></label>
+          <label>Öne çıkan özellik<input id="f-oz" type="text" value="denize 600 m, otoparklı"></label>
+          <div class="genis"><div style="font-size:12px;font-weight:700;color:var(--s);margin-bottom:6px">Fotoğraflar (örnek)</div><div class="fotolar"><img src="assets/yeni/demo/emlak-1.jpg" alt="Örnek salon fotoğrafı"><img src="assets/yeni/demo/emlak-2.jpg" alt="Örnek bina fotoğrafı"><img src="assets/yeni/demo/emlak-3.jpg" alt="Örnek havuz fotoğrafı"></div></div>
+        </div></div>
+        <div class="ek-ozet"><span class="not" id="ilan-not">İsterseniz bölge, oda ve fiyatı değiştirin; eşleşenler değişir.</span><button type="button" class="btn mavi" id="kaydet">İlanı kaydet ve eşleştir</button></div>
+      </div>
+      <div class="adim" id="onizleme" hidden><h3>Bu ilanı arayan müşteriler</h3><p class="kurgu" style="margin:0 0 8px">Bölge, oda sayısı ve bütçe talep kaydıyla karşılaştırıldı. Mesaj gönderilecek müşterileri siz seçersiniz.</p>
+        <div class="tablo"><table class="bd"><thead><tr><th></th><th>Müşteri</th><th>Talebi</th><th>Durum</th></tr></thead><tbody id="eslesen"></tbody></table></div>
+        <div style="margin-top:12px"><button type="button" class="btn yesil" id="gonder">✓ Seçilenlere mesajı gönder</button></div></div>
+      <div class="adim" id="gonderildi" hidden><h3>Gönderilenler</h3><div class="tablo"><table class="bd"><thead><tr><th>Müşteri</th><th>Saat</th><th>Durum</th></tr></thead><tbody id="glist"></tbody></table></div></div>
+      <div class="sonuc" id="sonuc"><h3>✅ Defter karıştırmak yerine tek liste</h3><p id="sonuc-yazi"></p>
+        <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Emlak%20demosunu%20denedim%2C%20ofisim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Ofisime uygulayalım: WhatsApp'tan yazın</a></div>
+    </div>
+  </div>
+  <p class="kurgu">Örnek kurgudur: müşteri adları, talepler, ilan ve fotoğraflar gerçek değildir.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="kap">
+  <h2>Programda başka neler var</h2>
+  <div class="ozellik">
+    <div>📒<h3>Müşteri talep kaydı</h3><p>Bölge, oda sayısı, bütçe ve amaç tek yerde; telefonda ya da defterde aramak yok.</p></div>
+    <div>🔔<h3>Uygun ilan eklenince haber</h3><p>Talep kaydıyla yeni ilan karşılaştırılır; uygun olanlar için hazır mesaj oluşur.</p></div>
+    <div>🌐<h3>Portföy siteniz</h3><p>İlanlarınız fotoğraflarıyla kendi sitenizde, telefonda hızlı açılır.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="kap"><div class="son"><h2>Ofisinizde nasıl çalışır, konuşalım</h2><p>Talep kayıtlarınızı birlikte kuralım, ilk ilanınızla eşleşmeyi deneyin.</p><a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%2C%20Dijitabela%20Emlak%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a></div></div></section>
+<footer>Dijitabela · Antalya · dijitabela.com.tr · Demo verileri kurgudur.</footer>
+
+<script src="assets/yeni/demo-ortak.js"></script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var TAL = [
+    { ad: "Ayşe Yılmaz", ton: "Ayşe Hanım", bolge: "Konyaaltı", oda: "3+1", butce: 6500000, amac: "Oturum" },
+    { ad: "Mehmet Kaya", ton: "Mehmet Bey", bolge: "Konyaaltı", oda: "3+1", butce: 5200000, amac: "Yatırım" },
+    { ad: "Zeynep Aksoy", ton: "Zeynep Hanım", bolge: "Lara", oda: "2+1", butce: 4000000, amac: "Oturum" },
+    { ad: "Cemal Demir", ton: "Cemal Bey", bolge: "Konyaaltı", oda: "2+1", butce: 3500000, amac: "Yatırım" },
+    { ad: "Selin Tunç", ton: "Selin Hanım", bolge: "Konyaaltı", oda: "3+1", butce: 7500000, amac: "Oturum" }
+  ];
+  var tl = function (n) { return Number(n).toLocaleString("tr-TR") + " ₺"; };
+  var ilan = null, secili = {}, aktif = 0, gonderildi = false, gecmis = {}, cevapladi = {}, eslesenler = [];
+  var sohbet = $("#sohbet");
+  DEMO.kur({ onek: "emlak", adimlar: [
+    "Kayıtlı müşteri talepleri burada: bölge, oda, bütçe ve amaç. Aşağıdan yeni ilanı girip kaydedin.",
+    "İlan kaydedildi. Bölge, oda ve bütçesi uyanlar bulundu; uymayanların nedeni yazıyor. Telefonda fotoğraflı mesajı okuyun, gidecekleri seçip gönderin.",
+    "Mesajlar gitti. Gönderilenler listesinde saatleri görünüyor; şimdi müşteri cevap yazsın.",
+    "Müşteri cevap yazdı. Kim ne dedi tek yerde, defter karıştırmaya gerek yok."
+  ] });
+  function durumu(t) {
+    if (!ilan) return { ok: false, neden: "" };
+    if (t.bolge !== ilan.bolge) return { ok: false, neden: "bölge farklı (" + t.bolge + ")" };
+    if (t.oda !== ilan.oda) return { ok: false, neden: "oda sayısı farklı (" + t.oda + ")" };
+    if (ilan.fiyat > t.butce) return { ok: false, neden: "bütçeyi aşıyor (" + tl(t.butce) + ")" };
+    return { ok: true, neden: "" };
+  }
+  function talepCiz() {
+    $("#talepler").innerHTML = TAL.map(function (t, i) { var d = durumu(t); return "<tr><td><b>" + t.ad + "</b></td><td>" + t.bolge + "</td><td>" + t.oda + "</td><td>" + tl(t.butce) + "</td><td>" + t.amac + "</td><td>" + (!ilan ? '<span class="chip gri">—</span>' : d.ok ? '<span class="chip ok">Eşleşti</span>' : '<span class="chip gri">Uymadı</span>') + "</td></tr>"; }).join("");
+  }
+  function mesaj(t) {
+    return "Merhaba " + t.ton + ", " + ilan.bolge + "'nda aradığınız " + ilan.oda + " bütçenize uygun bir daire eklendi: " + ilan.oz + ". Fiyat " + tl(ilan.fiyat) + ". Fotoğraflar aşağıda; uygun olursa gösterebiliriz.\n— Örnek Emlak Ofisi";
+  }
+  var FOTO = '<div class="gor"><img src="assets/yeni/demo/emlak-1.jpg" alt=""><img src="assets/yeni/demo/emlak-2.jpg" alt=""><img src="assets/yeni/demo/emlak-3.jpg" alt=""></div>';
+  function kisiCiz() {
+    $("#kisiler").innerHTML = eslesenler.filter(function (i) { return secili[i]; }).map(function (i) { return '<button type="button" data-i="' + i + '" class="' + (i === aktif ? "on" : "") + '">' + TAL[i].ad.split(" ")[0] + "</button>"; }).join("");
+    $("#tel-baslik").textContent = (TAL[aktif] ? TAL[aktif].ton : "Müşteri") + " · WhatsApp";
+  }
+  function sohbetCiz() {
+    sohbet.innerHTML = "";
+    if (gecmis[aktif]) { sohbet.innerHTML = '<div class="gun">Bugün</div>' + gecmis[aktif].join(""); }
+    else if (ilan && secili[aktif]) { sohbet.innerHTML = '<div class="gun">Taslak önizleme</div>'; DEMO.balon(sohbet, FOTO + DEMO.esc(mesaj(TAL[aktif])), true, "taslak", true); }
+    else sohbet.innerHTML = '<div class="gun">Bugün</div><div class="msj o" style="align-self:center;background:#182229;color:#8696a0;font-size:12px">İlan kaydedilince mesaj önizlemesi burada görünür.</div>';
+    sohbet.scrollTop = 1e5;
+  }
+  $("#kaydet").addEventListener("click", function () {
+    var f = +$("#f-fiyat").value; if (!f || f < 100000) { $("#ilan-not").textContent = "Lütfen geçerli bir fiyat girin."; return; }
+    ilan = { bolge: $("#f-bolge").value, oda: $("#f-oda").value, fiyat: f, oz: $("#f-oz").value.trim() || "yeni ilan" };
+    gonderildi = false; gecmis = {}; cevapladi = {}; $("#gonderildi").hidden = true; $("#sonuc").classList.remove("gor"); $("#cevap").disabled = true;
+    eslesenler = []; TAL.forEach(function (t, i) { if (durumu(t).ok) eslesenler.push(i); });
+    secili = {}; eslesenler.forEach(function (i) { secili[i] = true; }); aktif = eslesenler[0] || 0;
+    talepCiz();
+    $("#eslesen").innerHTML = TAL.map(function (t, i) { var d = durumu(t); return "<tr><td>" + (d.ok ? '<input type="checkbox" data-i="' + i + '" checked aria-label="' + t.ad + '">' : "") + "</td><td><b>" + t.ad + "</b></td><td>" + t.bolge + " · " + t.oda + " · en çok " + tl(t.butce) + "</td><td>" + (d.ok ? '<span class="chip ok">Eşleşti</span>' : '<span class="chip gri">Uymadı: ' + d.neden + "</span>") + "</td></tr>"; }).join("");
+    $("#onizleme").hidden = false; $("#gonder").disabled = !eslesenler.length;
+    $("#durum").textContent = eslesenler.length + " eşleşme";
+    $("#ilan-not").textContent = eslesenler.length ? "İlan kaydedildi · " + eslesenler.length + " müşteri eşleşti." : "Bu ilanı arayan kayıtlı müşteri yok; bölge, oda veya fiyatı değiştirip yeniden deneyin.";
+    DEMO.git(eslesenler.length ? 1 : 0); kisiCiz(); sohbetCiz();
+    $("#onizleme").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    DEMO.izle("emlak:ilan kaydet " + ilan.bolge + " " + ilan.oda + " → " + eslesenler.length + " eşleşme");
+  });
+  $("#eslesen").addEventListener("change", function (e) {
+    var c = e.target.closest("input[data-i]"); if (!c) return; secili[+c.dataset.i] = c.checked;
+    var s = eslesenler.filter(function (i) { return secili[i]; }); $("#gonder").disabled = !s.length; if (s.length && !secili[aktif]) aktif = s[0];
+    kisiCiz(); sohbetCiz();
+  });
+  $("#kisiler").addEventListener("click", function (e) { var b = e.target.closest("button[data-i]"); if (!b) return; aktif = +b.dataset.i; kisiCiz(); sohbetCiz(); $("#cevap").disabled = !(gonderildi && gecmis[aktif] && !cevapladi[aktif]); });
+  $("#gonder").addEventListener("click", function () {
+    var s = eslesenler.filter(function (i) { return secili[i]; }); if (!s.length || gonderildi) return;
+    gonderildi = true; $("#gonder").disabled = true; document.querySelectorAll("#eslesen input").forEach(function (c) { c.disabled = true; });
+    DEMO.git(2); $("#gonderildi").hidden = false;
+    $("#glist").innerHTML = s.map(function (i) { return "<tr data-i=" + i + "><td><b>" + TAL[i].ad + '</b></td><td class="sa">—</td><td class="du">Gönderiliyor…</td></tr>'; }).join("");
+    s.forEach(function (i, j) { setTimeout(function () {
+      var t = DEMO.saat(); gecmis[i] = ['<div class="msj ben" style="align-self:flex-end">' + FOTO + DEMO.esc(mesaj(TAL[i])) + "<time>" + t + " ✓✓</time></div>"];
+      var tr = document.querySelector('#glist tr[data-i="' + i + '"]'); tr.querySelector(".sa").textContent = t; tr.querySelector(".du").innerHTML = '<span class="chip ok">Gönderildi ✓✓</span>';
+      if (i === aktif) { sohbetCiz(); $("#cevap").disabled = false; }
+    }, 500 + j * 700); });
+    setTimeout(function () { $("#gonderildi").scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 400);
+    DEMO.izle("emlak:gönderildi " + s.length);
+  });
+  var CEVAP = ["Cumartesi görebilir miyiz?", "Fotoğraflar güzel, ne zaman görebiliriz?", "Aidat ne kadar?"];
+  $("#cevap").addEventListener("click", function () {
+    var i = aktif; if (cevapladi[i] || !gecmis[i]) return; cevapladi[i] = true;
+    var k = Object.keys(cevapladi).length - 1, yazi = CEVAP[k % CEVAP.length];
+    gecmis[i].push('<div class="msj o">' + yazi + "<time>" + DEMO.saat(3) + "</time></div>"); sohbetCiz();
+    var tr = document.querySelector('#glist tr[data-i="' + i + '"]'); if (tr) tr.querySelector(".du").innerHTML = '<span class="chip sari">Cevap yazdı: “' + yazi + "”</span>";
+    DEMO.git(3);
+    var bek = eslesenler.filter(function (x) { return secili[x] && gecmis[x] && !cevapladi[x]; });
+    $("#cevap").disabled = true; if (bek.length) { aktif = bek[0]; kisiCiz(); sohbetCiz(); $("#cevap").disabled = false; }
+    $("#sonuc").classList.add("gor"); $("#sonuc-yazi").textContent = Object.keys(cevapladi).length + " müşteri cevap yazdı" + (bek.length ? "; " + bek.length + " müşteri bekleniyor. Telefonun üstünden sıradakini seçebilirsiniz." : ". Kimin ne dediği tek listede.");
+    DEMO.izle("emlak:cevap geldi " + Object.keys(cevapladi).length + (bek.length ? "" : " · demo tamamlandı"));
+  });
+  talepCiz(); kisiCiz(); sohbetCiz();
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" data-slug="emlak-demo" data-sayfa="emlak-demo" defer></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
