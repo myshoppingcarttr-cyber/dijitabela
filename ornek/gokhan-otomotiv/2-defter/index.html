@@ -1,0 +1,85 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Stok Defteri · Gökhan Otomotiv · Dijitabela</title><meta name="description" content="Gökhan Otomotiv için stok defteri yerleşimi: sıralanabilir araç listesi, iki araç karşılaştırma, WhatsApp ile sor. Araçlar örnektir.">
+<meta name="theme-color" content="#F3EFE6"><link rel="icon" href="https://dijitabela.com.tr/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--z:#F3EFE6;--k:#FBF9F3;--y:#1A1B18;--s:#6A675D;--c:#D9D2C0;--g:#1F3A5F;--g2:#2E5A8F}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--z)}
+body{background:var(--z);color:var(--y);font:400 15px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,select{font:inherit;color:inherit;max-width:100%}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.01em}
+.mono{font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+.w{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.bant{border-bottom:1px solid var(--y);padding:8px 0;font-size:12px;color:var(--s)}.bant .w{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.kap{padding:clamp(24px,4vw,48px) 0 18px;border-bottom:3px double var(--y)}.kap .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:20px 40px;align-items:end}
+.kap h1{font-size:clamp(40px,7.4vw,92px);line-height:.92}.kap h1 em{font-weight:500;color:var(--g)}.kap p{color:var(--s);max-width:48ch;margin-top:12px}
+.kap .not{border-left:3px solid var(--g);padding-left:14px;font-size:14px}
+.menu{position:sticky;top:0;z-index:20;background:var(--z);border-bottom:1px solid var(--c)}.menu .w{display:flex;gap:22px;overflow-x:auto;white-space:nowrap;padding-top:11px;padding-bottom:11px}.menu a{text-decoration:none;color:var(--s);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}.menu a:first-child{color:var(--y)}
+section{padding:clamp(28px,5vw,56px) 0;border-bottom:1px solid var(--c)}
+.bas{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;margin-bottom:20px}.bas .no{font:italic 500 44px/1 Fraunces;color:var(--g)}.bas h2{font-size:clamp(26px,4vw,40px)}.bas p{grid-column:2;color:var(--s)}
+.ar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:end}.ar label span{display:block;margin-bottom:4px;color:var(--s)}
+.ar input,.ar select{height:42px;border:1px solid var(--y);background:var(--k);padding:0 10px;min-width:0}.ar input[type=text]{width:220px}
+.dg{border:1px solid var(--y);background:var(--k);padding:0 16px;min-height:42px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;text-decoration:none;gap:6px}.dg.a{background:var(--g);border-color:var(--g);color:#fff}.dg.k{min-height:34px;font-size:13px;padding:0 10px}.dg:disabled{opacity:.4}
+table{width:100%;border-collapse:collapse;background:var(--k);border:1px solid var(--y)}
+th{font:500 11px "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:12px 10px;border-bottom:1px solid var(--y);cursor:pointer;white-space:nowrap;background:var(--z)}th.ns{cursor:default}th:hover:not(.ns){color:var(--g)}
+td{padding:10px;border-bottom:1px solid var(--c);vertical-align:middle}tr:hover td{background:#F7F3E8}
+td.res{width:120px;padding:4px 10px}td.res .arac-svg{width:110px;height:auto}.te{animation:none}
+td b{font-family:Fraunces,serif;font-size:18px;display:block;line-height:1.1}td small{color:var(--s)}
+td.f{font:600 15px "IBM Plex Mono",monospace;white-space:nowrap}
+.ck{width:20px;height:20px;accent-color:var(--g)}
+.badge{font:500 9px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;border:1px solid var(--g);color:var(--g);padding:3px 5px;margin-left:6px;vertical-align:middle}
+.kar{margin-top:16px;background:var(--k);border:1px solid var(--y);padding:18px;display:none}.kar.a{display:block}
+.kar .iz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--c)}.kar .iz>div{padding:8px 12px;border-bottom:1px solid var(--c);overflow-wrap:anywhere}.kar .iz>div:nth-child(3n+1){color:var(--s);font-size:13px}.kar .iz>.h{font-family:Fraunces,serif;font-weight:700;font-size:17px;background:var(--z)}
+.iki{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,44px)}
+.kutu{background:var(--k);border:1px solid var(--y);padding:clamp(16px,3vw,26px)}.kutu h3{font-size:26px;margin-bottom:6px}.kutu>p{color:var(--s);margin-bottom:14px}
+.alan{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}.alan label span{display:block;margin-bottom:4px;color:var(--s)}.alan input,.alan select{width:100%;height:42px;border:1px solid var(--y);background:#fff;padding:0 10px}.alan .tam{grid-column:1/-1}
+.sonuc{border-left:4px solid var(--g);background:var(--z);padding:12px 14px;margin-top:10px}.sonuc b{font:700 32px/1 Fraunces;display:block;margin-top:4px;color:var(--g)}.sonuc small{display:block;color:var(--s);margin-top:6px}
+.yan{font-size:14px;color:var(--s)}.yan li{list-style:none;padding:9px 0;border-bottom:1px solid var(--c)}.yan li b{color:var(--y)}
+footer{padding:34px 0 60px}footer .w{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}footer h3{font-size:34px;margin-bottom:10px}footer p{color:var(--s);margin-bottom:6px}footer .cr{grid-column:1/-1;font-size:12px;color:var(--s);border-top:1px solid var(--y);padding-top:12px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);background:var(--y);color:#fff;padding:12px 18px;opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}.toast.a{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){.kap .w,.iki,footer .w{grid-template-columns:minmax(0,1fr)}
+ table,tbody,tr,td{display:block;width:100%}thead{display:none}tr{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:2px 10px;padding:10px;border-bottom:1px solid var(--c);align-items:center}td{border:0;padding:0}tr:hover td{background:none}
+ td.res{grid-row:1/4;width:auto;padding:0}td.res .arac-svg{width:96px}td.ad{grid-column:2}td.ky{grid-column:2;color:var(--s);font-size:13px}td.f{grid-column:2}td.sc{grid-column:3;grid-row:1}td.wa{grid-column:2/4}
+ .alan{grid-template-columns:minmax(0,1fr)}.kar .iz{font-size:13px}.ar input[type=text]{width:100%}.ar label{flex:1 1 130px}}
+</style></head><body>
+<div class="bant"><div class="w"><span>Gökhan Otomotiv · Kepez / Antalya</span><span>Taslak · araçlar örnektir</span></div></div>
+<div class="kap"><div class="w"><div><span class="mono" style="color:var(--g)">Stok defteri · oto galeri</span><h1 style="margin-top:10px">Gökhan <em>Otomotiv</em></h1><p>Stoktaki araçlar defter düzeninde: sütuna tıklayıp sıralayın, iki aracı yan yana koyun, beğendiğinize tek mesajla sorun.</p></div>
+<div class="not"><span class="mono">Adres</span><br>Güneş Mah. 15 Temmuz Şehitler Cd. No:96, Kepez<br><br><span class="mono">Telefon</span><br>0545 366 38 38</div></div></div>
+<nav class="menu"><div class="w"><a href="#stok">01 Stok</a><a href="#kars">02 Karşılaştır</a><a href="#taksit">03 Taksit</a><a href="#gel">04 Adres</a></div></nav>
+
+<section id="stok"><div class="w"><div class="bas"><span class="no">01</span><h2>Stok listesi</h2><p><span id="say"></span> · örnek veri, gerçek stok değildir</p></div>
+<div class="ar"><label><span class="mono">Ara</span><input type="text" id="q" placeholder="Marka, model, yıl"></label><label><span class="mono">Kasa</span><select id="tip"><option value="hepsi">Hepsi</option><option value="sedan">Sedan</option><option value="hatchback">Hatchback</option><option value="suv">SUV</option><option value="pickup">Pikap</option></select></label><label><span class="mono">Yakıt</span><select id="yakit"><option value="hepsi">Hepsi</option><option>Dizel</option><option>Benzin</option></select></label><label><span class="mono">Vites</span><select id="vites"><option value="hepsi">Hepsi</option><option>Manuel</option><option>Otomatik</option></select></label></div>
+<table><thead><tr><th class="ns">Araç</th><th data-s="ad">Marka / model</th><th data-s="yil">Yıl</th><th data-s="km">Km</th><th data-s="fiyat">Fiyat (örnek)</th><th class="ns">Kıyas</th><th class="ns">Sor</th></tr></thead><tbody id="tb"></tbody></table></div></section>
+
+<section id="kars"><div class="w"><div class="bas"><span class="no">02</span><h2>Yan yana karşılaştır</h2><p>Listeden iki araç işaretleyin.</p></div><div class="kar" id="kar"></div><p id="karBos" style="color:var(--s)">Henüz iki araç seçilmedi.</p></div></section>
+
+<section id="taksit"><div class="w"><div class="bas"><span class="no">03</span><h2>Taksit hesabı</h2><p>Oranı siz yazarsınız; örnek hesaptır, banka teklifi değildir.</p></div><div class="iki"><div class="kutu"><h3>Aylık tutar</h3><div class="alan"><label class="tam"><span class="mono">Araç</span><select id="tAr"></select></label><label><span class="mono">Peşinat (TL)</span><input type="number" id="tPe" value="300000" min="0" step="10000"></label><label><span class="mono">Vade (ay)</span><select id="tAy"><option>12</option><option selected>24</option><option>36</option><option>48</option></select></label><label class="tam"><span class="mono">Aylık oran % (örnek)</span><input type="number" id="tOr" value="3" min="0" step="0.05"></label></div><div class="sonuc" aria-live="polite"><span class="mono">Aylık taksit</span><b id="tSon">-</b><small id="tAlt"></small></div></div>
+<div class="kutu"><h3>Sitenin yaptıkları</h3><ul class="yan"><li><b>Kendi adresinizde vitrin:</b> araçlar ilan platformuna bağlı kalmaz.</li><li><b>Tek dokunuşla sor:</b> “bu araç hâlâ var mı” mesajı hazır gelir.</li><li><b>Kıyas ve taksit:</b> müşteri kararını gelmeden verir.</li><li><b>Adres ve yol tarifi:</b> haritada tek dokunuş.</li></ul></div></div></div></section>
+
+<footer id="gel"><div class="w"><div><h3>Adres</h3><p>Güneş Mah. 15 Temmuz Şehitler Cd. No:96, Kepez / Antalya</p><p>Telefon: 0545 366 38 38</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><a class="dg a" id="yol" target="_blank" rel="noopener">Yol tarifi</a><a class="dg" href="https://www.arabam.com/galeri/gokhan-otomotiv-antalya-kepez-gunes-mahallesi" target="_blank" rel="noopener">arabam.com galeri sayfası</a></div></div><div><p class="mono">Bu sayfa nedir?</p><p>Dijitabela’nın Gökhan Otomotiv için hazırladığı taslak. Araçlar, fiyatlar ve oranlar örnektir.</p></div><div class="cr">Taslak, yayında değil · Seçenek 2 / 3</div></div></footer>
+<div class="toast" id="ts" role="status"></div>
+<script src="../ortak.js"></script>
+<script>
+(function(){"use strict";var U=window.UGUR,$=function(i){return document.getElementById(i)},sk="yil",yon=-1,kars=[],tt;
+function bildir(m){var t=$("ts");t.textContent=m;t.classList.add("a");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("a")},2400)}
+function iz(x){try{window.djIzle&&window.djIzle(x)}catch(e){}}
+$("yol").href=U.harita;
+var opt=U.arac.map(function(a){return'<option value="'+a.id+'">'+a.yil+" "+U.ad2(a)+" · "+U.tl(a.fiyat)+" (örnek)</option>"}).join("");$("tAr").innerHTML=opt;
+function ciz(){var l=U.suz({q:$("q").value,tip:$("tip").value,yakit:$("yakit").value,vites:$("vites").value});
+ l.sort(function(a,b){var x=sk==="ad"?U.ad2(a).localeCompare(U.ad2(b),"tr"):a[sk]-b[sk];return x*yon});
+ $("say").textContent=l.length+" araç";
+ $("tb").innerHTML=l.map(function(a){var on=kars.indexOf(a.id)>-1;return'<tr><td class="res">'+U.svg(a.tip,a.renk)+'</td><td class="ad"><b>'+a.marka+" "+a.model+'<span class="badge">ÖRNEK</span></b><small>'+a.pk+" · "+U.tipAd[a.tip]+'</small></td><td class="ky">'+a.yil+" · "+a.yakit+" · "+a.vites+'</td><td class="ky">'+U.kmf(a.km)+'</td><td class="f">'+U.tl(a.fiyat)+'</td><td class="sc"><input class="ck" type="checkbox" data-k="'+a.id+'" '+(on?"checked":"")+' aria-label="Karşılaştır"></td><td class="wa"><a class="dg k" target="_blank" rel="noopener" href="'+U.waLink(U.soru(a))+'">Hâlâ var mı?</a></td></tr>'}).join("")||'<tr><td colspan="7" style="padding:24px;color:var(--s)">Süzgece uyan örnek araç yok.</td></tr>'}
+["q","tip","yakit","vites"].forEach(function(i){$(i).addEventListener("input",function(){ciz();iz("defter:suz "+i)})});
+document.querySelector("thead").addEventListener("click",function(e){var h=e.target.closest("[data-s]");if(!h)return;var s=h.dataset.s;if(s===sk)yon*=-1;else{sk=s;yon=1}ciz();iz("defter:sirala "+s)});
+$("tb").addEventListener("change",function(e){var c=e.target.closest("[data-k]");if(!c)return;var id=Number(c.dataset.k),i=kars.indexOf(id);
+ if(i>-1)kars.splice(i,1);else{if(kars.length>=2){c.checked=false;bildir("En fazla iki araç karşılaştırılır");return}kars.push(id)}kar()});
+function kar(){var k=$("kar");if(kars.length<2){k.classList.remove("a");$("karBos").style.display="";$("karBos").textContent=kars.length?"Bir araç daha seçin.":"Henüz iki araç seçilmedi.";return}
+ var a=U.bul(kars[0]),b=U.bul(kars[1]);$("karBos").style.display="none";k.classList.add("a");
+ var s=[["Model",U.ad2(a),U.ad2(b)],["Paket",a.pk,b.pk],["Yıl",a.yil,b.yil],["Kilometre",U.kmf(a.km),U.kmf(b.km)],["Yakıt",a.yakit,b.yakit],["Vites",a.vites,b.vites],["Fiyat (örnek)",U.tl(a.fiyat),U.tl(b.fiyat)],["Fark",U.tl(Math.abs(a.fiyat-b.fiyat)),(a.fiyat<b.fiyat?"1. araç daha uygun":a.fiyat>b.fiyat?"2. araç daha uygun":"Aynı")]];
+ k.innerHTML='<div class="iz"><div class="h"></div><div class="h">1. araç</div><div class="h">2. araç</div>'+s.map(function(r){return"<div>"+r[0]+"</div><div>"+r[1]+"</div><div>"+r[2]+"</div>"}).join("")+"</div>";iz("defter:karsilastir")}
+function hesap(){var a=U.bul($("tAr").value),r=U.taksit(a.fiyat,Math.max(0,Number($("tPe").value)||0),Number($("tAy").value),Number($("tOr").value)||0);$("tSon").textContent=U.tl(Math.round(r.aylik));$("tAlt").textContent="Kredi tutarı "+U.tl(Math.round(r.anapara))+" · toplam "+U.tl(Math.round(r.toplam))+" (örnek hesap)"}
+["tAr","tPe","tAy","tOr"].forEach(function(i){$(i).addEventListener("input",hesap)});
+ciz();hesap();})();
+</script>
+<script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="gokhan-otomotiv" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
