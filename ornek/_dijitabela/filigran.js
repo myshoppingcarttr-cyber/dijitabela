@@ -29,8 +29,8 @@
     k.style.cssText = "position:fixed;left:-50%;top:-50%;width:200%;height:200%;transform:rotate(-16deg);pointer-events:none;z-index:2147483000;background-image:" + desen(renk()) + ";background-repeat:repeat;opacity:" + guc + ";";
     document.body.appendChild(k);
     if (kredi && !document.querySelector(".dj-kredi")) {
-      var a = document.createElement("a"); a.className = "dj-kredi"; a.href = "https://dijitabela.com.tr/"; a.target = "_blank"; a.rel = "noopener";
-      a.textContent = "Tasarım: Dijitabela · dijitabela.com.tr";
+      var a = document.createElement("a"); a.className = "dj-kredi"; a.href = "https://dijitabela.com/"; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = "Tasarım: Dijitabela · dijitabela.com";
       a.style.cssText = "display:block;text-align:center;font:600 12px/1.4 system-ui,sans-serif;padding:14px 16px 18px;color:inherit;opacity:.7;text-decoration:none;position:relative;z-index:1";
       document.body.appendChild(a);
     }
