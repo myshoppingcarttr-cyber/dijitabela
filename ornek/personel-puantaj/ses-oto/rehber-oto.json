@@ -1,0 +1,22 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Personel Giriş-Çıkış ve Puantaj için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "3cf7026997fd"
+ },
+ "b1": {
+  "metin": "Bugün: kâğıt föy. Kim kaçta geldi, kim molada, bu ay kaç saat fazla mesai yapıldı?",
+  "dosya": "741d6cec038f"
+ },
+ "b2": {
+  "metin": "Nasıl çalışır: dört adım, ek donanım şart değil. Bilinen talep: \"personel giriş-çıkış ve mola saatleri, puantajların muhasebeye aktarılması\", \"şubelerde NFC ile personel devam kontrolü\".",
+  "dosya": "ddf91dec53e7"
+ },
+ "b3": {
+  "metin": "Üç ekran, üç ayrı yaklaşım. Hangisiyle başlamak istersiniz? Hepsi çalışır durumda, tıklayıp deneyin.",
+  "dosya": "9a2d188fae40"
+ },
+ "b4": {
+  "metin": "Kimler için? Hayır. Konum yalnız giriş-çıkış anında, kaydın şube adresinde yapıldığını doğrulamak için bir kez okunur.",
+  "dosya": "b8b2e71080d8"
+ }
+}

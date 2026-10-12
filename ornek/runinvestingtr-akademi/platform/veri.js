@@ -75,7 +75,10 @@ window.RIT_VERI = {
     { ad: "Uzman Yatırımcı", min: 300 }, { ad: "Kıdemli Yatırımcı", min: 800, odul: "Kitap, ücretsiz SPL erişimi gibi ödüller" }
   ],
   splDuzeyler: [
-    { kod: "spl1", ad: "SPL 1. Düzey" }, { kod: "spl2", ad: "SPL 2. Düzey" }, { kod: "spl3", ad: "SPL 3. Düzey" }, { kod: "turev", ad: "Türev Araçlar" }, { kod: "kurum", ad: "Kurum Sınavları", yakinda: true }, { kod: "smmm", ad: "SMMM Staj Sınavı", yakinda: true }
+    // 9 lisans: 1903'ün spl.php dosyasındaki sıra, ad ve simgeler (12 Eki, gelen-1012). Sorusu olmayan lisans "Yakında" görünür (PHP ile aynı kural).
+    { kod: "spl1", ad: "SPL 1. Düzey", simge: "1️⃣" }, { kod: "spl2", ad: "SPL 2. Düzey", simge: "2️⃣" }, { kod: "spl3", ad: "SPL 3. Düzey", simge: "3️⃣" },
+    { kod: "turev", ad: "Türev Araçlar Lisansı", simge: "🔥" }, { kod: "konut", ad: "Konut Değerleme Lisansı", simge: "🏠" }, { kod: "kredi", ad: "Kredi Derecelendirme Lisansı", simge: "📊" },
+    { kod: "kurumsal", ad: "Kurumsal Yönetim Derecelendirme Lisansı", simge: "🏛️" }, { kod: "gayrimenkul", ad: "Gayrimenkul Değerleme Lisansı", simge: "🏗️" }, { kod: "bilgisistem", ad: "Bilgi Sistemleri Bağımsız Denetim Lisansı", simge: "💻" }
   ],
   // c[0] doğru şık (gösterimde karışır) · a: açıklama · k: konu
   sorular: [
