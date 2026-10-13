@@ -82,7 +82,7 @@
     async function yukle() {
       if (mesgul) return; mesgul = true;
       try {
-        var q = await o.sb.from("ofis_sohbet").select("id,zaman,yazan,hedef,mesaj,yanit_id").order("id", { ascending: false }).limit(80);
+        var q = await o.sb.from("ofis_sohbet").select("id,zaman,yazan,hedef,mesaj,yanit_id").eq("ozel", false).order("id", { ascending: false }).limit(80);
         if (q.error) { akis.innerHTML = '<div class="ys-bos">Sohbet okunamadı: ' + esc(q.error.message) + "</div>"; return; }
         var yeni = (q.data || []).reverse();
         if (JSON.stringify(yeni) !== JSON.stringify(M)) { M = yeni; ciz(); }

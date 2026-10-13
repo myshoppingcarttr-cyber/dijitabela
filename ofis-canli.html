@@ -260,6 +260,7 @@ html,body{max-width:100%;overflow-x:hidden}
 <script src="assets/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script src="assets/ekip-sohbet.js"></script>
+<script src="assets/birebir-sohbet.js"></script>
 <script>
 (function () {
   var $ = function (i) { return document.getElementById(i); }, DEMO = /demo=1/.test(location.search);
@@ -585,6 +586,7 @@ html,body{max-width:100%;overflow-x:hidden}
   sb.auth.getSession().then(function (r) {
     if (!r.data.session) { $("gir").hidden = false; return; }
     if (window.EkipSohbet) EkipSohbet.kur({ sb: sb, kap: $("sohbet"), kadro: function () { return SON; }, rozet: ".uye[data-kod]", degisti: function (R) { var n = Object.keys(R).reduce(function (t, k) { return t + R[k]; }, 0), b = $("sohbet-n"); b.textContent = n + " bekliyor"; b.hidden = !n; } });
+    if (window.Birebir) window.__bb = Birebir.kur({ sb: sb, kisiler: function () { return Object.keys(KISI).map(function (k) { var r = DURUM[k] || {}; return { kod: k, ad: r.ad, el: KISI[k].el, durum: r.durum, faaliyet: r.faaliyet }; }); } }); // 13 Eki: birebir sohbet (Patron)
     $("sohbet-tut").addEventListener("click", function () { var k = $("sohbet-kutu"), a = !k.classList.contains("acik"); k.classList.toggle("acik", a); this.setAttribute("aria-expanded", a); $("sohbet-ok").textContent = a ? "▼" : "▲"; }); // 13 Eki: Ekip Sohbeti (Patron)
     basla(function () { sb.from("ofis_durum").select("*").order("sira").then(function (q) { if (q.data) isle(q.data); }); });
     function patronSay() { sb.from("patron_isler").select("id", { count: "exact", head: true }).eq("durum", "bekliyor").then(function (q) { var b = $("patron-n"); if (q.error || q.count == null) return; b.textContent = q.count; b.hidden = !q.count; }); } // Patron Paneli rozeti (13 Eki)
