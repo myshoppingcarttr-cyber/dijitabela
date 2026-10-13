@@ -233,6 +233,7 @@ let en=false;document.getElementById("dil").onclick=e=>{en=!en;document.querySel
 const etDil=()=>{document.querySelectorAll("[data-etr]").forEach(e=>{e.textContent=en?e.dataset.een:e.dataset.etr});navDil()};
 const navDil=()=>{document.querySelectorAll(".yz-dergi-nav a").forEach(a=>{const h=a.getAttribute("href");const s=h&&h.length>1?document.querySelector(h):null;const e=s&&s.querySelector(".etiket");if(!e)return;const t=e.querySelector("[data-tr]"),n=e.querySelector("[data-en]");const tx=e.dataset.etr?(en?e.dataset.een:e.dataset.etr):(t&&n?(en?n.textContent:t.textContent):e.textContent);a.textContent=tx.split(" · ")[0].trim()})};
 document.getElementById("dil").addEventListener("click",etDil);addEventListener("load",()=>setTimeout(navDil,50));
+if(/[?&]lang=en/.test(location.search))document.getElementById("dil").click();
 
 // portföy + görüntüleyici
 const prs=[...document.querySelectorAll(".pr")];document.querySelectorAll(".filtre button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filtre button").forEach(x=>x.classList.remove("on"));b.classList.add("on");prs.forEach(p=>p.style.display=(b.dataset.f==="hepsi"||p.dataset.k===b.dataset.f)?"":"none")});
