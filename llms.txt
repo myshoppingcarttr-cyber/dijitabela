@@ -25,6 +25,11 @@
 - [Oto galeri](https://dijitabela.com/sektor-oto-galeri.html) · [Oto servis](https://dijitabela.com/sektor-oto-servis.html)
 - [Güzellik merkezi](https://dijitabela.com/sektor-guzellik-merkezi.html) · [Saç ekimi](https://dijitabela.com/sektor-sac-ekimi.html)
 
+## Canlı ürün örnekleri
+
+- Mimarlık ofisi örneği: maliyet hesaplayıcı ve yönetici paneli olan çalışan bir işletme yazılımı örneği.
+- [Kahve falı platformu](https://dijitabela.com/ornek/kahve-fali/): yayında, çalışan bir yapay zekâ destekli kahve falı platformu örneği.
+
 ## Sık sorulanlar
 
 - Dijitabela nedir? Antalya merkezli, esnafa web sitesi, Google İşletme Profili ve yapay zekâ asistanı hizmeti veren dijital ajans.

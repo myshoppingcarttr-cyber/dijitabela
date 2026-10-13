@@ -87,7 +87,7 @@
     async function yukle() {
       if (mesgul) return; mesgul = true;
       try {
-        var q = await o.sb.from("ofis_sohbet").select("id,zaman,yazan,hedef,mesaj,yanit_id").eq("ozel", false).order("id", { ascending: false }).limit(80);
+        var q = await Promise.race([o.sb.from("ofis_sohbet").select("id,zaman,yazan,hedef,mesaj,yanit_id").eq("ozel", false).order("id", { ascending: false }).limit(80), new Promise(function (_, no) { setTimeout(function () { no(new Error("zaman aşımı (8 sn)")); }, 8000); })]);
         if (q.error) { hataGoster(q.error.message); return; }
         var yeni = (q.data || []).reverse();
         if (!cizildi || JSON.stringify(yeni) !== JSON.stringify(M)) { M = yeni; ciz(); cizildi = true; }
