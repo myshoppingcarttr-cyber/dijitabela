@@ -615,9 +615,34 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
     basla(function () { veri.forEach(function (r) { if (r.durum === "kapali") return; var z = Math.random(); if (z < 0.2) r.durum = r.durum === "calisiyor" ? "bosta" : "calisiyor"; if (z > 0.85) r.bugun++; if (z > 0.97 && r.kod !== "ozan") r.durum = "hata"; }); isle(veri.map(function (r) { return Object.assign({}, r); })); });
     return;
   }
+  // 13 Eki (Ayaz): KARAR SORMA ZİNCİRİ rozeti. Bekleyen sorusu olan personelin adının başına ❓ + tooltip'te soru. Veri ofis_sohbet'ten (Patron oturumu). Küçük, ayrı işlev.
+  function soruRozeti(sb) {
+    var S = {};
+    function uygula() {
+      var ad = {}; Object.keys(S).forEach(function (k) { ad[k] = S[k]; });
+      Object.keys(KISI).forEach(function (kod) {
+        var el = KISI[kod] && KISI[kod].el && KISI[kod].el.querySelector(".ad"), ya = S[(DURUM[kod] || {}).ad];
+        if (el) { var t = el.textContent.replace(/^❓ /, ""); el.textContent = (ya ? "❓ " : "") + t; if (ya) el.title = ya; else el.removeAttribute("title"); }
+      });
+      Array.prototype.forEach.call(document.querySelectorAll(".uye[data-kod] .ne b"), function (b) {
+        var ya = S[(DURUM[b.parentNode.parentNode.getAttribute("data-kod")] || {}).ad], t = b.textContent.replace(/^❓ /, "");
+        b.textContent = (ya ? "❓ " : "") + t; if (ya) b.title = ya; else b.removeAttribute("title");
+      });
+    }
+    function cek() {
+      sb.from("ofis_sohbet").select("id,yazan,hedef,mesaj,yanit_id").gt("zaman", new Date(Date.now() - 3 * 864e5).toISOString()).or("mesaj.like.SORU #*,mesaj.like.CEVAP #*").order("id", { ascending: false }).limit(200).then(function (q) {
+        if (q.error || !q.data) return;
+        var cevap = {}; q.data.forEach(function (m) { if (/^CEVAP #/.test(m.mesaj) && m.yanit_id) cevap[m.yanit_id] = 1; });
+        var n = {}; q.data.forEach(function (m) { if (/^SORU #/.test(m.mesaj) && !cevap[m.id]) n[m.yazan] = (n[m.yazan] ? n[m.yazan] + " | " : "") + m.mesaj.slice(0, 160) + " → " + (m.hedef || ""); });
+        S = n; uygula();
+      });
+    }
+    cek(); setInterval(cek, 20000); setInterval(uygula, 3000);
+  }
   var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
   sb.auth.getSession().then(function (r) {
     if (!r.data.session) { $("gir").hidden = false; return; }
+    try { soruRozeti(sb); } catch (e) {}
     if (window.EkipSohbet) EkipSohbet.kur({ sb: sb, kap: $("sohbet"), kadro: function () { return SON; }, rozet: ".uye[data-kod]", degisti: function (R) { var n = Object.keys(R).reduce(function (t, k) { return t + R[k]; }, 0), b = $("sohbet-n"); b.textContent = n + " bekliyor"; b.hidden = !n; } });
     if (window.Birebir) window.__bb = Birebir.kur({ sb: sb, kisiler: function () { return Object.keys(KISI).map(function (k) { var r = DURUM[k] || {}; return { kod: k, ad: r.ad, el: KISI[k].el, durum: r.durum, faaliyet: r.faaliyet }; }); } }); // 13 Eki: birebir sohbet (Patron)
     $("sohbet-tut").addEventListener("click", function () { var k = $("sohbet-kutu"), a = !k.classList.contains("acik"); k.classList.toggle("acik", a); this.setAttribute("aria-expanded", a); $("sohbet-ok").textContent = a ? "▼" : "▲"; }); // 13 Eki: Ekip Sohbeti (Patron)
