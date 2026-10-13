@@ -1,11 +1,11 @@
 /* Kepez Emlak & İnşaat · ortak model (3 yerleşim aynı motoru kullanır).
-   Kaynak işletme bilgisi: aratsana.com rehber kaydı (Karşıyaka, Kara Yusuf Cd. Tetik Apt. D:9/7, Kepez; 0536 715 55 33).
+   Kaynak işletme bilgisi: aratsana.com rehber kaydı (Karşıyaka, Kara Yusuf Cd. Tetik Apt. D:9/7, Kepez; cep 0536 715 55 33; tabela sabit hat 0242 325 65 20).
    İlanlar, projeler ve fiyatlar ÖRNEKTİR; gerçek portföy değildir. Hiçbir form gönderim yapmaz. */
 (function () {
   "use strict";
   var K = {
     ad: "Kepez Emlak & İnşaat", adres: "Karşıyaka, Kara Yusuf Cd. Tetik Apt. D:9/7, Kepez / Antalya",
-    tel: "0536 715 55 33", wa: "905367155533", kaynak: "https://www.aratsana.com/firma/kepez-emlak-insaat-duo7"
+    tel: "0536 715 55 33", tel2: "0242 325 65 20", wa: "905367155533", kaynak: "https://www.aratsana.com/firma/kepez-emlak-insaat-duo7"
   };
   K.harita = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Kepez Emlak & İnşaat Kara Yusuf Cd. Tetik Apt. Karşıyaka Kepez Antalya");
   K.ilan = [

@@ -1,12 +1,13 @@
 // Dijitabela prototip yerleşimleri: dergi / uygulama (yerlesim.css ile birlikte). 1. tasarım (vitrin) dokunulmaz.
 (function () {
   const y = document.documentElement.dataset.yerlesim; if (!y) return;
+  const gor = (e) => { if (!e.querySelector("[hidden]")) return e.textContent; const c = e.cloneNode(true); c.querySelectorAll("[hidden]").forEach((x) => x.remove()); return c.textContent; }; // CK-1: gizli (EN) yedek metin görünür etikete karışmasın
   let bols = [...document.querySelectorAll("section.bol")];
   if (!bols.length) bols = [...document.querySelectorAll("section")].filter((s) => !s.matches(".hero, .kah") && s.querySelector("h2"));
   const liste = bols.map((s, i) => {
     if (!s.id) s.id = "b" + (i + 1);
     const et = s.querySelector(".etiket"), h = s.querySelector("h2");
-    const ad = ((et && et.textContent) || (h && h.textContent) || "Bölüm " + (i + 1)).replace(/^[^\p{L}\p{N}]+/u, "").split(/\s+[·|]\s+/)[0].trim();
+    const ad = ((et && gor(et)) || (h && gor(h)) || "Bölüm " + (i + 1)).replace(/^[^\p{L}\p{N}]+/u, "").split(/\s+[·|]\s+/)[0].trim();
     return { s, et, h, ad };
   });
   const kisa = (t) => (t.length > 16 ? t.split(/\s+/).slice(0, 2).join(" ") : t);
@@ -27,7 +28,7 @@
       if (!l.h) return;
       l.s.classList.add("yz-panel"); if (i > 0) l.s.classList.add("kapali");
       const b = document.createElement("button"); b.type = "button"; b.className = "yz-bas";
-      b.innerHTML = `<span>${l.et && l.et !== l.h ? `<small>${l.et.textContent}</small>` : ""}${l.h.textContent}</span><b>⌄</b>`;
+      b.innerHTML = `<span>${l.et && l.et !== l.h ? `<small>${gor(l.et)}</small>` : ""}${gor(l.h)}</span><b>⌄</b>`;
       l.s.prepend(b); b.addEventListener("click", () => l.s.classList.toggle("kapali"));
       l.h.classList.add("yz-gizle"); if (l.et) l.et.classList.add("yz-gizle");
     });
