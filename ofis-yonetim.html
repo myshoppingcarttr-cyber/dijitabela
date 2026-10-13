@@ -90,6 +90,7 @@ form.yeni select,form.yeni input[type=date]{font:inherit;font-size:16px;padding:
   </header>
   <nav class="sek" aria-label="Bölümler">
     <a href="#s-uyari" id="n-uyari">Uyarılar <i>–</i></a>
+    <a href="#s-sohbet" id="n-sohbet">Ekip sohbeti <i>–</i></a>
     <a href="#s-yeni">Yeni iş ver</a>
     <a href="#s-ekip" id="n-ekip">Ekip <i>–</i></a>
     <a href="#s-hat" id="n-hat">Müşteri hattı <i>–</i></a>
@@ -99,6 +100,8 @@ form.yeni select,form.yeni input[type=date]{font:inherit;font-size:16px;padding:
   <div class="durum" id="son">Yükleniyor…</div>
 
   <section id="s-uyari"><h2>⚠️ Dikkat isteyenler <small>otomatik çıkarılır</small></h2><div id="uyarilar"></div></section>
+
+  <section id="s-sohbet"><h2>💬 Ekip sohbeti <small>herkes görür · @ ile kişi seçin</small></h2><div id="sohbet"></div></section>
 
   <section id="s-yeni"><h2>✍️ Yeni iş ver <small>Genel Müdür / Yönetici Asistan alır</small></h2>
     <form class="yeni" id="yeni-f">
@@ -148,6 +151,7 @@ form.yeni select,form.yeni input[type=date]{font:inherit;font-size:16px;padding:
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="assets/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="assets/ekip-sohbet.js"></script>
 <script>
 (function () {
   var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
@@ -218,7 +222,7 @@ form.yeni select,form.yeni input[type=date]{font:inherit;font-size:16px;padding:
     var RZ = { calisiyor: ["r-cal", "Çalışıyor", "var(--yesil)"], bosta: ["r-bos", "Boşta", "var(--gri)"], hata: ["r-hata", "Hata", "var(--kirmizi)"], kapali: ["r-kap", "Kapalı", "var(--gri)"] };
     $("ekip").innerHTML = L.length ? L.map(function (p) {
       var r = RZ[p.durum] || ["r-bos", p.durum, "var(--gri)"], t = takili(p);
-      return '<div class="sat" style="--c:' + (t ? "var(--sari)" : r[2]) + '"><div class="gv"><div class="ba">' + esc(p.ad) + ' <span class="rozet ' + r[0] + '">' + r[1] + "</span>" + (t ? ' <span class="rozet r-dik">⚠ ' + esc(t) + "</span>" : "") + '</div><div class="ac2">' + esc(String(p.rol || "").split("·")[0]) + '</div><div class="me">' + esc(String(p.faaliyet || "").slice(0, 240)) + '</div></div><div class="sg">' + once(p.son) + (p.bugun ? "<br>bugün " + p.bugun : "") + (p.sonraki ? "<br>sıradaki " + saat(p.sonraki).split(" ").slice(-1)[0] : "") + "</div></div>";
+      return '<div class="sat" data-kod="' + esc(p.kod) + '" style="--c:' + (t ? "var(--sari)" : r[2]) + '"><div class="gv"><div class="ba">' + esc(p.ad) + ' <span class="rozet ' + r[0] + '">' + r[1] + "</span>" + (t ? ' <span class="rozet r-dik">⚠ ' + esc(t) + "</span>" : "") + '</div><div class="ac2">' + esc(String(p.rol || "").split("·")[0]) + '</div><div class="me">' + esc(String(p.faaliyet || "").slice(0, 240)) + '</div></div><div class="sg">' + once(p.son) + (p.bugun ? "<br>bugün " + p.bugun : "") + (p.sonraki ? "<br>sıradaki " + saat(p.sonraki).split(" ").slice(-1)[0] : "") + "</div></div>";
     }).join("") : '<div class="bos">Bu filtrede kimse yok.</div>';
   }
 
@@ -310,7 +314,9 @@ form.yeni select,form.yeni input[type=date]{font:inherit;font-size:16px;padding:
   $("hat-d").onclick = function () { hatN += 25; cizHat(); };
   $("saglik-f").addEventListener("click", function (e) { var b = e.target.closest(".cip"); if (!b) return; saglikF = b.dataset.f; Array.prototype.forEach.call(this.children, function (x) { x.classList.toggle("ac", x === b); }); cizSaglik(); });
 
-  function basla() { $("yuk").hidden = true; $("giris").hidden = true; $("uyg").hidden = false; yukle(); setInterval(function () { if (!document.hidden) yukle(); }, 30000); document.addEventListener("visibilitychange", function () { if (!document.hidden) yukle(); }); }
+  var SOHBET = null;
+  function basla() { if (!SOHBET && window.EkipSohbet) SOHBET = EkipSohbet.kur({ sb: sb, kap: $("sohbet"), kadro: function () { return V.ekip; }, rozet: "#ekip [data-kod]", degisti: function (R) { var n = Object.keys(R).reduce(function (t, k) { return t + R[k]; }, 0); say("n-sohbet", n ? n + " bekliyor" : "✓", n > 0); } });
+    $("yuk").hidden = true; $("giris").hidden = true; $("uyg").hidden = false; yukle(); setInterval(function () { if (!document.hidden) yukle(); }, 30000); document.addEventListener("visibilitychange", function () { if (!document.hidden) yukle(); }); }
   function girisGoster() { $("yuk").hidden = true; $("giris").hidden = false; }
   $("gonder").onclick = async function () {
     var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });

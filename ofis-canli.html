@@ -216,6 +216,7 @@ body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:pause
   </div>
   <div class="yan">
     <div class="kutu"><h2>Bugün</h2><div class="ozet"><div><b id="o-is">0</b><span>tamamlanan iş</span></div><div class="yesil"><b id="o-cal">0</b><span>şu an çalışan</span></div><div><b id="o-bos">0</b><span>boşta</span></div><div class="kirmizi"><b id="o-hata">0</b><span>hata</span></div></div><div class="yildiz-satir" id="yildiz" hidden></div></div>
+    <div class="kutu" id="sohbet-kutu"><h2>Ekip sohbeti</h2><div id="sohbet"></div></div>
     <div class="kutu"><h2>Departmanlar</h2><div class="dep" id="dep"></div></div>
     <div class="kutu"><h2>Ekip <span id="ekip-say" style="letter-spacing:0"></span></h2><input class="ara" id="ara" type="search" placeholder="İsim ya da görev ara…" autocomplete="off"><div class="cipler" id="ekip-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="calisiyor">Çalışan</button><button class="cip" data-f="bosta">Boşta</button><button class="cip" data-f="hata">Hata</button></div><div class="ekip" id="ekip"></div></div>
     <div class="kutu"><h2>Canlı olaylar</h2><div class="cipler" id="olay-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="is">Biten işler</button><button class="cip" data-f="hata">Hatalar</button></div><div class="akis" id="akis"></div></div>
@@ -234,6 +235,7 @@ body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:pause
 <div class="ipucu" id="ipucu"></div>
 <script src="assets/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="assets/ekip-sohbet.js"></script>
 <script>
 (function () {
   var $ = function (i) { return document.getElementById(i); }, DEMO = /demo=1/.test(location.search);
@@ -549,7 +551,7 @@ body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:pause
     setInterval(function () { var g = Date.now() - ACILIS; if (g > ALTI_SAAT && (document.hidden || g > ALTI_SAAT + 1800000)) location.reload(); }, 60000);
   }
   if (DEMO) { // tanıtım: sahte veri, durumlar değişir
-    var ADLAR = { gm: "Claude", yonetici: "Yönetici Asistan", selin: "Selin", murat: "Murat", kerem: "Kerem", deniz: "Deniz", can: "Can", ece: "Ece", arda: "Arda", zeynep: "Zeynep", elif: "Elif", mustafa: "Mustafa", defne: "Defne", ozan: "Ozan", ceren: "Ceren", burcu: "Burcu", kaan: "Kaan", nehir: "Nehir", emre: "Emre", bora: "Bora", tuna: "Tuna" };
+    var ADLAR = { gm: "Kaan", yonetici: "Yönetici Asistan", selin: "Selin", murat: "Murat", kerem: "Kerem", deniz: "Deniz", can: "Can", ece: "Ece", arda: "Arda", zeynep: "Zeynep", elif: "Elif", mustafa: "Mustafa", defne: "Defne", ozan: "Ozan", ceren: "Ceren", burcu: "Burcu", kaan: "Kaan", nehir: "Nehir", emre: "Emre", bora: "Bora", tuna: "Tuna" };
     var veri = Object.keys(ADLAR).map(function (k, i) { return { kod: k, ad: ADLAR[k], rol: "Tanıtım", durum: i % 3 ? "bosta" : "calisiyor", bugun: i, faaliyet: "Tanıtım faaliyeti " + i, son: new Date().toISOString() }; });
     veri[20].durum = "kapali";
     basla(function () { veri.forEach(function (r) { if (r.durum === "kapali") return; var z = Math.random(); if (z < 0.2) r.durum = r.durum === "calisiyor" ? "bosta" : "calisiyor"; if (z > 0.85) r.bugun++; if (z > 0.97 && r.kod !== "ozan") r.durum = "hata"; }); isle(veri.map(function (r) { return Object.assign({}, r); })); });
@@ -558,6 +560,7 @@ body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:pause
   var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
   sb.auth.getSession().then(function (r) {
     if (!r.data.session) { $("gir").hidden = false; return; }
+    if (window.EkipSohbet) EkipSohbet.kur({ sb: sb, kap: $("sohbet"), kadro: function () { return SON; }, rozet: ".uye[data-kod]" }); // 13 Eki: Ekip Sohbeti (Patron)
     basla(function () { sb.from("ofis_durum").select("*").order("sira").then(function (q) { if (q.data) isle(q.data); }); });
     function patronSay() { sb.from("patron_isler").select("id", { count: "exact", head: true }).eq("durum", "bekliyor").then(function (q) { var b = $("patron-n"); if (q.error || q.count == null) return; b.textContent = q.count; b.hidden = !q.count; }); } // Patron Paneli rozeti (13 Eki)
     patronSay(); setInterval(function () { if (!document.hidden) patronSay(); }, 60000);
