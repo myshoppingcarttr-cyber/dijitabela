@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16181D">
+<title>Benim İşlerim · Dijitabela Ofisi</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#EDEBE4;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#DDD9CF;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--mavi:#2F6FEB;--koyu:#16181D}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45;overflow-x:hidden}
+.kap{max-width:880px;margin:0 auto;padding:12px 12px 70px}
+header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.logo{flex:none;width:40px;height:40px;border-radius:10px;background:var(--koyu);display:grid;place-items:center;color:var(--sari);font:700 1.3rem 'Space Mono',monospace}
+h1{font-size:1.15rem;font-weight:800;line-height:1.15}
+.alt-b{font-size:.76rem;color:var(--soluk)}
+.geri{margin-left:auto;font-size:.82rem;font-weight:700;color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);padding:9px 13px;border-radius:999px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.sekmeler{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;position:sticky;top:0;z-index:20;background:var(--zemin);padding:6px 0 8px}
+.sek{font:inherit;font-weight:800;font-size:.8rem;border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi);border-radius:12px;padding:10px 4px;min-height:48px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.15}
+.sek b{font:700 1.15rem 'Space Mono',monospace;color:var(--soluk)}
+.sek.ac{background:var(--koyu);color:#fff;border-color:var(--koyu)}.sek.ac b{color:var(--sari)}
+.sek.var b{color:var(--kirmizi)}.sek.ac.var b{color:var(--sari)}
+.durum{font-size:.8rem;color:var(--soluk);padding:2px 2px 8px}
+.uyari{background:#FDE2E2;color:#8A1F1F;border:1px solid #F3B4B4;border-radius:12px;padding:10px 14px;font-weight:600;font-size:.88rem;margin-bottom:10px}
+.bilgi{background:#FFF4D6;color:#5C4400;border:1px solid #F0D58A;border-radius:12px;padding:9px 12px;font-size:.82rem;margin-bottom:10px}
+.bos{background:var(--kart);border:1px dashed var(--cizgi);border-radius:16px;padding:28px 16px;text-align:center;color:var(--soluk);font-weight:600}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-left:6px solid var(--sari);border-radius:16px;padding:14px;margin-bottom:12px;position:relative}
+.kart.o1{border-left-color:var(--kirmizi)}.kart.o3{border-left-color:#B8BCC4}
+.kart.bitti{border-left-color:var(--yesil)}.kart.red{border-left-color:var(--kirmizi)}.kart.dz{border-left-color:var(--mavi)}
+.etiketler{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.et{font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:999px;background:#EEE;color:#444;letter-spacing:.02em}
+.et.tur{background:var(--koyu);color:var(--sari)}.et.ac{background:#FDE2E2;color:#A12}.et.tar{background:#FFF1CC;color:#6B4A00}.et.yes{background:#DFF5E8;color:#14703F}.et.mav{background:#DCE8FF;color:#1B4FB5}
+.kart h2{font-size:1.02rem;font-weight:800;line-height:1.28;margin-bottom:4px;overflow-wrap:anywhere}
+.ozet{font-size:.88rem;color:#2A2E36;overflow-wrap:anywhere}
+.kaynak{font-size:.72rem;color:var(--soluk);margin-top:6px;overflow-wrap:anywhere;font-family:'Space Mono',monospace;font-weight:700}
+details.tam{margin-top:10px;border-top:1px solid var(--cizgi);padding-top:6px}
+details.tam>summary{cursor:pointer;font-weight:800;font-size:.86rem;padding:10px 0;min-height:44px;display:flex;align-items:center;list-style:none;color:var(--mavi)}
+details.tam>summary::-webkit-details-marker{display:none}
+details.tam>summary:before{content:"▸";margin-right:8px;transition:transform .15s}
+details.tam[open]>summary:before{transform:rotate(90deg)}
+.icerik{font-size:.88rem;background:#FAF9F5;border:1px solid var(--cizgi);border-radius:12px;padding:12px;overflow-wrap:anywhere;max-height:none}
+.icerik h3,.icerik h4,.icerik h5{margin:14px 0 6px;font-weight:800;line-height:1.25}.icerik h3{font-size:1rem}.icerik h4{font-size:.94rem}.icerik h5{font-size:.88rem}
+.icerik h3:first-child,.icerik p:first-child{margin-top:0}
+.icerik p{margin:6px 0}.icerik ul,.icerik ol{margin:6px 0 6px 20px}.icerik li{margin:3px 0}
+.icerik hr{border:0;border-top:1px solid var(--cizgi);margin:14px 0}
+.icerik code{font:700 .78rem 'Space Mono',monospace;background:#ECEAE2;padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+.icerik pre{background:var(--koyu);color:#E8E8E8;padding:10px;border-radius:10px;overflow-x:auto;margin:8px 0;font:.76rem/1.45 'Space Mono',monospace;white-space:pre}
+.icerik pre code{background:none;padding:0;color:inherit}
+.icerik blockquote{border-left:4px solid var(--sari);padding:4px 10px;margin:8px 0;color:#444;background:#FFF9E6}
+.icerik a{color:var(--mavi);font-weight:700}
+.tabsar{overflow-x:auto;margin:8px 0;-webkit-overflow-scrolling:touch}
+.icerik table{border-collapse:collapse;font-size:.78rem;min-width:100%}.icerik th,.icerik td{border:1px solid var(--cizgi);padding:5px 7px;text-align:left;vertical-align:top}.icerik th{background:#F0EEE6}
+.ekler{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.ekler a.kucuk{display:block;width:96px;height:96px;border-radius:10px;border:1px solid var(--cizgi);overflow:hidden;background:#EEE;position:relative}
+.ekler a.kucuk img{width:100%;height:100%;object-fit:cover;display:block}
+.ekler a.kucuk span{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.62);color:#fff;font-size:.62rem;padding:2px 4px;line-height:1.2}
+.ekler .cip{font-size:.78rem;font-weight:700;padding:9px 12px;border-radius:999px;background:#fff;border:1px solid var(--cizgi);color:var(--yazi);text-decoration:none;overflow-wrap:anywhere;min-height:40px;display:inline-flex;align-items:center}
+.ekler .cip.dosya{font-family:'Space Mono',monospace;font-size:.7rem;background:#F4F2EA}
+.eylem{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.dug{font:inherit;font-weight:800;font-size:.9rem;border:0;border-radius:12px;padding:12px 16px;min-height:48px;cursor:pointer;flex:1 1 120px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.dug.on{background:var(--yesil);color:#fff}.dug.du{background:#fff;color:var(--yazi);border:2px solid var(--mavi)}.dug.re{background:#fff;color:var(--kirmizi);border:2px solid var(--kirmizi)}.dug.ta{background:var(--yesil);color:#fff;flex-basis:100%}.dug.ge{background:#fff;color:var(--soluk);border:1px solid var(--cizgi);flex:0 1 auto}
+.dug:disabled{opacity:.5;cursor:default}
+.not{margin-top:10px;display:none}.not.ac{display:block}
+.not textarea{width:100%;font:inherit;font-size:.9rem;padding:10px;border:1px solid var(--cizgi);border-radius:10px;min-height:84px;resize:vertical}
+.not .satir{display:flex;gap:8px;margin-top:8px}
+.kararnot{margin-top:8px;font-size:.84rem;background:#F4F2EA;border-radius:10px;padding:8px 10px;overflow-wrap:anywhere}
+.karar-ust{font-size:.76rem;color:var(--soluk);margin-top:6px}
+.giris{max-width:380px;margin:10vh auto;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:22px}
+.giris h1{margin-bottom:6px}.giris p{font-size:.88rem;color:var(--soluk)}
+.giris input{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--cizgi);border-radius:10px;margin:10px 0}
+.giris button{width:100%;font:inherit;font-weight:800;padding:13px;border:0;border-radius:10px;background:var(--sari);cursor:pointer;min-height:48px}
+.toast{position:fixed;left:12px;right:12px;bottom:14px;background:var(--koyu);color:#fff;padding:12px 14px;border-radius:12px;font-weight:700;font-size:.88rem;z-index:50;display:none;max-width:560px;margin:0 auto}
+.toast.ac{display:block}
+.buyuk{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:60;display:none;align-items:center;justify-content:center;padding:12px}
+.buyuk.ac{display:flex}.buyuk img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
+.buyuk button{position:absolute;top:10px;right:10px;font:inherit;font-weight:800;font-size:1rem;border:0;border-radius:10px;padding:10px 14px;min-height:44px;background:#fff}
+.kredi{text-align:center;font-size:.74rem;color:var(--soluk);margin-top:22px}.kredi a{color:var(--soluk);font-weight:700}
+@media(min-width:720px){.kap{padding:20px 20px 80px}.dug.ta{flex-basis:auto}.dug{flex:0 1 auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="kap" id="uyg" hidden>
+  <header>
+    <div class="logo">d</div>
+    <div><h1>Benim işlerim</h1><span class="alt-b" id="alt">yalnız size özel</span></div>
+    <a class="geri" href="ofis-canli.html">🏢 Canlı ofis</a>
+  </header>
+  <div class="bilgi">Onay yalnız <b>kararı kaydeder</b>. Mesajı ya da işi göndermek/uygulamak Genel Müdür'ün işidir; siz düğmeye bastığınızda hiçbir şey kendiliğinden gitmez.</div>
+  <div class="uyari" id="uyari" hidden></div>
+  <nav class="sekmeler" id="sekmeler" aria-label="İş türleri">
+    <button class="sek ac" data-s="onay" type="button"><b id="n-onay">0</b>Onay bekleyen</button>
+    <button class="sek" data-s="yap" type="button"><b id="n-yap">0</b>Yapmam gereken</button>
+    <button class="sek" data-s="bitti" type="button"><b id="n-bitti">0</b>Tamamlanan</button>
+  </nav>
+  <div class="durum" id="son">Yükleniyor…</div>
+  <div id="liste"></div>
+  <p class="kredi">Tasarım: <a href="https://dijitabela.com">Dijitabela · dijitabela.com</a></p>
+</div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
+<div class="giris" id="giris" hidden>
+  <h1>Benim işlerim</h1>
+  <p>Ofis ile aynı giriş. E-postanıza giriş kodu gelir; kodu buraya yazın.</p>
+  <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
+  <button id="gonder" type="button">Giriş kodu gönder</button>
+  <div id="kodalan" hidden><input id="kod" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="E-postadaki kod"><button id="kodgir" type="button">Giriş</button></div>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="buyuk" id="buyuk"><button type="button" id="buyuk-k">Kapat ✕</button><img id="buyuk-i" alt=""></div>
+<script src="assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var TUR = { onay: "ONAY", tamamla: "TAMAMLA", yap: "YAP" };
+  var DURUM = { bekliyor: "Bekliyor", onaylandi: "Onayladınız", reddedildi: "Reddettiniz", duzeltme: "Düzeltme istediniz", tamamlandi: "Tamamladınız" };
+  var sekme = "onay", ISLER = [], basladi = false, mesgul = false;
+  var tarih = function (d) { if (!d) return ""; var x = new Date(/^\d{4}-\d\d-\d\d$/.test(d) ? d + "T12:00:00" : d); return x.toLocaleDateString("tr-TR", { day: "2-digit", month: "short" }); };
+  var zaman = function (d) { return d ? new Date(d).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) : ""; };
+  var guvenliUrl = function (u) { u = String(u || ""); return /^(https?:\/\/|data:image\/(png|jpeg|webp|gif);base64,)/i.test(u) ? u : ""; };
+
+  /* Küçük, güvenli markdown: önce HTML kaçışı, sonra biçim. Yalnız http(s) bağlantılar. */
+  function satirIci(s) {
+    s = esc(s);
+    s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+    s = s.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+    s = s.replace(/(^|[\s(])\*([^*\s][^*]*)\*(?=[\s).,;:]|$)/g, "$1<i>$2</i>");
+    s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    s = s.replace(/(^|[\s(>])(https?:\/\/[^\s<)]+)/g, function (m, a, u) { return a + '<a href="' + u + '" target="_blank" rel="noopener noreferrer">' + u + "</a>"; });
+    return s;
+  }
+  function md(t) {
+    var L = String(t || "").replace(/\r/g, "").split("\n"), o = [], i = 0, liste = null, para = [];
+    function paraKapat() { if (para.length) { o.push("<p>" + para.join("<br>") + "</p>"); para = []; } }
+    function listeKapat() { if (liste) { o.push("</" + liste + ">"); liste = null; } }
+    while (i < L.length) {
+      var s = L[i], m;
+      if (/^```/.test(s)) { paraKapat(); listeKapat(); var kod = []; i++; while (i < L.length && !/^```/.test(L[i])) { kod.push(L[i]); i++; } i++; o.push("<pre><code>" + esc(kod.join("\n")) + "</code></pre>"); continue; }
+      if (/^\s*\|.*\|\s*$/.test(s) && i + 1 < L.length && /^\s*\|[\s:|-]+\|\s*$/.test(L[i + 1])) {
+        paraKapat(); listeKapat();
+        var hc = function (r) { return r.trim().replace(/^\||\|$/g, "").split("|").map(function (c) { return c.trim(); }); };
+        var bas = hc(s); i += 2; var rows = [];
+        while (i < L.length && /^\s*\|.*\|\s*$/.test(L[i])) { rows.push(hc(L[i])); i++; }
+        o.push('<div class="tabsar"><table><thead><tr>' + bas.map(function (c) { return "<th>" + satirIci(c) + "</th>"; }).join("") + "</tr></thead><tbody>" + rows.map(function (r) { return "<tr>" + r.map(function (c) { return "<td>" + satirIci(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>");
+        continue;
+      }
+      if ((m = /^(#{1,6})\s+(.*)$/.exec(s))) { paraKapat(); listeKapat(); var h = Math.min(5, Math.max(3, m[1].length + 2)); o.push("<h" + h + ">" + satirIci(m[2]) + "</h" + h + ">"); i++; continue; }
+      if (/^\s*(---+|\*\*\*+)\s*$/.test(s)) { paraKapat(); listeKapat(); o.push("<hr>"); i++; continue; }
+      if ((m = /^\s*>\s?(.*)$/.exec(s))) { paraKapat(); listeKapat(); o.push("<blockquote>" + satirIci(m[1]) + "</blockquote>"); i++; continue; }
+      if ((m = /^\s*([-*•]|\d+[.)])\s+(.*)$/.exec(s))) { paraKapat(); var tip = /^\d/.test(m[1]) ? "ol" : "ul"; if (liste !== tip) { listeKapat(); o.push("<" + tip + ">"); liste = tip; } o.push("<li>" + satirIci(m[2]) + "</li>"); i++; continue; }
+      if (!s.trim()) { paraKapat(); listeKapat(); i++; continue; }
+      listeKapat(); para.push(satirIci(s.trim())); i++;
+    }
+    paraKapat(); listeKapat(); return o.join("");
+  }
+
+  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("ac"); clearTimeout(toast.z); toast.z = setTimeout(function () { t.classList.remove("ac"); }, 4200); }
+  function hata(m) { var u = $("uyari"); u.hidden = !m; u.textContent = m || ""; }
+
+  function ekHtml(ek) {
+    if (!ek || !ek.length) return "";
+    return '<div class="ekler">' + ek.map(function (e) {
+      var ad = esc(e.ad || e.url || "Ek"), u = guvenliUrl(e.url);
+      if (e.tur === "gorsel" && u) return '<a class="kucuk" href="' + esc(u) + '" data-buyuk="' + esc(u) + '" aria-label="' + ad + '"><img loading="lazy" alt="' + ad + '" src="' + esc(u) + '"><span>' + ad + "</span></a>";
+      if (u && /^https?:/i.test(u)) return '<a class="cip" href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">🔗 ' + ad + "</a>";
+      return '<span class="cip dosya">📄 ' + ad + (e.url ? " · " + esc(e.url) : "") + "</span>";
+    }).join("") + "</div>";
+  }
+
+  function kartHtml(r) {
+    var bekl = r.durum === "bekliyor", sinif = bekl ? "o" + (r.oncelik || 2) : (r.durum === "reddedildi" ? "red" : r.durum === "duzeltme" ? "dz" : "bitti");
+    var et = '<span class="et tur">' + TUR[r.tur] + "</span>";
+    if (bekl && r.oncelik === 1) et += '<span class="et ac">ACİL</span>';
+    if (r.son_tarih) et += '<span class="et tar">Son: ' + esc(tarih(r.son_tarih)) + "</span>";
+    if (!bekl) et += '<span class="et ' + (r.durum === "reddedildi" ? "ac" : r.durum === "duzeltme" ? "mav" : "yes") + '">' + DURUM[r.durum] + "</span>";
+    var h = '<article class="kart ' + sinif + '" data-id="' + esc(r.id) + '"><div class="etiketler">' + et + "</div><h2>" + esc(r.baslik) + "</h2>" + (r.ozet ? '<p class="ozet">' + esc(r.ozet) + "</p>" : "");
+    if (r.kaynak) h += '<div class="kaynak">Kaynak: ' + esc(r.kaynak) + "</div>";
+    h += ekHtml(r.ekler);
+    if (r.icerik) h += '<details class="tam"' + (bekl && r.icerik.length < 900 ? " open" : "") + '><summary>Tam içeriği göster</summary><div class="icerik">' + md(r.icerik) + "</div></details>";
+    if (bekl) {
+      h += '<div class="eylem">';
+      if (r.tur === "onay") h += '<button class="dug on" data-e="onaylandi" type="button">✅ Onayla</button><button class="dug du" data-e="duzeltme" type="button">✏️ Düzelt</button><button class="dug re" data-e="reddedildi" type="button">❌ Reddet</button>';
+      else h += '<button class="dug ta" data-e="tamamlandi" type="button">✔️ Tamamladım</button><button class="dug du" data-e="not" type="button">📝 Not yaz</button>';
+      h += '</div><div class="not"><textarea maxlength="2000" placeholder="Notunuz (düzeltme için ne değişsin?)" aria-label="Notunuz"></textarea><div class="satir"><button class="dug on" data-e="gonder" type="button">Kaydet</button><button class="dug ge" data-e="vazgec" type="button">Vazgeç</button></div></div>';
+    } else {
+      if (r.patron_notu) h += '<div class="kararnot"><b>Notunuz:</b> ' + esc(r.patron_notu) + "</div>";
+      h += '<div class="karar-ust">' + esc(zaman(r.karar_zamani)) + (r.islenme_zamani ? " · GM işledi (" + esc(r.isleyen || "GM") + ")" : " · GM henüz işlemedi") + '</div><div class="eylem"><button class="dug ge" data-e="geri" type="button">↩︎ Geri al</button></div>';
+    }
+    return h + "</article>";
+  }
+
+  function ciz() {
+    var bek = ISLER.filter(function (r) { return r.durum === "bekliyor"; });
+    var onay = bek.filter(function (r) { return r.tur === "onay"; }), yap = bek.filter(function (r) { return r.tur !== "onay"; }), bitti = ISLER.filter(function (r) { return r.durum !== "bekliyor"; });
+    $("n-onay").textContent = onay.length; $("n-yap").textContent = yap.length; $("n-bitti").textContent = bitti.length;
+    document.querySelector('[data-s="onay"]').classList.toggle("var", onay.length > 0); document.querySelector('[data-s="yap"]').classList.toggle("var", yap.length > 0);
+    var L = sekme === "onay" ? onay : sekme === "yap" ? yap : bitti.sort(function (a, b) { return new Date(b.karar_zamani || 0) - new Date(a.karar_zamani || 0); });
+    var acik = {}; Array.prototype.forEach.call(document.querySelectorAll("details.tam[open]"), function (d) { var k = d.closest(".kart"); if (k) acik[k.dataset.id] = 1; });
+    var taslak = {}; Array.prototype.forEach.call(document.querySelectorAll(".kart .not.ac textarea"), function (t) { var k = t.closest(".kart"); taslak[k.dataset.id] = t.value; });
+    $("liste").innerHTML = L.length ? L.map(kartHtml).join("") : '<div class="bos">' + (sekme === "bitti" ? "Henüz sonuçlanan iş yok." : "Şu an bekleyen iş yok. 🎉") + "</div>";
+    Array.prototype.forEach.call(document.querySelectorAll(".kart"), function (k) {
+      if (acik[k.dataset.id]) { var d = k.querySelector("details.tam"); if (d) d.open = true; }
+      if (taslak[k.dataset.id] != null) { var n = k.querySelector(".not"); if (n) { n.classList.add("ac"); n.querySelector("textarea").value = taslak[k.dataset.id]; } }
+    });
+    $("son").textContent = "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" }) + " · 30 sn'de bir yenilenir";
+  }
+
+  async function yukle() {
+    if (mesgul) return; mesgul = true;
+    try {
+      var q = await sb.from("patron_isler").select("*").order("oncelik").order("son_tarih", { nullsFirst: false }).order("id");
+      if (q.error) { hata("Liste okunamadı: " + q.error.message + (/permission|policy|denied/i.test(q.error.message) ? " (bu hesapla yetkiniz yok; alimhoslar16@gmail.com ile giriş yapın)" : "")); return; }
+      hata(""); ISLER = q.data || []; ciz();
+    } catch (e) { hata("Bağlantı hatası: " + e.message); } finally { mesgul = false; }
+  }
+
+  async function kaydet(id, durum, not, dugme) {
+    dugme.disabled = true;
+    var up = { durum: durum }; if (not != null) up.patron_notu = not;
+    var r = await sb.from("patron_isler").update(up).eq("id", id).select("id,durum");
+    if (r.error || !r.data || !r.data.length) { dugme.disabled = false; toast("Kaydedilemedi: " + (r.error ? r.error.message : "yetki yok")); return; }
+    toast("Kaydedildi: " + DURUM[durum] + ". Gönderimi/uygulamayı Genel Müdür yapar.");
+    await yukle();
+  }
+
+  $("liste").addEventListener("click", function (ev) {
+    var im = ev.target.closest("[data-buyuk]"); if (im) { ev.preventDefault(); $("buyuk-i").src = im.dataset.buyuk; $("buyuk").classList.add("ac"); return; }
+    var d = ev.target.closest("button[data-e]"); if (!d) return;
+    var kart = d.closest(".kart"), id = kart.dataset.id, e = d.dataset.e, notKutu = kart.querySelector(".not"), ta = notKutu && notKutu.querySelector("textarea");
+    if (e === "onaylandi" || e === "tamamlandi") { kaydet(id, e, ta && ta.value.trim() ? ta.value.trim() : null, d); }
+    else if (e === "reddedildi") { if (confirm("Bu işi reddediyorsunuz. Emin misiniz?")) kaydet(id, e, ta && ta.value.trim() ? ta.value.trim() : null, d); }
+    else if (e === "duzeltme" || e === "not") { notKutu.classList.add("ac"); notKutu.dataset.mod = e; ta.placeholder = e === "duzeltme" ? "Ne düzeltilsin? (zorunlu)" : "Notunuz"; ta.focus(); }
+    else if (e === "gonder") {
+      var mod = notKutu.dataset.mod || "not", v = ta.value.trim();
+      if (mod === "duzeltme") { if (!v) { toast("Düzeltme için bir not yazın."); ta.focus(); return; } kaydet(id, "duzeltme", v, d); }
+      else { if (!v) { toast("Not boş."); return; } d.disabled = true; sb.from("patron_isler").update({ patron_notu: v }).eq("id", id).select("id").then(function (r) { d.disabled = false; if (r.error || !r.data || !r.data.length) toast("Kaydedilemedi: " + (r.error ? r.error.message : "yetki yok")); else { toast("Not kaydedildi."); notKutu.classList.remove("ac"); yukle(); } }); }
+    }
+    else if (e === "vazgec") { notKutu.classList.remove("ac"); ta.value = ""; }
+    else if (e === "geri") { if (confirm("Karar geri alınsın, iş yeniden bekleyene dönsün mü? (GM işlediyse geri alma onu durdurmaz.)")) kaydet(id, "bekliyor", null, d); }
+  });
+  $("sekmeler").addEventListener("click", function (ev) { var b = ev.target.closest(".sek"); if (!b) return; sekme = b.dataset.s; Array.prototype.forEach.call(document.querySelectorAll(".sek"), function (x) { x.classList.toggle("ac", x === b); }); ciz(); });
+  $("buyuk-k").onclick = $("buyuk").onclick = function (e) { if (e.target === $("buyuk") || e.target === $("buyuk-k")) $("buyuk").classList.remove("ac"); };
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") $("buyuk").classList.remove("ac"); });
+
+  function basla() { $("giris").hidden = true; $("uyg").hidden = false; yukle(); setInterval(function () { if (!document.hidden) yukle(); }, 30000); document.addEventListener("visibilitychange", function () { if (!document.hidden) yukle(); }); }
+  function girisGoster(m) { $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; }
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın (bağlantıya dokunmanız gerekmez).";
+    if (!r.error) $("kodalan").hidden = false;
+  };
+  $("kodgir").onclick = async function () {
+    var r = await sb.auth.verifyOtp({ email: $("eposta").value.trim(), token: $("kod").value.replace(/\D/g, ""), type: "email" });
+    if (r.error) $("gmsg").textContent = "Kod olmadı: " + r.error.message;
+  };
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" data-gucu="0.035" data-kredi="0" defer></script>
+</body>
+</html>
