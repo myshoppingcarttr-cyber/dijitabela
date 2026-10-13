@@ -178,13 +178,13 @@
   window.EKTakip = {
     goster: function (kod) {
       var P = $("#portal"); if (!P) return;
-      var k = (kod || "").trim().toUpperCase() || "BNL-2481";
-      if (k !== "BNL-2481") { P.innerHTML = '<p class="acik">Bu kodla proje bulunamadı. Deneme kodu: BNL-2481</p>'; return; }
+      var k = (kod || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "") || "ERK2481";
+      if (k !== "ERK2481" && k !== "BNL2481") { P.innerHTML = '<p class="acik">Bu kodla proje bulunamadı. Deneme kodu: ERK-2481</p>'; return; }
       var A = [["Keşif ve rölöve", "ok", "12 Eyl"], ["Konsept ve 3B görseller", "ok", "26 Eyl"], ["Avan proje onayı", "ok", "4 Eki"], ["Uygulama projesi", "su", "%60 · statik koordinasyon sürüyor"], ["Ruhsat başvurusu", "", "Tahmini 3 Kas"], ["Şantiye başlangıcı", "", "Tahmini Aralık"]];
       var PF = [["A-101 Zemin kat planı", "rev.3", "12 Eki"], ["A-102 Normal kat planı", "rev.2", "10 Eki"], ["A-201 Kesitler", "rev.1", "8 Eki"], ["A-301 Cepheler", "rev.2", "9 Eki"]];
       var IC = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>';
       P.innerHTML =
-        '<div class="tp-ust"><div><div class="etiket">Villa · Gölbaşı · BNL-2481</div></div><div class="tp-yuzde">%58 <small class="not" style="display:inline">tamamlandı</small></div></div><div class="tp-bar"><i></i></div>' +
+        '<div class="tp-ust"><div><div class="etiket">Villa · Gölbaşı · ERK-2481</div></div><div class="tp-yuzde">%58 <small class="not" style="display:inline">tamamlandı</small></div></div><div class="tp-bar"><i></i></div>' +
         '<div class="tp-bol"><h4>Aşama zaman çizelgesi</h4><div class="tp-zc">' + A.map(function (r, i) { return '<div class="adim ' + r[1] + '"><b>' + (r[1] === "ok" ? "✓" : i + 1) + '</b><div><strong>' + r[0] + '</strong><br><span class="not">' + r[2] + '</span></div></div>'; }).join("") + '</div></div>' +
         '<div class="tp-bol"><h4>Paftalar</h4><ul class="tp-paf">' + PF.map(function (r) { return '<li><span>' + r[0] + '<br><small>' + r[1] + ' · ' + r[2] + '</small></span><button type="button" class="tp-ind" aria-label="' + r[0] + ' indir" data-pf="' + r[0] + '">' + IC + '</button></li>'; }).join("") + '</ul></div>' +
         '<div class="tp-bol"><h4>Sıradaki toplantı</h4><div class="tp-top"><b>Perşembe 15 Ekim · 14:00</b><br>Ofis, Çankaya · Konu: statik koordinasyon ve ruhsat dosyası</div></div>' +

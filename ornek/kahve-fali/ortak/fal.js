@@ -1,9 +1,9 @@
 /* Fincan Falı - ortak motor (demo). Gerçek sunucu yok: tüm veri bu tarayıcının localStorage'ında.
-   Marka adı: aşağıdaki CFG.marka. Logo: SVG'si logoSvg() içinde, renkleri --logo-1 / --logo-2 değişkenleri.
+   Marka adı/logo/renk: ortak/marka.js (tek config); CFG.marka oradan okur. Logo: SVG'si logoSvg() içinde, renkleri --logo-1 / --logo-2 değişkenleri.
    Sayfada <div data-modul="..."> yer tutucuları doldurulur; her tema bunları kendi yerleşiminde dizer. */
 (function () {
   "use strict";
-  var CFG = { marka: "Fincan Falı", anahtar: "fincanfali1013_", hazirMs: 7000 };
+  var CFG = { get marka() { return window.MARKA ? window.MARKA.get().ad : "Fincan Falı"; }, anahtar: "fincanfali1013_", hazirMs: 7000 };
   var Q = function (s, r) { return (r || document).querySelector(s); };
   var QA = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
@@ -60,6 +60,7 @@
 
   /* ---------- SVG çizimleri ---------- */
   function logoSvg() {
+    var ozel = window.MARKA && window.MARKA.logoHtml(); if (ozel) return ozel;
     return '<svg class="fc-logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke-width="2" style="stroke:var(--logo-1)"/><path d="M13 22h20c0 9-4 14-10 14s-10-5-10-14z" style="fill:var(--logo-1)"/><path d="M33 24c5-1 6 6 0 8" fill="none" stroke-width="2.4" style="stroke:var(--logo-1)"/><path d="M24 5l1.7 3.8 4.1.4-3.1 2.8.9 4.1L24 14l-3.6 2.1.9-4.1-3.1-2.8 4.1-.4z" style="fill:var(--logo-2)"/><ellipse cx="23" cy="39" rx="12" ry="2.3" style="fill:var(--logo-2)"/></svg>';
   }
   function avatar(p) {

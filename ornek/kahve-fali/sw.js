@@ -1,6 +1,6 @@
 /* Fincan Falı demo servis çalışanı: yalnız bu klasör kapsamında (scope = bu dosyanın klasörü). Sitenin kök sw.js'ine dokunmaz. */
-var SURUM = "fincanfali-1013-v1";
-var CEKIRDEK = ["ortak/fal.css", "ortak/fal.js", "ortak/panel.js", "ortak/ikon.svg", "manifest.webmanifest", "3-uygulama/", "1-gece/", "2-mistik/", "panel/"];
+var SURUM = "fincanfali-1014-v2";
+var CEKIRDEK = ["ortak/fal.css", "ortak/fal.js", "ortak/panel.js", "ortak/marka.js", "ortak/ikon.svg", "manifest.webmanifest", "3-uygulama/", "1-gece/", "2-mistik/", "panel/"];
 self.addEventListener("install", function (e) { e.waitUntil(caches.open(SURUM).then(function (c) { return Promise.all(CEKIRDEK.map(function (u) { return c.add(u).catch(function () {}); })); }).then(function () { return self.skipWaiting(); })); });
 self.addEventListener("activate", function (e) { e.waitUntil(caches.keys().then(function (k) { return Promise.all(k.filter(function (x) { return x !== SURUM; }).map(function (x) { return caches.delete(x); })); }).then(function () { return self.clients.claim(); })); });
 self.addEventListener("fetch", function (e) {

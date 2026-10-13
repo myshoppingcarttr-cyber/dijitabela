@@ -13,14 +13,14 @@
       if (u === "demo" && p === "demo") { try { sessionStorage.setItem("fc-panel", "1"); } catch (x) { window.__fcp = true; } ac(); }
       else Q("#giris-h").textContent = "Kullanıcı adı ya da şifre hatalı (demo: demo / demo).";
     });
-    if (/[?&]yon=1/.test(location.search)) sek0 = "yonetici";
+    if (/[?&]yon=1/.test(location.search)) sek0 = "yonetici"; if (/[?&]marka=1/.test(location.search)) sek0 = "marka";
     var sek = sek0, secF = (S.falcilar[0] || {}).id, goster = "bekleyen";
     if (oturum() || /[?&]giris=1/.test(location.search)) ac();
     function ciz() {
-      kok.innerHTML = '<div class="fc-sek"><button type="button" data-s="falci" class="' + (sek === "falci" ? "sec" : "") + '">Falcı paneli</button><button type="button" data-s="yonetici" class="' + (sek === "yonetici" ? "sec" : "") + '">Yönetici paneli</button><button type="button" class="fc-btn alt kucuk" data-cik style="margin-left:auto">Çıkış</button></div><div id="icerik"></div>';
+      kok.innerHTML = '<div class="fc-sek"><button type="button" data-s="falci" class="' + (sek === "falci" ? "sec" : "") + '">Falcı paneli</button><button type="button" data-s="yonetici" class="' + (sek === "yonetici" ? "sec" : "") + '">Yönetici paneli</button><button type="button" data-s="marka" class="' + (sek === "marka" ? "sec" : "") + '">Marka</button><button type="button" class="fc-btn alt kucuk" data-cik style="margin-left:auto">Çıkış</button></div><div id="icerik"></div>';
       QA("[data-s]", kok).forEach(function (b) { b.onclick = function () { sek = b.getAttribute("data-s"); ciz(); }; });
       Q("[data-cik]", kok).onclick = function () { try { sessionStorage.removeItem("fc-panel"); } catch (x) {} window.__fcp = false; location.reload(); };
-      sek === "falci" ? falciPanel(Q("#icerik")) : yonetici(Q("#icerik"));
+      sek === "falci" ? falciPanel(Q("#icerik")) : sek === "marka" ? markaPanel(Q("#icerik")) : yonetici(Q("#icerik"));
     }
     function adT(f) { return (S.turler[f.tur] || {}).ad || f.tur; }
     function falciPanel(h) {
@@ -46,6 +46,52 @@
         if (t.length < 20) { Q("[data-eh]", kutu).textContent = "Yanıt en az 20 karakter olmalı."; return; }
         f.yanit = t.split(/\n{1,}/).filter(Boolean); f.kaynak = "falci"; f.durum = "hazir"; f.bildirildi = false; f.okundu = false; F.kaydet(); F.bildirimKontrol(); ciz();
         F.toast("Yanıt gönderildi", "Kullanıcının geçmişine düştü."); }; });
+    }
+    function markaPanel(h) {
+      var MK = window.MARKA; if (!MK) { h.innerHTML = '<div class="fc-uyari">marka.js yüklenemedi.</div>'; return; }
+      var m = MK.get(), TEMALAR = [["gece", "Gece"], ["mistik", "Mistik"], ["uygulama", "Uygulama"]];
+      function renkSatir(t) {
+        return '<div class="fc-kart" style="padding:12px"><b>' + t[1] + '</b><div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">' +
+          '<label class="fc-et" style="display:flex;align-items:center;gap:8px">Birincil <input type="color" data-r="' + t[0] + '.birincil" value="' + m.tema[t[0]].birincil + '"></label>' +
+          '<label class="fc-et" style="display:flex;align-items:center;gap:8px">Vurgu <input type="color" data-r="' + t[0] + '.vurgu" value="' + m.tema[t[0]].vurgu + '"></label></div></div>';
+      }
+      h.innerHTML = '<div class="fc-uyari"><b>Kurulumda markanız kalıcı olarak işlenir.</b> Bu sekmede yaptığınız değişiklikler yalnız bu tarayıcıda önizlenir; aynı tarayıcıda açık diğer sayfalara anında uygulanır.</div>' +
+        '<div class="fc-grid fc-g2" style="margin-top:14px"><div class="fc-kart"><h3>Marka bilgileri</h3>' +
+        '<label class="fc-et" for="mk-ad">Marka adı</label><input id="mk-ad" class="fc-in" maxlength="40" value="' + esc(m.ad) + '">' +
+        '<label class="fc-et" for="mk-sl">Slogan</label><input id="mk-sl" class="fc-in" maxlength="90" value="' + esc(m.slogan) + '">' +
+        '<label class="fc-et" for="mk-wa">WhatsApp numarası (905xxxxxxxxx)</label><input id="mk-wa" class="fc-in" inputmode="numeric" value="' + esc(m.wa) + '">' +
+        '<label class="fc-et" for="mk-al">Alan adı</label><input id="mk-al" class="fc-in" value="' + esc(m.alan) + '">' +
+        '<label class="fc-et" for="mk-lg">Logo yükle (PNG, JPG, SVG)</label><input id="mk-lg" type="file" accept="image/*" class="fc-in">' +
+        '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="fc-btn alt kucuk" id="mk-lgsil">Logoyu varsayılana döndür</button><button type="button" class="fc-btn alt kucuk" id="mk-sf">Tüm markayı sıfırla</button></div><small class="fc-not" id="mk-ms"></small></div>' +
+        '<div><div class="fc-kart"><h3>Renkler (3 tema)</h3><div style="display:grid;gap:10px">' + TEMALAR.map(renkSatir).join("") + '</div></div>' +
+        '<div class="fc-kart" style="margin-top:14px"><h3>Önizleme</h3><div id="mk-on" style="display:flex;align-items:center;gap:12px;padding:16px;border-radius:14px;background:var(--bg2);flex-wrap:wrap"><span id="mk-onlogo"></span><div><b id="mk-onad" style="font-size:1.25rem"></b><br><small id="mk-onsl" style="color:var(--soluk)"></small></div><span id="mk-onbtn" class="fc-btn kucuk" style="margin-left:auto">Fal gönder</span></div></div></div></div>';
+      function onizle() {
+        m = MK.get();
+        Q("#mk-onlogo", h).innerHTML = MK.logoHtml() || F.logoSvg();
+        Q("#mk-onad", h).textContent = m.ad; Q("#mk-onsl", h).textContent = m.slogan;
+        var t = m.tema[MK.temaAdi()]; var b = Q("#mk-onbtn", h); b.style.background = "linear-gradient(135deg," + t.birincil2 + "," + t.birincil + ")"; b.style.color = "#1a0f0a";
+      }
+      function mesaj(t) { Q("#mk-ms", h).textContent = t; }
+      function metin() { MK.kaydet({ ad: (Q("#mk-ad", h).value.trim() || MK.ilkAd).slice(0, 40), slogan: Q("#mk-sl", h).value.trim().slice(0, 90), wa: Q("#mk-wa", h).value.replace(/D/g, ""), alan: Q("#mk-al", h).value.trim() }); onizle(); }
+      ["#mk-ad", "#mk-sl", "#mk-wa", "#mk-al"].forEach(function (id) { Q(id, h).addEventListener("input", metin); });
+      QA("[data-r]", h).forEach(function (i) { i.addEventListener("input", function () {
+        var p = i.getAttribute("data-r").split("."), tm = JSON.parse(JSON.stringify(MK.get().tema)); tm[p[0]][p[1]] = i.value; tm[p[0]][p[1] + "2"] = MK.acik(i.value, p[1] === "birincil" ? .45 : .35);
+        MK.kaydet({ tema: tm }); onizle(); }); });
+      Q("#mk-lg", h).addEventListener("change", function () {
+        var f = this.files && this.files[0]; if (!f) return;
+        if (f.size > 4e6) { mesaj("Dosya çok büyük (en çok 4 MB)."); return; }
+        var r = new FileReader();
+        r.onload = function () {
+          if (/svg/.test(f.type)) { MK.kaydet({ logo: String(r.result) }); onizle(); mesaj("Logo uygulandı."); return; }
+          var im = new Image(); im.onload = function () {
+            var k = Math.min(1, 256 / Math.max(im.width, im.height)), c = document.createElement("canvas"); c.width = Math.max(1, Math.round(im.width * k)); c.height = Math.max(1, Math.round(im.height * k));
+            c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); MK.kaydet({ logo: c.toDataURL("image/png") }); onizle(); mesaj("Logo uygulandı (256 px'e küçültüldü).");
+          }; im.onerror = function () { mesaj("Görsel okunamadı."); }; im.src = String(r.result);
+        }; r.readAsDataURL(f);
+      });
+      Q("#mk-lgsil", h).onclick = function () { MK.kaydet({ logo: "" }); onizle(); mesaj("Varsayılan logo geri yüklendi."); };
+      Q("#mk-sf", h).onclick = function () { MK.sifirla(); ciz(); };
+      onizle();
     }
     function yonetici(h) {
       var gn = [6, 9, 7, 12, 15, 21, 18], gun = ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"], mx = Math.max.apply(null, gn);

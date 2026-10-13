@@ -32,7 +32,7 @@
     ]
   },
   "oz4": {
-    "metin": "Dördüncüsü müşteri proje takip ekranı. Her müşteri kendi koduyla projesinin hangi aşamada olduğunu, son paftaları ve sıradaki toplantıyı görüyor. Denemek için B N L, iki bin dört yüz seksen bir kodunu girin.",
+    "metin": "Dördüncüsü müşteri proje takip ekranı. Her müşteri kendi koduyla projesinin hangi aşamada olduğunu, son paftaları ve sıradaki toplantıyı görüyor. Denemek için E R K, iki bin dört yüz seksen bir kodunu girin.",
     "dugme": [
       "Takip ekranını dene",
       "1-beton/#takip"
@@ -121,7 +121,7 @@
     "metin": "Ruhsat belge listesi. Elinizdeki belgeleri işaretleyin; hazırlık durumu ve eksikleriniz anında çıkıyor."
   },
   "p_takip": {
-    "metin": "Proje takip ekranı. Kutuya B N L, iki bin dört yüz seksen bir yazıp düğmeye basın; projenin aşamalarını görün."
+    "metin": "Proje takip ekranı. Kutuya E R K, iki bin dört yüz seksen bir yazıp düğmeye basın; projenin aşamalarını görün."
   },
   "p_stil": {
     "metin": "Stil seçici. Bir tarza dokunun; renk paleti ve önerilen malzemeler değişiyor."
