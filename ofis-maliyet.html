@@ -120,7 +120,17 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
     <h2>💼 İşler ve kâr <small id="is-o"></small></h2>
     <div class="renkler"><span class="kar kirmizi">%15 altı</span><span class="kar yesil">%15-40</span><span class="kar mavi">%40 üstü</span></div>
     <div id="isler"></div>
-    <p class="alt-b" style="margin-top:8px">Maliyet = saat × saatlik sabit + doğrudan + teklif × komisyon% + (faturalıysa) ödenecek KDV + teklif × taksit%. teklif_fiyat müşterinin ödediği KDV DAHİL tutardır; KDV hariç sütunu faturalı işlerde teklif ÷ (1+KDV). KDV maliyete yalnız bir kez girer; saat etiketi TAHMİN ya da ÖLÇÜM.</p>
+    <p class="alt-b" style="margin-top:8px">KURAL: tüm tutarlar KDV HARİÇ. teklif_fiyat KDV hariç kabul edilir; Maliyet = saat × saatlik sabit + doğrudan + teklif × komisyon% + teklif × taksit% (KDV maliyete ve kâra katılmaz). Faturalı işte müşteriden alınacak KDV (%20) ayrı sütunda gösterilir, kâr hesabına girmez. Saat etiketi TAHMİN ya da ÖLÇÜM.</p>
+  </section>
+  <section>
+    <h2>🖥 Alternatif: VPS <small>yalnız bilgi; sabit gidere EKLENMEZ</small></h2>
+    <div class="not-k">Ev sunucusu dışarıya hizmet vermez; sunucu tarafı müşteri hizmeti gerekirse bu seçenek değerlendirilir.</div>
+    <table><thead><tr><th>Sağlayıcı</th><th>En küçük uygun paket</th><th class="s">Aylık (KDV hariç)</th><th>Kaynak</th></tr></thead><tbody>
+      <tr><td class="bas" data-e="Sağlayıcı">Hetzner (AB, Almanya/Finlandiya)</td><td data-e="Paket">CX23: 2 vCPU, 4 GB RAM, 40 GB SSD</td><td class="s m" data-e="Aylık">€4,49 (€3,99 + €0,50 IPv4) ≈ 253 TL</td><td data-e="Kaynak"><a href="https://www.hetzner.com/cloud/">hetzner.com/cloud</a> · <a href="https://www.bitdoze.com/hetzner-cloud-cost-optimized-plans">fiyat özeti, Haz 2026</a><span class="alt">Hetzner sayfasında maliyet-optimize planlar "şu an yok" görünebiliyor; sipariş öncesi doğrulayın.</span></td></tr>
+      <tr><td class="bas" data-e="Sağlayıcı">Contabo (AB)</td><td data-e="Paket">Cloud VPS 4: 4 vCPU, 8 GB RAM, 100 GB SSD</td><td class="s m" data-e="Aylık">€4,40–5,50 ≈ 248–310 TL<span class="alt">sayfa metni dağınık; 24 ay taahhütle etkin fiyat</span></td><td data-e="Kaynak"><a href="https://contabo.com/en/vps/">contabo.com/en/vps</a></td></tr>
+      <tr><td class="bas" data-e="Sağlayıcı">Natro (yurt içi)</td><td data-e="Paket">XCloud Pro: 4 vCPU, 8 GB RAM, 200 GB SSD (en küçük paket olduğu DOĞRULANMADI)</td><td class="s m" data-e="Aylık">29,99 USD ≈ 1.480 TL<span class="alt">üçüncü taraf kaydı; natro.com güncel TL fiyatı okunamadı, teyit gerekir</span></td><td data-e="Kaynak"><a href="https://www.whtop.com/tr/plans/natro.com/142483">whtop.com (Natro XCloud Pro)</a></td></tr>
+    </tbody></table>
+    <p class="alt-b" style="margin-top:8px">TL karşılıkları yaklaşık: EUR ≈ 56,28 TL (TCMB 9 Eylül 2026 satış; 13 Eki kuru bulunamadı), USD 49,3681 TL (TCMB 13 Eki 2026). Fiyatlar tarama tarihi 14 Eki 2026; sağlayıcılar fiyat değiştirebilir (Hetzner 1 Nis 2026'da zam yaptı).</p>
   </section>
   <p class="kredi">Tasarım: <a href="https://dijitabela.com">Dijitabela · dijitabela.com</a></p>
 </div>
@@ -144,7 +154,7 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
   var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var sayi = function (x, o) { return Number(x || 0).toLocaleString("tr-TR", { minimumFractionDigits: o == null ? 2 : o, maximumFractionDigits: o == null ? 2 : o }); };
   var tl = function (x) { return sayi(x, 0) + " TL"; };
-  var sb = null, G = [], I = [], AYAR = { kapasite_saat: 800 }, CEVRIMDISI = false, kaydediliyor = false;
+  var sb = null, G = [], I = [], AYAR = { kapasite_saat: 650 }, CEVRIMDISI = false, kaydediliyor = false;
 
   /* Ölçülen işçi-saat (RAPORLAR\ISCI-SAAT-7GUN-1014.md, 13 Eki 2026 23:57; yalnız Lenovo calistir.ps1 log'ları: ana PC ve alt ajanlar HARİÇ) */
   var OLCUM = { isci7: 124.8, duvar7: 65.4, isciAy7: 535, duvarAy7: 280, isciAy2: 1318, tarih: "13 Eki 2026" };
@@ -170,7 +180,7 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
   function hata(m) { var u = $("uyari"); u.hidden = !m; u.textContent = m || ""; }
 
   function ciz() {
-    var kap = parseFloat($("kap").value); if (!(kap > 0)) kap = Number(AYAR.kapasite_saat) || 800;
+    var kap = parseFloat($("kap").value); if (!(kap > 0)) kap = Number(AYAR.kapasite_saat) || 650;
     var top = M.toplamSabit(G), saatlik = M.saatlikSabit(top, kap), teyitli = G.filter(function (g) { return g.teyit === "TEYİTLİ"; }).length;
     $("g-toplam").textContent = tl(top);
     $("g-teyit").textContent = teyitli + " teyitli, " + (G.length - teyitli) + " teyit bekliyor" + (AYAR.usd_try ? " · USD " + sayi(AYAR.usd_try, 2) : "");
@@ -193,22 +203,22 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
     var satir = I.map(function (i) {
       var h = M.isHesap(i, saatlik), ke = h.renk;
       return "<tr><td class='bas' data-e='Müşteri'>" + esc(i.musteri) + "<span class='alt'>" + esc(i.platform || "") + " · " + esc(i.durum) + (i.fatura ? " · faturalı" : "") + "</span></td>" +
-        "<td class='s m' data-e='Teklif KDV hariç'>" + tl(h.kdvHaric) + "</td><td class='s m' data-e='Teklif KDV dahil'>" + tl(h.kdvDahil) + "</td>" +
+        "<td class='s m' data-e='Teklif (KDV hariç)'>" + tl(h.kdvHaric) + "</td><td class='s m' data-e='Müşteriden alınacak KDV'>" + (i.fatura ? tl(h.kdvTutar) + "<span class='alt'>%" + sayi(i.kdv_yuzde, 0) + " · kâra katılmaz</span>" : "–") + "</td>" +
         "<td class='s' data-e='Saat'>" + sayi(h.saat, 1) + " sa <span class='et " + (h.saatTur === "ÖLÇÜM" ? "ty" : "tt") + "'>" + h.saatTur + "</span></td>" +
         "<td class='s m' data-e='Maliyet'>" + tl(h.maliyet) + "<span class='alt'>sabit " + tl(h.sabitPay) + " · diğer " + tl(h.degisken) + "</span></td>" +
         "<td class='s m net " + ke + "' data-e='Net kâr'>" + tl(h.net) + "</td>" +
         "<td class='s' data-e='Kâr %'><span class='kar " + ke + "'>%" + sayi(h.karPct, 1) + "</span></td></tr>";
     }).join("");
-    $("isler").innerHTML = I.length ? "<table><thead><tr><th>Müşteri</th><th class='s'>Teklif KDV hariç</th><th class='s'>Teklif KDV dahil</th><th class='s'>Saat</th><th class='s'>Maliyet</th><th class='s'>Net kâr</th><th class='s'>Kâr %</th></tr></thead><tbody>" + satir + "</tbody></table>" : "<div class='bos'>Henüz iş kaydı yok. Furkan teklifleri is_maliyet tablosuna ekleyince burada görünür.</div>";
+    $("isler").innerHTML = I.length ? "<table><thead><tr><th>Müşteri</th><th class='s'>Teklif (KDV hariç)</th><th class='s'>Müşteriden alınacak KDV</th><th class='s'>Saat</th><th class='s'>Maliyet</th><th class='s'>Net kâr</th><th class='s'>Kâr %</th></tr></thead><tbody>" + satir + "</tbody></table>" : "<div class='bos'>Henüz iş kaydı yok. Furkan teklifleri is_maliyet tablosuna ekleyince burada görünür.</div>";
     $("is-o").textContent = I.length + " iş";
 
-    $("olcum").innerHTML = "<b>Ölçüm (kapasite önerisi):</b> Lenovo ~535-1.318 işçi-saat/ay (son 7 gün: " + sayi(OLCUM.isci7, 1) + " işçi-saat, " + sayi(OLCUM.duvar7, 1) + " duvar saati; son 2 gün tam kadroyla ~" + OLCUM.isciAy2 + "/ay hızında) + ana PC ölçülmedi. Varsayılan kapasite 800 işçi-saat/ay. Alt ajan ve etkileşimli oturumlar da ölçülemedi, gerçek değer daha yüksektir. Ayrıntı: RAPORLAR\ISCI-SAAT-7GUN-1014.md (" + OLCUM.tarih + ").";
+    $("olcum").innerHTML = "<b>Ölçüm (kapasite önerisi):</b> Lenovo ~535 + ana PC ~130 işçi-saat/ay (ana PC 7 günde 91 sa ölçüldü); 800 doğrulanmadı. Varsayılan (çevrimdışı yedek) kapasite 650 işçi-saat/ay. Lenovo ayrıntısı: son 7 gün " + sayi(OLCUM.isci7, 1) + " işçi-saat, " + sayi(OLCUM.duvar7, 1) + " duvar saati; son 2 gün tam kadroyla ~" + OLCUM.isciAy2 + "/ay hızında. Alt ajan ve etkileşimli oturumlar ölçülemedi. Ayrıntı: RAPORLAR\ISCI-SAAT-7GUN-1014.md (" + OLCUM.tarih + ").";
     var tamKaynak = AYAR.guncelleme ? new Date(AYAR.guncelleme).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
     $("son").textContent = (DEMO ? "Örnek veri" : CEVRIMDISI ? "ÇEVRİMDIŞI (yerel yedek değerler)" : "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })) + (AYAR.usd_try_kaynak ? " · Kur: " + AYAR.usd_try_kaynak : "") + (tamKaynak ? "" : "");
   }
 
   async function yukle() {
-    if (DEMO) { G = DEMO_G; I = DEMO_I; AYAR = { kapasite_saat: 800, usd_try: 49.3681, usd_try_kaynak: "TCMB (örnek)" }; $("demo-b").hidden = false; $("kap").value = AYAR.kapasite_saat; $("kap-kaydet").disabled = true; ciz(); return; }
+    if (DEMO) { G = DEMO_G; I = DEMO_I; AYAR = { kapasite_saat: 650, usd_try: 49.3681, usd_try_kaynak: "TCMB (örnek)" }; $("demo-b").hidden = false; $("kap").value = AYAR.kapasite_saat; $("kap-kaydet").disabled = true; ciz(); return; }
     try {
       var r = await Promise.all([sb.from("sabit_giderler").select("*").order("id"), sb.from("is_maliyet").select("*").order("id", { ascending: false }), sb.from("maliyet_ayar").select("*").eq("id", 1).maybeSingle()]);
       var e = r[0].error || r[1].error || r[2].error;

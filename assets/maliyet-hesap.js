@@ -2,18 +2,18 @@
 // Tarayıcıda window.MALIYET, node'da module.exports. Sayfa için kopyası: ajans-sitesi\assets\maliyet-hesap.js (yayinla öncesi eşitlenir).
 // FORMÜLLER (Patron, 14 Eki):
 //   saatlik sabit gider = toplam aylık sabit gider / kapasite_saat
-//   iş maliyeti = saat x saatlik + doğrudan maliyet + teklif x komisyon% + (fatura varsa ödenecek KDV) + teklif x taksit%
+//   KDV KURALI (danışman, 14 Eki): TÜM TUTARLAR KDV HARİÇ. teklif_fiyat KDV HARİÇ kabul edilir; kâr (kırmızı/yeşil) KDV hariç tutar üzerinden hesaplanır.
+//   Faturalıysa müşteriden alınacak KDV = teklif x kdv% AYRI gösterilir (kdvTutar), kâra/maliyete KATILMAZ; kdvDahil = teklif + kdvTutar (bilgi).
+//   iş maliyeti = saat x saatlik + doğrudan maliyet + teklif x komisyon% + teklif x taksit%   (KDV yok)
 //   net kâr = teklif - maliyet ; kâr % = net / teklif
-//   ödenecek KDV = teklif x kdv/(1+kdv)  (teklif müşterinin ödediği KDV dahil tutar kabul edilir; fatura yoksa 0). VARSAYIM, Patron teyidi gerekir.
-//   Teklif iki biçimde gösterilir: kdvDahil = teklif_fiyat; kdvHaric = faturalıysa teklif/(1+kdv), faturasızsa teklif. KDV maliyete yalnız BİR kez girer (teklif x kdv/(1+kdv)).
 //   saat = ölçüm varsa saat_gercek, yoksa saat_tahmin.
 //   Renk: %15 altı kırmızı, %15-40 yeşil, %40 üstü mavi.
-//   Aylık başa baş: bu ay kazanılan (durum ödendi/kazanıldı) işlerin KATKI payı (teklif - doğrudan - komisyon - KDV - taksit; sabit pay HARİÇ,
+//   Aylık başa baş: bu ay kazanılan (durum ödendi/kazanıldı) işlerin KATKI payı (teklif KDV hariç - doğrudan - komisyon - taksit; sabit pay HARİÇ,
 //   çünkü sabit gider zaten payda) / toplam aylık sabit gider.
 (function (kok) {
   // Bağlantı yoksa kullanılan yerel yedek (Patron TEYİTLİ değerleri, 14 Eki 2026; USD kuru TCMB 13.10.2026 satış 49,3681).
   var YEDEK = {
-    kapasite_saat: 800, usd_try: 49.3681, usd_try_kaynak: "yerel yedek: TCMB 13.10.2026 USD satış",
+    kapasite_saat: 650, usd_try: 49.3681, usd_try_kaynak: "yerel yedek: TCMB 13.10.2026 USD satış",
     giderler: [
       { kalem: "Elektrik", aylik_tl: 3000, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı 14 Eki 2026" },
       { kalem: "İnternet", aylik_tl: 1100, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı 14 Eki 2026" },
@@ -34,11 +34,10 @@
     var teklif = n(is.teklif_fiyat), olcum = is.saat_gercek != null && is.saat_gercek !== "" && n(is.saat_gercek) > 0;
     var saat = olcum ? n(is.saat_gercek) : n(is.saat_tahmin);
     var sabitPay = saat * n(saatlik), dogrudan = n(is.dogrudan_maliyet), komisyon = teklif * n(is.komisyon_yuzde) / 100;
-    var kdvO = n(is.kdv_yuzde), kdv = is.fatura ? teklif * kdvO / (100 + kdvO) : 0, taksit = teklif * n(is.taksit_yuzde) / 100;
-    var degisken = dogrudan + komisyon + kdv + taksit, maliyet = sabitPay + degisken, net = teklif - maliyet;
+    var kdvO = n(is.kdv_yuzde), kdv = is.fatura ? teklif * kdvO / 100 : 0, taksit = teklif * n(is.taksit_yuzde) / 100;
+    var degisken = dogrudan + komisyon + taksit, maliyet = sabitPay + degisken, net = teklif - maliyet;
     var karPct = teklif > 0 ? net / teklif * 100 : 0;
-    var kdvHaric = is.fatura ? teklif / (1 + kdvO / 100) : teklif;
-    return { teklif: teklif, kdvDahil: teklif, kdvHaric: kdvHaric, saat: saat, saatTur: olcum ? "ÖLÇÜM" : "TAHMİN", sabitPay: sabitPay, dogrudan: dogrudan, komisyon: komisyon, kdv: kdv, taksit: taksit,
+    return { teklif: teklif, kdvHaric: teklif, kdvTutar: kdv, kdvDahil: teklif + kdv, saat: saat, saatTur: olcum ? "ÖLÇÜM" : "TAHMİN", sabitPay: sabitPay, dogrudan: dogrudan, komisyon: komisyon, kdv: kdv, taksit: taksit,
       degisken: degisken, maliyet: maliyet, net: net, karPct: karPct, katki: teklif - degisken, renk: teklif > 0 ? renk(karPct) : "yok" };
   }
   function ayIci(t, simdi) { if (!t) return false; var d = new Date(t), s = simdi || new Date(); return d.getFullYear() === s.getFullYear() && d.getMonth() === s.getMonth(); }
