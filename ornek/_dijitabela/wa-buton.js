@@ -6,7 +6,7 @@
 (function () {
   "use strict";
   if (window.DJ_WA_BUTON === false || document.getElementById("djwa") || document.querySelector(".djwa-b")) return;
-  var TEL = "905019452184", FIYAT = "4.900 TL";
+  var TEL = "905386765727", FIYAT = "4.900 TL";
   var temiz = function (t) { return String(t || "").replace(/\s+/g, " ").trim(); };
   var ad = temiz(document.title.split(/\s[·|–]\s/)[0]) || temiz((document.querySelector("h1") || {}).textContent).slice(0, 60);
   if (ad.length > 70) ad = ad.slice(0, 70).replace(/\s+\S*$/, "");

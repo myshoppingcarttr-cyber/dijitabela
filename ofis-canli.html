@@ -204,6 +204,30 @@ body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:pause
 #gir a{display:inline-block;background:var(--sari);color:#1b1f27;font-weight:800;text-decoration:none;padding:11px 20px;border-radius:12px}
 :fullscreen .yan{display:none}:fullscreen .duzen{grid-template-columns:1fr}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+
+/* 13 Eki (Patron: "ekip sohbeti ekrana sığmıyor, sağ menüyü düzenle"): taşma yok, sağ menü kendi içinde kayar, mobilde sohbet alttan çekmece */
+html,body{max-width:100%;overflow-x:hidden}
+.duzen>*,.yan,.yan>*,.kutu,.kutu *{min-width:0}
+.kutu{overflow-wrap:anywhere}
+.ozet{grid-template-columns:repeat(2,minmax(0,1fr))}
+.kutu pre,.kutu code{white-space:pre-wrap;overflow-wrap:anywhere}
+.yan .ys-akis{max-height:min(38vh,340px)}
+.yan .ys-yaz{position:sticky;bottom:0;background:var(--kart);padding-top:6px}
+.sohbet-tut{display:none}
+@media(min-width:1101px){
+  .duzen{grid-template-columns:minmax(0,1fr) 340px}
+  .yan{position:sticky;top:8px;max-height:calc(100vh - 16px);overflow-y:auto;overscroll-behavior:contain;padding-right:4px;scrollbar-width:thin}
+}
+@media(max-width:1100px){
+  body{padding-bottom:64px}
+  #sohbet-kutu{position:fixed;left:0;right:0;bottom:0;z-index:80;margin:0;border-radius:18px 18px 0 0;max-height:78vh;display:flex;flex-direction:column;box-shadow:0 -12px 40px rgba(0,0,0,.45);transform:translateY(calc(100% - 56px));transition:transform .25s ease;padding-top:0}
+  #sohbet-kutu.acik{transform:none}
+  #sohbet-kutu>h2{display:none}
+  .sohbet-tut{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;min-height:56px;font:800 15px inherit;font-family:inherit;color:#fff;background:none;border:0;cursor:pointer;padding:0 2px}
+  .sohbet-tut b{background:#D64545;color:#fff;border-radius:999px;font-size:12px;padding:1px 8px}
+  #sohbet-kutu #sohbet{overflow-y:auto;min-height:0}
+  #sohbet-kutu .ys-akis{max-height:calc(78vh - 170px)}
+}
 </style>
 </head><body>
 <div class="ust"><h1>Dijitabela <span>Canlı Ofis</span></h1><span class="rozet" id="r-cal"><i style="background:#17b26a"></i>– çalışıyor</span><span class="rozet" id="r-bos"><i style="background:#9aa1ae"></i>– boşta</span><span class="rozet" id="r-hata"><i style="background:#e5322d"></i>– hata</span><span class="rozet" id="r-saat">–</span><span class="sag"><a class="dug" href="ofis-yonetim.html">🧭 Yönetim</a><a class="dug dug-patron" id="patron-link" href="ofis-patron.html">Benim işlerim<b id="patron-n" hidden></b></a><button class="dug" id="tam" type="button">⛶ Tam ekran</button><a class="dug" href="ofis.html">Liste görünümü →</a></span></div>
@@ -215,8 +239,8 @@ body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:pause
     <div class="ipucu-k" id="ipucu-k">Sürükleyerek gezin · tekerlekle yakınlaşın · odaya çift tıklayın</div>
   </div>
   <div class="yan">
+    <div class="kutu" id="sohbet-kutu"><button type="button" class="sohbet-tut" id="sohbet-tut" aria-expanded="false" aria-controls="sohbet"><span>💬 Ekip sohbeti <b id="sohbet-n" hidden></b></span><span id="sohbet-ok">▲</span></button><h2>Ekip sohbeti</h2><div id="sohbet"></div></div>
     <div class="kutu"><h2>Bugün</h2><div class="ozet"><div><b id="o-is">0</b><span>tamamlanan iş</span></div><div class="yesil"><b id="o-cal">0</b><span>şu an çalışan</span></div><div><b id="o-bos">0</b><span>boşta</span></div><div class="kirmizi"><b id="o-hata">0</b><span>hata</span></div></div><div class="yildiz-satir" id="yildiz" hidden></div></div>
-    <div class="kutu" id="sohbet-kutu"><h2>Ekip sohbeti</h2><div id="sohbet"></div></div>
     <div class="kutu"><h2>Departmanlar</h2><div class="dep" id="dep"></div></div>
     <div class="kutu"><h2>Ekip <span id="ekip-say" style="letter-spacing:0"></span></h2><input class="ara" id="ara" type="search" placeholder="İsim ya da görev ara…" autocomplete="off"><div class="cipler" id="ekip-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="calisiyor">Çalışan</button><button class="cip" data-f="bosta">Boşta</button><button class="cip" data-f="hata">Hata</button></div><div class="ekip" id="ekip"></div></div>
     <div class="kutu"><h2>Canlı olaylar</h2><div class="cipler" id="olay-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="is">Biten işler</button><button class="cip" data-f="hata">Hatalar</button></div><div class="akis" id="akis"></div></div>
@@ -560,7 +584,8 @@ body.gizli *,body.gizli *::before,body.gizli *::after{animation-play-state:pause
   var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
   sb.auth.getSession().then(function (r) {
     if (!r.data.session) { $("gir").hidden = false; return; }
-    if (window.EkipSohbet) EkipSohbet.kur({ sb: sb, kap: $("sohbet"), kadro: function () { return SON; }, rozet: ".uye[data-kod]" }); // 13 Eki: Ekip Sohbeti (Patron)
+    if (window.EkipSohbet) EkipSohbet.kur({ sb: sb, kap: $("sohbet"), kadro: function () { return SON; }, rozet: ".uye[data-kod]", degisti: function (R) { var n = Object.keys(R).reduce(function (t, k) { return t + R[k]; }, 0), b = $("sohbet-n"); b.textContent = n + " bekliyor"; b.hidden = !n; } });
+    $("sohbet-tut").addEventListener("click", function () { var k = $("sohbet-kutu"), a = !k.classList.contains("acik"); k.classList.toggle("acik", a); this.setAttribute("aria-expanded", a); $("sohbet-ok").textContent = a ? "▼" : "▲"; }); // 13 Eki: Ekip Sohbeti (Patron)
     basla(function () { sb.from("ofis_durum").select("*").order("sira").then(function (q) { if (q.data) isle(q.data); }); });
     function patronSay() { sb.from("patron_isler").select("id", { count: "exact", head: true }).eq("durum", "bekliyor").then(function (q) { var b = $("patron-n"); if (q.error || q.count == null) return; b.textContent = q.count; b.hidden = !q.count; }); } // Patron Paneli rozeti (13 Eki)
     patronSay(); setInterval(function () { if (!document.hidden) patronSay(); }, 60000);
