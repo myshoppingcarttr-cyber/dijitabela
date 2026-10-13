@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16181D">
+<title>Yönetim Merkezi · Dijitabela Ofisi</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<!-- Sanal Ofis · Yönetim Merkezi (Ozan · Sistem Denetçisi, 13 Eki 2026). Patron: "her şeyi oradan yöneteceğim".
+     Yalnız okur + "Yeni iş ver" (patron_talimat'a ekler). Veri: ofis_durum, patron_isler, adaylar, teklifler, patron_talimat — hepsi RLS yonetici_mi(); anon hiçbir şey göremez. -->
+<style>
+:root{--zemin:#EDEBE4;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#DDD9CF;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--mavi:#2F6FEB;--koyu:#16181D;--gri:#9AA1AE;--turuncu:#C77800}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45;overflow-x:hidden}
+.kap{max-width:980px;margin:0 auto;padding:12px 12px 70px}
+header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.logo{flex:none;width:40px;height:40px;border-radius:10px;background:var(--koyu);display:grid;place-items:center;color:var(--sari);font:700 1.3rem 'Space Mono',monospace}
+h1{font-size:1.15rem;font-weight:800;line-height:1.15}
+.alt-b{font-size:.76rem;color:var(--soluk)}
+.baglar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.bag{font-size:.8rem;font-weight:700;color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);padding:8px 12px;border-radius:999px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center;gap:6px}
+.bag b{background:var(--kirmizi);color:#fff;border-radius:999px;padding:0 7px;font-size:.74rem}
+nav.sek{display:flex;gap:6px;overflow-x:auto;position:sticky;top:0;z-index:20;background:var(--zemin);padding:6px 0 8px;scrollbar-width:none}
+nav.sek::-webkit-scrollbar{display:none}
+nav.sek a{flex:none;font-size:.8rem;font-weight:800;color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);border-radius:999px;padding:8px 12px;text-decoration:none;min-height:38px;display:inline-flex;align-items:center;gap:5px}
+nav.sek a i{font-style:normal;font:700 .78rem 'Space Mono',monospace;color:var(--soluk)}
+nav.sek a.kr i{color:var(--kirmizi)}
+section{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:14px;margin-bottom:12px;scroll-margin-top:60px}
+section>h2{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+section>h2 small{font-size:.74rem;font-weight:600;color:var(--soluk)}
+.durum{font-size:.76rem;color:var(--soluk);padding:0 2px 8px}
+.uyari{border-radius:12px;padding:9px 12px;font-size:.86rem;font-weight:600;margin-bottom:6px;overflow-wrap:anywhere;border:1px solid}
+.uyari.kirmizi{background:#FDE2E2;color:#8A1F1F;border-color:#F3B4B4}
+.uyari.sari{background:#FFF4D6;color:#5C4400;border-color:#F0D58A}
+.uyari.yesil{background:#E3F5EA;color:#14532D;border-color:#B6E2C6}
+.ozet{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.ozet div{background:#F7F6F1;border-radius:12px;padding:10px}
+.ozet b{display:block;font:700 1.35rem 'Space Mono',monospace}
+.ozet span{font-size:.74rem;color:var(--soluk);font-weight:600}
+.cipler{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.cip{font:inherit;font-size:.78rem;font-weight:700;border:1px solid var(--cizgi);background:#fff;border-radius:999px;padding:7px 11px;min-height:36px;cursor:pointer;color:var(--yazi)}
+.cip.ac{background:var(--koyu);color:#fff;border-color:var(--koyu)}
+.liste{display:flex;flex-direction:column;gap:6px}
+.sat{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:12px;background:#F7F6F1;border-left:4px solid var(--c,var(--gri));overflow-wrap:anywhere}
+.sat .nk{flex:none;width:10px;height:10px;border-radius:50%;background:var(--c,var(--gri));margin-top:6px}
+.sat .gv{flex:1;min-width:0}
+.sat .ba{font-weight:800;font-size:.9rem}
+.sat .ac2{font-size:.8rem;color:var(--soluk)}
+.sat .me{font-size:.84rem;margin-top:2px}
+.sat .sg{flex:none;text-align:right;font-size:.74rem;color:var(--soluk);font-weight:600;max-width:40%}
+.rozet{display:inline-block;font-size:.7rem;font-weight:800;border-radius:999px;padding:1px 8px;background:#eee;color:var(--yazi);vertical-align:1px}
+.r-cal{background:#E3F5EA;color:#14532D}.r-bos{background:#EEF0F3;color:#3B414B}.r-hata{background:#FDE2E2;color:#8A1F1F}.r-kap{background:#EEF0F3;color:#7A808A}.r-dik{background:#FFF4D6;color:#5C4400}
+.huni{display:flex;flex-direction:column;gap:6px}
+.huni .h{display:grid;grid-template-columns:92px 1fr 46px;gap:8px;align-items:center;font-size:.82rem;font-weight:700}
+.huni .cubuk{height:14px;border-radius:7px;background:#F0EEE7;overflow:hidden}
+.huni .cubuk i{display:block;height:100%;background:var(--c,var(--mavi));border-radius:7px}
+.huni .h span:last-child{text-align:right;font-family:'Space Mono',monospace}
+.huni .gec{color:var(--kirmizi);font-size:.7rem}
+form.yeni textarea{width:100%;font:inherit;font-size:16px;padding:11px;border:1px solid var(--cizgi);border-radius:12px;min-height:96px;resize:vertical}
+form.yeni .satir{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center}
+form.yeni select,form.yeni input[type=date]{font:inherit;font-size:16px;padding:9px;border:1px solid var(--cizgi);border-radius:10px;background:#fff;min-height:44px}
+.dug{font:inherit;font-weight:800;font-size:.92rem;border:0;border-radius:12px;padding:12px 18px;min-height:48px;cursor:pointer;background:var(--yesil);color:#fff;flex:1 1 140px}
+.dug:disabled{opacity:.5}
+.not-k{font-size:.78rem;color:var(--soluk);margin-top:8px}
+.daha{font:inherit;font-size:.8rem;font-weight:700;margin-top:8px;border:1px dashed var(--cizgi);background:#fff;border-radius:10px;padding:8px;width:100%;cursor:pointer;color:var(--soluk);min-height:40px}
+.bos{border:1px dashed var(--cizgi);border-radius:12px;padding:16px;text-align:center;color:var(--soluk);font-weight:600;font-size:.86rem}
+.giris{max-width:380px;margin:10vh auto;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:22px}
+.giris h1{margin-bottom:6px}.giris p{font-size:.88rem;color:var(--soluk)}
+.giris input{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--cizgi);border-radius:10px;margin:10px 0}
+.giris button{width:100%;font:inherit;font-weight:800;padding:13px;border:0;border-radius:10px;background:var(--sari);cursor:pointer;min-height:48px}
+.toast{position:fixed;left:12px;right:12px;bottom:14px;background:var(--koyu);color:#fff;padding:12px 14px;border-radius:12px;font-weight:700;font-size:.88rem;z-index:50;display:none;max-width:560px;margin:0 auto}
+.toast.ac{display:block}
+.kredi{text-align:center;font-size:.74rem;color:var(--soluk);margin-top:22px}.kredi a{color:var(--soluk);font-weight:700}
+@media(min-width:760px){.kap{padding:20px 20px 80px}.ozet{grid-template-columns:repeat(4,1fr)}.iki{display:grid;grid-template-columns:1fr 1fr;gap:12px}.iki>section{margin-bottom:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="kap" id="uyg" hidden>
+  <header>
+    <div class="logo">d</div>
+    <div><h1>Yönetim Merkezi</h1><span class="alt-b" id="alt">yalnız size özel · tek ekrandan ofis</span></div>
+    <div class="baglar">
+      <a class="bag" href="ofis-patron.html">Benim işlerim<b id="pn" hidden></b></a>
+      <a class="bag" href="ofis-canli.html">🏢 Canlı ofis</a>
+    </div>
+  </header>
+  <nav class="sek" aria-label="Bölümler">
+    <a href="#s-uyari" id="n-uyari">Uyarılar <i>–</i></a>
+    <a href="#s-yeni">Yeni iş ver</a>
+    <a href="#s-ekip" id="n-ekip">Ekip <i>–</i></a>
+    <a href="#s-hat" id="n-hat">Müşteri hattı <i>–</i></a>
+    <a href="#s-gelir">Gelir</a>
+    <a href="#s-saglik" id="n-saglik">Görev sağlığı <i>–</i></a>
+  </nav>
+  <div class="durum" id="son">Yükleniyor…</div>
+
+  <section id="s-uyari"><h2>⚠️ Dikkat isteyenler <small>otomatik çıkarılır</small></h2><div id="uyarilar"></div></section>
+
+  <section id="s-yeni"><h2>✍️ Yeni iş ver <small>Genel Müdür / Yönetici Asistan alır</small></h2>
+    <form class="yeni" id="yeni-f">
+      <label for="yeni-m" class="alt-b">Ne yapılsın? Kısa ve net yazın (ör. "Antalya'daki 10 diş kliniğine prototip hazırlansın, gönderim benim onayımla").</label>
+      <textarea id="yeni-m" maxlength="2000" required placeholder="İşi yazın…"></textarea>
+      <div class="satir">
+        <select id="yeni-o" aria-label="Öncelik"><option value="2">Normal</option><option value="1">Acil</option><option value="3">Düşük</option></select>
+        <input type="date" id="yeni-t" aria-label="Son tarih">
+        <button class="dug" id="yeni-g" type="submit">İşi ver</button>
+      </div>
+      <p class="not-k" id="yeni-not">İş kaydedilir; Genel Müdür ve Yönetici Asistan alıp personele dağıtır. Müşteriye mesaj, yayın ve fiyat yine sizin onayınızla olur.</p>
+    </form>
+    <div class="liste" id="talimatlar" style="margin-top:10px"></div>
+  </section>
+
+  <section id="s-ekip"><h2>👥 Personel panosu <small id="ekip-o"></small></h2>
+    <div class="cipler" id="ekip-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="calisiyor">Çalışan</button><button class="cip" data-f="bosta">Boşta</button><button class="cip" data-f="hata">Hata</button><button class="cip" data-f="takili">Takılmış olabilir</button></div>
+    <div class="liste" id="ekip"></div>
+  </section>
+
+  <section id="s-hat"><h2>🤝 Müşteri hattı <small id="hat-o"></small></h2>
+    <div class="huni" id="huni"></div>
+    <h2 style="font-size:.9rem;margin:14px 0 8px">Sıradaki adımı gelmiş / geçmiş adaylar</h2>
+    <div class="cipler" id="hat-f"></div>
+    <div class="liste" id="hat"></div>
+    <button class="daha" id="hat-d" type="button" hidden>Daha fazla göster</button>
+  </section>
+
+  <div class="iki">
+    <section id="s-gelir"><h2>💰 Gelir ve teklifler</h2><div class="ozet" id="gelir"></div><div class="liste" id="gelir-l" style="margin-top:10px"></div></section>
+    <section id="s-saglik"><h2>🩺 Zamanlanmış görev sağlığı <small id="saglik-o"></small></h2>
+      <div class="cipler" id="saglik-f"><button class="cip ac" data-f="sorun">Sorunlu</button><button class="cip" data-f="">Hepsi</button></div>
+      <div class="liste" id="saglik"></div>
+    </section>
+  </div>
+  <p class="kredi">Tasarım: <a href="https://dijitabela.com">Dijitabela · dijitabela.com</a></p>
+</div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
+<div class="giris" id="giris" hidden>
+  <h1>Yönetim Merkezi</h1>
+  <p>Ofis ile aynı giriş. E-postanıza giriş kodu gelir; kodu buraya yazın.</p>
+  <input id="eposta" type="email" autocomplete="email" placeholder="E-posta adresiniz">
+  <button id="gonder" type="button">Giriş kodu gönder</button>
+  <div id="kodalan" hidden><input id="kod" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="E-postadaki kod"><button id="kodgir" type="button">Giriş</button></div>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var DK = 60000, simdi = function () { return Date.now(); };
+  var once = function (d) { if (!d) return "–"; var m = Math.round((simdi() - new Date(d).getTime()) / DK); if (m < 1) return "az önce"; if (m < 60) return m + " dk önce"; if (m < 1440) return Math.floor(m / 60) + " sa " + (m % 60) + " dk önce"; return Math.floor(m / 1440) + " gün önce"; };
+  var saat = function (d) { return d ? new Date(d).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) : "–"; };
+  var tl = function (n) { return Math.round(n || 0).toLocaleString("tr-TR") + " TL"; };
+  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("ac"); clearTimeout(toast.z); toast.z = setTimeout(function () { t.classList.remove("ac"); }, 4200); }
+  function say(id, n, kirmizi) { var a = $(id); if (!a) return; a.querySelector("i").textContent = n; a.classList.toggle("kr", !!kirmizi); }
+
+  /* Görev sonuç kodları (Windows Görev Zamanlayıcı) */
+  var KOD = { 0: "", 267009: "şu an çalışıyor", 267011: "hiç çalışmadı", 267014: "zorla durduruldu", 1: "çıkış 1 (hata)", "-2147024894": "dosya bulunamadı", 2147942402: "dosya bulunamadı" };
+  function gorevRenk(g) {
+    var s = +g.sonuc, son = g.son && !/^1999/.test(g.son) ? Date.parse(g.son) : null, sonraki = g.sonraki ? Date.parse(g.sonraki) : null;
+    if (g.durum === "Disabled") return ["gri", "kapalı"];
+    if (s === 267011) return ["gri", "hiç çalışmadı"];
+    if (g.durum === "Running" && g.ad !== "WA Asistan" && son && simdi() - son > 90 * DK) return ["sari", Math.round((simdi() - son) / DK) + " dk'dır çalışıyor, takılmış olabilir"];
+    if (s !== 0 && s !== 267009) return [s === 267014 ? "sari" : "kirmizi", KOD[s] || ("hata kodu 0x" + (s >>> 0).toString(16))];
+    if (g.durum === "Ready" && sonraki && simdi() - sonraki > 20 * DK) return ["sari", "planlı turu kaçırdı"];
+    return ["yesil", ""];
+  }
+  var RENK = { yesil: "var(--yesil)", sari: "var(--sari)", kirmizi: "var(--kirmizi)", gri: "var(--gri)" };
+
+  var V = { ekip: [], isler: [], aday: [], teklif: [], talimat: [] }, ekipF = "", hatF = "gecikmis", hatN = 25, saglikF = "sorun";
+  var ASAMA = [["yeni", "Yeni"], ["iletisim", "İletişim"], ["prototip", "Prototip"], ["teklif", "Teklif"], ["gorusme", "Görüşme"], ["kazanildi", "Kazanıldı"], ["kaybedildi", "Kaybedildi"]];
+  var ASAMA_AD = {}; ASAMA.forEach(function (a) { ASAMA_AD[a[0]] = a[1]; });
+
+  function takili(p) { // takılma uyarısı: çalışıyor görünüp 2 saattir haber yok ya da hata
+    if (p.durum === "hata") return "hata verdi";
+    if (p.durum === "calisiyor" && p.son && simdi() - Date.parse(p.son) > 120 * DK && p.kod !== "murat") return "2 saatten uzun süredir yeni haber yok";
+    return "";
+  }
+  function gorevler() { // ofis_durum.detay.gorevler → tekil görev listesi
+    var g = {}; V.ekip.forEach(function (p) { ((p.detay || {}).gorevler || []).forEach(function (x) { if (!g[x.ad]) { g[x.ad] = Object.assign({ kim: [] }, x); } g[x.ad].kim.push(p.ad); }); });
+    return Object.keys(g).map(function (k) { var x = g[k], r = gorevRenk(x); x.renk = r[0]; x.neden = r[1]; return x; })
+      .sort(function (a, b) { var s = ["kirmizi", "sari", "yesil", "gri"]; return s.indexOf(a.renk) - s.indexOf(b.renk) || a.ad.localeCompare(b.ad, "tr"); });
+  }
+
+  function cizUyari() {
+    var U = [], G = gorevler(), bugun = new Date(); bugun.setHours(0, 0, 0, 0);
+    var tazelik = V.ekip.reduce(function (m, p) { return Math.max(m, Date.parse(p.guncelleme || 0) || 0); }, 0);
+    if (tazelik && simdi() - tazelik > 5 * DK) U.push(["kirmizi", "Ofis verisi " + once(tazelik) + " güncellendi: Ofis Habercisi durmuş olabilir. Aşağıdaki bilgiler eski."]);
+    var islenmemis = V.isler.filter(function (x) { return x.durum !== "bekliyor" && x.durum !== "tamamlandi" && !x.islenme_zamani && x.karar_zamani && simdi() - Date.parse(x.karar_zamani) > 60 * DK; });
+    if (islenmemis.length) U.push(["kirmizi", "Verdiğiniz " + islenmemis.length + " karar 1 saatten uzun süredir uygulanmadı: " + islenmemis.map(function (x) { return "#" + x.id + " " + x.baslik.slice(0, 50); }).join(" · ")]);
+    var bekl = V.isler.filter(function (x) { return x.durum === "bekliyor"; });
+    if (bekl.length) U.push(["sari", bekl.length + " iş sizin kararınızı bekliyor → Benim işlerim"]);
+    var kr = G.filter(function (g) { return g.renk === "kirmizi"; }), sr = G.filter(function (g) { return g.renk === "sari"; });
+    if (kr.length) U.push(["kirmizi", kr.length + " zamanlanmış görev hata verdi: " + kr.map(function (g) { return g.ad + " (" + g.neden + ")"; }).join(", ")]);
+    if (sr.length) U.push(["sari", sr.length + " görev dikkat istiyor: " + sr.map(function (g) { return g.ad + " (" + g.neden + ")"; }).join(", ")]);
+    var tk = V.ekip.filter(function (p) { return takili(p); });
+    if (tk.length) U.push(["sari", "Takılmış olabilir: " + tk.map(function (p) { return p.ad + " (" + takili(p) + ")"; }).join(", ")]);
+    var bos = V.ekip.filter(function (p) { return p.durum === "bosta" && ["gm", "tuna", "mert"].indexOf(p.kod) < 0; });
+    if (bos.length >= 5) U.push(["sari", bos.length + " personel boşta: " + bos.map(function (p) { return p.ad; }).join(", ") + ". Yönetici Asistan iş vermeli."]);
+    var gec = V.aday.filter(function (a) { return a.sonraki_tarih && new Date(a.sonraki_tarih + "T00:00:00") < bugun && ["kazanildi", "kaybedildi"].indexOf(a.asama) < 0; }).length;
+    if (gec) U.push(["sari", gec + " adayın sıradaki adımının tarihi geçti (müşteri hattı)"]);
+    var yeniT = V.talimat.filter(function (t) { return t.durum === "yeni" && simdi() - Date.parse(t.olusturma) > 30 * DK; });
+    if (yeniT.length) U.push(["kirmizi", yeniT.length + " verdiğiniz iş 30 dakikadır alınmadı (Yeni iş ver)"]);
+    $("uyarilar").innerHTML = U.length ? U.map(function (u) { return '<div class="uyari ' + u[0] + '">' + esc(u[1]) + "</div>"; }).join("") : '<div class="uyari yesil">Her şey yolunda görünüyor.</div>';
+    say("n-uyari", U.length, U.some(function (u) { return u[0] === "kirmizi"; }));
+  }
+
+  function cizEkip() {
+    var L = V.ekip.filter(function (p) { return ekipF === "takili" ? takili(p) : !ekipF || p.durum === ekipF; });
+    var c = { calisiyor: 0, bosta: 0, hata: 0 }; V.ekip.forEach(function (p) { if (c[p.durum] != null) c[p.durum]++; });
+    $("ekip-o").textContent = c.calisiyor + " çalışıyor · " + c.bosta + " boşta · " + c.hata + " hata";
+    say("n-ekip", c.calisiyor + "/" + V.ekip.length, c.hata > 0);
+    var RZ = { calisiyor: ["r-cal", "Çalışıyor", "var(--yesil)"], bosta: ["r-bos", "Boşta", "var(--gri)"], hata: ["r-hata", "Hata", "var(--kirmizi)"], kapali: ["r-kap", "Kapalı", "var(--gri)"] };
+    $("ekip").innerHTML = L.length ? L.map(function (p) {
+      var r = RZ[p.durum] || ["r-bos", p.durum, "var(--gri)"], t = takili(p);
+      return '<div class="sat" style="--c:' + (t ? "var(--sari)" : r[2]) + '"><div class="gv"><div class="ba">' + esc(p.ad) + ' <span class="rozet ' + r[0] + '">' + r[1] + "</span>" + (t ? ' <span class="rozet r-dik">⚠ ' + esc(t) + "</span>" : "") + '</div><div class="ac2">' + esc(String(p.rol || "").split("·")[0]) + '</div><div class="me">' + esc(String(p.faaliyet || "").slice(0, 240)) + '</div></div><div class="sg">' + once(p.son) + (p.bugun ? "<br>bugün " + p.bugun : "") + (p.sonraki ? "<br>sıradaki " + saat(p.sonraki).split(" ").slice(-1)[0] : "") + "</div></div>";
+    }).join("") : '<div class="bos">Bu filtrede kimse yok.</div>';
+  }
+
+  function cizHat() {
+    var bugun = new Date(); bugun.setHours(0, 0, 0, 0);
+    var say_ = {}, gec = {}; V.aday.forEach(function (a) { say_[a.asama] = (say_[a.asama] || 0) + 1; if (a.sonraki_tarih && new Date(a.sonraki_tarih + "T00:00:00") <= bugun) gec[a.asama] = (gec[a.asama] || 0) + 1; });
+    var maks = Math.max.apply(null, ASAMA.map(function (a) { return say_[a[0]] || 0; }).concat([1]));
+    $("hat-o").textContent = V.aday.length + " aday";
+    say("n-hat", V.aday.length);
+    $("huni").innerHTML = ASAMA.map(function (a) { var n = say_[a[0]] || 0, renk = a[0] === "kazanildi" ? "var(--yesil)" : a[0] === "kaybedildi" ? "var(--gri)" : "var(--mavi)";
+      return '<div class="h"><span>' + a[1] + (gec[a[0]] && ["kazanildi", "kaybedildi"].indexOf(a[0]) < 0 ? '<br><span class="gec">' + gec[a[0]] + " adım günü geldi</span>" : "") + '</span><div class="cubuk" style="--c:' + renk + '"><i style="width:' + Math.max(n ? 3 : 0, n / maks * 100) + '%"></i></div><span>' + n + "</span></div>"; }).join("");
+    var F = [["gecikmis", "Günü gelen/geçen"], ["sicak", "Görüşme + teklif"], ["son", "Son hareket"]];
+    $("hat-f").innerHTML = F.map(function (f) { return '<button class="cip' + (hatF === f[0] ? " ac" : "") + '" data-f="' + f[0] + '" type="button">' + f[1] + "</button>"; }).join("");
+    var L = V.aday.filter(function (a) { return ["kazanildi", "kaybedildi"].indexOf(a.asama) < 0; });
+    if (hatF === "gecikmis") L = L.filter(function (a) { return a.sonraki_tarih && new Date(a.sonraki_tarih + "T00:00:00") <= bugun; }).sort(function (a, b) { return a.sonraki_tarih < b.sonraki_tarih ? -1 : 1; });
+    else if (hatF === "sicak") L = L.filter(function (a) { return a.asama === "gorusme" || a.asama === "teklif"; }).sort(function (a, b) { return (a.asama === "gorusme" ? 0 : 1) - (b.asama === "gorusme" ? 0 : 1) || (b.guncelleme > a.guncelleme ? 1 : -1); });
+    else L = L.slice().sort(function (a, b) { return b.guncelleme > a.guncelleme ? 1 : -1; });
+    $("hat").innerHTML = L.length ? L.slice(0, hatN).map(function (a) {
+      var gun = a.sonraki_tarih ? Math.round((bugun - new Date(a.sonraki_tarih + "T00:00:00")) / 864e5) : null;
+      var c = a.asama === "gorusme" ? "var(--yesil)" : a.asama === "teklif" ? "var(--mavi)" : gun > 3 ? "var(--kirmizi)" : "var(--sari)";
+      return '<div class="sat" style="--c:' + c + '"><div class="gv"><div class="ba">' + esc(a.isletme || "(adsız)") + ' <span class="rozet">' + esc(ASAMA_AD[a.asama] || a.asama || "–") + '</span></div><div class="ac2">' + esc([a.sektor, a.sehir].filter(Boolean).join(" · ")) + (a.tahmini_tutar ? " · " + tl(a.tahmini_tutar) : "") + '</div><div class="me">Sıradaki: ' + esc(a.sonraki_adim || "yazılmamış") + (/^https?:\/\//.test(a.prototip || "") ? ' · <a href="' + esc(a.prototip) + '" target="_blank" rel="noopener">prototip</a>' : "") + '</div></div><div class="sg">' + (a.sonraki_tarih ? (gun > 0 ? '<span style="color:var(--kirmizi)">' + gun + " gün gecikti</span>" : gun === 0 ? "bugün" : a.sonraki_tarih) : "") + "<br>son hareket " + once(a.guncelleme) + "</div></div>";
+    }).join("") : '<div class="bos">Bu listede aday yok.</div>';
+    $("hat-d").hidden = L.length <= hatN;
+  }
+
+  function cizGelir() {
+    var gercek = V.teklif.filter(function (t) { return !/DENEME/i.test(t.no || ""); });
+    var odendi = gercek.filter(function (t) { return t.durum === "odendi"; });
+    var tahsil = odendi.reduce(function (s, t) { var h = t.hesap || {}; return s + (+h.tek || 0); }, 0);
+    var teklifAday = V.aday.filter(function (a) { return a.asama === "teklif" || a.asama === "gorusme"; });
+    var acik = teklifAday.reduce(function (s, a) { return s + (+a.tahmini_tutar || 0); }, 0);
+    var kaz = V.aday.filter(function (a) { return a.asama === "kazanildi"; }).length;
+    $("gelir").innerHTML = '<div><b>' + odendi.length + '</b><span>ödenen online teklif</span></div><div><b>' + tl(tahsil).replace(" TL", "") + '</b><span>TL ödenen (KDV hariç)</span></div><div><b>' + teklifAday.length + '</b><span>teklif/görüşmedeki aday</span></div><div><b>' + tl(acik).replace(" TL", "") + '</b><span>TL açık teklif (tahmini)</span></div>';
+    $("gelir-l").innerHTML = gercek.map(function (t) { var h = t.hesap || {}; return '<div class="sat" style="--c:' + (t.durum === "odendi" ? "var(--yesil)" : "var(--sari)") + '"><div class="gv"><div class="ba">' + esc(t.no) + ' <span class="rozet">' + esc(t.durum) + '</span></div><div class="ac2">' + esc(h.paket || "") + '</div></div><div class="sg">' + (h.tek ? tl(h.tek) : "") + "<br>" + saat(t.olusturma) + "</div></div>"; }).join("") +
+      '<p class="not-k">Kazanılan müşteri: ' + kaz + '. Fatura ve bekleyen ödeme kaydı henüz tutulmuyor; tasarım raporunda "Gelir modülü" aşamasında eklenecek.</p>';
+  }
+
+  function cizSaglik() {
+    var G = gorevler(), c = { yesil: 0, sari: 0, kirmizi: 0, gri: 0 }; G.forEach(function (g) { c[g.renk]++; });
+    $("saglik-o").textContent = c.yesil + " yeşil · " + c.sari + " sarı · " + c.kirmizi + " kırmızı · " + c.gri + " kapalı";
+    say("n-saglik", c.kirmizi + c.sari ? c.kirmizi + c.sari + " sorun" : "✓", c.kirmizi > 0);
+    var L = saglikF === "sorun" ? G.filter(function (g) { return g.renk === "kirmizi" || g.renk === "sari"; }) : G;
+    $("saglik").innerHTML = L.length ? L.map(function (g) {
+      return '<div class="sat" style="--c:' + RENK[g.renk] + '"><span class="nk"></span><div class="gv"><div class="ba">' + esc(g.ad) + '</div><div class="ac2">' + esc(g.kim.join(", ")) + (g.neden ? " · " + esc(g.neden) : "") + '</div></div><div class="sg">son ' + saat(g.son && !/^1999/.test(g.son) ? g.son : null) + "<br>sıradaki " + saat(g.sonraki) + "</div></div>";
+    }).join("") : '<div class="uyari yesil">Sorunlu görev yok.</div>';
+  }
+
+  function cizTalimat() {
+    var D = { yeni: ["Gönderildi, alınmayı bekliyor", "var(--sari)"], alindi: ["Alındı", "var(--mavi)"], planlandi: ["Planlandı", "var(--mavi)"], tamamlandi: ["Tamamlandı", "var(--yesil)"], iptal: ["İptal", "var(--gri)"] };
+    $("talimatlar").innerHTML = V.talimat.slice(0, 8).map(function (t) { var d = D[t.durum] || [t.durum, "var(--gri)"];
+      return '<div class="sat" style="--c:' + d[1] + '"><div class="gv"><div class="me">' + esc(t.metin) + '</div><div class="ac2">' + esc(d[0]) + (t.hedef_no ? " · " + esc(t.hedef_no) : "") + (t.yanit ? " · " + esc(t.yanit) : "") + '</div></div><div class="sg">' + saat(t.olusturma) + (t.oncelik === 1 ? '<br><span style="color:var(--kirmizi)">ACİL</span>' : "") + "</div></div>"; }).join("");
+  }
+
+  function ciz() { cizUyari(); cizEkip(); cizHat(); cizGelir(); cizSaglik(); cizTalimat();
+    var pn = V.isler.filter(function (x) { return x.durum === "bekliyor"; }).length; $("pn").textContent = pn; $("pn").hidden = !pn;
+    $("son").textContent = "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" }) + " · 30 sn'de bir yenilenir"; }
+
+  var mesgul = false, hataVar = false;
+  async function yukle() {
+    if (mesgul) return; mesgul = true;
+    try {
+      var r = await Promise.all([
+        sb.from("ofis_durum").select("*").order("sira"),
+        sb.from("patron_isler").select("id,tur,baslik,durum,karar_zamani,islenme_zamani,olusturma"),
+        sb.from("adaylar").select("id,isletme,sektor,sehir,asama,sonraki_adim,sonraki_tarih,guncelleme,tahmini_tutar,prototip").limit(2000),
+        sb.from("teklifler").select("no,durum,hesap,olusturma").order("olusturma", { ascending: false }).limit(50),
+        sb.from("patron_talimat").select("*").order("id", { ascending: false }).limit(20)
+      ]);
+      var hatalar = r.filter(function (q) { return q.error; }).map(function (q) { return q.error.message; });
+      if (r[0].error) { $("uyarilar").innerHTML = '<div class="uyari kirmizi">Ofis okunamadı: ' + esc(r[0].error.message) + " (bu hesapla yetkiniz olmayabilir)</div>"; return; }
+      V.ekip = (r[0].data || []).filter(function (p) { return String(p.kod).charAt(0) !== "_"; });
+      V.isler = r[1].data || []; V.aday = r[2].data || []; V.teklif = r[3].data || []; V.talimat = r[4].data || [];
+      ciz();
+      if (hatalar.length && !hataVar) { hataVar = true; toast("Bazı bölümler okunamadı: " + hatalar[0]); }
+    } catch (e) { toast("Bağlantı hatası: " + e.message); } finally { mesgul = false; }
+  }
+
+  $("yeni-f").addEventListener("submit", async function (ev) {
+    ev.preventDefault(); var m = $("yeni-m").value.trim(); if (m.length < 3) { toast("İşi biraz daha açık yazın."); return; }
+    $("yeni-g").disabled = true;
+    var kayit = { metin: m, oncelik: +$("yeni-o").value }; if ($("yeni-t").value) kayit.son_tarih = $("yeni-t").value;
+    var r = await sb.from("patron_talimat").insert(kayit).select("id");
+    $("yeni-g").disabled = false;
+    if (r.error) { toast("Kaydedilemedi: " + r.error.message); return; }
+    $("yeni-m").value = ""; $("yeni-t").value = ""; toast("İş kaydedildi (#" + r.data[0].id + "). Genel Müdür ve Yönetici Asistan alacak."); yukle();
+  });
+  $("ekip-f").addEventListener("click", function (e) { var b = e.target.closest(".cip"); if (!b) return; ekipF = b.dataset.f; Array.prototype.forEach.call(this.children, function (x) { x.classList.toggle("ac", x === b); }); cizEkip(); });
+  $("hat-f").addEventListener("click", function (e) { var b = e.target.closest(".cip"); if (!b) return; hatF = b.dataset.f; hatN = 25; cizHat(); });
+  $("hat-d").onclick = function () { hatN += 25; cizHat(); };
+  $("saglik-f").addEventListener("click", function (e) { var b = e.target.closest(".cip"); if (!b) return; saglikF = b.dataset.f; Array.prototype.forEach.call(this.children, function (x) { x.classList.toggle("ac", x === b); }); cizSaglik(); });
+
+  function basla() { $("yuk").hidden = true; $("giris").hidden = true; $("uyg").hidden = false; yukle(); setInterval(function () { if (!document.hidden) yukle(); }, 30000); document.addEventListener("visibilitychange", function () { if (!document.hidden) yukle(); }); }
+  function girisGoster() { $("yuk").hidden = true; $("giris").hidden = false; }
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın.";
+    if (!r.error) $("kodalan").hidden = false;
+  };
+  $("kodgir").onclick = async function () {
+    var r = await sb.auth.verifyOtp({ email: $("eposta").value.trim(), token: $("kod").value.replace(/\D/g, ""), type: "email" });
+    if (r.error) { $("gmsg").textContent = "Kod olmadı: " + r.error.message; return; }
+    basla();
+  };
+  sb.auth.getSession().then(function (r) { if (r.data.session) basla(); else girisGoster(); });
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>
