@@ -4,8 +4,8 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const sahne = document.getElementById("d3-sahne");
+const renk = (ad, yedek) => { const v = getComputedStyle(document.body).getPropertyValue(ad).trim(); return v || yedek; };
 if (sahne) {
-  const renk = (ad, yedek) => { const v = getComputedStyle(document.body).getPropertyValue(ad).trim(); return v || yedek; };
   let webgl = false;
   try { const c = document.createElement("canvas"); webgl = !!(window.WebGLRenderingContext && (c.getContext("webgl2") || c.getContext("webgl"))); } catch (e) { webgl = false; }
   if (webgl) {
