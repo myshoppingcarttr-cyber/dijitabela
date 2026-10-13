@@ -71,7 +71,7 @@ function bip(){if(!SES)return;try{AC=AC||new (window.AudioContext||window.webkit
 $("#baslat").onclick=()=>{try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch{}$("#giris").hidden=true;$("#ana").hidden=false;yukle();setInterval(yukle,4000);setInterval(sureler,1000);};
 $("#sesBtn").textContent=SES?"🔔 Ses açık":"🔕 Ses kapalı";$("#sesBtn").onclick=()=>{SES=!SES;yaz("bar-ses",SES?"1":"0");$("#sesBtn").textContent=SES?"🔔 Ses açık":"🔕 Ses kapalı";if(SES)bip();};
 $("#sube").onchange=e=>{SUBE=e.target.value;IMZA="";yaz("bar-sube-"+TOKEN,SUBE);GORULEN=new Set();ILK=true;yukle();};
-async function yukle(ek){try{VERI=await rpc(Object.assign({sube:SUBE},ek||{}));$("#canli").textContent="● canlı";$("#canli").classList.remove("kop");ciz();}catch(e){$("#canli").textContent="● bağlantı yok";$("#canli").classList.add("kop");if(/Geçersiz/.test(e.message)){document.body.innerHTML='<div class="giris"><b>Geçersiz bar linki</b>Dijitabela: 0538 676 57 27</div>';}}}
+async function yukle(ek){try{VERI=await rpc(Object.assign({sube:SUBE},ek||{}));$("#canli").textContent="● canlı";$("#canli").classList.remove("kop");ciz();}catch(e){$("#canli").textContent="● bağlantı yok";$("#canli").classList.add("kop");if(/Geçersiz/.test(e.message)){document.body.innerHTML='<div class="giris"><b>Geçersiz bar linki</b>Dijitabela: 0501 945 21 84</div>';}}}
 function ciz(){$("#isletme").textContent=VERI.isletme;document.title=VERI.isletme+" · Bar";
  if(!$("#sube").options.length){$("#sube").innerHTML=`<option value="">Şube seçin</option>`+VERI.subeler.map(s=>`<option value="${s.id}">${esc(s.ad)}</option>`).join("");}
  if(!SUBE){const b=VERI.subeler.find(s=>s.ad==="Bestekar")||VERI.subeler[0];SUBE=b.id;yaz("bar-sube-"+TOKEN,SUBE);return yukle();}
@@ -100,6 +100,6 @@ $("#kKod").onkeydown=e=>{if(e.key==="Enter")$("#kBul").click();};
 $("#tukBtn").onclick=()=>{$("#cekmece").hidden=false;tukCiz();};
 function tukCiz(){if($("#cekmece").hidden||!VERI)return;$("#tkListe").innerHTML=VERI.urunler.map(u=>`<div class="tk"><div>${esc(u.ad)}<small>${esc(u.kategori)}</small></div><button class="${u.tukendi?"yok":""}" data-u="${u.id}" data-v="${u.tukendi?0:1}">${u.tukendi?"Tükendi · aç":"Var · kapat"}</button></div>`).join("");
  $$("#tkListe button").forEach(b=>b.onclick=()=>{b.disabled=true;yukle({urun:b.dataset.u,tukendi:b.dataset.v==="1"});});}
-if(!/^[0-9a-f-]{36}$/.test(TOKEN))document.body.innerHTML='<div class="giris"><b>Geçersiz bar linki</b>Dijitabela: 0538 676 57 27</div>';
+if(!/^[0-9a-f-]{36}$/.test(TOKEN))document.body.innerHTML='<div class="giris"><b>Geçersiz bar linki</b>Dijitabela: 0501 945 21 84</div>';
 </script>
 <script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>

@@ -120,7 +120,7 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
     <h2>💼 İşler ve kâr <small id="is-o"></small></h2>
     <div class="renkler"><span class="kar kirmizi">%15 altı</span><span class="kar yesil">%15-40</span><span class="kar mavi">%40 üstü</span></div>
     <div id="isler"></div>
-    <p class="alt-b" style="margin-top:8px">Maliyet = saat × saatlik sabit + doğrudan + teklif × komisyon% + (faturalıysa) ödenecek KDV + teklif × taksit%. Teklif, müşterinin ödediği KDV dahil tutar kabul edilir; saat etiketi TAHMİN ya da ÖLÇÜM.</p>
+    <p class="alt-b" style="margin-top:8px">Maliyet = saat × saatlik sabit + doğrudan + teklif × komisyon% + (faturalıysa) ödenecek KDV + teklif × taksit%. teklif_fiyat müşterinin ödediği KDV DAHİL tutardır; KDV hariç sütunu faturalı işlerde teklif ÷ (1+KDV). KDV maliyete yalnız bir kez girer; saat etiketi TAHMİN ya da ÖLÇÜM.</p>
   </section>
   <p class="kredi">Tasarım: <a href="https://dijitabela.com">Dijitabela · dijitabela.com</a></p>
 </div>
@@ -144,7 +144,7 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
   var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var sayi = function (x, o) { return Number(x || 0).toLocaleString("tr-TR", { minimumFractionDigits: o == null ? 2 : o, maximumFractionDigits: o == null ? 2 : o }); };
   var tl = function (x) { return sayi(x, 0) + " TL"; };
-  var sb = null, G = [], I = [], AYAR = { kapasite_saat: 300 }, CEVRIMDISI = false, kaydediliyor = false;
+  var sb = null, G = [], I = [], AYAR = { kapasite_saat: 800 }, CEVRIMDISI = false, kaydediliyor = false;
 
   /* Ölçülen işçi-saat (RAPORLAR\ISCI-SAAT-7GUN-1014.md, 13 Eki 2026 23:57; yalnız Lenovo calistir.ps1 log'ları: ana PC ve alt ajanlar HARİÇ) */
   var OLCUM = { isci7: 124.8, duvar7: 65.4, isciAy7: 535, duvarAy7: 280, isciAy2: 1318, tarih: "13 Eki 2026" };
@@ -170,7 +170,7 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
   function hata(m) { var u = $("uyari"); u.hidden = !m; u.textContent = m || ""; }
 
   function ciz() {
-    var kap = parseFloat($("kap").value); if (!(kap > 0)) kap = Number(AYAR.kapasite_saat) || 300;
+    var kap = parseFloat($("kap").value); if (!(kap > 0)) kap = Number(AYAR.kapasite_saat) || 800;
     var top = M.toplamSabit(G), saatlik = M.saatlikSabit(top, kap), teyitli = G.filter(function (g) { return g.teyit === "TEYİTLİ"; }).length;
     $("g-toplam").textContent = tl(top);
     $("g-teyit").textContent = teyitli + " teyitli, " + (G.length - teyitli) + " teyit bekliyor" + (AYAR.usd_try ? " · USD " + sayi(AYAR.usd_try, 2) : "");
@@ -193,22 +193,22 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
     var satir = I.map(function (i) {
       var h = M.isHesap(i, saatlik), ke = h.renk;
       return "<tr><td class='bas' data-e='Müşteri'>" + esc(i.musteri) + "<span class='alt'>" + esc(i.platform || "") + " · " + esc(i.durum) + (i.fatura ? " · faturalı" : "") + "</span></td>" +
-        "<td class='s m' data-e='Teklif'>" + tl(h.teklif) + "</td>" +
+        "<td class='s m' data-e='Teklif KDV hariç'>" + tl(h.kdvHaric) + "</td><td class='s m' data-e='Teklif KDV dahil'>" + tl(h.kdvDahil) + "</td>" +
         "<td class='s' data-e='Saat'>" + sayi(h.saat, 1) + " sa <span class='et " + (h.saatTur === "ÖLÇÜM" ? "ty" : "tt") + "'>" + h.saatTur + "</span></td>" +
         "<td class='s m' data-e='Maliyet'>" + tl(h.maliyet) + "<span class='alt'>sabit " + tl(h.sabitPay) + " · diğer " + tl(h.degisken) + "</span></td>" +
         "<td class='s m net " + ke + "' data-e='Net kâr'>" + tl(h.net) + "</td>" +
         "<td class='s' data-e='Kâr %'><span class='kar " + ke + "'>%" + sayi(h.karPct, 1) + "</span></td></tr>";
     }).join("");
-    $("isler").innerHTML = I.length ? "<table><thead><tr><th>Müşteri</th><th class='s'>Teklif</th><th class='s'>Saat</th><th class='s'>Maliyet</th><th class='s'>Net kâr</th><th class='s'>Kâr %</th></tr></thead><tbody>" + satir + "</tbody></table>" : "<div class='bos'>Henüz iş kaydı yok. Furkan teklifleri is_maliyet tablosuna ekleyince burada görünür.</div>";
+    $("isler").innerHTML = I.length ? "<table><thead><tr><th>Müşteri</th><th class='s'>Teklif KDV hariç</th><th class='s'>Teklif KDV dahil</th><th class='s'>Saat</th><th class='s'>Maliyet</th><th class='s'>Net kâr</th><th class='s'>Kâr %</th></tr></thead><tbody>" + satir + "</tbody></table>" : "<div class='bos'>Henüz iş kaydı yok. Furkan teklifleri is_maliyet tablosuna ekleyince burada görünür.</div>";
     $("is-o").textContent = I.length + " iş";
 
-    $("olcum").innerHTML = "<b>Ölçüm (kapasite önerisi):</b> son 7 günde Lenovo'daki otomasyon çalışmaları toplam <b>" + sayi(OLCUM.isci7, 1) + " işçi-saat</b> (" + sayi(OLCUM.duvar7, 1) + " duvar saati) tuttu; aynı hızla ayda ~<b>" + OLCUM.isciAy7 + "</b> işçi-saat (duvar saati: ~" + OLCUM.duvarAy7 + "). Son 2 gün tam kadroyla ~" + OLCUM.isciAy2 + " işçi-saat/ay hızında. Sabit gider duvar saatine bölünecekse 300 makul; işçi-saate bölünecekse 535 ile 1.318 arası. Ana PC ve alt ajan çalışmaları ölçülemedi, gerçek değer daha yüksektir. Ayrıntı: RAPORLAR\\ISCI-SAAT-7GUN-1014.md (" + OLCUM.tarih + ").";
+    $("olcum").innerHTML = "<b>Ölçüm (kapasite önerisi):</b> Lenovo ~535-1.318 işçi-saat/ay (son 7 gün: " + sayi(OLCUM.isci7, 1) + " işçi-saat, " + sayi(OLCUM.duvar7, 1) + " duvar saati; son 2 gün tam kadroyla ~" + OLCUM.isciAy2 + "/ay hızında) + ana PC ölçülmedi. Varsayılan kapasite 800 işçi-saat/ay. Alt ajan ve etkileşimli oturumlar da ölçülemedi, gerçek değer daha yüksektir. Ayrıntı: RAPORLAR\ISCI-SAAT-7GUN-1014.md (" + OLCUM.tarih + ").";
     var tamKaynak = AYAR.guncelleme ? new Date(AYAR.guncelleme).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
     $("son").textContent = (DEMO ? "Örnek veri" : CEVRIMDISI ? "ÇEVRİMDIŞI (yerel yedek değerler)" : "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })) + (AYAR.usd_try_kaynak ? " · Kur: " + AYAR.usd_try_kaynak : "") + (tamKaynak ? "" : "");
   }
 
   async function yukle() {
-    if (DEMO) { G = DEMO_G; I = DEMO_I; AYAR = { kapasite_saat: 300, usd_try: 49.3681, usd_try_kaynak: "TCMB (örnek)" }; $("demo-b").hidden = false; $("kap").value = AYAR.kapasite_saat; $("kap-kaydet").disabled = true; ciz(); return; }
+    if (DEMO) { G = DEMO_G; I = DEMO_I; AYAR = { kapasite_saat: 800, usd_try: 49.3681, usd_try_kaynak: "TCMB (örnek)" }; $("demo-b").hidden = false; $("kap").value = AYAR.kapasite_saat; $("kap-kaydet").disabled = true; ciz(); return; }
     try {
       var r = await Promise.all([sb.from("sabit_giderler").select("*").order("id"), sb.from("is_maliyet").select("*").order("id", { ascending: false }), sb.from("maliyet_ayar").select("*").eq("id", 1).maybeSingle()]);
       var e = r[0].error || r[1].error || r[2].error;

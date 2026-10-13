@@ -3,7 +3,7 @@ window.AJANS = {
   marka: "Dijitabela",                // marka kitabı: marka/index.html
   slogan: "Yerel işletmeler için web, yazılım ve yapay zekâ",
   sahip: "Alim Hoşlar",
-  telefon: "0538 676 57 27",     // 14 Eki #42: ana hat 0538
+  telefon: "0501 945 21 84",     // 14 Eki: ana arama hattı 0501 (WhatsApp randevu hattı 0538)
   whatsapp: "905386765727",
   telefon2: "",          // 9 Eki: 0538 resmî WhatsApp hattı (7/24 asistan + ücretsiz taslak düğmesi)
   whatsapp2: "",

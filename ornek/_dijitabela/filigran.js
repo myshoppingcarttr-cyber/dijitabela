@@ -1,7 +1,7 @@
 /* Dijitabela marka filigranı (Patron 11 Eki 2026, KALICI KURAL): ürettiğimiz her şeyin arka planında
-   Dijitabela adının varyasyonları görünsün (dijitabela.com.tr · Dijitabela · Diji Tabela · Dijital Tabela · DJ Tabela · dijitabela.com).
+   Dijitabela adının varyasyonları görünsün (dijitabela.com · Dijitabela · Diji Tabela · Dijital Tabela · DJ Tabela · www.dijitabela.com).
    - Desen SVG ARKA PLAN GÖRSELİ olarak çizilir (DOM'da metin değil): Google "gizli metin" spam kuralına girmez, aramada ceza riski yok.
-   - Sayfaların altına GÖRÜNÜR "Tasarım: Dijitabela · dijitabela.com.tr" bağlantısı eklenir (markanın arama motorunca tanınmasını sağlayan asıl kısım).
+   - Sayfaların altına GÖRÜNÜR "Tasarım: Dijitabela · dijitabela.com" bağlantısı eklenir (markanın arama motorunca tanınmasını sağlayan asıl kısım).
    Kullanım: <script src=".../filigran.js" data-gucu="0.05" data-kredi="1"></script>
      data-gucu  : desen saydamlığı (site 0.04 varsayılan; video sahnesi 0.07)
      data-kredi : "0" ise altbilgi bağlantısı eklenmez (video/görsel sahneleri)
@@ -11,7 +11,7 @@
   if (window.DJ_FILIGRAN === false || window.__djFiligran) return; window.__djFiligran = true;
   var s = document.currentScript || {}, ds = (s.dataset || {});
   var guc = parseFloat(ds.gucu || "0.045"), kredi = ds.kredi !== "0";
-  var ADLAR = ["dijitabela.com.tr", "Dijitabela", "Diji Tabela", "Dijital Tabela", "DJ Tabela", "dijitabela.com", "DİJİTABELA"]; // Türkçe harfler \u kaçışıyla: dosya hangi karakter kodlamasıyla sunulursa sunulsun bozulmaz
+  var ADLAR = ["dijitabela.com", "Dijitabela", "Diji Tabela", "Dijital Tabela", "DJ Tabela", "www.dijitabela.com", "DİJİTABELA"]; // Türkçe harfler \u kaçışıyla: dosya hangi karakter kodlamasıyla sunulursa sunulsun bozulmaz
   function renk() {
     if (ds.renk) return ds.renk;
     try { var c = getComputedStyle(document.body).backgroundColor.match(/\d+/g); if (c && c.length >= 3) { var l = (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]); if (c[3] === "0") l = 255; return l < 128 ? "#ffffff" : "#111827"; } } catch (e) {}

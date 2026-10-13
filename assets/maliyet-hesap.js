@@ -5,6 +5,7 @@
 //   iş maliyeti = saat x saatlik + doğrudan maliyet + teklif x komisyon% + (fatura varsa ödenecek KDV) + teklif x taksit%
 //   net kâr = teklif - maliyet ; kâr % = net / teklif
 //   ödenecek KDV = teklif x kdv/(1+kdv)  (teklif müşterinin ödediği KDV dahil tutar kabul edilir; fatura yoksa 0). VARSAYIM, Patron teyidi gerekir.
+//   Teklif iki biçimde gösterilir: kdvDahil = teklif_fiyat; kdvHaric = faturalıysa teklif/(1+kdv), faturasızsa teklif. KDV maliyete yalnız BİR kez girer (teklif x kdv/(1+kdv)).
 //   saat = ölçüm varsa saat_gercek, yoksa saat_tahmin.
 //   Renk: %15 altı kırmızı, %15-40 yeşil, %40 üstü mavi.
 //   Aylık başa baş: bu ay kazanılan (durum ödendi/kazanıldı) işlerin KATKI payı (teklif - doğrudan - komisyon - KDV - taksit; sabit pay HARİÇ,
@@ -12,7 +13,7 @@
 (function (kok) {
   // Bağlantı yoksa kullanılan yerel yedek (Patron TEYİTLİ değerleri, 14 Eki 2026; USD kuru TCMB 13.10.2026 satış 49,3681).
   var YEDEK = {
-    kapasite_saat: 300, usd_try: 49.3681, usd_try_kaynak: "yerel yedek: TCMB 13.10.2026 USD satış",
+    kapasite_saat: 800, usd_try: 49.3681, usd_try_kaynak: "yerel yedek: TCMB 13.10.2026 USD satış",
     giderler: [
       { kalem: "Elektrik", aylik_tl: 3000, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı 14 Eki 2026" },
       { kalem: "İnternet", aylik_tl: 1100, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı 14 Eki 2026" },
@@ -36,7 +37,8 @@
     var kdvO = n(is.kdv_yuzde), kdv = is.fatura ? teklif * kdvO / (100 + kdvO) : 0, taksit = teklif * n(is.taksit_yuzde) / 100;
     var degisken = dogrudan + komisyon + kdv + taksit, maliyet = sabitPay + degisken, net = teklif - maliyet;
     var karPct = teklif > 0 ? net / teklif * 100 : 0;
-    return { teklif: teklif, saat: saat, saatTur: olcum ? "ÖLÇÜM" : "TAHMİN", sabitPay: sabitPay, dogrudan: dogrudan, komisyon: komisyon, kdv: kdv, taksit: taksit,
+    var kdvHaric = is.fatura ? teklif / (1 + kdvO / 100) : teklif;
+    return { teklif: teklif, kdvDahil: teklif, kdvHaric: kdvHaric, saat: saat, saatTur: olcum ? "ÖLÇÜM" : "TAHMİN", sabitPay: sabitPay, dogrudan: dogrudan, komisyon: komisyon, kdv: kdv, taksit: taksit,
       degisken: degisken, maliyet: maliyet, net: net, karPct: karPct, katki: teklif - degisken, renk: teklif > 0 ? renk(karPct) : "yok" };
   }
   function ayIci(t, simdi) { if (!t) return false; var d = new Date(t), s = simdi || new Date(); return d.getFullYear() === s.getFullYear() && d.getMonth() === s.getMonth(); }

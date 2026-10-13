@@ -12,6 +12,7 @@ button{font-family:inherit}
 .ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;color:#fff}
 .ust h1{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-right:4px}.ust h1 span{color:var(--sari)}
 .rozet{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);padding:5px 11px;border-radius:99px;font-size:13px;font-weight:700;color:#fff}
+.rozet-isci{background:rgba(23,178,106,.14);border-color:rgba(23,178,106,.45);white-space:normal;line-height:1.3}
 .rozet i{width:8px;height:8px;border-radius:50%;display:inline-block}
 .ust .sag{margin-left:auto;display:flex;gap:8px}
 .dug{color:#cbd5e1;font-weight:700;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.2);background:none;padding:7px 12px;border-radius:10px;cursor:pointer}
@@ -254,7 +255,7 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
 @media(prefers-reduced-motion:reduce){body.gece .isik.yanik{animation:none}}
 </style>
 </head><body>
-<div class="ust"><h1>Dijitabela <span>Canlı Ofis</span></h1><span class="rozet" id="r-cal"><i style="background:#17b26a"></i>– çalışıyor</span><span class="rozet" id="r-bos"><i style="background:#9aa1ae"></i>– boşta</span><span class="rozet" id="r-hata"><i style="background:#e5322d"></i>– hata</span><span class="rozet" id="r-saat">–</span><span class="sag"><a class="dug" href="ofis-yonetim.html">🧭 Yönetim</a><a class="dug dug-patron" id="patron-link" href="ofis-patron.html">Benim işlerim<b id="patron-n" hidden></b></a><button class="dug" id="tam" type="button">⛶ Tam ekran</button><a class="dug" href="ofis.html">Liste görünümü →</a></span></div>
+<div class="ust"><h1>Dijitabela <span>Canlı Ofis</span></h1><span class="rozet" id="r-cal"><i style="background:#17b26a"></i>– çalışıyor</span><span class="rozet rozet-isci" id="r-isci" title="Lenovo: işçi PID'leri · ana PC: ARGE kuyruğu − BITTI farkı (tahmin) · erime: son 2 saatte biten iş hızı">⚙️ işçi sayısı hesaplanıyor…</span><span class="rozet" id="r-hata"><i style="background:#e5322d"></i>– hata</span><span class="rozet" id="r-saat">–</span><span class="sag"><a class="dug" href="ofis-yonetim.html">🧭 Yönetim</a><a class="dug dug-patron" id="patron-link" href="ofis-patron.html">Benim işlerim<b id="patron-n" hidden></b></a><button class="dug" id="tam" type="button">⛶ Tam ekran</button><a class="dug" href="ofis.html">Liste görünümü →</a></span></div>
 <div id="gir" hidden><div class="sim">🏢</div><h2>Canlı ofis için giriş gerekli</h2><p>Bu tarayıcıda ofis oturumu açık değil. E-postanıza gelen kodla bir kez giriş yapın; sonra bu pencere doğrudan açılır.</p><a href="ofis.html">Ofis girişi →</a></div>
 <div class="duzen" id="duzen" hidden>
   <div class="sahne-kap" id="kap"><div class="sahne" id="sahne"></div>
@@ -265,9 +266,9 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
   </div>
   <div class="yan">
     <div class="kutu" id="sohbet-kutu"><button type="button" class="sohbet-tut" id="sohbet-tut" aria-expanded="false" aria-controls="sohbet"><span>💬 Ekip sohbeti <b id="sohbet-n" hidden></b></span><span id="sohbet-ok">▲</span></button><h2>Ekip sohbeti</h2><div id="sohbet"></div></div>
-    <div class="kutu"><h2>Bugün</h2><div class="ozet"><div><b id="o-is">0</b><span>tamamlanan iş</span></div><div class="yesil"><b id="o-cal">0</b><span>şu an çalışan</span></div><div><b id="o-bos">0</b><span>boşta</span></div><div class="kirmizi"><b id="o-hata">0</b><span>hata</span></div></div><div class="yildiz-satir" id="yildiz" hidden></div></div>
+    <div class="kutu"><h2>Bugün</h2><div class="ozet"><div><b id="o-is">0</b><span>tamamlanan iş</span></div><div class="yesil"><b id="o-cal">0</b><span>şu an çalışan</span></div><div><b id="o-bos">0</b><span>gerçek boşta</span></div><div class="kirmizi"><b id="o-hata">0</b><span>hata</span></div></div><div class="yildiz-satir" id="yildiz" hidden></div></div>
     <div class="kutu"><h2>Departmanlar</h2><div class="dep" id="dep"></div></div>
-    <div class="kutu"><h2>Ekip <span id="ekip-say" style="letter-spacing:0"></span></h2><input class="ara" id="ara" type="search" placeholder="İsim ya da görev ara…" autocomplete="off"><div class="cipler" id="ekip-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="calisiyor">Çalışan</button><button class="cip" data-f="bosta">Boşta</button><button class="cip" data-f="hata">Hata</button></div><div class="ekip" id="ekip"></div></div>
+    <div class="kutu"><h2>Ekip <span id="ekip-say" style="letter-spacing:0"></span></h2><input class="ara" id="ara" type="search" placeholder="İsim ya da görev ara…" autocomplete="off"><div class="cipler" id="ekip-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="calisiyor">Çalışan</button><button class="cip" data-f="bosta">Sırada/Boşta</button><button class="cip" data-f="hata">Hata</button></div><div class="ekip" id="ekip"></div></div>
     <div class="kutu"><h2>Canlı olaylar</h2><div class="cipler" id="olay-f"><button class="cip ac" data-f="">Hepsi</button><button class="cip" data-f="is">Biten işler</button><button class="cip" data-f="hata">Hatalar</button></div><div class="akis" id="akis"></div></div>
     <details class="kutu"><summary>Nasıl okunur?</summary><div class="anahtar">
       <div><i style="background:#17b26a;box-shadow:0 0 0 3px rgba(23,178,106,.3)"></i>Yeşil halka: masasında çalışıyor, ekranı yanıyor</div>
@@ -414,10 +415,25 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
       TOP = null; clearInterval(TOP_T); TOP_T = null; Object.keys(KISI).forEach(function (kod) { masayaDon(kod).then(function () { KISI[kod].mesgul = false; }); });
     }
   }
+  /* 14 Eki (Efe, Patron onayı): yanıltıcı "boşta" sayacı yerine canlı işçi/kuyruk göstergesi. Veri: ofis_durum "_ozet" satırının detay'ı (ofis-senkron.js her dakika yazar). */
+  var OZET = null;
+  function ozetGuncelle(r) {
+    var d = r && r.detay; if (typeof d === "string") { try { d = JSON.parse(d); } catch (e) { d = null; } }
+    OZET = d && d.a != null ? d : null; var el = $("r-isci"); if (!el) return;
+    if (!OZET) { el.textContent = "⚙️ işçi verisi bekleniyor…"; return; }
+    var z = OZET.z == null ? "hesaplanamıyor" : (OZET.z > 99 ? "99+" : String(OZET.z).replace(".", ",")) + " saat";
+    el.textContent = "⚙️ " + (OZET.a + OZET.b) + " işçi çalışıyor (Lenovo " + OZET.a + " / ana PC " + OZET.b + ") · 📥 " + OZET.y + " iş sırada · ⏱ tahmini erime " + z;
+  }
+  /* masa etiketi: işi sırada olan personel "Boşta" değil "Sırada (#n)" (n = BASLAT sırası) */
+  function durumAd(r) {
+    var d = DURUM_AD[r.durum] || [r.durum, "#999"], n = r.durum === "bosta" && OZET && OZET.sira ? OZET.sira[r.kod] : 0;
+    return n ? ["Sırada (#" + n + ")", d[1]] : d;
+  }
   var SON = [], TOPLAM_ONCE = null;
   function isle(satirlar) {
     toplantiGuncelle(satirlar.filter(function (r) { return r.kod === "_toplanti"; })[0]);
-    satirlar = satirlar.filter(function (r) { return String(r.kod).charAt(0) !== "_"; });
+    ozetGuncelle(satirlar.filter(function (r) { return r.kod === "_ozet"; })[0]);
+    satirlar =satirlar.filter(function (r) { return String(r.kod).charAt(0) !== "_"; });
     var say = { calisiyor: 0, bosta: 0, hata: 0 };
     satirlar.forEach(function (r, i) {
       if (!KISI[r.kod]) kisiKur(r, i);
@@ -433,8 +449,8 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
     if (ilk) { satirlar.filter(function (r) { return r.faaliyet; }).sort(function (a, b) { return String(b.son || "").localeCompare(String(a.son || "")); }).slice(0, 8).reverse().forEach(function (r) { olay(r, kisalt(r.faaliyet, 90), r.son); }); }
     ilk = false; SON = satirlar;
     var toplam = satirlar.reduce(function (t, r) { return t + (r.bugun || 0); }, 0), enCok = satirlar.reduce(function (m, r) { return Math.max(m, r.bugun || 0); }, 0);
-    $("o-is").textContent = toplam; $("o-cal").textContent = say.calisiyor || 0; $("o-bos").textContent = say.bosta || 0; $("o-hata").textContent = say.hata || 0;
-    $("r-cal").lastChild.textContent = " " + say.calisiyor + " çalışıyor"; $("r-bos").lastChild.textContent = " " + (say.bosta || 0) + " boşta"; $("r-hata").lastChild.textContent = " " + (say.hata || 0) + " hata";
+    $("o-is").textContent = toplam; $("o-cal").textContent = say.calisiyor || 0; $("o-bos").textContent = OZET ? (OZET.gercek_bosta || []).length : (say.bosta || 0); $("o-hata").textContent = say.hata || 0;
+    $("r-cal").lastChild.textContent = " " + say.calisiyor + " çalışıyor"; $("r-hata").lastChild.textContent = " " + (say.hata || 0) + " hata";
     // masa çubukları, yıldız
     var yildiz = enCok > 0 ? satirlar.filter(function (r) { return (r.bugun || 0) === enCok; })[0] : null;
     satirlar.forEach(function (r) { var K = KISI[r.kod]; if (!K) return; if (K.masa) K.masa.querySelector(".ilerleme i").style.width = (enCok ? Math.round(100 * (r.bugun || 0) / enCok) : 0) + "%"; K.el.classList.toggle("yildiz-k", !!yildiz && yildiz.kod === r.kod); });
@@ -464,7 +480,7 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
     var L = SON.filter(function (r) { return (!EKIP_F || r.durum === EKIP_F) && (!q || (r.ad + " " + (r.rol || "") + " " + (r.faaliyet || "")).toLocaleLowerCase("tr").indexOf(q) >= 0); });
     $("ekip-say").textContent = L.length + "/" + SON.length;
     e.innerHTML = L.length ? L.sort(function (a, b) { return (sira[a.durum] - sira[b.durum]) || ((b.bugun || 0) - (a.bugun || 0)); }).map(function (r) {
-      var d = DURUM_AD[r.durum] || [r.durum, "#999"];
+      var d = durumAd(r);
       return '<button class="uye' + (r.durum === "kapali" ? " kapali" : "") + (SECILI === r.kod ? " secili" : "") + '" data-kod="' + r.kod + '" style="--d:' + d[1] + '"><span class="av" style="background:' + (RENK[r.kod] || "#555") + '">' + (SIMGE[r.kod] || "") + '</span><span class="ne"><b>' + yaz(r.ad) + '</b><small>' + d[0] + (r.faaliyet ? " · " + yaz(kisalt(r.faaliyet, 48)) : "") + '</small></span><span class="sy" title="bugün">' + (r.bugun || 0) + "</span></button>";
     }).join("") : '<div class="bosliste">Eşleşen kişi yok.</div>';
   }
@@ -567,7 +583,7 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
   function ipucuGuncelle(e) {
     var ip = $("ipucu"), k = e.target.closest && e.target.closest(".kisi");
     if (!k || e.pointerType === "touch") { ip.classList.remove("gor"); return; }
-    var r = DURUM[k.getAttribute("data-kod")]; if (!r) return; var d = DURUM_AD[r.durum] || [r.durum];
+    var r = DURUM[k.getAttribute("data-kod")]; if (!r) return; var d = durumAd(r);
     ip.innerHTML = "<b>" + yaz(r.ad) + "</b> · " + d[0] + "<small>" + yaz(kisalt(r.faaliyet || r.rol || "", 80)) + "</small><small>Bugün " + (r.bugun || 0) + " iş</small>";
     ip.style.left = Math.min(e.clientX + 14, innerWidth - 250) + "px"; ip.style.top = (e.clientY + 16) + "px"; ip.classList.add("gor");
   }
@@ -612,6 +628,8 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
     var ADLAR = { gm: "Kaan · Genel Müdür", yonetici: "Yönetici Asistan", selin: "Selin", murat: "Murat", kerem: "Kerem", deniz: "Deniz", can: "Can", ece: "Ece", arda: "Arda", zeynep: "Zeynep", elif: "Elif", mustafa: "Mustafa", defne: "Defne", ozan: "Ozan", ceren: "Ceren", burcu: "Burcu", furkan: "Furkan", nehir: "Nehir", emre: "Emre", bora: "Bora", tuna: "Tuna", mert: "Mert", efe: "Efe", ayaz: "Ayaz", inci: "İnci", melis: "Melis", derya: "Derya" };
     var veri = Object.keys(ADLAR).map(function (k, i) { return { kod: k, ad: ADLAR[k], rol: "Tanıtım", durum: i % 3 ? "bosta" : "calisiyor", bugun: i, faaliyet: "Tanıtım faaliyeti " + i, son: new Date().toISOString() }; });
     veri[20].durum = "kapali";
+    var dSira = {}; Object.keys(ADLAR).forEach(function (k, i) { if (i % 5 !== 4) dSira[k] = i + 1; });
+    veri.push({ kod: "_ozet", ad: "Canlı özet", durum: "ozet", detay: { a: 2, b: 1, y: 37, z: 4.4, sira: dSira, gercek_bosta: ["ece", "bora", "defne"] } });
     basla(function () { veri.forEach(function (r) { if (r.durum === "kapali") return; var z = Math.random(); if (z < 0.2) r.durum = r.durum === "calisiyor" ? "bosta" : "calisiyor"; if (z > 0.85) r.bugun++; if (z > 0.97 && r.kod !== "ozan") r.durum = "hata"; }); isle(veri.map(function (r) { return Object.assign({}, r); })); });
     return;
   }
