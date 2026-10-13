@@ -1,7 +1,7 @@
 /* Antalya Üniversite Kuru Temizleme ve Çamaşır Evi · kuru temizleme sayfası · ortak model (3 yerleşim aynı motoru kullanır).
    Kaynak işletme bilgisi: RAPORLAR/KEREM-ADAY-1013.md (local.gen.tr; Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya; 0242 226 33 33).
    Fiyatlar, süreler, listeler ve kayıtlar ÖRNEKTİR. Hiçbir form gönderim yapmaz. Dijitabela taslağı. */
-window.ISL={"ad":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","slug":"antalya-universite-kuru-temizleme-ve-camasir-evi","adres":"Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","tel":"0242 226 33 33","telH":"+902422263333","wa":null,"kaynak":"https://local.gen.tr/antalya/antalya-universite-kuru-temizleme-ve-camasir-evi-laundry-and-dry-cleaning/","haritaSorgu":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","carpan":1,"kodOn":"UNI","tur":"karma","kisa":"Üniversite","fiyatli":false,"fotolar":[{"dosya":"f1.webp","yazar":"Sgroey","lisans":"CC BY-SA 4.0"},{"dosya":"f2.webp","yazar":"Larry D. Moore","lisans":"CC BY 4.0"},{"dosya":"f3.webp","yazar":"Kotivalo","lisans":"CC BY-SA 4.0"}]};
+window.ISL={"ad":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","slug":"antalya-universite-kuru-temizleme-ve-camasir-evi","adres":"Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","tel":"0242 226 33 33","telH":"+902422263333","wa":null,"kaynak":"https://local.gen.tr/antalya/antalya-universite-kuru-temizleme-ve-camasir-evi-laundry-and-dry-cleaning/","haritaSorgu":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","carpan":1,"kodOn":"UNI","tur":"karma","kisa":"Üniversite","fiyatli":false,"fotolar":[{"dosya":"gercek-1.webp","yazar":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","lisans":"işletmenin kendi görseli","ac":"Üniversite Kuru Temizleme Çamaşır Evi ve Terzi cephesi"}],"gercek":true};
 (function () {
   "use strict";
   var B = window.ISL;
@@ -65,6 +65,11 @@ window.ISL={"ad":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","slug":"
     var l = B.ek.filter(function (f) { return !secim || secim.indexOf(f.id) > -1; });
     el.innerHTML = l.map(function (f) { return '<article class="ek-k" data-ek="' + f.id + '"' + (el.hasAttribute("data-rvk") ? " data-rv" : "") + '><span class="ek-et">' + f.et + '</span><h3>' + f.ad + '</h3><p class="ek-ac">' + f.ac + '</p><div class="ek-ic">' + f.html() + '</div></article>'; }).join("");
     l.forEach(function (f) { var a = el.querySelector('[data-ek="' + f.id + '"]'); try { f.bagla(a); } catch (e) { console.error(e); } ["click", "input", "change", "keydown"].forEach(function (t) { a.addEventListener(t, function (e) { e.stopPropagation(); }); }); });
+  };
+  B.galeriCiz = function (el) {
+    if (!el) return; var F = (B.fotolar || []); if (!B.gercek) { el.innerHTML = ""; return; }
+    el.innerHTML = F.map(function (f, i) { return '<button data-gi="' + i + '" aria-label="Büyüt: ' + B.kac(f.ac || "") + '"><img src="../img/' + f.dosya + '" alt="' + B.kac(f.ac || "") + '" loading="lazy"><figcaption>' + B.kac(f.ac || "") + '</figcaption></button>'; }).join("");
+    el.onclick = function (e) { var b = e.target.closest("[data-gi]"); if (!b) return; e.stopPropagation(); var f = F[+b.dataset.gi], d = document.createElement("div"); d.className = "ek-lb"; d.innerHTML = '<div><img src="../img/' + f.dosya + '" alt=""><p>' + B.kac(f.ac || "") + ' · işletmenin kendi fotoğrafı</p></div>'; d.onclick = function () { d.remove(); }; document.body.appendChild(d); B.iz("galeri"); };
   };
   B.damgaCiz = function (a, anahtar, toplam, etiket) {
     var n = B.oku(anahtar, 3), k = a.querySelector(".damga");

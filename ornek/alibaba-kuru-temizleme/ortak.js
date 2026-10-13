@@ -1,7 +1,7 @@
 /* Alibaba Kuru Temizleme · kuru temizleme sayfası · ortak model (3 yerleşim aynı motoru kullanır).
    Kaynak işletme bilgisi: RAPORLAR/KEREM-ADAY-1013.md (local.gen.tr; Sinan Mah. Hüsnü Karakaş Cd. Tankerler İşhanı, Muratpaşa / Antalya; 0536 544 71 86).
    Fiyatlar, süreler, listeler ve kayıtlar ÖRNEKTİR. Hiçbir form gönderim yapmaz. Dijitabela taslağı. */
-window.ISL={"ad":"Alibaba Kuru Temizleme","slug":"alibaba-kuru-temizleme","adres":"Sinan Mah. Hüsnü Karakaş Cd. Tankerler İşhanı, Muratpaşa / Antalya","tel":"0536 544 71 86","telH":"+905365447186","wa":"905365447186","kaynak":"https://local.gen.tr/antalya/alibaba-kurutemizleme/","haritaSorgu":"Alibaba Kuru Temizleme Sinan Mah. Hüsnü Karakaş Cd. Tankerler İşhanı, Muratpaşa / Antalya","carpan":1.08,"kodOn":"ALB","tur":"kuru","kisa":"Alibaba","fiyatli":false,"fotolar":[{"dosya":"f1.webp","yazar":"Simon Law from Montréal, QC, Canada","lisans":"CC BY-SA 2.0"},{"dosya":"f2.webp","yazar":"Phillip Pessar","lisans":"CC BY 2.0"},{"dosya":"f3.webp","yazar":"Colin","lisans":"CC BY-SA 3.0"}]};
+window.ISL={"ad":"Alibaba Kuru Temizleme","slug":"alibaba-kuru-temizleme","adres":"Sinan Mah. Hüsnü Karakaş Cd. Tankerler İşhanı, Muratpaşa / Antalya","tel":"0536 544 71 86","telH":"+905365447186","wa":"905365447186","kaynak":"https://local.gen.tr/antalya/alibaba-kurutemizleme/","haritaSorgu":"Alibaba Kuru Temizleme Sinan Mah. Hüsnü Karakaş Cd. Tankerler İşhanı, Muratpaşa / Antalya","carpan":1.08,"kodOn":"ALB","tur":"kuru","kisa":"Alibaba","fiyatli":false,"fotolar":[{"dosya":"gercek-1.webp","yazar":"Alibaba Kuru Temizleme","lisans":"işletmenin kendi görseli","ac":"Dükkânın içi: poşetli kıyafet rafları"},{"dosya":"gercek-2.webp","yazar":"Alibaba Kuru Temizleme","lisans":"işletmenin kendi görseli","ac":"Tezgâh ve askılar"},{"dosya":"gercek-3.webp","yazar":"Alibaba Kuru Temizleme","lisans":"işletmenin kendi görseli","ac":"Teslime hazır takım elbise"}],"gercek":true};
 (function () {
   "use strict";
   var B = window.ISL;
@@ -65,6 +65,11 @@ window.ISL={"ad":"Alibaba Kuru Temizleme","slug":"alibaba-kuru-temizleme","adres
     var l = B.ek.filter(function (f) { return !secim || secim.indexOf(f.id) > -1; });
     el.innerHTML = l.map(function (f) { return '<article class="ek-k" data-ek="' + f.id + '"' + (el.hasAttribute("data-rvk") ? " data-rv" : "") + '><span class="ek-et">' + f.et + '</span><h3>' + f.ad + '</h3><p class="ek-ac">' + f.ac + '</p><div class="ek-ic">' + f.html() + '</div></article>'; }).join("");
     l.forEach(function (f) { var a = el.querySelector('[data-ek="' + f.id + '"]'); try { f.bagla(a); } catch (e) { console.error(e); } ["click", "input", "change", "keydown"].forEach(function (t) { a.addEventListener(t, function (e) { e.stopPropagation(); }); }); });
+  };
+  B.galeriCiz = function (el) {
+    if (!el) return; var F = (B.fotolar || []); if (!B.gercek) { el.innerHTML = ""; return; }
+    el.innerHTML = F.map(function (f, i) { return '<button data-gi="' + i + '" aria-label="Büyüt: ' + B.kac(f.ac || "") + '"><img src="../img/' + f.dosya + '" alt="' + B.kac(f.ac || "") + '" loading="lazy"><figcaption>' + B.kac(f.ac || "") + '</figcaption></button>'; }).join("");
+    el.onclick = function (e) { var b = e.target.closest("[data-gi]"); if (!b) return; e.stopPropagation(); var f = F[+b.dataset.gi], d = document.createElement("div"); d.className = "ek-lb"; d.innerHTML = '<div><img src="../img/' + f.dosya + '" alt=""><p>' + B.kac(f.ac || "") + ' · işletmenin kendi fotoğrafı</p></div>'; d.onclick = function () { d.remove(); }; document.body.appendChild(d); B.iz("galeri"); };
   };
   B.damgaCiz = function (a, anahtar, toplam, etiket) {
     var n = B.oku(anahtar, 3), k = a.querySelector(".damga");

@@ -1,7 +1,7 @@
 /* Revizyon Halı ve Koltuk Temizleme · halı yıkama sayfası · ortak model (3 yerleşim aynı motoru kullanır).
    Kaynak işletme bilgisi: RAPORLAR/KEREM-ADAY-1013.md (local.gen.tr; Özgürlük Mah. 2658 Sk. No:29/B, Kepez / Antalya; 0545 698 08 05).
    Fiyatlar, süreler, listeler ve kayıtlar ÖRNEKTİR. Hiçbir form gönderim yapmaz. Dijitabela taslağı. */
-window.ISL={"ad":"Revizyon Halı ve Koltuk Temizleme","slug":"revizyon-hali-ve-koltuk-temizleme","adres":"Özgürlük Mah. 2658 Sk. No:29/B, Kepez / Antalya","tel":"0545 698 08 05","telH":"+905456980805","wa":"905456980805","kaynak":"https://local.gen.tr/antalya/revizyon-hali-ve-koltuk-temizleme/","haritaSorgu":"Revizyon Halı ve Koltuk Temizleme Özgürlük Mah. 2658 Sk. No:29/B, Kepez / Antalya","carpan":1.05,"kodOn":"RVZ","kisa":"Revizyon","fiyatli":false,"fotolar":[{"dosya":"f1.webp","yazar":"Alirahmani97","lisans":"CC BY-SA 4.0"},{"dosya":"f2.webp","yazar":"Ktr101","lisans":"CC BY-SA 3.0"},{"dosya":"f3.webp","yazar":"Ninara","lisans":"CC BY 2.0"},{"dosya":"f4.webp","yazar":"DiegoKR","lisans":"CC BY-SA 4.0"}]};
+window.ISL={"ad":"Revizyon Halı ve Koltuk Temizleme","slug":"revizyon-hali-ve-koltuk-temizleme","adres":"Özgürlük Mah. 2658 Sk. No:29/B, Kepez / Antalya","tel":"0545 698 08 05","telH":"+905456980805","wa":"905456980805","kaynak":"https://local.gen.tr/antalya/revizyon-hali-ve-koltuk-temizleme/","haritaSorgu":"Revizyon Halı ve Koltuk Temizleme Özgürlük Mah. 2658 Sk. No:29/B, Kepez / Antalya","carpan":1.05,"kodOn":"RVZ","kisa":"Revizyon","fiyatli":false,"fotolar":[{"dosya":"gercek-1.webp","yazar":"Revizyon Halı ve Koltuk Temizleme","lisans":"işletmenin kendi görseli","ac":"Yıkanmış halı"}],"gercek":true};
 (function () {
   "use strict";
   var B = window.ISL;
@@ -65,6 +65,11 @@ window.ISL={"ad":"Revizyon Halı ve Koltuk Temizleme","slug":"revizyon-hali-ve-k
     var l = B.ek.filter(function (f) { return !secim || secim.indexOf(f.id) > -1; });
     el.innerHTML = l.map(function (f) { return '<article class="ek-k" data-ek="' + f.id + '"' + (el.hasAttribute("data-rvk") ? " data-rv" : "") + '><span class="ek-et">' + f.et + '</span><h3>' + f.ad + '</h3><p class="ek-ac">' + f.ac + '</p><div class="ek-ic">' + f.html() + '</div></article>'; }).join("");
     l.forEach(function (f) { var a = el.querySelector('[data-ek="' + f.id + '"]'); try { f.bagla(a); } catch (e) { console.error(e); } ["click", "input", "change", "keydown"].forEach(function (t) { a.addEventListener(t, function (e) { e.stopPropagation(); }); }); });
+  };
+  B.galeriCiz = function (el) {
+    if (!el) return; var F = (B.fotolar || []); if (!B.gercek) { el.innerHTML = ""; return; }
+    el.innerHTML = F.map(function (f, i) { return '<button data-gi="' + i + '" aria-label="Büyüt: ' + B.kac(f.ac || "") + '"><img src="../img/' + f.dosya + '" alt="' + B.kac(f.ac || "") + '" loading="lazy"><figcaption>' + B.kac(f.ac || "") + '</figcaption></button>'; }).join("");
+    el.onclick = function (e) { var b = e.target.closest("[data-gi]"); if (!b) return; e.stopPropagation(); var f = F[+b.dataset.gi], d = document.createElement("div"); d.className = "ek-lb"; d.innerHTML = '<div><img src="../img/' + f.dosya + '" alt=""><p>' + B.kac(f.ac || "") + ' · işletmenin kendi fotoğrafı</p></div>'; d.onclick = function () { d.remove(); }; document.body.appendChild(d); B.iz("galeri"); };
   };
   B.damgaCiz = function (a, anahtar, toplam, etiket) {
     var n = B.oku(anahtar, 3), k = a.querySelector(".damga");

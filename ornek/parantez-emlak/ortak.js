@@ -28,7 +28,7 @@
     { id: 3, ad: "Örnek Proje C", tip: "Dükkanlı apartman", durum: "plan", yuzde: 8, not: "Ruhsat aşamasında (örnek)." }
   ];
   K.durumAd = { devam: "Devam ediyor", bitti: "Tamamlandı", plan: "Planlanıyor" };
-  K.tl = function (n) { return Number(n).toLocaleString("tr-TR") + " TL"; };
+  K.tl = function (n) { return "Fiyat sorun"; };
   K.fiyatYaz = function (i) { return i.amac === "kiralik" ? K.tl(i.fiyat) + " / ay" : K.tl(i.fiyat); };
   K.baslik = function (i) { return i.mah + " · " + (i.oda !== "-" ? i.oda + " " : "") + K.turAd[i.tur] + " " + K.amacAd[i.amac]; };
   K.bul = function (id) { return K.ilan.filter(function (a) { return a.id === Number(id); })[0]; };

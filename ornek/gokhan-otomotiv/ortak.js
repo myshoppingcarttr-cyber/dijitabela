@@ -27,7 +27,7 @@
     { id: 12, marka: "Mitsubishi", model: "L200", pk: "2.5 DI-D Invite", yil: 2016, km: 189000, yakit: "Dizel", vites: "Manuel", tip: "pickup", renk: "#4A5563", fiyat: 1090000 }
   ];
   U.tipAd = { hatchback: "Hatchback", sedan: "Sedan", suv: "SUV", pickup: "Pikap" };
-  U.tl = function (n) { return Number(n).toLocaleString("tr-TR") + " TL"; };
+  U.tl = function (n) { return "Fiyat sorun"; };
   U.kmf = function (n) { return Number(n).toLocaleString("tr-TR") + " km"; };
   U.ad2 = function (a) { return a.marka + " " + a.model; };
   U.bul = function (id) { return U.arac.filter(function (a) { return a.id === Number(id); })[0]; };

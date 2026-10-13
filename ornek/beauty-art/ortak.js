@@ -3,7 +3,7 @@
    Hizmet listesi, süreler, fiyatlar ve boş saatler ÖRNEKTİR; salonun gerçek listesi/takvimi değildir. Hiçbir form gönderim yapmaz. */
 (function () {
   "use strict";
-  var B = {"ad":"Beauty Art Güzellik Salonu","slug":"beauty-art","adres":"Cumhuriyet Cd., Muratpaşa / Antalya","tel":"0546 667 70 14","wa":"905466677014","ig":"estetisyen.ba","igUrl":"https://www.instagram.com/estetisyen.ba/","kaynak":"https://local.gen.tr/antalya/beauty-art-guzellik-salonu/","haritaSorgu":"Beauty Art Güzellik Salonu Cumhuriyet Caddesi Muratpaşa Antalya"};
+  var B = {"ad":"Beauty Art Güzellik Salonu","slug":"beauty-art","adres":"Cumhuriyet Cd., Muratpaşa / Antalya","tel":"0546 667 70 14","wa":"905466677014","ig":"estetisyen.ba","igUrl":"https://local.gen.tr/antalya/beauty-art-guzellik-salonu/","kaynak":"https://local.gen.tr/antalya/beauty-art-guzellik-salonu/","haritaSorgu":"Beauty Art Güzellik Salonu Cumhuriyet Caddesi Muratpaşa Antalya"};
   B.waLink = function (m) { return "https://wa.me/" + B.wa + "?text=" + encodeURIComponent(m); };
   B.harita = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(B.haritaSorgu);
   B.kat = [
@@ -35,7 +35,7 @@
     { ad: "Işıltı günü", ids: [2, 12], not: "Derin temizlik + gün makyajı" }
   ];
   B.bul = function (id) { return B.hizmet.filter(function (h) { return h.id === Number(id); })[0]; };
-  B.tl = function (n) { return Number(n).toLocaleString("tr-TR") + " TL"; };
+  B.tl = function (n) { return "Fiyat sorun"; };
   B.sureYaz = function (dk) { var s = Math.floor(dk / 60), m = dk % 60; return (s ? s + " sa " : "") + (m ? m + " dk" : (s ? "" : "0 dk")); };
   /* Sepet: yalnız bu tarayıcı */
   var SK = "dj-" + B.slug + "-sepet";

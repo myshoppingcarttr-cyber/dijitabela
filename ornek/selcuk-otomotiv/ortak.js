@@ -27,7 +27,7 @@
     { id: 12, marka: "Nissan", model: "X-Trail", pk: "1.6 dCi Visia", yil: 2016, km: 192000, yakit: "Dizel", vites: "Manuel", tip: "suv", renk: "#9C2F2F", fiyat: 830000 }
   ];
   U.tipAd = { hatchback: "Hatchback", sedan: "Sedan", suv: "SUV", pickup: "Pikap" };
-  U.tl = function (n) { return Number(n).toLocaleString("tr-TR") + " TL"; };
+  U.tl = function (n) { return "Fiyat sorun"; };
   U.kmf = function (n) { return Number(n).toLocaleString("tr-TR") + " km"; };
   U.ad2 = function (a) { return a.marka + " " + a.model; };
   U.bul = function (id) { return U.arac.filter(function (a) { return a.id === Number(id); })[0]; };
