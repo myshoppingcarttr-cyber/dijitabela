@@ -1,0 +1,110 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Ölçü Masası · Revizyon Halı ve Koltuk Temizleme · Dijitabela</title><meta name="description" content="Revizyon Halı ve Koltuk Temizleme için ölçü masası prototipi: halıları ölçeğe göre serin, toplam m²’yi görün, alım mesajı hazırlayın, halınızın aşamasını izleyin.">
+<meta name="theme-color" content="#0B1A18"><link rel="icon" href="https://dijitabela.com.tr/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B1A18;--p:#112825;--ln:#1E3D38;--tx:#EAF4F1;--mu:#93AFA8;--ac:#5FD3B8;--gold:#F2B33D;--fb:"Bricolage Grotesque",Georgia,serif;--fg:"Inter",system-ui,sans-serif;--mo:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.55 var(--fg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,textarea{font:inherit;color:inherit;max-width:100%}
+.w{max-width:1280px;margin:0 auto;padding:0 clamp(14px,3.4vw,40px)}
+.et{font:700 11px/1.2 var(--mo);letter-spacing:.16em;text-transform:uppercase;color:var(--ac)}
+.rz{display:inline-block;border:1px solid var(--ac);color:var(--ac);font:700 10px/1 var(--mo);letter-spacing:.12em;padding:3px 6px;border-radius:4px;vertical-align:middle}
+header{border-bottom:1px solid var(--ln);position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px)}header .w{display:flex;align-items:center;height:62px;gap:14px}
+.logo{font:600 22px/1 var(--fb);text-decoration:none}.logo span{color:var(--ac)}.hd{margin-left:auto;display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border:1px solid var(--ln);background:var(--p);border-radius:10px;font-weight:600;cursor:pointer;text-decoration:none;transition:.2s}.btn:hover{border-color:var(--ac)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:var(--bg)}.btn.wa{background:#1f9d62;border-color:#1f9d62;color:#fff}
+.ust{padding-top:clamp(22px,4vw,44px);padding-bottom:18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end}.ust h1{font:600 clamp(38px,6vw,80px)/.95 var(--fb);letter-spacing:-.02em;margin-top:10px}.ust h1 em{color:var(--ac);font-style:italic}.ust p{color:var(--mu);max-width:58ch;margin-top:12px}
+.sayac{display:flex;gap:10px}.sayac div{border:1px solid var(--ln);border-radius:12px;padding:12px 16px;min-width:140px;background:var(--p)}.sayac b{display:block;font:700 26px/1.1 var(--mo);color:var(--tx)}.sayac small{color:var(--mu);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.dz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:clamp(14px,2vw,24px);align-items:start;padding-bottom:26px}
+.zemin{position:relative;min-height:440px;border:1px solid var(--ln);border-radius:16px;background-color:var(--p);background-image:linear-gradient(var(--ln) 1px,transparent 1px),linear-gradient(90deg,var(--ln) 1px,transparent 1px);background-size:var(--g,40px) var(--g,40px);padding:22px;display:flex;flex-wrap:wrap;gap:22px;align-content:flex-start;align-items:flex-end;overflow:hidden}
+.zemin .bosz{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--mu);padding:20px}
+.parca{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;animation:ser .6s cubic-bezier(.2,.8,.2,1) both}
+.parca svg{display:block;filter:drop-shadow(0 14px 18px rgba(0,0,0,.4))}.parca small{font:700 11px var(--mo);color:var(--mu)}
+.parca button{position:absolute;top:-10px;right:-10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--ln);background:var(--bg);cursor:pointer;font-size:16px;line-height:1}
+@keyframes ser{from{opacity:0;transform:translateY(-30px) rotate(-4deg)}to{opacity:1;transform:none}}
+.olcek{position:absolute;right:12px;bottom:10px;font:700 11px var(--mo);color:var(--mu);display:flex;align-items:center;gap:6px}.olcek i{display:inline-block;height:3px;background:var(--mu)}
+.pn{background:var(--p);border:1px solid var(--ln);border-radius:16px;padding:16px}.pn h2{font:600 26px/1 var(--fb);margin:8px 0 12px}
+.ch{display:flex;flex-wrap:wrap;gap:6px}.ch button{min-height:40px;padding:0 12px;border:1px solid var(--ln);background:transparent;border-radius:8px;cursor:pointer;font-size:13px}.ch button.a{background:var(--ac);border-color:var(--ac);color:var(--bg);font-weight:700}
+.sl{margin:14px 0 4px}.sl label{display:flex;justify-content:space-between;font:700 12px var(--mo);color:var(--mu);margin-bottom:4px}.sl label b{color:var(--tx)}.sl input{width:100%;accent-color:var(--ac)}
+.sat{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0}.stp{display:flex;align-items:center;border:1px solid var(--ln);border-radius:8px}.stp button{width:42px;height:42px;border:0;background:none;font-size:18px;cursor:pointer}.stp output{min-width:30px;text-align:center;font:700 16px var(--mo)}
+.fis{margin-top:14px;border-top:1px dashed var(--ln);padding-top:12px;font:500 13px/1.6 var(--mo)}.fis div{display:flex;justify-content:space-between;gap:8px}.fis .t{font-size:16px;color:var(--ac);font-weight:700;margin-top:6px}
+.alt2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2vw,24px);padding-bottom:26px}
+.alt2 input,.alt2 textarea{width:100%;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:11px 12px;margin-bottom:8px}
+.gn{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin:6px 0 10px}.gn button{flex:0 0 auto;min-width:56px;min-height:60px;border:1px solid var(--ln);background:transparent;border-radius:10px;cursor:pointer;line-height:1.2;font-size:12px}.gn button b{display:block;font:700 18px var(--mo)}.gn button.a{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+.mk-on{white-space:pre-wrap;background:var(--bg);border:1px solid var(--ln);border-left:3px solid var(--ac);border-radius:10px;padding:12px;font-size:13px;min-height:120px}
+.mk-dg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.mk-not{display:block;width:100%;color:var(--mu);font-size:12px}
+.bant{padding-bottom:50px}.bant .pn{padding:clamp(16px,3vw,28px)}
+.tkf{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.tkf input{flex:1 1 180px;min-height:46px;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:0 14px;font:700 16px var(--mo);text-transform:uppercase;letter-spacing:.1em}
+.kodlar button{border:1px dashed var(--ln);background:none;border-radius:6px;padding:5px 8px;cursor:pointer;font:700 11px var(--mo);color:var(--mu);margin:2px}
+.yol{position:relative;margin-top:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ist{position:relative;border:1px solid var(--ln);border-radius:12px;padding:56px 12px 14px;background:var(--bg);min-height:150px;transition:.4s}
+.ist h4{font:600 20px var(--fb)}.ist p{font-size:12px;color:var(--mu)}.ist .no{position:absolute;top:12px;left:12px;font:700 11px var(--mo);color:var(--mu)}
+.ist.ok{border-color:color-mix(in srgb,var(--ac) 50%,var(--ln))}.ist.ok .no{color:var(--ac)}.ist.su{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 25%,transparent)}
+.ruloc{position:absolute;top:10px;width:46px;height:30px;transition:left .9s cubic-bezier(.6,0,.2,1);z-index:2;left:12px}
+.ruloc svg{width:100%;height:100%}
+.tks{margin-top:14px;font-size:14px;color:var(--mu)}
+footer{border-top:1px solid var(--ln);padding:26px 0 60px;color:var(--mu);font-size:13px}footer .w{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}footer b{color:var(--tx);font:600 22px var(--fb);display:block;margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);background:#fff;color:#222;padding:12px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}.toast.a{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.dz,.alt2,footer .w,.ust{grid-template-columns:minmax(0,1fr)}.zemin{min-height:300px}.yol{grid-template-columns:repeat(2,minmax(0,1fr))}.sayac div{min-width:0;flex:1}}
+@media(max-width:480px){.hd .btn:first-child{display:none}.yol{grid-template-columns:minmax(0,1fr)}.ist{min-height:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.fiyatsiz .fy{display:none!important}html:not(.fiyatsiz) .fy0{display:none!important}</style></head><body>
+<header><div class="w"><a class="logo" href="#">Revizyon <span>·</span> ölçü masası</a><div class="hd"><a class="btn" href="tel:+905456980805">Ara</a><a class="btn p" href="#alim">Alım iste</a></div></div></header>
+<div class="w ust"><div><span class="et">Özgürlük Mah. 2658 Sk. No:29/B, Kepez / Antalya</span><h1>Ölç, ser, <em>hesapla.</em></h1><p>Halılarınızı masaya ölçeğiyle serin: her parça gerçek oranında çizilir, toplam metrekare birlikte büyür. Çizimler örnektir <span class="rz">ÖRNEK</span></p></div>
+<div class="sayac"><div><small>Toplam alan</small><b id="sm">0 m²</b></div><div><small>Parça</small><b id="sp">0</b></div></div></div>
+<main class="w dz"><section><div class="zemin" id="zm" aria-live="polite"></div></section>
+<aside class="pn"><span class="et">Yeni parça</span><h2>Ölç ve ekle</h2><div class="ch" id="tp"></div>
+<div id="olc"><div class="sl"><label>En <b id="ve">160 cm</b></label><input type="range" id="en" min="50" max="400" step="10" value="160"></div><div class="sl"><label>Boy <b id="vb">230 cm</b></label><input type="range" id="boy" min="50" max="600" step="10" value="230"></div></div>
+<div class="sat"><span class="et" style="color:var(--mu)">Adet</span><span class="stp"><button id="az" aria-label="Azalt">−</button><output id="ad">1</output><button id="co" aria-label="Arttır">+</button></span></div>
+<div class="fis"><div><span>Bu parça</span><span id="bm"></span></div><div class="fy"><span>Örnek aralık</span><span id="ba"></span></div></div>
+<button class="btn p" id="ekle" style="width:100%;margin-top:12px">Masaya ser</button>
+<div class="fis"><div><span>TOPLAM</span><span id="tm2"></span></div><div class="t fy"><span>≈</span><span id="tt"></span></div><div style="color:var(--mu);font-size:11px">Fiyatı işletme halıyı görünce söyler.</div></div>
+<button class="btn" id="tmz" style="width:100%;margin-top:10px">Masayı temizle</button></aside></main>
+<section class="w alt2" id="alim"><div class="pn"><span class="et">Alım talebi</span><h2>Adres ve gün</h2><textarea id="adr" rows="2" placeholder="Mahalle, sokak, bina, daire"></textarea><input id="isim" placeholder="Adınız (isteğe bağlı)" autocomplete="off"><span class="et" style="color:var(--mu)">Gün</span><div class="gn" id="gn"></div><span class="et" style="color:var(--mu)">Zaman tercihi</span><div class="ch" id="dl" style="margin:8px 0 10px"></div><textarea id="nt" rows="2" placeholder="Not (isteğe bağlı)"></textarea><button class="btn p" id="mh">Mesajı hazırla</button></div>
+<div class="pn"><span class="et">Hazır mesaj · gönderilmedi</span><h2>Önizleme</h2><div id="mk"><div class="mk-on">Henüz hazırlanmadı.</div></div></div></section>
+<section class="w bant"><div class="pn"><span class="et">Teslim takibi · örnek kayıt</span><h2>Halınız hangi istasyonda?</h2><p style="color:var(--mu);max-width:60ch">Fiş kodunu yazın. Örnek ekran: işletmenin defterine bağlanınca gerçek fişle çalışır.</p>
+<div class="tkf"><input id="kod" placeholder="RVZ-2417" aria-label="Fiş kodu"><button class="btn p" id="sor">Sorgula</button><button class="btn" id="ilr">Sonraki adım (demo)</button></div><div class="kodlar" id="ok"></div>
+<div class="yol" id="yolh"></div><div class="tks" id="tks">Kod bekleniyor.</div></div></section>
+<footer><div class="w"><div><b>Revizyon Halı ve Koltuk Temizleme</b>Özgürlük Mah. 2658 Sk. No:29/B, Kepez / Antalya<br>Telefon: <a href="tel:+905456980805">0545 698 08 05</a><br><a href="https://local.gen.tr/antalya/revizyon-hali-ve-koltuk-temizleme/" target="_blank" rel="noopener">local.gen.tr kaydı</a> · <a id="yol" target="_blank" rel="noopener">Yol tarifi</a></div><div>Dijitabela’nın Revizyon Halı ve Koltuk Temizleme için hazırladığı taslak. Çizimler ve takip kayıtları örnektir; işletmenin gerçek kaydı değildir. Fiyat yazılmadı. Hiçbir mesaj otomatik gönderilmez. Seçenek 2 / 3.</div></div></footer>
+<div class="toast" id="ts" role="status"></div>
+<script src="../ortak.js"></script>
+<script>
+(function(){"use strict";var B=window.ISL,$=function(i){return document.getElementById(i)},tip=B.tipler[0].id,adet=1,G=B.gunler(7),gun=null,dil=null,ta=-1;
+$("yol").href=B.harita;
+$("tp").innerHTML=B.tipler.map(function(t){return '<button data-t="'+t.id+'">'+t.ad+'</button>'}).join("");
+function deger(){return{t:tip,en:+$("en").value,boy:+$("boy").value,n:adet}}
+function panel(){var k=deger(),t=B.tip(tip),h=B.hesap(k);document.querySelectorAll("#tp button").forEach(function(b){b.classList.toggle("a",b.dataset.t===tip)});$("olc").style.display=t.b==="m2"?"":"none";
+ $("ve").textContent=k.en+" cm";$("vb").textContent=k.boy+" cm";$("ad").textContent=adet;$("bm").textContent=t.b==="m2"?B.m2Yaz(h.m2):adet+" "+t.b;$("ba").textContent=B.aralik(h.min,h.max)}
+function masa(){var l=B.kalemler(),t=B.toplam(l),z=$("zm"),gen=z.clientWidth-44;
+ var maxEn=l.reduce(function(a,k){return Math.max(a,B.tip(k.t).b==="m2"?k.en:200)},200),maxBoy=l.reduce(function(a,k){return Math.max(a,B.tip(k.t).b==="m2"?k.boy:150)},150);
+ var s=Math.min(gen/Math.max(maxEn*1.15,1),360/maxBoy,1.1);z.style.setProperty("--g",Math.max(8,50*s)+"px");
+ if(!l.length){z.innerHTML='<div class="bosz"><div><span class="et">Masa boş</span><p style="margin-top:8px">Sağdan tip ve ölçü seçip “Masaya ser”e dokunun.<br>Her kare 50 cm.</p></div></div>'}
+ else{z.innerHTML=l.map(function(k,i){var ib=B.tip(k.t).b==="m2",w=(ib?k.en:200)*s,hh=(ib?k.boy+20:(k.t==="koltuk"?120:150))*s,svg=B.haliSvg(k.en,k.boy,k.t);svg=svg.replace("<svg ",'<svg width="'+w.toFixed(0)+'" height="'+hh.toFixed(0)+'" ');
+  return '<div class="parca">'+svg+'<small>'+(ib?k.en+"×"+k.boy:B.tip(k.t).ad)+' · ×'+k.n+'</small><button data-s="'+i+'" aria-label="Kaldır">×</button></div>'}).join("")+'<div class="olcek"><i style="width:'+(100*s).toFixed(0)+'px"></i>1 m</div>'}
+ $("sm").textContent=B.m2Yaz(t.m2);$("sp").textContent=t.n;$("tm2").textContent=B.m2Yaz(t.m2)+" · "+t.n+" parça";$("tt").textContent=l.length?B.aralik(t.min,t.max):"0 TL"}
+$("tp").addEventListener("click",function(e){var b=e.target.closest("button");if(b){tip=b.dataset.t;panel()}});
+["en","boy"].forEach(function(i){$(i).addEventListener("input",panel)});
+$("az").onclick=function(){adet=Math.max(1,adet-1);panel()};$("co").onclick=function(){adet=Math.min(20,adet+1);panel()};
+$("ekle").onclick=function(){B.ekle(deger());masa();B.toast("Masaya serildi");B.iz("olcu:ekle")};
+$("zm").addEventListener("click",function(e){var b=e.target.closest("[data-s]");if(b){B.sil(+b.dataset.s);masa()}});
+$("tmz").onclick=function(){B.kalemYaz([]);masa();B.toast("Masa temizlendi")};
+addEventListener("resize",function(){clearTimeout(window._r);window._r=setTimeout(masa,150)});
+function takvim(){$("gn").innerHTML=G.map(function(g,i){return '<button data-g="'+i+'" class="'+(gun===i?"a":"")+'">'+g.g+'<b>'+g.n+'</b>'+g.a+'</button>'}).join("");$("dl").innerHTML=B.dilimler.map(function(d,i){return '<button data-d="'+i+'" class="'+(dil===i?"a":"")+'">'+d+'</button>'}).join("")}
+$("gn").addEventListener("click",function(e){var b=e.target.closest("button");if(b){gun=+b.dataset.g;takvim()}});
+$("dl").addEventListener("click",function(e){var b=e.target.closest("button");if(b){dil=+b.dataset.d;takvim()}});
+$("mh").onclick=function(){B.kutu($("mk"),B.mesaj({ad:$("isim").value.trim(),adres:$("adr").value.trim(),gun:gun!==null?G[gun].yaz:"",dilim:dil!==null?B.dilimler[dil]:"",not:$("nt").value.trim()}));B.iz("olcu:mesaj")};
+$("yolh").innerHTML='<div class="ruloc" id="rl"><svg viewBox="0 0 46 30"><rect x="2" y="6" width="34" height="18" rx="9" fill="var(--ac)"/><circle cx="36" cy="15" r="9" fill="var(--gold)"/><circle cx="36" cy="15" r="3" fill="var(--bg)"/></svg></div>'+B.adimlar.map(function(a,i){return '<div class="ist"><span class="no">0'+(i+1)+'</span><h4>'+a.ad+'</h4><p>'+a.ac+'</p></div>'}).join("");
+$("ok").innerHTML='<span class="et" style="color:var(--mu)">Örnek kodlar: </span>'+B.ornekKodlar.map(function(k){return '<button data-k="'+k+'">'+k+'</button>'}).join("");
+function tGoster(r){if(!r)return;ta=r.adim;var is=document.querySelectorAll("#yolh .ist");is.forEach(function(d,i){d.classList.toggle("ok",i<=ta);d.classList.toggle("su",i===ta)});
+ var hedef=is[ta];$("rl").style.left=hedef.offsetLeft+12+"px";$("rl").style.top=hedef.offsetTop+10+"px";
+ $("tks").innerHTML="<b style='color:var(--tx)'>"+B.kac(r.kod)+"</b> · "+B.adimlar[ta].ad+" · "+B.adimlar[ta].ac+' <span class="rz">ÖRNEK</span>'}
+$("sor").onclick=function(){tGoster(B.takip($("kod").value));B.iz("olcu:takip")};
+$("ok").addEventListener("click",function(e){var b=e.target.closest("button");if(b){$("kod").value=b.dataset.k;$("sor").click()}});
+$("ilr").onclick=function(){if(!$("kod").value)$("kod").value=B.ornekKodlar[0];var r=B.takip($("kod").value);r.adim=ta<0?0:(ta+1)%4;tGoster(r)};
+if(B.oku("kalem",null)===null){B.kalemYaz([{t:B.tipler[0].id,en:160,boy:230,n:1},{t:"yolluk",en:80,boy:300,n:1}].filter(function(k){return B.tipler.some(function(t){return t.id===k.t})}));setTimeout(function(){B.toast("Örnek iki parça masaya serildi")},600)}
+panel();masa();takvim();
+})();
+</script>
+<script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="revizyon-hali-ve-koltuk-temizleme" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

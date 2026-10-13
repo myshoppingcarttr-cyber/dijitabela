@@ -1,0 +1,108 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Salon · Marina Tırnak ve Güzellik Merkezi · Dijitabela</title><meta name="description" content="Marina Tırnak ve Güzellik Merkezi için güzellik salonu sayfası prototipi: hizmet seçimi, süre planı, randevu mesajı. Hizmetler örnektir.">
+<meta name="theme-color" content="#F3F6F8"><link rel="icon" href="https://dijitabela.com.tr/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F6F8;--ink:#0F2A3A;--ac:#C9506F;--ac2:#1C5D7A;--soft:#E2ECF1;--ln:#D3E0E7;--mu:#5C6E78;--gold:#E8A88F}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--bg);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 "Nunito Sans",system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,select,textarea{font:inherit;color:inherit;max-width:100%}
+.d{font-family:"Newsreader",Georgia,serif;font-weight:500;letter-spacing:-.01em}
+.w{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,44px)}
+.et{font:500 11px/1 "Nunito Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--ac2)}
+header.ust{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+header .w{display:flex;align-items:center;gap:18px;height:66px}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1}.logo b{font:500 28px/1 "Newsreader",Georgia,serif}.logo small{font:500 9px/1 "Nunito Sans";letter-spacing:.3em;text-transform:uppercase;color:var(--ac2);margin-top:4px}
+nav.m{margin-left:auto;display:flex;gap:24px;align-items:center}nav.m a{text-decoration:none;font-size:14px;color:var(--mu)}nav.m a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 24px;border:1px solid var(--ink);background:transparent;border-radius:999px;font-weight:500;cursor:pointer;text-decoration:none;font-size:15px;transition:.25s}
+.btn:hover{background:var(--ink);color:var(--bg)}.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.p:hover{background:var(--ac2);border-color:var(--ac2)}.btn.wa{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
+.hero{position:relative;overflow:hidden}.hero .w{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center;padding-top:clamp(28px,5vw,64px);padding-bottom:clamp(30px,5vw,60px)}
+.hero h1{font:500 clamp(46px,7.4vw,104px)/.96 "Newsreader",Georgia,serif;letter-spacing:-.025em;margin:16px 0 20px}.hero h1 em{color:var(--ac);font-style:italic}
+.hero p{color:var(--mu);max-width:44ch;margin-bottom:26px;font-size:17px}.btnler{display:flex;gap:10px;flex-wrap:wrap}
+.sahne{position:relative;aspect-ratio:1/1.12;max-width:480px;justify-self:center;width:100%}
+.ark{position:absolute;border-radius:999px 999px 18px 18px;overflow:hidden}
+.ark.a1{left:0;bottom:0;width:58%;height:84%;background:linear-gradient(180deg,var(--soft),var(--ac));animation:yuk 1.2s cubic-bezier(.2,.8,.2,1) both}
+.ark.a2{right:0;bottom:12%;width:44%;height:64%;background:linear-gradient(180deg,var(--gold),var(--soft));animation:yuk 1.2s .15s cubic-bezier(.2,.8,.2,1) both}
+.ark.a3{right:6%;top:0;width:26%;height:30%;background:var(--ac2);animation:yuk 1.2s .3s cubic-bezier(.2,.8,.2,1) both}
+.sahne svg.cizgi{position:absolute;inset:0;width:100%;height:100%}.sahne circle{fill:none;stroke:var(--ink);stroke-width:1.6;animation:ciz 2.4s .5s ease forwards}.sahne path{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;animation:ciz 2.4s .5s ease forwards}
+.sahne .rz{position:absolute;left:8%;top:10%;background:var(--bg);border:1px solid var(--ln);padding:8px 14px;border-radius:999px;font-size:12px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+@keyframes yuk{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}@keyframes ciz{to{stroke-dashoffset:0}}
+.bilgi{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}.bilgi .w{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.bilgi div{padding:18px 16px 18px 0}.bilgi b{display:block;font-weight:500;font-size:14px;margin-top:6px;overflow-wrap:anywhere}
+section.bol{padding:clamp(40px,7vw,86px) 0}.bas{margin-bottom:26px}.bas h2{font:500 clamp(36px,5.2vw,68px)/1 "Newsreader",Georgia,serif;margin-top:10px}.bas h2 em{color:var(--ac)}
+.duzen{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+.sek{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.sek button{display:inline-flex;gap:8px;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--ln);background:transparent;border-radius:999px;cursor:pointer;font-size:14px;transition:.2s}
+.sek button.a{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sat{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px 18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--ln)}
+.sat h3{font:500 25px/1.1 "Newsreader",Georgia,serif}.sat p{grid-column:1;color:var(--mu);font-size:14px}.sat .sf{text-align:right;grid-row:1/3;grid-column:2}.sat .sf b{display:block;font:500 22px "Newsreader",Georgia,serif}.sat .sf span{font-size:12px;color:var(--mu)}
+.sat .ekle{grid-row:1/3;grid-column:3;width:46px;height:46px;border-radius:50%;border:1px solid var(--ink);background:transparent;cursor:pointer;font-size:22px;line-height:1;transition:.2s}
+.sat.sec .ekle{background:var(--ac);border-color:var(--ac);color:#fff;transform:rotate(45deg)}.sat.sec h3{color:var(--ac2)}
+.rz2{display:inline-block;background:var(--soft);font-size:10px;letter-spacing:.14em;padding:3px 8px;border-radius:999px;margin-left:8px;vertical-align:middle;color:var(--ac2)}
+.sepet{position:sticky;top:84px;background:#fff;border:1px solid var(--ln);border-radius:22px;padding:clamp(18px,2.4vw,28px);box-shadow:0 24px 60px -30px rgba(60,20,40,.28)}
+.sepet h3{font:500 32px/1 "Newsreader",Georgia,serif;margin:8px 0 14px}.sepet ul{list-style:none;margin-bottom:12px}.sepet li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--ln);font-size:14px}.sepet li button{background:none;border:0;color:var(--ac2);cursor:pointer;text-decoration:underline;font-size:12px}
+.bos{color:var(--mu);font-size:14px;padding:6px 0 12px}.tp{display:flex;height:16px;border-radius:999px;overflow:hidden;background:var(--soft);margin:8px 0 6px}.tp i{display:block;height:100%;border-right:2px solid #fff;transition:flex .4s}
+.top{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 14px}.top b{font:500 30px "Newsreader",Georgia,serif;color:var(--ac2)}
+.gn{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin:6px 0 10px}.gn button{flex:0 0 auto;min-width:56px;min-height:60px;border:1px solid var(--ln);background:transparent;border-radius:14px;cursor:pointer;line-height:1.2;font-size:12px}.gn button b{display:block;font:500 20px "Newsreader",Georgia,serif}.gn button.a{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:12px}.sa button{min-height:42px;border:1px solid var(--ln);background:transparent;border-radius:10px;cursor:pointer;font-size:14px}.sa button.a{background:var(--ac);color:#fff;border-color:var(--ac)}.sa button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.sepet input,.sepet textarea{width:100%;border:1px solid var(--ln);background:var(--bg);border-radius:12px;padding:11px 14px;margin-bottom:8px}
+.on .mk-on{white-space:pre-wrap}.mk-dg{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.mk-not{display:block;width:100%;font-size:12px;opacity:.7}.on{margin-top:12px;background:var(--bg);border:1px solid var(--ln);border-left:3px solid var(--ac);border-radius:10px;padding:12px;font-size:13px;white-space:pre-wrap}
+.pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.pk article{border:1px solid var(--ln);border-radius:22px;padding:22px;background:linear-gradient(180deg,#fff,var(--soft));display:flex;flex-direction:column;gap:8px}
+.pk h3{font:500 30px/1 "Newsreader",Georgia,serif}.pk p{color:var(--mu);font-size:14px}.pk .tt{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:12px}.pk .tt b{font:500 22px "Newsreader",Georgia,serif}
+footer{background:var(--ink);color:#f4ebe7;padding:clamp(34px,6vw,60px) 0 90px}footer .w{display:grid;grid-template-columns:1.3fr 1fr;gap:28px}footer h3{font:500 clamp(34px,5vw,56px)/1 "Newsreader",Georgia,serif;margin-bottom:12px}footer p{color:#cdbdb7;margin-bottom:6px}footer .cr{grid-column:1/-1;border-top:1px solid #4a3a41;padding-top:14px;font-size:12px;color:#a8958e}
+.alt{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:none;background:var(--ink);color:var(--bg);border-radius:999px;padding:6px 6px 6px 20px;align-items:center;justify-content:space-between;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.3)}.alt b{font-weight:500}.alt span{background:var(--ac);color:#fff;border-radius:999px;padding:11px 18px;font-size:14px}
+.toast{position:fixed;left:50%;bottom:78px;transform:translate(-50%,30px);background:#fff;color:#222;padding:12px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}.toast.a{opacity:1;transform:translate(-50%,0)}
+@media(max-width:980px){.hero .w,.duzen,footer .w{grid-template-columns:minmax(0,1fr)}.sepet{position:static}nav.m a:not(.btn){display:none}.bilgi .w{grid-template-columns:repeat(2,minmax(0,1fr))}.pk{grid-template-columns:minmax(0,1fr)}.alt{display:flex}.sahne{max-width:380px}}
+@media(max-width:560px){.sat{grid-template-columns:minmax(0,1fr) auto}.sat .sf{grid-column:1;grid-row:3;text-align:left;display:flex;gap:8px;align-items:baseline}.sat .ekle{grid-column:2;grid-row:1/3}.bilgi .w{grid-template-columns:minmax(0,1fr)}.sa{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.sahne path{stroke-dashoffset:0}}
+.fiyatsiz .fy{display:none!important}html:not(.fiyatsiz) .fy0{display:none!important}</style></head><body>
+<header class="ust"><div class="w"><a class="logo" href="#"><b>Marina</b><small>Tırnak & güzellik</small></a><nav class="m"><a href="#hizmet">Hizmetler</a><a href="#paket">Paketler</a><a href="#randevu">Randevu</a><a href="#salon">Salon</a><a class="btn p" href="tel:+905307473759" style="min-height:42px;padding:0 18px">Ara</a></nav></div></header>
+
+<section class="hero"><div class="w"><div><span class="et">Muratpaşa · Şirinyalı</span><h1>Tırnaklarınız, <em>renginizle.</em></h1>
+<p>Hizmetleri seçin, ne kadar süreceğini görün, uygun saati işaretleyin. Randevu talebiniz hazır gelir; salona siz gönderirsiniz, salon onaylar. Aşağıdaki liste örnektir.</p>
+<div class="btnler"><a class="btn p" href="#hizmet">Hizmetleri seç</a><a class="btn" href="#randevu">Randevu talebi</a></div></div>
+<div class="sahne" aria-hidden="true"><div class="ark a1"></div><div class="ark a2"></div><div class="ark a3"></div>
+<svg class="cizgi" viewBox="0 0 400 450"><path d="M70 410C60 300 110 240 190 230c70-9 120 30 120 90"/><path d="M190 230c-10-50 20-96 70-118"/><path d="M150 330c40-30 90-30 130 6"/><circle cx="262" cy="108" r="18" style="stroke-dasharray:120;stroke-dashoffset:120"/></svg><span class="rz">Örnek görsel · gerçek fotoğraf yerleşir</span></div></div></section>
+
+<div class="bilgi"><div class="w"><div><span class="et">Konum</span><b>Şirinyalı, İsmet Gökşen Cd. No:90-1, Muratpaşa / Antalya</b></div><div><span class="et">Telefon</span><b><a href="tel:+905307473759">0530 747 37 59</a></b></div><div><span class="et">Konum</span><b><a id="yol1" target="_blank" rel="noopener">Yol tarifi →</a></b></div><div><span class="et">Rehber kaydı</span><b><a href="https://local.gen.tr/antalya/marina-tirnak-ve-guzellik-merkezi/" target="_blank" rel="noopener">local.gen.tr</a></b></div></div></div>
+
+<section class="bol" id="hizmet"><div class="w"><div class="bas"><span class="et">Örnek hizmet listesi</span><h2>Ne yaptırmak <em>istersiniz?</em></h2></div>
+<div class="duzen"><div><div class="sek" id="sek" role="tablist"></div><div id="liste"></div></div>
+<aside class="sepet" id="randevu" aria-live="polite"><span class="et">Randevu talebi</span><h3>Sepetiniz</h3><div id="sl"></div>
+<div class="tp" id="tp" aria-hidden="true"></div><div class="top"><span id="ts2" style="color:var(--mu);font-size:14px"></span><b id="tt2"></b></div>
+<span class="et">Gün (örnek doluluk)</span><div class="gn" id="gn"></div><span class="et">Saat</span><div class="sa" id="sa" style="margin-top:8px"></div>
+<input id="ad" placeholder="Adınız" autocomplete="off"><input id="tl" type="tel" inputmode="tel" placeholder="Telefonunuz (salon dönüş yapsın)" autocomplete="off"><textarea id="nt" rows="2" placeholder="Notunuz (isteğe bağlı)"></textarea>
+<button class="btn p" id="mh" style="width:100%;justify-content:center">Randevu talebini hazırla</button><div class="on" id="on" hidden></div></aside></div></div></section>
+
+<section class="bol" id="paket" style="background:var(--soft)"><div class="w"><div class="bas"><span class="et">Birlikte daha iyi</span><h2>Hazır <em>paketler</em></h2></div><div class="pk" id="pk"></div></div></section>
+
+<footer id="salon"><div class="w"><div><h3>Salona uğrayın</h3><p>Şirinyalı, İsmet Gökşen Cd. No:90-1, Muratpaşa / Antalya</p><p>Telefon: 0530 747 37 59</p><div class="btnler" style="margin-top:14px"><a class="btn wa" id="wab" target="_blank" rel="noopener">WhatsApp’tan yaz</a><a class="btn" style="color:#fff;border-color:#fff" id="yol" target="_blank" rel="noopener">Yol tarifi</a></div></div>
+<div><p class="et" style="color:#cdbdb7">Bu sayfa nedir?</p><p style="margin-top:10px">Dijitabela’nın Marina Tırnak ve Güzellik Merkezi için hazırladığı taslak sayfa. Hizmetler, süreler ve boş saatler örnektir; salonun gerçek listesi veya takvimi değildir. Fiyat yazılmadı; çalışma saati kaynakta görülmediği için yazılmadı. Hiçbir mesaj otomatik gönderilmez.</p></div><div class="cr">Taslak, yayında değil · Seçenek 1 / 3 · Örnek veri</div></div></footer>
+<a class="alt" href="#randevu"><span style="font-size:14px"><b id="am">Sepet boş</b></span><span>Randevu →</span></a>
+<div class="toast" id="ts" role="status"></div>
+<script src="../ortak.js"></script>
+<script>
+(function(){"use strict";var B=window.SALON,$=function(i){return document.getElementById(i)},kat=B.kat[0].id,gun=null,saat=null,G=B.gunler(7);
+$("yol1").href=B.harita;$("yol").href=B.harita;B.waVeyaAra($("wab"),"Merhaba, "+B.ad+" hakkında bilgi almak istiyorum.");
+$("sek").innerHTML=B.kat.map(function(k){return '<button role="tab" data-k="'+k.id+'">'+B.ikon(k.id,18)+k.ad+'</button>'}).join("");
+function liste(){document.querySelectorAll("#sek button").forEach(function(b){b.classList.toggle("a",b.dataset.k===kat);b.setAttribute("aria-selected",b.dataset.k===kat)});
+ $("liste").innerHTML=B.hizmet.filter(function(h){return h.kat===kat}).map(function(h){return '<div class="sat'+(B.var(h.id)?" sec":"")+'"><h3>'+h.ad+'<span class="rz2">ÖRNEK</span></h3><p>'+h.ac+'</p><div class="sf"><b>'+B.sureYaz(h.dk)+'</b><span>süre · örnek</span></div><button class="ekle" data-id="'+h.id+'" aria-label="'+(B.var(h.id)?"Çıkar":"Ekle")+': '+h.ad+'">+</button></div>'}).join("")}
+function sepet(){var l=B.sepet(),t=B.toplam(l);$("sl").innerHTML=l.length?'<ul>'+l.map(function(id){var h=B.bul(id);return h?'<li><span>'+h.ad+'</span><span>'+B.sureYaz(h.dk)+' <button data-cik="'+id+'">çıkar</button></span></li>':''}).join("")+'</ul>':'<p class="bos">Henüz hizmet seçmediniz. Soldan ekleyin ya da bir paket seçin.</p>';
+ $("tp").innerHTML=l.map(function(id){var h=B.bul(id);return '<i style="flex:'+h.dk+';background:'+["var(--ac)","var(--gold)","var(--ac2)","var(--ink)"][id%4]+'" title="'+h.ad+'"></i>'}).join("");
+ $("ts2").textContent=l.length?l.length+" hizmet · toplam süre":"";$("tt2").textContent=l.length?B.sureYaz(t.dk):"";
+ $("am").textContent=l.length?l.length+" hizmet · "+B.sureYaz(t.dk):"Sepet boş";liste()}
+function takvim(){$("gn").innerHTML=G.map(function(g,i){return '<button data-g="'+i+'" class="'+(gun===i?"a":"")+'">'+g.g+'<b>'+g.n+'</b>'+g.a+'</button>'}).join("");
+ $("sa").innerHTML=B.saatler.map(function(s,i){var d=gun!==null&&B.dolu(G[gun].idx,i);return '<button data-s="'+i+'" class="'+(saat===i?"a":"")+'"'+(d?" disabled":"")+(gun===null?" disabled":"")+'>'+s+'</button>'}).join("")}
+$("sek").addEventListener("click",function(e){var b=e.target.closest("button");if(b){kat=b.dataset.k;liste();B.iz("salon:kategori "+kat)}});
+$("liste").addEventListener("click",function(e){var b=e.target.closest(".ekle");if(b){var on=B.deg(b.dataset.id);sepet();B.toast(on?"Sepete eklendi":"Sepetten çıkarıldı");B.iz("salon:sepet")}});
+$("sl").addEventListener("click",function(e){var b=e.target.closest("[data-cik]");if(b){B.deg(b.dataset.cik);sepet()}});
+$("gn").addEventListener("click",function(e){var b=e.target.closest("button");if(b){gun=Number(b.dataset.g);saat=null;takvim()}});
+$("sa").addEventListener("click",function(e){var b=e.target.closest("button");if(b&&!b.disabled){saat=Number(b.dataset.s);takvim()}});
+$("pk").innerHTML=B.paketler.map(function(p,i){var t=B.toplam(p.ids);return '<article><span class="et">Paket 0'+(i+1)+' · örnek</span><h3>'+p.ad+'</h3><p>'+p.not+'</p><p>'+B.sureYaz(t.dk)+'</p><div class="tt"><b>'+t.n+' hizmet</b><button class="btn" data-p="'+i+'">Sepete al</button></div></article>'}).join("");
+$("pk").addEventListener("click",function(e){var b=e.target.closest("[data-p]");if(b){B.sepetYaz(B.paketler[b.dataset.p].ids.slice());sepet();B.toast("Paket sepete alındı");$("randevu").scrollIntoView({behavior:"smooth"});B.iz("salon:paket")}});
+$("mh").onclick=function(){var g=gun!==null?G[gun].g+" "+G[gun].n+" "+G[gun].a:"",m=B.mesaj({tel:$("tl").value.trim(),ad:$("ad").value.trim(),gun:g,saat:saat!==null?B.saatler[saat]:"",not:$("nt").value.trim()});
+ B.kutu($("on"),m);B.iz("salon:mesaj")};
+sepet();takvim();
+})();
+</script>
+<script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="marina-tirnak-ve-guzellik-merkezi" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

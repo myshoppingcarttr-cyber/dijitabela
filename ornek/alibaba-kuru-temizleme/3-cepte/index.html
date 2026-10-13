@@ -1,0 +1,104 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Cepte · Alibaba Kuru Temizleme · Dijitabela</title><meta name="description" content="Alibaba Kuru Temizleme için telefonda uygulama gibi çalışan sayfa prototipi: parçalar, teslim, siparişim hazır mı. Kayıtlar örnektir.">
+<meta name="theme-color" content="#F4F1E9"><link rel="icon" href="https://dijitabela.com.tr/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1E9;--ink:#13261F;--ac:#0B6E4F;--ac2:#08503A;--soft:#E3EDE4;--ln:#D7DDD0;--mu:#5E6A62;--gold:#C9A227;--dbg:#0C1813;--fb:"Syne",Georgia,serif;--fg:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--dbg)}
+body{min-height:100vh;color:var(--ink);font:400 15px/1.5 var(--fg);overflow-x:hidden;-webkit-font-smoothing:antialiased;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:40px;align-items:center;padding:24px;background:radial-gradient(900px 520px at 70% 18%,color-mix(in srgb,var(--ac) 35%,transparent),transparent 70%),var(--dbg)}
+a{color:inherit}button,input,textarea,select{font:inherit;color:inherit;max-width:100%}
+.yan{color:#eee;max-width:380px;justify-self:end}.yan h1{font:600 clamp(40px,4.4vw,62px)/1 var(--fb);margin:12px 0;letter-spacing:-.02em}.yan h1 em{color:var(--gold);font-style:italic}.yan p{color:rgba(255,255,255,.66)}.yan .et{color:var(--gold)}
+.yan2{color:rgba(255,255,255,.62);font-size:13px;max-width:300px}.yan2 b{color:#fff;display:block;margin-bottom:6px;font:600 20px var(--fb)}
+.tel{width:392px;height:min(800px,calc(100vh - 48px));min-height:620px;background:#0b0b0d;border-radius:46px;padding:11px;box-shadow:0 40px 90px -20px rgba(0,0,0,.7),inset 0 0 0 2px #34343a;justify-self:center}
+.ek{position:relative;width:100%;height:100%;background:var(--bg);border-radius:36px;overflow:hidden;display:flex;flex-direction:column}
+.ek:before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:96px;height:24px;border-radius:99px;background:#0b0b0d;z-index:5}
+.ust2{padding:42px 18px 10px;display:flex;align-items:center;gap:10px}.ust2 b{font:600 24px/1 var(--fb)}.ust2 small{display:block;font:600 9px var(--fg);letter-spacing:.24em;text-transform:uppercase;color:var(--ac2);margin-top:4px}.ust2 .ara{margin-left:auto;width:42px;height:42px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;text-decoration:none;flex:none}
+.ic{flex:1;overflow-y:auto;overflow-x:hidden;padding:4px 18px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.ic::-webkit-scrollbar{display:none}
+.et{font:600 10px/1.2 var(--fg);letter-spacing:.2em;text-transform:uppercase;color:var(--ac2)}
+.rz{display:inline-block;background:var(--soft);font-size:9px;font-weight:700;letter-spacing:.12em;padding:3px 6px;border-radius:99px;color:var(--ac2);vertical-align:middle}
+.hs{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-radius:24px;padding:22px 20px;position:relative;overflow:hidden;margin-bottom:14px}.hs:after{content:"";position:absolute;right:-30px;top:-30px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.14)}
+.hs h2{font:600 32px/1 var(--fb);margin:8px 0;position:relative;z-index:1}.hs p{font-size:14px;opacity:.92;max-width:28ch;position:relative;z-index:1}.hs .btn{margin-top:14px;background:#fff;color:var(--ac2);border:0;position:relative;z-index:1}.hs .et{color:#fff;opacity:.85}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border:1.5px solid var(--ink);background:transparent;border-radius:14px;font-weight:600;cursor:pointer;text-decoration:none;font-size:14px}.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.wa{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
+.kt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:14px}.kt button{border:1px solid var(--ln);background:#fff;border-radius:16px;padding:12px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;min-height:76px;text-align:center}.kt button.a{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.kt3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gn{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin:8px 0}.gn button{flex:0 0 auto;min-width:54px;min-height:62px;border:1px solid var(--ln);background:#fff;border-radius:16px;cursor:pointer;font-size:11px;line-height:1.25}.gn button b{display:block;font:600 20px var(--fb)}.gn button.a{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ch{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}.ch button{min-height:42px;padding:0 14px;border:1px solid var(--ln);background:#fff;border-radius:12px;cursor:pointer;font-size:13px}.ch button.a{background:var(--ac);color:#fff;border-color:var(--ac)}
+.ic input,.ic textarea,.ic select{width:100%;border:1px solid var(--ln);background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:8px}
+.kart{background:#fff;border:1px solid var(--ln);border-radius:18px;padding:14px;margin-bottom:10px}
+.say{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 12px;gap:8px}.say h2{font:600 28px/1 var(--fb)}
+.mk-on{white-space:pre-wrap;font-size:13px;background:#fff;border:1px solid var(--ln);border-left:3px solid var(--ac);border-radius:12px;padding:12px;margin-top:10px}
+.mk-dg{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.mk-dg .btn{flex:1 1 auto}.mk-not{display:block;width:100%;color:var(--mu);font-size:11px}
+.sln p{margin-bottom:10px;font-size:14px}.sln .btn{width:100%;margin-bottom:8px}
+.alt{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ln);background:#fff;padding:6px 4px 12px}.alt button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:var(--mu);cursor:pointer;min-height:52px;position:relative}.alt button.a{color:var(--ac2);font-weight:700}.alt svg{width:22px;height:22px}
+.alt .sy{position:absolute;top:2px;left:calc(50% + 6px);background:var(--ac);color:#fff;border-radius:99px;font-size:10px;min-width:17px;height:17px;display:grid;place-items:center;padding:0 4px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);background:#fff;color:#222;padding:12px 18px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}.toast.a{opacity:1;transform:translate(-50%,0)}
+.tab{animation:gel .35s ease both}@keyframes gel{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(max-width:1100px){body{grid-template-columns:minmax(0,1fr);justify-items:center;padding:0;gap:0}.yan,.yan2{display:none}.tel{width:100%;max-width:440px;height:100vh;height:100dvh;border-radius:0;padding:0;box-shadow:none;min-height:0}.ek{border-radius:0}.ek:before{display:none}.ust2{padding-top:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.kt button svg{color:var(--ac)}.kt button.a svg{color:var(--bg)}
+.pr{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--ln);border-radius:16px;padding:10px 10px 10px 12px;margin-bottom:8px}.pr.ok{border-color:var(--ac);background:var(--soft)}.pr .ik{color:var(--ac2);flex:none}.pr>div{flex:1;min-width:0}.pr b{display:block;font:600 17px/1.2 var(--fb)}.pr small{color:var(--mu);font-size:12px}
+.pr.yok{opacity:.4}.stp{display:flex;align-items:center;border:1px solid var(--ln);border-radius:99px;flex:none}.stp button{width:36px;height:40px;border:0;background:none;font-size:18px;cursor:pointer}.stp output{min-width:18px;text-align:center;font-weight:700}
+.top{background:var(--ink);color:var(--bg);border-radius:18px;padding:14px 16px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}.top b{font:600 24px var(--fb)}.top small{opacity:.7;font-size:12px}
+.plan{background:var(--soft);border-radius:14px;padding:12px;font-size:13px;margin-bottom:10px}
+.hzs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}.hzs button{border:1px solid var(--ln);background:#fff;border-radius:16px;padding:12px 6px;font-size:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}.hzs svg{color:var(--ac)}
+.fs{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--ln);font-size:13px;gap:8px}
+.kodl button{border:1px dashed var(--ln);background:#fff;border-radius:99px;padding:6px 10px;font-size:12px;cursor:pointer;margin:0 4px 4px 0}
+.dr{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--ln)}.dr .ik{color:var(--ac);flex:none}.dr>div{flex:1;min-width:0}.dr small{color:var(--mu);font-size:12px}
+.b4{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px}.b4 i{height:6px;border-radius:6px;background:var(--ln)}.b4 i.on{background:var(--ac)}
+.rozet{border-radius:16px;padding:14px;color:#fff;font:600 20px var(--fb);margin:10px 0}
+.askm{display:flex;justify-content:space-around;align-items:flex-start;height:110px;border-top:5px solid var(--ink);border-radius:4px;margin:4px 6px 14px;padding-top:2px}.askm span{transform-origin:50% 0;animation:sal 4s ease-in-out infinite;color:var(--ac2)}.askm span:nth-child(2){animation-delay:-1.3s;color:var(--ac)}.askm span:nth-child(3){animation-delay:-2.6s}.askm span:nth-child(4){animation-delay:-.7s;color:var(--ac)}
+@keyframes sal{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.fiyatsiz .fy{display:none!important}html:not(.fiyatsiz) .fy0{display:none!important}</style></head><body>
+<div class="yan"><span class="et">Alibaba Kuru Temizleme · seçenek 3 / 3</span><h1>Kuru temizleme <em>cebinizde.</em></h1><p>Telefonda uygulama gibi çalışan sürüm: parçaları seç, teslim gününü işaretle, hazır olunca gör. Sağdaki ekran çalışır; fiş kayıtları örnektir.</p></div>
+<div class="tel"><div class="ek"><div class="ust2"><div><b>Alibaba</b><small>Kuru temizleme</small></div><a class="ara" href="tel:+905365447186" aria-label="Ara"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a></div>
+<div class="ic" id="ic"></div><nav class="alt" id="alt"></nav></div></div>
+<div class="yan2"><b>Örnek veri</b>Parça listesi, süreler ve fiş kayıtları örnektir; fiyat yazılmadı. İşletmenin gerçek bilgisi: Sinan Mah. Hüsnü Karakaş Cd. Tankerler İşhanı, Muratpaşa / Antalya, 0536 544 71 86 (rehber kaynaklı, teyit edilecek).</div>
+<div class="toast" id="ts" role="status"></div>
+<script src="../ortak.js"></script>
+<script>
+(function(){"use strict";var B=window.ISL,$=function(i){return document.getElementById(i)},tab="ana",kat=B.kat[0].id,is=B.vars,mod=0,G=B.gunler(7),gb=null,ga=null,dil=null,A=[],f={adr:"",ad:"",nt:""},mesaj="",kod="",r=null;
+var IK={ana:'<path d="M3 11l9-8 9 8v10H3z"/>',par:'<path d="M12 3c1.5 0 2.5 1 2.5 2.3 0 1.6-2.5 2-2.5 3.7M12 9L3 15v2h18v-2z"/>',tes:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',haz:'<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>'};
+var SEK=[["ana","Ana sayfa"],["par","Parçalar"],["tes","Teslim"],["haz","Hazır mı?"]];
+function sv(k){return '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+IK[k]+'</svg>'}
+function nav(){var n=B.toplam().n;$("alt").innerHTML=SEK.map(function(s){return '<button data-t="'+s[0]+'" class="'+(tab===s[0]?"a":"")+'">'+sv(s[0])+s[1]+(s[0]==="par"&&n?'<span class="sy">'+n+'</span>':'')+'</button>'}).join("")}
+function gunler(){var t=B.toplam();A=gb===null?[]:B.gunler(6,G[gb].idx+Math.max(1,t.gun));if(ga!==null&&ga>=A.length)ga=null}
+function goster(){var h="",l=B.liste(),t=B.toplam();gunler();
+ if(tab==="ana"){h='<div class="tab"><div class="hs"><span class="et">Muratpaşa</span><h2>Bırakın, hazır olunca görün.</h2><p>Parça seç, teslim gününü işaretle, fiş numarasıyla sorgula.</p><button class="btn" data-t="par">Parçaları seç</button></div>'+
+  '<div class="askm" aria-hidden="true">'+["gomlek","elbise","takim","mont"].map(function(k){return '<span>'+B.ikon(k,56)+'</span>'}).join("")+'</div>'+
+  '<div class="hzs"><button data-t="par">'+sv("par")+'Parçalar</button><button data-t="tes">'+sv("tes")+'Teslim günü</button><button data-t="haz">'+sv("haz")+'Hazır mı?</button></div>'+
+  '<div class="say"><h2>Örnek süreler</h2><span class="rz">ÖRNEK</span></div>'+B.parcalar.slice(0,8).map(function(p){var u=B.uygun(p.id,is);return '<div class="fs"><span>'+p.ad+'</span><b>~'+p.g+' gün</b></div>'}).join("")+'<p style="font-size:11px;color:var(--mu);margin-top:8px">'+B.islemler[B.vars].ad+' bazında örnek işlem süreleri.</p></div>'}
+ else if(tab==="par"){h='<div class="tab"><div class="kt kt3">'+B.kat.map(function(k){var p=B.parcalar.filter(function(x){return x.kat===k.id})[0];return '<button data-k="'+k.id+'" class="'+(kat===k.id?"a":"")+'">'+B.ikon(p.ik||p.id,22)+k.ad+'</button>'}).join("")+'</div>'+
+  '<div class="ch">'+Object.keys(B.islemler).map(function(k){return '<button data-i="'+k+'" class="'+(is===k?"a":"")+'">'+B.islemler[k].ad+'</button>'}).join("")+'</div>'+
+  B.parcalar.filter(function(p){return p.kat===kat}).map(function(p){var u=p.is.indexOf(is)>-1,n=u?B.adet(p.id,is):0;return '<div class="pr'+(n?" ok":"")+(u?"":" yok")+'"><span class="ik">'+B.ikon(p.ik||p.id,26)+'</span><div><b>'+p.ad+'</b><small>'+(u?B.islemler[is].ad+" · ~"+(is==="utu"?1:p.g)+" gün":"bu işlem yok")+' <span class="rz">ÖRNEK</span></small></div>'+(u?'<span class="stp"><button data-d="-1" data-p="'+p.id+'" aria-label="Azalt">−</button><output>'+n+'</output><button data-d="1" data-p="'+p.id+'" aria-label="Arttır">+</button></span>':'')+'</div>'}).join("")+
+  '<div class="top"><div><small>Sepet</small><br><b>'+t.n+' parça/kg</b></div><button class="btn" data-t="tes" style="background:#fff;color:var(--ink);border:0">Teslim →</button></div></div>'}
+ else if(tab==="tes"){h='<div class="tab"><div class="say"><h2>Teslim</h2><span class="et">'+t.n+' parça</span></div>'+(l.length?'<div class="kart">'+l.map(function(x){return '<div class="fs"><span>'+B.satir(x)+'</span><b class="fy">'+B.tl(x.tl)+'</b></div>'}).join("")+'</div>':'')+
+  '<div class="ch">'+B.modlar.map(function(m,i){return '<button data-m="'+i+'" class="'+(mod===i?"a":"")+'">'+m.ad.replace(" (işletme teyit eder)"," (talep)")+'</button>'}).join("")+'</div>'+(mod===1?'<textarea id="adr" rows="2" placeholder="Adres"></textarea>':'')+
+  '<span class="et">Bırakma günü</span><div class="gn">'+G.map(function(g,i){return '<button data-b="'+i+'" class="'+(gb===i?"a":"")+'">'+g.g+'<b>'+g.n+'</b>'+g.a+'</button>'}).join("")+'</div><span class="et">Zaman tercihi</span><div class="ch">'+B.dilimler.map(function(d,i){return '<button data-z="'+i+'" class="'+(dil===i?"a":"")+'">'+d+'</button>'}).join("")+'</div>'+
+  '<span class="et">Alma günü</span>'+(A.length?'<div class="gn">'+A.map(function(g,i){return '<button data-a="'+i+'" class="'+(ga===i?"a":"")+'">'+g.g+'<b>'+g.n+'</b>'+g.a+'</button>'}).join("")+'</div><div class="plan">En erken '+A[0].yaz+' (örnek süreye göre).</div>':'<div class="plan">Bırakma günü seçince açılır.</div>')+
+  '<input id="ad" placeholder="Adınız (isteğe bağlı)"><textarea id="nt" rows="2" placeholder="Not (isteğe bağlı)"></textarea><button class="btn p" id="mh" style="width:100%">Mesajı hazırla</button><div id="mk"></div></div>'}
+ else{h='<div class="tab"><div class="say"><h2>Hazır mı?</h2><span class="rz">ÖRNEK</span></div><input id="kod" placeholder="Fiş no, örn. ALB-1042" value="'+B.kac(kod)+'" style="text-transform:uppercase;font-weight:700;letter-spacing:.08em"><button class="btn p" id="sor" style="width:100%;margin-bottom:8px">Sorgula</button><div class="kodl">'+B.ornekFisler.map(function(k){return '<button data-kd="'+k+'">'+k+'</button>'}).join("")+'</div>'+
+  (r?'<div class="rozet" style="background:'+(r.hazir?"#1f7a4d":"var(--ac2)")+'">'+(r.hazir?"Siparişiniz hazır.":"Henüz hazır değil.")+'<br><small style="font:500 12px var(--fg);opacity:.85">'+B.kac(r.kod)+' · örnek kayıt</small></div><div class="kart">'+r.l.map(function(x){return '<div class="dr"><span class="ik">'+B.ikon(x.ik,26)+'</span><div><b>'+x.n+' × '+x.ad+'</b><br><small>'+B.durumlar[x.d]+'</small><div class="b4">'+B.durumlar.map(function(d,i){return '<i class="'+(i<=x.d?"on":"")+'"></i>'}).join("")+'</div></div></div>'}).join("")+'</div>':'')+'<p style="font-size:11px;color:var(--mu);margin-top:10px">Örnek ekran; işletmenin fiş defterine bağlanınca gerçek kayıtla çalışır.</p></div>'}
+ $("ic").innerHTML=h;
+ if(tab==="tes"){if($("adr"))$("adr").value=f.adr;$("ad").value=f.ad;$("nt").value=f.nt;if(mesaj)B.kutu($("mk"),mesaj,1)}
+ nav()}
+function koru(fn){var st=$("ic").scrollTop;fn();$("ic").scrollTop=st}
+$("alt").addEventListener("click",function(e){var b=e.target.closest("button");if(b){tab=b.dataset.t;goster();$("ic").scrollTop=0;B.iz("cepte:sekme "+tab)}});
+$("ic").addEventListener("input",function(e){var i=e.target.id;if(i==="adr")f.adr=e.target.value;if(i==="ad")f.ad=e.target.value;if(i==="nt")f.nt=e.target.value;if(i==="kod")kod=e.target.value});
+$("ic").addEventListener("click",function(e){var b;
+ if(b=e.target.closest("[data-t]")){tab=b.dataset.t;goster();$("ic").scrollTop=0;return}
+ if(b=e.target.closest("[data-k]")){kat=b.dataset.k;is=B.isFor(kat,is);koru(goster);return}
+ if(b=e.target.closest("[data-i]")){is=b.dataset.i;koru(goster);return}
+ if(b=e.target.closest("[data-d]")){B.degis(b.dataset.p,is,+b.dataset.d);koru(goster);B.iz("cepte:sepet");return}
+ if(b=e.target.closest("[data-m]")){mod=+b.dataset.m;mesaj="";koru(goster);return}
+ if(b=e.target.closest("[data-b]")){gb=+b.dataset.b;ga=null;mesaj="";koru(goster);return}
+ if(b=e.target.closest("[data-z]")){dil=+b.dataset.z;mesaj="";koru(goster);return}
+ if(b=e.target.closest("[data-a]")){ga=+b.dataset.a;mesaj="";koru(goster);return}
+ if(e.target.closest("#mh")){mesaj=B.mesaj({ad:f.ad.trim(),mod:B.modlar[mod].ad.replace(" (işletme teyit eder)",""),adres:mod===1?f.adr.trim():"",birak:gb!==null?G[gb].yaz:"",dilim:dil!==null?B.dilimler[dil]:"",al:ga!==null?A[ga].yaz:"",not:f.nt.trim()});B.kutu($("mk"),mesaj,1);B.iz("cepte:mesaj");return}
+ if(b=e.target.closest("[data-kd]")){kod=b.dataset.kd;r=B.sorgu(kod);koru(goster);return}
+ if(e.target.closest("#sor")){r=B.sorgu(kod);if(!r)B.toast("Fiş numarasını yazın");koru(goster);B.iz("cepte:sorgu")}});
+goster();
+})();
+</script>
+<script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="alibaba-kuru-temizleme" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

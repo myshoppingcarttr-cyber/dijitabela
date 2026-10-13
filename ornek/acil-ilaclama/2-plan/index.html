@@ -1,0 +1,92 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Kat Planı · Acil İlaçlama · Dijitabela</title><meta name="description" content="Acil İlaçlama için kat planı prototipi: zararlıyı seçip görüldüğü odaya bırakın; randevu mesajı odaları da söylesin, hazırlık listesi oluşsun.">
+<meta name="theme-color" content="#0F1113"><link rel="icon" href="https://dijitabela.com.tr/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F1113;--p:#181B1F;--ln:#2A2E34;--tx:#F2F2F0;--mu:#A0A4AB;--ac:#FF7A3D;--gold:#F2C230;--fb:"Barlow Condensed",system-ui,sans-serif;--fg:"Inter",system-ui,sans-serif;--mo:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.55 var(--fg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,textarea{font:inherit;color:inherit;max-width:100%}
+.w{max-width:1280px;margin:0 auto;padding:0 clamp(14px,3.4vw,40px)}
+.et{font:700 11px/1.2 var(--mo);letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+.rz{display:inline-block;border:1px solid currentColor;font:700 9px/1 var(--mo);letter-spacing:.1em;padding:3px 5px;border-radius:3px;vertical-align:middle;opacity:.85}
+header{border-bottom:1px solid var(--ln);position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px)}header .w{display:flex;align-items:center;height:62px;gap:14px}
+.logo{font:700 22px/1 var(--fb);text-decoration:none;text-transform:uppercase}.logo span{color:var(--ac)}.hd{margin-left:auto;display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border:1px solid var(--ln);background:var(--p);border-radius:6px;font-weight:700;cursor:pointer;text-decoration:none;transition:.2s}.btn:hover{border-color:var(--ac)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:var(--bg)}.btn.wa{background:#1f9d62;border-color:#1f9d62;color:#fff}
+.ust{padding-top:clamp(22px,4vw,44px);padding-bottom:18px}.ust h1{font:700 clamp(40px,6.4vw,86px)/.92 var(--fb);text-transform:uppercase;margin-top:10px}.ust h1 em{color:var(--ac);font-style:normal}.ust p{color:var(--mu);max-width:62ch;margin-top:12px}
+.dz{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(14px,2vw,26px);align-items:start;padding-bottom:26px}
+.pn{background:var(--p);border:1px solid var(--ln);border-radius:12px;padding:16px}.pn h2{font:700 26px/1 var(--fb);text-transform:uppercase;margin:8px 0 12px}
+.pal{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.pal button{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 12px;border:1px solid var(--ln);background:transparent;border-radius:6px;cursor:pointer;font-size:13px}
+.pal button.a{background:var(--ac);border-color:var(--ac);color:var(--bg);font-weight:700}
+.plan{position:relative;border-radius:10px;background:var(--bg);padding:10px;border:1px solid var(--ln)}
+.plan svg{width:100%;height:auto;display:block}
+.plan .oda rect{fill:var(--p);stroke:var(--tx);stroke-width:4;transition:fill .3s;cursor:pointer}
+.plan .oda:hover rect{fill:color-mix(in srgb,var(--ac) 12%,var(--p))}.plan .oda.var rect{fill:color-mix(in srgb,var(--ac) 22%,var(--p))}
+.plan .oda text{fill:var(--mu);font:700 14px var(--mo);pointer-events:none;text-transform:uppercase;letter-spacing:.08em}
+.plan .oda:focus{outline:none}.plan .oda:focus rect{stroke:var(--ac)}
+.plan .im{pointer-events:none;color:var(--ac);animation:dus .5s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes dus{from{opacity:0}to{opacity:1}}
+.plan .kapi{stroke:var(--p);stroke-width:8}
+.plan small{display:block;color:var(--mu);font-size:11px;margin-top:6px}
+.lst{list-style:none;margin:6px 0 12px}.lst li{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed var(--ln);font-size:14px}.lst li .ik{color:var(--ac)}.lst li span{flex:1}.lst li button{background:none;border:0;color:var(--mu);cursor:pointer;text-decoration:underline;font-size:12px;padding:6px}
+.ch{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}.ch button{min-height:40px;padding:0 12px;border:1px solid var(--ln);background:transparent;border-radius:6px;cursor:pointer;font-size:13px}.ch button.a{background:var(--tx);color:var(--bg);border-color:var(--tx);font-weight:700}
+.m2{display:flex;align-items:center;gap:10px;margin:6px 0 12px}.m2 input{flex:1;accent-color:var(--ac)}.m2 b{font:700 18px var(--mo);min-width:80px;text-align:right}
+.acil{display:flex;align-items:center;gap:12px;width:100%;border:1px solid var(--ac);background:transparent;border-radius:8px;padding:12px;cursor:pointer;text-align:left;margin-bottom:10px}.acil .sw{width:46px;height:26px;border-radius:99px;background:var(--ln);position:relative;flex:none;transition:.3s}.acil .sw:after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--tx);transition:.3s}.acil.a{background:var(--ac);color:var(--bg)}.acil.a .sw:after{left:23px;background:var(--bg)}
+.gn{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin:6px 0 8px}.gn button{flex:0 0 auto;min-width:54px;min-height:56px;border:1px solid var(--ln);background:transparent;border-radius:8px;cursor:pointer;line-height:1.2;font-size:12px}.gn button b{display:block;font:700 17px var(--mo)}.gn button.a{background:var(--ac);color:var(--bg);border-color:var(--ac)}.kapali{opacity:.35;pointer-events:none}
+.pn input,.pn textarea{width:100%;background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:11px 12px;margin-bottom:8px}
+.mk-on{white-space:pre-wrap;background:var(--bg);border:1px solid var(--ln);border-left:3px solid var(--ac);border-radius:8px;padding:12px;font-size:13px}.mk-dg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.mk-not{display:block;width:100%;color:var(--mu);font-size:12px}
+.hz{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,26px);padding-bottom:50px}
+.cl{list-style:none}.cl li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--ln);cursor:pointer;font-size:14px}.cl .k{width:22px;height:22px;border:1.5px solid var(--mu);border-radius:4px;flex:none;display:grid;place-items:center;font-size:13px}.cl li.ok .k{background:var(--ac);border-color:var(--ac);color:var(--bg)}.cl li.ok span{text-decoration:line-through;color:var(--mu)}
+.ilr{height:6px;background:var(--ln);border-radius:9px;overflow:hidden;margin:8px 0}.ilr i{display:block;height:100%;background:var(--ac);transition:width .4s}
+footer{border-top:1px solid var(--ln);padding:26px 0 60px;color:var(--mu);font-size:13px}footer .w{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}footer b{color:var(--tx);font:700 22px var(--fb);text-transform:uppercase;display:block;margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);background:#fff;color:#222;padding:12px 18px;border-radius:8px;opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}.toast.a{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.dz,.hz,footer .w{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:480px){.hd .btn:first-child{display:none}.plan .oda text{font-size:20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.fiyatsiz .fy{display:none!important}html:not(.fiyatsiz) .fy0{display:none!important}</style></head><body>
+<header><div class="w"><a class="logo" href="#">Acil <span>·</span> kat planı</a><div class="hd"><a class="btn" href="tel:+905423763020">Ara</a><a class="btn p" href="#mesaj">Randevu</a></div></div></header>
+<div class="w ust"><span class="et">Atatürk Mah. 2643. Sk. No:20, Kepez / Antalya</span><h1>Nerede <em>gördünüz?</em></h1><p>Yukarıdan zararlıyı seçin, sonra plandaki odaya dokunun: işaret odaya düşer. Ekip nereye bakacağını mesajdan önceden bilir. Plan örnek bir dairedir <span class="rz">ÖRNEK</span></p></div>
+<main class="w dz"><section class="pn"><span class="et">1 · Zararlı seç, odaya dokun</span><div class="pal" id="pal" style="margin-top:10px"></div>
+<div class="plan"><svg viewBox="-6 -6 612 412" id="sv" role="group" aria-label="Örnek daire kat planı"></svg><small>Örnek 3+1 daire planı · odaya tekrar dokunmak işareti kaldırır</small></div></section>
+<aside class="pn" id="mesaj"><span class="et">2 · Özet ve randevu</span><h2>Nerede ne var?</h2><ul class="lst" id="lst"></ul>
+<span class="et" style="color:var(--mu)">Mekân</span><div class="ch" id="mk2"></div><div class="m2"><input type="range" id="m2r" min="20" max="1000" step="5" value="100" aria-label="Metrekare"><b id="m2b">100 m²</b></div>
+<button class="acil" id="acil" type="button" aria-pressed="false"><span class="sw"></span><span><b>Acil</b> · en kısa sürede</span></button>
+<div id="gnk"><span class="et" style="color:var(--mu)">Gün</span><div class="gn" id="gn"></div><div class="ch" id="dl"></div></div>
+<textarea id="adr" rows="2" placeholder="Adres"></textarea><input id="isim" placeholder="Adınız (isteğe bağlı)" autocomplete="off"><button class="btn p" id="mh" style="width:100%">Mesajı hazırla</button><div id="mk" style="margin-top:10px"></div></aside></main>
+<section class="w hz"><div class="pn"><span class="et">3 · İlaçlamadan önce</span><h2>Hazırlık</h2><div class="ilr"><i id="i1"></i></div><ul class="cl" id="c1"></ul></div><div class="pn"><span class="et">4 · Sonra</span><h2>Dönüşte</h2><div class="ilr"><i id="i2"></i></div><ul class="cl" id="c2"></ul><p style="color:var(--mu);font-size:12px;margin-top:10px">Genel bilgidir, örnektir; uygulayan ekibin talimatı esastır.</p></div></section>
+<footer><div class="w"><div><b>Acil İlaçlama</b>Atatürk Mah. 2643. Sk. No:20, Kepez / Antalya<br>Telefon: <a href="tel:+905423763020">0542 376 30 20</a><br><a href="https://local.gen.tr/antalya/acil-ilaclama/" target="_blank" rel="noopener">local.gen.tr kaydı</a> · <a id="yol" target="_blank" rel="noopener">Yol tarifi</a></div><div>Dijitabela’nın Acil İlaçlama için hazırladığı taslak. Plan, belirtiler ve hazırlık listeleri örnek ve genel bilgidir; fiyat yazılmadı. Hiçbir mesaj otomatik gönderilmez. Seçenek 2 / 3.</div></div></footer>
+<div class="toast" id="ts" role="status"></div>
+<script src="../ortak.js"></script>
+<script>
+(function(){"use strict";var B=window.ISL,$=function(i){return document.getElementById(i)},ak="hamam",yer=B.oku("plan",{}),mek="daire",m2=100,acil=false,G=B.gunler(7),gun=null,dil=null;
+$("yol").href=B.harita;
+$("pal").innerHTML=B.zararlilar.map(function(z){return '<button data-z="'+z.id+'">'+B.ikon(z.id,18)+z.ad+'</button>'}).join("");
+function sec(){var s=[];Object.keys(yer).forEach(function(o){yer[o].forEach(function(z){if(s.indexOf(z)<0)s.push(z)})});return s}
+function plan(){document.querySelectorAll("#pal button").forEach(function(b){b.classList.toggle("a",b.dataset.z===ak)});
+ $("sv").innerHTML=B.odalar.map(function(o){var l=yer[o.id]||[];return '<g class="oda'+(l.length?" var":"")+'" data-o="'+o.id+'" tabindex="0" role="button" aria-label="'+o.ad+(l.length?": "+l.map(function(z){return B.z(z).ad}).join(", "):"")+'"><rect x="'+o.x+'" y="'+o.y+'" width="'+o.w+'" height="'+o.h+'"/><text x="'+(o.x+12)+'" y="'+(o.y+24)+'">'+o.ad+'</text>'+l.map(function(z,i){return '<g class="im"><svg x="'+(o.x+14+i*40)+'" y="'+(o.y+o.h-50)+'" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="'+B.z(z).ik+'"/></svg></g>'}).join("")+'</g>'}).join("")+'<path class="kapi" d="M320 150h40M250 230h-40M330 230h40M480 230h40M460 40v40"/>';
+ var s=sec();$("lst").innerHTML=Object.keys(yer).filter(function(o){return yer[o].length}).map(function(o){return '<li><span class="ik">'+B.ikon(yer[o][0],20)+'</span><span><b>'+B.oda(o).ad+':</b> '+yer[o].map(function(z){return B.z(z).ad.toLowerCase()}).join(", ")+'</span><button data-sil="'+o+'">kaldır</button></li>'}).join("")||'<li style="color:var(--mu)">Henüz işaret yok. Zararlıyı seçip odaya dokunun.</li>';
+ B.yaz("plan",yer);B.yaz("secim",s);liste()}
+function tikla(o){var l=yer[o]||(yer[o]=[]),i=l.indexOf(ak);if(i>-1)l.splice(i,1);else l.push(ak);if(!l.length)delete yer[o];plan();B.iz("plan:oda")}
+$("pal").addEventListener("click",function(e){var b=e.target.closest("button");if(b){ak=b.dataset.z;plan()}});
+$("sv").addEventListener("click",function(e){var g=e.target.closest(".oda");if(g)tikla(g.dataset.o)});
+$("sv").addEventListener("keydown",function(e){var g=e.target.closest(".oda");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();tikla(g.dataset.o)}});
+$("lst").addEventListener("click",function(e){var b=e.target.closest("[data-sil]");if(b){delete yer[b.dataset.sil];plan()}});
+$("mk2").innerHTML=B.mekanlar.map(function(m){return '<button data-m="'+m.id+'">'+m.ad+'</button>'}).join("");
+function mekan(){document.querySelectorAll("#mk2 button").forEach(function(b){b.classList.toggle("a",b.dataset.m===mek)});$("m2b").textContent=m2+" m²"}
+$("mk2").addEventListener("click",function(e){var b=e.target.closest("button");if(b){mek=b.dataset.m;m2=B.mk(mek).m2;$("m2r").value=m2;mekan()}});
+$("m2r").addEventListener("input",function(){m2=+this.value;mekan()});
+function takvim(){$("gn").innerHTML=G.map(function(g,i){return '<button data-g="'+i+'" class="'+(gun===i?"a":"")+'">'+g.g+'<b>'+g.n+'</b>'+g.a+'</button>'}).join("");$("dl").innerHTML=B.dilimler.map(function(d,i){return '<button data-d="'+i+'" class="'+(dil===i?"a":"")+'">'+d+'</button>'}).join("");$("gnk").classList.toggle("kapali",acil)}
+$("acil").onclick=function(){acil=!acil;this.classList.toggle("a",acil);this.setAttribute("aria-pressed",acil);takvim()};
+$("gn").addEventListener("click",function(e){var b=e.target.closest("button");if(b){gun=+b.dataset.g;takvim()}});
+$("dl").addEventListener("click",function(e){var b=e.target.closest("button");if(b){dil=+b.dataset.d;takvim()}});
+$("mh").onclick=function(){var od=Object.keys(yer).map(function(o){return B.oda(o).ad+" ("+yer[o].map(function(z){return B.z(z).ad.toLowerCase()}).join(", ")+")"});
+ B.kutu($("mk"),B.mesaj({ids:sec(),odalar:od,mek:mek,m2:m2,acil:acil,gun:gun!==null?G[gun].yaz:"",dilim:dil!==null?B.dilimler[dil]:"",adres:$("adr").value.trim(),ad:$("isim").value.trim()}));B.iz("plan:mesaj")};
+function liste(){var s=sec(),is=B.isaret();[["once","c1","i1"],["sonra","c2","i2"]].forEach(function(t){var l=B.liste(s,t[0]),n=0;$(t[1]).innerHTML=l.map(function(x){var k=t[0]+":"+x,ok=!!is[k];if(ok)n++;return '<li class="'+(ok?"ok":"")+'" data-k="'+B.kac(k)+'" role="checkbox" aria-checked="'+ok+'" tabindex="0"><span class="k">'+(ok?"✓":"")+'</span><span>'+x+'</span></li>'}).join("");$(t[2]).style.width=(l.length?n/l.length*100:0)+"%"})}
+["c1","c2"].forEach(function(id){$(id).addEventListener("click",function(e){var li=e.target.closest("li");if(li){B.isaretle(li.dataset.k);liste()}})});
+if(B.oku("plan",null)===null){yer={mutfak:["hamam"],banyo:["hamam"]};setTimeout(function(){B.toast("Örnek: mutfak ve banyo işaretlendi")},600)}
+plan();mekan();takvim();
+})();
+</script>
+<script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="acil-ilaclama" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
