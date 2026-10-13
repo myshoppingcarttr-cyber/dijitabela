@@ -152,7 +152,7 @@ footer{padding:40px 0;border-top:1px solid var(--cizgi);color:var(--soluk);font-
 <div class="etiket"><span data-tr>İç mimari</span><span data-en hidden>Interiors</span></div><h2><span data-tr>Tarzınızı seçin</span><span data-en hidden>Pick your style</span></h2>
 <p class="acik"><span data-tr>Bir stil seçin; renk paleti ve önerilen malzemeler çıksın. Beğendiğinizi toplantıya getirelim.</span><span data-en hidden>Choose a style to see palette and materials.</span></p>
 <div class="arac"><div><div class="stiller" id="stiller" data-anlat="p_stil"><button data-s="0" class="on">Minimal</button><button data-s="1">Modern</button><button data-s="2">Sıcak Doğal</button><button data-s="3">Klasik</button></div><div class="palet" id="palet"></div><p id="malzeme" class="acik"></p><a class="dg i" id="stilGonder" href="#" style="margin-top:14px"><span data-tr>Bu stili konuşalım</span><span data-en hidden>Let's discuss this style</span></a></div>
-<img src="../img/p3.jpg" alt="İç mimari" style="width:100%;aspect-ratio:4/3;object-fit:cover"></div>
+<figure style="margin:0;position:relative"><img id="stilGorsel" src="../img/stil0.jpg" alt="Minimal iç mimari örneği" style="width:100%;aspect-ratio:4/3;object-fit:cover;transition:opacity .25s ease,transform .6s ease"><figcaption id="stilEtiket" style="position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:4px 8px;letter-spacing:.04em">Minimal · örnek görsel</figcaption></figure></div>
 </div></section>
 
 <section class="bol"><div class="kap">
@@ -213,7 +213,8 @@ const A=[["Keşif ve rölöve","ok","12 Eyl"],["Konsept ve 3B görseller","ok","
 P.innerHTML='<div class="etiket">Villa · Gölbaşı · BNL-2481</div>'+A.map(([a,d,n],i)=>'<div class="adim '+d+'"><b>'+(d==="ok"?"✓":i+1)+'</b><div><strong>'+a+'</strong><br><span class="not">'+n+'</span></div></div>').join("")+'<p class="not" style="margin-top:12px">Son yüklenen: A-101 Zemin kat planı (rev.3) · Sıradaki toplantı: Perşembe 14:00</p>'};
 // stil seçici
 const ST=[["#F5F4F0","#D9D6CE","#8E8B84","#2B2B2B","Beyaz meşe, mikro beton, mat siyah armatür, keten"],["#E9E6E1","#B7B2AA","#3C3C3C","#C2A27A","Ceviz, siyah çelik, cam, terrazzo"],["#EFE6D8","#C9A27E","#7A5A3A","#5E6B4E","Traverten, masif ahşap, rattan, kil sıva"],["#F3EEE6","#D8C7A8","#8B6B4A","#3E3A35","Mermer, pirinç detay, boiserie, kadife"]];
-function stil(i){const s=ST[i];document.getElementById("palet").innerHTML=s.slice(0,4).map(c=>'<i style="background:'+c+'"></i>').join("");document.getElementById("malzeme").textContent="Önerilen malzemeler: "+s[4];
+const STG=["../img/stil0.jpg","../img/stil1.jpg","../img/stil2.jpg","../img/stil3.jpg"];STG.forEach(u=>{const im=new Image();im.src=u});
+function stil(i){const s=ST[i];{const g=document.getElementById("stilGorsel"),e=document.getElementById("stilEtiket"),ad=document.querySelectorAll("#stiller button")[i].textContent;if(g&&g.getAttribute("src")!==STG[i]){g.style.opacity=0;g.style.transform="scale(1.02)";setTimeout(()=>{g.src=STG[i];g.alt=ad+" iç mimari örneği";g.onload=()=>{g.style.opacity=1;g.style.transform="scale(1)"};if(e)e.textContent=ad+" · örnek görsel"},180)}}document.getElementById("palet").innerHTML=s.slice(0,4).map(c=>'<i style="background:'+c+'"></i>').join("");document.getElementById("malzeme").textContent="Önerilen malzemeler: "+s[4];
 document.getElementById("stilGonder").href=wa("Merhaba, iç mimaride "+document.querySelectorAll("#stiller button")[i].textContent+" tarzı düşünüyorum ("+s[4]+"). Görüşebilir miyiz?")}
 document.querySelectorAll("#stiller button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#stiller button").forEach(x=>x.classList.remove("on"));b.classList.add("on");stil(+b.dataset.s)});stil(0);
 // randevu
