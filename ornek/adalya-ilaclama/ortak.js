@@ -1,7 +1,7 @@
 /* Adalya İlaçlama · ilaçlama sayfası · ortak model (3 yerleşim aynı motoru kullanır).
    Kaynak işletme bilgisi: RAPORLAR/KEREM-ADAY-1013.md (local.gen.tr; Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya; 0242 243 30 35).
    Fiyatlar, süreler, listeler ve kayıtlar ÖRNEKTİR. Hiçbir form gönderim yapmaz. Dijitabela taslağı. */
-window.ISL={"ad":"Adalya İlaçlama","slug":"adalya-ilaclama","adres":"Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","tel":"0242 243 30 35","telH":"+902422433035","wa":null,"kaynak":"https://local.gen.tr/antalya/adalya-ilaclama/","haritaSorgu":"Adalya İlaçlama Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","carpan":1.1,"acil":false,"kisa":"Adalya","fiyatli":false};
+window.ISL={"ad":"Adalya İlaçlama","slug":"adalya-ilaclama","adres":"Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","tel":"0242 243 30 35","telH":"+902422433035","wa":null,"kaynak":"https://local.gen.tr/antalya/adalya-ilaclama/","haritaSorgu":"Adalya İlaçlama Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","carpan":1.1,"acil":false,"kisa":"Adalya","fiyatli":false,"fotolar":[{"dosya":"f1.webp","yazar":"Azorbli","lisans":"CC BY-SA 4.0"},{"dosya":"f2.webp","yazar":"Safapalanadan94","lisans":"CC BY-SA 4.0"},{"dosya":"f3.webp","yazar":"Shixart1985","lisans":"CC BY 2.0"}]};
 (function () {
   "use strict";
   var B = window.ISL;
@@ -47,6 +47,46 @@ window.ISL={"ad":"Adalya İlaçlama","slug":"adalya-ilaclama","adres":"Elmalı M
     if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion:reduce)").matches) { l.forEach(function (e) { e.classList.add("g"); }); return; }
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("g"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
     l.forEach(function (e) { io.observe(e); });
+  };
+})();
+
+/* Ek özellik altyapısı + hareket katmanı (GSAP varsa onunla, yoksa CSS/IO ile). prefers-reduced-motion açıksa hareket yok. */
+(function () {
+  "use strict";
+  var B = window.ISL;
+  B.azHareket = function () { try { return matchMedia("(prefers-reduced-motion:reduce)").matches; } catch (e) { return false; } };
+  /* Ek notlar: özelliklerin mesaja eklediği satırlar */
+  B.ekNot = function (k, v) { var n = B.oku("eknot", {}); if (v) n[k] = v; else delete n[k]; B.yaz("eknot", n); };
+  B.ekNotlar = function () { var n = B.oku("eknot", {}); return Object.keys(n).map(function (k) { return n[k]; }); };
+  B.mesajSar = function () { if (B._sarili || !B.mesaj) return; B._sarili = 1; var m0 = B.mesaj; B.mesaj = function (o) { var s = m0(o), n = B.ekNotlar(); return n.length ? s + "\nEk bilgi:\n- " + n.join("\n- ") : s; }; };
+  B.ek = B.ek || [];
+  B.ekCiz = function (el, secim) {
+    if (!el) return; B.mesajSar();
+    var l = B.ek.filter(function (f) { return !secim || secim.indexOf(f.id) > -1; });
+    el.innerHTML = l.map(function (f) { return '<article class="ek-k" data-ek="' + f.id + '"' + (el.hasAttribute("data-rvk") ? " data-rv" : "") + '><span class="ek-et">' + f.et + '</span><h3>' + f.ad + '</h3><p class="ek-ac">' + f.ac + '</p><div class="ek-ic">' + f.html() + '</div></article>'; }).join("");
+    l.forEach(function (f) { var a = el.querySelector('[data-ek="' + f.id + '"]'); try { f.bagla(a); } catch (e) { console.error(e); } ["click", "input", "change", "keydown"].forEach(function (t) { a.addEventListener(t, function (e) { e.stopPropagation(); }); }); });
+  };
+  B.damgaCiz = function (a, anahtar, toplam, etiket) {
+    var n = B.oku(anahtar, 3), k = a.querySelector(".damga");
+    function ciz() { k.innerHTML = Array.apply(null, Array(toplam)).map(function (_, i) { return '<i class="' + (i < n ? "on" : "") + (i === toplam - 1 ? " son" : "") + '">' + (i === toplam - 1 ? "★" : i + 1) + '</i>'; }).join(""); a.querySelector(".dsay").textContent = n + " / " + toplam; }
+    a.querySelector("[data-dg=ekle]").onclick = function () { n = Math.min(toplam, n + 1); B.yaz(anahtar, n); ciz(); B.toast(n === toplam ? etiket : "Damga eklendi (örnek)"); B.iz("ek:damga"); };
+    a.querySelector("[data-dg=sifir]").onclick = function () { n = 0; B.yaz(anahtar, 0); ciz(); };
+    ciz();
+  };
+  /* Hareket */
+  B.hareket = function () {
+    var az = B.azHareket(), g = window.gsap;
+    var l = [].slice.call(document.querySelectorAll("[data-rv]"));
+    if (az) { l.forEach(function (e) { e.classList.add("g"); }); return; }
+    if (g && window.ScrollTrigger) {
+      g.registerPlugin(window.ScrollTrigger);
+      document.documentElement.classList.add("gsapli");
+      var hs = document.querySelectorAll("[data-h]"); if (hs.length) g.from(hs, { y: 40, opacity: 0, duration: 1, ease: "power3.out", stagger: .12, delay: .1 });
+      document.querySelectorAll("[data-foto]").forEach(function (f) { g.fromTo(f, { scale: 1.12, clipPath: "inset(12% 8% 12% 8% round 24px)" }, { scale: 1, clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.4, ease: "expo.out", delay: .2 }); });
+      document.querySelectorAll("[data-px]").forEach(function (f) { g.to(f, { yPercent: -10, ease: "none", scrollTrigger: { trigger: f.parentNode, start: "top bottom", end: "bottom top", scrub: true } }); });
+      B.gozle();
+      setTimeout(function () { window.ScrollTrigger.refresh(); }, 400);
+    } else B.gozle();
   };
 })();
 
@@ -97,4 +137,37 @@ window.ISL={"ad":"Adalya İlaçlama","slug":"adalya-ilaclama","adres":"Elmalı M
     if (o.not) s += "\nNot: " + o.not;
     return s;
   };
+})();
+
+/* İlaçlama ek özellikleri: periyodik bakım takvimi (.ics), işletme denetim/rapor görünümü, bebek/evcil hayvan güvenlik soruları, "tekrar görülürse" bildirimi. Tümü ÖRNEK / genel bilgi. */
+(function () {
+  "use strict";
+  var B = window.ISL, AY = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
+  function tarih(d) { return d.getDate() + " " + AY[d.getMonth()] + " " + d.getFullYear(); }
+  function ics(l) { var p = function (n) { return String(n).padStart(2, "0"); }, s = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Dijitabela//Ornek//TR\r\n";
+    l.forEach(function (d, i) { var g = d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()); s += "BEGIN:VEVENT\r\nUID:" + B.slug + "-" + g + "-" + i + "@dijitabela\r\nDTSTAMP:" + g + "T090000\r\nDTSTART;VALUE=DATE:" + g + "\r\nSUMMARY:İlaçlama bakım hatırlatması (" + B.ad + ")\r\nDESCRIPTION:Örnek hatırlatma. Randevu için: " + B.tel + "\r\nEND:VEVENT\r\n"; });
+    return s + "END:VCALENDAR\r\n"; }
+  var GUV = [["bebek", "Evde bebek ya da küçük çocuk var"], ["hamile", "Evde hamile biri var"], ["kedi", "Kedi ya da köpek var"], ["kus", "Kuş, balık (akvaryum) ya da sürüngen var"], ["astim", "Astım ya da alerjisi olan biri var"], ["bahce", "Bahçede sebze/meyve yetiştiriyorum"]];
+  var SOR = { bebek: "Uygulamadan sonra bebek ve çocuk ne zaman eve dönebilir?", hamile: "Hamile biri için uygulama sırasında ve sonrasında nelere dikkat edilmeli?", kedi: "Kedi/köpek uygulama sırasında nerede durmalı, mamaları ve kapları ne yapılmalı?", kus: "Akvaryum ve kuş kafesi kapatılmalı mı, oda dışına mı alınmalı?", astim: "Astım ya da alerjisi olan biri için hangi önlemler alınmalı?", bahce: "Bahçedeki sebze/meyveye uygulama yapılacak mı, hasat için ne kadar beklenmeli?" };
+  B.ek = [
+    { id: "periyot", et: "Periyodik bakım · hatırlatma", ad: "Bir kere değil, düzenli koruma", ac: "Bakım aralığını seçin; sonraki tarihleri görün ve telefonunuzun takvimine ekleyin. Aralığı firmanın önerisine göre belirleyin.",
+      html: function () { var b = new Date(); b.setDate(b.getDate() + 7); var v = b.getFullYear() + "-" + String(b.getMonth() + 1).padStart(2, "0") + "-" + String(b.getDate()).padStart(2, "0");
+        return '<div class="ek-ch" data-p>' + [[1, "Ayda bir"], [2, "2 ayda bir"], [3, "3 ayda bir"], [6, "6 ayda bir"]].map(function (x) { return '<button data-v="' + x[0] + '"' + (x[0] === 3 ? ' class="a"' : "") + '>' + x[1] + '</button>'; }).join("") + '</div><label style="flex-direction:column;gap:4px"><span class="ek-et">İlk uygulama</span><input type="date" value="' + v + '"></label><div class="ek-zc" data-l></div><button class="ek-b" data-ics>Takvimime ekle (.ics)</button>'; },
+      bagla: function (a) { var ay = 3, L = []; function ciz() { var d0 = new Date(a.querySelector("input").value || Date.now()); L = [0, 1, 2, 3].map(function (i) { var d = new Date(d0); d.setMonth(d.getMonth() + ay * i); return d; });
+        a.querySelector("[data-l]").innerHTML = L.map(function (d, i) { return "<div><b>" + tarih(d) + "</b><br><small>" + (i ? i + ". bakım (hatırlatma)" : "İlk uygulama") + "</small></div>"; }).join(""); a.querySelectorAll("[data-p] button").forEach(function (b) { b.classList.toggle("a", +b.dataset.v === ay); }); B.ekNot("periyot", "Periyodik bakım istiyorum: " + (ay === 1 ? "ayda bir" : ay + " ayda bir") + ", ilk uygulama " + tarih(L[0]) + " civarı"); }
+        a.querySelector("[data-p]").onclick = function (e) { var b = e.target.closest("button"); if (b) { ay = +b.dataset.v; ciz(); B.iz("ek:periyot"); } }; a.querySelector("input").onchange = ciz;
+        a.querySelector("[data-ics]").onclick = function () { var u = URL.createObjectURL(new Blob([ics(L)], { type: "text/calendar" })), x = document.createElement("a"); x.href = u; x.download = "ilaclama-hatirlatma.ics"; document.body.appendChild(x); x.click(); x.remove(); B.toast("Takvim dosyası indirildi"); B.iz("ek:ics"); }; ciz(); } },
+    { id: "rapor", et: "İşletmeler için · örnek şablon", ad: "Restoran ve kafe denetim görünümü", ac: "Denetimde sorulan uygulama kaydının nasıl görünebileceğine dair örnek şablon. Gerçek rapor ve belge işletmeden alınır.",
+      html: function () { var b = new Date(); return '<div class="ek-rapor"><b>' + B.ad + '</b> · uygulama kaydı <span class="ek-rz">ÖRNEK ŞABLON</span><table><tr><td>Tarih</td><td>' + tarih(b) + '</td></tr><tr><td>Mekân</td><td data-mk>Restoran / kafe</td></tr><tr><td>Hedef zararlı</td><td data-z>—</td></tr><tr><td>Uygulama alanları</td><td>Mutfak, depo, çöp alanı</td></tr><tr><td>Kontrol noktaları</td><td>Giriş, gider, dolap altı</td></tr><tr><td>Sonraki kontrol</td><td data-s>—</td></tr><tr><td>Uygulayan / imza</td><td>……………</td></tr></table></div><div class="ek-sat"><button class="ek-b i" data-yaz>Şablonu yazdır</button><button class="ek-b" data-ekle>Rapor iste</button></div>'; },
+      bagla: function (a) { function g() { var s = B.oku("secim", []); a.querySelector("[data-z]").textContent = s.length ? s.map(function (i) { return B.z(i).ad; }).join(", ") : "Seçilmedi"; var d = new Date(); d.setMonth(d.getMonth() + 1); a.querySelector("[data-s]").textContent = tarih(d) + " (örnek)"; } g(); a.addEventListener("mouseenter", g); a.addEventListener("touchstart", g, { passive: true });
+        a.querySelector("[data-yaz]").onclick = function () { g(); window.print(); }; a.querySelector("[data-ekle]").onclick = function () { B.ekNot("rapor", "İşletmemiz için uygulama sonrası yazılı kayıt/rapor istiyoruz"); B.toast("Rapor talebi mesaja eklendi"); B.iz("ek:rapor"); }; } },
+    { id: "guven", et: "Güvenlik soruları", ad: "Bebek, evcil hayvan, alerji?", ac: "Evinizdeki durumu işaretleyin; ekibe sormanız gereken sorular listelenir ve mesajınıza eklenir. Tıbbi tavsiye değildir.",
+      html: function () { return GUV.map(function (x) { return '<label><input type="checkbox" value="' + x[0] + '"> ' + x[1] + '</label>'; }).join("") + '<div class="ek-kutu" data-o>Seçim yaptıkça ekibe sorulacaklar burada çıkar.</div>'; },
+      bagla: function (a) { a.onchange = function () { var l = [].slice.call(a.querySelectorAll("input:checked")).map(function (i) { return i.value; });
+        a.querySelector("[data-o]").innerHTML = l.length ? "<b>Ekibe sorun:</b><ul>" + l.map(function (k) { return "<li>" + SOR[k] + "</li>"; }).join("") + "</ul>" : "Seçim yaptıkça ekibe sorulacaklar burada çıkar.";
+        B.ekNot("guven", l.length ? "Evde: " + l.map(function (k) { return GUV.filter(function (x) { return x[0] === k; })[0][1].toLowerCase(); }).join("; ") : null); B.iz("ek:guven"); }; } },
+    { id: "tekrar", et: "Uygulamadan sonra", ad: "Tekrar görürseniz haber verin", ac: "Ne zaman, nerede ve ne gördüğünüzü seçin; firmaya gidecek bildirim mesajı hazırlanır.",
+      html: function () { return '<input type="date" aria-label="Görüldüğü tarih"><select data-y aria-label="Yer">' + ["Mutfak", "Banyo", "Salon", "Yatak odası", "Balkon / bahçe", "Depo"].map(function (x) { return "<option>" + x + "</option>"; }).join("") + '</select><select data-z aria-label="Zararlı">' + B.zararlilar.map(function (z) { return '<option value="' + z.id + '">' + z.ad + '</option>'; }).join("") + '</select><button class="ek-b" data-h>Bildirimi hazırla</button><div data-mk></div>'; },
+      bagla: function (a) { a.querySelector("[data-h]").onclick = function () { var t = a.querySelector("input").value, m = "Merhaba, sizden ilaçlama hizmeti almıştım. Uygulamadan sonra tekrar " + B.z(a.querySelector("[data-z]").value).ad.toLowerCase() + " gördüm.\nYer: " + a.querySelector("[data-y]").value + (t ? "\nTarih: " + t.split("-").reverse().join(".") : "") + "\nKontrol için ne zaman gelebilirsiniz?"; B.kutu(a.querySelector("[data-mk]"), m, 1); B.iz("ek:tekrar"); }; } }
+  ];
 })();

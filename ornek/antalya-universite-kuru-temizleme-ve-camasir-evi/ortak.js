@@ -1,7 +1,7 @@
 /* Antalya Üniversite Kuru Temizleme ve Çamaşır Evi · kuru temizleme sayfası · ortak model (3 yerleşim aynı motoru kullanır).
    Kaynak işletme bilgisi: RAPORLAR/KEREM-ADAY-1013.md (local.gen.tr; Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya; 0242 226 33 33).
    Fiyatlar, süreler, listeler ve kayıtlar ÖRNEKTİR. Hiçbir form gönderim yapmaz. Dijitabela taslağı. */
-window.ISL={"ad":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","slug":"antalya-universite-kuru-temizleme-ve-camasir-evi","adres":"Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","tel":"0242 226 33 33","telH":"+902422263333","wa":null,"kaynak":"https://local.gen.tr/antalya/antalya-universite-kuru-temizleme-ve-camasir-evi-laundry-and-dry-cleaning/","haritaSorgu":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","carpan":1,"kodOn":"UNI","tur":"karma","kisa":"Üniversite","fiyatli":false};
+window.ISL={"ad":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","slug":"antalya-universite-kuru-temizleme-ve-camasir-evi","adres":"Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","tel":"0242 226 33 33","telH":"+902422263333","wa":null,"kaynak":"https://local.gen.tr/antalya/antalya-universite-kuru-temizleme-ve-camasir-evi-laundry-and-dry-cleaning/","haritaSorgu":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi Kültür Mah. 3806. Sk. No:20 D:1, Kepez / Antalya","carpan":1,"kodOn":"UNI","tur":"karma","kisa":"Üniversite","fiyatli":false,"fotolar":[{"dosya":"f1.webp","yazar":"Sgroey","lisans":"CC BY-SA 4.0"},{"dosya":"f2.webp","yazar":"Larry D. Moore","lisans":"CC BY 4.0"},{"dosya":"f3.webp","yazar":"Kotivalo","lisans":"CC BY-SA 4.0"}]};
 (function () {
   "use strict";
   var B = window.ISL;
@@ -47,6 +47,46 @@ window.ISL={"ad":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","slug":"
     if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion:reduce)").matches) { l.forEach(function (e) { e.classList.add("g"); }); return; }
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("g"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
     l.forEach(function (e) { io.observe(e); });
+  };
+})();
+
+/* Ek özellik altyapısı + hareket katmanı (GSAP varsa onunla, yoksa CSS/IO ile). prefers-reduced-motion açıksa hareket yok. */
+(function () {
+  "use strict";
+  var B = window.ISL;
+  B.azHareket = function () { try { return matchMedia("(prefers-reduced-motion:reduce)").matches; } catch (e) { return false; } };
+  /* Ek notlar: özelliklerin mesaja eklediği satırlar */
+  B.ekNot = function (k, v) { var n = B.oku("eknot", {}); if (v) n[k] = v; else delete n[k]; B.yaz("eknot", n); };
+  B.ekNotlar = function () { var n = B.oku("eknot", {}); return Object.keys(n).map(function (k) { return n[k]; }); };
+  B.mesajSar = function () { if (B._sarili || !B.mesaj) return; B._sarili = 1; var m0 = B.mesaj; B.mesaj = function (o) { var s = m0(o), n = B.ekNotlar(); return n.length ? s + "\nEk bilgi:\n- " + n.join("\n- ") : s; }; };
+  B.ek = B.ek || [];
+  B.ekCiz = function (el, secim) {
+    if (!el) return; B.mesajSar();
+    var l = B.ek.filter(function (f) { return !secim || secim.indexOf(f.id) > -1; });
+    el.innerHTML = l.map(function (f) { return '<article class="ek-k" data-ek="' + f.id + '"' + (el.hasAttribute("data-rvk") ? " data-rv" : "") + '><span class="ek-et">' + f.et + '</span><h3>' + f.ad + '</h3><p class="ek-ac">' + f.ac + '</p><div class="ek-ic">' + f.html() + '</div></article>'; }).join("");
+    l.forEach(function (f) { var a = el.querySelector('[data-ek="' + f.id + '"]'); try { f.bagla(a); } catch (e) { console.error(e); } ["click", "input", "change", "keydown"].forEach(function (t) { a.addEventListener(t, function (e) { e.stopPropagation(); }); }); });
+  };
+  B.damgaCiz = function (a, anahtar, toplam, etiket) {
+    var n = B.oku(anahtar, 3), k = a.querySelector(".damga");
+    function ciz() { k.innerHTML = Array.apply(null, Array(toplam)).map(function (_, i) { return '<i class="' + (i < n ? "on" : "") + (i === toplam - 1 ? " son" : "") + '">' + (i === toplam - 1 ? "★" : i + 1) + '</i>'; }).join(""); a.querySelector(".dsay").textContent = n + " / " + toplam; }
+    a.querySelector("[data-dg=ekle]").onclick = function () { n = Math.min(toplam, n + 1); B.yaz(anahtar, n); ciz(); B.toast(n === toplam ? etiket : "Damga eklendi (örnek)"); B.iz("ek:damga"); };
+    a.querySelector("[data-dg=sifir]").onclick = function () { n = 0; B.yaz(anahtar, 0); ciz(); };
+    ciz();
+  };
+  /* Hareket */
+  B.hareket = function () {
+    var az = B.azHareket(), g = window.gsap;
+    var l = [].slice.call(document.querySelectorAll("[data-rv]"));
+    if (az) { l.forEach(function (e) { e.classList.add("g"); }); return; }
+    if (g && window.ScrollTrigger) {
+      g.registerPlugin(window.ScrollTrigger);
+      document.documentElement.classList.add("gsapli");
+      var hs = document.querySelectorAll("[data-h]"); if (hs.length) g.from(hs, { y: 40, opacity: 0, duration: 1, ease: "power3.out", stagger: .12, delay: .1 });
+      document.querySelectorAll("[data-foto]").forEach(function (f) { g.fromTo(f, { scale: 1.12, clipPath: "inset(12% 8% 12% 8% round 24px)" }, { scale: 1, clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.4, ease: "expo.out", delay: .2 }); });
+      document.querySelectorAll("[data-px]").forEach(function (f) { g.to(f, { yPercent: -10, ease: "none", scrollTrigger: { trigger: f.parentNode, start: "top bottom", end: "bottom top", scrub: true } }); });
+      B.gozle();
+      setTimeout(function () { window.ScrollTrigger.refresh(); }, 400);
+    } else B.gozle();
   };
 })();
 
@@ -134,4 +174,34 @@ window.ISL={"ad":"Antalya Üniversite Kuru Temizleme ve Çamaşır Evi","slug":"
     if (o.not) s += "\nNot: " + o.not;
     return s;
   };
+})();
+
+/* Kuru temizleme ek özellikleri: gömlek paketi kurgusu, düğme notu, kapıdan alım rotası, leke fotoğrafı önizlemesi, hazır bildirimi tercihi. Tümü ÖRNEK. */
+(function () {
+  "use strict";
+  var B = window.ISL;
+  var ILCE = /Muratpaşa/.test(B.adres) ? "Muratpaşa" : "Kepez";
+  var MAH = ILCE === "Kepez" ? ["Kültür", "Ulus", "Yeni Doğan", "Özgürlük", "Atatürk", "Varsak"] : ["Sinan", "Altındağ", "Elmalı", "Şirinyalı", "Fener", "Meltem"];
+  var GUN = ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
+  B.ek = [
+    { id: "paket", et: "Abonelik · örnek kurgu", ad: "Haftalık gömlek paketi", ac: "Her hafta aynı gün gömlekleriniz alınsın, ütülü dönsün. Kapsamı ve ücreti işletme belirler; burada yalnız talebinizi hazırlarsınız.",
+      html: function () { return '<span class="ek-et">Haftada kaç gömlek?</span><div class="ek-ch" data-n>' + [5, 10, 15].map(function (n) { return '<button data-v="' + n + '">' + n + ' gömlek</button>'; }).join("") + '</div><span class="ek-et">Hangi gün?</span><div class="ek-ch" data-g>' + GUN.map(function (g) { return '<button data-v="' + g + '">' + g + '</button>'; }).join("") + '</div><div class="ek-kart-hd"><small>' + B.kisa + ' · gömlek paketi (örnek)</small><b data-oz>Seçim bekleniyor</b><small>Ütülü, askıda teslim talebi</small></div><button class="ek-b" data-ekle>Paketi mesaja ekle</button>'; },
+      bagla: function (a) { var n = null, g = null; function oz() { a.querySelector("[data-oz]").textContent = (n ? n + " gömlek / hafta" : "Adet seçin") + (g ? " · her " + g : ""); a.querySelectorAll("[data-n] button").forEach(function (b) { b.classList.toggle("a", +b.dataset.v === n); }); a.querySelectorAll("[data-g] button").forEach(function (b) { b.classList.toggle("a", b.dataset.v === g); }); }
+        a.querySelector("[data-n]").onclick = function (e) { var b = e.target.closest("button"); if (b) { n = +b.dataset.v; oz(); } }; a.querySelector("[data-g]").onclick = function (e) { var b = e.target.closest("button"); if (b) { g = b.dataset.v; oz(); } };
+        a.querySelector("[data-ekle]").onclick = function () { if (!n) { B.toast("Önce adet seçin"); return; } B.ekNot("paket", "Haftalık gömlek paketi talebi: " + n + " gömlek" + (g ? ", her " + g : "") + " (koşulları öğrenmek istiyorum)"); B.toast("Paket talebi mesaja eklendi"); B.iz("ek:paket"); }; } },
+    { id: "dugme", et: "Kaybolmayan düğme", ad: "Teslim etmeden önce not düşün", ac: "Eksik düğme, sökük ya da leke yerini işaretleyin; not mesajınıza eklenir, tezgâhta unutulmaz.",
+      html: function () { return ["Eksik ya da gevşek düğme var", "Yedek düğmeyi poşete koydum", "Sökük / dikiş açığı var", "Lekenin yerini iğneyle işaretledim", "Cepleri boşalttım"].map(function (x) { return '<label><input type="checkbox" value="' + x + '"> ' + x + '</label>'; }).join(""); },
+      bagla: function (a) { a.onchange = function () { var l = [].slice.call(a.querySelectorAll("input:checked")).map(function (i) { return i.value.toLowerCase(); }); B.ekNot("dugme", l.length ? "Parça notu: " + l.join(", ") : null); B.iz("ek:dugme"); }; } },
+    { id: "rota", et: "Kapıdan alım · örnek rota", ad: "Adresten alımda sıranız", ac: "Adresten alım olursa rota nasıl görünür? Mahallenizi seçin, örnek rotada yerinizi görün. Adresten alım yapılıp yapılmadığını işletme teyit eder.",
+      html: function () { var P = [[40, 120], [120, 60], [210, 110], [300, 50], [390, 105], [470, 60]]; return '<div class="ek-rota"><svg viewBox="0 0 510 170" role="img" aria-label="Örnek alım rotası"><path class="yol" d="M' + P.map(function (p) { return p.join(" "); }).join(" L") + '" fill="none" stroke="var(--e-ac)" stroke-width="3"/>' + P.map(function (p, i) { return '<g data-d="' + i + '"><circle cx="' + p[0] + '" cy="' + p[1] + '" r="11" fill="var(--e-kart)" stroke="var(--e-ac)" stroke-width="3"/><text x="' + p[0] + '" y="' + (p[1] + 30) + '" text-anchor="middle" font-size="12" fill="var(--e-mu)">' + MAH[i] + '</text></g>'; }).join("") + '<text x="500" y="160" text-anchor="end" font-size="10" fill="var(--e-mu)">örnek rota</text></svg></div><div class="ek-ch">' + MAH.map(function (m, i) { return '<button data-i="' + i + '">' + m + '</button>'; }).join("") + '</div><div class="ek-kutu" data-o>Mahallenizi seçin.</div>'; },
+      bagla: function (a) { a.querySelector(".ek-ch").onclick = function (e) { var b = e.target.closest("button"); if (!b) return; var i = +b.dataset.i; a.querySelectorAll(".ek-ch button").forEach(function (x) { x.classList.toggle("a", x === b); }); a.querySelectorAll("[data-d] circle").forEach(function (c, j) { c.setAttribute("fill", j === i ? "var(--e-ac)" : "var(--e-kart)"); c.setAttribute("r", j === i ? 15 : 11); });
+        a.querySelector("[data-o]").innerHTML = "<b>" + MAH[i] + "</b>: örnek rotada " + (i + 1) + ". durak. Gerçek sıra ve saat işletmeyle netleşir."; B.ekNot("rota", "Adresten alım için mahallem: " + MAH[i] + " (" + ILCE + ")"); B.iz("ek:rota"); }; } },
+    { id: "foto", et: "Leke fotoğrafı · yalnız bu cihazda", ad: "Lekeyi gösterin, tarif etmeyin", ac: "Fotoğraf seçin ve lekenin üstüne dokunun. Fotoğraf hiçbir yere yüklenmez; mesajı gönderirken WhatsApp'tan siz eklersiniz.",
+      html: function () { return '<input type="file" accept="image/*" aria-label="Leke fotoğrafı seç"><div class="ek-foto" data-f>Önizleme burada görünür</div>'; },
+      bagla: function (a) { var f = a.querySelector("[data-f]"); a.querySelector("input").onchange = function (e) { var d = e.target.files && e.target.files[0]; if (!d) return; var u = URL.createObjectURL(d); f.innerHTML = '<img src="' + u + '" alt="Seçtiğiniz leke fotoğrafı (yalnız bu cihazda)">'; B.ekNot("foto", "Leke fotoğrafını WhatsApp'tan ayrıca gönderiyorum"); B.iz("ek:foto"); };
+        f.onclick = function (e) { var im = f.querySelector("img"); if (!im) return; var r = f.getBoundingClientRect(), m = f.querySelector(".im") || f.appendChild(Object.assign(document.createElement("span"), { className: "im" })); m.style.left = (e.clientX - r.left) + "px"; m.style.top = (e.clientY - r.top) + "px"; B.toast("Leke işaretlendi"); }; } },
+    { id: "bildirim", et: "Hazır olunca", ad: "Size nasıl haber verelim?", ac: "Siparişiniz hazır olunca hangi yolla haber almak istediğinizi seçin; tercih mesajınıza yazılır.",
+      html: function () { return ["WhatsApp mesajı", "SMS", "Telefonla arama", "Haber vermeyin, ben uğrarım"].map(function (x, i) { return '<label><input type="radio" name="bld-' + B.slug + '" value="' + x + '"' + (i ? "" : "") + '> ' + x + '</label>'; }).join("") + '<select data-z aria-label="Uygun zaman"><option value="">Uygun zaman (isteğe bağlı)</option><option>Sabah</option><option>Öğle</option><option>Akşam</option></select>'; },
+      bagla: function (a) { a.onchange = function () { var r = a.querySelector("input:checked"), z = a.querySelector("[data-z]").value; if (r) B.ekNot("bildirim", "Hazır olunca: " + r.value.toLowerCase() + (z ? " (" + z.toLowerCase() + ")" : "")); B.iz("ek:bildirim"); }; } }
+  ];
 })();

@@ -1,7 +1,7 @@
 /* Marina Tırnak ve Güzellik Merkezi · güzellik salonu sayfası · ortak model (3 yerleşim aynı motoru kullanır).
    Kaynak işletme bilgisi: RAPORLAR/KEREM-ADAY-1013.md (local.gen.tr; Şirinyalı, İsmet Gökşen Cd. No:90-1, Muratpaşa / Antalya; 0530 747 37 59).
    Fiyatlar, süreler, listeler ve kayıtlar ÖRNEKTİR. Hiçbir form gönderim yapmaz. Dijitabela taslağı. */
-window.ISL={"ad":"Marina Tırnak ve Güzellik Merkezi","slug":"marina-tirnak-ve-guzellik-merkezi","adres":"Şirinyalı, İsmet Gökşen Cd. No:90-1, Muratpaşa / Antalya","tel":"0530 747 37 59","telH":"+905307473759","wa":"905307473759","kaynak":"https://local.gen.tr/antalya/marina-tirnak-ve-guzellik-merkezi/","haritaSorgu":"Marina Tırnak ve Güzellik Merkezi Şirinyalı, İsmet Gökşen Cd. No:90-1, Muratpaşa / Antalya","carpan":1,"tur":"tirnak","kisa":"Marina","fiyatli":false};
+window.ISL={"ad":"Marina Tırnak ve Güzellik Merkezi","slug":"marina-tirnak-ve-guzellik-merkezi","adres":"Şirinyalı, İsmet Gökşen Cd. No:90-1, Muratpaşa / Antalya","tel":"0530 747 37 59","telH":"+905307473759","wa":"905307473759","kaynak":"https://local.gen.tr/antalya/marina-tirnak-ve-guzellik-merkezi/","haritaSorgu":"Marina Tırnak ve Güzellik Merkezi Şirinyalı, İsmet Gökşen Cd. No:90-1, Muratpaşa / Antalya","carpan":1,"tur":"tirnak","kisa":"Marina","fiyatli":false,"fotolar":[{"dosya":"f1.webp","yazar":"Stefany","lisans":"CC BY 2.0"},{"dosya":"f2.webp","yazar":"Köttbulleledaren","lisans":"CC BY-SA 4.0"},{"dosya":"f3.webp","yazar":"Köttbulleledaren","lisans":"CC BY-SA 4.0"},{"dosya":"f4.webp","yazar":"Romina Campos","lisans":"CC BY 2.0"},{"dosya":"f5.webp","yazar":"Maëlyne.Nagel","lisans":"CC BY-SA 4.0"}]};
 (function () {
   "use strict";
   var B = window.ISL;
@@ -47,6 +47,46 @@ window.ISL={"ad":"Marina Tırnak ve Güzellik Merkezi","slug":"marina-tirnak-ve-
     if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion:reduce)").matches) { l.forEach(function (e) { e.classList.add("g"); }); return; }
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("g"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
     l.forEach(function (e) { io.observe(e); });
+  };
+})();
+
+/* Ek özellik altyapısı + hareket katmanı (GSAP varsa onunla, yoksa CSS/IO ile). prefers-reduced-motion açıksa hareket yok. */
+(function () {
+  "use strict";
+  var B = window.ISL;
+  B.azHareket = function () { try { return matchMedia("(prefers-reduced-motion:reduce)").matches; } catch (e) { return false; } };
+  /* Ek notlar: özelliklerin mesaja eklediği satırlar */
+  B.ekNot = function (k, v) { var n = B.oku("eknot", {}); if (v) n[k] = v; else delete n[k]; B.yaz("eknot", n); };
+  B.ekNotlar = function () { var n = B.oku("eknot", {}); return Object.keys(n).map(function (k) { return n[k]; }); };
+  B.mesajSar = function () { if (B._sarili || !B.mesaj) return; B._sarili = 1; var m0 = B.mesaj; B.mesaj = function (o) { var s = m0(o), n = B.ekNotlar(); return n.length ? s + "\nEk bilgi:\n- " + n.join("\n- ") : s; }; };
+  B.ek = B.ek || [];
+  B.ekCiz = function (el, secim) {
+    if (!el) return; B.mesajSar();
+    var l = B.ek.filter(function (f) { return !secim || secim.indexOf(f.id) > -1; });
+    el.innerHTML = l.map(function (f) { return '<article class="ek-k" data-ek="' + f.id + '"' + (el.hasAttribute("data-rvk") ? " data-rv" : "") + '><span class="ek-et">' + f.et + '</span><h3>' + f.ad + '</h3><p class="ek-ac">' + f.ac + '</p><div class="ek-ic">' + f.html() + '</div></article>'; }).join("");
+    l.forEach(function (f) { var a = el.querySelector('[data-ek="' + f.id + '"]'); try { f.bagla(a); } catch (e) { console.error(e); } ["click", "input", "change", "keydown"].forEach(function (t) { a.addEventListener(t, function (e) { e.stopPropagation(); }); }); });
+  };
+  B.damgaCiz = function (a, anahtar, toplam, etiket) {
+    var n = B.oku(anahtar, 3), k = a.querySelector(".damga");
+    function ciz() { k.innerHTML = Array.apply(null, Array(toplam)).map(function (_, i) { return '<i class="' + (i < n ? "on" : "") + (i === toplam - 1 ? " son" : "") + '">' + (i === toplam - 1 ? "★" : i + 1) + '</i>'; }).join(""); a.querySelector(".dsay").textContent = n + " / " + toplam; }
+    a.querySelector("[data-dg=ekle]").onclick = function () { n = Math.min(toplam, n + 1); B.yaz(anahtar, n); ciz(); B.toast(n === toplam ? etiket : "Damga eklendi (örnek)"); B.iz("ek:damga"); };
+    a.querySelector("[data-dg=sifir]").onclick = function () { n = 0; B.yaz(anahtar, 0); ciz(); };
+    ciz();
+  };
+  /* Hareket */
+  B.hareket = function () {
+    var az = B.azHareket(), g = window.gsap;
+    var l = [].slice.call(document.querySelectorAll("[data-rv]"));
+    if (az) { l.forEach(function (e) { e.classList.add("g"); }); return; }
+    if (g && window.ScrollTrigger) {
+      g.registerPlugin(window.ScrollTrigger);
+      document.documentElement.classList.add("gsapli");
+      var hs = document.querySelectorAll("[data-h]"); if (hs.length) g.from(hs, { y: 40, opacity: 0, duration: 1, ease: "power3.out", stagger: .12, delay: .1 });
+      document.querySelectorAll("[data-foto]").forEach(function (f) { g.fromTo(f, { scale: 1.12, clipPath: "inset(12% 8% 12% 8% round 24px)" }, { scale: 1, clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.4, ease: "expo.out", delay: .2 }); });
+      document.querySelectorAll("[data-px]").forEach(function (f) { g.to(f, { yPercent: -10, ease: "none", scrollTrigger: { trigger: f.parentNode, start: "top bottom", end: "bottom top", scrub: true } }); });
+      B.gozle();
+      setTimeout(function () { window.ScrollTrigger.refresh(); }, 400);
+    } else B.gozle();
   };
 })();
 
@@ -105,4 +145,44 @@ window.ISL={"ad":"Marina Tırnak ve Güzellik Merkezi","slug":"marina-tirnak-ve-
     return '<svg viewBox="0 0 24 24" width="' + (boy || 22) + '" height="' + (boy || 22) + '" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + IK[k.ik] + '"/></svg>';
   };
   window.SALON = B;
+})();
+
+/* Güzellik ek özellikleri: gün planı, kür takibi, örnek galeri + temsili önce/sonra, sadakat kartı, hediye çeki talebi. Tümü ÖRNEK. */
+(function () {
+  "use strict";
+  var B = window.ISL, tir = B.tur === "tirnak";
+  var KUR = tir ? [["oje", "Kalıcı oje yenileme", 6, 3], ["protez", "Protez tırnak bakımı", 4, 3]] : [["cilt", "Cilt bakımı kürü", 6, 2], ["kirpik", "Kirpik lifting yenileme", 4, 6]];
+  var AY = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
+  function saatYaz(dk) { return String(Math.floor(dk / 60)).padStart(2, "0") + ":" + String(dk % 60).padStart(2, "0"); }
+  var F = B.fotolar || [];
+  var sy0 = B.sepetYaz; B.sepetYaz = function (l) { sy0(l); try { window.dispatchEvent(new Event("dj-sepet")); } catch (e) {} };
+  B.ek = [
+    { id: "plan", et: "Gün planı", ad: "Salonda gününüz nasıl geçer?", ac: "Sepetinizdeki hizmetler, seçtiğiniz başlangıç saatine göre sıraya dizilir; aralara kısa mola eklenir. Süreler örnektir.",
+      html: function () { return '<select data-b aria-label="Başlangıç saati">' + B.saatler.map(function (s) { return "<option>" + s + "</option>"; }).join("") + '</select><div class="ek-gp" data-g></div><div class="ek-zc" data-l></div>'; },
+      bagla: function (a) { function ciz() { var l = B.sepet().map(B.bul).filter(Boolean), t = a.querySelector("[data-b]").value.split(":"), dk = +t[0] * 60 + +t[1], R = ["var(--e-ac)", "var(--e-ac2)", "#8a7b6f", "#c08a5a"];
+          if (!l.length) { a.querySelector("[data-g]").innerHTML = ""; a.querySelector("[data-l]").innerHTML = "<div>Önce hizmet seçin; plan burada oluşur.</div>"; return; }
+          var top = l.reduce(function (s, h) { return s + h.dk + 10; }, -10); a.querySelector("[data-g]").innerHTML = l.map(function (h, i) { return '<i style="flex:' + h.dk + ';background:' + R[i % 4] + '" title="' + h.ad + '">' + B.sureYaz(h.dk) + '</i>'; }).join("");
+          a.querySelector("[data-l]").innerHTML = l.map(function (h) { var b = dk; dk += h.dk + 10; return "<div><b>" + saatYaz(b) + "–" + saatYaz(b + h.dk) + "</b> " + h.ad + "<br><small>" + B.sureYaz(h.dk) + " · ardından 10 dk mola</small></div>"; }).join("") + "<div><b>~" + saatYaz(dk - 10) + "</b> salondan çıkış (tahmini)</div>"; }
+        a.querySelector("[data-b]").onchange = function () { ciz(); B.iz("ek:plan"); }; a.addEventListener("pointerenter", ciz); window.addEventListener("dj-sepet", ciz); ciz(); } },
+    { id: "kur", et: "Kür takibi · bu cihazda", ad: "Seanslarınızı kaçırmayın", ac: "Bir kür seçin, yapılan seansları işaretleyin; sonraki seans için önerilen tarih görünür. Aralığı uzmanınız belirler.",
+      html: function () { return '<div class="ek-ch" data-k>' + KUR.map(function (k, i) { return '<button data-i="' + i + '"' + (i ? "" : ' class="a"') + '>' + k[1] + '</button>'; }).join("") + '</div><div class="damga" data-s></div><div class="ek-kutu" data-o></div>'; },
+      bagla: function (a) { var i = 0; function ciz() { var k = KUR[i], n = B.oku("kur-" + k[0], 0), d = new Date(); d.setDate(d.getDate() + k[3] * 7);
+          a.querySelectorAll("[data-k] button").forEach(function (b) { b.classList.toggle("a", +b.dataset.i === i); }); a.querySelector("[data-s]").style.gridTemplateColumns = "repeat(" + k[2] + ",minmax(0,1fr))";
+          a.querySelector("[data-s]").innerHTML = Array.apply(null, Array(k[2])).map(function (_, j) { return '<i class="' + (j < n ? "on" : "") + '" data-j="' + j + '" role="button" tabindex="0">' + (j + 1) + '</i>'; }).join("");
+          a.querySelector("[data-o]").innerHTML = n >= k[2] ? "<b>Kür tamamlandı.</b> Yenisi için uzmanınıza danışın." : "<b>" + n + " / " + k[2] + "</b> seans · sonraki için örnek öneri: <b>" + d.getDate() + " " + AY[d.getMonth()] + "</b> (" + k[3] + " hafta sonra)"; }
+        a.querySelector("[data-k]").onclick = function (e) { var b = e.target.closest("button"); if (b) { i = +b.dataset.i; ciz(); } };
+        a.querySelector("[data-s]").onclick = function (e) { var x = e.target.closest("[data-j]"); if (!x) return; var k = KUR[i], j = +x.dataset.j, n = B.oku("kur-" + k[0], 0); B.yaz("kur-" + k[0], j < n ? j : j + 1); ciz(); B.iz("ek:kur"); }; ciz(); } },
+    { id: "galeri", et: "Galeri · stok görsel, örnek", ad: "İlham panosu", ac: "Görseller lisanslı stok fotoğraftır, salonun çalışması değildir; gerçek fotoğraflar yerleşince değişir. Önce/sonra görünümü temsili filtredir.",
+      html: function () { var g = F.slice(1); return (F[0] ? '<div class="ek-oba"><img class="o" src="../img/' + F[0].dosya + '" alt="Temsili önce görünümü (filtre)" loading="lazy"><img class="s" src="../img/' + F[0].dosya + '" alt="Temsili sonra görünümü" loading="lazy"><span style="left:8px">Önce (temsili)</span><span style="right:8px">Sonra</span><input type="range" min="0" max="100" value="50" aria-label="Önce sonra karşılaştırma"></div>' : "") + '<div class="ek-gal">' + g.map(function (f, i) { return '<button data-i="' + (i + 1) + '" aria-label="Büyüt"><img src="../img/' + f.dosya + '" alt="Örnek stok görsel ' + (i + 1) + '" loading="lazy"></button>'; }).join("") + '</div>'; },
+      bagla: function (a) { var r = a.querySelector(".ek-oba input"); if (r) r.oninput = function () { a.querySelector(".ek-oba").style.setProperty("--x", r.value + "%"); };
+        a.querySelector(".ek-gal").onclick = function (e) { var b = e.target.closest("button"); if (!b) return; var f = F[+b.dataset.i], d = document.createElement("div"); d.className = "ek-lb"; d.innerHTML = '<div><img src="../img/' + f.dosya + '" alt=""><p>Stok görsel · ' + B.kac(f.yazar) + ' · ' + f.lisans + '</p></div>'; d.onclick = function () { d.remove(); }; document.body.appendChild(d); B.iz("ek:galeri"); }; } },
+    { id: "sadakat", et: "Sadakat kartı · örnek kurgu", ad: "Her ziyarete bir damga", ac: "10 damgada sürpriz; kampanyanın içeriğini salon belirler. Bu kart örnektir ve yalnız bu cihazda tutulur.",
+      html: function () { return '<div class="damga"></div><div class="ek-sat"><b class="dsay" style="flex:0"></b><button class="ek-b" data-dg="ekle">Damga ekle (demo)</button><button class="ek-b i" data-dg="sifir">Sıfırla</button></div>'; },
+      bagla: function (a) { B.damgaCiz(a, "damga", 10, "Kart doldu! Sürprizi salon belirler (örnek)"); } },
+    { id: "hediye", et: "Hediye çeki talebi", ad: "Sevdiğinize bir bakım hediye edin", ac: "Kime ve hangi hizmeti hediye etmek istediğinizi yazın; kart önizlemesi ve salona gidecek talep mesajı hazırlanır.",
+      html: function () { return '<input data-k placeholder="Kime? (ad)"><select data-h aria-label="Hizmet">' + B.hizmet.map(function (h) { return "<option>" + h.ad + "</option>"; }).join("") + '</select><input data-g placeholder="Gönderen (adınız)"><textarea data-n rows="2" placeholder="Karta not (isteğe bağlı)"></textarea><div class="ek-kart-hd" data-c><small>' + B.kisa + ' · hediye çeki</small><b data-cb>Sevdiğinize</b><small data-cs>Hizmet seçin</small></div><button class="ek-b" data-m>Talep mesajını hazırla</button><div data-mk></div>'; },
+      bagla: function (a) { function oz() { a.querySelector("[data-cb]").textContent = (a.querySelector("[data-k]").value.trim() || "Sevdiğinize") + " için"; a.querySelector("[data-cs]").textContent = a.querySelector("[data-h]").value + (a.querySelector("[data-g]").value.trim() ? " · " + a.querySelector("[data-g]").value.trim() + "’dan" : ""); }
+        a.oninput = oz; a.onchange = oz; oz();
+        a.querySelector("[data-m]").onclick = function () { var m = "Merhaba, hediye çeki talebinde bulunmak istiyorum.\nKime: " + (a.querySelector("[data-k]").value.trim() || "(belirtmedim)") + "\nHizmet: " + a.querySelector("[data-h]").value + "\nGönderen: " + (a.querySelector("[data-g]").value.trim() || "(belirtmedim)") + (a.querySelector("[data-n]").value.trim() ? "\nKart notu: " + a.querySelector("[data-n]").value.trim() : "") + "\nNasıl alabilirim, bilgi verir misiniz?"; B.kutu(a.querySelector("[data-mk]"), m, 1); B.iz("ek:hediye"); }; } }
+  ];
 })();

@@ -55,13 +55,90 @@ footer{background:var(--ink);color:#f4ebe7;padding:clamp(34px,6vw,60px) 0 90px}f
 @media(max-width:980px){.hero .w,.duzen,footer .w{grid-template-columns:minmax(0,1fr)}.sepet{position:static}nav.m a:not(.btn){display:none}.bilgi .w{grid-template-columns:repeat(2,minmax(0,1fr))}.pk{grid-template-columns:minmax(0,1fr)}.alt{display:flex}.sahne{max-width:380px}}
 @media(max-width:560px){.sat{grid-template-columns:minmax(0,1fr) auto}.sat .sf{grid-column:1;grid-row:3;text-align:left;display:flex;gap:8px;align-items:baseline}.sat .ekle{grid-column:2;grid-row:1/3}.bilgi .w{grid-template-columns:minmax(0,1fr)}.sa{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.sahne path{stroke-dashoffset:0}}
-.fiyatsiz .fy{display:none!important}html:not(.fiyatsiz) .fy0{display:none!important}</style></head><body>
-<header class="ust"><div class="w"><a class="logo" href="#"><b>Zerrin</b><small>Güzellik salonu</small></a><nav class="m"><a href="#hizmet">Hizmetler</a><a href="#paket">Paketler</a><a href="#randevu">Randevu</a><a href="#salon">Salon</a><a class="btn p" href="tel:+905511756191" style="min-height:42px;padding:0 18px">Ara</a></nav></div></header>
+:root{--e-tx:var(--ink);--e-mu:var(--mu);--e-ln:var(--ln);--e-kart:#fff;--e-zemin:var(--bg);--e-ac:var(--ac);--e-ac2:var(--ac2);--e-yumu:var(--soft)}.ek-iz{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:16px}
+.ek-k{background:var(--e-kart);border:1px solid var(--e-ln);border-radius:var(--e-r,20px);padding:clamp(16px,2vw,24px);display:flex;flex-direction:column;gap:10px;min-width:0;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.ek-k:hover{transform:translateY(-3px);box-shadow:0 24px 50px -30px rgba(0,0,0,.35)}
+.ek-k h3{font:600 clamp(21px,2vw,26px)/1.1 var(--fb);color:var(--e-tx)}
+.ek-et{font:700 10px/1.2 var(--fg);letter-spacing:.18em;text-transform:uppercase;color:var(--e-ac2)}
+.ek-ac{color:var(--e-mu);font-size:14px}
+.ek-ic{display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--e-tx)}
+.ek-ch{display:flex;flex-wrap:wrap;gap:6px}.ek-ch button{min-height:38px;padding:0 12px;border:1px solid var(--e-ln);background:transparent;border-radius:999px;cursor:pointer;font-size:13px;color:var(--e-tx)}.ek-ch button.a{background:var(--e-ac);border-color:var(--e-ac);color:var(--e-acx,#fff)}
+.ek-b{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 16px;border:1px solid var(--e-ac);background:var(--e-ac);color:var(--e-acx,#fff);border-radius:12px;cursor:pointer;font-weight:600;font-size:14px;text-decoration:none}
+.ek-b.i{background:transparent;color:var(--e-tx);border-color:var(--e-ln)}
+.ek-kutu{background:var(--e-yumu);border-radius:14px;padding:12px 14px;font-size:13.5px}
+.ek-kutu ul{margin:6px 0 0 18px}.ek-kutu li{margin:3px 0}
+.ek-rz{display:inline-block;font:700 9px/1 var(--fg);letter-spacing:.12em;padding:3px 6px;border-radius:99px;border:1px solid currentColor;color:var(--e-ac2);vertical-align:middle}
+.damga{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.damga i{aspect-ratio:1;border-radius:50%;border:2px dashed var(--e-ln);display:grid;place-items:center;font:700 13px var(--fg);font-style:normal;color:var(--e-mu);transition:.3s}
+.damga i.on{border-style:solid;border-color:var(--e-ac);background:var(--e-ac);color:var(--e-acx,#fff);transform:rotate(-8deg) scale(1.02)}.damga i.son{border-color:var(--e-ac2)}.damga i.son.on{background:var(--e-ac2)}
+.ek-sat{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.ek-sat>*{flex:1 1 auto}
+.ek-ic input,.ek-ic select,.ek-ic textarea{width:100%;border:1px solid var(--e-ln);background:var(--e-zemin);color:var(--e-tx);border-radius:10px;padding:10px 12px;font:inherit;max-width:100%}
+.ek-ic label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}.ek-ic label input[type=checkbox],.ek-ic label input[type=radio]{width:auto;margin-top:3px;accent-color:var(--e-ac)}
+.ek-tak{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.ek-tak div{border:1px solid var(--e-ln);border-radius:8px;padding:6px 2px;text-align:center;font-size:11px;color:var(--e-mu)}.ek-tak div b{display:block;font-size:13px;color:var(--e-tx)}.ek-tak div.on{background:var(--e-ac);border-color:var(--e-ac);color:var(--e-acx,#fff)}.ek-tak div.on b{color:inherit}
+.ek-zc{position:relative;padding-left:22px}.ek-zc:before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--e-ln)}
+.ek-zc div{position:relative;padding:4px 0 10px}.ek-zc div:before{content:"";position:absolute;left:-21px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--e-ac);box-shadow:0 0 0 3px var(--e-kart)}
+.ek-zc small{color:var(--e-mu)}
+.ek-foto{position:relative;border-radius:14px;overflow:hidden;background:var(--e-yumu);min-height:150px;display:grid;place-items:center;color:var(--e-mu);font-size:13px;text-align:center}
+.ek-foto img{width:100%;display:block}.ek-foto .im{position:absolute;width:56px;height:56px;border:3px solid #ff4d4d;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.7);transform:translate(-50%,-50%);pointer-events:none}
+.ek-kart-hd{border-radius:18px;padding:20px;color:#fff;background:linear-gradient(135deg,var(--e-ac),var(--e-ac2));position:relative;overflow:hidden;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.ek-kart-hd:after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:24px solid rgba(255,255,255,.15)}
+.ek-kart-hd b{font:600 26px/1.1 var(--fb)}.ek-kart-hd small{opacity:.85}
+.ek-gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.ek-gal button{border:0;padding:0;border-radius:10px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;background:var(--e-yumu)}.ek-gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.ek-gal button:hover img{transform:scale(1.08)}
+.ek-lb{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:90;display:grid;place-items:center;padding:20px}.ek-lb img{max-width:100%;max-height:80vh;border-radius:12px}.ek-lb p{color:#fff;font-size:12px;margin-top:8px;text-align:center}
+.ek-oba{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3}.ek-oba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.ek-oba .o{filter:saturate(.35) brightness(.82) contrast(.9) sepia(.25)}.ek-oba .s{clip-path:inset(0 0 0 var(--x,50%))}.ek-oba input{position:absolute;left:8px;right:8px;bottom:8px;width:calc(100% - 16px);accent-color:var(--e-ac)}.ek-oba span{position:absolute;top:8px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:3px 8px;border-radius:99px}
+.ek-gp{display:flex;height:34px;border-radius:10px;overflow:hidden;background:var(--e-yumu)}.ek-gp i{display:grid;place-items:center;color:#fff;font:600 10px var(--fg);font-style:normal;white-space:nowrap;overflow:hidden;border-right:2px solid var(--e-kart)}
+.ek-rota svg{width:100%;height:auto;display:block}.ek-rota .yol{stroke-dasharray:6 6;animation:akis 1.2s linear infinite}@keyframes akis{to{stroke-dashoffset:-24}}
+.ek-rapor{border:1px dashed var(--e-ln);border-radius:12px;padding:12px;font-size:13px}.ek-rapor table{width:100%;border-collapse:collapse}.ek-rapor td{padding:6px 4px;border-bottom:1px solid var(--e-ln);vertical-align:top}.ek-rapor td:last-child{text-align:right;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.ek-k,.ek-gal img,.damga i{transition:none}.ek-rota .yol{animation:none}}
+@media print{body *{visibility:hidden}.ek-rapor,.ek-rapor *{visibility:visible}.ek-rapor{position:absolute;left:0;top:0;width:100%}}
+.ek-k [hidden]{display:none!important}
+.hero.kom{position:relative;overflow:hidden;isolation:isolate}
+.hero.kom .hfoto,.hero.kom .kolaj{position:absolute;overflow:hidden;z-index:-1}
+.hero.kom .hfoto img,.hero.kom .kolaj img{width:100%;height:100%;object-fit:cover;display:block}
+.hero.kom .sahne{max-width:330px;width:100%;justify-self:end;align-self:end}
+.hero.kom .fk{position:absolute;z-index:2;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-radius:999px;padding:8px 14px;font-size:12px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.18);display:flex;gap:8px;align-items:center;color:var(--ink)}
+.hero.kom .fk i{width:8px;height:8px;border-radius:50%;background:var(--ac);display:inline-block;animation:fkn 1.8s infinite}
+@keyframes fkn{50%{transform:scale(1.6);opacity:.5}}
+.hero.kom .kaynak{position:absolute;right:10px;bottom:8px;z-index:2;font-size:10px;color:#fff;opacity:.8;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+/* a: kemerli fotoğraf sağda */
+.hero.kom-a .hfoto{right:0;top:0;bottom:0;width:48%;border-radius:0 0 0 min(30vw,320px)}
+.hero.kom-a .kolaj{display:none}
+.hero.kom-a .fk{left:calc(52% - 70px);top:18%}
+/* b: tam ekran fotoğraf + koyu geçiş */
+.hero.kom-b .hfoto{inset:0}
+.hero.kom-b .hfoto:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 92%,transparent) 0%,color-mix(in srgb,var(--ink) 70%,transparent) 45%,color-mix(in srgb,var(--ink) 15%,transparent) 100%)}
+.hero.kom-b .kolaj{display:none}
+.hero.kom-b>.w>div:first-child{color:#fff}.hero.kom-b>.w>div:first-child p{color:rgba(255,255,255,.82)}.hero.kom-b>.w>div:first-child .et{color:var(--gold)}
+.hero.kom-b>.w>div:first-child .btn:not(.p){border-color:#fff;color:#fff}
+.hero.kom-b .fk{right:4%;top:12%}
+/* c: kolaj — uzun dikdörtgen + küçük döndürülmüş fotoğraf */
+.hero.kom-c .hfoto{right:4%;top:7%;bottom:7%;width:34%;border-radius:28px;box-shadow:0 40px 80px -40px rgba(0,0,0,.5)}
+.hero.kom-c .kolaj{right:calc(4% + 30%);bottom:5%;width:18%;aspect-ratio:1;border-radius:20px;transform:rotate(-6deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.5);border:6px solid var(--bg);z-index:0}
+.hero.kom-c .fk{right:6%;top:4%}
+.hero.kom-c .sahne{justify-self:start;margin-left:8%}
+@media(max-width:980px){
+ .hero.kom .hfoto{position:relative;inset:auto;width:auto;height:300px;margin:0 clamp(16px,4vw,44px);border-radius:24px;z-index:0}
+ .hero.kom-b .hfoto{position:absolute;inset:0;height:auto;margin:0;border-radius:0;z-index:-1}
+ .hero.kom-b .hfoto:after{background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 55%,transparent),color-mix(in srgb,var(--ink) 92%,transparent) 55%)}
+ .hero.kom-c .kolaj{display:none}
+ .hero.kom .fk{left:auto;right:calc(clamp(16px,4vw,44px) + 12px);top:12px}.hero.kom-b .fk{top:16px}
+ .hero.kom .sahne{justify-self:center;margin-left:0}
+}
+.ubant{position:absolute;right:0;top:0;bottom:0;width:46%;z-index:-1;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 45%);mask:linear-gradient(90deg,transparent,#000 45%)}
+.ubant img{width:100%;height:100%;object-fit:cover;opacity:.55;filter:saturate(1.1)}
+.ust.fotolu{position:relative;isolation:isolate}
+@media(max-width:900px){.ubant{width:100%;-webkit-mask:linear-gradient(180deg,#000,transparent);mask:linear-gradient(180deg,#000,transparent)}.ubant img{opacity:.32}}
+.kredi{font-size:11px;opacity:.72;margin-top:12px;line-height:1.5}.kredi a{color:inherit}
+html.gsapli [data-h]{will-change:transform}
+@media(prefers-reduced-motion:reduce){.hero.kom .fk i{animation:none}}
+.hero.kom .raf{overflow:hidden}.hero.kom .raf .bar:before,.hero.kom .raf .bar:after{height:262px}
+@media(max-width:980px){.hero.kom-b .fk{top:auto;bottom:14px;right:14px}.hero.kom .kal{max-width:280px}}
+.hero.kom .raf{height:300px;background:color-mix(in srgb,var(--bg) 90%,transparent);border-radius:24px;backdrop-filter:blur(6px)}.hero.kom .kal{background:color-mix(in srgb,var(--bg) 82%,transparent);border-radius:50%;backdrop-filter:blur(6px)}.hero.kom .oa{aspect-ratio:4/4.6}.fiyatsiz .fy{display:none!important}html:not(.fiyatsiz) .fy0{display:none!important}</style></head><body>
+<header class="ust"><div class="w"><a class="logo" href="#"><b>Zerrin</b><small>Güzellik salonu</small></a><nav class="m"><a href="#hizmet">Hizmetler</a><a href="#paket">Paketler</a><a href="#randevu">Randevu</a><a href="#ekler">Daha</a><a href="#salon">Salon</a><a class="btn p" href="tel:+905511756191" style="min-height:42px;padding:0 18px">Ara</a></nav></div></header>
 
-<section class="hero"><div class="w"><div><span class="et">Kepez · Atatürk Mah.</span><h1>Bakım, <em>saatinizle</em> başlar.</h1>
+<section class="hero kom kom-c"><div class="hfoto"><img data-foto src="../img/f1.webp" alt="Güzellik ve bakım (stok fotoğraf, temsili)" fetchpriority="high"></div><div class="kolaj"><img src="../img/f3.webp" alt="" loading="lazy"></div><span class="fk"><i></i>Randevu talebi 1 dakikada</span><span class="kaynak">Stok fotoğraf, temsili</span><div class="w"><div data-h><span class="et">Kepez · Atatürk Mah.</span><h1>Bakım, <em>saatinizle</em> başlar.</h1>
 <p>Hizmetleri seçin, ne kadar süreceğini görün, uygun saati işaretleyin. Randevu talebiniz hazır gelir; salona siz gönderirsiniz, salon onaylar. Aşağıdaki liste örnektir.</p>
 <div class="btnler"><a class="btn p" href="#hizmet">Hizmetleri seç</a><a class="btn" href="#randevu">Randevu talebi</a></div></div>
-<div class="sahne" aria-hidden="true"><div class="ark a1"></div><div class="ark a2"></div><div class="ark a3"></div>
+<div class="sahne" data-h aria-hidden="true"><div class="ark a1"></div><div class="ark a2"></div><div class="ark a3"></div>
 <svg class="cizgi" viewBox="0 0 400 450"><path d="M70 410C60 300 110 240 190 230c70-9 120 30 120 90"/><path d="M190 230c-10-50 20-96 70-118"/><path d="M150 330c40-30 90-30 130 6"/><circle cx="262" cy="108" r="18" style="stroke-dasharray:120;stroke-dashoffset:120"/></svg><span class="rz">Örnek görsel · gerçek fotoğraf yerleşir</span></div></div></section>
 
 <div class="bilgi"><div class="w"><div><span class="et">Konum</span><b>Atatürk Mah. 2627. Sk. Meram Ap D:B, Kepez / Antalya</b></div><div><span class="et">Telefon</span><b><a href="tel:+905511756191">0551 175 61 91</a></b></div><div><span class="et">Konum</span><b><a id="yol1" target="_blank" rel="noopener">Yol tarifi →</a></b></div><div><span class="et">Rehber kaydı</span><b><a href="https://local.gen.tr/antalya/zerrin-guzellik-salonu/" target="_blank" rel="noopener">local.gen.tr</a></b></div></div></div>
@@ -76,10 +153,13 @@ footer{background:var(--ink);color:#f4ebe7;padding:clamp(34px,6vw,60px) 0 90px}f
 
 <section class="bol" id="paket" style="background:var(--soft)"><div class="w"><div class="bas"><span class="et">Birlikte daha iyi</span><h2>Hazır <em>paketler</em></h2></div><div class="pk" id="pk"></div></div></section>
 
+
+<section class="bol" id="ekler"><div class="w"><div class="bas" data-rv><span class="et">Daha fazlası · örnek</span><h2>Randevudan <em>öte</em></h2><p>Gün planı, kür takibi, ilham galerisi, sadakat kartı ve hediye çeki talebi. Hepsi örnek; görseller stok fotoğraftır.</p></div><div class="ek-iz" id="ek" data-rvk></div></div></section>
 <footer id="salon"><div class="w"><div><h3>Salona uğrayın</h3><p>Atatürk Mah. 2627. Sk. Meram Ap D:B, Kepez / Antalya</p><p>Telefon: 0551 175 61 91</p><div class="btnler" style="margin-top:14px"><a class="btn wa" id="wab" target="_blank" rel="noopener">WhatsApp’tan yaz</a><a class="btn" style="color:#fff;border-color:#fff" id="yol" target="_blank" rel="noopener">Yol tarifi</a></div></div>
-<div><p class="et" style="color:#cdbdb7">Bu sayfa nedir?</p><p style="margin-top:10px">Dijitabela’nın Zerrin Güzellik Salonu için hazırladığı taslak sayfa. Hizmetler, süreler ve boş saatler örnektir; salonun gerçek listesi veya takvimi değildir. Fiyat yazılmadı; çalışma saati kaynakta görülmediği için yazılmadı. Hiçbir mesaj otomatik gönderilmez.</p></div><div class="cr">Taslak, yayında değil · Seçenek 1 / 3 · Örnek veri</div></div></footer>
+<div><p class="et" style="color:#cdbdb7">Bu sayfa nedir?</p><p style="margin-top:10px">Dijitabela’nın Zerrin Güzellik Salonu için hazırladığı taslak sayfa. Hizmetler, süreler ve boş saatler örnektir; salonun gerçek listesi veya takvimi değildir. Fiyat yazılmadı; çalışma saati kaynakta görülmediği için yazılmadı. Hiçbir mesaj otomatik gönderilmez.</p></div><div class="cr">Taslak, yayında değil · Seçenek 1 / 3 · Örnek veri</div></div><div class="w" style="display:block"><div class="kredi">Fotoğraflar stok ve temsilidir (Wikimedia Commons): <a href="https://commons.wikimedia.org/wiki/File:Facial_mask.jpg" target="_blank" rel="noopener">Sérgio (Savaman) Savarese</a> (CC BY 2.0) · <a href="https://commons.wikimedia.org/wiki/File:Makeup-brush-tips.jpg" target="_blank" rel="noopener">Sarah Pflug</a> (CC0) · <a href="https://commons.wikimedia.org/wiki/File:YHI_Spa_treatment_room_at_Paradisus_by_Meli%C3%A1_Bali.jpg" target="_blank" rel="noopener">Paradisus Bali</a> (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Eyelash_Extension_Picture.jpg" target="_blank" rel="noopener">SRozenbaum</a> (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Eye_Makeup_Palette_and_Brush_Kit.jpg" target="_blank" rel="noopener">geehairimages</a> (CC BY 2.0)</div></div></footer>
 <a class="alt" href="#randevu"><span style="font-size:14px"><b id="am">Sepet boş</b></span><span>Randevu →</span></a>
 <div class="toast" id="ts" role="status"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="../ortak.js"></script>
 <script>
 (function(){"use strict";var B=window.SALON,$=function(i){return document.getElementById(i)},kat=B.kat[0].id,gun=null,saat=null,G=B.gunler(7);
@@ -102,7 +182,7 @@ $("pk").innerHTML=B.paketler.map(function(p,i){var t=B.toplam(p.ids);return '<ar
 $("pk").addEventListener("click",function(e){var b=e.target.closest("[data-p]");if(b){B.sepetYaz(B.paketler[b.dataset.p].ids.slice());sepet();B.toast("Paket sepete alındı");$("randevu").scrollIntoView({behavior:"smooth"});B.iz("salon:paket")}});
 $("mh").onclick=function(){var g=gun!==null?G[gun].g+" "+G[gun].n+" "+G[gun].a:"",m=B.mesaj({tel:$("tl").value.trim(),ad:$("ad").value.trim(),gun:g,saat:saat!==null?B.saatler[saat]:"",not:$("nt").value.trim()});
  B.kutu($("on"),m);B.iz("salon:mesaj")};
-sepet();takvim();
+sepet();takvim();B.ekCiz($("ek"));B.hareket();
 })();
 </script>
 <script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="zerrin-guzellik-salonu" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
