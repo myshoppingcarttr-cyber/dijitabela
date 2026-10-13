@@ -174,7 +174,7 @@ function goster(d){if(d.durum==="yok"){localStorage.removeItem("qr-takip-"+MASA)
 /* ===== Çekirdek Yakala ===== */
 const cv=$("#oyun"),cx=cv.getContext("2d");let W=360,H=400,O=null;const TUS={};
 function boyut(){const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);}
-function basla(){boyut();O={x:W/2,puan:0,parca:[],t:0,son:performance.now(),bitis:performance.now()+30000,ef:[]};$("#ortu").hidden=true;$("#puan").textContent=0;requestAnimationFrame(kare);}
+function basla(){if(TAKIP)rpc("oyun_basla",{takip:TAKIP}).catch(()=>{});boyut();O={x:W/2,puan:0,parca:[],t:0,son:performance.now(),bitis:performance.now()+30000,ef:[]};$("#ortu").hidden=true;$("#puan").textContent=0;requestAnimationFrame(kare);}
 function dur(baslik){if(!O)return;const p=O.puan;O=null;if(TAKIP)rpc("qr_oyun_puan",{takip:TAKIP,puan:p}).catch(()=>{});
  $("#ortu").innerHTML=`<b>${baslik||"Süre doldu!"}</b><p>${p} puan topladınız.${p>=30?(kartAl()?" 🎉 Harika! Siparişiniz teslim edilince kartınıza +1 damga eklenecek.":" 🎉 Harika! Sadakat kartı oluşturursanız bu puan damgaya dönüşür."):" 30 puana az kaldı, bir daha?"}</p><button class="btn" id="basla">Tekrar oyna ▶</button>`;$("#ortu").hidden=false;$("#basla").onclick=basla;}
 $("#basla").onclick=basla;

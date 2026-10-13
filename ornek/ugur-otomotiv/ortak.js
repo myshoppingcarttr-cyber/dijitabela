@@ -18,14 +18,17 @@
     { id: 3, marka: "Volkswagen", model: "Passat", pk: "1.6 TDI Comfortline", yil: 2018, km: 142000, yakit: "Dizel", vites: "Otomatik", tip: "sedan", renk: "#2B3441", fiyat: 1150000 },
     { id: 4, marka: "Dacia", model: "Duster", pk: "1.5 dCi Comfort", yil: 2021, km: 61000, yakit: "Dizel", vites: "Manuel", tip: "suv", renk: "#7D8B6A", fiyat: 1240000 },
     { id: 5, marka: "Hyundai", model: "i20", pk: "1.4 MPI Style", yil: 2018, km: 88000, yakit: "Benzin", vites: "Otomatik", tip: "hatchback", renk: "#B8352B", fiyat: 690000 },
-    { id: 6, marka: "Toyota", model: "Corolla", pk: "1.6 Vision", yil: 2019, km: 83000, yakit: "Benzin", vites: "Otomatik", tip: "sedan", renk: "#D9DBDF", fiyat: 960000 },
-    { id: 7, marka: "Ford", model: "Ranger", pk: "2.2 TDCi XLT", yil: 2017, km: 156000, yakit: "Dizel", vites: "Manuel", tip: "pickup", renk: "#4A5563", fiyat: 1390000 },
+    { id: 6, marka: "Toyota", model: "Corolla", pk: "1.6 Vision", yil: 2019, km: 83000, yakit: "Benzin", vites: "Otomatik", tip: "sedan", renk: "#D9DBDF", fiyat: 960000, foto: "gercek-1.webp" },
+    { id: 7, marka: "Ford", model: "Focus", pk: "1.6 Trend", yil: 2005, km: 212000, yakit: "Benzin", vites: "Manuel", tip: "hatchback", renk: "#1F2630", fiyat: 385000, foto: "gercek-2.webp" },
     { id: 8, marka: "Nissan", model: "Qashqai", pk: "1.5 dCi Black Edition", yil: 2016, km: 171000, yakit: "Dizel", vites: "Manuel", tip: "suv", renk: "#1F2630", fiyat: 905000 },
     { id: 9, marka: "Opel", model: "Astra", pk: "1.6 CDTI Enjoy", yil: 2017, km: 129000, yakit: "Dizel", vites: "Otomatik", tip: "hatchback", renk: "#3E6B94", fiyat: 780000 },
-    { id: 10, marka: "Peugeot", model: "301", pk: "1.6 HDi Active", yil: 2018, km: 112000, yakit: "Dizel", vites: "Manuel", tip: "sedan", renk: "#8E9399", fiyat: 640000 },
+    { id: 10, marka: "Peugeot", model: "207", pk: "1.4 VTi Trendy", yil: 2010, km: 168000, yakit: "Benzin", vites: "Manuel", tip: "hatchback", renk: "#8E9399", fiyat: 420000, foto: "gercek-3.webp" },
     { id: 11, marka: "Skoda", model: "Octavia", pk: "1.6 TDI Elegance", yil: 2019, km: 118000, yakit: "Dizel", vites: "Otomatik", tip: "sedan", renk: "#E8E2D2", fiyat: 1085000 },
     { id: 12, marka: "Kia", model: "Sportage", pk: "1.6 GDI Concept", yil: 2020, km: 69000, yakit: "Benzin", vites: "Otomatik", tip: "suv", renk: "#9C2F2F", fiyat: 1480000 }
   ];
+  /* Gerçek ilan fotoğrafı olan araçlar (arabam.com galerisi; plaka bulanık). Yıl/km/fiyat ÖRNEKTİR. */
+  U.fotolu = function () { return U.arac.filter(function (a) { return a.foto; }); };
+  U.resim = function (a, kls) { return '<img class="arac-foto ' + (kls || "") + '" src="../img/' + a.foto + '" alt="' + a.marka + " " + a.model + ' ilan fotoğrafı" loading="lazy" decoding="async">'; };
   U.tipAd = { hatchback: "Hatchback", sedan: "Sedan", suv: "SUV", pickup: "Pikap" };
   U.tl = function (n) { return Number(n).toLocaleString("tr-TR") + " TL"; };
   U.kmf = function (n) { return Number(n).toLocaleString("tr-TR") + " km"; };
