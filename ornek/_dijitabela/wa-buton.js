@@ -7,6 +7,8 @@
   "use strict";
   if (window.DJ_WA_BUTON === false || document.getElementById("djwa") || document.querySelector(".djwa-b")) return;
   var TEL = "905386765727", FIYAT = "4.900 TL";
+  // CK-2: kahve falı sayfalarında (yol bazlı) ya da <html data-fiyatsiz> işaretli sayfalarda tutar yazılmaz.
+  var FIYATSIZ = /\/ornek\/kahve-fali(\/|$)/.test(location.pathname) || document.documentElement.hasAttribute("data-fiyatsiz");
   var temiz = function (t) { return String(t || "").replace(/\s+/g, " ").trim(); };
   var ad = temiz(document.title.split(/\s[·|–]\s/)[0]) || temiz((document.querySelector("h1") || {}).textContent).slice(0, 60);
   if (ad.length > 70) ad = ad.slice(0, 70).replace(/\s+\S*$/, "");
@@ -40,8 +42,8 @@
     var span = taslak.querySelector("span"), link = taslak.querySelector("a");
     taslak.classList.add("djwa-ici");
     if (span) {
-      span.innerHTML = '<span class="djwa-uzun">' + span.innerHTML + ' · Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar</span>" +
-        '<span class="djwa-kisa"><span>Giriş paketi</span><span><b class="djwa-fy">' + FIYAT + "'den</b><span class=\"djwa-bs\"> başlar</span></span></span>";
+      span.innerHTML = '<span class="djwa-uzun">' + span.innerHTML + (FIYATSIZ ? " · Fiyat için WhatsApp'tan yazın</span>" : ' · Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar</span>") +
+        (FIYATSIZ ? '<span class="djwa-kisa"><span>Fiyat için</span><span>WhatsApp&#39;tan yazın</span></span>' : '<span class="djwa-kisa"><span>Giriş paketi</span><span><b class="djwa-fy">' + FIYAT + "'den</b><span class=\"djwa-bs\"> başlar</span></span></span>");
       taslak.querySelector(".kap") ? (span.style.display = "contents") : 0;
     }
     var tut = document.createElement("span"); tut.innerHTML = dugme; tut = tut.firstChild;
@@ -49,7 +51,7 @@
   } else {
     var cubuk = document.createElement("div");
     cubuk.id = "djwa"; cubuk.setAttribute("role", "complementary"); cubuk.setAttribute("aria-label", "Dijitabela ile iletişim");
-    cubuk.innerHTML = '<div class="djwa-ic"><div class="djwa-f">Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar<small>Beğendiğiniz tasarımı birlikte yayına alalım</small></div>" + dugme + "</div>";
+    cubuk.innerHTML = '<div class="djwa-ic"><div class="djwa-f">' + (FIYATSIZ ? "Fiyat için WhatsApp'tan yazın" : 'Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar") + "<small>Beğendiğiniz tasarımı birlikte yayına alalım</small></div>" + dugme + "</div>";
     document.body.appendChild(cubuk);
     document.documentElement.classList.add("djwa-cubuk");
   }

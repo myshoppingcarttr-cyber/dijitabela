@@ -38,12 +38,17 @@ dialog{border:1px solid var(--g);background:var(--p);color:var(--tx);width:min(5
 @media(max-width:960px){.pano{grid-template-columns:minmax(0,1fr)}.sol{border-right:0;padding-right:0}.sag{display:none}.pj,.iki{grid-template-columns:minmax(0,1fr)}.pj article{border-right:0;border-bottom:1px solid var(--ln)}.sayac{grid-template-columns:repeat(2,minmax(0,1fr))}.sayac div:nth-child(2){border-right:0}.sayac div:nth-child(-n+2){border-bottom:1px solid var(--ln)}}
 @media(max-width:620px){.satir{grid-template-columns:28px 72px minmax(0,1fr)}.satir .f{grid-column:3;text-align:left}.alan{grid-template-columns:minmax(0,1fr)}.ust .sg{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.serit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.serit figure{margin:0;position:relative;overflow:hidden;border:1px solid var(--ln);aspect-ratio:3/4;background:var(--p)}.serit figure:nth-child(even){margin-top:34px}.serit img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.1);filter:saturate(.92)}.serit figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;background:linear-gradient(transparent,rgba(11,31,42,.9));font:700 11px "DM Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--g2)}
+.kredi{margin-top:18px;font-size:12px;color:var(--mu)}.kredi a{color:var(--g2)}
+@media(max-width:960px){.serit{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.serit figure:nth-child(even){margin-top:0}}
 </style></head><body>
 <div class="ust"><div class="w"><b>Kepez Emlak &amp; İnşaat</b><span class="sg">Karşıyaka, Kepez · 0536 715 55 33</span></div></div>
 <section class="kap"><div class="w"><span class="mono">İlan panosu · taslak</span><h1 style="margin-top:14px">Aradığınız <em>ev</em> bir tıkla</h1><p>Solda ilanlar, sağda seçtiğinizin ayrıntısı. Beğendiğinize tek mesajla sorun, bulamadığınızı talep listesine bırakın. İlanlar ve projeler örnektir.</p></div></section>
 <div class="w"><div class="sayac"><div><b id="n1">0</b><span>örnek ilan</span></div><div><b id="n2">0</b><span>satılık</span></div><div><b id="n3">0</b><span>kiralık</span></div><div><b>3</b><span>örnek proje</span></div></div>
 <div class="pano" id="ilan"><div class="sol"><div class="sf"><select id="amac"><option value="hepsi">Satılık + kiralık</option><option value="satilik">Satılık</option><option value="kiralik">Kiralık</option></select><select id="tur"><option value="hepsi">Tüm türler</option><option value="daire">Daire</option><option value="villa">Villa</option><option value="arsa">Arsa</option><option value="dukkan">Dükkan</option></select><select id="mah"><option value="hepsi">Tüm mahalleler</option></select><select id="sir"><option value="yeni">En yeni</option><option value="ucuz">Fiyat artan</option><option value="pahali">Fiyat azalan</option><option value="m2">Büyük alan</option></select></div><div id="ls"></div></div>
 <div class="sag"><div class="det" id="det"></div></div></div></div>
+
+<section class="bol" id="ofis-foto"><div class="w"><div class="bas"><span class="mono">Ofisten kareler</span><h2>Kapımız <em style="color:var(--g);font-style:normal">açık</em></h2></div><div class="serit"><figure><img src="../img/gercek-1.webp" alt="Kepez Emlak &amp; İnşaat ofisinin cephesi ve tabelası" loading="lazy"><figcaption>Cephe</figcaption></figure><figure><img src="../img/gercek-2.webp" alt="Ofisin içi: ahşap masalar ve deri koltuklar" loading="lazy"><figcaption>İç mekân</figcaption></figure><figure><img src="../img/gercek-3.webp" alt="Görüşme masası ve iki koltuk" loading="lazy"><figcaption>Görüşme masası</figcaption></figure><figure><img src="../img/gercek-4.webp" alt="Ofisin duvar rafı ve televizyon alanı" loading="lazy"><figcaption>Bekleme alanı</figcaption></figure></div><p class="kredi">Görseller: <a href="https://www.google.com/maps/search/?api=1&amp;query=Kepez+Emlak+%26+%C4%B0n%C5%9Faat+Antalya" target="_blank" rel="noopener">işletmenin Google Haritalar profili</a>.</p></div></section>
 
 <section class="bol"><div class="w"><div class="bas"><span class="mono">İnşaat · örnek veri</span><h2>Projelerimiz</h2></div><div class="pj" id="pj"></div></div></section>
 
@@ -76,5 +81,13 @@ function tciz(){var l=K.talepler();$("tb").style.display=l.length?"none":"";$("t
 $("tl").addEventListener("click",function(e){var b=e.target.closest("[data-z]");if(b){K.talepSil(Number(b.dataset.z));tciz()}});
 $("tf").addEventListener("submit",function(e){e.preventDefault();var t={ad:$("tAd").value.trim(),amac:$("tAm").value,tur:$("tTu").value,mah:$("tMa").value,butce:Number($("tBu").value)||0};K.talepEkle(t);tciz();var m=K.talepMesaj(t),s=$("ts2");s.hidden=false;s.innerHTML="<b>Talep kaydedildi (gönderilmedi).</b><br>Hazır mesaj: "+m.replace(/</g,"&lt;")+'<br><a class="dg wa s" style="margin-top:10px" target="_blank" rel="noopener" href="'+K.waLink(m)+'">WhatsApp’ta aç</a>';iz("pano:talep formu")});
 ciz();tciz();})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){if(!window.gsap||!window.ScrollTrigger||matchMedia("(prefers-reduced-motion:reduce)").matches)return;gsap.registerPlugin(ScrollTrigger);
+gsap.from(".kap h1,.kap p,.kap .mono",{y:44,opacity:0,duration:.9,stagger:.14,ease:"power3.out"});
+gsap.from(".sayac div",{y:24,opacity:0,duration:.6,stagger:.1,delay:.3,ease:"power2.out"});
+gsap.utils.toArray(".serit figure").forEach(function(f,i){gsap.from(f,{y:70,opacity:0,duration:.8,delay:i*.1,ease:"power3.out",scrollTrigger:{trigger:".serit",start:"top 92%",once:true}});
+ gsap.to(f.querySelector("img"),{yPercent:i%2?-7:7,ease:"none",scrollTrigger:{trigger:".serit",scrub:true}})});})();
 </script>
 <script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="kepez-emlak-insaat" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

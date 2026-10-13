@@ -64,13 +64,17 @@ dialog::backdrop{background:rgba(0,0,0,.7)}
 @media(max-width:980px){.suz{grid-template-columns:1fr 1fr}.suz .ge{grid-column:1/-1}.izg{grid-template-columns:repeat(2,minmax(0,1fr))}.hero .w,.iki,footer .w{grid-template-columns:minmax(0,1fr)}nav.m a:not(.ara-btn){display:none}.dt{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:620px){.izg{grid-template-columns:minmax(0,1fr)}.bilgi{grid-template-columns:minmax(0,1fr)}.bilgi div{border-right:0;border-bottom:1px solid var(--ln)}.alan{grid-template-columns:minmax(0,1fr)}.suz{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.sahne .ph{width:100%;height:100%;object-fit:cover;display:block;border:1px solid var(--ln)}.sahne{aspect-ratio:4/3}
+.gal4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.gal4 figure{margin:0;position:relative;overflow:hidden;border:1px solid var(--ln);background:var(--p);aspect-ratio:3/4}.gal4 img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.1)}.gal4 figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(14,16,19,.92));font:700 12px/1 "DM Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.kredi{margin-top:16px;font-size:12px;color:var(--mu)}.kredi a{color:var(--k2)}
+@media(max-width:900px){.gal4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
 <header class="ust"><div class="w"><a class="logo" href="#">Uğur<i>.</i>Otomotiv</a><nav class="m"><a href="#stok">Araçlar</a><a href="#taksit">Taksit</a><a href="#takas">Takas</a><a href="#gel">Adres</a><a class="ara-btn" href="tel:+905322975922">Ara</a></nav></div></header>
 
 <section class="hero"><div class="w"><div><span class="badge">KEPEZ · OTO GALERİ</span><h1 style="margin-top:14px">Aracını <em>kendi<br>adresinde</em> gör.</h1>
 <p>Stoktaki araçlar süzgeçle, taksit hesabıyla ve tek dokunuşla “bu araç hâlâ var mı” mesajıyla bir arada. Aşağıdaki araçlar örnektir.</p>
 <div class="btnler"><a class="dg k" href="#stok">Araçlara bak</a><a class="dg wa" id="heroWa" target="_blank" rel="noopener">WhatsApp’tan yaz</a></div></div>
-<div class="sahne" id="sahne"><span class="badge etk">ÖRNEK ARAÇ</span><div class="zemin"></div></div></div></section>
+<div class="sahne" id="sahne"><span class="badge etk">GALERİ İLAN FOTOĞRAFI</span><div class="zemin"></div></div></div></section>
 
 <div class="bilgi"><div><span class="mono" style="color:var(--mu)">Adres</span><b>Gülveren, kapalı halk pazarı oto galericiler sitesi No:48 D, Kepez</b></div><div><span class="mono" style="color:var(--mu)">Telefon</span><b><a href="tel:+905322975922">0532 297 59 22</a> · <a href="tel:+902429220416">0242 922 04 16</a></b></div><div><span class="mono" style="color:var(--mu)">İlan sayfası</span><b><a href="https://www.arabam.com/galeri/ugur-otomotiv-antalya" target="_blank" rel="noopener">arabam.com galeri sayfası</a></b></div></div>
 
@@ -83,6 +87,7 @@ dialog::backdrop{background:rgba(0,0,0,.7)}
 <label><span class="mono">Sırala</span><select id="sir"><option value="yeni">Yeni model</option><option value="ucuz">Fiyat artan</option><option value="pahali">Fiyat azalan</option><option value="km">Km az</option></select></label></div>
 <div class="izg" id="izg"></div></div></section>
 
+<section class="bol" id="galeri"><div class="w"><div class="bas"><div><span class="mono">Galeriden · gerçek ilan fotoğrafları</span><h2>Vitrinden kareler</h2></div></div><div class="gal4"><figure><img src="../img/gercek-1.webp" alt="Beyaz Toyota Corolla, galeri ilan fotoğrafı (plaka bulanık)" loading="lazy"><figcaption>Toyota Corolla</figcaption></figure><figure><img src="../img/gercek-2.webp" alt="Gümüş Peugeot 206, galeri ilan fotoğrafı (plaka bulanık)" loading="lazy"><figcaption>Peugeot 206</figcaption></figure><figure><img src="../img/gercek-3.webp" alt="Siyah Ford Focus, galeri ilan fotoğrafı (plaka bulanık)" loading="lazy"><figcaption>Ford Focus</figcaption></figure><figure><img src="../img/gercek-4.webp" alt="Gümüş Peugeot 207, galeri ilan fotoğrafı (plaka bulanık)" loading="lazy"><figcaption>Peugeot 207</figcaption></figure></div><p class="kredi">Fotoğraflar: <a href="https://www.arabam.com/galeri/ugur-otomotiv-antalya" target="_blank" rel="noopener">arabam.com · Uğur Otomotiv galeri sayfası</a> (işletmenin kendi ilan fotoğrafları; plakalar bulanıklaştırıldı).</p></div></section>
 <section class="bol" id="taksit"><div class="w"><div class="iki"><div class="kutu"><span class="mono" style="color:var(--k2)">Hesap makinesi</span><h3>Aylık taksit</h3><p>Aracı seçin, peşinatı ve vadeyi girin. Faiz oranını siz yazarsınız; sonuç örnek hesaptır, banka teklifi değildir.</p>
 <div class="alan"><label class="tam"><span class="mono">Araç</span><select id="tAr"></select></label><label><span class="mono">Peşinat (TL)</span><input type="number" id="tPe" value="300000" min="0" step="10000"></label><label><span class="mono">Vade (ay)</span><select id="tAy"><option>12</option><option selected>24</option><option>36</option><option>48</option></select></label><label class="tam"><span class="mono">Aylık oran % (örnek)</span><input type="number" id="tOr" value="3" min="0" step="0.05"></label></div>
 <div class="sonuc" aria-live="polite"><span class="mono">Aylık taksit</span><b id="tSon">-</b><small id="tAlt"></small></div></div>
@@ -104,7 +109,7 @@ dialog::backdrop{background:rgba(0,0,0,.7)}
 function bildir(m){ts.textContent=m;ts.classList.add("a");clearTimeout(tt);tt=setTimeout(function(){ts.classList.remove("a")},2600)}
 function iz(x){try{window.djIzle&&window.djIzle(x)}catch(e){}}
 $("heroWa").href=U.waLink("Merhaba, Uğur Otomotiv’in araçları hakkında bilgi almak istiyorum.");$("yol").href=U.harita;
-$("sahne").insertAdjacentHTML("afterbegin",U.svg("sedan","#B8352B"));
+$("sahne").insertAdjacentHTML("afterbegin",'<img class="ph" src="../img/gercek-2.webp" alt="Gümüş Peugeot 206, galeri ilan fotoğrafı (plaka bulanık)" width="1200" height="900">');
 var opt=U.arac.map(function(a){return '<option value="'+a.id+'">'+a.yil+" "+U.ad2(a)+" · "+U.tl(a.fiyat)+" (örnek)</option>"}).join("");$("tAr").innerHTML=opt;$("rA").innerHTML=opt;
 function f(){return{q:$("q").value,tip:$("tip").value,yakit:$("yakit").value,vites:$("vites").value,max:$("max").value,sirala:$("sir").value}}
 function ciz(){
@@ -131,5 +136,13 @@ function rb(){var a=U.bul($("rA").value),g=$("rG").value,m="Merhaba, "+(g?g.spli
 ["rG","rS","rA"].forEach(function(i){$(i).addEventListener("input",rb)});
 ciz();hesap();rb();
 })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){if(!window.gsap||!window.ScrollTrigger||matchMedia("(prefers-reduced-motion:reduce)").matches)return;gsap.registerPlugin(ScrollTrigger);
+gsap.from(".hero h1,.hero p,.hero .btnler,.hero .badge",{y:34,opacity:0,duration:.8,stagger:.1,ease:"power3.out"});
+gsap.from(".sahne .ph",{clipPath:"inset(0 100% 0 0)",duration:1.1,ease:"power3.inOut"});
+gsap.utils.toArray(".gal4 figure").forEach(function(f,i){gsap.from(f,{y:60,opacity:0,duration:.8,delay:i*.08,ease:"power2.out",scrollTrigger:{trigger:".gal4",start:"top 92%",once:true}});
+ gsap.to(f.querySelector("img"),{yPercent:-6,ease:"none",scrollTrigger:{trigger:f,scrub:true}})});})();
 </script>
 <script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="ugur-otomotiv" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

@@ -52,9 +52,14 @@ pre.px{white-space:pre-wrap;background:var(--bg);border:1px dashed var(--c);bord
 @media(max-width:1000px){.hero .w,.iki,footer .w{grid-template-columns:minmax(0,1fr)}.duzen{grid-template-columns:minmax(0,1fr)}.yanf{position:static}.pj{grid-template-columns:minmax(0,1fr)}nav a:not(.dg){display:none}.bilgi .w{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:620px){.izg{grid-template-columns:minmax(0,1fr)}.alan{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.gorsel img.ph{width:100%;height:100%;object-fit:cover;display:block;animation:yak 14s ease-in-out infinite alternate}
+.galeri .izg2{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:repeat(2,minmax(0,260px));gap:16px}.galeri figure{position:relative;border-radius:20px;overflow:hidden;background:var(--c);margin:0}.galeri figure:first-child{grid-row:span 2}.galeri img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.12)}.galeri figcaption{position:absolute;left:12px;bottom:12px;background:#fff;border-radius:99px;padding:6px 12px;font:700 12px "DM Sans"}
+.kredi{margin-top:14px;font-size:13px;color:var(--s)}.kredi a{color:var(--t)}
+@media(max-width:700px){.galeri .izg2{grid-template-columns:minmax(0,1fr);grid-template-rows:none}.galeri figure,.galeri figure:first-child{grid-row:auto;aspect-ratio:4/3}}
+@media(prefers-reduced-motion:reduce){.gorsel img.ph{animation:none}}
 </style></head><body>
 <header><div class="w"><a class="logo" href="#">Kepez <span>Emlak</span> &amp; İnşaat</a><nav><a href="#ilan">İlanlar</a><a href="#talep">Talep</a><a href="#proje">Projeler</a><a href="#gel">Ofis</a><a class="dg k s" href="tel:+905367155533">Ara</a></nav></div></header>
-<section class="hero"><div class="w"><div><span class="et">Kepez · emlak ve inşaat</span><h1 style="margin-top:12px">Portföyünüz <em>kendi adresinde</em></h1><p>Satılık ve kiralık ilanlar, aradığınızı bırakabileceğiniz talep listesi ve inşaat projeleri tek sayfada. Aşağıdaki ilanlar ve projeler örnektir.</p><div class="btnler"><a class="dg k" href="#ilan">İlanlara bak</a><a class="dg wa" id="hw" target="_blank" rel="noopener">WhatsApp’tan yaz</a></div></div><div class="gorsel" id="gv"><span class="bd">Örnek ilan çizimi</span></div></div></section>
+<section class="hero"><div class="w"><div><span class="et">Kepez · emlak ve inşaat</span><h1 style="margin-top:12px">Portföyünüz <em>kendi adresinde</em></h1><p>Satılık ve kiralık ilanlar, aradığınızı bırakabileceğiniz talep listesi ve inşaat projeleri tek sayfada. Aşağıdaki ilanlar ve projeler örnektir.</p><div class="btnler"><a class="dg k" href="#ilan">İlanlara bak</a><a class="dg wa" id="hw" target="_blank" rel="noopener">WhatsApp’tan yaz</a></div></div><div class="gorsel" id="gv"><span class="bd">Ofisimiz · işletmenin kendi fotoğrafı</span></div></div></section>
 <div class="bilgi"><div class="w"><div><small>Adres</small><b>Karşıyaka, Kara Yusuf Cd. Tetik Apt. D:9/7, Kepez</b></div><div><small>Telefon</small><b><a href="tel:+905367155533">0536 715 55 33</a></b></div><div><small>Rehber kaydı</small><b><a href="https://www.aratsana.com/firma/kepez-emlak-insaat-duo7" target="_blank" rel="noopener">aratsana.com</a></b></div></div></div>
 
 <section class="bol" id="ilan"><div class="w"><div class="bas"><div><span class="et">Portföy · örnek veri</span><h2 style="margin-top:8px">İlanlar</h2></div><span id="say" style="color:var(--s)"></span></div>
@@ -68,6 +73,7 @@ pre.px{white-space:pre-wrap;background:var(--bg);border:1px dashed var(--c);bord
 
 <section class="bol" id="proje"><div class="w"><div class="bas"><div><span class="et">İnşaat · örnek veri</span><h2 style="margin-top:8px">Projeler</h2></div><span style="color:var(--s)">Yalnız ofisin paylaşabileceği projeler eklenir.</span></div><div class="pj" id="pj"></div></div></section>
 
+<section class="bol galeri" id="ofis-foto"><div class="w"><div class="bas"><div><span class="et">Ofisten kareler</span><h2 style="margin-top:8px">Kapımızdan <em style="color:var(--o)">içeri.</em></h2></div><span style="color:var(--s)">Google Haritalar profilindeki kendi fotoğraflarımız</span></div><div class="izg2"><figure><img src="../img/gercek-2.webp" alt="Ofisin içi: ahşap masalar ve deri koltuklar" loading="lazy"><figcaption>Görüşme alanı</figcaption></figure><figure><img src="../img/gercek-3.webp" alt="Görüşme masası ve iki koltuk" loading="lazy"><figcaption>Masa başı</figcaption></figure><figure><img src="../img/gercek-4.webp" alt="Ofisin duvar rafı ve televizyon alanı" loading="lazy"><figcaption>Bekleme alanı</figcaption></figure></div><p class="kredi">Görseller: <a href="https://www.google.com/maps/search/?api=1&amp;query=Kepez+Emlak+%26+%C4%B0n%C5%9Faat+Antalya" target="_blank" rel="noopener">işletmenin Google Haritalar profili</a>.</p></div></section>
 <footer id="gel"><div class="w"><div><h3>Ofisimiz</h3><p>Karşıyaka, Kara Yusuf Cd. Tetik Apt. D:9/7, Kepez / Antalya</p><p>Telefon: 0536 715 55 33</p><div class="btnler" style="margin-top:14px"><a class="dg o" id="yol" target="_blank" rel="noopener">Yol tarifi</a><a class="dg" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)" href="https://www.aratsana.com/firma/kepez-emlak-insaat-duo7" target="_blank" rel="noopener">aratsana.com kaydı</a></div></div><div><p style="opacity:1;font-weight:700">Bu sayfa nedir?</p><p>Dijitabela’nın Kepez Emlak &amp; İnşaat için hazırladığı taslak portföy sayfası. İlanlar, projeler ve fiyatlar örnektir.</p></div><div class="cr">Taslak, yayında değil · Seçenek 1 / 3</div></div></footer>
 <dialog id="dlg"><button class="kpt" id="kapat" aria-label="Kapat">×</button><div class="rs" id="dR"></div><div class="ic" id="dI"></div></dialog><div class="toast" id="ts" role="status"></div>
 <script src="../ortak.js"></script>
@@ -75,7 +81,7 @@ pre.px{white-space:pre-wrap;background:var(--bg);border:1px dashed var(--c);bord
 (function(){"use strict";var K=window.KEPEZ,$=function(i){return document.getElementById(i)},amac="hepsi",tt;
 function bildir(m){var t=$("ts");t.textContent=m;t.classList.add("a");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("a")},2400)}
 function iz(x){try{window.djIzle&&window.djIzle(x)}catch(e){}}
-$("hw").href=K.waLink("Merhaba, Kepez Emlak & İnşaat ilanları hakkında bilgi almak istiyorum.");$("yol").href=K.harita;$("gv").insertAdjacentHTML("afterbegin",K.svg("villa","#D08A6E"));
+$("hw").href=K.waLink("Merhaba, Kepez Emlak & İnşaat ilanları hakkında bilgi almak istiyorum.");$("yol").href=K.harita;$("gv").insertAdjacentHTML("afterbegin",'<img class="ph" src="../img/gercek-1.webp" alt="Kepez Emlak &amp; İnşaat ofisinin cephesi ve tabelası" width="1400" height="1050">');
 var mo=K.mahler.map(function(m){return"<option>"+m+"</option>"}).join("");$("mah").insertAdjacentHTML("beforeend",mo);$("tMa").insertAdjacentHTML("beforeend",mo);
 function ciz(){var l=K.suz({amac:amac,tur:$("tur").value,mah:$("mah").value,q:$("q").value,sirala:$("sir").value});$("say").textContent=l.length+" / "+K.ilan.length+" ilan";
  $("izg").innerHTML=l.length?l.map(function(i){var f=K.favVar(i.id);return'<article class="kart" data-id="'+i.id+'" tabindex="0"><span class="tg'+(i.amac==="kiralik"?" k":"")+'">'+K.amacAd[i.amac].toUpperCase()+'</span><span class="or">ÖRNEK</span><button class="fv'+(f?" a":"")+'" data-fv="'+i.id+'" aria-label="Favori">'+(f?"♥":"♡")+'</button><div class="rs">'+K.svg(i.tur,i.renk)+'</div><div class="ic"><h3>'+K.baslik(i)+'</h3><div class="ozet"><span>'+i.m2+' m²</span><span>'+i.kat+'</span></div><div class="al"><b>'+K.fiyatYaz(i)+'</b><span style="color:var(--o);font-weight:700;font-size:14px">Detay →</span></div></div></article>'}).join(""):'<div class="bos">Bu süzgece uyan örnek ilan yok.</div>'}
@@ -96,5 +102,14 @@ $("pj").innerHTML=K.projeler.map(function(p){return'<article><div class="rs">'+K
 function bar(){[].forEach.call(document.querySelectorAll(".cb i"),function(i){i.style.width=i.dataset.y+"%"})}
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){bar();io.disconnect()}})});io.observe($("pj"))}else bar();
 ciz();tciz();})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){if(!window.gsap||!window.ScrollTrigger||matchMedia("(prefers-reduced-motion:reduce)").matches)return;gsap.registerPlugin(ScrollTrigger);
+gsap.from(".hero h1,.hero p,.hero .btnler",{y:36,opacity:0,duration:.8,stagger:.12,ease:"power3.out"});
+gsap.from(".gorsel",{clipPath:"inset(0 0 100% 0)",duration:1.1,ease:"power3.inOut"});
+gsap.utils.toArray(".galeri figure").forEach(function(f,i){gsap.from(f,{y:60,opacity:0,duration:.8,delay:i*.08,ease:"power2.out",scrollTrigger:{trigger:f,start:"top 92%",once:true}});
+ gsap.to(f.querySelector("img"),{yPercent:-6,ease:"none",scrollTrigger:{trigger:f,scrub:true}})});
+gsap.from(".bilgi .w>div",{y:20,opacity:0,stagger:.1,duration:.6,scrollTrigger:{trigger:".bilgi",start:"top 95%",once:true}});})();
 </script>
 <script src="../../_dijitabela/filigran.js" defer></script><script src="../../_dijitabela/izle.js" data-slug="kepez-emlak-insaat" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
