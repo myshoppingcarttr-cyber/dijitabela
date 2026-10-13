@@ -68,7 +68,7 @@
       if (!o.rozet || rozetliyor) return; rozetliyor = true;
       try {
         Array.prototype.forEach.call(document.querySelectorAll(o.rozet), function (el) {
-          var n = ROZET[el.getAttribute("data-kod")] || 0, r = el.querySelector(":scope > .ys-rozet, :scope b > .ys-rozet, :scope .ne > b > .ys-rozet");
+          var n = ROZET[el.getAttribute("data-kod")] || 0, r = el.querySelector(".ys-rozet");
           if (!n) { if (r) r.remove(); return; }
           var yazi = "✉ " + n + " yeni mesaj";
           if (r) { if (r.textContent !== yazi) r.textContent = yazi; return; }

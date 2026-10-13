@@ -79,6 +79,30 @@ details.tam[open]>summary:before{transform:rotate(90deg)}
 .buyuk.ac{display:flex}.buyuk img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
 .buyuk button{position:absolute;top:10px;right:10px;font:inherit;font-weight:800;font-size:1rem;border:0;border-radius:10px;padding:10px 14px;min-height:44px;background:#fff}
 .kredi{text-align:center;font-size:.74rem;color:var(--soluk);margin-top:22px}.kredi a{color:var(--soluk);font-weight:700}
+/* 13 Eki: adım adım "yap" kartları (Patron: "ne yapacağımı anlamıyorum") */
+.neden{font-size:.86rem;background:#FFF4D6;border:1px solid #F0D58A;border-radius:12px;padding:8px 11px;margin:8px 0 4px;color:#3E2F00;overflow-wrap:anywhere}
+.neden b{font-weight:800}.neden .sure{float:right;margin-left:8px;font-weight:800;white-space:nowrap}
+.ilerleme{display:flex;align-items:center;gap:8px;margin:10px 0 6px;font-size:.78rem;font-weight:800;color:var(--soluk)}
+.ilerleme .cb{flex:1;height:10px;border-radius:5px;background:#ECEAE2;overflow:hidden}.ilerleme .cb i{display:block;height:100%;background:var(--yesil);border-radius:5px;transition:width .25s}
+ol.adimlar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.adim{display:flex;gap:10px;align-items:flex-start;background:#FAF9F5;border:1px solid var(--cizgi);border-radius:14px;padding:10px}
+.adim.tamam{background:#EEF8F2;border-color:#B6E2C6}
+.adim .isaret{flex:none;width:44px;height:44px;border-radius:12px;border:2px solid #C9C5B9;background:#fff;font-size:1.3rem;display:grid;place-items:center;cursor:pointer;font-weight:800;color:var(--soluk);padding:0}
+.adim.tamam .isaret{border-color:var(--yesil);background:var(--yesil);color:#fff}
+.adim .isaret.onayk{width:auto;min-width:44px;padding:0 10px;font-size:.8rem;border-color:var(--yesil);color:var(--yesil)}
+.adim.tamam .isaret.onayk{color:#fff}
+.adim .ag{flex:1;min-width:0}
+.adim .no{font:700 .72rem 'Space Mono',monospace;color:var(--soluk)}
+.adim .mt{font-size:.92rem;font-weight:600;overflow-wrap:anywhere;line-height:1.4}
+.adim.tamam .mt{color:#2F5C40}
+.adim .ip{font-size:.78rem;color:var(--soluk);margin-top:3px;overflow-wrap:anywhere}
+.adim .kopya{display:block;width:100%;text-align:left;margin-top:7px;font:700 .8rem/1.45 'Space Mono',monospace;background:var(--koyu);color:#F2F2F2;border:0;border-radius:10px;padding:10px 12px;white-space:pre-wrap;overflow-wrap:anywhere;cursor:copy}
+.adim .kopya:after{content:"dokun → kopyala";display:block;margin-top:5px;font-size:.66rem;color:var(--sari)}
+.adim .ad{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+.adim .ad a,.adim .ad button{font:inherit;font-size:.82rem;font-weight:800;border-radius:10px;padding:8px 13px;min-height:42px;display:inline-flex;align-items:center;gap:5px;text-decoration:none;cursor:pointer;border:2px solid var(--mavi);background:#fff;color:var(--mavi)}
+.adim .ad .ara{border-color:var(--yesil);color:var(--yesil)}
+.adim .gorsel{display:block;margin-top:7px;width:120px;max-width:100%;border-radius:10px;border:1px solid var(--cizgi);cursor:zoom-in}
+.dug:disabled.ta{background:#9CC7AE}
 @media(min-width:720px){.kap{padding:20px 20px 80px}.dug.ta{flex-basis:auto}.dug{flex:0 1 auto}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -173,6 +197,47 @@ details.tam[open]>summary:before{transform:rotate(90deg)}
     }).join("") + "</div>";
   }
 
+  /* ADIMLAR: patron_isler.adimlar varsa onu, yoksa içerikteki "1) 2) ..." satırlarını kullanır. URL → Aç, tırnak içi metin → Kopyala, telefon → Ara. */
+  var TEL = /(\+?90[\s-]?)?\(?0?\s?(2\d{2}|3\d{2}|4\d{2}|5\d{2}|8\d{2})\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}/;
+  function adimAyristir(ic) {
+    if (!ic) return null;
+    var L = String(ic).replace(/\r/g, "").split("\n"), A = [], son = null;
+    L.forEach(function (s) {
+      var m = /^\s*(?:\d+[).]|ARAMA\s*\d+\s*[—-]|ADIM\s*\d+[:.)]?)\s*(.*)$/i.exec(s);
+      if (m && m[1].trim()) { son = { metin: m[1].trim() }; A.push(son); return; }
+      if (son && /^\s{2,}\S/.test(s)) { son.ek = (son.ek ? son.ek + "\n" : "") + s.trim(); }
+    });
+    if (A.length < 2) return null;
+    A.forEach(function (x) {
+      var hepsi = x.metin + (x.ek ? "\n" + x.ek : ""), u = /(https?:\/\/[^\s"')]+)/.exec(hepsi), q = /["“]([^"”]{12,})["”]/.exec(hepsi), t = TEL.exec(hepsi);
+      if (u) x.url = u[1]; if (q) x.kopya = q[1]; if (t) x.tel = t[0].replace(/[^\d+]/g, "");
+      if (x.ek) { var ek = x.ek.replace(q ? q[0] : "\u0000", "").replace(u ? u[1] : "\u0000", "").trim(); if (ek) x.ipucu = ek; delete x.ek; }
+    });
+    return A;
+  }
+  function adimlarOf(r) { return (Array.isArray(r.adimlar) && r.adimlar.length) ? r.adimlar : adimAyristir(r.icerik); }
+  function adimHtml(r, A) {
+    var D = r.adim_durum || {}, n = A.filter(function (x, i) { return D[i]; }).length, onayli = A.some(function (x) { return x.onay; });
+    var h = '<div class="ilerleme"><span>' + n + "/" + A.length + (onayli ? " karar" : " adım") + '</span><span class="cb"><i style="width:' + Math.round(n / A.length * 100) + '%"></i></span></div><ol class="adimlar">';
+    A.forEach(function (x, i) {
+      var ok = !!D[i], url = guvenliUrl(x.url), tel = String(x.tel || "").replace(/[^\d+]/g, "");
+      h += '<li class="adim' + (ok ? " tamam" : "") + '"><button type="button" class="isaret' + (x.onay ? " onayk" : "") + '" data-adim="' + i + '" aria-pressed="' + ok + '" aria-label="' + (i + 1) + ". " + (x.onay ? "onayla" : "adımı tamamla") + '">' + (x.onay ? (ok ? "✅ Onaylı" : "Onayla") : (ok ? "✓" : "")) + "</button>";
+      h += '<div class="ag"><div class="no">' + (x.onay ? "MADDE " : "ADIM ") + (i + 1) + '</div><div class="mt">' + satirIci(x.metin || "") + "</div>";
+      if (x.ipucu) h += '<div class="ip">💡 ' + esc(x.ipucu) + "</div>";
+      if (x.kopya) h += '<button type="button" class="kopya" data-kopya="' + esc(x.kopya) + '">' + esc(x.kopya) + "</button>";
+      if (x.gorsel && guvenliUrl(x.gorsel)) h += '<img class="gorsel" loading="lazy" alt="ipucu görseli" src="' + esc(guvenliUrl(x.gorsel)) + '" data-buyuk="' + esc(guvenliUrl(x.gorsel)) + '">';
+      if (url && /^https?:/i.test(url) || x.kopya || tel) {
+        h += '<div class="ad">';
+        if (url && /^https?:/i.test(url)) h += '<a href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">↗ Aç</a>';
+        if (x.kopya) h += '<button type="button" data-kopya="' + esc(x.kopya) + '">📋 Kopyala</button>';
+        if (tel) h += '<a class="ara" href="tel:' + esc(tel) + '">📞 Ara</a>';
+        h += "</div>";
+      }
+      h += "</div></li>";
+    });
+    return h + "</ol>";
+  }
+
   function kartHtml(r) {
     var bekl = r.durum === "bekliyor", sinif = bekl ? "o" + (r.oncelik || 2) : (r.durum === "reddedildi" ? "red" : r.durum === "duzeltme" ? "dz" : "bitti");
     var et = '<span class="et tur">' + TUR[r.tur] + "</span>";
@@ -180,13 +245,18 @@ details.tam[open]>summary:before{transform:rotate(90deg)}
     if (r.son_tarih) et += '<span class="et tar">Son: ' + esc(tarih(r.son_tarih)) + "</span>";
     if (!bekl) et += '<span class="et ' + (r.durum === "reddedildi" ? "ac" : r.durum === "duzeltme" ? "mav" : "yes") + '">' + DURUM[r.durum] + "</span>";
     var h = '<article class="kart ' + sinif + '" data-id="' + esc(r.id) + '"><div class="etiketler">' + et + "</div><h2>" + esc(r.baslik) + "</h2>" + (r.ozet ? '<p class="ozet">' + esc(r.ozet) + "</p>" : "");
+    var A = adimlarOf(r);
+    if (r.neden || r.sure) h += '<div class="neden">' + (r.sure ? '<span class="sure">⏱ ' + esc(r.sure) + "</span>" : "") + (r.neden ? "<b>Neden?</b> " + esc(r.neden) : "&nbsp;") + "</div>";
+    if (A) h += adimHtml(r, A);
     if (r.kaynak) h += '<div class="kaynak">Kaynak: ' + esc(r.kaynak) + "</div>";
     h += ekHtml(r.ekler);
-    if (r.icerik) h += '<details class="tam"' + (bekl && r.icerik.length < 900 ? " open" : "") + '><summary>Tam içeriği göster</summary><div class="icerik">' + md(r.icerik) + "</div></details>";
+    if (r.icerik) h += '<details class="tam"' + (bekl && !A && r.icerik.length < 900 ? " open" : "") + '><summary>Tam içeriği göster</summary><div class="icerik">' + md(r.icerik) + "</div></details>";
     if (bekl) {
       h += '<div class="eylem">';
       if (r.tur === "onay") h += '<button class="dug on" data-e="onaylandi" type="button">✅ Onayla</button><button class="dug du" data-e="duzeltme" type="button">✏️ Düzelt</button><button class="dug re" data-e="reddedildi" type="button">❌ Reddet</button>';
-      else h += '<button class="dug ta" data-e="tamamlandi" type="button">✔️ Tamamladım</button><button class="dug du" data-e="not" type="button">📝 Not yaz</button>';
+      else { var tumu = !A || A.some(function (x) { return x.onay; }) || A.every(function (x, i) { return (r.adim_durum || {})[i]; });
+        h += '<button class="dug ta" data-e="tamamlandi" type="button"' + (tumu ? "" : ' disabled title="Önce tüm adımları işaretleyin"') + ">✔️ " + (A && A.some(function (x) { return x.onay; }) ? "Kararlarımı kaydet" : tumu ? "Tamamladım" : "Tamamladım (önce adımlar)") + "</button>"; }
+      if (r.tur !== "onay") h += '<button class="dug du" data-e="not" type="button">📝 Not yaz</button>';
       h += '</div><div class="not"><textarea maxlength="2000" placeholder="Notunuz (düzeltme için ne değişsin?)" aria-label="Notunuz"></textarea><div class="satir"><button class="dug on" data-e="gonder" type="button">Kaydet</button><button class="dug ge" data-e="vazgec" type="button">Vazgeç</button></div></div>';
     } else {
       if (r.patron_notu) h += '<div class="kararnot"><b>Notunuz:</b> ' + esc(r.patron_notu) + "</div>";
@@ -220,6 +290,20 @@ details.tam[open]>summary:before{transform:rotate(90deg)}
     } catch (e) { hata("Bağlantı hatası: " + e.message); } finally { mesgul = false; }
   }
 
+  function kopyala(t) {
+    var bitti = function () { toast("Kopyalandı. Şimdi yapıştırabilirsiniz."); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(bitti, eski); else eski();
+    function eski() { var x = document.createElement("textarea"); x.value = t; x.setAttribute("readonly", ""); x.style.position = "fixed"; x.style.opacity = "0"; document.body.appendChild(x); x.select(); try { document.execCommand("copy"); bitti(); } catch (e) { toast("Kopyalanamadı; metni basılı tutup seçin."); } x.remove(); }
+  }
+  async function adimIsaretle(id, i, dugme) {
+    var r = ISLER.filter(function (x) { return String(x.id) === String(id); })[0]; if (!r || r.durum !== "bekliyor") return;
+    var D = Object.assign({}, r.adim_durum || {}); if (D[i]) delete D[i]; else D[i] = new Date().toISOString();
+    var eski = r.adim_durum; r.adim_durum = D; ciz(); dugme.disabled = true;
+    var q = await sb.from("patron_isler").update({ adim_durum: D }).eq("id", id).select("id");
+    if (q.error || !q.data || !q.data.length) { r.adim_durum = eski; ciz(); toast("Kaydedilemedi: " + (q.error ? q.error.message : "yetki yok")); return; }
+    var A = adimlarOf(r); if (A && A.every(function (x, k) { return D[k]; })) toast(A.some(function (x) { return x.onay; }) ? "Tüm maddeler onaylandı. Kaydetmek için alttaki düğmeye basın." : "Tüm adımlar tamam! Şimdi \"Tamamladım\"a basın.");
+  }
+
   async function kaydet(id, durum, not, dugme) {
     dugme.disabled = true;
     var up = { durum: durum }; if (not != null) up.patron_notu = not;
@@ -231,6 +315,8 @@ details.tam[open]>summary:before{transform:rotate(90deg)}
 
   $("liste").addEventListener("click", function (ev) {
     var im = ev.target.closest("[data-buyuk]"); if (im) { ev.preventDefault(); $("buyuk-i").src = im.dataset.buyuk; $("buyuk").classList.add("ac"); return; }
+    var ka = ev.target.closest("[data-kopya]"); if (ka) { kopyala(ka.getAttribute("data-kopya")); return; }
+    var ad = ev.target.closest("button[data-adim]"); if (ad) { adimIsaretle(ad.closest(".kart").dataset.id, +ad.getAttribute("data-adim"), ad); return; }
     var d = ev.target.closest("button[data-e]"); if (!d) return;
     var kart = d.closest(".kart"), id = kart.dataset.id, e = d.dataset.e, notKutu = kart.querySelector(".not"), ta = notKutu && notKutu.querySelector("textarea");
     if (e === "onaylandi" || e === "tamamlandi") { kaydet(id, e, ta && ta.value.trim() ? ta.value.trim() : null, d); }
