@@ -51,8 +51,9 @@ function baslat() {
   kutu(pw, pb, T, duvar, 0, pb / 2, zA);
   kutu(pw, H - pb - ph, T, duvar, 0, pb + ph + (H - pb - ph) / 2, zA);
   // sol ve sağ duvar; sağ duvarda alçak (çizim ön yüzü açık, kesit görünüm)
-  kutu(T, H, D, duvar, -W / 2, H / 2, 0);
-  kutu(T, H, D, duvar, W / 2, H / 2, 0);
+  const solD = kutu(T, H, D, duvar, -W / 2, H / 2, 0);
+  const sagD = kutu(T, H, D, duvar, W / 2, H / 2, 0);
+  const kesit = () => { solD.visible = kamera.position.x > -W / 2; sagD.visible = kamera.position.x < W / 2; };
   // pencere camı + doğrama
   const cam = new THREE.Mesh(new THREE.PlaneGeometry(pw, ph), new THREE.MeshPhysicalMaterial({ color: "#bfe0f5", transparent: true, opacity: .28, roughness: .05, transmission: 0 }));
   cam.position.set(0, pb + ph / 2, zA); scene.add(cam);
@@ -96,7 +97,7 @@ function baslat() {
 
   // görünürlük: ekran dışında / sekme gizliyken render döngüsü durur
   let gorunur = false, sekme = !document.hidden;
-  const kos = () => { if (gorunur && sekme && sahne.clientWidth) renderer.setAnimationLoop(() => { kontrol.update(); renderer.render(scene, kamera); }); else renderer.setAnimationLoop(null); };
+  const kos = () => { if (gorunur && sekme && sahne.clientWidth) renderer.setAnimationLoop(() => { kontrol.update(); kesit(); renderer.render(scene, kamera); }); else renderer.setAnimationLoop(null); };
   new IntersectionObserver((k) => { gorunur = k[0].isIntersecting; kos(); }, { rootMargin: "80px" }).observe(sahne);
   document.addEventListener("visibilitychange", () => { sekme = !document.hidden; kos(); });
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) { kontrol.autoRotate = false; dugme("dondur", false); }

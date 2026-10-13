@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex">
+<title>Fincan Falı · Uygulama · Kahve falı mobil uygulama örneği</title>
+<meta name="theme-color" content="#1b110d"><link rel="manifest" href="../manifest.webmanifest"><link rel="icon" href="../ortak/ikon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../ortak/ikon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/fal.css"><link rel="stylesheet" href="tema.css">
+</head><body data-kok="../">
+<div class="u-duzen">
+  <aside class="u-yan" data-anlat="giris">
+    <span class="fc-not">Markanızın adı ve logosuyla</span>
+    <h1>Telefonda uygulama gibi çalışır</h1>
+    <p>Alt menü, kart yerleşimi ve tek elle kullanım. "Ana ekrana ekle" ile cihaza yerleşir; sonraki adım App Store / Google Play mobil uygulaması.</p>
+    <p><a href="../">Tasarım seçimine dön</a><br><a href="../1-gece/">1 Gece</a> · <a href="../2-mistik/">2 Mistik</a><br><a href="../panel/">Falcı ve yönetici paneli</a> · <a href="../teklif.html">Teklif</a></p>
+  </aside>
+  <div class="u-tel" id="u-tel">
+    <header class="u-uc"><a class="fc-marka" href="#ana"><span data-logo></span><span data-marka>Fincan Falı</span></a><div class="u-rozetler"><span class="u-pil" title="Jeton">✦ <b data-jeton>0</b></span><button type="button" class="u-zil" data-git="fallarim" aria-label="Bildirimler">🔔︎<b data-bildirim hidden>0</b></button></div></header>
+    <div class="u-icerik">
+      <section class="u-view" id="v-ana" data-view="ana" data-anlat="ana">
+        <div class="u-kahraman"><div data-modul="parcacik" class="u-parc"></div><div class="fc-yuzer"><h2>Selam, niyetini tut</h2><p>Fincanını gönder, falcın yorumlasın.</p><div data-modul="fincan"></div></div></div>
+        <div data-modul="jeton-bar" class="u-jb"></div>
+        <div class="u-kisa"><button class="fc-kart" data-git="fal"><b>Fal gönder</b><small>Fotoğraf + niyet</small></button><button class="fc-kart" data-git="falcilar"><b>Falcılar</b><small>Puan ve uzmanlık</small></button><button class="fc-kart" data-git="jeton"><b>Jeton al</b><small>12 taksite kadar</small></button><button class="fc-kart" data-git="fallarim"><b>Fallarım</b><small>Geçmiş ve yanıtlar</small></button></div>
+        <h3 class="u-bas">Günlük burç</h3><div data-modul="burc-gunluk"></div>
+        <h3 class="u-bas">Ana ekrana ekle</h3><div data-modul="pwa-kur"></div>
+      </section>
+      <section class="u-view" id="v-falcilar" data-view="falcilar" data-anlat="falcilar" hidden><h3 class="u-bas">Falcılar</h3><div data-modul="falcilar"></div></section>
+      <section class="u-view" id="v-fal" data-view="fal" data-anlat="fal" hidden><h3 class="u-bas">Fal gönder</h3><div class="fc-kart" data-modul="fal-gonder"></div></section>
+      <section class="u-view" id="v-jeton" data-view="jeton" data-anlat="jeton" hidden><h3 class="u-bas">Jeton ve ödeme</h3><div data-modul="paketler"></div><h3 class="u-bas">Arkadaşını davet et</h3><div data-modul="davet"></div></section>
+      <section class="u-view" id="v-fallarim" data-view="fallarim" data-anlat="fallarim" hidden><h3 class="u-bas">Fallarım</h3><div data-modul="gecmis"></div></section>
+      <p class="u-not">Fal eğlence amaçlıdır. Demo: gerçek ödeme alınmaz, veriler bu tarayıcıda durur.</p>
+    </div>
+    <nav class="u-alt" aria-label="Uygulama menüsü">
+      <button type="button" data-git="ana" class="on"><i>⌂</i>Ana</button>
+      <button type="button" data-git="falcilar"><i>☾</i>Falcılar</button>
+      <button type="button" data-git="fal" class="u-fab"><i>✦</i>Fal</button>
+      <button type="button" data-git="jeton"><i>◈</i>Jeton</button>
+      <button type="button" data-git="fallarim"><i>☰</i>Fallarım</button>
+    </nav>
+  </div>
+</div>
+
+<script>window.DJ_REHBER={"ses":false,"tts":true,"satirlar":{"giris":{"metin":"Merhaba! Bu Uygulama tasarımı: telefonda mobil uygulama gibi, altta menüsü olan bir yerleşim. Aşağıdaki sekmelerde fal gönderme, falcılar, jeton ve geçmiş var.","tts":true},"ana":{"metin":"Ana ekranda fincan animasyonu, günlük burç yorumu ve ana ekrana ekle düğmesi var. Fincanı çevir düğmesini deneyin.","tts":true},"falcilar":{"metin":"Falcı sekmesi: çizim avatarlar, puan, çevrimiçi rozeti ve uzmanlık.","tts":true},"fal":{"metin":"Fal sekmesinde üç fotoğraf, niyet notu ve doğum tarihi ile fal gönderirsiniz. Fotoğraf yüklemeden demo çizim düğmesiyle de deneyebilirsiniz.","tts":true},"jeton":{"metin":"Jeton sekmesinde paketler, kampanya kodu, taksitli ödeme ekranı ve davet kodu var. Ödeme demodur, gerçek tahsilat yapılmaz.","tts":true},"fallarim":{"metin":"Fallarım sekmesinde geçmiş fallar ve falcı yanıtları durur. Falım hazır bildirimi gelince buradan okuyup puan verirsiniz.","dugme":["Teklifi aç","../teklif.html"],"tts":true}}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="../ortak/fal.js" defer></script>
+<script src="tema.js" defer></script>
+<script src="../../_dijitabela/rehber.js" defer></script>
+<script src="../../_dijitabela/izle.js" defer></script>
+<script src="../../_dijitabela/filigran.js" data-gucu="0.04" data-kredi="1" defer></script>
+</body></html>

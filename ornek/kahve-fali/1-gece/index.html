@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Fincan Falı · Gece · Kahve falı platformu örneği</title>
+<meta name="theme-color" content="#1a0f0a"><link rel="manifest" href="../manifest.webmanifest"><link rel="icon" href="../ortak/ikon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/fal.css"><link rel="stylesheet" href="tema.css">
+</head><body data-kok="../">
+<header class="g-ust"><div class="g-kap g-ustic">
+  <a class="fc-marka" href="#ust"><span data-logo></span><span data-marka>Fincan Falı</span></a>
+  <nav class="g-nav" aria-label="Bölümler"><a href="#nasil">Nasıl çalışır</a><a href="#falcilar">Falcılar</a><a href="#fal-gonder">Fal gönder</a><a href="#paketler">Jeton</a><a href="#burc">Günlük burç</a><a href="#gecmis">Fallarım</a></nav>
+  <div class="g-sag"><div data-modul="jeton-bar" class="g-jb"></div><a class="fc-btn alt kucuk" href="../panel/">Panel</a></div>
+</div></header>
+
+<main id="ust">
+<section class="g-hero" data-anlat="giris">
+  <div data-modul="parcacik" class="g-parc"></div>
+  <div class="g-kap g-herogrid fc-yuzer">
+    <div class="g-hmetin">
+      <span class="fc-not">Markanızın adı ve logosuyla</span>
+      <h1>Fincanın <em>söylediğini</em> dinle</h1>
+      <p>Fotoğraflarını gönder, niyetini yaz; falcın yorumlasın, "Falım hazır" bildirimi telefonuna gelsin. Jetonla ya da kredi kartına 12 taksitle öde.</p>
+      <div class="g-cta"><a class="fc-btn" href="#fal-gonder">Fal gönder</a><a class="fc-btn alt" href="#falcilar">Falcıları gör</a></div>
+      <p class="g-kucuk">Fal eğlence amaçlıdır. Ödeme ekranı demodur, gerçek ödeme alınmaz.</p>
+    </div>
+    <div data-modul="fincan" class="g-fincan"></div>
+  </div>
+</section>
+
+<section id="nasil" class="g-bol" data-anlat="nasil"><div class="g-kap">
+  <h2 class="g-bas fc-rev">Üç adımda falın hazır</h2>
+  <div class="g-adimlar">
+    <div class="g-cizgi"><i></i></div>
+    <div class="fc-kart fc-rev"><span class="g-no">1</span><h3>Fotoğraf ve niyet</h3><p>Fincan, tabak ve telve fotoğrafı; niyet notu, doğum tarihi (burcun otomatik bulunur).</p></div>
+    <div class="fc-kart fc-rev"><span class="g-no">2</span><h3>Falcını seç</h3><p>Puanı, uzmanlığı ve çevrimiçi durumu görünen falcılardan birini seç; jetonla ya da kartla öde.</p></div>
+    <div class="fc-kart fc-rev"><span class="g-no">3</span><h3>"Falım hazır"</h3><p>Bildirim gelir, yorumu okur, puanlarsın. Geçmiş fallarının hepsi hesabında durur.</p></div>
+  </div>
+</div></section>
+
+<section id="falcilar" class="g-bol g-koyu" data-anlat="falcilar"><div class="g-kap">
+  <h2 class="g-bas fc-rev">Falcılarımız</h2><p class="g-alt fc-rev">Çizim avatarlı örnek profiller; kurulumda sizin ekibiniz ya da kendiniz.</p>
+  <div data-modul="falcilar" class="fc-rev"></div>
+</div></section>
+
+<section id="fal-gonder" class="g-bol" data-anlat="fal"><div class="g-kap g-dar">
+  <h2 class="g-bas fc-rev">Fal gönder</h2>
+  <div class="fc-kart fc-rev" data-modul="fal-gonder"></div>
+</div></section>
+
+<section id="paketler" class="g-bol g-koyu" data-anlat="paket"><div class="g-kap">
+  <h2 class="g-bas fc-rev">Jeton paketleri ve ödeme</h2><p class="g-alt fc-rev">Paket fiyatlarını siz belirlersiniz; demoda "Fiyat: teklifte" yazar. Taksitli ödeme ekranını deneyin.</p>
+  <div data-modul="paketler" class="fc-rev"></div>
+</div></section>
+
+<section id="burc" class="g-bol" data-anlat="burc"><div class="g-kap g-dar">
+  <h2 class="g-bas fc-rev">Günlük burç yorumu</h2>
+  <div data-modul="burc-gunluk" class="fc-rev"></div>
+</div></section>
+
+<section id="gecmis" class="g-bol g-koyu" data-anlat="gecmis"><div class="g-kap g-dar">
+  <h2 class="g-bas fc-rev">Fallarım</h2>
+  <div data-modul="gecmis" class="fc-rev"></div>
+</div></section>
+
+<section id="davet" class="g-bol" data-anlat="davet"><div class="g-kap g-ikili">
+  <div class="fc-rev" data-modul="davet"></div><div class="fc-rev" data-modul="pwa-kur"></div>
+</div></section>
+</main>
+
+<footer class="g-alt-bar"><div class="g-kap">
+  <p><span class="fc-not">Markanızın adı ve logosuyla</span> · Fal eğlence amaçlıdır. Demo: veriler yalnızca bu tarayıcıda durur. Kişisel veriler KVKK kapsamında işlenir (örnek metin).</p>
+  <p><a href="../">Tasarım seçimine dön</a> · <a href="../2-mistik/">2 Mistik</a> · <a href="../3-uygulama/">3 Uygulama</a> · <a href="../teklif.html">Teklif</a> · <a href="../panel/">Falcı ve yönetici paneli</a></p>
+</div></footer>
+
+<script>window.DJ_REHBER={"ses":false,"tts":true,"satirlar":{"giris":{"metin":"Merhaba! Bu, Seda Hanım için hazırlanan Gece tasarımı: koyu kahve ve altın tonlarında bir kahve falı platformu. Aşağı indikçe özellikleri anlatacağım.","tts":true},"nasil":{"metin":"Fal üç adımda ilerliyor: fotoğraf ve niyet, falcı seçimi, sonra falım hazır bildirimi.","tts":true},"falcilar":{"metin":"Falcı profilleri: puan, çevrimiçi rozeti ve uzmanlık görünüyor. Avatarlar çizimdir, gerçek yüz fotoğrafı yok.","tts":true},"fal":{"metin":"Burada fal gönderebilirsiniz. Üç fotoğraf, niyet notu ve doğum tarihi alınır; burç otomatik bulunur. Fotoğraf yüklemeden denemek için demo çizim düğmesine basın. Falı gönderince birkaç saniye sonra Falım hazır bildirimi gelir.","dugme":["Fal gönder","#fal-gonder"],"tts":true},"paket":{"metin":"Jeton paketleri ve ödeme: kart formu ve tek çekimden on iki taksite kadar seçenek var. Bu bir demodur, gerçek ödeme alınmaz; kurulumda PayTR ya da iyzico bağlanır.","tts":true},"burc":{"metin":"On iki burç için günlük yorum burada. Doğum tarihinizi girdiyseniz burcunuz otomatik seçilir.","tts":true},"gecmis":{"metin":"Geçmiş fallarınız ve falcının yanıtları burada durur. Falı okuyup puan ve yorum verebilirsiniz.","tts":true},"davet":{"metin":"Arkadaşını davet et kodu ve ana ekrana ekle düğmesi burada. Bir sonraki adım App Store ve Google Play mobil uygulaması.","dugme":["Teklifi aç","../teklif.html"],"tts":true}}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="../ortak/fal.js" defer></script>
+<script src="tema.js" defer></script>
+<script src="../../_dijitabela/rehber.js" defer></script>
+<script src="../../_dijitabela/izle.js" defer></script>
+<script src="../../_dijitabela/filigran.js" data-gucu="0.04" data-kredi="1" defer></script>
+</body></html>

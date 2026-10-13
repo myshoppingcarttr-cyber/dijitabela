@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Fincan Falı · Falcı ve yönetici paneli (demo)</title>
+<meta name="theme-color" content="#1a0f0a"><link rel="manifest" href="../manifest.webmanifest"><link rel="icon" href="../ortak/ikon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/fal.css">
+<style>.p-kap{max-width:1000px;margin:0 auto;padding:0 20px}.p-ust{border-bottom:1px solid var(--cizgi);background:#120a06}.p-ustic{display:flex;align-items:center;gap:14px;flex-wrap:wrap;min-height:68px}.p-ustic a.g{margin-left:auto;color:var(--altin2)}.p-gir{max-width:420px;margin:50px auto}.p-ana{padding:30px 0 70px}h1{font-size:clamp(2rem,4vw,2.8rem)}</style>
+</head><body data-kok="../">
+<header class="p-ust"><div class="p-kap p-ustic"><a class="fc-marka" href="../"><span data-logo></span><span data-marka>Fincan Falı</span></a><span class="fc-not">Markanızın adı ve logosuyla</span><a class="g" href="../1-gece/">Siteye dön</a></div></header>
+<main class="p-kap p-ana" data-anlat="giris">
+  <h1>Falcı ve yönetici paneli</h1>
+  <div id="panel-giris" class="fc-kart p-gir">
+    <h3>Demo giriş</h3>
+    <form id="giris-form" novalidate><label class="fc-et" for="gk">Kullanıcı adı</label><input id="gk" class="fc-in" value="demo" autocomplete="off"><label class="fc-et" for="gs">Şifre</label><input id="gs" type="password" class="fc-in" value="demo" autocomplete="off"><div class="fc-hata" id="giris-h"></div><button class="fc-btn" type="submit">Giriş yap</button></form>
+    <p class="fc-uyari">Demo giriş: demo / demo. Gerçek kurulumda şifreli giriş (e-posta ve tek kullanımlık kod) kullanılır.</p>
+  </div>
+  <div id="panel-kok" hidden></div>
+</main>
+<script>window.DJ_REHBER={"ses":false,"tts":true,"satirlar":{"giris":{"metin":"Bu, falcı ve yönetici paneli. Demo giriş: kullanıcı adı demo, şifre demo. Falcı sekmesinde gelen fallar kuyruğunu, fotoğraf önizlemesini ve yanıt yazma alanını görürsünüz. Yönetici sekmesinde falcı ekleme, fiyatlar, paketler, kampanya kodları ve örnek rapor grafiği var.","tts":true}}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="../ortak/fal.js" defer></script>
+<script src="../ortak/panel.js" defer></script>
+<script src="../../_dijitabela/rehber.js" defer></script>
+<script src="../../_dijitabela/izle.js" defer></script>
+<script src="../../_dijitabela/filigran.js" data-gucu="0.04" data-kredi="1" defer></script>
+</body></html>

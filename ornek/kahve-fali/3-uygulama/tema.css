@@ -1,0 +1,35 @@
+/* 3 Uygulama: mobil uygulama hissi - telefon kolonu, üst çubuk, alt sekme menüsü, yuvarlak kartlar. */
+:root{--bg:#120b08;--bg2:#1b110d;--kart:#261710;--altin:#e0b25a;--altin2:#f6dc9f;--mor:#7448b0;--mor2:#a780dd;--radius:20px;--f-baslik:"Sora",system-ui,sans-serif;--f-govde:"DM Sans",system-ui,sans-serif}
+body{background:#0c0705}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-.01em}
+.fc-kart{border-radius:20px;border:0;background:var(--kart);box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+.u-duzen{display:grid;grid-template-columns:minmax(0,1fr) 430px minmax(0,1fr);min-height:100vh}
+.u-yan{grid-column:1;padding:60px 40px;align-self:center;max-width:380px;justify-self:end}
+.u-yan h1{font-size:2.2rem;margin:14px 0}.u-yan p{color:var(--soluk)}
+@media(max-width:1000px){.u-duzen{display:block}.u-yan{display:none}}
+.u-tel{grid-column:2;background:var(--bg);display:flex;flex-direction:column;min-height:min(100vh,1400px);position:relative;border-left:1px solid var(--cizgi);border-right:1px solid var(--cizgi);width:100%;max-width:430px;margin:0 auto}
+.u-uc{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(18,11,8,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--cizgi)}
+.u-uc .fc-marka{font-size:1.15rem;font-family:var(--f-baslik)}.u-uc .fc-logo{width:32px;height:32px}
+.u-rozetler{display:flex;gap:8px;align-items:center}
+.u-pil{background:rgba(224,178,90,.14);color:var(--altin2);border-radius:99px;padding:5px 12px;font-size:.88rem}
+.u-zil{position:relative;background:var(--kart);border:0;border-radius:50%;width:44px;height:44px;color:var(--altin2);font-size:1.1rem;cursor:pointer}
+.u-zil b{position:absolute;top:2px;right:2px;background:var(--mor);color:#fff;font-size:.7rem;border-radius:99px;padding:0 5px;min-width:18px}
+.u-icerik{flex:1;padding:16px 16px 110px}
+.u-view[hidden]{display:none}
+.u-bas{font-size:1.2rem;margin:24px 0 12px}
+.u-kahraman{position:relative;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#3a2159,#1c1010 60%);padding:22px 14px 14px;text-align:center}
+.u-kahraman h2{font-size:1.6rem;margin:0 0 4px}.u-kahraman p{margin:0 0 6px;color:var(--soluk)}
+.u-parc{position:absolute;inset:0}
+.u-jb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.86rem;margin:14px 0 0;color:var(--soluk)}
+.u-jb [data-bildirim]{display:none}
+.u-kisa{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.u-kisa .fc-kart{font:inherit;color:var(--yazi);text-align:left;cursor:pointer;padding:16px;min-height:80px;border:1px solid var(--cizgi)}
+.u-kisa .fc-kart b{display:block;font-family:var(--f-baslik);color:var(--altin2)}.u-kisa small{color:var(--soluk)}
+.u-not{font-size:.78rem;color:var(--soluk);text-align:center;margin-top:24px}
+.u-alt{position:sticky;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(24,15,11,.96);backdrop-filter:blur(12px);border-top:1px solid var(--cizgi);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.u-alt button{font:inherit;font-size:.72rem;color:var(--soluk);background:none;border:0;cursor:pointer;padding:6px 0;min-height:56px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.u-alt i{font-style:normal;font-size:1.3rem;color:inherit}
+.u-alt button.on{color:var(--altin2)}
+.u-alt .u-fab i{background:linear-gradient(135deg,var(--altin2),var(--altin));color:#22130a;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;margin-top:-22px;box-shadow:0 6px 18px rgba(224,178,90,.35)}
+.djr{bottom:92px!important}
+@media(max-width:1000px){.u-tel{border:0}}

@@ -1,0 +1,33 @@
+/* 1 Gece: koyu kahve + altın, vitrin yerleşimi (tam ekran hero, ortalanmış bölümler). Renk/logo: değişkenler. */
+:root{--bg:#160c07;--bg2:#1f120b;--kart:#2a1910;--altin:#d9ab55;--altin2:#f2d391;--mor:#6b3fa0;--mor2:#9b72d0}
+body{background:radial-gradient(1200px 700px at 80% -10%,rgba(107,63,160,.25),transparent 60%),var(--bg)}
+.g-kap{max-width:1180px;margin:0 auto;padding:0 20px}.g-dar{max-width:820px}
+.g-ust{position:sticky;top:0;z-index:50;background:rgba(22,12,7,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--cizgi)}
+.g-ustic{display:flex;align-items:center;gap:18px;min-height:68px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.g-nav{display:flex;gap:18px;margin:0 auto}.g-nav a{color:var(--yazi);text-decoration:none;font-size:.92rem;opacity:.85}.g-nav a:hover{color:var(--altin2);opacity:1}
+.g-sag{display:flex;gap:12px;align-items:center}.g-jb{font-size:.88rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.g-jb [data-bildirim]{background:var(--mor);color:#fff;border-radius:99px;padding:0 7px}
+@media(max-width:1000px){.g-nav{display:none}.g-sag{margin-left:auto}}
+@media(max-width:560px){.g-jb .fc-zil{display:none}.g-sag .fc-btn.alt{display:none}}
+.g-hero{position:relative;min-height:min(calc(100vh - 68px),780px);display:grid;align-items:center;padding:50px 0 70px;overflow:hidden}
+.g-parc{position:absolute;inset:0}
+.g-herogrid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+@media(max-width:860px){.g-herogrid{grid-template-columns:1fr;text-align:center}.g-cta{justify-content:center}}
+.g-hmetin h1{font-size:clamp(2.6rem,6.2vw,5rem);margin:16px 0}
+.g-hmetin h1 em{font-style:italic;color:var(--altin2);background:linear-gradient(90deg,var(--altin2),var(--mor2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.g-hmetin p{font-size:1.12rem;color:var(--soluk);max-width:540px}.g-hmetin .g-kucuk{font-size:.84rem}
+@media(max-width:860px){.g-hmetin p{margin-left:auto;margin-right:auto}}
+.g-cta{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.g-bol{padding:84px 0;position:relative}.g-koyu{background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.32))}
+.g-bas{text-align:center;font-size:clamp(2rem,4.4vw,3.2rem);position:relative;padding-bottom:18px;margin-bottom:10px}
+.g-bas:after{content:"✦";display:block;color:var(--altin);font-size:1rem;margin-top:8px;letter-spacing:.6em}
+.g-alt{text-align:center;color:var(--soluk);margin:0 auto 30px;max-width:640px}
+.g-adimlar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;position:relative;margin-top:34px}
+@media(max-width:760px){.g-adimlar{grid-template-columns:1fr}}
+.g-cizgi{position:absolute;left:8%;right:8%;top:-18px;height:2px;background:var(--cizgi)}
+.g-cizgi i{display:block;height:100%;background:linear-gradient(90deg,var(--altin),var(--mor2));transform:scaleX(0);transform-origin:left}
+.g-no{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--altin);color:var(--altin2);font-family:var(--f-baslik);font-size:1.5rem;margin-bottom:10px}
+.g-ikili{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:800px){.g-ikili{grid-template-columns:1fr}}
+.g-alt-bar{border-top:1px solid var(--cizgi);padding:28px 0 40px;color:var(--soluk);font-size:.88rem}
+.g-alt-bar a{color:var(--altin2)}
+.g-fincan{max-width:400px;width:100%;margin:0 auto}
