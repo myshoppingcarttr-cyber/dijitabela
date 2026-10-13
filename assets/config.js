@@ -3,10 +3,10 @@ window.AJANS = {
   marka: "Dijitabela",                // marka kitabı: marka/index.html
   slogan: "Yerel işletmeler için web, yazılım ve yapay zekâ",
   sahip: "Alim Hoşlar",
-  telefon: "0501 945 21 84",
-  whatsapp: "905019452184",
-  telefon2: "0538 676 57 27",          // 9 Eki: 0538 resmî WhatsApp hattı (7/24 asistan + ücretsiz taslak düğmesi)
-  whatsapp2: "905386765727",
+  telefon: "0538 676 57 27",     // 14 Eki #42: ana hat 0538
+  whatsapp: "905386765727",
+  telefon2: "",          // 9 Eki: 0538 resmî WhatsApp hattı (7/24 asistan + ücretsiz taslak düğmesi)
+  whatsapp2: "",
   eposta: "info@dijitabela.com",       // Natro ücretsiz mail kutusu (alan adı aktif olunca kurulacak)
   sehir: "Antalya",
   site: "https://dijitabela.com",  // 12 Eki 2026 Patron kararı: KANONİK ADRES .com (Güvenli İnternet engeli kalktı). dijitabela.com.tr aynı içeriği sunmaya devam eder (eski linkler); yönlendirme yok.
