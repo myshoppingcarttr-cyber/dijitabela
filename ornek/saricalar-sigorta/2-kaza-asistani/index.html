@@ -334,7 +334,7 @@ function kodIlerle(el, i) { var k = document.querySelectorAll(".kod input"); if 
 function qr(k, i) {
   var p = POL[k][i], m = document.getElementById("modal"); m.style.display = "flex";
   m.innerHTML = '<b style="font-size:20px">' + p.t + '</b><div style="color:var(--soluk)">' + p.no + ' · ' + p.s + '</div><div id="qrKutu"></div><p style="margin-top:10px;font-size:12px;color:var(--soluk)">Örnek QR · gerçek sistemde poliçe doğrulama bağlantısı</p><button class="dg" style="max-width:200px" onclick="kapat()">Kapat</button>';
-  new QRCode(document.getElementById("qrKutu"), { text: "https://dijitabela.com.tr/ornek/saricalar-sigorta/?police=" + p.no, width: 200, height: 200 });
+  new QRCode(document.getElementById("qrKutu"), { text: "https://dijitabela.com/ornek/saricalar-sigorta/?police=" + p.no, width: 200, height: 200 });
 }
 function belge(t) { var m = document.getElementById("modal"); m.style.display = "flex"; m.innerHTML = '<b style="font-size:20px">' + t + ' · belgeler</b><div style="text-align:left;margin-top:12px;width:100%;max-width:300px">' + ["Poliçe (PDF)", "Bilgilendirme formu", "Ödeme dekontu"].map(function (x) { return '<div style="padding:10px 0;border-bottom:1px solid var(--cizgi)">📄 ' + x + ' <span style="float:right;color:var(--sari)">İndir</span></div>'; }).join("") + '</div><p style="font-size:12px;color:var(--soluk);margin-top:10px">Örnek · gerçek sistemde poliçe PDF\'leri burada saklanır</p><button class="dg" style="max-width:200px" onclick="kapat()">Kapat</button>'; }
 function kapat() { document.getElementById("modal").style.display = "none"; }

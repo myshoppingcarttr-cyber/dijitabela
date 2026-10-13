@@ -422,7 +422,7 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
     OZET = d && d.a != null ? d : null; var el = $("r-isci"); if (!el) return;
     if (!OZET) { el.textContent = "⚙️ işçi verisi bekleniyor…"; return; }
     var z = OZET.z == null ? "hesaplanamıyor" : (OZET.z > 99 ? "99+" : String(OZET.z).replace(".", ",")) + " saat";
-    el.textContent = "⚙️ " + (OZET.a + OZET.b) + " işçi çalışıyor (Lenovo " + OZET.a + " / ana PC " + OZET.b + ") · 📥 " + OZET.y + " iş sırada · ⏱ tahmini erime " + z;
+    el.textContent = "⚙️ " + (OZET.a + OZET.b) + " işçi çalışıyor (Lenovo " + OZET.a + " / ana PC " + OZET.b + ") · 📥 " + OZET.y + " iş sırada · ⏱ tahmini erime " + z + (OZET.oyun ? " · 🎮 ana PC oyun modunda" : "");
   }
   /* masa etiketi: işi sırada olan personel "Boşta" değil "Sırada (#n)" (n = BASLAT sırası) */
   function durumAd(r) {
@@ -629,7 +629,7 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
     var veri = Object.keys(ADLAR).map(function (k, i) { return { kod: k, ad: ADLAR[k], rol: "Tanıtım", durum: i % 3 ? "bosta" : "calisiyor", bugun: i, faaliyet: "Tanıtım faaliyeti " + i, son: new Date().toISOString() }; });
     veri[20].durum = "kapali";
     var dSira = {}; Object.keys(ADLAR).forEach(function (k, i) { if (i % 5 !== 4) dSira[k] = i + 1; });
-    veri.push({ kod: "_ozet", ad: "Canlı özet", durum: "ozet", detay: { a: 2, b: 1, y: 37, z: 4.4, sira: dSira, gercek_bosta: ["ece", "bora", "defne"] } });
+    veri.push({ kod: "_ozet", ad: "Canlı özet", durum: "ozet", detay: { a: 2, b: 1, y: 37, z: 4.4, sira: dSira, gercek_bosta: ["ece", "bora", "defne"], oyun: true } });
     basla(function () { veri.forEach(function (r) { if (r.durum === "kapali") return; var z = Math.random(); if (z < 0.2) r.durum = r.durum === "calisiyor" ? "bosta" : "calisiyor"; if (z > 0.85) r.bugun++; if (z > 0.97 && r.kod !== "ozan") r.durum = "hata"; }); isle(veri.map(function (r) { return Object.assign({}, r); })); });
     return;
   }
