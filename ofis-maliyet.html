@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16181D">
+<title>Maliyet &amp; Kâr · Dijitabela Ofisi</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<!-- Sanal Ofis · Maliyet & Kâr (Ayaz, 14 Eki 2026). Giriş ve yetki ofis-patron.html ile AYNI: Supabase e-posta kodu (OTP) + RLS yonetici_mi().
+     Tablolar: sabit_giderler, is_maliyet, maliyet_ayar (supabase/maliyet.sql). Hesap: assets/maliyet-hesap.js (OTOMASYON\maliyet-hesap.js ile ortak).
+     ?demo=1 → örnek veri, giriş/veritabanı yok (ekran görüntüsü ve tanıtım için). -->
+<style>
+:root{--zemin:#EDEBE4;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#DDD9CF;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--mavi:#2F6FEB;--koyu:#16181D}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45;overflow-x:hidden}
+.kap{max-width:980px;margin:0 auto;padding:12px 12px 70px}
+header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.logo{flex:none;width:40px;height:40px;border-radius:10px;background:var(--koyu);display:grid;place-items:center;color:var(--sari);font:700 1.3rem 'Space Mono',monospace}
+h1{font-size:1.15rem;font-weight:800;line-height:1.15}
+.alt-b{font-size:.76rem;color:var(--soluk)}
+.baglar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.bag{font-size:.8rem;font-weight:700;color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);padding:8px 12px;border-radius:999px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.bag.ak{background:var(--koyu);color:#fff;border-color:var(--koyu)}
+.uyari{border-radius:12px;padding:9px 12px;font-size:.86rem;font-weight:600;margin-bottom:8px;overflow-wrap:anywhere;border:1px solid}
+.uyari.kirmizi{background:#FDE2E2;color:#8A1F1F;border-color:#F3B4B4}
+.uyari.sari{background:#FFF4D6;color:#5C4400;border-color:#F0D58A}
+.uyari.mavi{background:#DCE8FF;color:#1B4FB5;border-color:#B7CDF7}
+.durum{font-size:.76rem;color:var(--soluk);padding:0 2px 8px}
+.gost{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.gost>div{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:11px 12px;min-width:0}
+.gost small{display:block;font-size:.72rem;font-weight:700;color:var(--soluk)}
+.gost b{display:block;font:700 1.15rem 'Space Mono',monospace;margin-top:2px;overflow-wrap:anywhere}
+.gost em{display:block;font-style:normal;font-size:.7rem;color:var(--soluk);margin-top:2px}
+.gost .genis{grid-column:1/-1}
+.cubuk{height:14px;border-radius:7px;background:#ECEAE2;overflow:hidden;margin:8px 0 4px}
+.cubuk i{display:block;height:100%;border-radius:7px;background:var(--kirmizi);transition:width .3s}
+.cubuk i.y{background:var(--yesil)}.cubuk i.s{background:var(--sari)}
+section{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:14px;margin-bottom:12px}
+section>h2{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+section>h2 small{font-size:.74rem;font-weight:600;color:var(--soluk)}
+.kap-ayar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.kap-ayar input{font:inherit;font-size:16px;font-weight:700;width:110px;max-width:100%;padding:10px;border:1px solid var(--cizgi);border-radius:10px;min-height:46px}
+.dug{font:inherit;font-weight:800;font-size:.9rem;border:0;border-radius:12px;padding:12px 16px;min-height:46px;cursor:pointer;background:var(--sari);color:var(--yazi)}
+.dug:disabled{opacity:.5;cursor:default}
+.not-k{font-size:.8rem;color:#3E2F00;background:#FFF4D6;border:1px solid #F0D58A;border-radius:12px;padding:9px 11px;margin-top:10px;overflow-wrap:anywhere}
+.not-k b{font-weight:800}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th{text-align:left;font-size:.7rem;color:var(--soluk);font-weight:800;padding:6px 8px;border-bottom:2px solid var(--cizgi);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid #EEECE4;vertical-align:top;overflow-wrap:anywhere}
+td.s,th.s{text-align:right}
+td.m{font-family:'Space Mono',monospace;font-weight:700;font-size:.8rem}
+tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
+.et{display:inline-block;font-size:.66rem;font-weight:800;padding:2px 8px;border-radius:999px;background:#EEE;color:#444;white-space:nowrap}
+.et.ty{background:#DFF5E8;color:#14703F}.et.tt{background:#FFF1CC;color:#6B4A00}
+.kar{display:inline-block;font:700 .8rem 'Space Mono',monospace;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.kar.kirmizi{background:var(--kirmizi)}.kar.yesil{background:var(--yesil)}.kar.mavi{background:var(--mavi)}.kar.yok{background:#B8BCC4}
+.net.kirmizi{color:var(--kirmizi)}.net.yesil{color:var(--yesil)}.net.mavi{color:var(--mavi)}
+.alt{font-size:.72rem;color:var(--soluk);display:block}
+.bos{border:1px dashed var(--cizgi);border-radius:12px;padding:18px;text-align:center;color:var(--soluk);font-weight:600}
+.renkler{display:flex;gap:6px;flex-wrap:wrap;font-size:.72rem;font-weight:700;margin-bottom:8px}
+.giris{max-width:380px;margin:10vh 12px;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:22px}
+.giris h1{margin-bottom:6px}.giris p{font-size:.88rem;color:var(--soluk)}
+.giris input{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--cizgi);border-radius:10px;margin:10px 0}
+.giris button{width:100%;font:inherit;font-weight:800;padding:13px;border:0;border-radius:10px;background:var(--sari);cursor:pointer;min-height:48px}
+.toast{position:fixed;left:12px;right:12px;bottom:14px;background:var(--koyu);color:#fff;padding:12px 14px;border-radius:12px;font-weight:700;font-size:.88rem;z-index:50;display:none;max-width:560px;margin:0 auto}
+.toast.ac{display:block}
+.kredi{text-align:center;font-size:.74rem;color:var(--soluk);margin-top:22px}.kredi a{color:var(--soluk);font-weight:700}
+@media(min-width:420px){.giris{margin:10vh auto}}
+@media(min-width:720px){.kap{padding:20px 20px 80px}.gost{grid-template-columns:repeat(4,1fr)}.gost .genis{grid-column:1/-1}}
+@media(max-width:639px){
+  table,thead,tbody,tfoot,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{border:1px solid var(--cizgi);border-radius:12px;padding:8px 10px;margin-bottom:8px;background:#FAF9F5}
+  td{border:0;padding:3px 0;display:flex;justify-content:space-between;gap:10px;text-align:right}
+  td::before{content:attr(data-e);font-size:.7rem;font-weight:800;color:var(--soluk);text-align:left;flex:none;padding-top:2px}
+  td.bas{font-weight:800;font-size:.95rem;text-align:left;display:block}td.bas::before{display:none}
+  td.s{text-align:right}
+  td:empty{display:none}
+  td .alt{margin-top:2px}
+  td>.alt{text-align:right}
+  tfoot tr{background:#F0EEE6}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="kap" id="uyg" hidden>
+  <header>
+    <div class="logo">₺</div>
+    <div><h1>Maliyet &amp; Kâr</h1><span class="alt-b">yalnız Patron · sabit giderler ve iş kârı</span></div>
+    <div class="baglar"><a class="bag" href="ofis-yonetim.html">🧭 Yönetim</a><a class="bag" href="ofis-patron.html">📋 Benim işlerim</a><a class="bag" href="ofis-canli.html">🏢 Canlı ofis</a></div>
+  </header>
+  <div class="uyari kirmizi" id="uyari" hidden></div>
+  <div class="uyari mavi" id="demo-b" hidden>ÖRNEK VERİ (demo): gerçek rakam değildir, veritabanına bağlı değildir.</div>
+  <div class="durum" id="son">Yükleniyor…</div>
+
+  <div class="gost">
+    <div><small>Toplam aylık sabit gider</small><b id="g-toplam">–</b><em id="g-teyit"></em></div>
+    <div><small>Saatlik sabit gider</small><b id="g-saatlik">–</b><em id="g-kap"></em></div>
+    <div class="genis"><small>Aylık başa baş <span id="g-ay"></span></small><b id="g-bb">–</b>
+      <div class="cubuk" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="cubuk"><i id="cubuk-i" style="width:0"></i></div>
+      <em id="g-bb-alt"></em></div>
+  </div>
+
+  <section>
+    <h2>⏱ Kapasite saati <small>aylık; saatlik gider = toplam sabit ÷ kapasite</small></h2>
+    <div class="kap-ayar"><input id="kap" type="number" inputmode="decimal" min="1" step="1" aria-label="Aylık kapasite saati"><button class="dug" id="kap-kaydet" type="button">Kaydet</button><span class="alt-b" id="kap-d"></span></div>
+    <div class="not-k" id="olcum"></div>
+  </section>
+
+  <section>
+    <h2>🧾 Sabit giderler <small id="sg-o"></small></h2>
+    <div id="sg"></div>
+  </section>
+
+  <section>
+    <h2>💼 İşler ve kâr <small id="is-o"></small></h2>
+    <div class="renkler"><span class="kar kirmizi">%15 altı</span><span class="kar yesil">%15-40</span><span class="kar mavi">%40 üstü</span></div>
+    <div id="isler"></div>
+    <p class="alt-b" style="margin-top:8px">Maliyet = saat × saatlik sabit + doğrudan + teklif × komisyon% + (faturalıysa) ödenecek KDV + teklif × taksit%. Teklif, müşterinin ödediği KDV dahil tutar kabul edilir; saat etiketi TAHMİN ya da ÖLÇÜM.</p>
+  </section>
+  <p class="kredi">Tasarım: <a href="https://dijitabela.com">Dijitabela · dijitabela.com</a></p>
+</div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
+<div class="giris" id="giris" hidden>
+  <h1>Maliyet &amp; Kâr</h1>
+  <p>Ofis ile aynı giriş. E-postanıza giriş kodu gelir; kodu buraya yazın. Yalnız Patron hesabı açabilir.</p>
+  <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
+  <button id="gonder" type="button">Giriş kodu gönder</button>
+  <div id="kodalan" hidden><input id="kod" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="E-postadaki kod"><button id="kodgir" type="button">Giriş</button></div>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/config.js"></script>
+<script src="assets/maliyet-hesap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var $ = function (i) { return document.getElementById(i); };
+  var M = window.MALIYET, DEMO = /[?&]demo=1\b/.test(location.search);
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var sayi = function (x, o) { return Number(x || 0).toLocaleString("tr-TR", { minimumFractionDigits: o == null ? 2 : o, maximumFractionDigits: o == null ? 2 : o }); };
+  var tl = function (x) { return sayi(x, 0) + " TL"; };
+  var sb = null, G = [], I = [], AYAR = { kapasite_saat: 300 }, CEVRIMDISI = false, kaydediliyor = false;
+
+  /* Ölçülen işçi-saat (RAPORLAR\ISCI-SAAT-7GUN-1014.md, 13 Eki 2026 23:57; yalnız Lenovo calistir.ps1 log'ları: ana PC ve alt ajanlar HARİÇ) */
+  var OLCUM = { isci7: 124.8, duvar7: 65.4, isciAy7: 535, duvarAy7: 280, isciAy2: 1318, tarih: "13 Eki 2026" };
+
+  var DEMO_G = [
+    { kalem: "Elektrik", aylik_tl: 3000, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı" },
+    { kalem: "İnternet", aylik_tl: 1100, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı" },
+    { kalem: "Bağkur", aylik_tl: 12000, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı" },
+    { kalem: "Muhasebeci", aylik_tl: 8000, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı" },
+    { kalem: "Kira", aylik_tl: 20000, para_birimi: "TRY", teyit: "TEYİTLİ", kaynak: "Patron beyanı" },
+    { kalem: "Claude aboneliği", aylik_tl: 9873.62, para_birimi: "USD", tutar_doviz: 200, teyit: "TEYİTLİ", kaynak: "200 USD × TCMB satış kuru" },
+    { kalem: "Supabase planı", aylik_tl: 0, para_birimi: "TRY", teyit: "TEYİT", kaynak: "Plan kaydı yok" }
+  ];
+  var bugun = new Date().toISOString();
+  var DEMO_I = [
+    { musteri: "Örnek Diş Kliniği", platform: "doğrudan", teklif_fiyat: 24000, durum: "kazanıldı", saat_tahmin: 40, saat_gercek: 34, saat_etiket: "ÖLÇÜM", dogrudan_maliyet: 600, komisyon_yuzde: 0, fatura: true, kdv_yuzde: 20, taksit_yuzde: 6, guncelleme: bugun },
+    { musteri: "Örnek Emlak Ofisi", platform: "bionluk", teklif_fiyat: 20000, durum: "ödendi", saat_tahmin: 30, saat_etiket: "TAHMİN", dogrudan_maliyet: 0, komisyon_yuzde: 20, fatura: false, kdv_yuzde: 20, taksit_yuzde: 0, guncelleme: bugun },
+    { musteri: "Örnek Oto Servis", platform: "armut", teklif_fiyat: 6500, durum: "kabul", saat_tahmin: 28, saat_etiket: "TAHMİN", dogrudan_maliyet: 1223, komisyon_yuzde: 0, fatura: true, kdv_yuzde: 20, taksit_yuzde: 0, guncelleme: bugun },
+    { musteri: "Örnek Kuaför", platform: "doğrudan", teklif_fiyat: 38000, durum: "gönderildi", saat_tahmin: 22, saat_etiket: "TAHMİN", dogrudan_maliyet: 300, komisyon_yuzde: 0, fatura: false, kdv_yuzde: 20, taksit_yuzde: 3, guncelleme: bugun }
+  ];
+
+  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("ac"); clearTimeout(toast.z); toast.z = setTimeout(function () { t.classList.remove("ac"); }, 4200); }
+  function hata(m) { var u = $("uyari"); u.hidden = !m; u.textContent = m || ""; }
+
+  function ciz() {
+    var kap = parseFloat($("kap").value); if (!(kap > 0)) kap = Number(AYAR.kapasite_saat) || 300;
+    var top = M.toplamSabit(G), saatlik = M.saatlikSabit(top, kap), teyitli = G.filter(function (g) { return g.teyit === "TEYİTLİ"; }).length;
+    $("g-toplam").textContent = tl(top);
+    $("g-teyit").textContent = teyitli + " teyitli, " + (G.length - teyitli) + " teyit bekliyor" + (AYAR.usd_try ? " · USD " + sayi(AYAR.usd_try, 2) : "");
+    $("g-saatlik").textContent = sayi(saatlik, 2) + " TL";
+    $("g-kap").textContent = "= " + tl(top) + " ÷ " + sayi(kap, 0) + " sa";
+    var bb = M.basaBas(I, top, saatlik);
+    $("g-bb").textContent = "%" + sayi(bb.yuzde, 0);
+    $("g-ay").textContent = "· " + new Date().toLocaleDateString("tr-TR", { month: "long", year: "numeric" });
+    var w = Math.max(0, Math.min(100, bb.yuzde)), ci = $("cubuk-i"); ci.style.width = w + "%"; ci.className = bb.yuzde >= 100 ? "y" : bb.yuzde >= 50 ? "s" : "";
+    $("cubuk").setAttribute("aria-valuenow", Math.round(w));
+    $("g-bb-alt").textContent = tl(bb.katki) + " kazanılan net (sabit pay öncesi, " + bb.adet + " iş) ÷ " + tl(top) + " sabit gider";
+
+    var kar0 = G.map(function (g) {
+      return "<tr><td class='bas' data-e='Kalem'>" + esc(g.kalem) + (g.para_birimi !== "TRY" && g.tutar_doviz ? "<span class='alt'>" + sayi(g.tutar_doviz, 2) + " " + esc(g.para_birimi) + "/ay</span>" : "") + "</td>" +
+        "<td class='s m' data-e='Aylık'>" + tl(g.aylik_tl) + "</td><td data-e='Durum'><span class='et " + (g.teyit === "TEYİTLİ" ? "ty" : "tt") + "'>" + esc(g.teyit) + "</span></td><td data-e='Kaynak'><span class='alt'>" + esc(g.kaynak || "") + (g.notu ? " · " + esc(g.notu) : "") + "</span></td></tr>";
+    }).join("");
+    $("sg").innerHTML = G.length ? "<table><thead><tr><th>Kalem</th><th class='s'>Aylık</th><th>Durum</th><th>Kaynak</th></tr></thead><tbody>" + kar0 + "</tbody><tfoot><tr><td class='bas'>Toplam</td><td class='s m' data-e='Aylık toplam'>" + tl(top) + "</td><td></td><td></td></tr></tfoot></table>" : "<div class='bos'>Sabit gider kaydı yok.</div>";
+    $("sg-o").textContent = G.length + " kalem";
+
+    var satir = I.map(function (i) {
+      var h = M.isHesap(i, saatlik), ke = h.renk;
+      return "<tr><td class='bas' data-e='Müşteri'>" + esc(i.musteri) + "<span class='alt'>" + esc(i.platform || "") + " · " + esc(i.durum) + (i.fatura ? " · faturalı" : "") + "</span></td>" +
+        "<td class='s m' data-e='Teklif'>" + tl(h.teklif) + "</td>" +
+        "<td class='s' data-e='Saat'>" + sayi(h.saat, 1) + " sa <span class='et " + (h.saatTur === "ÖLÇÜM" ? "ty" : "tt") + "'>" + h.saatTur + "</span></td>" +
+        "<td class='s m' data-e='Maliyet'>" + tl(h.maliyet) + "<span class='alt'>sabit " + tl(h.sabitPay) + " · diğer " + tl(h.degisken) + "</span></td>" +
+        "<td class='s m net " + ke + "' data-e='Net kâr'>" + tl(h.net) + "</td>" +
+        "<td class='s' data-e='Kâr %'><span class='kar " + ke + "'>%" + sayi(h.karPct, 1) + "</span></td></tr>";
+    }).join("");
+    $("isler").innerHTML = I.length ? "<table><thead><tr><th>Müşteri</th><th class='s'>Teklif</th><th class='s'>Saat</th><th class='s'>Maliyet</th><th class='s'>Net kâr</th><th class='s'>Kâr %</th></tr></thead><tbody>" + satir + "</tbody></table>" : "<div class='bos'>Henüz iş kaydı yok. Furkan teklifleri is_maliyet tablosuna ekleyince burada görünür.</div>";
+    $("is-o").textContent = I.length + " iş";
+
+    $("olcum").innerHTML = "<b>Ölçüm (kapasite önerisi):</b> son 7 günde Lenovo'daki otomasyon çalışmaları toplam <b>" + sayi(OLCUM.isci7, 1) + " işçi-saat</b> (" + sayi(OLCUM.duvar7, 1) + " duvar saati) tuttu; aynı hızla ayda ~<b>" + OLCUM.isciAy7 + "</b> işçi-saat (duvar saati: ~" + OLCUM.duvarAy7 + "). Son 2 gün tam kadroyla ~" + OLCUM.isciAy2 + " işçi-saat/ay hızında. Sabit gider duvar saatine bölünecekse 300 makul; işçi-saate bölünecekse 535 ile 1.318 arası. Ana PC ve alt ajan çalışmaları ölçülemedi, gerçek değer daha yüksektir. Ayrıntı: RAPORLAR\\ISCI-SAAT-7GUN-1014.md (" + OLCUM.tarih + ").";
+    var tamKaynak = AYAR.guncelleme ? new Date(AYAR.guncelleme).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
+    $("son").textContent = (DEMO ? "Örnek veri" : CEVRIMDISI ? "ÇEVRİMDIŞI (yerel yedek değerler)" : "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })) + (AYAR.usd_try_kaynak ? " · Kur: " + AYAR.usd_try_kaynak : "") + (tamKaynak ? "" : "");
+  }
+
+  async function yukle() {
+    if (DEMO) { G = DEMO_G; I = DEMO_I; AYAR = { kapasite_saat: 300, usd_try: 49.3681, usd_try_kaynak: "TCMB (örnek)" }; $("demo-b").hidden = false; $("kap").value = AYAR.kapasite_saat; $("kap-kaydet").disabled = true; ciz(); return; }
+    try {
+      var r = await Promise.all([sb.from("sabit_giderler").select("*").order("id"), sb.from("is_maliyet").select("*").order("id", { ascending: false }), sb.from("maliyet_ayar").select("*").eq("id", 1).maybeSingle()]);
+      var e = r[0].error || r[1].error || r[2].error;
+      if (e) throw new Error(e.message + (/permission|policy|denied/i.test(e.message) ? " (bu hesapla yetkiniz yok; alimhoslar16@gmail.com ile giriş yapın)" : ""));
+      if (!r[2].data) { G = []; I = []; CEVRIMDISI = false; hata("Bu hesapla veri görünmüyor: yalnız Patron hesabı (alimhoslar16@gmail.com) açabilir."); ciz(); return; }
+      CEVRIMDISI = false; hata(""); G = r[0].data || []; I = r[1].data || []; AYAR = r[2].data || AYAR;
+      if (document.activeElement !== $("kap")) $("kap").value = AYAR.kapasite_saat;
+    } catch (e) {
+      CEVRIMDISI = true; G = M.YEDEK.giderler; AYAR = { kapasite_saat: M.YEDEK.kapasite_saat, usd_try: M.YEDEK.usd_try, usd_try_kaynak: M.YEDEK.usd_try_kaynak };
+      if (document.activeElement !== $("kap")) $("kap").value = AYAR.kapasite_saat;
+      hata("ÇEVRİMDIŞI: veritabanı okunamadı (" + e.message + "). Yerel yedek sabit giderler gösteriliyor; işler yüklenemedi.");
+    }
+    ciz();
+  }
+
+  $("kap").addEventListener("input", ciz);
+  $("kap-kaydet").onclick = async function () {
+    var v = parseFloat($("kap").value); if (!(v > 0 && v <= 10000)) { toast("Kapasite saati 1 ile 10000 arasında olmalı."); return; }
+    if (DEMO || CEVRIMDISI) { toast("Çevrimdışı/demo: kaydedilemez."); return; }
+    $("kap-kaydet").disabled = true;
+    var q = await sb.from("maliyet_ayar").update({ kapasite_saat: v, guncelleme: new Date().toISOString() }).eq("id", 1).select("id");
+    $("kap-kaydet").disabled = false;
+    if (q.error || !q.data || !q.data.length) { toast("Kaydedilemedi: " + (q.error ? q.error.message : "yetki yok")); return; }
+    toast("Kapasite " + sayi(v, 0) + " saat olarak kaydedildi; saatlik gider ve kârlar yeniden hesaplandı."); await yukle();
+  };
+
+  function basla() { $("giris").hidden = true; $("uyg").hidden = false; yukle(); if (!DEMO) { setInterval(function () { if (!document.hidden && document.activeElement !== $("kap")) yukle(); }, 60000); } }
+  if (DEMO) { $("yuk").hidden = true; basla(); return; }
+
+  var A = window.AJANS, basladi = false;
+  sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
+  function girisGoster(m) { $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; }
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın (bağlantıya dokunmanız gerekmez).";
+    if (!r.error) $("kodalan").hidden = false;
+  };
+  $("kodgir").onclick = async function () {
+    var r = await sb.auth.verifyOtp({ email: $("eposta").value.trim(), token: $("kod").value.replace(/\D/g, ""), type: "email" });
+    if (r.error) $("gmsg").textContent = "Kod olmadı: " + r.error.message;
+  };
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>
