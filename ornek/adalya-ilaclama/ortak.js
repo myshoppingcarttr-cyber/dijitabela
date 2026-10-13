@@ -1,7 +1,7 @@
 /* Adalya İlaçlama · ilaçlama sayfası · ortak model (3 yerleşim aynı motoru kullanır).
    Kaynak işletme bilgisi: RAPORLAR/KEREM-ADAY-1013.md (local.gen.tr; Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya; 0242 243 30 35).
    Fiyatlar, süreler, listeler ve kayıtlar ÖRNEKTİR. Hiçbir form gönderim yapmaz. Dijitabela taslağı. */
-window.ISL={"ad":"Adalya İlaçlama","slug":"adalya-ilaclama","adres":"Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","tel":"0242 243 30 35","telH":"+902422433035","wa":null,"kaynak":"https://local.gen.tr/antalya/adalya-ilaclama/","haritaSorgu":"Adalya İlaçlama Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","carpan":1.1,"acil":false,"kisa":"Adalya","fiyatli":false,"fotolar":[{"dosya":"f1.webp","yazar":"Azorbli","lisans":"CC BY-SA 4.0"},{"dosya":"f2.webp","yazar":"Safapalanadan94","lisans":"CC BY-SA 4.0"},{"dosya":"f3.webp","yazar":"Shixart1985","lisans":"CC BY 2.0"}]};
+window.ISL={"ad":"Adalya İlaçlama","slug":"adalya-ilaclama","adres":"Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","tel":"0242 243 30 35","telH":"+902422433035","wa":null,"kaynak":"https://local.gen.tr/antalya/adalya-ilaclama/","haritaSorgu":"Adalya İlaçlama Elmalı Mah. Kazım Özalp Cd. No:65, Muratpaşa / Antalya","carpan":1.1,"acil":false,"kisa":"Adalya","fiyatli":false,"fotolar":[{"dosya":"gercek-1.webp","yazar":"Adalya İlaçlama","lisans":"işletmenin kendi görseli","ac":"Adalya İlaçlama logosu"}],"gercek":true};
 (function () {
   "use strict";
   var B = window.ISL;
@@ -65,6 +65,11 @@ window.ISL={"ad":"Adalya İlaçlama","slug":"adalya-ilaclama","adres":"Elmalı M
     var l = B.ek.filter(function (f) { return !secim || secim.indexOf(f.id) > -1; });
     el.innerHTML = l.map(function (f) { return '<article class="ek-k" data-ek="' + f.id + '"' + (el.hasAttribute("data-rvk") ? " data-rv" : "") + '><span class="ek-et">' + f.et + '</span><h3>' + f.ad + '</h3><p class="ek-ac">' + f.ac + '</p><div class="ek-ic">' + f.html() + '</div></article>'; }).join("");
     l.forEach(function (f) { var a = el.querySelector('[data-ek="' + f.id + '"]'); try { f.bagla(a); } catch (e) { console.error(e); } ["click", "input", "change", "keydown"].forEach(function (t) { a.addEventListener(t, function (e) { e.stopPropagation(); }); }); });
+  };
+  B.galeriCiz = function (el) {
+    if (!el) return; var F = (B.fotolar || []); if (!B.gercek) { el.innerHTML = ""; return; }
+    el.innerHTML = F.map(function (f, i) { return '<button data-gi="' + i + '" aria-label="Büyüt: ' + B.kac(f.ac || "") + '"><img src="../img/' + f.dosya + '" alt="' + B.kac(f.ac || "") + '" loading="lazy"><figcaption>' + B.kac(f.ac || "") + '</figcaption></button>'; }).join("");
+    el.onclick = function (e) { var b = e.target.closest("[data-gi]"); if (!b) return; e.stopPropagation(); var f = F[+b.dataset.gi], d = document.createElement("div"); d.className = "ek-lb"; d.innerHTML = '<div><img src="../img/' + f.dosya + '" alt=""><p>' + B.kac(f.ac || "") + ' · işletmenin kendi fotoğrafı</p></div>'; d.onclick = function () { d.remove(); }; document.body.appendChild(d); B.iz("galeri"); };
   };
   B.damgaCiz = function (a, anahtar, toplam, etiket) {
     var n = B.oku(anahtar, 3), k = a.querySelector(".damga");
