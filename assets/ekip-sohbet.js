@@ -79,15 +79,20 @@
     }
     if (o.rozet && window.MutationObserver) { var zz; new MutationObserver(function () { if (rozetliyor) return; clearTimeout(zz); zz = setTimeout(rozetle, 60); }).observe(document.body, { childList: true, subtree: true }); }
 
+    function hataGoster(m) { // ilk yükleme başarısızsa "Yükleniyor…"da takılı kalmasın; mesajlar zaten görünüyorsa dokunma (sonraki yoklama dener)
+      if (cizildi) return;
+      akis.innerHTML = '<div class="ys-bos">Bağlanamadı' + (m ? " (" + esc(String(m).slice(0, 80)) + ")" : "") + '. <button type="button" class="ys-tekrar" style="font:inherit;font-weight:800;border:0;border-radius:10px;padding:8px 12px;min-height:40px;background:#2f6feb;color:#fff;cursor:pointer;margin-left:6px">Yeniden dene</button></div>';
+      var b = akis.querySelector(".ys-tekrar"); if (b) b.onclick = function () { akis.innerHTML = '<div class="ys-bos">Yükleniyor…</div>'; yukle(); };
+    }
     async function yukle() {
       if (mesgul) return; mesgul = true;
       try {
         var q = await o.sb.from("ofis_sohbet").select("id,zaman,yazan,hedef,mesaj,yanit_id").eq("ozel", false).order("id", { ascending: false }).limit(80);
-        if (q.error) { akis.innerHTML = '<div class="ys-bos">Sohbet okunamadı: ' + esc(q.error.message) + "</div>"; return; }
+        if (q.error) { hataGoster(q.error.message); return; }
         var yeni = (q.data || []).reverse();
         if (!cizildi || JSON.stringify(yeni) !== JSON.stringify(M)) { M = yeni; ciz(); cizildi = true; }
         rozetHesapla();
-      } catch (e) { /* ağ hatası: sonraki yoklamada tekrar */ } finally { mesgul = false; }
+      } catch (e) { hataGoster(e && e.message); } finally { mesgul = false; }
     }
 
     /* @ otomatik tamamlama */
