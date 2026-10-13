@@ -228,6 +228,30 @@ html,body{max-width:100%;overflow-x:hidden}
   #sohbet-kutu #sohbet{overflow-y:auto;min-height:0}
   #sohbet-kutu .ys-akis{max-height:calc(78vh - 170px)}
 }
+
+/* 13 Eki (Patron: "Akşam olunca ofiste ışıkları da açın"): gündüz 07:00-17:30 · gün batımı 17:30-19:00 · gece 19:00-07:00 (Europe/Istanbul). Test: ?saat=21:30 */
+.sahne::after{transition:opacity 2.5s,background 2.5s}
+body.gunbatimi .sahne::after{opacity:1;background:linear-gradient(180deg,rgba(255,120,50,.20),rgba(255,160,80,.10))}
+body.gece .sahne::after{background:rgba(6,12,36,.58)}
+body.gunbatimi .pencere{box-shadow:inset 0 0 12px rgba(255,90,40,.55)}
+body.gece .masa .lamba{background:#5f584a;box-shadow:none;transition:background 1.5s,box-shadow 1.5s}
+body.gece .masa.acik .lamba{background:#ffe9a8;box-shadow:0 0 0 6px rgba(255,220,120,.25),0 0 30px 12px rgba(255,210,110,.45)}
+body.gece .masa:not(.acik):not(.hatali){filter:brightness(.8) saturate(.8)}
+.isik{position:absolute;width:230px;height:210px;border-radius:50%;pointer-events:none;z-index:41;opacity:0;transition:opacity 1.8s;mix-blend-mode:screen;
+  background:radial-gradient(ellipse 46% 42% at 50% 55%,rgba(255,214,130,.55),rgba(255,190,90,.20) 55%,transparent 72%),radial-gradient(circle at 50% 38%,rgba(110,175,255,.45),transparent 22%)}
+body.gece .isik.yanik{opacity:1;animation:titre 5s ease-in-out infinite}
+@keyframes titre{0%,100%{opacity:1}47%{opacity:.9}50%{opacity:.82}53%{opacity:.94}}
+.tavan{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#d9dde5;border:2px solid #9aa1ae;z-index:41;pointer-events:none;transition:background 1.5s,box-shadow 1.5s}
+.tavan::after{content:"";position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;background:radial-gradient(circle,rgba(255,226,160,.30),rgba(255,210,130,.10) 45%,transparent 70%);opacity:0;transition:opacity 2s;mix-blend-mode:screen}
+body.gece .tavan{background:#fff4cf;border-color:#ffe39a;box-shadow:0 0 12px 4px rgba(255,226,150,.8)}
+body.gece .tavan::after{opacity:1}
+body.gece .masa.acik .ekran{box-shadow:0 0 26px 6px rgba(120,190,255,.95)}
+.vardiya{position:absolute;right:12px;top:12px;z-index:5;display:flex;align-items:center;gap:6px;font:800 12.5px/1 system-ui,sans-serif;color:#1b1f27;background:rgba(255,255,255,.9);border-radius:999px;padding:7px 11px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;transition:background 2s,color 2s}
+.vardiya b{font-family:"Space Mono",monospace}
+body.gunbatimi .vardiya{background:rgba(255,214,170,.95)}
+body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18px rgba(255,210,110,.35)}
+@media(max-width:700px){.vardiya{right:8px;top:8px;font-size:11.5px;padding:6px 9px}}
+@media(prefers-reduced-motion:reduce){body.gece .isik.yanik{animation:none}}
 </style>
 </head><body>
 <div class="ust"><h1>Dijitabela <span>Canlı Ofis</span></h1><span class="rozet" id="r-cal"><i style="background:#17b26a"></i>– çalışıyor</span><span class="rozet" id="r-bos"><i style="background:#9aa1ae"></i>– boşta</span><span class="rozet" id="r-hata"><i style="background:#e5322d"></i>– hata</span><span class="rozet" id="r-saat">–</span><span class="sag"><a class="dug" href="ofis-yonetim.html">🧭 Yönetim</a><a class="dug dug-patron" id="patron-link" href="ofis-patron.html">Benim işlerim<b id="patron-n" hidden></b></a><button class="dug" id="tam" type="button">⛶ Tam ekran</button><a class="dug" href="ofis.html">Liste görünümü →</a></span></div>
@@ -235,6 +259,7 @@ html,body{max-width:100%;overflow-x:hidden}
 <div class="duzen" id="duzen" hidden>
   <div class="sahne-kap" id="kap"><div class="sahne" id="sahne"></div>
     <div class="tostlar" id="tostlar"></div>
+    <div class="vardiya" id="vardiya" aria-live="off">☀️ <span>Gündüz</span> · <b>--:--</b></div>
     <div class="kamera"><button type="button" id="k-art" title="Yakınlaştır" aria-label="Yakınlaştır">+</button><button type="button" id="k-azal" title="Uzaklaştır" aria-label="Uzaklaştır">−</button><button type="button" id="k-sifir" title="Tüm ofis" aria-label="Tüm ofisi göster">⟲</button></div>
     <div class="ipucu-k" id="ipucu-k">Sürükleyerek gezin · tekerlekle yakınlaşın · odaya çift tıklayın</div>
   </div>
@@ -293,6 +318,7 @@ html,body{max-width:100%;overflow-x:hidden}
       [[20, 5], [70, 12], [118, 4], [95, 8]].forEach(function (y) { p.appendChild(el("div", "yildiz", "left:" + y[0] + "px;top:" + y[1] + "px;animation-delay:" + (y[0] % 3) + "s")); });
       sahne.appendChild(p);
     });
+    [[200, 170], [520, 170], [840, 170], [1160, 170], [1450, 170], [200, 470], [520, 470], [840, 470], [1160, 470], [1450, 470], [300, 780], [840, 820], [1300, 820]].forEach(function (t) { sahne.appendChild(el("div", "tavan", "left:" + t[0] + "px;top:" + t[1] + "px")); }); // 13 Eki: gece ışıkları
     sahne.appendChild(el("div", "kapi", "left:760px"));
     sahne.appendChild(el("div", "hali-yuvarlak", "left:110px;top:720px;width:400px;height:170px"));
     sahne.appendChild(el("div", "toplanti", "left:130px;top:740px;width:360px;height:130px"));
@@ -354,6 +380,8 @@ html,body{max-width:100%;overflow-x:hidden}
     var d = r.durum; K.el.classList.toggle("hata", d === "hata");
     ["calisiyor", "bosta", "hata"].forEach(function (x) { K.el.classList.toggle("d-" + x, d === x); });
     K.el.style.display = d === "kapali" ? "none" : "";
+    if (K.masa && !K.isik) { K.isik = el("div", "isik", "left:" + (MASA[kod][0] - 115) + "px;top:" + (MASA[kod][1] - 88) + "px"); sahne.appendChild(K.isik); }
+    if (K.isik) K.isik.classList.toggle("yanik", d === "calisiyor");
     if (K.masa) { K.masa.classList.toggle("acik", d === "calisiyor"); K.masa.classList.toggle("hatali", d === "hata"); K.masa.classList.toggle("kapali", d === "kapali"); }
     if (!K.mesgul && K.el.classList.contains("oturuyor")) K.el.classList.toggle("yaziyor", d === "calisiyor");
   }
@@ -551,12 +579,16 @@ html,body{max-width:100%;overflow-x:hidden}
     if (!olcek.ilk) { olcek.ilk = true; sifirla(); return; }
     var s = S0 * CAM.z; CAM.x = kw / 2 - ox * s; CAM.y = kap.clientHeight / 2 - oy * s; kameraUygula(false);
   }
-  var GOK = [[0, "#0b1533", "#1c2a55"], [6, "#f7a26b", "#ffd9a8"], [8, "#7cc4ff", "#dff1ff"], [19, "#f08a5d", "#ffc58f"], [20, "#1d2b5a", "#3a4a7a"], [22, "#0b1533", "#1c2a55"]];
+  var GOK = [[0, "#0b1533", "#1c2a55"], [6, "#f7a26b", "#ffd9a8"], [8, "#7cc4ff", "#dff1ff"], [17.5, "#e8693f", "#ffb07a"], [18.3, "#c2474a", "#f2925f"], [19, "#1d2b5a", "#3a4a7a"], [21, "#0b1533", "#1c2a55"]];
   function saat() {
-    var z = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Istanbul" })), h = z.getHours(), dk = z.getMinutes();
-    document.body.classList.toggle("gece", h >= 20 || h < 7);
-    $("r-saat").textContent = (h >= 20 || h < 7 ? "🌙 Gece mesaisi · " : h < 9 ? "🌅 " : h >= 18 ? "🌇 " : "☀️ ") + z.toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
-    var g = GOK[0]; for (var i = 0; i < GOK.length; i++) if (h >= GOK[i][0]) g = GOK[i];
+    var z = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Istanbul" })), dene = /[?&]saat=(\d{1,2}):?(\d{2})/.exec(location.search);
+    if (dene) z.setHours(+dene[1], +dene[2], 0, 0);
+    var h = z.getHours(), dk = z.getMinutes(), hf = h + dk / 60, gece = hf >= 19 || hf < 7, batim = hf >= 17.5 && hf < 19;
+    document.body.classList.toggle("gece", gece); document.body.classList.toggle("gunbatimi", batim);
+    var hhmm = z.toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
+    $("r-saat").textContent = (gece ? "🌙 Akşam vardiyası · " : batim ? "🌇 Gün batımı · " : hf < 9 ? "🌅 " : "☀️ ") + hhmm;
+    var v = $("vardiya"); if (v) { v.firstChild.nodeValue = gece ? "🌙 " : batim ? "🌇 " : "☀️ "; v.querySelector("span").textContent = gece ? "Akşam vardiyası" : batim ? "Gün batımı" : "Gündüz"; v.querySelector("b").textContent = hhmm; }
+    var g = GOK[0]; for (var i = 0; i < GOK.length; i++) if (hf >= GOK[i][0]) g = GOK[i];
     document.documentElement.style.setProperty("--gok1", g[1]); document.documentElement.style.setProperty("--gok2", g[2]);
     if (SAAT.yel) { SAAT.yel.style.transform = "rotate(" + ((h % 12) * 30 + dk / 2) + "deg)"; SAAT.yak.style.transform = "rotate(" + dk * 6 + "deg)"; }
   }

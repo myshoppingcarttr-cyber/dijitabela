@@ -25,7 +25,7 @@
 
   function kur(o) {
     if (!document.getElementById("ys-css")) { var st = document.createElement("style"); st.id = "ys-css"; st.textContent = CSS; document.head.appendChild(st); }
-    var kap = o.kap, M = [], ROZET = {}, mesgul = false, sonId = 0;
+    var kap = o.kap, M = [], ROZET = {}, mesgul = false, sonId = 0, cizildi = false;
     kap.innerHTML = '<div class="ys"><div class="ys-akis" aria-live="polite"><div class="ys-bos">Yükleniyor…</div></div>' +
       '<div class="ys-yaz"><div class="ys-oneri" hidden></div><textarea rows="1" maxlength="2000" placeholder="Herkese yazın ya da @ ile kişi seçin (ör. @Nehir neden çalışmıyorsun?)"></textarea><button type="button">Gönder</button></div>' +
       '<div class="ys-ipucu">Mesajlar tüm ekibe görünür. @etiketlenen kişi en geç 5 dakikada cevap verir; etiketsiz mesajı Yönetici Asistan özetleyip dağıtır.</div></div>';
@@ -85,7 +85,7 @@
         var q = await o.sb.from("ofis_sohbet").select("id,zaman,yazan,hedef,mesaj,yanit_id").eq("ozel", false).order("id", { ascending: false }).limit(80);
         if (q.error) { akis.innerHTML = '<div class="ys-bos">Sohbet okunamadı: ' + esc(q.error.message) + "</div>"; return; }
         var yeni = (q.data || []).reverse();
-        if (JSON.stringify(yeni) !== JSON.stringify(M)) { M = yeni; ciz(); }
+        if (!cizildi || JSON.stringify(yeni) !== JSON.stringify(M)) { M = yeni; ciz(); cizildi = true; }
         rozetHesapla();
       } catch (e) { /* ağ hatası: sonraki yoklamada tekrar */ } finally { mesgul = false; }
     }
