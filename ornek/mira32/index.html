@@ -391,7 +391,7 @@ En önemlisi sizin neye ihtiyacınız olduğunu hemen anlayıp en doğru…”</
       if (V.ilanlar.length) { setTimeout(function () { location.hash = "ilanlar"; }, 1400); return "Şu an vitrinde " + V.ilanlar.length + " seçkimiz var; sizi ilanlara götürüyorum. Aradığınızı bulamazsanız " + waL + ", portföyümüzden size uygun olanı bulalım."; } }
     if (/fiyat|ücret|ucret|kaç para|kac para|ne kadar/.test(t)) return V.saglik ? "Tedavi planı ve süresi muayeneden sonra netleşir. Ön değerlendirme için " + waL + "." : "Güncel fiyatlar için " + waL + "; birkaç dakika içinde dönüş yapalım.";
     if (/merhaba|selam|iyi günler|günaydın/.test(t)) return "Merhaba! 👋 Size nasıl yardımcı olabilirim?";
-    return "Bu konuda ekibimiz size en doğru bilgiyi verecektir. " + waL + " ya da " + V.tel + " numarasını arayın.";
+    return "Bu konuda ekibimiz size bilgi verecektir. " + waL + " ya da " + V.tel + " numarasını arayın.";
   }
   function sor(s) { if (!s.trim()) return; yaz(s.replace(/</g, "&lt;"), "ben"); bot(cevap(s)); }
   if (as) {

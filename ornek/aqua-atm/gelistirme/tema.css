@@ -1,0 +1,26 @@
+/* Aqua ATM mevcut site görünümü (aquaatm.com.tr: WordPress "smartic", DM Sans, kırmızı logo + turuncu vurgu) — geliştirme prototipleri */
+:root{--r:#e5322b;--rk:#b8231d;--o:#e46b18;--y:#1b1d21;--g:#5f6670;--c:#e7e8eb;--bg:#f7f7f8;--k:#fff;--d:#111316}
+body{font-family:"DM Sans",system-ui,-apple-system,sans-serif}
+*{font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif!important}
+h1,h2,h3,.logo,.fiyat,.say,.skor{font-family:"DM Sans",system-ui,sans-serif!important}
+.btn{font-family:"DM Sans",sans-serif;border-radius:6px}
+.btn-r{background:var(--o);box-shadow:0 8px 22px rgba(228,107,24,.28)}
+.secim button.on{background:var(--o);border-color:var(--o)}
+.rozet{background:rgba(228,107,24,.12);color:var(--o)}
+/* site üst bilgisi (mevcut menü + YENİ sayfalar) */
+.site-ust{background:#fff;border-bottom:1px solid var(--c);position:sticky;top:0;z-index:50}
+.site-ust .kap{display:flex;align-items:center;gap:22px;height:74px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 21px "DM Sans";color:#111;letter-spacing:-.01em}
+.site-logo img{width:44px;height:44px}
+.site-logo span{color:var(--r)}
+.site-men{display:flex;gap:4px;margin-left:auto;align-items:center;overflow-x:auto;scrollbar-width:none}
+.site-men a{white-space:nowrap;text-decoration:none;color:#2a2d33;font:600 14px "DM Sans";padding:8px 10px;border-radius:6px}
+.site-men a:hover,.site-men a.akt{color:var(--o)}
+.site-men a.yeni{position:relative;color:var(--o)}
+.site-men a.yeni:after{content:"YENİ";position:absolute;top:-4px;right:-2px;font:800 8.5px "DM Sans";background:var(--o);color:#fff;border-radius:4px;padding:1px 4px;letter-spacing:.04em}
+.dil{font:600 12px "DM Sans";color:var(--g);border:1px solid var(--c);border-radius:6px;padding:5px 8px}
+@media(max-width:900px){.site-ust .kap{height:auto;flex-wrap:wrap;padding-block:10px;gap:8px}.site-men{flex:1 1 100%;min-width:0}.dil{display:none}}
+/* eklenen modül işareti */
+.yeni-bant{display:flex;gap:10px;align-items:center;background:#fff6ef;border:1px dashed var(--o);color:#8a3d08;border-radius:10px;padding:10px 14px;font-size:14px;margin-bottom:18px}
+.yeni-bant b{background:var(--o);color:#fff;border-radius:5px;padding:2px 7px;font-size:11px;letter-spacing:.05em}
+.demo{background:#1b1d21}.demo a{color:#ffb98a}

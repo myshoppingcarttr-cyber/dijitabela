@@ -20,7 +20,7 @@
     "@media print{.djr{display:none}}";
   document.head.appendChild(css);
   var kok = document.createElement("div"); kok.className = "djr";
-  kok.innerHTML = '<div class="djr-tab" title="Dijitabela tabela"><canvas width="164" height="96"></canvas></div><div class="djr-bal"><b>DİJİTABELA TABELA</b><span class="djr-yazi"></span><div class="djr-alt"></div></div>';
+  kok.innerHTML = '<div class="djr-tab" title="Dijitabela tabela"><canvas width="164" height="96"></canvas></div><div class="djr-bal"><b>🤖 Yapay zekâ rehber · DİJİTABELA TABELA</b><span class="djr-yazi"></span><div class="djr-alt"></div></div>';
   document.body.appendChild(kok);
   var cv = kok.querySelector("canvas"), bal = kok.querySelector(".djr-bal"), yazi = kok.querySelector(".djr-yazi"), alt = kok.querySelector(".djr-alt");
   var AZ = matchMedia("(prefers-reduced-motion: reduce)").matches;

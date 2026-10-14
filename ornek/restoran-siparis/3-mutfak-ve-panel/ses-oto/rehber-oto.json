@@ -1,0 +1,26 @@
+{
+ "giris": {
+  "metin": "Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa Mutfak Ekranı ve Yönetim Paneli için hazırladığımız çalışır tasarım. Aşağı indikçe her bölümü size anlatacağım.",
+  "dosya": "132cb14db1ab"
+ },
+ "b1": {
+  "metin": "YENİ 0. ",
+  "dosya": "8bcec556623f"
+ },
+ "b2": {
+  "metin": "Son 14 gün ciro. Kırmızı çizgi: komisyonlu platformda kalacak kesinti",
+  "dosya": "beadecaf20a6"
+ },
+ "b3": {
+  "metin": "Ürünler. Bir ürün bitince anahtarı kapatın: müşteri uygulamasında \"Bugünlük bitti\" görünür, sipariş alınmaz.",
+  "dosya": "1f4dd7184d96"
+ },
+ "b4": {
+  "metin": "Yeni kod. ",
+  "dosya": "adab1cebd9d4"
+ },
+ "b5": {
+  "metin": "Rakamlarınızı girin. Ayda 240 sipariş kendi uygulamanızdan gelirse, platforma gidecek 16.800 TL komisyonun tamamı sizde kalır (sunucu + bakım 490 TL düşüldü).",
+  "dosya": "51d98cd58f20"
+ }
+}
