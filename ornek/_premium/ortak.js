@@ -1,7 +1,18 @@
 // Dijitabela premium prototip · ortak davranış (dil, açık/kapalı rozeti, kaydırma animasyonu, WhatsApp)
 (function () {
   var I = window.ISL || {};
-  window.waAc = function (metin) { window.open("https://wa.me/" + (I.wa || "") + "?text=" + encodeURIComponent(metin), "_blank"); };
+  window.waAc = function (metin) {
+    // İşletme numarası henüz yoksa (şablon önizlemesi) mesaj, gideceği biçimiyle ekranda gösterilir
+    if (!I.wa) {
+      var k = document.querySelector(".wa-onizleme") || document.body.appendChild(document.createElement("div"));
+      k.className = "wa-onizleme"; k.setAttribute("role", "dialog");
+      k.style.cssText = "position:fixed;left:50%;bottom:16px;transform:translateX(-50%);width:min(92vw,440px);z-index:2147483100;background:#0b141a;color:#e9edef;border-radius:16px;padding:16px;box-shadow:0 20px 50px -10px rgba(0,0,0,.6);font:500 .92rem/1.45 system-ui,sans-serif";
+      k.innerHTML = '<b style="display:block;color:#25d366">Yayında bu mesaj işletmenin WhatsApp&#39;ına gider</b><pre style="white-space:pre-wrap;font:inherit;background:#005c4b;border-radius:10px;padding:10px;margin:8px 0;max-height:40vh;overflow:auto"></pre><button type="button" style="background:transparent;color:#e9edef;border:1px solid #3b4a54;border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer;font:700 .9rem system-ui">Kapat</button>';
+      k.querySelector("pre").textContent = metin; k.querySelector("button").onclick = function () { k.remove(); };
+      return;
+    }
+    window.open("https://wa.me/" + I.wa + "?text=" + encodeURIComponent(metin), "_blank");
+  };
   // Açık/kapalı rozeti (saat metninden kaba çözümleme: "Pzt–Cum 09:00–20:00 · Cmt ...")
   function acikMi() {
     if (!I.saat) return null;
