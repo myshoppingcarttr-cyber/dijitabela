@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hasta Deneyimi Paneli · Medigün (Prototip · Dijitabela)</title>
+<meta name="description" content="Medigün yönetimi için hasta memnuniyeti ve Google yorum yönetimi paneli demosu. Örnek veri, iç kullanım.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1C2126">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/veri.js" defer></script>
+<script src="js/panel.js" defer></script>
+</head>
+<body style="background:var(--zemin-2)">
+<a class="atla" href="#ana">İçeriğe geç</a>
+<header class="panel-ust">
+  <div class="kap">
+    <a class="marka" href="index.html" aria-label="Medigün hasta sitesine dön">
+      <img src="img/logo-amblem-192.png" alt="" width="40" height="40">
+      <span><b>MEDİGÜN</b><small>Yönetim · Hasta deneyimi</small></span>
+    </a>
+    <span class="ornek" style="margin-left:auto">Örnek veri · iç kullanım · yayına kapalı</span>
+  </div>
+</header>
+
+<main id="ana" class="kap" style="padding-top:28px;padding-bottom:48px">
+  <div class="bolum-bas" style="margin-bottom:18px">
+    <span class="etiket">Hasta memnuniyeti ve Google yorum yönetimi · demo</span>
+    <h1 style="font-size:clamp(2rem,5vw,3rem)">Her şubenin hasta deneyimi tek ekranda</h1>
+    <p>Bu ekran hastane yönetimi içindir; sitede hasta yorumu ya da puan <b>gösterilmez</b> (Tanıtım ve Bilgilendirme Yönetmeliği md. 5/1-e). Tüm sayılar ve isimler örnektir.</p>
+  </div>
+
+  <div class="kart" style="display:flex;flex-wrap:wrap;gap:12px;align-items:end">
+    <div style="flex:1;min-width:200px">
+      <label for="p-sube" style="font-weight:600;display:block;margin-bottom:4px">Şube</label>
+      <select id="p-sube"></select>
+    </div>
+    <div style="flex:1;min-width:200px">
+      <label for="p-donem" style="font-weight:600;display:block;margin-bottom:4px">Dönem</label>
+      <select id="p-donem"><option value="30">Son 30 gün</option><option value="7">Son 7 gün</option><option value="90">Son 90 gün</option></select>
+    </div>
+  </div>
+
+  <h2 class="gizli">Özet göstergeler</h2>
+  <ul class="kpi" id="kpi" aria-live="polite"></ul>
+
+  <div class="panel-izgara">
+    <div>
+      <section class="kart" aria-labelledby="t-baslik">
+        <h2 id="t-baslik" style="font-size:1.6rem">Haftalık anket ortalaması <span class="ornek">Örnek veri</span></h2>
+        <p class="not">Poliklinik muayenesinden ya da taburcu olduktan sonra kısa anket, 1–5 puan. Tıbbi sonuç değil, hizmet deneyimi ölçülür.</p>
+        <div class="cubuklar" id="cubuklar" role="img" aria-label=""></div>
+        <div class="cubuk-etiket" aria-hidden="true"><span>Pzt</span><span>Sal</span><span>Çar</span><span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span></div>
+      </section>
+
+      <section class="kart" aria-labelledby="g-baslik">
+        <h2 id="g-baslik" style="font-size:1.6rem">Google yorumları <span class="ornek">Örnek veri · gerçek yorum değildir</span></h2>
+        <p class="not">Yorumlar yalnız burada yönetilir, sitede yayımlanmaz. Yanıt taslağını yapay zekâ hazırlar, yetkili onaylamadan gönderilmez.</p>
+        <div id="yorumlar"></div>
+      </section>
+    </div>
+
+    <div>
+      <section class="kart" aria-labelledby="a-baslik">
+        <h2 id="a-baslik" style="font-size:1.6rem">Anket ve yorum akışı</h2>
+        <ol class="akis">
+          <li><span class="no">1</span><span>Muayeneden ya da taburcu olduktan sonra, <b>iletişim izni olan</b> hastaya kısa anket gider (Yönetmelik md. 5/1-k).</span></li>
+          <li><span class="no">2</span><span>Google yorum bağlantısı gönderimi <b>hukuk teyidine kadar kapalıdır</b>. Açılırsa puan ne olursa olsun herkese aynı metinle gider.</span></li>
+          <li><span class="no">3</span><span>3 ve altı puanda ayrıca Hasta Hakları Birimi'ne iç bildirim açılır; hasta aranır.</span></li>
+          <li><span class="no">4</span><span>Google'daki her yoruma KVKK uyumlu yanıt taslağı hazırlanır, yetkili onaylar.</span></li>
+        </ol>
+        <div class="kilitli" role="status">
+          <span class="anahtar" aria-hidden="true"></span>
+          <span><b>Memnuniyete göre süzme (review gating) kalıcı olarak kapalı.</b><br><span class="not" style="color:inherit">Yorum bağlantısı ya hiç gönderilmez ya da herkese aynı gider; yalnız memnun hastaya göndermek Google politikasına aykırıdır.</span></span>
+        </div>
+      </section>
+
+      <section class="kart" aria-labelledby="b-baslik">
+        <h2 id="b-baslik" style="font-size:1.6rem">Açık geri bildirimler <span class="ornek">Örnek veri</span></h2>
+        <div class="tablo-sar">
+          <table>
+            <caption class="gizli">Hasta Hakları Birimi'ne düşen açık geri bildirimler</caption>
+            <thead><tr><th scope="col">Konu</th><th scope="col">Birim</th><th scope="col">Durum</th></tr></thead>
+            <tbody id="bildirimler"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="kart" aria-labelledby="k-baslik">
+        <h2 id="k-baslik" style="font-size:1.6rem">Yanıt kuralları</h2>
+        <ul style="padding-left:1.2em;margin:0">
+          <li>Yorum yapanın hastamız olduğunu doğrulayan ifade yok.</li>
+          <li>Teşhis, işlem, hekim adı ya da tarih yok.</li>
+          <li>Kişi telefonla Hasta Hakları Birimi'ne davet edilir.</li>
+          <li>Tartışma, savunma ya da karşılık teklifi yok.</li>
+          <li>Hastalara yorum karşılığı hiçbir şey verilmez.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <p class="not">Yayında veri kaynağı: anket aracı + Google İşletme Profili API.</p>
+  <p class="kredi" style="color:var(--soluk)">Bu bir prototiptir · Hazırlayan: Dijitabela · <a href="https://dijitabela.com" rel="noopener">dijitabela.com</a></p>
+</main>
+<div class="filigran" aria-hidden="true"></div>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

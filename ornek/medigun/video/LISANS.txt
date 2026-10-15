@@ -1,0 +1,4 @@
+Medigün sunum videosu · lisanslar (15.10.2026)
+Müzik: "Afternoon (Ambient Piano Solo)" · Hakren · Freesound 418442 · https://freesound.org/people/Hakren/sounds/418442/ · CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/) — kaynak: GELISIM/G-24 sakin müzik kütüphanesi, lisans sayfadan teyitli. Yoğunluk ölçümü: 1,82 nota/sn, tepe/ortalama oranı 9,42.
+Görseller: Medigün resmî sitelerindeki bina ve birim fotoğrafları (KAYNAKLAR.md), prototip ve sunum ekranları Dijitabela.
+Taslak ses (-TASLAK-SES dosyaları): Microsoft Edge TTS (tr-TR-EmelNeural), yalnız zamanlama testi içindir.

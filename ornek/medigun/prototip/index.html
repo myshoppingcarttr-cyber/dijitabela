@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medigün Sağlık Grubu · Randevu, hekim ve şube bilgisi (Prototip · Dijitabela)</title>
+<meta name="description" content="Medigün Akhisar, Soma, Bergama, Bornova ve Çamdibi: şube iletişim bilgileri, hekim ve branş bulucu, randevu asistanı, sonuç bildirimi ve check-up bilgilendirmesi. Prototip.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#A91917">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/veri.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/asistan.js" defer></script>
+<script src="js/sonuc.js" defer></script>
+</head>
+<body>
+<a class="atla" href="#ana">İçeriğe geç</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-tel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3.5l1.6 4.4-2.2 1.4a12 12 0 0 0 6.3 6.3l1.4-2.2L20 14.5V18a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-takvim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h3"/></symbol>
+    <symbol id="i-hekim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5M9 15.2V18h0M15 15.2v2.3a1.5 1.5 0 1 0 0 .1"/></symbol>
+    <symbol id="i-belge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></symbol>
+    <symbol id="i-kalp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10Z"/><path d="M7.5 12h2.5l1.2-2 1.6 4 1.2-2h2.5"/></symbol>
+    <symbol id="i-konum" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-tik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.6 2.5L16 9.5"/></symbol>
+    <symbol id="i-kilit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-gonder" viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6 3.4 10l12.6 2-12.6 2z"/></symbol>
+    <symbol id="i-yenile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.6-4.4L4 8.5M4 4v4.5h4.5M4 13a8 8 0 0 0 14.6 4.4l1.4-1.9M20 20v-4.5h-4.5"/></symbol>
+    <symbol id="i-kure" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="acil-serit">
+  <div class="kap">
+    <span>Hayati tehlike varsa beklemeyin:</span>
+    <a href="tel:112"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Acil 112</a>
+    <a href="tel:+908502601222" class="cagri-link"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Çağrı merkezi 0850 260 1 222</a>
+  </div>
+</div>
+
+<header class="ust">
+  <div class="kap">
+    <a class="marka" href="#ana" aria-label="Medigün Sağlık Grubu, başa dön">
+      <img src="img/logo-amblem-192.png" alt="" width="46" height="46">
+      <span><b>MEDİGÜN</b><small>Sağlık Grubu</small></span>
+    </a>
+    <button class="menu-ac" type="button" aria-expanded="false" aria-controls="ana-menu"><svg class="ikon" aria-hidden="true"><use href="#i-menu"/></svg><span class="gizli">Menüyü aç</span></button>
+    <nav class="menu" id="ana-menu" aria-label="Ana menü">
+      <a href="#subeler">Şubeler</a>
+      <a href="#hekimler">Hekimler</a>
+      <a href="#asistan">Randevu</a>
+      <a href="#sonuc">Sonuçlarım</a>
+      <a href="#checkup">Check-up</a>
+      <a href="saglik-turizmi.html" lang="en">Health Tourism</a>
+    </nav>
+    <div class="sube-sec">
+      <label for="sube-secici">Şube</label>
+      <select id="sube-secici" aria-describedby="sube-aciklama"></select>
+      <span id="sube-aciklama" class="gizli">Şube seçimi telefon, adres, branş ve hekim listesini değiştirir.</span>
+    </div>
+  </div>
+</header>
+
+<main id="ana">
+  <section class="karsilama" aria-labelledby="k-baslik">
+    <div class="kap">
+      <div>
+        <span class="etiket" id="k-sube-etiket">Medigün · Akhisar</span>
+        <h1 id="k-baslik">Randevudan sonuca, her adımda yanınızdayız.</h1>
+        <p class="giris">Akhisar, Soma, Bergama, Bornova ve Çamdibi'deki Medigün kurumlarına tek yerden ulaşın: hekim ve branş arayın, randevu talebi bırakın, tahlil sonucunuzun hazır olduğunu öğrenin.</p>
+        <div class="hizli">
+          <a href="#asistan"><span class="ik"><svg class="ikon" aria-hidden="true"><use href="#i-takvim"/></svg></span><span>Randevu asistanı<small>Gece gündüz açık</small></span></a>
+          <a href="#hekimler"><span class="ik"><svg class="ikon" aria-hidden="true"><use href="#i-hekim"/></svg></span><span>Hekim ve branş bul<small>Ada ya da bölüme göre</small></span></a>
+          <a href="#sonuc"><span class="ik"><svg class="ikon" aria-hidden="true"><use href="#i-belge"/></svg></span><span>Sonucum hazır mı?<small>Güvenli giriş</small></span></a>
+          <a href="#checkup"><span class="ik"><svg class="ikon" aria-hidden="true"><use href="#i-kalp"/></svg></span><span>Check-up bilgisi<small>Paket içerikleri</small></span></a>
+        </div>
+      </div>
+      <figure class="foto-cerceve" style="margin:0">
+        <img id="k-foto" src="img/bina-akhisar.jpg" alt="Özel Medigün Hastanesi Akhisar binası" width="703" height="420">
+        <figcaption class="foto-alt" id="k-foto-alt"><b>Özel Medigün Hastanesi Akhisar</b>Kethüda Mh. 374 Sk. No: 2, Akhisar / Manisa</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ŞUBELER -->
+  <section class="bolum" id="subeler" aria-labelledby="s-baslik">
+    <div class="kap">
+      <div class="bolum-bas">
+        <span class="etiket">5 kurum · tek çatı</span>
+        <h2 id="s-baslik">Size yakın Medigün kurumu</h2>
+        <p>Adres, telefon ve yol tarifi. Bir şubeyi seçtiğinizde sayfadaki hekim listesi ve randevu asistanı o şubeye göre açılır.</p>
+      </div>
+      <ul class="subeler" id="sube-listesi"></ul>
+      <div class="acil-bant" role="note">
+        <p>Göğüs ağrısı, nefes darlığı, bilinç kaybı, felç belirtisi ya da ağır kanamada 112'yi arayın.</p>
+        <a class="dugme" href="tel:112"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>112'yi ara</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEKİM BULUCU -->
+  <section class="bolum acik" id="hekimler" aria-labelledby="h-baslik">
+    <div class="kap">
+      <div class="bolum-bas">
+        <span class="etiket">Hekim ve branş bulucu</span>
+        <h2 id="h-baslik">Aradığınız bölümü ve hekimi bulun</h2>
+        <p>Ad, soyad ya da bölüm adıyla arayın; Türkçe karakter yazmasanız da bulur. Liste alfabetiktir.</p>
+      </div>
+      <form class="suzgec" role="search" id="hekim-form" onsubmit="return false">
+        <div>
+          <label for="h-ara">Ara</label>
+          <input type="search" id="h-ara" placeholder="Örn. kadın doğum, göz, Karakuş" autocomplete="off">
+        </div>
+        <div>
+          <label for="h-sube">Şube</label>
+          <select id="h-sube"></select>
+        </div>
+        <div>
+          <label for="h-brans">Branş</label>
+          <select id="h-brans"></select>
+        </div>
+      </form>
+      <ul class="cipler" id="brans-cipleri" aria-label="Bu şubedeki branşlar"></ul>
+      <p class="sonuc-bilgi" id="h-sayi" aria-live="polite"></p>
+      <ul class="hekimler" id="hekim-listesi"></ul>
+      <p class="not" style="margin-top:16px">Hekim ve branş bilgileri Medigün Akhisar ve Soma'nın resmî internet sitelerinden 14.10.2026'da derlenmiştir; yalnız branşı sayfada yazılı olan hekimler gösterilir. Bergama, Bornova ve Çamdibi'deki hekim kadrosu için çağrı merkezi: <a href="tel:+908502601222">0850 260 1 222</a>.</p>
+    </div>
+  </section>
+
+  <!-- RANDEVU ASİSTANI -->
+  <section class="bolum" id="asistan" aria-labelledby="a-baslik">
+    <div class="kap asistan-izgara">
+      <div>
+        <span class="etiket">7/24 yapay zekâ randevu asistanı · demo</span>
+        <h2 id="a-baslik">Gece yarısı da randevu talebi bırakılabilsin</h2>
+        <p>Çağrı merkezi kapalıyken hasta WhatsApp'a benzeyen bu sohbetle şubeyi ve bölümü seçer; SGK ile muayene için MHRS'ye yönlendirilir ya da özel randevu talebi bırakır. Talep sabah çağrı merkezinin ekranına düşer.</p>
+        <ul class="ozellik">
+          <li><svg class="ikon" aria-hidden="true"><use href="#i-tik"/></svg><span><b>Acil durumu tanır.</b> "Göğsüm ağrıyor", "nefes alamıyorum" gibi ifadelerde sohbeti durdurur, 112'yi öne çıkarır.</span></li>
+          <li><svg class="ikon" aria-hidden="true"><use href="#i-tik"/></svg><span><b>Teşhis koymaz, hekim önermez.</b> Bölümü hasta seçer; asistan yalnız yol gösterir.</span></li>
+          <li><svg class="ikon" aria-hidden="true"><use href="#i-tik"/></svg><span><b>MHRS ve özel randevu ayrımı.</b> SGK'lı muayene için Alo 182 ve mhrs.gov.tr bağlantısı; özel randevu için talep formu.</span></li>
+          <li><svg class="ikon" aria-hidden="true"><use href="#i-tik"/></svg><span><b>KVKK onayı olmadan kişisel bilgi istemez.</b> Bu demoda hiçbir bilgi gönderilmez ya da saklanmaz.</span></li>
+        </ul>
+        <p class="not">Yayında aynı akış hastanenin WhatsApp Business hattında ve sitede çalışır. Asistan yalnız randevu ve yönlendirme yapar, sağlık bilgilendirmesi yapmaz; acil uyarısı dahil tüm yanıt metinlerini hastanenin yetkili hekimi onaylar.</p>
+      </div>
+      <div class="telefon" role="region" aria-label="Randevu asistanı sohbet demosu">
+        <div class="sohbet-ust">
+          <img src="img/logo-amblem-192.png" alt="" width="38" height="38">
+          <div><b>Medigün Randevu Asistanı</b><small id="sohbet-durum">çevrim içi · demo</small></div>
+          <button class="yenile" type="button" id="sohbet-yenile" title="Sohbeti baştan başlat"><svg class="ikon" aria-hidden="true"><use href="#i-yenile"/></svg><span class="gizli">Sohbeti baştan başlat</span></button>
+        </div>
+        <div class="sohbet-akis" id="sohbet-akis" aria-live="polite" aria-relevant="additions" tabindex="0"></div>
+        <div class="secenekler" id="sohbet-secenek" aria-label="Hızlı yanıtlar"></div>
+        <form class="sohbet-giris" id="sohbet-form" autocomplete="off">
+          <label for="sohbet-yazi" class="gizli">Mesajınız</label>
+          <input type="text" id="sohbet-yazi" placeholder="Mesaj yazın…" maxlength="200">
+          <button type="submit"><svg class="ikon" aria-hidden="true"><use href="#i-gonder"/></svg><span class="gizli">Gönder</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SONUÇ BİLDİRİMİ -->
+  <section class="bolum acik" id="sonuc" aria-labelledby="r-baslik">
+    <div class="kap">
+      <div class="bolum-bas">
+        <span class="etiket">Çevrim içi sonuç bildirimi · demo</span>
+        <h2 id="r-baslik">"Sonucum çıktı mı?" diye aramaya gerek kalmasın</h2>
+        <p>Laboratuvar sonucu onaylandığında hasta, kayıtta izin verdiği kanaldan kısa bir bildirim alır. Mesajda sonuç ya da teşhis yazmaz; sonuç yalnız güvenli girişten sonra görülür. Aşağıdaki ekranlar maket; gerçek veri yoktur.</p>
+      </div>
+      <ol class="adimlar" id="sonuc-adimlar">
+        <li aria-current="step">Bildirim</li>
+        <li>Güvenli giriş</li>
+        <li>Sonuç listesi</li>
+      </ol>
+      <div class="sonuc-izgara">
+        <div class="ekran" id="sonuc-ekran" tabindex="-1"></div>
+        <div>
+          <h3>Bu akış hastaya ve hastaneye ne kazandırır?</h3>
+          <ul class="ozellik">
+            <li><svg class="ikon" aria-hidden="true"><use href="#i-tik"/></svg><span>Hasta sonucunu beklerken defalarca aramaz; çağrı merkezi hattı randevu için açık kalır.</span></li>
+            <li><svg class="ikon" aria-hidden="true"><use href="#i-kilit"/></svg><span>Kimlik + tek kullanımlık kodla giriş; bildirim mesajında sağlık bilgisi yok (KVKK, Kişisel Sağlık Verileri Yönetmeliği).</span></li>
+            <li><svg class="ikon" aria-hidden="true"><use href="#i-tik"/></svg><span>"Hekim değerlendirmesi bekleniyor" durumu, hastanın sonucu tek başına yorumlamasının önüne geçer.</span></li>
+            <li><svg class="ikon" aria-hidden="true"><use href="#i-tik"/></svg><span>Bildirim yalnız hizmet bilgisidir; tanıtım içermez, yalnız izin veren hastaya gider.</span></li>
+          </ul>
+          <p class="not">Yayında hastanenin laboratuvar bilgi sistemine bağlanır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECK-UP -->
+  <section class="bolum" id="checkup" aria-labelledby="c-baslik">
+    <div class="kap">
+      <div class="bolum-bas">
+        <span class="etiket">Koruyucu sağlık · check-up bilgilendirme</span>
+        <h2 id="c-baslik">Check-up'ta neler yapılır?</h2>
+        <p>Aşağıdaki listeler genel bilgilendirme içindir. Hangi tetkiklerin gerekli olduğuna yaşınız, öykünüz ve şikâyetlerinize göre hekim karar verir. <span class="ornek">Örnek içerik</span></p>
+      </div>
+      <div class="paket-sekme" role="tablist" aria-label="Check-up paketleri" id="paket-sekme"></div>
+      <div id="paket-alan" role="tabpanel" tabindex="0"></div>
+      <p class="not" style="margin-top:14px"><b>Yer tutucu metin.</b> Yayında paket içerikleri ve tüm sağlık bilgilendirme metinleri Medigün'ün yetkili hekimi tarafından hazırlanır ve onaylanır (Yönetmelik md. 5/1-b); Dijitabela yalnız teknik altyapıyı kurar. Bilgi almak için çağrı merkezini arayabilir ya da randevu asistanına yazabilirsiniz.</p>
+    </div>
+  </section>
+
+  <!-- BİRİMLER -->
+  <section class="bolum acik" id="birimler" aria-labelledby="b-baslik">
+    <div class="kap">
+      <div class="bolum-bas">
+        <span class="etiket">Birimlerimizden</span>
+        <h2 id="b-baslik">Yoğun bakımdan doğumhaneye</h2>
+        <p>Medigün Akhisar'ın birimlerinden fotoğraflar. Soma'da dahili ve cerrahi yoğun bakım, koroner yoğun bakım ve yenidoğan yoğun bakım servisleri bulunmaktadır.</p>
+      </div>
+      <ul class="birimler">
+        <li><figure><img src="img/ic-yogun-bakim.jpg" alt="Erişkin yoğun bakım ünitesi: monitörlü hasta yatakları ve hemşire masası" width="714" height="515" loading="lazy"><figcaption>Erişkin yoğun bakım<small>Medigün Akhisar</small></figcaption></figure></li>
+        <li><figure><img src="img/ic-yenidogan.jpg" alt="Yenidoğan yoğun bakım ünitesi: küvözler ve izlem cihazları" width="720" height="517" loading="lazy"><figcaption>Yenidoğan yoğun bakım<small>Medigün Akhisar</small></figcaption></figure></li>
+        <li><figure><img src="img/ic-ameliyathane.jpg" alt="Boş ameliyathane: ameliyat masası, tavan lambaları ve anestezi cihazı" width="513" height="385" loading="lazy"><figcaption>Ameliyathane<small>Medigün Akhisar</small></figcaption></figure></li>
+        <li><figure><img src="img/ic-dogumhane.jpg" alt="Doğumhane: doğum masası, bebek bakım ünitesi ve yatak" width="688" height="502" loading="lazy"><figcaption>Doğumhane<small>Medigün Akhisar</small></figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HASTA REHBERİ -->
+  <section class="bolum" id="hasta-rehberi" aria-labelledby="g-baslik">
+    <div class="kap">
+      <div class="bolum-bas">
+        <span class="etiket">Hasta rehberi</span>
+        <h2 id="g-baslik">Bilmeniz gerekenler</h2>
+      </div>
+      <ul class="rehber">
+        <li><a href="https://www.medigunhastanesi.com.tr/hasta-haklari/" rel="noopener">Hasta hakları <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a></li>
+        <li><a href="https://www.medigunhastanesi.com.tr/hasta-sorumluluklari/" rel="noopener">Hasta sorumlulukları <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a></li>
+        <li><a href="https://www.medigunhastanesi.com.tr/ziyaret-ve-refakat-kurallari/" rel="noopener">Ziyaret ve refakat kuralları <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a></li>
+        <li><a href="https://www.medigunhastanesi.com.tr/2024/07/21/anlasmali-kurumlar/" rel="noopener">Anlaşmalı kurumlar ve SGK <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a></li>
+        <li><a href="https://www.medigunhastanesi.com.tr/kisisel-verilerin-korunmasi-kanunu-kvkk/" rel="noopener">Kişisel verilerin korunması (KVKK) <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a></li>
+        <li><a href="saglik-turizmi.html"><span>Sağlık turizmi · <span lang="en">Health tourism</span> · <span lang="de">Gesundheitstourismus</span></span> <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="alt">
+  <div class="kap">
+    <div class="alt-izgara">
+      <div>
+        <a class="marka" href="#ana" style="color:#fff"><img src="img/logo-amblem-192.png" alt="" width="46" height="46"><span><b style="color:#fff">MEDİGÜN</b><small style="color:#C9C4BD">Sağlık Grubu</small></span></a>
+        <p style="margin-top:14px">Çağrı merkezi: <a href="tel:+908502601222">0850 260 1 222</a><br>Akhisar: <a href="tel:+902364040404">0236 404 0 404</a><br>Acil durumda: <a href="tel:112">112</a></p>
+      </div>
+      <div>
+        <h2>Kurumlar</h2>
+        <ul id="alt-subeler"></ul>
+      </div>
+      <div>
+        <h2>Bu site hakkında</h2>
+        <p>Son güncelleme: <time datetime="2026-10-14">14.10.2026</time><br>Site editörü iletişim: <a href="tel:+908502601222">0850 260 1 222</a></p>
+        <p><a href="panel.html">Yönetim paneli demosu (iç kullanım)</a></p>
+        <p class="not" style="color:#C9C4BD">Bu sitedeki bilgiler tanıtım ve bilgilendirme amaçlıdır; sağlık bilgilendirme metinleri Medigün'ün yetkili hekimlerince hazırlanır ve onaylanır. Teşhis ve tedavi için hekiminize başvurun.</p>
+      </div>
+    </div>
+    <div class="yasal">
+      <span>Bu bir prototiptir. Şube ve hekim bilgileri Medigün'ün resmî sitelerinden alınmıştır; demolardaki sayı ve isimler örnek veridir.</span>
+      <span class="kredi">Hazırlayan: Dijitabela · <a href="https://dijitabela.com" rel="noopener">dijitabela.com</a></span>
+    </div>
+  </div>
+</footer>
+<div class="filigran" aria-hidden="true"></div>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medigün · Sunum ve canlı prototip (Dijitabela)</title>
+<meta name="description" content="Medigün Sağlık Grubu için hazırlanan dijital hasta deneyimi altyapısı: sunum videosu, slaytlar ve canlı prototip.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#A91917">
+<link rel="icon" href="prototip/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<a class="atla" href="#ana">İçeriğe geç</a>
+<header class="ust">
+  <div class="kap ust-ic">
+    <a class="marka" href="#ana"><img src="prototip/img/logo-amblem-192.png" alt="" width="44" height="44"><span><b>MEDİGÜN</b><small>Dijital hasta deneyimi</small></span></a>
+    <nav class="menu" aria-label="Sayfa içi">
+      <a href="#video">Video</a><a href="#sunum">Sunum</a><a href="#prototip">Prototip</a><a href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<main id="ana">
+  <section class="giris kap" id="video" aria-labelledby="baslik">
+    <p class="etiket">Medigün Sağlık Grubu · 16 Ekim 2026</p>
+    <h1 id="baslik">Randevudan sonuca, her adımda yanınızda</h1>
+    <p class="ozet">Medigün için hazırladığımız dijital hasta deneyimi altyapısını iki dakikada anlatan video, sunumun tamamı ve telefonunuzdan deneyebileceğiniz canlı prototip bu sayfada.</p>
+    <div class="video-kutu">
+      <video id="video-oynatici" controls playsinline preload="metadata" poster="video/poster.jpg" aria-describedby="video-not">
+        <source src="video/medigun-sunum-16x9-TASLAK-SES.mp4" type="video/mp4">
+        Tarayıcınız video oynatmayı desteklemiyor. <a href="sunum/medigun-sunum.pdf">Sunumu PDF olarak indirin.</a>
+      </video>
+    </div>
+    <p class="not" id="video-not">Altyazılı. Dikey (telefon) sürümü: <a id="dikey-indir" href="video/medigun-sunum-9x16-TASLAK-SES.mp4" download>9:16 videoyu indir</a>.</p>
+  </section>
+
+  <section class="bolum acik" id="sunum" aria-labelledby="sunum-baslik">
+    <div class="kap">
+      <p class="etiket">Sunumu inceleyin</p>
+      <h2 id="sunum-baslik">15 slaytta altyapı önerimiz</h2>
+      <div class="galeri" role="region" aria-roledescription="slayt galerisi" aria-label="Sunum slaytları">
+        <div class="seritler" id="serit" tabindex="0" aria-live="off"></div>
+        <div class="galeri-alt">
+          <button type="button" class="dugme sade" id="onceki" aria-label="Önceki slayt">‹</button>
+          <span id="sayac" aria-live="polite">1 / 15</span>
+          <button type="button" class="dugme sade" id="sonraki" aria-label="Sonraki slayt">›</button>
+        </div>
+      </div>
+      <p><a class="dugme" href="sunum/medigun-sunum.pdf" download>Sunumu PDF olarak indir</a></p>
+    </div>
+  </section>
+
+  <section class="bolum" id="prototip" aria-labelledby="prototip-baslik">
+    <div class="kap">
+      <p class="etiket">Canlı prototip</p>
+      <h2 id="prototip-baslik">Telefonunuzdan deneyin</h2>
+      <p class="ozet">Prototipteki şube ve hekim bilgileri Medigün'ün resmî sitelerinden alınmıştır; demolardaki sayılar örnek veridir.</p>
+      <ul class="kartlar">
+        <li><img src="sunum/slayt-08.jpg" alt="Prototip ana sayfası ekranı: şube seçici ve hekim bulucu" width="1600" height="900" loading="lazy"><h3>Hasta sitesi</h3><p>Şube seçici, hekim ve branş bulucu, randevu asistanı, sonuç bildirimi, check-up.</p><a class="dugme" href="prototip/index.html">Prototipi aç</a></li>
+        <li><img src="sunum/slayt-11.jpg" alt="Yönetim paneli ve sağlık turizmi sayfası ekranları" width="1600" height="900" loading="lazy"><h3>Yönetim paneli</h3><p>İç anket eğilimi, geri bildirimler, Google yorumlarına uygun yanıt taslağı.</p><a class="dugme" href="prototip/panel.html">Paneli aç</a></li>
+        <li><img src="prototip/img/bina-soma.jpg" alt="Özel Medigün Hastanesi Soma binası" width="703" height="420" loading="lazy"><h3>Sağlık turizmi</h3><p>Türkçe, İngilizce ve Almanca bilgilendirme altyapısı.</p><a class="dugme" href="prototip/saglik-turizmi.html">Sayfayı aç</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bolum acik" aria-labelledby="altyapi-baslik">
+    <div class="kap">
+      <p class="etiket">Teknik altyapı</p>
+      <h2 id="altyapi-baslik">Altı parçalı sistem</h2>
+      <ol class="alti">
+        <li><b>Site altyapısı</b><span>Tek alan adında 5 kurum; şube seçilince adres, telefon, branş ve hekimler değişir.</span></li>
+        <li><b>Hekim ve branş bulucu</b><span>Kurumun verdiği kadro listesinden; arama ve filtre.</span></li>
+        <li><b>Randevu asistanı altyapısı</b><span>Gece gündüz; MHRS ya da özel randevu talebi; acil durumda 112.</span></li>
+        <li><b>Sonuç bildirimi entegrasyonu</b><span>"Sonucunuz hazır" bildirimi ve güvenli giriş; mesajda sağlık bilgisi yok.</span></li>
+        <li><b>Yorum yönetim paneli</b><span>Google yorumlarını izleme, KVKK uyumlu yanıt taslağı, iç anket.</span></li>
+        <li><b>Ölçüm</b><span>Site hızı, randevu talebi ve bildirim teslimi için aylık teknik rapor.</span></li>
+      </ol>
+      <p class="not">Sağlık bilgilendirme metinlerini Medigün'ün yetkili hekimleri hazırlar ve onaylar; biz teknik altyapıyı kurarız.</p>
+    </div>
+  </section>
+
+  <section class="bolum" id="iletisim" aria-labelledby="iletisim-baslik">
+    <div class="kap iletisim">
+      <div>
+        <p class="etiket">İletişim</p>
+        <h2 id="iletisim-baslik">Alim Hoşlar · Dijitabela</h2>
+        <p class="ozet">Sorularınız ve görüşme için bize yazabilirsiniz.</p>
+      </div>
+      <div class="iletisim-dugme">
+        <a class="dugme" href="https://wa.me/905019452184" rel="noopener">WhatsApp: 0501 945 21 84</a>
+        <a class="dugme sade" href="mailto:info@dijitabela.com">info@dijitabela.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="alt">
+  <div class="kap">
+    <span>Hazırlayan: Dijitabela · <a href="https://dijitabela.com" rel="noopener">dijitabela.com</a></span>
+    <span>Bu sayfa Medigün ile görüşme için hazırlanmıştır; prototip aşamasıdır.</span>
+  </div>
+</footer>
+<div class="filigran" aria-hidden="true"></div>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/wa-buton.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

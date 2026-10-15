@@ -1,0 +1,67 @@
+[
+ {
+  "no": "01",
+  "slayt": 1,
+  "metin": "Merhaba. Biz Dijitabela'yız. Medigün Sağlık Grubu için hazırladığımız dijital hasta deneyimi altyapısını kısaca anlatmak istiyoruz."
+ },
+ {
+  "no": "02",
+  "slayt": 2,
+  "metin": "Önce bugünkü duruma baktık. Bergama sitesi şu an açılmıyor. Akhisar sitesinin Google'da görünen açıklaması ise Soma'yı anlatıyor. Hasta verisi için, sonuç ekranlarının güvenli bağlantıyla ve kişisel verileri koruyan bir yapıyla açılmasını öneriyoruz."
+ },
+ {
+  "no": "03",
+  "slayt": 3,
+  "metin": "Telefonda hızı da ölçtük. Mobil performans puanı Akhisar'da yetmiş iki, Soma'da elli sekiz. Ana içerik telefonda dokuz saniyeye kadar gecikiyor."
+ },
+ {
+  "no": "04",
+  "slayt": 4,
+  "metin": "Sağlık bilgilendirmesini yalnızca yetkili hekimleriniz yapabilir; yönetmelik bunu açıkça söylüyor. Bu yüzden rolümüz net: içerik sizin hekimlerinizden, onu hastaya ulaştıran teknik sistem bizden."
+ },
+ {
+  "no": "05",
+  "slayt": 6,
+  "metin": "Gece randevu almak isteyen, sonucunu merak eden, aradığı hekimi bulamayan hasta için her belirsizlik güveni azaltıyor."
+ },
+ {
+  "no": "06",
+  "slayt": 7,
+  "metin": "Önerimiz altı parçalı bir teknik altyapı: tek çatı altında site, hekim bulucu, randevu asistanı, sonuç bildirimi, yorum yönetim paneli ve düzenli ölçüm."
+ },
+ {
+  "no": "07",
+  "slayt": 8,
+  "metin": "Hasta şubesini seçiyor; adres, telefon, bölümler ve hekimler o şubeye göre geliyor."
+ },
+ {
+  "no": "08",
+  "slayt": 9,
+  "metin": "Randevu asistanı gece gündüz çalışıyor. Teşhis koymuyor, bölüm önermiyor; acil bir durum sezdiğinde yüz on ikiyi öne çıkarıyor. Muayene için Bakanlığın randevu sistemine ya da özel randevu talebine yönlendiriyor."
+ },
+ {
+  "no": "09",
+  "slayt": 10,
+  "metin": "Tahlil sonucu hazır olduğunda hasta kısa bir bildirim alıyor. Mesajda sağlık bilgisi yok; sonuç yalnızca güvenli girişten sonra görülüyor."
+ },
+ {
+  "no": "10",
+  "slayt": 11,
+  "metin": "Yönetim paneli, şubelerden gelen geri bildirimleri ve Google yorumlarını tek ekranda topluyor. Sağlık turizmi altyapısı da Türkçe, İngilizce ve Almanca hazır."
+ },
+ {
+  "no": "11",
+  "slayt": 12,
+  "metin": "Prototipi şimdi telefonunuzdan deneyebilirsiniz."
+ },
+ {
+  "no": "12",
+  "slayt": 13,
+  "metin": "İlk otuz günde sitenin temelini ve güvenli sonuç ekranını kurmayı planlıyoruz; ardından asistanı ve sonuç bildirimini devreye alıyoruz. Takvimi görüşmede birlikte netleştiriyoruz."
+ },
+ {
+  "no": "13",
+  "slayt": 15,
+  "metin": "Teknik yükü biz alalım; sağlık bilgisi sizin hekimlerinizde kalsın. Dinlediğiniz için teşekkür ederiz."
+ }
+]

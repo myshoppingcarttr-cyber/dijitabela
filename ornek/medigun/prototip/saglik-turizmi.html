@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-t="title">Sağlık Turizmi · Medigün (Prototip · Dijitabela)</title>
+<meta name="description" data-t-attr="content:meta" content="Medigün sağlık turizmi bilgilendirme sayfası: hizmet alanları, süreç ve bilgi talebi. Prototip.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#A91917">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/turizm.js" defer></script>
+</head>
+<body>
+<a class="atla" href="#ana" data-t="skip">İçeriğe geç</a>
+
+<div class="acil-serit">
+  <div class="kap">
+    <span data-t="emergency">Türkiye'de acil durumda:</span>
+    <a href="tel:112">112</a>
+    <a href="tel:+908502601222">+90 850 260 1 222</a>
+  </div>
+</div>
+
+<header class="ust">
+  <div class="kap">
+    <a class="marka" href="index.html" data-t-attr="aria-label:home">
+      <img src="img/logo-amblem-192.png" alt="" width="46" height="46">
+      <span><b>MEDİGÜN</b><small data-t="brandSub">Sağlık Turizmi</small></span>
+    </a>
+    <div class="dil-sec" role="group" data-t-attr="aria-label:langLabel" aria-label="Dil seçin">
+      <button type="button" data-dil="tr" lang="tr" aria-pressed="true" title="Türkçe">TR</button>
+      <button type="button" data-dil="en" lang="en" aria-pressed="false" title="English">EN</button>
+      <button type="button" data-dil="de" lang="de" aria-pressed="false" title="Deutsch">DE</button>
+    </div>
+  </div>
+</header>
+
+<main id="ana">
+  <section class="karsilama" aria-labelledby="t-baslik">
+    <div class="kap">
+      <div>
+        <span class="etiket" data-t="eyebrow">Uluslararası hastalar için bilgilendirme</span>
+        <h1 id="t-baslik" data-t="h1">Türkiye'de tedavi planlarken açık ve sakin bir süreç</h1>
+        <p class="giris" data-t="lead">Manisa ve İzmir'deki Medigün kurumlarında sunulan sağlık hizmetleri hakkında bilgi alın. Tıbbi belgeleriniz hekim tarafından değerlendirilir; tedavi kararını hekiminizle birlikte verirsiniz.</p>
+        <a class="dugme" href="#talep" data-t="cta">Bilgi talep edin</a>
+      </div>
+      <figure class="foto-cerceve" style="margin:0">
+        <img src="img/bina-soma.jpg" data-t-attr="alt:photoAlt" alt="Özel Medigün Hastanesi Soma binası" width="703" height="420">
+        <figcaption class="foto-alt" data-t="photoCap">Özel Medigün Hastanesi Soma</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="alan-baslik">
+    <div class="kap iki-sutun">
+      <div>
+        <span class="etiket" data-t="areasEyebrow">Hizmet alanları</span>
+        <h2 id="alan-baslik" data-t="areasH">Hangi bölümlerde bilgi alabilirsiniz?</h2>
+        <p data-t="areasP">Akhisar ve Soma hastanelerimizin resmî branş listesinden. Sağlık turizmi kapsamındaki bölümler hastane tarafından kesinleştirilecektir.</p>
+      </div>
+      <ul class="alanlar" id="alanlar"></ul>
+    </div>
+  </section>
+
+  <section class="bolum acik" aria-labelledby="surec-baslik">
+    <div class="kap">
+      <div class="bolum-bas">
+        <span class="etiket" data-t="stepsEyebrow">Süreç</span>
+        <h2 id="surec-baslik" data-t="stepsH">Beş adımda nasıl ilerliyoruz?</h2>
+      </div>
+      <ol class="surec" id="surec"></ol>
+    </div>
+  </section>
+
+  <section class="bolum" id="talep" aria-labelledby="talep-baslik">
+    <div class="kap iki-sutun">
+      <div>
+        <span class="etiket" data-t="formEyebrow">Bilgi talebi · demo</span>
+        <h2 id="talep-baslik" data-t="formH">Bize yazın</h2>
+        <p data-t="formP">Uluslararası hasta koordinatörümüz size kendi dilinizde dönüş yapar. Bu prototipte form hiçbir yere gönderilmez.</p>
+        <div class="yer-tutucu" style="margin-bottom:12px"><b data-t="licenseH">Sağlık turizmi yetki belgesi</b><br><span data-t="license">Belge numarası bu alanda yayımlanır (Yönetmelik md. 8/1-b).</span></div>
+        <div class="yer-tutucu"><b>HealthTürkiye</b><br><span data-t="htLogo">Resmî logo bu alanda yer alır (md. 8/1-e).</span></div>
+      </div>
+      <form class="kart" id="talep-form" novalidate style="margin:0">
+        <div class="form-satir"><label for="t-ad" data-t="fName">Ad soyad</label><input type="text" id="t-ad" autocomplete="name"></div>
+        <div class="form-satir"><label for="t-ulke" data-t="fCountry">Yaşadığınız ülke</label><input type="text" id="t-ulke" autocomplete="country-name"></div>
+        <div class="form-satir"><label for="t-eposta" data-t="fEmail">E-posta</label><input type="email" id="t-eposta" autocomplete="email"></div>
+        <div class="form-satir"><label for="t-konu" data-t="fTopic">Hangi bölümle ilgili?</label><select id="t-konu"></select></div>
+        <div class="form-satir"><label for="t-not" data-t="fNote">Kısa not (isteğe bağlı)</label><textarea id="t-not" rows="3"></textarea><div class="ipucu" data-t="fNoteHint">Lütfen bu alana ayrıntılı sağlık bilgisi yazmayın; belgeleriniz güvenli kanaldan istenir.</div></div>
+        <div class="form-satir kvkk-kutu" style="padding:0"><label><input type="checkbox" id="t-onay"> <span data-t="fConsent">Kişisel verilerimin bilgi talebimin yanıtlanması amacıyla işlenmesine ilişkin aydınlatma metnini okudum.</span></label></div>
+        <p class="not" role="alert" id="t-hata" style="color:#A91917"></p>
+        <button type="submit" class="dugme" data-t="fSend">Talebi gönder (demo)</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="alt">
+  <div class="kap">
+    <p data-t="footNote">Bu sayfa yalnız yurt dışında yaşayan kişilere yönelik bilgilendirme amaçlıdır. Önerilen yapı: yayında Yönetmelik md. 8/1-a gereği yurt dışına yönelik ayrı bir alan adı. Sağlık bilgilendirme metinleri Medigün'ün yetkili hekimlerince hazırlanır ve onaylanır.</p>
+    <p><span data-t="updated">Son güncelleme</span>: <time datetime="2026-10-14">14.10.2026</time> · <span data-t="editor">Site editörü iletişim: +90 850 260 1 222</span></p>
+    <div class="yasal">
+      <span data-t="proto">Bu bir prototiptir; yalnız tanıtım ve bilgilendirme içerir.</span>
+      <span class="kredi">Hazırlayan: Dijitabela · <a href="https://dijitabela.com" rel="noopener">dijitabela.com</a></span>
+    </div>
+  </div>
+</footer>
+<div class="filigran" aria-hidden="true"></div>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>
