@@ -6,7 +6,8 @@
 (function () {
   "use strict";
   if (window.DJ_WA_BUTON === false || document.getElementById("djwa") || document.querySelector(".djwa-b")) return;
-  var TEL = "905386765727", FIYAT = "4.900 TL";
+  var WA_NUMARA = "905019452184"; // 15 Eki: 0538 hesabi Meta tarafindan kapatildi, gelen mesaj icin 0501 (Danisman onayli). 0538 geri gelince "905019452184" yap.
+  var TEL = WA_NUMARA, FIYAT = "4.900 TL";
   // CK-2: kahve falı sayfalarında (yol bazlı) ya da <html data-fiyatsiz> işaretli sayfalarda tutar yazılmaz.
   var FIYATSIZ = /\/ornek\/kahve-fali(\/|$)/.test(location.pathname) || document.documentElement.hasAttribute("data-fiyatsiz");
   var temiz = function (t) { return String(t || "").replace(/\s+/g, " ").trim(); };

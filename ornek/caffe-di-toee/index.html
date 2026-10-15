@@ -114,7 +114,7 @@ footer{color:var(--soluk);font-size:14px;padding:30px 0 60px}
  <div class="ozet"><div><small>Tek seferlik kurulum</small><b id="tKur">0 ₺</b></div><div><small>Aylık ödeme</small><b id="tAy">0 ₺</b></div><div class="kdvd"><small>KDV dahil (%20)</small><b id="tKdv" style="font-size:17px">–</b></div><a id="tGonder" class="pasif" target="_blank" href="#">Seçimimi WhatsApp'tan gönder</a></div>
  <p class="kdv-not">Tüm fiyatlar <b>KDV hariçtir</b> (%20 KDV ayrıca eklenir) ve <b>20 Ekim 2026</b>'ya kadar geçerlidir. Reklam bütçesi ve masa QR kartlarının baskısı fiyata dahil değildir. Aylık hizmetlerde ilk ay deneme süresidir; memnun kalmazsanız devam etmezsiniz.</p>
 </section>
-<div class="cagri"><div><b>15 dakikada birlikte gezelim mi?</b><br>Size uygun bir saat yazmanız yeterli.</div><a href="https://wa.me/905386765727?text=Merhaba%2C%20Caff%C3%A9%20Di%20Toe%C3%A9%20i%C3%A7in%20haz%C4%B1rlanan%20tasar%C4%B1mlar%C4%B1%20inceledim.">WhatsApp'tan yaz</a></div>
+<div class="cagri"><div><b>15 dakikada birlikte gezelim mi?</b><br>Size uygun bir saat yazmanız yeterli.</div><a href="https://wa.me/905019452184?text=Merhaba%2C%20Caff%C3%A9%20Di%20Toe%C3%A9%20i%C3%A7in%20haz%C4%B1rlanan%20tasar%C4%B1mlar%C4%B1%20inceledim.">WhatsApp'tan yaz</a></div>
 </main>
 
 <section data-sv360 style="padding:64px 16px;background:inherit;color:inherit"><div style="max-width:1120px;margin:0 auto">
@@ -164,7 +164,7 @@ function hesapla(){let kur=0,ay=0;
  else if(uyg){o.style.display="block";o.innerHTML="✓ <b>"+uyg[0]+" paketi uygulandı</b>: "+(uyg[2]?tl(uyg[2])+" kurulum ücreti silindi (paketlerde kurulum ücretsiz)":"")+(uyg[1]?(uyg[2]?", ":"")+"aylık toplamdan "+tl(uyg[1])+" düşüldü":"")+".";}
  else o.style.display="none";
  const a=document.getElementById("tGonder");a.classList.toggle("pasif",!SEC.size);
- a.href="https://wa.me/905386765727?text="+encodeURIComponent("Merhaba, Caffé Di Toeé için seçtiğimiz özellikler:\n"+[...SEC].map(k=>"• "+T[k][1]).join("\n")+"\n\nKurulum: "+tl(kur)+" · Aylık: "+tl(ay)+" (KDV hariç)");}
+ a.href="https://wa.me/905019452184?text="+encodeURIComponent("Merhaba, Caffé Di Toeé için seçtiğimiz özellikler:\n"+[...SEC].map(k=>"• "+T[k][1]).join("\n")+"\n\nKurulum: "+tl(kur)+" · Aylık: "+tl(ay)+" (KDV hariç)");}
 kutular.forEach(c=>c.onchange=()=>{c.checked?SEC.add(c.value):SEC.delete(c.value);hesapla();});
 hesapla();})();
 </script>

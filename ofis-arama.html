@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16181D">
+<title>Arama Panosu · Dijitabela Ofisi</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#EDEBE4;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#DDD9CF;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--mavi:#2F6FEB;--koyu:#16181D}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45;overflow-x:hidden}
+.kap{max-width:760px;margin:0 auto;padding:12px 12px 70px}
+header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.logo{flex:none;width:40px;height:40px;border-radius:10px;background:var(--koyu);display:grid;place-items:center;color:var(--sari);font:700 1.3rem 'Space Mono',monospace}
+h1{font-size:1.15rem;font-weight:800;line-height:1.15}
+.alt-b{font-size:.76rem;color:var(--soluk)}
+.geri{font-size:.8rem;font-weight:700;color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);padding:8px 12px;border-radius:999px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.ust{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.sekmeler{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:sticky;top:0;z-index:20;background:var(--zemin);padding:6px 0 8px}
+.sek{font:inherit;border:2px solid var(--cizgi);background:var(--kart);border-radius:12px;padding:8px 2px;font-size:.7rem;font-weight:700;color:var(--soluk);min-height:54px;cursor:pointer;line-height:1.15}
+.sek b{display:block;font-size:1.15rem;color:var(--yazi);font-weight:800}
+.sek.ac{border-color:var(--koyu);background:var(--koyu);color:#fff}.sek.ac b{color:var(--sari)}
+.ara-kutu{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:2px solid var(--cizgi);border-radius:12px;background:#fff;margin-bottom:8px}
+.durum{font-size:.76rem;color:var(--soluk);margin:2px 2px 8px}
+.k{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:13px;margin-bottom:12px;border-left:6px solid var(--cizgi)}
+.k.s20{border-left-color:var(--sari)}
+.k.gor{border-left-color:var(--yesil)}.k.ulas{border-left-color:var(--soluk)}.k.ilgi{border-left-color:var(--kirmizi);opacity:.82}.k.geri-ara{border-left-color:var(--mavi)}
+.bas{display:flex;gap:8px;align-items:flex-start}
+.sira{flex:none;min-width:34px;height:34px;border-radius:9px;background:var(--sari);color:var(--koyu);font:700 .95rem 'Space Mono',monospace;display:grid;place-items:center;padding:0 4px}
+.sira.g{background:#E7E4DA;color:var(--soluk)}
+.bas h2{font-size:1.02rem;font-weight:800;line-height:1.2;overflow-wrap:anywhere}
+.alt{font-size:.78rem;color:var(--soluk);margin-top:2px;overflow-wrap:anywhere}
+.cip{display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;padding:2px 8px;border-radius:999px;background:#EFEDE5;color:var(--soluk);margin-left:4px;vertical-align:middle}
+.cip.d{background:#DDF3E7;color:var(--yesil)}.cip.r{background:#FBE2E2;color:var(--kirmizi)}.cip.m{background:#E1EBFD;color:var(--mavi)}
+.dugler{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:11px 0 8px}
+.dugler a{font:inherit;font-weight:800;font-size:.95rem;min-height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:2px solid var(--mavi);color:var(--mavi);background:#fff;text-align:center;padding:4px}
+.dugler a.tel{background:var(--yesil);border-color:var(--yesil);color:#fff;font-size:1.05rem}
+.dugler a.wa{border-color:#25D366;color:#128C4A}
+.dugler a.tek{grid-column:1/-1}
+.tel-no{font:700 .86rem 'Space Mono',monospace;color:var(--soluk);margin-bottom:6px;overflow-wrap:anywhere}
+.blk{font-size:.84rem;margin-top:8px;padding:9px 11px;border-radius:11px;background:#F6F4EC;border:1px solid var(--cizgi);overflow-wrap:anywhere}
+.blk b.e{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--soluk);margin-bottom:3px}
+.blk.nt{background:#FFF8E1;border-color:#F0D98A}
+.blk.nt .t{white-space:pre-wrap}
+.blk.nt.uz .t{max-height:7.2em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 60%,transparent)}
+.dahafazla{font:inherit;font-size:.78rem;font-weight:800;color:var(--mavi);background:none;border:0;padding:8px 0 2px;min-height:36px;cursor:pointer}
+.sonuc{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}
+.sonuc button{font:inherit;font-size:.9rem;font-weight:800;min-height:54px;border-radius:12px;border:2px solid var(--cizgi);background:#fff;cursor:pointer;padding:4px;line-height:1.15}
+.sonuc .b-g{border-color:var(--yesil);color:var(--yesil)}.sonuc .b-u{color:var(--soluk)}.sonuc .b-i{border-color:var(--kirmizi);color:var(--kirmizi)}.sonuc .b-t{border-color:var(--mavi);color:var(--mavi)}
+.sonuc button.sec.b-g{background:var(--yesil);color:#fff}.sonuc button.sec.b-u{background:var(--soluk);color:#fff;border-color:var(--soluk)}.sonuc button.sec.b-i{background:var(--kirmizi);color:#fff}.sonuc button.sec.b-t{background:var(--mavi);color:#fff}
+textarea.nt{width:100%;font:inherit;font-size:1rem;padding:10px 12px;border:2px solid var(--cizgi);border-radius:12px;margin-top:8px;min-height:64px;resize:vertical}
+.kaydet{width:100%;font:inherit;font-size:1rem;font-weight:800;min-height:54px;border-radius:12px;border:0;background:var(--koyu);color:#fff;margin-top:8px;cursor:pointer}
+.kaydet:disabled{opacity:.5}
+.geriAl{font:inherit;font-weight:800;font-size:.85rem;min-height:44px;border-radius:12px;border:2px solid var(--kirmizi);color:var(--kirmizi);background:#fff;margin-top:8px;padding:0 14px;cursor:pointer}
+.bos{text-align:center;color:var(--soluk);padding:40px 12px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--koyu);color:#fff;padding:12px 18px;border-radius:12px;font-size:.9rem;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50;max-width:92vw;text-align:center}
+.toast.ac{opacity:1}
+.giris{max-width:420px;margin:12vh auto;padding:0 16px}.giris h1{margin-bottom:8px}.giris p{color:var(--soluk);font-size:.9rem;margin-bottom:10px}
+.giris input{width:100%;font:inherit;font-size:1rem;padding:13px;border:2px solid var(--cizgi);border-radius:12px;margin-bottom:8px}
+.giris button{width:100%;font:inherit;font-weight:800;min-height:52px;border-radius:12px;border:0;background:var(--koyu);color:#fff;margin-bottom:8px;cursor:pointer}
+.kredi{text-align:center;font-size:.72rem;color:var(--soluk);margin-top:18px}.kredi a{color:inherit}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="kap" id="uyg" hidden>
+  <header>
+    <div class="logo">d</div>
+    <div><h1>Arama Panosu</h1><span class="alt-b" id="alt">yalnız size özel</span></div>
+    <div class="ust"><a class="geri" href="ofis-patron.html">📋 İşlerim</a><a class="geri" href="ofis-yonetim.html">🧭 Yönetim</a></div>
+  </header>
+  <nav class="sekmeler" id="sekmeler" aria-label="Liste">
+    <button class="sek ac" data-s="s20" type="button"><b id="n-s20">0</b>Sıcak 20</button>
+    <button class="sek" data-s="aranacak" type="button"><b id="n-aranacak">0</b>Aranacak</button>
+    <button class="sek" data-s="arandi" type="button"><b id="n-arandi">0</b>Arananlar</button>
+    <button class="sek" data-s="hepsi" type="button"><b id="n-hepsi">0</b>Tümü</button>
+  </nav>
+  <input class="ara-kutu" id="ara" type="search" placeholder="İşletme, yetkili ya da şehir ara…" autocomplete="off">
+  <div class="durum" id="son">Yükleniyor…</div>
+  <div id="liste"></div>
+  <p class="kredi">Tasarım: <a href="https://dijitabela.com">Dijitabela · dijitabela.com</a></p>
+</div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
+<div class="giris" id="giris" hidden>
+  <h1>Arama Panosu</h1>
+  <p>Ofis ile aynı giriş. E-postanıza giriş kodu gelir; kodu buraya yazın.</p>
+  <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
+  <button id="gonder" type="button">Giriş kodu gönder</button>
+  <div id="kodalan" hidden><input id="kod" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="E-postadaki kod"><button id="kodgir" type="button">Giriş</button></div>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var ASAMALAR = ["gorusme", "prototip", "teklif", "iletisim"];
+  var ASAMA_AD = { gorusme: "görüşme", prototip: "prototip", teklif: "teklif", iletisim: "iletişim" };
+  var SONUC = {
+    gorusuldu: { ad: "Görüştüm-randevu", sinif: "b-g", adim: "Randevu alındı; görüşmeye hazırlan" },
+    ulasilamadi: { ad: "Ulaşamadım", sinif: "b-u", adim: "Ulaşılamadı; tekrar ara" },
+    ilgilenmiyor: { ad: "İlgilenmiyor", sinif: "b-i", adim: "İlgilenmiyor dedi; takip yok" },
+    geri_ara: { ad: "Tekrar ara", sinif: "b-t", adim: "Tekrar ara" }
+  };
+  var sekme = "s20", ADAYLAR = [], basladi = false, seciliSonuc = {}, geriAlMap = {}, yuklendi = false;
+  var zaman = function (d) { return d ? new Date(d).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) : ""; };
+  var guvenliUrl = function (u) { u = String(u || "").trim(); return /^https?:\/\//i.test(u) ? u : ""; };
+  var para = function (n) { n = Number(n); return n > 0 ? n.toLocaleString("tr-TR") + " ₺" : ""; };
+  var toastT; function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("ac"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("ac"); }, 3200); }
+
+  function telBilgi(t) {
+    t = String(t || "").trim();
+    if (/^(bionluk|armut):/i.test(t)) return { gor: t, tel: "", wa: "" };
+    var d = t.replace(/\D/g, ""); if (d.length < 10) return { gor: t, tel: "", wa: "" };
+    var on = d.slice(-10);
+    return { gor: "0" + on.slice(0, 3) + " " + on.slice(3, 6) + " " + on.slice(6, 8) + " " + on.slice(8), tel: "tel:+90" + on, wa: "https://wa.me/90" + on };
+  }
+  function hazirla(a) {
+    var n = Array.isArray(a.notlar) ? a.notlar : [];
+    a._s20 = 0; a._aramaNotu = ""; a._cevap = null;
+    n.forEach(function (x) {
+      var m = String(x.metin || x.m || "");
+      var k = String(x.tur || x.k || "");
+      var s = m.match(/^SICAK20 [^:]*sira (\d+)/); if (s) a._s20 = Number(s[1]);
+      if (/^ARAMA NOTU/i.test(m)) a._aramaNotu = m;
+      if (k === "cevap") a._cevap = x;
+    });
+    a._tel = telBilgi(a.tel);
+    return a;
+  }
+  function siralaListe(L) {
+    return L.slice().sort(function (x, y) {
+      if (x._s20 && y._s20) return x._s20 - y._s20;
+      if (x._s20) return -1; if (y._s20) return 1;
+      return (Number(y.tahmini_tutar) || 0) - (Number(x.tahmini_tutar) || 0);
+    });
+  }
+  function aranmis(a) { return a.arama_durum && a.arama_durum !== "aranmadi"; }
+  function suzulen() {
+    var q = ($("ara").value || "").toLowerCase().trim();
+    var L = ADAYLAR.filter(function (a) {
+      if (sekme === "s20" && !a._s20) return false;
+      if (sekme === "aranacak" && aranmis(a)) return false;
+      if (sekme === "arandi" && !aranmis(a)) return false;
+      if (q && (String(a.isletme || "") + " " + String(a.yetkili || "") + " " + String(a.sehir || "") + " " + String(a.ilce || "") + " " + String(a.sektor || "")).toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+    return siralaListe(L);
+  }
+  function durumSinif(a) { return { gorusuldu: "gor", ulasilamadi: "ulas", ilgilenmiyor: "ilgi", geri_ara: "geri-ara" }[a.arama_durum] || ""; }
+  function kartHtml(a, i) {
+    var t = a._tel, o = [];
+    var d = a.arama_durum && SONUC[a.arama_durum];
+    o.push('<article class="k ' + (a._s20 ? "s20 " : "") + durumSinif(a) + '" data-id="' + esc(a.id) + '">');
+    o.push('<div class="bas"><div class="sira' + (a._s20 ? "" : " g") + '">' + (a._s20 ? a._s20 : (i + 1)) + '</div><div><h2>' + esc(a.isletme) + '</h2><div class="alt">' + esc([a.yetkili, a.sektor, [a.ilce, a.sehir].filter(Boolean).join("/")].filter(Boolean).join(" · ")) + ' <span class="cip">' + esc(ASAMA_AD[a.asama] || a.asama) + '</span>' + (d ? ' <span class="cip ' + (a.arama_durum === "gorusuldu" ? "d" : a.arama_durum === "ilgilenmiyor" ? "r" : "m") + '">' + esc(d.ad) + (a.arama_tarih ? " · " + esc(zaman(a.arama_tarih)) : "") + '</span>' : "") + '</div></div></div>');
+    o.push('<div class="tel-no">' + esc(t.gor || "telefon yok") + '</div>');
+    var dg = [];
+    if (t.tel) dg.push('<a class="tel" href="' + t.tel + '">📞 Ara</a>');
+    if (t.wa) dg.push('<a class="wa" href="' + t.wa + '" target="_blank" rel="noopener">💬 WhatsApp aç</a>');
+    var pu = guvenliUrl(a.prototip); if (pu) dg.push('<a class="tek" href="' + esc(pu) + '" target="_blank" rel="noopener">🖥️ Prototipi aç</a>');
+    if (dg.length) o.push('<div class="dugler">' + dg.join("") + '</div>');
+    var teklif = [para(a.tahmini_tutar), a.teklif_no ? "teklif no " + a.teklif_no : ""].filter(Boolean).join(" · ");
+    o.push('<div class="blk"><b class="e">Teklif</b>' + (teklif ? esc(teklif) : "Tutar sunulmadı / kayıt yok") + '</div>');
+    if (a._aramaNotu) {
+      var uz = a._aramaNotu.length > 420;
+      o.push('<div class="blk nt' + (uz ? " uz" : "") + '"><b class="e">Arama notu</b><div class="t">' + esc(a._aramaNotu.replace(/^ARAMA NOTU[^:\n]*:?\s*/i, "")) + '</div>' + (uz ? '<button type="button" class="dahafazla" data-e="uz">Tamamını göster ▾</button>' : "") + '</div>');
+    } else o.push('<div class="blk nt"><b class="e">Arama notu</b>Not hazırlanıyor (Defne yazıyor).</div>');
+    if (a._cevap) o.push('<div class="blk"><b class="e">Son cevabı · ' + esc(zaman(a._cevap.tarih)) + '</b>' + esc(String(a._cevap.metin || "").slice(0, 300)) + '</div>');
+    if (a.sonraki_adim) o.push('<div class="blk"><b class="e">Sonraki adım</b>' + esc(a.sonraki_adim) + '</div>');
+    var sc = seciliSonuc[a.id] || "";
+    o.push('<div class="sonuc">' + Object.keys(SONUC).map(function (k) { return '<button type="button" class="' + SONUC[k].sinif + (sc === k ? " sec" : "") + '" data-e="sonuc" data-k="' + k + '">' + esc(SONUC[k].ad) + '</button>'; }).join("") + '</div>');
+    o.push('<textarea class="nt" rows="2" placeholder="Kısa not (ne konuştunuz, ne zaman arayacaksınız)…" data-e="not"></textarea>');
+    o.push('<button type="button" class="kaydet" data-e="kaydet">Kaydet</button>');
+    if (geriAlMap[a.id]) o.push('<button type="button" class="geriAl" data-e="geri">↩ Son kaydı geri al</button>');
+    o.push('</article>');
+    return o.join("");
+  }
+  function ciz() {
+    var L = suzulen();
+    var sayi = { s20: 0, aranacak: 0, arandi: 0, hepsi: ADAYLAR.length };
+    ADAYLAR.forEach(function (a) { if (a._s20) sayi.s20++; if (aranmis(a)) sayi.arandi++; else sayi.aranacak++; });
+    Object.keys(sayi).forEach(function (k) { $("n-" + k).textContent = sayi[k]; });
+    var gorunen = L.slice(0, 60);
+    var scrollY = window.scrollY;
+    $("liste").innerHTML = gorunen.length ? gorunen.map(kartHtml).join("") : '<div class="bos">Bu listede aday yok.</div>';
+    $("son").textContent = L.length + " aday" + (L.length > 60 ? " (ilk 60 gösteriliyor; aramayla daralt)" : "") + " · son güncelleme " + zaman(new Date());
+    window.scrollTo(0, scrollY);
+  }
+  var KOLON = "id,isletme,yetkili,sektor,sehir,ilce,tel,prototip,asama,tahmini_tutar,teklif_no,sonraki_adim,sonraki_tarih,arama_durum,arama_tarih,notlar";
+  async function yukle(sessiz) {
+    if (document.activeElement && document.activeElement.tagName === "TEXTAREA" && document.activeElement.value) return;
+    var q = await sb.from("adaylar").select(KOLON).in("asama", ASAMALAR).limit(1000);
+    if (q.error) { $("son").textContent = "Okunamadı: " + q.error.message; return; }
+    var eski = {}; ADAYLAR.forEach(function (a) { eski[a.id] = 1; });
+    ADAYLAR = (q.data || []).map(hazirla);
+    yuklendi = true; ciz();
+  }
+  async function kaydet(id, kart) {
+    var k = seciliSonuc[id]; var tx = kart.querySelector("textarea.nt"), not = (tx.value || "").trim();
+    if (!k) { toast("Önce bir sonuç düğmesine basın."); return; }
+    var btn = kart.querySelector(".kaydet"); btn.disabled = true;
+    var cur = await sb.from("adaylar").select("arama_durum,arama_tarih,sonraki_adim,sonraki_tarih,notlar").eq("id", id).single();
+    if (cur.error) { btn.disabled = false; toast("Okunamadı: " + cur.error.message); return; }
+    var simdi = new Date(), onceki = cur.data;
+    var yarin = new Date(simdi.getTime() + 86400000);
+    var yTR = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Istanbul" }).format(yarin);
+    var adim = SONUC[k].adim + (not ? " · " + not : "");
+    var yeniNot = { tur: "arama", metin: "Patron araması " + zaman(simdi) + " — " + SONUC[k].ad + (not ? ": " + not : ""), tarih: simdi.toISOString(), kim: "patron" };
+    var up = { arama_durum: k, arama_tarih: simdi.toISOString(), sonraki_adim: adim, notlar: (Array.isArray(onceki.notlar) ? onceki.notlar : []).concat([yeniNot]), guncelleme: simdi.toISOString() };
+    if (k === "geri_ara" || k === "ulasilamadi") up.sonraki_tarih = yTR;
+    var r = await sb.from("adaylar").update(up).eq("id", id).select("id");
+    btn.disabled = false;
+    if (r.error || !r.data || !r.data.length) { toast("Kaydedilemedi: " + (r.error ? r.error.message : "yetki yok")); return; }
+    geriAlMap[id] = { arama_durum: onceki.arama_durum, arama_tarih: onceki.arama_tarih, sonraki_adim: onceki.sonraki_adim, sonraki_tarih: onceki.sonraki_tarih, notlar: onceki.notlar };
+    delete seciliSonuc[id]; toast("Kaydedildi ✓");
+    var a = ADAYLAR.filter(function (x) { return x.id === id; })[0];
+    if (a) { a.arama_durum = up.arama_durum; a.arama_tarih = up.arama_tarih; a.sonraki_adim = up.sonraki_adim; if (up.sonraki_tarih) a.sonraki_tarih = up.sonraki_tarih; a.notlar = up.notlar; hazirla(a); }
+    ciz();
+  }
+  async function geriAl(id) {
+    var s = geriAlMap[id]; if (!s) return;
+    var up = { arama_durum: s.arama_durum || "aranmadi", arama_tarih: s.arama_tarih, sonraki_adim: s.sonraki_adim, sonraki_tarih: s.sonraki_tarih, notlar: s.notlar || [] };
+    var r = await sb.from("adaylar").update(up).eq("id", id).select("id");
+    if (r.error || !r.data || !r.data.length) { toast("Geri alınamadı: " + (r.error ? r.error.message : "yetki yok")); return; }
+    delete geriAlMap[id]; toast("Geri alındı ↩");
+    var a = ADAYLAR.filter(function (x) { return x.id === id; })[0];
+    if (a) { a.arama_durum = up.arama_durum; a.arama_tarih = up.arama_tarih; a.sonraki_adim = up.sonraki_adim; a.sonraki_tarih = up.sonraki_tarih; a.notlar = up.notlar; hazirla(a); }
+    ciz();
+  }
+  $("liste").addEventListener("click", function (ev) {
+    var b = ev.target.closest("[data-e]"); if (!b) return; var kart = b.closest(".k"); if (!kart) return; var id = kart.dataset.id, e = b.dataset.e;
+    if (e === "sonuc") { seciliSonuc[id] = b.dataset.k; Array.prototype.forEach.call(kart.querySelectorAll(".sonuc button"), function (x) { x.classList.toggle("sec", x === b); }); }
+    else if (e === "kaydet") kaydet(id, kart);
+    else if (e === "geri") geriAl(id);
+    else if (e === "uz") { var blk = b.closest(".blk"); var acik = blk.classList.toggle("uz"); b.textContent = acik ? "Tamamını göster ▾" : "Daralt ▴"; }
+  });
+  $("sekmeler").addEventListener("click", function (ev) { var b = ev.target.closest(".sek"); if (!b) return; sekme = b.dataset.s; Array.prototype.forEach.call(document.querySelectorAll(".sek"), function (x) { x.classList.toggle("ac", x === b); }); ciz(); });
+  $("ara").addEventListener("input", function () { ciz(); });
+
+  function basla() { $("giris").hidden = true; $("uyg").hidden = false; yukle(); setInterval(function () { if (!document.hidden) yukle(true); }, 60000); }
+  function girisGoster(m) { $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; }
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın (bağlantıya dokunmanız gerekmez).";
+    if (!r.error) $("kodalan").hidden = false;
+  };
+  $("kodgir").onclick = async function () {
+    var r = await sb.auth.verifyOtp({ email: $("eposta").value.trim(), token: $("kod").value.replace(/\D/g, ""), type: "email" });
+    if (r.error) $("gmsg").textContent = "Kod olmadı: " + r.error.message;
+  };
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" data-gucu="0.035" data-kredi="0" defer></script>
+</body>
+</html>

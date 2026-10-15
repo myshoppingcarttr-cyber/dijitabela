@@ -9,7 +9,7 @@
     ad: "Fincan Falı",
     slogan: "Fincanın söylediğini dinle",
     logo: "",            // "" = yerleşik fincan logosu; "<svg ...>" metni; ya da görsel yolu / data: adresi
-    wa: "905386765727",  // WhatsApp numarası (ülke koduyla, + ve boşluk olmadan)
+    wa: "905019452184",  // WhatsApp numarası (ülke koduyla, + ve boşluk olmadan)
     alan: "fincanfali.com",
     tema: {              // 3 temanın her biri için birincil (altın) ve vurgu (mor) renk; *2 = açık ton
       gece:      { birincil: "#d9ab55", birincil2: "#f2d391", vurgu: "#6b3fa0", vurgu2: "#9b72d0" },

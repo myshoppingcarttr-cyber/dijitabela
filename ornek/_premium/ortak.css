@@ -67,3 +67,21 @@ footer{padding:40px 0 90px;color:var(--soluk);font-size:.88rem;border-top:1px so
 
 /* 9 Eki 2026: sayfadaki .hero/.bolum{padding:64px 0 ...} kısaltması .kap yan boşluğunu sıfırlıyordu → telefonda metin ekran kenarına yapışıyordu (151 prototip). */
 .kap{padding-left:20px!important;padding-right:20px!important}
+/* İ-1015-PROTO-MOBIL (Mert, G-27): 375 px başlık sarma, yatay taşma, dokunma hedefi ≥44px */
+html,body{overflow-x:hidden}
+img,iframe,video,table{max-width:100%}
+@media(max-width:620px){
+.ust-cubuk .kap{height:auto;min-height:68px;padding-top:8px;padding-bottom:8px}
+.logo{white-space:normal;overflow:visible;text-overflow:clip;max-width:100%;overflow-wrap:anywhere;line-height:1.15}
+.logo small{white-space:normal;line-height:1.3;overflow-wrap:anywhere}
+.kap,.arac,.kart,.hero,.hero *{min-width:0;overflow-wrap:break-word}
+a.dg,.dg,button,.cip,.sk,.dil button,.yuzen a,select,input,summary,.arac a,.arac button,.arac label{min-height:44px}
+.cip,.dil button,.dg,.arac button{padding-top:11px;padding-bottom:11px;display:inline-flex;align-items:center;justify-content:center}
+.yuzen a{min-width:44px}
+.taslak a,nav a,a[href^="tel:"],a[target="_blank"]{display:inline-flex;align-items:center;min-height:44px}
+.taslak a{justify-content:center;padding:0 6px}
+}
+
+/* YAMA elif-1015e: 375 px mobil duzeltmeleri (yatay tasma + kesik ust baslik alt satiri) */
+@media(max-width:620px){.logo{max-width:100%}.logo small{white-space:normal;line-height:1.3}}
+@media(max-width:420px){.hero .ic h1{font-size:clamp(1.7rem,8.2vw,2.1rem);overflow-wrap:anywhere}}

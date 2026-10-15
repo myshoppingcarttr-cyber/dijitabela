@@ -4,7 +4,7 @@ window.AJANS = {
   slogan: "Yerel işletmeler için web, yazılım ve yapay zekâ",
   sahip: "Alim Hoşlar",
   telefon: "0501 945 21 84",     // 14 Eki: ana arama hattı 0501 (WhatsApp randevu hattı 0538)
-  whatsapp: "905386765727",
+  whatsapp: "905019452184",
   telefon2: "",          // 9 Eki: 0538 resmî WhatsApp hattı (7/24 asistan + ücretsiz taslak düğmesi)
   whatsapp2: "",
   eposta: "info@dijitabela.com",       // Natro ücretsiz mail kutusu (alan adı aktif olunca kurulacak)

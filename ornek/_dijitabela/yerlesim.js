@@ -39,7 +39,7 @@
       if (p && p.classList.contains("kapali")) p.classList.remove("kapali");
     }, true);
     const tel = document.querySelector('a[href^="tel:"]');
-    const wa = [...document.querySelectorAll('a[href*="wa.me/"]')].find((a) => !a.href.includes("905386765727"));
+    const wa = [...document.querySelectorAll('a[href*="wa.me/"]')].find((a) => !a.href.includes("905019452184"));
     const ikon = ["◉", "◆", "▲", "✦"];
     const bar = document.createElement("nav"); bar.className = "yz-alt";
     bar.innerHTML = liste.slice(0, wa ? 3 : 4).map((l, i) => `<a href="#${l.s.id}"><i>${ikon[i]}</i>${kisa(l.ad)}</a>`).join("") + (wa ? `<a href="${wa.getAttribute("href")}" target="_blank" rel="noopener"><i>💬</i>WhatsApp</a>` : "") + (tel ? `<a class="ara" href="${tel.getAttribute("href")}"><i>📞</i>Ara</a>` : "");
