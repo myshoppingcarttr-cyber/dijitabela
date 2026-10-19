@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mien Grup · Haftalık Reklam Raporu (Örnek)</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F3EF;--fg:#16181D;--mut:#646A75;--line:#E3E0D8;--led:#FFB000;--ledi:#8A5A00;--ok:#17a55a;--err:#c7362b;--c1:#0e7a68;--c2:#FFB000}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.55}
+.dj-fil{position:fixed;left:0;bottom:0;z-index:98;background:#16181D;color:#FFB000;font:700 10.5px/1 "Space Mono",monospace;letter-spacing:.06em;padding:6px 9px;text-transform:uppercase}
+.ust{background:var(--fg);color:#fff}.kap{max-width:1180px;margin:0 auto;padding:0 20px}
+.ust .kap{display:flex;align-items:center;gap:14px;min-height:66px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.ust b{font-size:1.15rem;font-weight:800}.ust span{margin-left:auto;font:700 .78rem "Space Mono",monospace;color:var(--led);letter-spacing:.06em}
+.ornek{background:#FFF3D6;border-bottom:2px solid var(--led);color:var(--ledi);font:700 .82rem "Space Mono",monospace;text-align:center;padding:9px 12px;letter-spacing:.05em}
+h1{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.1;letter-spacing:-.02em;font-weight:800;margin:30px 0 6px}
+.alt{color:var(--mut);max-width:760px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 4px}.bar button{border:1.5px solid var(--line);background:#fff;padding:8px 14px;font:700 13px "Plus Jakarta Sans";cursor:pointer}.bar button.on{background:var(--fg);color:#fff;border-color:var(--fg)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.k{background:#fff;border:1px solid var(--line);border-top:3px solid var(--led);padding:14px 16px}.k small{display:block;color:var(--mut);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600}.k b{display:block;font-size:1.9rem;letter-spacing:-.02em;font-weight:800}.k i{font-style:normal;font-size:.8rem;font-weight:700}.up{color:var(--ok)}.dn{color:var(--err)}
+.pano{display:grid;grid-template-columns:1.5fr 1fr;gap:12px}
+.kt{background:#fff;border:1px solid var(--line);padding:16px 18px;margin-bottom:12px;overflow-x:auto}.kt h2{font-size:1.05rem;font-weight:800;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:520px}th{text-align:left;font:700 .7rem "Space Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);padding:7px 8px;border-bottom:2px solid var(--fg)}td{padding:9px 8px;border-bottom:1px solid var(--line)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px;background:#e7f5ed;color:#0d7a40}.chip.n{background:#fbe6e3;color:var(--err)}.chip.i{background:#FFF3D6;color:var(--ledi)}
+.lg{display:flex;gap:16px;font-size:.8rem;color:var(--mut);margin-bottom:6px}.lg i{display:inline-block;width:10px;height:10px;margin-right:5px;border-radius:2px}
+svg.gr{width:100%;height:auto;display:block}
+.gunluk li{list-style:none;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);position:relative;font-size:.9rem}.gunluk li:before{content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;border-radius:50%;background:var(--led)}.gunluk li b{font:700 .72rem "Space Mono",monospace;color:var(--ledi);display:block}
+.not{font-size:.82rem;color:var(--mut);margin:10px 0 40px}
+@media(max-width:860px){.kpi{grid-template-columns:1fr 1fr}.pano{grid-template-columns:1fr}}
+@media print{.bar{display:none}}
+</style>
+</head>
+<body>
+<div class="dj-fil">Dijitabela prototip</div>
+<div class="ust"><div class="kap"><b>Mien Grup · Google Ads haftalık rapor</b><span>2 AYLIK YÖNETİM PANOSU</span></div></div>
+<div class="ornek">ÖRNEK VERİ: bu sayılar sizin hesabınızdan gelmez; panonun nasıl görüneceğini göstermek için üretilmiş demo veridir.</div>
+<div class="kap">
+  <h1>Haftalık reklam raporu</h1>
+  <p class="alt">Yönetim süresince her hafta bu pano güncellenir: kaç kişi gördü, kaç kişi tıkladı, kaçı WhatsApp'tan yazdı ya da aradı ve bu hafta hesapta neyi değiştirdik.</p>
+  <div class="bar" id="bar" role="tablist"></div>
+  <div class="kpi" id="kpi"></div>
+  <div class="pano">
+    <div><div class="kt"><h2>Günlük tıklama ve dönüşüm</h2><div class="lg"><span><i style="background:var(--c1)"></i>Tıklama</span><span><i style="background:var(--c2)"></i>Dönüşüm (WhatsApp, arama, form)</span></div><div id="gr"></div></div>
+    <div class="kt"><h2>Kampanya bazlı tablo</h2><table id="kamp"></table></div>
+    <div class="kt"><h2>Arama terimleri (kullanıcıların yazdığı gerçek aramalar)</h2><table id="terim"></table></div></div>
+    <div><div class="kt"><h2>Bu hafta yaptığımız optimizasyonlar</h2><ul class="gunluk" id="log"></ul></div>
+    <div class="kt"><h2>Hesap kontrolü</h2><p style="font-size:.9rem">Hesap ve fatura sizde. Reklamları istediğiniz an durdurabilir, tekrar başlatabilirsiniz; biz yönetici erişimiyle çalışırız. Dönüşüm hedefleri: WhatsApp tıklaması, arama, keşif formu.</p></div></div>
+  </div>
+  <p class="not">Örnek veri etiketi: tüm rakamlar, kampanya adları dışında, uydurma demo değerlerdir. Gerçek raporda rakamlar Google Ads hesabınızdan alınır; arama hacmi ve maliyet tahmini hesaba erişimle Anahtar Kelime Planlayıcı'dan çıkarılır.</p>
+</div>
+<script>
+(function(){
+  function rnd(s){return function(){s=(s*1664525+1013904223)%4294967296;return s/4294967296}}
+  var K=[['Kış bahçesi · İstanbul',1.0],['Kenet çatı · İstanbul',0.55],['Pergola · İstanbul',0.7],['Rehau doğrama · İstanbul',0.65],['Kış bahçesi · Almanca (Münih)',0.22]];
+  var HF=8,D=[];
+  for(var w=0;w<HF;w++){
+    var r=rnd(100+w*7),g=0.55+w*0.07,days=[],tot={t:0,g:0,d:0,wa:0,ar:0,fo:0},kp=[];
+    for(var d=0;d<7;d++){var t=Math.round((22+r()*10)*g*(d>4?0.8:1)),dn=Math.round(t*(0.05+w*0.008+r()*0.02));days.push([t,dn]);}
+    K.forEach(function(k){var t=Math.round(days.reduce(function(a,x){return a+x[0]},0)*k[1]/3.2),gs=Math.round(t*(16+r()*6)),dn=Math.max(0,Math.round(t*(0.05+w*0.008+r()*0.03)));kp.push([k[0],gs,t,dn]);});
+    var T=days.reduce(function(a,x){return a+x[0]},0),Dn=days.reduce(function(a,x){return a+x[1]},0);
+    var Gs=kp.reduce(function(a,x){return a+x[1]},0);
+    var wa=Math.round(Dn*0.55),ar=Math.round(Dn*0.3);
+    D.push({days:days,kp:kp,t:T,g:Gs,d:Dn,wa:wa,ar:ar,fo:Dn-wa-ar});
+  }
+  var LOG=[
+   ['Hesap devri ve düzenleme','Mevcut hesap incelendi, kampanyalar ürün bazında yeniden kuruldu; dönüşüm hedefleri (WhatsApp, arama, form) tanımlandı.'],
+   ['İlk arama terimi taraması','Alakasız aramalar negatif listeye eklendi (ör. ikinci el, ücretsiz, iş ilanı); reklam metinleri ilk testle yayına alındı.'],
+   ['Bölge ayarı','İlçe bazlı hedefleme sonuçlarına göre Beykoz ve Sarıyer\'de teklifler artırıldı, düşük dönüşümlü saatler kısıldı.'],
+   ['Reklam metni testi','İki başlık varyantı karşılaştırıldı; WhatsApp çağrısı olanı daha çok tıklandığı için öne alındı.'],
+   ['Açılış sayfası güncellemesi','Seçilen açılış sayfasında keşif sihirbazı kısaltıldı; mobil form tamamlama oranı izlendi.'],
+   ['Almanca kampanya taslağı','Münih kampanyasında Almanca arama terimleri incelendi, ilgisiz aramalar ayıklandı.'],
+   ['Anahtar kelime genişletme','Arama terimlerinden yeni, işe yarayan kelimeler gruplara eklendi.'],
+   ['İki aylık değerlendirme','Hangi kampanya neyi getirdi özetlendi; sonraki dönem bütçe dağılımı önerisi hazırlandı.']];
+  var TERIM=[['kış bahçesi fiyatları istanbul','Kış bahçesi','Eklendi'],['cam çatı kış bahçesi','Kış bahçesi','Eklendi'],['kenet çatı yapımı','Kenet çatı','Eklendi'],['pergola sistemleri','Pergola','İzleniyor'],['rehau pencere servisi','Rehau doğrama','İzleniyor'],['kış bahçesi nasıl yapılır','Kış bahçesi','Negatif'],['ikinci el pergola','Pergola','Negatif'],['pvc doğrama iş ilanı','Rehau doğrama','Negatif'],['wintergarten münchen','Almanca (Münih)','Eklendi']];
+  var cur=7-0; cur=0;
+  var bar=document.getElementById('bar');
+  for(var i=0;i<HF;i++){(function(i){var b=document.createElement('button');b.textContent=(i+1)+'. hafta';b.onclick=function(){cur=i;draw()};bar.appendChild(b)})(i)}
+  function f(n){return n.toLocaleString('tr-TR')}
+  function pct(a,b){return b?((a/b)*100).toFixed(1).replace('.',',')+'%':'-'}
+  function draw(){
+    [].forEach.call(bar.children,function(b,i){b.className=i===cur?'on':''});
+    var x=D[cur],p=cur?D[cur-1]:null;
+    function dl(a,b){if(!p)return '<i>ilk hafta</i>';var v=Math.round((a/b-1)*100);return '<i class="'+(v>=0?'up':'dn')+'">'+(v>=0?'▲ +':'▼ ')+v+'% geçen haftaya göre</i>'}
+    document.getElementById('kpi').innerHTML=[['Gösterim',f(x.g),p&&dl(x.g,p.g)],['Tıklama',f(x.t),p&&dl(x.t,p.t)],['Tıklama oranı',pct(x.t,x.g),''],['Toplam dönüşüm',f(x.d),p&&dl(x.d,p.d)],['WhatsApp tıklaması',f(x.wa),''],['Arama',f(x.ar),''],['Keşif formu',f(x.fo),''],['Dönüşüm oranı',pct(x.d,x.t),'']].map(function(k){return '<div class="k"><small>'+k[0]+'</small><b>'+k[1]+'</b>'+(k[2]||'<i>&nbsp;</i>')+'</div>'}).join('');
+    var W=620,H=210,mx=Math.max.apply(null,x.days.map(function(d){return d[0]}))*1.15,gx=function(i){return 36+i*(W-56)/6},gy=function(v){return H-26-(v/mx)*(H-46)};
+    var L=['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'];
+    var s='<svg class="gr" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Günlük tıklama ve dönüşüm çizgi grafiği (örnek veri)">';
+    for(var g=0;g<4;g++){var yv=mx*g/3;s+='<line x1="36" x2="'+(W-20)+'" y1="'+gy(yv)+'" y2="'+gy(yv)+'" stroke="#E3E0D8"/><text x="30" y="'+(gy(yv)+4)+'" text-anchor="end" font-size="10" fill="#646A75">'+Math.round(yv)+'</text>'}
+    var l1=x.days.map(function(d,i){return gx(i)+','+gy(d[0])}).join(' '),l2=x.days.map(function(d,i){return gx(i)+','+gy(d[1])}).join(' ');
+    s+='<polyline points="'+l1+'" fill="none" stroke="#0e7a68" stroke-width="2.5"/><polyline points="'+l2+'" fill="none" stroke="#FFB000" stroke-width="2.5"/>';
+    x.days.forEach(function(d,i){s+='<circle cx="'+gx(i)+'" cy="'+gy(d[0])+'" r="3.5" fill="#0e7a68"/><circle cx="'+gx(i)+'" cy="'+gy(d[1])+'" r="3.5" fill="#FFB000"/><text x="'+gx(i)+'" y="'+(H-8)+'" text-anchor="middle" font-size="10.5" fill="#646A75">'+L[i]+'</text><text x="'+gx(i)+'" y="'+(gy(d[0])-8)+'" text-anchor="middle" font-size="10" font-weight="700" fill="#0e7a68">'+d[0]+'</text>'});
+    document.getElementById('gr').innerHTML=s+'</svg>';
+    document.getElementById('kamp').innerHTML='<tr><th>Kampanya</th><th class="n">Gösterim</th><th class="n">Tıklama</th><th class="n">TO</th><th class="n">Dönüşüm</th></tr>'+x.kp.map(function(k){return '<tr><td>'+k[0]+'</td><td class="n">'+f(k[1])+'</td><td class="n">'+f(k[2])+'</td><td class="n">'+pct(k[2],k[1])+'</td><td class="n">'+k[3]+'</td></tr>'}).join('');
+    document.getElementById('terim').innerHTML='<tr><th>Arama terimi</th><th>Kampanya</th><th>Durum</th></tr>'+TERIM.map(function(t){var c=t[2]==='Negatif'?'n':t[2]==='İzleniyor'?'i':'';return '<tr><td>'+t[0]+'</td><td>'+t[1]+'</td><td><span class="chip '+c+'">'+(t[2]==='Negatif'?'Negatif yapıldı':t[2]==='Eklendi'?'Kelime olarak eklendi':'İzleniyor')+'</span></td></tr>'}).join('');
+    document.getElementById('log').innerHTML=LOG.slice(Math.max(0,cur-1),cur+1).reverse().map(function(l,i){return '<li><b>'+(i===0?cur+1:cur)+'. hafta · '+l[0]+'</b>'+l[1]+'</li>'}).join('');
+  }
+  draw();
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

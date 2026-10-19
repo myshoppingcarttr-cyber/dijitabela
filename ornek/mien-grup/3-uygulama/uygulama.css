@@ -1,0 +1,56 @@
+/* 3 · UYGULAMA: telefon kabuğu, alt sabit menü, kart açılışları (alt sayfa) */
+:root{--ac:#0e7a68;--ac-ink:#fff;--ink:#10232b;--mut:#62717a;--bg:#e9eef0;--card:#fff;--soft:#f2f5f6;--line:#e1e7ea;--rad:18px;--fh:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;--fb:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;background:#cfd8dc;font-family:var(--fb);color:var(--ink);-webkit-tap-highlight-color:transparent}
+body.kilit{overflow:hidden}
+.app{position:relative;max-width:480px;margin:0 auto;min-height:100vh;background:var(--bg);padding-bottom:92px;box-shadow:0 0 60px rgba(0,0,0,.18)}
+.yan{display:none}
+.ust{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;background:#0f2a33;color:#fff}
+.logo{display:flex;gap:11px;align-items:center}.logo i{width:38px;height:38px;border-radius:12px;background:#2fb394;color:#06231c;display:grid;place-items:center;font:800 20px var(--fh);font-style:normal}
+.logo span{font-weight:800;font-size:17px;line-height:1.15}.logo small{display:block;font-weight:500;font-size:11.5px;opacity:.7}
+.ust-ara{background:#2fb394;color:#06231c;font-weight:800;font-size:14px;padding:9px 18px;border-radius:99px;text-decoration:none}
+.scr{display:none;padding:0 14px 20px}.scr.on{display:block}
+.mw-bant{margin:12px 0 0;border-radius:var(--rad);overflow:hidden}.mw-bant-in{padding:12px 14px;gap:10px}.mw-bant-demo{width:100%}
+.karsi{padding:20px 4px 12px}.karsi h1{font-size:25px;line-height:1.15;font-weight:800;margin:0 0 6px}.karsi p{color:var(--mut);font-size:14.5px;margin:0}
+.kartlar{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kart{position:relative;border:0;padding:0;border-radius:22px;overflow:hidden;aspect-ratio:1/1.05;cursor:pointer;background:#222;box-shadow:0 6px 16px rgba(16,35,43,.14)}
+.kart img{width:100%;height:100%;object-fit:cover;display:block}.kart span{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;color:#fff;text-align:left;font:800 17px var(--fh);background:linear-gradient(0deg,rgba(0,0,0,.72),transparent)}
+.kart.oner{outline:3px solid #2fb394;outline-offset:-3px}.kart.oner:after{content:"Önerilen";position:absolute;top:10px;left:10px;background:#2fb394;color:#06231c;font:800 11px var(--fb);padding:4px 9px;border-radius:99px}
+h2.b{font-size:18px;font-weight:800;margin:26px 4px 10px}
+.liste{display:grid;gap:10px}
+.sat{display:flex;align-items:center;gap:12px;background:#fff;border:0;border-radius:var(--rad);padding:10px;text-align:left;cursor:pointer;font:inherit;color:inherit;box-shadow:0 2px 8px rgba(16,35,43,.06)}
+.sat img{width:62px;height:62px;border-radius:14px;object-fit:cover;flex:none}.sat span{flex:1;font-size:13px;color:var(--mut);line-height:1.35}.sat b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}.sat i{font-style:normal;font-size:24px;color:var(--mut);padding-right:6px}
+.alt-n{font-size:11.5px;color:var(--mut);margin:24px 6px 0}
+/* alt sabit menü */
+.alt{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:40;display:grid;grid-template-columns:1fr 1fr 1.25fr 1fr 1fr;align-items:end;background:#fff;border-top:1px solid var(--line);padding:6px 6px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -6px 20px rgba(16,35,43,.08)}
+.alt .t{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font:700 11px var(--fb);color:var(--mut);padding:6px 0;text-decoration:none;cursor:pointer}
+.alt svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.alt .t.on{color:var(--ac)}
+.alt .wa{background:#1fa855;color:#fff;border-radius:18px;margin:-20px 4px 0;padding:11px 0 9px;box-shadow:0 8px 18px rgba(31,168,85,.4);font-size:11.5px}.alt .wa svg{fill:#fff;stroke:none;width:26px;height:26px}
+/* alt sayfa (kart açılışı) */
+.sheet{position:fixed;inset:0;z-index:70;visibility:hidden}.sheet.on{visibility:visible}
+.sheet-k{position:absolute;inset:0;background:rgba(8,20,26,.55);opacity:0;transition:.25s}.sheet.on .sheet-k{opacity:1}
+.sheet-p{position:absolute;left:50%;bottom:0;width:100%;max-width:480px;max-height:88vh;background:#fff;border-radius:26px 26px 0 0;transform:translate(-50%,100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.sheet.on .sheet-p{transform:translate(-50%,0)}
+.sheet-t{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 8px;position:relative}.sheet-t:before{content:"";position:absolute;top:7px;left:50%;width:42px;height:4px;margin-left:-21px;border-radius:4px;background:var(--line)}
+.sheet-t b{font-size:18px;font-weight:800}.sheet-t button{border:0;background:var(--soft);padding:8px 14px;border-radius:99px;font:700 13px var(--fb);cursor:pointer}
+.sheet-i{padding:6px 16px 28px;overflow:auto}
+.urun-s img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px}.urun-s p{margin:12px 0 14px;color:#364751;font-size:15px}.urun-s .mw-b{display:block;text-align:center;border-radius:14px;margin-top:8px;padding:15px}
+/* bileşenlerin uygulama kabuğunda tek sütun davranması */
+.mw-wiz{grid-template-columns:1fr;border:0;background:transparent;box-shadow:none;gap:12px}
+.mw-stage{min-height:0;aspect-ratio:4/3;border-radius:22px;overflow:hidden}.mw-panel{background:#fff;border-radius:22px;padding:16px}
+.mw-steps span{display:none}.mw-steps li.on span{display:inline}.mw-steps button{border-bottom-width:4px;border-radius:2px}
+.mw-b{border-radius:14px}.mw-opt{border-radius:99px}.mw-urun{border-radius:16px}
+.mw-map-in{grid-template-columns:1fr}.mw-svg,.mw-pc img,.mw-os-box,.mw-mev-img,.mw-sv-f{border-radius:18px}
+.mw-sv-f{aspect-ratio:4/3}.mw-rh-t{border-radius:16px;font-size:12.5px}.mw-r{grid-template-columns:.7fr 1fr 1fr}.mw-r>span{padding:8px 6px}
+.mw-map{background:#fff;border-radius:22px;padding:14px}
+.yatay{display:flex;grid-template-columns:none;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;padding-bottom:10px}.yatay .mw-igc{flex:0 0 78%;scroll-snap-align:start;border-radius:18px}
+.mw-toast{bottom:96px}
+.mw-os-r{display:none}
+@media(min-width:900px){
+  body{background:#b7c4ca;display:flex;justify-content:center;gap:56px;align-items:flex-start;padding:28px 0}
+  .app{margin:0;min-height:calc(100vh - 56px);border-radius:34px;overflow:clip;border:10px solid #10232b;max-width:430px;flex:none;width:430px}
+  .app .alt{max-width:410px}
+  .alt{position:sticky;bottom:0;left:auto;transform:none;max-width:none;margin:0 -0px}
+  .yan{display:block;position:sticky;top:60px;width:260px;color:#10232b}.yan b{font:800 22px var(--fh)}.yan p{font-size:14.5px;color:#3a4b53}
+  .app{padding-bottom:0}
+}
