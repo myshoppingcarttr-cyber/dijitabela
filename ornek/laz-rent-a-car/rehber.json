@@ -1,33 +1,21 @@
 {
  "giris": {
-  "metin": "Öncelikle merhabalar! Laz Rent A Car için hazırladığımız iş geliştirme planını anlatmak üzere Dijitabela tarafından ben görevlendirildim. Biz yalnızca site yapmıyoruz; işinizi büyütmek için sektörünüzde ne gerekiyorsa onda yardımcı oluyoruz. Aşağı indikçe tek tek anlatacağım."
- },
- "plan": {
-  "metin": "İş geliştirme planınız dört adımdan oluşuyor: komisyonsuz doğrudan rezervasyon, turist ve havalimanı müşterisi, filo doluluğunu artırma, güven ve yorum. Her birinin size ne kazandıracağı kartlarda yazıyor."
- },
- "tasarimlar": {
-  "metin": "Planın hediyesi olarak üç web sitesi tasarımı da hazır: büyük fotoğraflı Prestij, tam ekran ve koyu Gece, uygulama gibi kartlarla çalışan Modern. Hepsi Google'daki gerçek bilgileriniz ve fotoğraflarınızla hazırlandı. Birine dokunup içine girin.",
+  "metin": "Merhaba, ben Dijitabela tabelası! Laz Rent A Car için üç ayrı tasarım hazırladık. Üçünde de Google profilinizdeki gerçek araç fotoğraflarınızı kullandık, plakaları gizledik.",
   "dugme": [
-   "Prestij'i aç",
-   "1-prestij/"
+   "Tasarımlara git",
+   "#tasarimlar"
   ]
  },
- "oz1": {
-  "metin": "Online rezervasyon. araç sınıfı, alış yeri, tarih ve süreye göre talep"
+ "tasarimlar": {
+  "metin": "Birincisi vitrin: büyük araç fotoğrafı ve sınıfa göre filo. İkincisi dergi gibi okunuyor. Üçüncüsü telefonda bir uygulama gibi çalışıyor. Birine dokunup deneyin."
  },
- "oz2": {
-  "metin": "Teslim kontrol şeması. araç hasar noktaları işaretlenir"
+ "ozellikler": {
+  "metin": "Üçünde de online rezervasyon, havalimanı karşılama, dijital teslim tutanağı ve dört dil çalışıyor. Talep hazır mesajla doğrudan WhatsApp numaranıza düşüyor. Fiyatlar şimdilik örnek fiyattır."
  },
- "oz3": {
-  "metin": "Türkçe / İngilizce dil düğmesi; havalimanı teslim bilgisi"
- },
- "oz4": {
-  "metin": "Google'daki fotoğraflarınız, çalışma saatleriniz ve üç yüz altmış derece konum"
- },
- "son": {
-  "metin": "Bir tasarıma girip araçları deneyin. Tespitlerimizi, planın ayrıntısını ve size uygun çalışma modellerini aşağıdaki düğmede bulabilirsiniz.",
+ "teklif": {
+  "metin": "Tespitlerimizi ve tek fiyatlı paketimizi teklif sayfasında anlattım.",
   "dugme": [
-   "Plan ve teklif",
+   "Teklifi aç",
    "teklif.html"
   ]
  },

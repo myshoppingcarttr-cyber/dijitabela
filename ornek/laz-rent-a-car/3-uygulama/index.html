@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="tr" data-img="../img/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23151515%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2714%27 fill=%27%23fff%27 text-anchor=%27middle%27%3ELAZ%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0f1d33">
+<title>Laz Rent A Car · Cebinizdeki kiralama ofisi</title>
+<meta name="description" content="Laz Rent A Car, Muratpaşa / Antalya. Araç seç, fiyatı gör, WhatsApp'tan rezervasyon yap.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/temel.css">
+<style>
+:root{--zemin:#eef0f3;--yuzey:#fff;--murekkep:#0f1d33;--soluk:#5b6577;--vurgu:#e2552b;--vurgu-yazi:#fff;--cizgi:#dde1e7;--baslik-font:'Saira Condensed',sans-serif;--govde-font:Figtree,system-ui,sans-serif;--r-kucuk:12px;--r-dugme:12px;--app:460px;--alt-h:72px}
+h1,h2,h3{font-family:var(--baslik-font);font-weight:700;line-height:1;margin:0}
+body{background:var(--murekkep)}
+.sahne{display:grid;grid-template-columns:1fr var(--app);min-height:100vh}
+/* masaüstü tanıtım paneli */
+.tanitim{position:sticky;top:0;height:100vh;overflow:hidden;color:#fff}
+.tanitim img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.tanitim::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,29,51,.82) 0%,rgba(15,29,51,.35) 55%,rgba(15,29,51,.05) 100%)}
+.tanitim .ic{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:44px 52px}
+.tanitim .marka{font:800 1.5rem var(--baslik-font);letter-spacing:.06em;text-transform:uppercase}
+.tanitim h2{font-size:clamp(3rem,5.4vw,5.6rem);font-weight:800;text-transform:uppercase;max-width:9ch;line-height:.92}
+.tanitim p{max-width:420px;font-size:1.1rem;color:rgba(255,255,255,.88)}
+.tanitim .alt-bilgi{display:flex;gap:34px;flex-wrap:wrap;font-size:.95rem}
+.tanitim .alt-bilgi b{display:block;font:700 2.2rem var(--baslik-font)}
+@media(max-width:900px){.sahne{display:block}.tanitim{display:none}}
+
+/* uygulama sütunu */
+.uygulama{background:var(--zemin);min-height:100vh;position:relative;padding-bottom:calc(var(--alt-h) + 24px + env(safe-area-inset-bottom));container-type:inline-size}
+.app-ust{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(238,240,243,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--cizgi)}
+.app-logo{width:38px;height:38px;border-radius:10px;background:var(--murekkep);color:#fff;display:grid;place-items:center;font:800 1.05rem var(--baslik-font);letter-spacing:.02em}
+.app-ad{flex:1;min-width:0}
+.app-ad b{display:block;font:700 1.2rem var(--baslik-font);text-transform:uppercase;letter-spacing:.03em;line-height:1.05}
+.app-ad [data-laz="acik"]{font-size:.78rem;font-weight:600;color:var(--soluk)}
+.dil-sec{appearance:none;border:1px solid var(--cizgi);background:var(--yuzey) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235b6577' fill='none' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 9px center;border-radius:10px;padding:8px 26px 8px 10px;font-weight:700;font-size:.85rem;cursor:pointer}
+.blok{padding:18px 16px 0}
+.selam h1{font-size:2.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.005em;line-height:.95}
+.selam p{margin:8px 0 0;color:var(--soluk)}
+.kart{background:var(--yuzey);border:1px solid var(--cizgi);border-radius:18px;padding:16px}
+.hizli{margin-top:16px}
+.hizli .satir{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.hizli .alan input,.hizli .alan select{min-height:48px;border-radius:12px;background:var(--zemin);border-color:transparent}
+.hizli-dugme{margin-top:14px;width:100%;min-height:52px;border:0;border-radius:14px;background:var(--murekkep);color:#fff;font:700 1.25rem var(--baslik-font);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
+.hizli-dugme svg{width:18px;height:18px}
+.baslik-satir{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:26px 0 12px}
+.baslik-satir h2{font-size:1.7rem;text-transform:uppercase;letter-spacing:.02em}
+.baslik-satir a,.baslik-satir button{font-size:.88rem;font-weight:700;color:var(--vurgu);text-decoration:none;background:none;border:0;cursor:pointer;padding:0}
+
+/* filo: yatay kaydırmalı */
+[data-laz="filo"]{margin:0 -16px}
+.filo-filtre{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 16px 12px}
+.filo-filtre::-webkit-scrollbar,.filo-liste::-webkit-scrollbar,.yorum-kaydir::-webkit-scrollbar{display:none}
+.filo-filtre button{flex:0 0 auto;border:1px solid var(--cizgi);background:var(--yuzey);border-radius:999px;padding:9px 15px;font-weight:700;font-size:.88rem;cursor:pointer}
+.filo-filtre button[aria-selected="true"]{background:var(--murekkep);border-color:var(--murekkep);color:#fff}
+.filo-liste{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 16px 4px;scroll-padding:0 16px}
+.arac{flex:0 0 78%;max-width:300px;scroll-snap-align:start;background:var(--yuzey);border:1px solid var(--cizgi);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.arac-foto{margin:0;aspect-ratio:4/3;overflow:hidden}
+.arac-foto img{width:100%;height:100%;object-fit:cover}
+.arac-govde{padding:12px 14px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:end}
+.arac-sinif{grid-column:1/-1;margin:0;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vurgu)}
+.arac-no{display:none}
+.arac-ad{font-size:1.45rem;text-transform:uppercase}
+.arac-ozellik{grid-column:1;margin:0;display:flex;gap:10px;font-size:.82rem;color:var(--soluk)}
+.arac-fiyat{grid-column:2;grid-row:2/4;margin:0;text-align:right}
+.arac-fiyat b{display:block;font:700 1.45rem var(--baslik-font)}
+.arac-fiyat span{font-size:.78rem;color:var(--soluk)}
+.arac-fiyat small{display:block;font-size:.66rem;color:var(--soluk)}
+.arac-sec{grid-column:1/-1;margin-top:10px;min-height:44px;border:0;border-radius:12px;background:var(--vurgu);color:#fff;font-weight:700;cursor:pointer}
+
+/* işlem kutuları */
+.islemler{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.islem{display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;padding:14px;border:1px solid var(--cizgi);background:var(--yuzey);border-radius:18px;cursor:pointer;min-height:118px}
+.islem svg{width:26px;height:26px;stroke:var(--murekkep);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.islem b{font:700 1.2rem var(--baslik-font);text-transform:uppercase;line-height:1.05}
+.islem span{font-size:.8rem;color:var(--soluk);line-height:1.3}
+.islem.koyu{background:var(--murekkep);border-color:var(--murekkep);color:#fff}
+.islem.koyu svg{stroke:#fff}
+.islem.koyu span{color:rgba(255,255,255,.75)}
+
+/* fotoğraf şeridi */
+.foto-serit{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:120px 120px;gap:8px}
+.foto-serit img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.foto-serit img:first-child{grid-row:1/3}
+
+/* puan ve yorumlar */
+.puan-kart{display:flex;align-items:center;gap:14px}
+.puan-kart .p{font:800 3.4rem/.9 var(--baslik-font)}
+.puan-kart .y{color:#e8a317;letter-spacing:2px}
+.puan-kart small{display:block;color:var(--soluk);font-size:.85rem}
+.yorum-kaydir{scroll-padding-inline:16px;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:12px -16px 0;padding:0 16px}
+.yorum{flex:0 0 82%;scroll-snap-align:start;background:var(--yuzey);border:1px solid var(--cizgi);border-radius:18px;padding:16px}
+.yorum-m{font-size:.98rem}
+
+/* saatler */
+.saatler{list-style:none;margin:0;padding:0}
+.saatler li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--cizgi);font-size:.95rem}
+.saatler li:last-child{border-bottom:0}
+.saatler li.bugun{font-weight:700;color:var(--vurgu)}
+
+/* alt menü */
+.alt-menu{position:fixed;bottom:0;right:0;width:var(--app);z-index:50;display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1px solid var(--cizgi)}
+.alt-menu a,.alt-menu button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px;border:0;border-radius:14px;background:none;text-decoration:none;font-weight:700;font-size:.8rem;cursor:pointer;color:var(--murekkep)}
+.alt-menu svg{width:22px;height:22px}
+.alt-menu .wa{color:#1f8f4e}
+.alt-menu .rez{background:var(--vurgu);color:#fff;flex-direction:row;gap:8px;font:700 1.15rem var(--baslik-font);letter-spacing:.05em;text-transform:uppercase}
+@media(max-width:900px){.alt-menu{width:100%}}
+
+/* açılır paneller */
+.perde{position:fixed;inset:0;z-index:60;background:rgba(15,29,51,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.perde.acik{opacity:1;pointer-events:auto}
+.panel{position:fixed;bottom:0;right:0;width:var(--app);max-height:92vh;z-index:70;background:var(--zemin);border-radius:22px 22px 0 0;display:flex;flex-direction:column;transform:translateY(105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);container-type:inline-size;visibility:hidden}
+.panel.acik{transform:none;visibility:visible}
+@media(max-width:900px){.panel{width:100%}}
+.panel-bas{display:flex;align-items:center;gap:10px;padding:10px 16px 12px;border-bottom:1px solid var(--cizgi);position:relative}
+.panel-bas::before{content:"";position:absolute;top:6px;left:50%;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:#c3c8d0}
+.panel-bas h2{flex:1;font-size:1.6rem;text-transform:uppercase;margin-top:10px}
+.panel-kapat{margin-top:10px;width:40px;height:40px;border-radius:50%;border:1px solid var(--cizgi);background:var(--yuzey);font-size:1.4rem;line-height:1;cursor:pointer}
+.panel-ic{overflow-y:auto;padding:16px 16px 28px;overscroll-behavior:contain}
+.panel-ic>p.alt{margin:0 0 16px;color:var(--soluk);font-size:.92rem}
+.panel .rez-ic,.panel .tes{grid-template-columns:1fr}
+.panel .rez-fiyat{position:static}
+.panel .alan:has(select[name=alis]),.panel .alan:has(select[name=donus]),.panel .alan:has(select[name=k-terminal]){grid-column:1/-1}
+.panel .rez-adimlar span{display:none}
+.panel .rez-adimlar .su-an span{display:inline}
+.panel .rez-adimlar{grid-template-columns:repeat(4,auto);justify-content:start;gap:4px 14px}
+.panel .harita{height:240px;border-radius:14px;overflow:hidden;margin-bottom:12px}
+.panel .sss summary{font-size:.98rem}
+.panel .sss-c p{margin-left:38px}
+html.kilit,html.kilit body{overflow:hidden}
+@container (max-width:400px){.hizli .satir{grid-template-columns:1fr}}
+.dijitabela-not{padding-bottom:6px}
+</style>
+<script>window.LAZ_EK={
+tr:{'u.al':'Alış','u.don':'Dönüş','u.h1':'Aracınız hazır, nereye gidiyoruz?','u.p':'Fiyatı görün, WhatsApp’tan tek dokunuşla ayırtın.','u.fiyat':'Fiyatları gör','u.filo':'Filo','u.islem':'Hizmetler','u.kar.a':'Uçuş takibiyle terminal çıkışında','u.tes.a':'Çizik ve göçükleri birlikte işaretleyin','u.sss.a':'Depozito, belgeler, yakıt','u.kon':'Konum ve 360°','u.kon.a':'Haritada ve sokak görünümünde ofis','u.puan':'Google’da 448 yorum','u.saat':'Çalışma saatleri','u.pzt':'Pazartesi','u.sal':'Salı','u.car':'Çarşamba','u.per':'Perşembe','u.cum':'Cuma','u.cmt':'Cumartesi','u.paz':'Pazar','u.tanitim':'Cebinizdeki kiralama ofisi','u.tanitim.p':'Muratpaşa’daki ofisimizin bütün hizmetleri tek ekranda: araç seçimi, anlık fiyat, havalimanı karşılama ve dijital teslim tutanağı.','u.ic':'İçeriden'},
+en:{'u.al':'Pick-up','u.don':'Return','u.h1':'Your car is ready. Where to?','u.p':'See the price, book with one tap on WhatsApp.','u.fiyat':'See prices','u.filo':'Fleet','u.islem':'Services','u.kar.a':'Flight tracking, meet at the exit','u.tes.a':'Mark scratches and dents together','u.sss.a':'Deposit, documents, fuel','u.kon':'Location & 360°','u.kon.a':'Our office on map and street view','u.puan':'448 reviews on Google','u.saat':'Opening hours','u.pzt':'Monday','u.sal':'Tuesday','u.car':'Wednesday','u.per':'Thursday','u.cum':'Friday','u.cmt':'Saturday','u.paz':'Sunday','u.tanitim':'Your rental office in your pocket','u.tanitim.p':'Everything our Muratpaşa office does, on one screen: choose a car, instant price, airport meet & greet and a digital handover report.','u.ic':'Inside'},
+de:{'u.al':'Abholung','u.don':'Rückgabe','u.h1':'Ihr Auto ist bereit. Wohin geht’s?','u.p':'Preis sehen, mit einem Tipp per WhatsApp buchen.','u.fiyat':'Preise ansehen','u.filo':'Flotte','u.islem':'Services','u.kar.a':'Flugverfolgung, Empfang am Ausgang','u.tes.a':'Kratzer und Dellen gemeinsam markieren','u.sss.a':'Kaution, Dokumente, Tank','u.kon':'Standort & 360°','u.kon.a':'Unser Büro auf Karte und Straßenansicht','u.puan':'448 Google-Bewertungen','u.saat':'Öffnungszeiten','u.pzt':'Montag','u.sal':'Dienstag','u.car':'Mittwoch','u.per':'Donnerstag','u.cum':'Freitag','u.cmt':'Samstag','u.paz':'Sonntag','u.tanitim':'Ihr Mietbüro in der Tasche','u.tanitim.p':'Alles aus unserem Büro in Muratpaşa auf einem Bildschirm: Auto wählen, Sofortpreis, Flughafen-Abholung und digitales Übergabeprotokoll.','u.ic':'Innen'},
+ru:{'u.al':'Получение','u.don':'Возврат','u.h1':'Машина готова. Куда едем?','u.p':'Узнайте цену и забронируйте в WhatsApp одним касанием.','u.fiyat':'Показать цены','u.filo':'Автопарк','u.islem':'Услуги','u.kar.a':'Отслеживание рейса, встреча у выхода','u.tes.a':'Отметьте царапины и вмятины вместе','u.sss.a':'Депозит, документы, топливо','u.kon':'Адрес и 360°','u.kon.a':'Офис на карте и панораме','u.puan':'448 отзывов в Google','u.saat':'Часы работы','u.pzt':'Понедельник','u.sal':'Вторник','u.car':'Среда','u.per':'Четверг','u.cum':'Пятница','u.cmt':'Суббота','u.paz':'Воскресенье','u.tanitim':'Офис проката в вашем кармане','u.tanitim.p':'Всё, что делает наш офис в Муратпаше, — на одном экране: выбор авто, мгновенная цена, встреча в аэропорту и цифровой акт передачи.','u.ic':'Салон'}
+};</script>
+</head>
+<body>
+<div class="sahne">
+  <aside class="tanitim" aria-hidden="true">
+    <img src="../img/qashqai-yan.jpg" alt="">
+    <div class="ic">
+      <p class="marka">Laz Rent A Car</p>
+      <div><h2 data-t="u.tanitim">Cebinizdeki kiralama ofisi</h2><p data-t="u.tanitim.p"></p></div>
+      <div class="alt-bilgi"><div><b>4,9 ★</b><span data-t="u.puan">Google’da 448 yorum</span></div><div><b>0553 544 61 61</b><span>Muratpaşa / Antalya</span></div></div>
+    </div>
+  </aside>
+
+  <div class="uygulama">
+    <header class="app-ust">
+      <span class="app-logo" aria-hidden="true">LAZ</span>
+      <div class="app-ad"><b>Laz Rent A Car</b><span data-laz="acik"></span></div>
+      <label class="gizli" for="dil">Dil</label>
+      <select class="dil-sec" id="dil"><option value="tr">TR</option><option value="en">EN</option><option value="de">DE</option><option value="ru">RU</option></select>
+    </header>
+
+    <main>
+      <section class="blok selam">
+        <h1 data-t="u.h1">Aracınız hazır, nereye gidiyoruz?</h1>
+        <p data-t="u.p">Fiyatı görün, WhatsApp’tan tek dokunuşla ayırtın.</p>
+        <form class="kart hizli" onsubmit="return false">
+          <label class="alan"><span data-t="r.alis">Alış yeri</span><select id="h-alis"></select></label>
+          <div class="satir">
+            <label class="alan"><span data-t="u.al">Alış</span><input type="datetime-local" id="h-al" step="900"></label>
+            <label class="alan"><span data-t="u.don">Dönüş</span><input type="datetime-local" id="h-don" step="900"></label>
+          </div>
+          <button type="button" class="hizli-dugme" id="h-git"><span data-t="u.fiyat">Fiyatları gör</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+      </section>
+
+      <section class="blok">
+        <div class="baslik-satir"><h2 data-t="u.filo">Filo</h2><span style="font-size:.8rem;color:var(--soluk)" data-t="g.ornek">örnek fiyat</span></div>
+        <div data-laz="filo" data-filtre></div>
+      </section>
+
+      <section class="blok">
+        <div class="baslik-satir"><h2 data-t="u.islem">Hizmetler</h2></div>
+        <div class="islemler">
+          <button type="button" class="islem koyu" data-panel-ac="kar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 5-4 1-2-2-1 1z"/><path d="M3 21h18"/></svg><b data-t="k.baslik">Havalimanı karşılama</b><span data-t="u.kar.a"></span></button>
+          <button type="button" class="islem" data-panel-ac="tes"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v3h6V3M9 12l2 2 4-4"/></svg><b data-t="t.baslik">Dijital teslim</b><span data-t="u.tes.a"></span></button>
+          <button type="button" class="islem" data-panel-ac="sss"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M12 8v5M12 16h.01"/></svg><b data-t="m.sss">Şartlar</b><span data-t="u.sss.a"></span></button>
+          <button type="button" class="islem" data-panel-ac="kon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><b data-t="u.kon">Konum ve 360°</b><span data-t="u.kon.a"></span></button>
+        </div>
+      </section>
+
+      <section class="blok">
+        <div class="baslik-satir"><h2 data-t="u.ic">İçeriden</h2></div>
+        <div class="foto-serit"><img src="../img/scudo-ic-k.jpg" alt="Fiat Scudo kabini" loading="lazy"><img src="../img/ic-direksiyon-k.jpg" alt="Renault Clio kabini" loading="lazy"><img src="../img/scudo-bagaj-k.jpg" alt="Fiat Scudo bagajı" loading="lazy"></div>
+      </section>
+
+      <section class="blok">
+        <div class="baslik-satir"><h2 data-t="yorum.baslik">Yorumlar</h2><a href="https://maps.google.com/?cid=7589382241897414626" target="_blank" rel="noopener">Google →</a></div>
+        <div class="kart puan-kart"><span class="p">4,9</span><div><span class="y">★★★★★</span><small data-t="u.puan">Google’da 448 yorum</small></div></div>
+        <div class="yorum-kaydir" data-laz="yorumlar"></div>
+      </section>
+
+      <section class="blok">
+        <div class="baslik-satir"><h2 data-t="u.saat">Çalışma saatleri</h2><span data-laz="acik"></span></div>
+        <div class="kart"><ul class="saatler" id="saatler"></ul></div>
+      </section>
+
+      <p class="dijitabela-not" style="margin-top:24px">Örnek tasarım · Dijitabela</p>
+    </main>
+  </div>
+</div>
+
+<nav class="alt-menu" aria-label="Hızlı işlemler">
+  <a href="tel:+905535446161"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1z"/></svg><span data-t="g.ara">Ara</span></a>
+  <a class="wa" href="https://wa.me/905535446161" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.2 1.3z"/></svg><span data-t="g.wa">WhatsApp</span></a>
+  <button type="button" class="rez" data-panel-ac="rez"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="g.rez">Rezervasyon</span></button>
+</nav>
+
+<div class="perde" id="perde"></div>
+<section class="panel" id="p-rez" role="dialog" aria-modal="true" aria-labelledby="pb-rez"><div class="panel-bas"><h2 id="pb-rez" data-t="r.baslik">Online rezervasyon</h2><button type="button" class="panel-kapat" data-panel-kapat data-t-aria="g.kapat" aria-label="Kapat">×</button></div><div class="panel-ic"><p class="alt" data-t="r.alt"></p><div data-laz="rezervasyon"></div></div></section>
+<section class="panel" id="p-kar" role="dialog" aria-modal="true" aria-labelledby="pb-kar"><div class="panel-bas"><h2 id="pb-kar" data-t="k.baslik">Havalimanı karşılama</h2><button type="button" class="panel-kapat" data-panel-kapat aria-label="Kapat">×</button></div><div class="panel-ic"><p class="alt" data-t="k.alt"></p><div data-laz="karsilama"></div></div></section>
+<section class="panel" id="p-tes" role="dialog" aria-modal="true" aria-labelledby="pb-tes"><div class="panel-bas"><h2 id="pb-tes" data-t="t.baslik">Dijital teslim</h2><button type="button" class="panel-kapat" data-panel-kapat aria-label="Kapat">×</button></div><div class="panel-ic"><p class="alt" data-t="t.alt"></p><div data-laz="teslim"></div></div></section>
+<section class="panel" id="p-sss" role="dialog" aria-modal="true" aria-labelledby="pb-sss"><div class="panel-bas"><h2 id="pb-sss" data-t="f.baslik">Şartlar</h2><button type="button" class="panel-kapat" data-panel-kapat aria-label="Kapat">×</button></div><div class="panel-ic"><div data-laz="sss" data-ilk-acik></div></div></section>
+<section class="panel" id="p-kon" role="dialog" aria-modal="true" aria-labelledby="pb-kon"><div class="panel-bas"><h2 id="pb-kon" data-t="u.kon">Konum ve 360°</h2><button type="button" class="panel-kapat" data-panel-kapat aria-label="Kapat">×</button></div><div class="panel-ic">
+  <p class="alt" data-t="ile.adres"></p>
+  <div class="harita"><iframe title="Laz Rent A Car harita" data-src="https://maps.google.com/maps?q=Laz%20Rent%20A%20Car%2C%201055.%20Sk.%2025%2FC%2C%20Muratpa%C5%9Fa%2C%20Antalya&ll=36.8982179,30.7156387&z=16&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div class="harita"><iframe allow="accelerometer; gyroscope; fullscreen" title="360 derece sokak görünümü" data-src="https://www.google.com/maps/embed?pb=!6m6!1m5!2m2!1d36.8982179!2d30.7156387!4f0!5f0.8" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <a class="hizli-dugme" style="text-decoration:none" href="https://maps.google.com/?cid=7589382241897414626" target="_blank" rel="noopener" data-t="g.yol">Yol tarifi</a>
+</div></section>
+
+<script src="../ortak/laz.js"></script>
+<script>
+(function(){
+  var perde=document.getElementById('perde'), acikPanel=null, sonOdak=null;
+  function ac(ad){
+    var p=document.getElementById('p-'+ad); if(!p) return;
+    if(acikPanel && acikPanel!==p) acikPanel.classList.remove('acik');
+    sonOdak=document.activeElement;
+    p.querySelectorAll('iframe[data-src]').forEach(function(f){ if(!f.src){ f.src=f.getAttribute('data-src'); } });
+    p.classList.add('acik'); perde.classList.add('acik'); document.documentElement.classList.add('kilit'); acikPanel=p;
+    setTimeout(function(){ var k=p.querySelector('.panel-kapat'); if(k) k.focus({preventScroll:true}); },320);
+  }
+  function kapat(){
+    if(!acikPanel) return; acikPanel.classList.remove('acik'); perde.classList.remove('acik'); document.documentElement.classList.remove('kilit'); acikPanel=null;
+    if(sonOdak && sonOdak.focus) sonOdak.focus({preventScroll:true});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-panel-ac]'); if(a){ ac(a.getAttribute('data-panel-ac')); return; }
+    if(e.target.closest('[data-panel-kapat]')||e.target===perde) kapat();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') kapat(); });
+  document.addEventListener('laz:sec',function(e){ e.preventDefault(); ac('rez'); });
+
+  /* dil seçici */
+  var ds=document.getElementById('dil'); ds.value=LAZ.dil();
+  ds.addEventListener('change',function(){ LAZ.dilSec(ds.value); });
+
+  /* hızlı arama kartı */
+  var hA=document.getElementById('h-alis'), hAl=document.getElementById('h-al'), hDon=document.getElementById('h-don');
+  function hizliCiz(){
+    hA.innerHTML=['ofis','t1','t2','ic','otel'].map(function(y){ return '<option value="'+y+'"'+(LAZ.R.alis===y?' selected':'')+'>'+LAZ.t('y.'+y)+'</option>'; }).join('');
+    hAl.value=LAZ.R.alisT; hDon.value=LAZ.R.donusT;
+  }
+  document.getElementById('h-git').addEventListener('click',function(){
+    LAZ.R.alis=hA.value; LAZ.R.donus=(hA.value==='otel')?'otel':hA.value;
+    if(hAl.value) LAZ.R.alisT=hAl.value; if(hDon.value) LAZ.R.donusT=hDon.value;
+    LAZ.R.adim=0; LAZ.ciz(); ac('rez');
+  });
+
+  /* saatler */
+  var gunler=['u.pzt','u.sal','u.car','u.per','u.cum','u.cmt','u.paz'];
+  function saatCiz(){
+    var bugun; try{ var w=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Istanbul',weekday:'short'}).format(new Date()); bugun=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(w);}catch(e){bugun=(new Date().getDay()+6)%7;}
+    document.getElementById('saatler').innerHTML=gunler.map(function(g,i){ return '<li'+(i===bugun?' class="bugun"':'')+'><span>'+LAZ.t(g)+'</span><span>'+(i===6?'12:00 – 18:30':'08:30 – 23:30')+'</span></li>'; }).join('');
+  }
+  hizliCiz(); saatCiz();
+  document.addEventListener('laz:dil',function(){ ds.value=LAZ.dil(); hizliCiz(); saatCiz(); });
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

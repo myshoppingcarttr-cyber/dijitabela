@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="tr" data-img="../img/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23151515%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2714%27 fill=%27%23fff%27 text-anchor=%27middle%27%3ELAZ%3C/text%3E%3C/svg%3E">
+<title>Laz Rent A Car · Muratpaşa, Antalya araç kiralama</title>
+<meta name="description" content="Laz Rent A Car: Antalya Muratpaşa'da araç kiralama. Online rezervasyon, havalimanı teslim, dijital teslim tutanağı. Google'da 4,9 puan.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../img/egea-cross-yan.jpg">
+<link rel="stylesheet" href="../ortak/temel.css">
+<style>
+:root{--zemin:#f5f4f1;--yuzey:#fff;--murekkep:#151515;--soluk:#5f5f5c;--vurgu:#c8102e;--vurgu-yazi:#fff;--cizgi:#dcdad5;--baslik-font:'Barlow Condensed',sans-serif;--govde-font:Barlow,system-ui,sans-serif;--r-kucuk:4px;--r-dugme:2px}
+.kap{width:min(1240px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--baslik-font);font-weight:700;line-height:.98;letter-spacing:.005em;margin:0;text-transform:uppercase}
+h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+.ust-etiket{font:600 .8rem var(--govde-font);letter-spacing:.16em;text-transform:uppercase;color:var(--vurgu);margin:0 0 10px}
+.bolum{padding:88px 0}
+.bolum-bas{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.bolum-bas p{max-width:520px;margin:0;color:var(--soluk)}
+
+/* üst çubuk */
+.ust{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--cizgi)}
+.ust .kap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.logo b{white-space:nowrap;font:700 1.65rem var(--baslik-font);letter-spacing:.02em;text-transform:uppercase}
+.logo b span{color:var(--vurgu)}
+.logo small{font-size:.66rem;letter-spacing:.2em;color:var(--soluk);margin-top:3px;text-transform:uppercase}
+.menu{display:flex;gap:22px;margin-left:auto}
+.menu a{text-decoration:none;font-weight:600;font-size:.95rem}
+.menu a:hover{color:var(--vurgu)}
+.dil{display:flex;border:1px solid var(--cizgi)}
+.dil button{border:0;background:none;padding:6px 8px;font-size:.78rem;font-weight:700;cursor:pointer;color:var(--soluk)}
+.dil button[aria-pressed="true"]{background:var(--murekkep);color:#fff}
+.ust-tel{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 1.1rem var(--baslik-font);letter-spacing:.03em;background:var(--vurgu);color:#fff;padding:10px 14px}
+.ust-tel svg{width:16px;height:16px}
+@media(max-width:1020px){.menu{display:none}.dil{margin-left:auto}}
+@media(max-width:560px){.ust-tel span{display:none}.ust-tel{padding:10px 12px}.ust .kap{gap:10px}.logo b{font-size:1.22rem}.dil button{padding:6px 6px}.logo small{display:none}}
+
+/* açılış */
+.acilis{position:relative;height:min(88vh,820px);min-height:560px;color:#fff;overflow:hidden;background:#3a2a20}
+.acilis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.acilis picture{display:contents}
+.acilis::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.62) 100%)}
+.acilis .kap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:56px}
+.acilis h1{font-size:clamp(3rem,8.6vw,7.6rem);max-width:12ch}
+.acilis p.giris{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:560px;margin:18px 0 26px;color:rgba(255,255,255,.92)}
+.acilis .dugmeler{display:flex;flex-wrap:wrap;gap:12px}
+.dg{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;font-weight:700;text-decoration:none;border:1px solid currentColor;background:transparent}
+.dg svg{width:18px;height:18px}
+.dg.dolu{background:var(--vurgu);border-color:var(--vurgu);color:#fff}
+.dg.yesil{background:#1f8f4e;border-color:#1f8f4e;color:#fff}
+.acilis-durum{color:#fff}
+.acilis-alt{position:absolute;right:16px;bottom:18px;z-index:2;font-size:.75rem;color:rgba(255,255,255,.8)}
+@media(max-width:560px){.acilis{height:auto;min-height:0;background:var(--zemin)}.acilis h1{font-size:2.9rem}.acilis img{position:relative;height:56vh;min-height:300px}.acilis::after{display:none}.acilis .kap{color:var(--murekkep);padding:26px 0 30px;height:auto}.acilis p.giris{color:var(--soluk)}.acilis-durum{color:var(--murekkep)}.acilis .dg:not(.dolu):not(.yesil){color:var(--murekkep)}.acilis-alt{display:none}}
+
+/* güven bandı */
+.guven{background:var(--murekkep);color:#fff}
+.guven .kap{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:0}
+.guven div.k{padding:26px 22px;border-left:1px solid rgba(255,255,255,.14)}
+.guven div.k:first-child{border-left:0;padding-left:0}
+.guven b{display:block;font:700 2.6rem var(--baslik-font);line-height:1}
+.guven b em{font-style:normal;color:#f2b705;font-size:1.9rem;margin-left:6px}
+.guven span{font-size:.9rem;color:rgba(255,255,255,.75)}
+.guven a{color:#fff}
+@media(max-width:860px){.guven .kap{grid-template-columns:1fr 1fr}.guven div.k{border-left:0;border-top:1px solid rgba(255,255,255,.14);padding:18px 0}.guven div.k:nth-child(-n+2){border-top:0}.guven b{font-size:1.55rem}.guven b em{font-size:1rem;display:block;margin:4px 0 0}.guven div.k{padding:16px 10px 16px 0}}
+
+/* filo vitrini */
+.filo-filtre{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--cizgi);margin-bottom:28px}
+.filo-filtre button{border:0;background:none;padding:12px 18px;font:700 1.15rem var(--baslik-font);text-transform:uppercase;letter-spacing:.04em;cursor:pointer;color:var(--soluk);border-bottom:3px solid transparent;margin-bottom:-1px}
+.filo-filtre button[aria-selected="true"]{color:var(--murekkep);border-color:var(--vurgu)}
+.filo-liste{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:28px 18px}
+@media(max-width:560px){.filo-liste{grid-template-columns:1fr 1fr;gap:14px 10px}.arac-ad{font-size:1.35rem}.arac-govde{padding:12px 10px}.arac-ozellik{gap:8px;font-size:.78rem;flex-wrap:wrap}.arac-fiyat b{font-size:1.35rem}.filo-filtre{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.filo-filtre button{white-space:nowrap;padding:10px 12px}}
+.arac{background:var(--yuzey);display:flex;flex-direction:column}
+.arac-foto{margin:0;overflow:hidden;aspect-ratio:4/5;background:#ddd}
+.arac-foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.arac:hover .arac-foto img{transform:scale(1.03)}
+.arac-govde{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.arac-sinif{margin:0;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--vurgu);font-weight:700}
+.arac-no{display:none}
+.arac-ad{font-size:1.9rem}
+.arac-ozellik{margin:0;display:flex;gap:14px;font-size:.88rem;color:var(--soluk)}
+.arac-fiyat{margin:6px 0 10px}
+.arac-fiyat b{font:700 1.7rem var(--baslik-font)}
+.arac-fiyat span{color:var(--soluk)}
+.arac-fiyat small{display:block;font-size:.72rem;color:var(--soluk)}
+.arac-sec{margin-top:auto;min-height:46px;border:1px solid var(--murekkep);background:none;font-weight:700;cursor:pointer}
+.arac-sec:hover{background:var(--murekkep);color:#fff}
+
+/* fotoğraf şeridi */
+.serit{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:8px}
+.serit figure{margin:0;position:relative;overflow:hidden}
+.serit figure:first-child{grid-row:1/3}
+.serit img{width:100%;height:100%;object-fit:cover}
+.serit figcaption{position:absolute;left:0;bottom:0;background:#fff;padding:6px 10px;font-size:.8rem;font-weight:600}
+@media(max-width:760px){.serit{grid-template-columns:1fr 1fr;grid-template-rows:240px 160px 160px}.serit figure:first-child{grid-column:1/3;grid-row:auto}}
+
+/* rezervasyon kutusu */
+.rez-kutu{background:var(--yuzey);padding:34px;border-top:4px solid var(--vurgu)}
+@media(max-width:560px){.rez-kutu{padding:20px 16px;margin-inline:-16px}}
+
+/* karşılama */
+.ikili{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--yuzey)}
+.ikili figure{margin:0;min-height:420px}
+.ikili figure img{width:100%;height:100%;object-fit:cover}
+.ikili .ic{padding:44px}
+.ikili h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:12px}
+.ikili p.alt{color:var(--soluk);margin:0 0 24px}
+@media(max-width:860px){.ikili{grid-template-columns:1fr}.ikili figure{min-height:0;aspect-ratio:4/3}.ikili .ic{padding:26px 18px}}
+
+/* yorumlar */
+.yorum-ust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.yorum-ust .puan{font:700 5rem var(--baslik-font);line-height:.9}
+.yorumlar{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.yorum{background:var(--yuzey);padding:22px;border-top:3px solid var(--murekkep)}
+@media(max-width:960px){.yorumlar{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.yorumlar{grid-template-columns:1fr}}
+
+/* sss */
+.sss-sar{display:grid;grid-template-columns:1fr 1.6fr;gap:48px}
+@media(max-width:860px){.sss-sar{grid-template-columns:1fr;gap:20px}}
+
+/* iletişim */
+.iletisim-izgara{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.iletisim-izgara .bilgi{background:var(--murekkep);color:#fff;padding:30px}
+.iletisim-izgara .bilgi h3{font-size:2.2rem;margin-bottom:14px}
+.iletisim-izgara .bilgi p{margin:0 0 12px;color:rgba(255,255,255,.82)}
+.iletisim-izgara .bilgi .dg{margin:6px 8px 0 0;min-height:46px;padding:0 16px}
+.harita{min-height:380px;background:#ddd;position:relative}
+.harita .etiket{position:absolute;left:0;bottom:0;z-index:2;background:#fff;padding:6px 10px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+@media(max-width:960px){.iletisim-izgara{grid-template-columns:1fr}.harita{min-height:300px}}
+
+footer.alt{border-top:1px solid var(--cizgi);padding:26px 0 0;margin-top:40px}
+footer.alt .kap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.88rem;color:var(--soluk)}
+.yuzen{position:fixed;right:16px;bottom:16px;z-index:40;width:58px;height:58px;border-radius:50%;background:#1f8f4e;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.yuzen svg{width:30px;height:30px;fill:#fff}
+</style>
+<script>window.LAZ_EK={
+tr:{'v.h1':'Antalya’yı kendi aracınızla gezin','v.giris':'Muratpaşa’daki ofisimizden, havalimanından ya da otelinizin kapısından teslim. Temiz, bakımlı araçlar; depozito aynı gün iade.','v.filo':'Filomuz','v.filo.a':'Fotoğraflar kendi araçlarımız. Fiyatlar örnek günlük fiyattır, sezona göre değişir.','v.serit':'İçi de dışı kadar temiz','v.g1':'Google puanı','v.g2':'Depozito iadesi','v.g2b':'Aynı gün','v.g3':'Havalimanı teslim','v.g3b':'T1 · T2 · İç Hatlar','v.g4':'Aile işletmesi','v.g4b':'Muratpaşa','v.ic':'Kabin','v.bagaj':'Bagaj','v.koltuk':'Koltuklar'},
+en:{'v.h1':'Explore Antalya in your own car','v.giris':'Pick up at our Muratpaşa office, at the airport or at your hotel door. Clean, well-kept cars; deposit refunded the same day.','v.filo':'Our fleet','v.filo.a':'All photos show our own cars. Prices are sample daily rates and vary by season.','v.serit':'As clean inside as outside','v.g1':'Google rating','v.g2':'Deposit refund','v.g2b':'Same day','v.g3':'Airport delivery','v.g3b':'T1 · T2 · Domestic','v.g4':'Family business','v.g4b':'Muratpaşa','v.ic':'Cabin','v.bagaj':'Boot','v.koltuk':'Seats'},
+de:{'v.h1':'Antalya im eigenen Mietwagen entdecken','v.giris':'Abholung in unserem Büro in Muratpaşa, am Flughafen oder direkt am Hotel. Saubere, gepflegte Autos; Kaution am selben Tag zurück.','v.filo':'Unsere Flotte','v.filo.a':'Alle Fotos zeigen unsere eigenen Autos. Preise sind Beispiel-Tagespreise.','v.serit':'Innen so sauber wie außen','v.g1':'Google-Bewertung','v.g2':'Kaution zurück','v.g2b':'Am selben Tag','v.g3':'Flughafen-Übergabe','v.g3b':'T1 · T2 · Inland','v.g4':'Familienbetrieb','v.g4b':'Muratpaşa','v.ic':'Innenraum','v.bagaj':'Kofferraum','v.koltuk':'Sitze'},
+ru:{'v.h1':'Анталья на своём автомобиле','v.giris':'Выдача в нашем офисе в Муратпаше, в аэропорту или у дверей отеля. Чистые ухоженные машины; депозит возвращаем в тот же день.','v.filo':'Наш автопарк','v.filo.a':'На фото — наши собственные машины. Цены — примерные за сутки.','v.serit':'Внутри так же чисто, как снаружи','v.g1':'Рейтинг Google','v.g2':'Возврат депозита','v.g2b':'В тот же день','v.g3':'Доставка в аэропорт','v.g3b':'T1 · T2 · Внутр.','v.g4':'Семейный бизнес','v.g4b':'Муратпаша','v.ic':'Салон','v.bagaj':'Багажник','v.koltuk':'Сиденья'}
+};</script>
+</head>
+<body>
+<header class="ust">
+  <div class="kap">
+    <a class="logo" href="#"><b>Laz <span>Rent</span> A Car</b><small>Muratpaşa · Antalya</small></a>
+    <nav class="menu" aria-label="Ana menü">
+      <a href="#filo" data-t="m.filo">Filo</a><a href="#rezervasyon" data-t="m.rez">Rezervasyon</a><a href="#karsilama" data-t="m.kar">Havalimanı</a><a href="#teslim" data-t="m.tes">Dijital teslim</a><a href="#sartlar" data-t="m.sss">Şartlar</a><a href="#iletisim" data-t="m.ile">İletişim</a>
+    </nav>
+    <div class="dil" role="group" aria-label="Dil"><button data-dil="tr">TR</button><button data-dil="en">EN</button><button data-dil="de">DE</button><button data-dil="ru">RU</button></div>
+    <a class="ust-tel" href="tel:+905535446161"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1z"/></svg><span>0553 544 61 61</span></a>
+  </div>
+</header>
+
+<main>
+<section class="acilis">
+  <picture><source media="(max-width:560px)" srcset="../img/egea-cross-on-k.jpg"><img src="../img/egea-cross-yan.jpg" alt="Laz Rent A Car filosundan turuncu Fiat Egea Cross" fetchpriority="high"></picture>
+  <div class="kap">
+    <p class="ust-etiket acilis-durum"><span data-laz="acik"></span></p>
+    <h1 data-t="v.h1">Antalya’yı kendi aracınızla gezin</h1>
+    <p class="giris" data-t="v.giris">Muratpaşa’daki ofisimizden, havalimanından ya da otelinizin kapısından teslim.</p>
+    <div class="dugmeler">
+      <a class="dg dolu" href="#rezervasyon" data-t="g.rez">Rezervasyon</a>
+      <a class="dg yesil" href="https://wa.me/905535446161" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.2 1.3z"/></svg><span data-t="g.wa">WhatsApp</span></a>
+      <a class="dg" href="#filo" data-t="m.filo">Filo</a>
+    </div>
+  </div>
+  <p class="acilis-alt">Fiat Egea Cross · Laz Rent A Car</p>
+</section>
+
+<section class="guven" aria-label="Güven">
+  <div class="kap">
+    <div class="k"><b>4,9<em>★★★★★</em></b><span><a href="https://maps.google.com/?cid=7589382241897414626" target="_blank" rel="noopener">448 <span data-t="g.yorum">Google yorumu</span></a></span></div>
+    <div class="k"><b data-t="v.g2b">Aynı gün</b><span data-t="v.g2">Depozito iadesi</span></div>
+    <div class="k"><b data-t="v.g3b">T1 · T2 · İç Hatlar</b><span data-t="v.g3">Havalimanı teslim</span></div>
+    <div class="k"><b data-t="v.g4b">Muratpaşa</b><span data-t="v.g4">Aile işletmesi</span></div>
+  </div>
+</section>
+
+<section class="bolum" id="filo">
+  <div class="kap">
+    <div class="bolum-bas"><div><p class="ust-etiket">Laz Rent A Car</p><h2 data-t="v.filo">Filomuz</h2></div><p data-t="v.filo.a">Fotoğraflar kendi araçlarımız.</p></div>
+    <div data-laz="filo" data-filtre></div>
+  </div>
+</section>
+
+<section aria-label="Araç içi fotoğrafları">
+  <div class="kap">
+    <h2 style="font-size:clamp(1.8rem,3.6vw,2.8rem);margin-bottom:18px" data-t="v.serit">İçi de dışı kadar temiz</h2>
+    <div class="serit">
+      <figure><img src="../img/scudo-ic.jpg" alt="Fiat Scudo 8+1 yolcu kabini" loading="lazy"><figcaption>Fiat Scudo 8+1 · <span data-t="v.ic">Kabin</span></figcaption></figure>
+      <figure><img src="../img/ic-direksiyon-k.jpg" alt="Renault Clio sürücü kabini" loading="lazy"><figcaption>Renault Clio</figcaption></figure>
+      <figure><img src="../img/ic-koltuk-k.jpg" alt="Araç koltukları" loading="lazy"><figcaption data-t="v.koltuk">Koltuklar</figcaption></figure>
+      <figure><img src="../img/scudo-bagaj-k.jpg" alt="Fiat Scudo bagaj" loading="lazy"><figcaption><span data-t="v.bagaj">Bagaj</span> · Scudo</figcaption></figure>
+      <figure><img src="../img/qashqai-yan-k.jpg" alt="Nissan Qashqai" loading="lazy"><figcaption>Nissan Qashqai</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="bolum" id="rezervasyon">
+  <div class="kap">
+    <div class="bolum-bas"><div><p class="ust-etiket">01 · 02 · 03 · 04</p><h2 data-t="r.baslik">Online rezervasyon</h2></div><p data-t="r.alt"></p></div>
+    <div class="rez-kutu"><div data-laz="rezervasyon"></div></div>
+  </div>
+</section>
+
+<section class="bolum" id="karsilama" style="padding-top:0">
+  <div class="kap">
+    <div class="ikili">
+      <figure><img src="../img/scudo-on.jpg" alt="Fiat Scudo, havalimanı transferine uygun 8+1 araç" loading="lazy"></figure>
+      <div class="ic"><p class="ust-etiket">AYT</p><h2 data-t="k.baslik">Havalimanı karşılama</h2><p class="alt" data-t="k.alt"></p><div data-laz="karsilama"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bolum" id="teslim" style="background:var(--yuzey)">
+  <div class="kap">
+    <div class="bolum-bas"><div><p class="ust-etiket">Şeffaf teslim</p><h2 data-t="t.baslik">Dijital teslim kontrolü</h2></div><p data-t="t.alt"></p></div>
+    <div data-laz="teslim"></div>
+  </div>
+</section>
+
+<section class="bolum" id="yorumlar">
+  <div class="kap">
+    <div class="bolum-bas"><div class="yorum-ust"><span class="puan">4,9</span><div><p class="ust-etiket" style="margin:0">★★★★★ · 448</p><h2 style="font-size:clamp(1.8rem,3.6vw,2.8rem)" data-t="yorum.baslik">Müşterilerimiz ne diyor</h2></div></div><a class="dg" href="https://maps.google.com/?cid=7589382241897414626" target="_blank" rel="noopener" data-t="g.tumyorum">Tüm yorumlar</a></div>
+    <div class="yorumlar" data-laz="yorumlar"></div>
+  </div>
+</section>
+
+<section class="bolum" id="sartlar" style="padding-top:0">
+  <div class="kap sss-sar">
+    <div><p class="ust-etiket">SSS</p><h2 data-t="f.baslik">Depozito ve kiralama şartları</h2></div>
+    <div data-laz="sss" data-ilk-acik></div>
+  </div>
+</section>
+
+<section class="bolum" id="iletisim" style="padding-top:0">
+  <div class="kap">
+    <h2 style="margin-bottom:24px" data-t="ile.baslik">Ofis, harita ve 360° görünüm</h2>
+    <div class="iletisim-izgara">
+      <div class="bilgi">
+        <h3>Laz Rent A Car</h3>
+        <p data-t="ile.adres">Meta Apt, Yenigün, 1055. Sk. 25/C, 07310 Muratpaşa / Antalya</p>
+        <p data-t="g.saat">Pzt–Cmt 08:30–23:30 · Paz 12:00–18:30</p>
+        <p><span data-laz="acik"></span></p>
+        <p><a href="tel:+905535446161" style="font:700 1.6rem var(--baslik-font);color:#fff;text-decoration:none">0553 544 61 61</a></p>
+        <a class="dg dolu" href="tel:+905535446161" data-t="g.ara">Ara</a><a class="dg yesil" href="https://wa.me/905535446161" target="_blank" rel="noopener" data-t="g.wa">WhatsApp</a><a class="dg" style="color:#fff" href="https://maps.google.com/?cid=7589382241897414626" target="_blank" rel="noopener" data-t="g.yol">Yol tarifi</a>
+      </div>
+      <div class="harita"><span class="etiket" data-t="m.ile">Harita</span><iframe title="Laz Rent A Car harita" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Laz%20Rent%20A%20Car%2C%201055.%20Sk.%2025%2FC%2C%20Muratpa%C5%9Fa%2C%20Antalya&ll=36.8982179,30.7156387&z=16&output=embed"></iframe></div>
+      <div class="harita"><span class="etiket" data-t="ile.sv">360°</span><iframe allow="accelerometer; gyroscope; fullscreen" title="Laz Rent A Car 360 derece sokak görünümü" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!6m6!1m5!2m2!1d36.8982179!2d30.7156387!4f0!5f0.8"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="alt">
+  <div class="kap"><span>© Laz Rent A Car · lazrentacar.com</span><span>0553 544 61 61 · Muratpaşa / Antalya</span></div>
+  <p class="dijitabela-not">Örnek tasarım · Dijitabela</p>
+</footer>
+<a class="yuzen" href="https://wa.me/905535446161" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.2 1.3z"/></svg></a>
+<script src="../ortak/laz.js"></script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>
