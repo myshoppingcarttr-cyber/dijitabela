@@ -1,0 +1,60 @@
+/* 3 · Uygulama — telefon öncelikli uygulama kabuğu, alt menü, ekranlar */
+:root{--zemin:#f6f4ee;--zemin2:#eeebe2;--baslik:"Barlow Condensed",sans-serif;--r:18px;--r2:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:#e7e3d8;color:var(--yazi);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit}
+h1,h2{font-family:var(--baslik);font-weight:800;line-height:1;letter-spacing:.005em}
+h1{font-size:2.4rem}h2{font-size:1.5rem;margin-bottom:12px}
+.kck{font-weight:700;font-size:.85rem;color:var(--yazi2)}
+.ac{color:var(--yazi2);font-size:.92rem;margin-bottom:12px}
+.app{position:relative;max-width:480px;margin:0 auto;min-height:100vh;background:var(--zemin);padding-bottom:96px;box-shadow:0 0 60px rgba(0,0,0,.08)}
+.app-ust{position:sticky;top:0;z-index:600;display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(246,244,238,.95);backdrop-filter:blur(10px)}
+.logo{display:flex;align-items:center;gap:7px;text-decoration:none;font-family:var(--baslik);font-weight:800;font-size:1.45rem;color:var(--ana);margin-right:auto}
+.logo-i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--ana);color:#fff}
+.sec{display:flex;background:#fff;border-radius:999px;padding:2px;border:1px solid var(--cizgi)}
+.sec button{border:0;background:none;font:inherit;font-weight:800;font-size:.72rem;padding:5px 7px;border-radius:999px;cursor:pointer;min-height:28px;color:var(--yazi2)}
+.sec button.on{background:var(--ana);color:#fff}
+main{padding:4px 14px 0}
+.ekran{display:none}.ekran.on{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;animation:gir .25s ease}.ekran>*,.kart>*{min-width:0}
+@keyframes gir{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+.selam{position:relative;border-radius:var(--r);overflow:hidden;height:190px;color:#fff}
+.selam img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.selam:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(4,30,27,.75))}
+.selam>div{position:absolute;left:16px;bottom:14px;z-index:1}.selam .kck{color:#e8f3ef}
+.hizli3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.hizli3 button{position:relative;border:0;border-radius:var(--r2);overflow:hidden;aspect-ratio:1/1.1;cursor:pointer;color:#fff;text-align:left;font:inherit;padding:0;display:flex;flex-direction:column;justify-content:flex-end}
+.hizli3 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hizli3 button:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.7))}
+.hizli3 b,.hizli3 small{position:relative;z-index:1;padding:0 10px}.hizli3 b{font-family:var(--baslik);font-size:1.35rem;line-height:1}.hizli3 small{padding-bottom:9px;font-size:.75rem}
+.kart{background:#fff;border-radius:var(--r);padding:16px;box-shadow:0 1px 0 var(--cizgi)}
+.kart-b{display:flex;align-items:center;gap:10px;margin-bottom:12px}.kart-b h2{margin:0}
+.adim-no{background:var(--vurgu);color:#2b1a00;font-weight:800;font-size:.72rem;padding:4px 8px;border-radius:999px}
+.baslik-s{display:flex;justify-content:space-between;align-items:center}.baslik-s h2{margin:0}
+.yatay .pp-ulkeler,.yatay .pp-bolgeler{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;padding-bottom:6px;margin:0 -14px;padding-left:14px;padding-right:14px}
+.kart .yatay .pp-bolgeler{margin:0 -16px;padding-left:16px;padding-right:16px}
+.yatay .pp-ulke,.yatay .pp-bolge{flex:0 0 150px;scroll-snap-align:start;border-radius:var(--r2)}
+.ekran-b{padding:8px 2px 0}
+.ekran-foto{position:relative;border-radius:var(--r);overflow:hidden;height:150px}
+.ekran-foto img{width:100%;height:100%;object-fit:cover}.ekran-foto h1{position:absolute;left:16px;bottom:12px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.kart .pp-rota-f,.kart .pp-po{grid-template-columns:1fr}
+.kart .pp-cihaz{grid-template-columns:1fr}
+.kart .pp-paketler{grid-template-columns:1fr 1fr}
+.kurulum ol{list-style:none;counter-reset:a;display:grid;gap:8px}.kurulum li{counter-increment:a;display:flex;gap:10px;align-items:center;font-weight:700}
+.kurulum li:before{content:counter(a);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ana-a);color:var(--ana);font-weight:800;flex:none}
+.sadakat{background:var(--ana);color:#fff}.sadakat .kck{color:#cfe7e1}.sadakat b{font-family:var(--baslik);font-size:3rem;line-height:1}.sadakat small{display:block;color:#cfe7e1}
+.linkler{display:grid}.linkler a{padding:12px 0;border-bottom:1px solid var(--cizgi);text-decoration:none;font-weight:700}.linkler a:last-child{border:0}
+.orta{text-align:center;padding-bottom:10px}
+.alt-menu{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:650;display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--cizgi);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.alt-menu button{position:relative;border:0;background:none;font:inherit;font-size:.7rem;font-weight:700;color:var(--yazi2);display:grid;justify-items:center;gap:2px;padding:6px 0;cursor:pointer;min-height:52px}
+.alt-menu svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.alt-menu .on{color:var(--ana)}.alt-menu .on svg{stroke-width:2.6}
+.sepet-t i{position:absolute;top:2px;left:calc(50% + 6px);font-style:normal}
+.wa-app{position:fixed;bottom:84px;right:max(14px,calc(50% - 226px));width:48px;height:48px;border-radius:50%;background:#25d366;display:grid;place-items:center;z-index:640;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.pp-tost{bottom:150px}
+.pp-terk{bottom:84px}
+.masa-yan{display:none}
+@media(min-width:1000px){
+ .masa-yan{display:grid;gap:14px;position:fixed;left:calc(50% - 560px);top:120px;width:300px}
+ .masa-yan p{color:var(--yazi2);font-size:1.05rem}
+ .logo.buyuk{font-size:2.4rem}.logo.buyuk .logo-i{width:46px;height:46px;border-radius:13px}
+}

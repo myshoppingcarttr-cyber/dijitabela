@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07584f">
+<title>Pasaport.io | eSIM, Lounge &amp; Vignette</title>
+<meta name="description" content="eSIM, lounge ve vignette'i 60 saniyede al. Uygulama gibi hızlı akış.">
+<link rel="icon" href="../img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../_ortak/pasaport.css">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body data-pp-wa-yok>
+<aside class="masa-yan" aria-hidden="true">
+  <a class="logo buyuk" href="./"><span class="logo-i"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4v16"/></svg></span>pasaport.io</a>
+  <p data-i18n="masa">Telefonunda uygulama gibi çalışır. Ana ekrana ekle; seyahat günü tek dokunuşla aç.</p>
+</aside>
+<div class="app">
+  <header class="app-ust">
+    <a class="logo" href="./"><span class="logo-i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4v16"/></svg></span>pasaport.io</a>
+    <div class="sec" role="group" aria-label="Dil"><button type="button" data-pp-dil="tr">TR</button><button type="button" data-pp-dil="en">EN</button><button type="button" data-pp-dil="de">DE</button></div>
+    <div class="sec" role="group" aria-label="Para birimi"><button type="button" data-pp-kur="TRY">₺</button><button type="button" data-pp-kur="EUR">€</button></div>
+  </header>
+
+  <main>
+  <section class="ekran on" id="kesfet" aria-label="Keşfet">
+    <div class="selam"><img src="../img/hero.jpg" alt="" fetchpriority="high"><div><p class="kck" data-i18n="merhaba">Merhaba gezgin 👋</p><h1 data-i18n="h1">Nereye gidiyorsun?</h1></div></div>
+    <div data-pp="arama"></div>
+    <div class="hizli3">
+      <button type="button" data-git="esim"><img src="../img/havalimani-telefon.jpg" alt=""><b>eSIM</b><small data-i18n="hz1">190+ ülke</small></button>
+      <button type="button" data-git="lounge"><img src="../img/lounge.jpg" alt=""><b>Lounge</b><small data-i18n="hz2">Kalkış öncesi</small></button>
+      <button type="button" data-git="rota"><img src="../img/otoyol-alp.jpg" alt=""><b>Vignette</b><small data-i18n="hz3">Sıla Yolu</small></button>
+    </div>
+    <div class="kart"><div class="kart-b"><span class="adim-no">60 sn</span><h2 data-i18n="poH">Seyahat paketini kur</h2></div><div data-pp="paket-olustur"></div></div>
+    <div class="baslik-s"><h2 data-i18n="populer">Popüler</h2><button type="button" class="pp-link" data-git="esim" data-i18n="tumu">Tümü →</button></div>
+    <div class="yatay" data-pp="ulkeler"></div>
+    <div class="kart"><h2 data-i18n="yorumH">Gezginler ne diyor?</h2><div data-pp="yorumlar"></div></div>
+  </section>
+
+  <section class="ekran" id="esim" aria-label="eSIM">
+    <h1 class="ekran-b">eSIM</h1>
+    <div class="kart"><h2 data-i18n="cihazSoru">Telefonum uyumlu mu?</h2><div data-pp="cihaz"></div></div>
+    <div class="kart"><h2 data-i18n="paketH">Paket seç</h2><div data-pp="paketler" data-ulke="TR"></div></div>
+    <div class="kart"><h2 data-i18n="hesapH">Kaç GB lazım?</h2><div data-pp="hesap"></div></div>
+    <div class="kart"><h2 data-i18n="bolgesel">Bölgesel</h2><div class="yatay" data-pp="bolgeler"></div></div>
+    <div class="kart kurulum"><h2 data-i18n="kurH">Kurulum 4 adım</h2><ol><li data-i18n="k1">Bağlantıyı aç</li><li data-i18n="k2">Yüklemeye dokun</li><li data-i18n="k3">eSIM'i ekle</li><li data-i18n="k4">Kurulum hazır</li></ol></div>
+  </section>
+
+  <section class="ekran" id="rota" aria-label="Rota">
+    <div class="ekran-foto"><img src="../img/sinir-yolu.jpg" alt=""><h1 data-i18n="rotaH">Sıla Yolu</h1></div>
+    <div class="kart" data-pp="rota"></div>
+  </section>
+
+  <section class="ekran" id="lounge" aria-label="Lounge">
+    <div class="ekran-foto"><img src="../img/lounge.jpg" alt=""><h1>Lounge</h1></div>
+    <div class="kart" data-pp="lounge"></div>
+  </section>
+
+  <section class="ekran" id="ben" aria-label="Hesap">
+    <h1 class="ekran-b" data-i18n="benH">Hesabım</h1>
+    <div class="kart sadakat"><p class="kck" data-i18n="puanK">Pasaport puanı</p><b>0</b><small data-i18n="puanA">Her siparişte %2 puan; bir sonraki seyahatte kullan (örnek).</small></div>
+    <div class="kart"><h2 data-i18n="ortakBaslik">Paylaş, kazan</h2><p class="ac" data-i18n="ortakAlt"></p><div data-pp="ortaklik"></div></div>
+    <div class="kart"><h2 data-i18n="bultenBaslik">Bildirimler</h2><p class="ac" data-i18n="bultenAlt"></p><div data-pp="bulten"></div></div>
+    <div class="kart"><h2 data-i18n="b2bBaslik">Seyahat acentesi paneli</h2><p class="ac" data-i18n="b2bAlt"></p><button type="button" class="pp-btn pp-btn-ana pp-tam" data-pp-modal="b2b" data-i18n="b2bAc">Paneli aç (demo)</button></div>
+    <div class="kart linkler"><a href="https://wa.me/?text=Pasaport.io" target="_blank" rel="noopener" data-i18n="whatsapp">WhatsApp destek</a><a href="#">Impressum</a><a href="#" data-i18n="gizlilik">Gizlilik</a><a href="#" data-i18n="iade">İade politikası</a></div>
+    <p class="pp-mini orta">© 2026 Pasaport.io · <span data-i18n="demo">Dijitabela tasarım önizlemesi</span></p>
+  </section>
+  </main>
+
+  <nav class="alt-menu" aria-label="Uygulama menüsü">
+    <button type="button" data-git="kesfet" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><span data-i18n="t1">Keşfet</span></button>
+    <button type="button" data-git="esim"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4v16"/></svg><span>eSIM</span></button>
+    <button type="button" data-git="rota"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 10 4M20 20 14 4M12 6v2M12 11v2M12 16v2"/></svg><span data-i18n="t3">Rota</span></button>
+    <button type="button" data-pp-sepet-ac class="sepet-t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7zM9 7a3 3 0 0 1 6 0"/></svg><span data-i18n="sepet">Sepet</span><i data-pp-sepet-sayi hidden>0</i></button>
+    <button type="button" data-git="ben"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg><span data-i18n="t5">Ben</span></button>
+  </nav>
+  <a class="wa-app" href="https://wa.me/?text=Pasaport.io" target="_blank" rel="noopener" aria-label="WhatsApp destek"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg></a>
+</div>
+
+<script>
+window.PP_SOZ={
+ tr:{masa:"Telefonunda uygulama gibi çalışır. Ana ekrana ekle; seyahat günü tek dokunuşla aç.",merhaba:"Merhaba gezgin 👋",h1:"Nereye gidiyorsun?",hz1:"190+ ülke",hz2:"Kalkış öncesi",hz3:"Sıla Yolu",poH:"Seyahat paketini kur",populer:"Popüler",tumu:"Tümü →",yorumH:"Gezginler ne diyor?",cihazSoru:"Telefonum uyumlu mu?",paketH:"Paket seç",hesapH:"Kaç GB lazım?",bolgesel:"Bölgesel",kurH:"Kurulum 4 adım",k1:"Bağlantıyı aç",k2:"Yüklemeye dokun",k3:"eSIM'i ekle",k4:"Kurulum hazır",rotaH:"Sıla Yolu",benH:"Hesabım",puanK:"Pasaport puanı",puanA:"Her siparişte %2 puan; bir sonraki seyahatte kullan (örnek).",b2bAc:"Paneli aç (demo)",gizlilik:"Gizlilik",iade:"İade politikası",demo:"Dijitabela tasarım önizlemesi",t1:"Keşfet",t3:"Rota",t5:"Ben"},
+ en:{masa:"Works like an app on your phone. Add to home screen; open with one tap on travel day.",merhaba:"Hello traveller 👋",h1:"Where are you going?",hz1:"190+ countries",hz2:"Before take-off",hz3:"Road trip",poH:"Build your travel bundle",populer:"Popular",tumu:"All →",yorumH:"What travellers say",cihazSoru:"Is my phone compatible?",paketH:"Pick a plan",hesapH:"How many GB?",bolgesel:"Regional",kurH:"Setup in 4 steps",k1:"Open the link",k2:"Tap install",k3:"Add eSIM",k4:"Ready",rotaH:"Road trip",benH:"My account",puanK:"Pasaport points",puanA:"Earn 2% on every order; use on your next trip (sample).",b2bAc:"Open panel (demo)",gizlilik:"Privacy",iade:"Refund policy",demo:"Dijitabela design preview",t1:"Explore",t3:"Route",t5:"Me"},
+ de:{masa:"Funktioniert wie eine App. Zum Startbildschirm hinzufügen; am Reisetag mit einem Tipp öffnen.",merhaba:"Hallo, Reisende 👋",h1:"Wohin geht's?",hz1:"190+ Länder",hz2:"Vor dem Abflug",hz3:"Heimreise",poH:"Reisepaket zusammenstellen",populer:"Beliebt",tumu:"Alle →",yorumH:"Was Reisende sagen",cihazSoru:"Ist mein Handy kompatibel?",paketH:"Tarif wählen",hesapH:"Wie viele GB?",bolgesel:"Regional",kurH:"Einrichtung in 4 Schritten",k1:"Link öffnen",k2:"Installieren tippen",k3:"eSIM hinzufügen",k4:"Fertig",rotaH:"Heimreise",benH:"Mein Konto",puanK:"Pasaport-Punkte",puanA:"2 % Punkte pro Bestellung; bei der nächsten Reise einlösen (Beispiel).",b2bAc:"Portal öffnen (Demo)",gizlilik:"Datenschutz",iade:"Rückerstattung",demo:"Dijitabela Designvorschau",t1:"Entdecken",t3:"Route",t5:"Ich"}
+};
+</script>
+<script src="../_ortak/veri.js"></script>
+<script src="../_ortak/pasaport.js"></script>
+<script>
+PP.sozluk(window.PP_SOZ);PP.yenile();
+(function(){
+  function git(id){
+    var e=document.getElementById(id); if(!e) return;
+    document.querySelectorAll('.ekran').forEach(function(s){s.classList.toggle('on',s===e);});
+    document.querySelectorAll('.alt-menu [data-git]').forEach(function(b){b.classList.toggle('on',b.dataset.git===id);});
+    window.scrollTo(0,0);
+    try{history.replaceState(null,'','#'+id);}catch(x){}
+  }
+  document.addEventListener('click',function(ev){var b=ev.target.closest('[data-git]'); if(b){ev.preventDefault();git(b.dataset.git);}});
+  if(location.hash) git(location.hash.slice(1));
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pasaport.io | eSIM, Lounge &amp; Vignette</title>
+<meta name="description" content="eSIM, havalimanı lounge ve Sıla Yolu vignette'leri tek sepette. 190+ ülke, TR/EN/DE.">
+<link rel="icon" href="../img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../_ortak/pasaport.css">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<header class="ust">
+  <a class="logo" href="./"><span class="logo-i"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4v16"/></svg></span>pasaport.io</a>
+  <nav class="menu" aria-label="Menü" lang="en"><a href="#esim">eSIM</a><a href="#lounge">Lounge</a><a href="#vignette">Vignette</a><a href="#paket" lang="tr" data-i18n="m_paket">Seyahat paketi</a></nav>
+  <div class="ust-sag">
+    <div class="sec" role="group" aria-label="Dil"><button type="button" data-pp-dil="tr">TR</button><button type="button" data-pp-dil="en">EN</button><button type="button" data-pp-dil="de">DE</button></div>
+    <div class="sec kur" role="group" aria-label="Para birimi"><button type="button" data-pp-kur="TRY">₺</button><button type="button" data-pp-kur="EUR">€</button></div>
+    <button type="button" class="sepet-d" data-pp-sepet-ac><span data-i18n="sepet">Sepet</span> <span data-pp-sepet-sayi hidden>0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="../img/hero.jpg" alt="Kıyıda manzaraya bakan gezginler" fetchpriority="high">
+  <div class="hero-ic">
+    <p class="ust-yazi" data-i18n="heroUst">190+ ülke · Lounge · Sıla Yolu</p>
+    <h1 lang="en"><span>eSIM.</span> <span>Lounge.</span> <span>Vignette.</span></h1>
+    <p class="hero-alt" data-i18n="heroAlt">Seyahatin için gereken her şey tek sepette. İndiğin anda internet, kalkıştan önce sessiz bir köşe, yolda doğru otoyol pulu.</p>
+    <div class="hero-ara" data-pp="arama"></div>
+  </div>
+</section>
+
+<section class="seridi" id="esim">
+  <div class="s-foto"><img src="../img/havalimani-telefon.jpg" alt="Havalimanında telefon kullanan yolcu" loading="lazy"><span class="buyuk">01</span></div>
+  <div class="s-ic">
+    <p class="ust-yazi" lang="en">eSIM</p>
+    <h2 data-i18n="esimH">İndiğin anda internet</h2>
+    <p class="ac" data-i18n="esimP">QR ya da iPhone'da tek dokunuşla kurulum. Kendi numaran WhatsApp'ta kalır, internet eSIM'den gelir.</p>
+    <p class="mini-b" data-i18n="cihazSoru">Telefonum eSIM destekliyor mu?</p>
+    <div data-pp="cihaz"></div>
+    <div class="fiyat-b"><span data-i18n="tr1gb">Türkiye 1 GB / 7 gün</span><b data-pp-para="222"></b><button type="button" class="pp-btn pp-btn-ana" data-pp-ulke="TR" data-i18n="paketler">Paketleri gör</button></div>
+  </div>
+</section>
+
+<section class="ulke-b">
+  <h2 class="dev" data-i18n="nereye">Nereye?</h2>
+  <div data-pp="ulkeler"></div>
+  <h3 class="alt-b" data-i18n="bolgesel">Birden fazla ülke mi? Bölgesel paketler</h3>
+  <div data-pp="bolgeler"></div>
+</section>
+
+<section class="seridi ters" id="lounge">
+  <div class="s-foto"><img src="../img/lounge.jpg" alt="Havalimanı lounge'u" loading="lazy"><span class="buyuk">02</span></div>
+  <div class="s-ic">
+    <p class="ust-yazi" lang="en">Lounge</p>
+    <h2 data-i18n="loungeH">Kapıda değil, koltukta bekle</h2>
+    <p class="ac" data-i18n="loungeP">Frankfurt'tan Antalya'ya, uçuşundan önce yemek, Wi-Fi ve sessizlik. Giriş QR'ın e-postana ve WhatsApp'ına gelir.</p>
+    <div data-pp="lounge"></div>
+  </div>
+</section>
+
+<section class="seridi" id="vignette">
+  <div class="s-foto"><img src="../img/otoyol-alp.jpg" alt="Alplerde otoyol" loading="lazy"><span class="buyuk">03</span></div>
+  <div class="s-ic">
+    <p class="ust-yazi" lang="en">Vignette</p>
+    <h2 data-i18n="yolH">Sıla Yolu'nda tek ödeme</h2>
+    <p class="ac" data-i18n="yolP">Rotanı seç: hangi ülkede vignette, hangisinde gişe, Türkiye'de HGS. Gidiş-dönüş için en ucuz süreyi biz seçeriz; plakana bağlı dijital vignette'ler tek ödemede.</p>
+    <div data-pp="rota"></div>
+  </div>
+</section>
+
+<section class="paket-b" id="paket">
+  <img src="../img/sinir-yolu.jpg" alt="Yaz yolculuğu" loading="lazy">
+  <div class="paket-ic">
+    <div class="paket-y"><p class="ust-yazi" data-i18n="paketUst">Seyahat paketi · birlikte al, %10 kazan</p><h2 class="dev ac-renk" data-i18n="paketH">Bütün yolculuk tek sepette</h2></div>
+    <div class="beyaz" data-pp="paket-olustur"></div>
+  </div>
+</section>
+
+<section class="hesap-b">
+  <div><h2 class="dev" data-i18n="hesapH">Kaç GB?</h2><p class="ac" data-i18n="hesapP">Fazlasına para verme, yolda da kalma. Gün ve kullanımına göre doğru paket.</p></div>
+  <div class="beyaz" data-pp="hesap"></div>
+</section>
+
+<section class="sayi">
+  <div><b>€10,99</b><span>Pasaport.io*</span></div><div><b>€16,99</b><span data-i18n="diger">Diğer eSIM*</span></div><div><b>€21,99</b><span>Roaming*</span></div>
+  <p class="pp-mini" data-i18n="sayiNot">*Örnek karşılaştırma (mevcut sitedeki değerler).</p>
+</section>
+
+<section class="yorum-b">
+  <h2 class="dev" data-i18n="yorumH">Gezginler ne diyor?</h2>
+  <div data-pp="yorumlar"></div>
+</section>
+
+<section class="is-b">
+  <div class="beyaz"><h3 data-i18n="bultenBaslik">Fırsat ve Sıla Yolu duyuruları</h3><p class="ac" data-i18n="bultenAlt"></p><div data-pp="bulten"></div></div>
+  <div class="beyaz"><h3 data-i18n="ortakBaslik">Paylaş, kazan</h3><p class="ac" data-i18n="ortakAlt"></p><div data-pp="ortaklik"></div></div>
+  <div class="beyaz acente"><img src="../img/seyahat-acentesi.jpg" alt="" loading="lazy"><h3 data-i18n="b2bBaslik">Seyahat acentesi paneli</h3><p class="ac" data-i18n="b2bAlt"></p><button type="button" class="pp-btn pp-btn-ana" data-pp-modal="b2b" data-i18n="b2bAc">Paneli aç (demo)</button></div>
+</section>
+
+<footer class="alt">
+  <a class="logo" href="./"><span class="logo-i"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4v16"/></svg></span>pasaport.io</a>
+  <nav><a href="#esim">eSIM</a><a href="#lounge">Lounge</a><a href="#vignette">Vignette</a><a href="#">Impressum</a><a href="#" data-i18n="gizlilik">Datenschutz</a><a href="#" data-i18n="iade">İade</a></nav>
+  <p>© 2026 Pasaport.io · <span data-i18n="demo">Dijitabela tasarım önizlemesi</span></p>
+</footer>
+<button type="button" class="mobil-sepet" data-pp-sepet-ac><span data-i18n="sepetGit">Sepete git</span> <span data-pp-sepet-sayi hidden>0</span></button>
+
+<script>
+window.PP_SOZ={
+ tr:{m_paket:"Seyahat paketi",heroUst:"190+ ülke · Lounge · Sıla Yolu",heroAlt:"Seyahatin için gereken her şey tek sepette. İndiğin anda internet, kalkıştan önce sessiz bir köşe, yolda doğru otoyol pulu.",esimH:"İndiğin anda internet",esimP:"QR ya da iPhone'da tek dokunuşla kurulum. Kendi numaran WhatsApp'ta kalır, internet eSIM'den gelir.",cihazSoru:"Telefonum eSIM destekliyor mu?",tr1gb:"Türkiye 1 GB / 7 gün",paketler:"Paketleri gör",nereye:"Nereye?",bolgesel:"Birden fazla ülke mi? Bölgesel paketler",loungeH:"Kapıda değil, koltukta bekle",loungeP:"Frankfurt'tan Antalya'ya, uçuşundan önce yemek, Wi-Fi ve sessizlik. Giriş QR'ın e-postana ve WhatsApp'ına gelir.",yolH:"Sıla Yolu'nda tek ödeme",yolP:"Rotanı seç: hangi ülkede vignette, hangisinde gişe, Türkiye'de HGS. Gidiş-dönüş için en ucuz süreyi biz seçeriz; plakana bağlı dijital vignette'ler tek ödemede.",paketUst:"Seyahat paketi · birlikte al, %10 kazan",paketH:"Bütün yolculuk tek sepette",hesapH:"Kaç GB?",hesapP:"Fazlasına para verme, yolda da kalma. Gün ve kullanımına göre doğru paket.",diger:"Diğer eSIM*",sayiNot:"*Örnek karşılaştırma (mevcut sitedeki değerler).",yorumH:"Gezginler ne diyor?",b2bAc:"Paneli aç (demo)",gizlilik:"Gizlilik",iade:"İade",demo:"Dijitabela tasarım önizlemesi"},
+ en:{m_paket:"Travel bundle",heroUst:"190+ countries · Lounge · Road trip",heroAlt:"Everything for your trip in one cart. Internet when you land, a quiet seat before take-off, the right vignette on the road.",esimH:"Online the moment you land",esimP:"Install by QR or one tap on iPhone. Your number stays on WhatsApp, data comes from the eSIM.",cihazSoru:"Does my phone support eSIM?",tr1gb:"Türkiye 1 GB / 7 days",paketler:"See plans",nereye:"Where to?",bolgesel:"Several countries? Regional plans",loungeH:"Wait in an armchair, not at the gate",loungeP:"Food, Wi-Fi and quiet before your flight. Your entry QR arrives by email and WhatsApp.",yolH:"One payment for the whole drive",yolP:"Pick your route: vignette, toll booth or HGS per country. We choose the cheapest validity for round trips; plate-linked digital vignettes in one payment.",paketUst:"Travel bundle · buy together, save 10%",paketH:"The whole journey in one cart",hesapH:"How many GB?",hesapP:"Don't overpay, don't run out. The right plan for your days and usage.",diger:"Other eSIM*",sayiNot:"*Sample comparison (values from current site).",yorumH:"What travellers say",b2bAc:"Open panel (demo)",gizlilik:"Privacy",iade:"Refunds",demo:"Dijitabela design preview"},
+ de:{m_paket:"Reisepaket",heroUst:"190+ Länder · Lounge · Heimreise",heroAlt:"Alles für deine Reise in einem Warenkorb. Internet bei der Landung, Ruhe vor dem Abflug, die richtige Vignette unterwegs.",esimH:"Online ab der Landung",esimP:"Installation per QR oder mit einem Tipp am iPhone. Deine Nummer bleibt bei WhatsApp, Daten kommen von der eSIM.",cihazSoru:"Unterstützt mein Handy eSIM?",tr1gb:"Türkei 1 GB / 7 Tage",paketler:"Tarife ansehen",nereye:"Wohin?",bolgesel:"Mehrere Länder? Regionaltarife",loungeH:"Im Sessel warten, nicht am Gate",loungeP:"Essen, WLAN und Ruhe vor dem Flug. Zutritts-QR per E-Mail und WhatsApp.",yolH:"Eine Zahlung für die ganze Fahrt",yolP:"Route wählen: Vignette, Mautstelle oder HGS je Land. Für Hin- und Rückfahrt wählen wir die günstigste Laufzeit; kennzeichengebundene Vignetten in einer Zahlung.",paketUst:"Reisepaket · zusammen kaufen, 10 % sparen",paketH:"Die ganze Reise in einem Warenkorb",hesapH:"Wie viele GB?",hesapP:"Nicht zu viel zahlen, nicht ohne Daten dastehen.",diger:"Andere eSIM*",sayiNot:"*Beispielvergleich (Werte der aktuellen Seite).",yorumH:"Was Reisende sagen",b2bAc:"Portal öffnen (Demo)",gizlilik:"Datenschutz",iade:"Rückerstattung",demo:"Dijitabela Designvorschau"}
+};
+</script>
+<script src="../_ortak/veri.js"></script>
+<script src="../_ortak/pasaport.js"></script>
+<script>PP.sozluk(window.PP_SOZ);PP.yenile();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>
