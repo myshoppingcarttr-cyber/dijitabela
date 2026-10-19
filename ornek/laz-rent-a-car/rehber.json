@@ -1,0 +1,53 @@
+{
+ "giris": {
+  "metin": "Öncelikle merhabalar! Laz Rent A Car için hazırladığımız iş geliştirme planını anlatmak üzere Dijitabela tarafından ben görevlendirildim. Biz yalnızca site yapmıyoruz; işinizi büyütmek için sektörünüzde ne gerekiyorsa onda yardımcı oluyoruz. Aşağı indikçe tek tek anlatacağım."
+ },
+ "plan": {
+  "metin": "İş geliştirme planınız dört adımdan oluşuyor: komisyonsuz doğrudan rezervasyon, turist ve havalimanı müşterisi, filo doluluğunu artırma, güven ve yorum. Her birinin size ne kazandıracağı kartlarda yazıyor."
+ },
+ "tasarimlar": {
+  "metin": "Planın hediyesi olarak üç web sitesi tasarımı da hazır: büyük fotoğraflı Prestij, tam ekran ve koyu Gece, uygulama gibi kartlarla çalışan Modern. Hepsi Google'daki gerçek bilgileriniz ve fotoğraflarınızla hazırlandı. Birine dokunup içine girin.",
+  "dugme": [
+   "Prestij'i aç",
+   "1-prestij/"
+  ]
+ },
+ "oz1": {
+  "metin": "Online rezervasyon. araç sınıfı, alış yeri, tarih ve süreye göre talep"
+ },
+ "oz2": {
+  "metin": "Teslim kontrol şeması. araç hasar noktaları işaretlenir"
+ },
+ "oz3": {
+  "metin": "Türkçe / İngilizce dil düğmesi; havalimanı teslim bilgisi"
+ },
+ "oz4": {
+  "metin": "Google'daki fotoğraflarınız, çalışma saatleriniz ve üç yüz altmış derece konum"
+ },
+ "son": {
+  "metin": "Bir tasarıma girip araçları deneyin. Tespitlerimizi, planın ayrıntısını ve size uygun çalışma modellerini aşağıdaki düğmede bulabilirsiniz.",
+  "dugme": [
+   "Plan ve teklif",
+   "teklif.html"
+  ]
+ },
+ "t_giris": {
+  "metin": "Merhaba, yine ben! Bu sayfada Laz Rent A Car için yaptığımız tespitleri, planınızı ve tek fiyatlı paketimizi anlatacağım."
+ },
+ "t_plan": {
+  "metin": "İş geliştirme planınız burada. Amacımız size daha çok rezervasyon ve daha düzenli gelir getirmek; web sitesi bunun yalnızca bir parçası."
+ },
+ "t_tespit": {
+  "metin": "Tespitlerimiz burada: lazrentacar.com açılmıyor, Google'da web sitesi ve online rezervasyon yok, yorumların ilk sırasında olumsuz yorumlar duruyor, Instagram ve adres bilgileri güncel değil."
+ },
+ "t_yapacak": {
+  "metin": "Pakete dahil olanlar burada: seçtiğiniz tasarımla siteniz, online rezervasyon, lazrentacar.com'un canlanması, Google profil düzenlemesi ve üç ay destek. Üstüne üç de hediyemiz var: yorum toplama sistemi, Almanca ve Rusça dil seçeneği ve havalimanı karşılama formu."
+ },
+ "t_fiyat": {
+  "metin": "Paketin tamamı dört bin dokuz yüz lira, KDV dahil değildir. Ödeme iş tesliminde yapılır.",
+  "dugme": [
+   "Hediye tasarımları aç",
+   "./"
+  ]
+ }
+}
