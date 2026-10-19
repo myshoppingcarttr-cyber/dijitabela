@@ -71,7 +71,7 @@
   function live() {
     var ready = new Promise(function (res, rej) {
       if (window.supabase) return res();
-      var s = document.createElement("script"); s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+      var s = document.createElement("script"); s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js";
       s.onload = res; s.onerror = function () { rej(new Error("Bağlantı kurulamadı")); }; document.head.appendChild(s);
     }).then(function () { return window.supabase.createClient(A.supabaseUrl, A.supabaseAnonKey); });
     var q = function (fn) { return ready.then(fn).then(function (r) { if (r.error) throw new Error(r.error.message); return r.data; }); };

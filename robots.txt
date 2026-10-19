@@ -13,5 +13,6 @@ Disallow: /lig.html
 Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/
+Allow: /ornek/_dijitabela/
 
 Sitemap: https://dijitabela.com/sitemap.xml
