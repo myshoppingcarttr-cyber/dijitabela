@@ -1,0 +1,21 @@
+# Özel Adana Şehir Sürücü Kursu · örnek robots.txt (teslimde kurs alan adına göre düzenlenir)
+User-agent: *
+Allow: /
+
+# Yapay zekâ arama ve özet botları (GEO): açık
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.ornek-kurs-alanadi.com/sitemap.xml
