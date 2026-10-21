@@ -1,0 +1,52 @@
+{
+  "projeler": [
+    {
+      "ad": "Yerleşim 1: Beton Ev",
+      "tur": "Konut",
+      "konum": "İstanbul",
+      "yil": "2025",
+      "gorsel": "https://via.placeholder.com/400x300?text=Örnek+Görsel",
+      "etiket": "örnek görsel"
+    },
+    {
+      "ad": "Yerleşim 2: Gece Konutu",
+      "tur": "Konut",
+      "konum": "Ankara",
+      "yil": "2024",
+      "gorsel": "https://via.placeholder.com/400x300?text=Örnek+Görsel",
+      "etiket": "örnek görsel"
+    },
+    {
+      "ad": "Yerleşim 3: Atölye",
+      "tur": "Atölye",
+      "konum": "İzmir",
+      "yil": "2023",
+      "gorsel": "https://via.placeholder.com/400x300?text=Örnek+Görsel",
+      "etiket": "örnek görsel"
+    },
+    {
+      "ad": "Proje 4: Mimari Tasarım",
+      "tur": "Mimari",
+      "konum": "Bursa",
+      "yil": "2022",
+      "gorsel": "https://via.placeholder.com/400x300?text=Örnek+Görsel",
+      "etiket": "örnek görsel"
+    },
+    {
+      "ad": "Proje 5: İç Mimari",
+      "tur": "İç Mimari",
+      "konum": "Antalya",
+      "yil": "2021",
+      "gorsel": "https://via.placeholder.com/400x300?text=Örnek+Görsel",
+      "etiket": "örnek görsel"
+    },
+    {
+      "ad": "Proje 6: Tasarım Atölyesi",
+      "tur": "Tasarım",
+      "konum": "İzmir",
+      "yil": "2020",
+      "gorsel": "https://via.placeholder.com/400x300?text=Örnek+Görsel",
+      "etiket": "örnek görsel"
+    }
+  ]
+}

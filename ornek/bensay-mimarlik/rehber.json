@@ -1,0 +1,168 @@
+{
+  "giris": {
+    "metin": "Öncelikle merhabalar! Erkam Bey için hazırlanan prototipleri anlatmak üzere Dijitabela tarafından ben görevlendirildim. Sayfanın ana teması bu şekilde; aşağı indikçe devamını size tek tek anlatacağım.",
+    "tts": true
+  },
+  "tasarimlar": {
+    "metin": "Burada üç farklı tasarım var. Beton sade ve net, Gece koyu ve sinematik, Atölye ise sıcak kum tonlarında. Üçü de çalışır hâlde; birine dokunun, içine girip her şeyi deneyebilirsiniz.",
+    "dugme": [
+      "Beton tasarımı aç",
+      "1-beton/"
+    ]
+  },
+  "oz1": {
+    "metin": "İlk özellik proje süre planlayıcı. Müşteri proje türünü ve metrekareyi seçiyor, rölöveden ruhsata kadar tahmini takvimini aşama aşama görüyor ve tek dokunuşla size WhatsApp'tan gönderiyor.",
+    "dugme": [
+      "Planlayıcıyı dene",
+      "1-beton/#planlayici"
+    ]
+  },
+  "oz2": {
+    "metin": "İkincisi önce ve sonra cephe kaydırıcı. Çizgiyi sürükleyince eski bina ile yenilenmiş cephe yan yana görünüyor. Kentsel dönüşümde müşteriyi en çok ikna eden gösterim bu.",
+    "dugme": [
+      "Kaydırıcıyı dene",
+      "2-gece/"
+    ]
+  },
+  "oz3": {
+    "metin": "Üçüncüsü ruhsat belge kontrol listesi. Müşteri elindeki belgeleri işaretliyor, eksiklerini görüyor ve tek dokunuşla size soruyor.",
+    "dugme": [
+      "Listeyi dene",
+      "1-beton/#ruhsat"
+    ]
+  },
+  "oz4": {
+    "metin": "Dördüncüsü müşteri proje takip ekranı. Her müşteri kendi koduyla projesinin hangi aşamada olduğunu, son paftaları ve sıradaki toplantıyı görüyor. Denemek için E R K, iki bin dört yüz seksen bir kodunu girin.",
+    "dugme": [
+      "Takip ekranını dene",
+      "1-beton/#takip"
+    ]
+  },
+  "oz5": {
+    "metin": "Beşincisi iç mimari stil seçici. Müşteri tarzını seçiyor; renk paleti ve malzeme önerisi anında çıkıyor, beğendiğini size iletiyor.",
+    "dugme": [
+      "Stil seçiciyi dene",
+      "3-atolye/"
+    ]
+  },
+  "oz6": {
+    "metin": "Ayrıca filtrelenebilir portföy, büyük görüntüleyici, keşif randevusu, Türkçe ve İngilizce dil desteği hazır. Google için de mimarlık ofisi bilgileri sayfaya işlendi."
+  },
+  "oz7": {
+    "metin": "Yeni eklendi: maliyet hesaplayıcı. Müşteri proje türünü ve metrekareyi seçip tahmini maliyeti görüyor; fiyatları yönetici panelinden siz belirliyorsunuz.",
+    "dugme": [
+      "Maliyeti dene",
+      "1-beton/#maliyet"
+    ],
+    "tts": true
+  },
+  "oz8": {
+    "metin": "Ayrıca yapay zekâ iç mimari önizleme, üç boyutlu proje sunumu, WhatsApp asistanı, kentsel dönüşüm hesaplayıcı, keşif takvimi ve dijital büyüme örnekleri her tasarımda hazır.",
+    "dugme": [
+      "Gece tasarımını aç",
+      "2-gece/"
+    ],
+    "tts": true
+  },
+  "i_panel": {
+    "metin": "Yönetici paneli demo. Ofis yöneticisi fiyatları ve proje durumlarını buradan günceller. Giriş için kullanıcı adı demo, şifre demo.",
+    "dugme": [
+      "Yönetici panelini aç",
+      "panel/"
+    ],
+    "tts": true
+  },
+  "son": {
+    "metin": "Şimdi bir tasarıma girip deneyin. Beğendiğiniz seçeneği söyleyin; kendi projeleriniz ve logonuzla yayına alalım. Tespitlerimizi ve teklifimizi hemen aşağıdaki düğmede bulabilirsiniz.",
+    "dugme": [
+      "Tespitler ve teklif",
+      "teklif.html"
+    ]
+  },
+  "t_giris": {
+    "metin": "Merhaba, yine ben! Bu sayfada Erkam Bey'in ofisi için yaptığımız tespitleri ve teklifimizi anlatacağım. Aşağı indikçe devam ediyorum.",
+    "tts": true
+  },
+  "t_tespit": {
+    "metin": "İlk tespitimiz: alan adınız kayıtlı ama site açılmıyor, hata sayfası çıkıyor. İkincisi, Google Haritalar'da kaydınız yok; Ankara'da mimar arayan müşteri sizi göremiyor."
+  },
+  "t_yapacak": {
+    "metin": "Bizim yapacaklarımız burada: seçtiğiniz tasarımla siteniz, mimarlığa özel araçlar, proje takip paneli, alan adınıza bağlama, Google İşletme Profili ve üç ay destek."
+  },
+  "t_yeni": {
+    "metin": "Yeni eklenenler: maliyet hesaplayıcı, yönetici paneli ve demolar. Panele demo, demo ile girebilirsiniz.",
+    "dugme": [
+      "Yönetici paneli",
+      "panel/"
+    ],
+    "tts": true
+  },
+  "t_fiyat": {
+    "metin": "Paket fiyatı yedi bin dokuz yüz lira, KDV dahil değildir; tek seferlik ödenir. İçerikleriniz geldikten sonra beş iş gününde yayında. Sorularınız için WhatsApp düğmesi hemen aşağıda.",
+    "dugme": [
+      "3 tasarımı aç",
+      "./"
+    ]
+  },
+  "p_giris": {
+    "metin": "Merhaba! Bu, Erkam Bey için hazırladığımız tasarımlardan biri. Aşağı indikçe her özelliği tek tek göstereceğim; dokunup denemeniz yeterli.",
+    "tts": true
+  },
+  "p_portfoy": {
+    "metin": "Burası portföy. Üstteki düğmelerle konut, ofis, iç mimari ya da restorasyon diye süzün; bir görsele dokunun, büyük açılsın."
+  },
+  "p_oncesonra": {
+    "metin": "Şimdi ortadaki çizgiyi sağa sola sürükleyin. Solda eski bina, sağda yenilenmiş cephe tasarımı görünüyor."
+  },
+  "p_planlayici": {
+    "metin": "Proje süre planlayıcı burada. Proje türünü, metrekareyi ve hizmetleri değiştirin; tahmini takvim aşama aşama güncelleniyor. Altındaki düğme planı WhatsApp'tan gönderiyor."
+  },
+  "p_ruhsat": {
+    "metin": "Ruhsat belge listesi. Elinizdeki belgeleri işaretleyin; hazırlık durumu ve eksikleriniz anında çıkıyor."
+  },
+  "p_takip": {
+    "metin": "Proje takip ekranı. Kutuya E R K, iki bin dört yüz seksen bir yazıp düğmeye basın; projenin aşamalarını görün."
+  },
+  "p_stil": {
+    "metin": "Stil seçici. Bir tarza dokunun; renk paleti ve önerilen malzemeler değişiyor."
+  },
+  "p_maliyet": {
+    "metin": "Burası maliyet hesaplayıcı. Proje türünü, metrekareyi ve stili seçin; tahmini maliyet anında çıkıyor. Fiyatları ofis yönetici panelinden siz kendiniz belirlersiniz.",
+    "tts": true
+  },
+  "p_yz": {
+    "metin": "Yapay zekâ iç mimari önizleme. Müşteri odasının fotoğrafını yüklüyor, iki üç saniye içinde seçtiği stilde render görüyor. Prototipte render örnek görseldir; yüklenen fotoğraf yalnız tarayıcıda kalır.",
+    "tts": true
+  },
+  "p_3d": {
+    "metin": "Burada projenin döndürülebilir üç boyutlu modeli var. Parmağınızla ya da fareyle sürükleyin, odayı her açıdan gezin; gündüz ve gece görünümünü deneyin.",
+    "tts": true
+  },
+  "p_wa": {
+    "metin": "WhatsApp asistanı. Müşteri keşif randevusu istiyor; asistan metrekareyi soruyor, tahmini aralık veriyor ve randevu öneriyor. Hepsi sizin yerinize, gece gündüz.",
+    "tts": true
+  },
+  "p_kentsel": {
+    "metin": "Kentsel dönüşüm hesaplayıcı. Arsa, daire sayısı ve emsali girin; yeni toplam inşaat alanı, hak sahibine düşen metrekare ve tahmini süre çıkıyor. Sonuçlar tahminidir.",
+    "tts": true
+  },
+  "p_takvim": {
+    "metin": "Keşif randevu takvimi. Önümüzdeki on dört günden bir gün ve saat seçin; seçim hazır WhatsApp mesajına dönüşüyor.",
+    "tts": true
+  },
+  "p_buyume": {
+    "metin": "Dijital büyüme örnekleri. Google'da Ankara mimar aramasında site ve harita kartı, Instagram Reels kapakları ve Google reklam önizlemesi. Hepsi örnek görünümdür.",
+    "tts": true
+  },
+  "p_paket": {
+    "metin": "Ek hizmetler ve paketler. On ek hizmet ve dört paket burada; fiyatlar KDV hariçtir. Paket düğmeleri Dijitabela'ya yazar.",
+    "tts": true
+  },
+  "p_iletisim": {
+    "metin": "Son olarak keşif randevusu. Adınızı ve gününüzü yazın, randevu isteği hazır mesaj olarak WhatsApp'a gidiyor. Beğendiyseniz diğer tasarımlara da göz atın.",
+    "dugme": [
+      "Tüm tasarımlar",
+      "../"
+    ]
+  }
+}

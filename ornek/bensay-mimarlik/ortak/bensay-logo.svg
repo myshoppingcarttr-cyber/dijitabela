@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="100%" height="100%">
+  <style>
+    .logo-text {
+      font-family: 'Arial', sans-serif;
+      font-size: 120px;
+      font-weight: bold;
+      fill: #C8B89A;
+      stroke: #263826;
+      stroke-width: 2;
+      text-anchor: middle;
+    }
+    .logo-subtext {
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+      font-weight: normal;
+      fill: #C8B89A;
+      stroke: #263826;
+      stroke-width: 1;
+      text-anchor: middle;
+      letter-spacing: 2px;
+    }
+  </style>
+  <text x="500" y="180" class="logo-text">bensay</text>
+  <text x="500" y="260" class="logo-subtext">MİMARLIK · İÇ MİMARLIK · TASARIM</text>
+</svg>
