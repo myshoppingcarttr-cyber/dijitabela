@@ -1,0 +1,1 @@
+﻿otel-demo.mp3, klinik-demo.mp3, genel-demo.mp3 buraya (DEMO-SENARYOLARI.md). Dosya gelince sayfadaki 'Sesli dinle' kendiliginden acilir.

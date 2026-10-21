@@ -1,0 +1,150 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Ayşe Çağrı Merkezi · Dijitabela</title>
+<meta name="description" content="Telefonunuzu 7/24 açan, randevu ve rezervasyon talebi alan, 7 dilde konuşan yapay zekâ asistanı Ayşe. Otel, sağlık turizmi kliniği ve esnaf için sektöre özel kurulum.">
+<link rel="icon" href="https://dijitabela.com.tr/assets/favicon.svg"><link rel="stylesheet" href="../_dijitabela/sunum.css">
+<style>
+.filigran{position:fixed;inset:0;pointer-events:none;z-index:50;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='220'%3E%3Ctext x='20' y='130' transform='rotate(-18 180 110)' font-family='Space Mono,monospace' font-size='22' fill='%2316181D' fill-opacity='.05'%3E%C3%96RNEK %C2%B7 D%C4%B0J%C4%B0TABELA%3C/text%3E%3C/svg%3E")}
+.ak{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+.ak div{background:#fff;border:1px solid var(--line);padding:16px}
+.ak b{display:block;font-family:"Space Mono",monospace;font-size:.78rem;color:var(--led-ink);margin-bottom:6px}
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pk>div{background:#fff;border:1px solid var(--line);padding:22px;display:flex;flex-direction:column}
+.pk h3{font-size:1.2rem;font-weight:800;margin-bottom:4px}.pk .alt{color:var(--mute);font-size:.92rem;margin-bottom:12px}
+.pk li{list-style:none;padding:7px 0 7px 22px;border-bottom:1px solid var(--line);position:relative;font-size:.94rem}
+.pk li:before{content:"✓";position:absolute;left:2px;color:var(--ok);font-weight:900}
+.pk .ek{margin-top:12px;background:#FFF3D6;padding:12px 14px;font-size:.9rem}
+.pk .ek b{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--led-ink);display:block;margin-bottom:4px}
+.dm{background:#fff;border:1px solid var(--line);padding:20px;margin-top:14px}
+.dm-ust{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.dm-sek{display:flex;gap:6px;flex-wrap:wrap}.dm-sek button{font:inherit;font-weight:700;font-size:.88rem;padding:9px 14px;border:1px solid var(--fg);background:#fff;cursor:pointer}
+.dm-sek button[aria-pressed=true]{background:var(--fg);color:#fff}
+.dm-dug{display:flex;gap:8px;flex-wrap:wrap}.dm-dug button{font:inherit;font-weight:800;font-size:.88rem;padding:10px 14px;border:0;cursor:pointer;background:var(--led);color:var(--fg)}
+.dm-dug button.i{background:var(--bg2);color:var(--fg2)}.dm-dug button:disabled{opacity:.55;cursor:default}
+.ekran{margin-top:16px;background:var(--bg2);padding:16px;min-height:260px;max-height:440px;overflow:auto;display:flex;flex-direction:column;gap:8px}
+.bl{max-width:82%;padding:10px 13px;font-size:.94rem;line-height:1.45;animation:gel .25s ease}
+.bl.a{align-self:flex-start;background:#16181D;color:#fff}.bl.c{align-self:flex-end;background:#fff;border:1px solid var(--line)}
+.bl small{display:block;font-family:"Space Mono",monospace;font-size:.68rem;opacity:.7;margin-bottom:2px}
+.kart{align-self:stretch;border-left:4px solid var(--led);background:#fff;padding:12px 14px;font-size:.9rem;font-family:"Space Mono",monospace}
+@keyframes gel{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bl{animation:none}}
+.dl{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.dl button{font:inherit;font-size:.86rem;padding:8px 12px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.dl button[aria-pressed=true]{border-color:var(--fg);font-weight:800}
+.dl-cikti{margin-top:10px;background:#16181D;color:#fff;padding:14px 16px;font-size:1rem;min-height:56px}
+.hes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.hes label{display:block;background:#fff;border:1px solid var(--line);padding:14px;font-size:.88rem;color:var(--mute)}
+.hes input{display:block;width:100%;margin-top:6px;font:inherit;font-size:1.2rem;font-weight:800;color:var(--fg);border:0;border-bottom:2px solid var(--led);background:transparent;padding:4px 0}
+.hes-son{margin-top:12px;background:var(--fg);color:#fff;padding:20px}.hes-son .t{font-size:2rem;font-weight:800}.hes-son .t em{font-style:normal;color:var(--led)}
+.not{background:#fff;border:1px solid var(--line);border-left:4px solid var(--err);padding:14px 18px;margin-top:14px;font-size:.92rem;color:var(--fg2)}
+details{background:#fff;border:1px solid var(--line);padding:14px 18px;margin-top:8px}summary{font-weight:800;cursor:pointer}details p{margin-top:8px;color:var(--fg2)}
+@media(max-width:900px){.ak{grid-template-columns:1fr 1fr}.pk,.hes{grid-template-columns:1fr}}
+@media(max-width:520px){.ak{grid-template-columns:1fr}.bl{max-width:92%}}
+</style></head><body>
+<div class="filigran" aria-hidden="true"></div>
+<header class="dj-ust"><div class="kap"><img src="https://dijitabela.com.tr/assets/favicon.svg" alt="Dijitabela" width="38" height="38"><b>Dijitabela</b><span>DİJİTAL İŞ ORTAĞINIZ · dijitabela.com.tr</span></div></header>
+<main class="dj-govde"><div class="kap">
+
+<div data-anlat="giris"><div class="dj-etiket">Yapay zekâ çağrı merkezi · Ayşe</div>
+<h1>Telefonunuz çalıyor, kimse açamıyor. Ayşe açsın.</h1>
+<p class="dj-giris">Ayşe, işletmenize özel kurulan yapay zekâ telefon asistanıdır. Gece, hafta sonu ya da siz meşgulken aramayı açar; sorulara sizin bilgilerinizle cevap verir, rezervasyon ve randevu talebini alır, özeti anında WhatsApp'ınıza yazar. Otel, sağlık turizmi kliniği ve esnaf için ayrı ayrı kurulur.</p>
+<a class="dj-dg" href="https://wa.me/905019452184?text=Merhaba%2C%20Ay%C5%9Fe%20%C3%A7a%C4%9Fr%C4%B1%20merkezi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." rel="noopener">WhatsApp'tan bilgi al</a><a class="dj-dg s" href="#demo">Örnek aramayı dinle ↓</a></div>
+
+<h2 data-anlat="nasil">Nasıl çalışır?</h2>
+<div class="ak" data-anlat="nasil2">
+<div><b>01 · AÇAR</b>Arama size değil Ayşe'ye düşer: mesai dışı, meşgul ya da cevapsız yönlendirmesiyle. Mevcut numaranız değişmez.</div>
+<div><b>02 · ANLAR</b>Arayanın dilinde konuşur; yalnız sizin onayladığınız bilgilerden cevap verir. Bilmediğini uydurmaz.</div>
+<div><b>03 · İŞLER</b>Rezervasyon talebi, randevu, geri arama, fotoğraf isteği. Takviminize, otel yazılımınıza ya da WhatsApp'a.</div>
+<div><b>04 · HABER VERİR</b>Her görüşmenin özeti saniyeler içinde telefonunuzda. Acil ya da hassas konu insana aktarılır.</div>
+</div>
+
+<h2 data-anlat="paket">Sektöre özel üç kurulum</h2>
+<div class="pk">
+<div data-anlat="otel"><h3>Otel</h3><p class="alt">Resepsiyonu 7/24 açık tutan Ayşe</p><ul>
+<li>Gece ve yoğun saatte aramayı açar (Türkçe, İngilizce; isteğe Almanca, Rusça)</li>
+<li>Oda, müsaitlik, kahvaltı, otopark, transfer sorularını cevaplar</li>
+<li>Rezervasyon talebini otel yazılımınıza ya da e-posta ve WhatsApp'a işler</li>
+<li>Gelişten bir gün önce hatırlatma; gelmeyen misafire takip araması (yalnız rezervasyonu olana)</li>
+<li>Konaklama sonrası teşekkür; sorun varsa müdüre iletir</li></ul>
+<div class="ek"><b>SİZE ÖZEL +3</b>Kaçan aramaya 2 dakikada WhatsApp dönüşü · haftalık "en çok sorulan tarih ve fiyat" raporu · transfer ve tur talebi kaydı</div></div>
+<div data-anlat="klinik"><h3>Sağlık turizmi kliniği</h3><p class="alt">Diş, saç ekimi, estetik: 7 dilde ilk karşılama</p><ul>
+<li>Türkçe, İngilizce, Almanca, Rusça, Arapça, Fransızca, Hollandaca</li>
+<li>Arayanın ilgilendiği işlemi ve ülkesini kaydeder, fotoğraf veya röntgen için güvenli WhatsApp bağlantısı gönderir</li>
+<li>Doktorla online ya da yüz yüze ön görüşme randevusu verir, saat farkını hesaplar</li>
+<li>Transfer ve anlaşmalı otel bilgisini kliniğin onaylı metninden aktarır</li>
+<li>Koordinatöre Türkçe özet + orijinal dilde döküm</li></ul>
+<div class="ek"><b>SİZE ÖZEL +3</b>Hastanın kendi saatinde geri arama görevi · "bizi nereden buldunuz" kaynak raporu · 7 dilli sık sorulan sorular kartı</div></div>
+<div data-anlat="genel"><h3>Esnaf ve hizmet işletmesi</h3><p class="alt">Oto servis, kuaför, emlak, veteriner, kurs</p><ul>
+<li>Elinizin dolu olduğu anda aramayı açar, sık soruları cevaplar</li>
+<li>Takviminizdeki boş saate randevu verir</li>
+<li>Kaçan aramaya mesai içinde geri döner</li>
+<li>Randevudan önce hatırlatma; gelmeyene yeni randevu</li>
+<li>Servis: "aracım hazır mı?" sorusuna durum bilgisi</li></ul>
+<div class="ek"><b>SİZE ÖZEL +3</b>Tekrar arayan müşteriyi tanıma · akşam WhatsApp özeti · telefon, WhatsApp ve Instagram için tek bilgi bankası</div></div>
+</div>
+
+<h2 id="demo" data-anlat="demo">Örnek arama: kendiniz görün</h2>
+<div class="dm"><div class="dm-ust">
+<div class="dm-sek" role="group" aria-label="Senaryo"><button type="button" data-s="otel" aria-pressed="true">Otel · gece 23:40</button><button type="button" data-s="klinik" aria-pressed="false">Klinik · İngiltere'den</button><button type="button" data-s="genel" aria-pressed="false">Oto servis</button></div>
+<div class="dm-dug"><button type="button" id="oynat">▶ Yazılı oynat</button><button type="button" id="dinle" disabled>🔊 Sesli dinle · yakında</button></div></div>
+<div class="ekran" id="ekran" aria-live="polite"></div>
+<audio id="ses" preload="none"></audio>
+<p style="font-size:.85rem;color:var(--mute);margin-top:8px">İşletme adları örnektir. Gerçek kurulumda Ayşe yalnız sizin onayladığınız bilgilerle konuşur.</p></div>
+
+<h2 data-anlat="dil">Klinikler için: Ayşe 7 dilde selamlar</h2>
+<div class="dl" role="group" aria-label="Dil">
+<button type="button" data-d="tr" aria-pressed="true">Türkçe</button><button type="button" data-d="en" aria-pressed="false">English</button><button type="button" data-d="de" aria-pressed="false">Deutsch</button><button type="button" data-d="ru" aria-pressed="false">Русский</button><button type="button" data-d="ar" aria-pressed="false">العربية</button><button type="button" data-d="fr" aria-pressed="false">Français</button><button type="button" data-d="nl" aria-pressed="false">Nederlands</button></div>
+<div class="dl-cikti" id="dlc"></div>
+<div class="not" data-anlat="kural"><b>Sağlıkta net kurallarımız:</b> Ayşe teşhis koymaz, tedavi önermez, fiyat garantisi ya da sonuç vaadi vermez; tıbbi her soruyu doktora iletir. Metinler kliniğin sorumlu müdürünün onayıyla yazılır; fotoğraf ve röntgen Ayşe'den geçmez, doğrudan kliniğe gider. Kurulumda kişisel veri işleme sözleşmesi imzalanır.</div>
+
+<h2 data-anlat="hesap">Kaçan aramalar size ne kadara mal oluyor?</h2>
+<div class="hes">
+<label>Ayda açılamayan arama<input id="h1" type="number" min="0" value="60" inputmode="numeric"></label>
+<label>Bunların kaçta kaçı müşteriye döner (%)<input id="h2" type="number" min="0" max="100" value="20" inputmode="numeric"></label>
+<label>Ortalama müşteri değeri (TL)<input id="h3" type="number" min="0" value="3000" inputmode="numeric"></label></div>
+<div class="hes-son"><div class="t">Ayda <em id="hs">36.000 TL</em> kapıdan dönüyor</div><p>Kendi rakamlarınızı yazın. Ayşe bu aramaları açar, kaydeder ve size iletir.</p></div>
+
+<h2 data-anlat="sss">Sık sorulanlar</h2>
+<details><summary>Numaram değişecek mi?</summary><p>Hayır. Mevcut numaranızdan mesai dışı, meşgul ya da cevapsız yönlendirmesi yapılır. İsterseniz Ayşe'ye ayrı bir sabit numara da açılır.</p></details>
+<details><summary>Arayan, yapay zekâyla konuştuğunu bilecek mi?</summary><p>Evet. Ayşe ilk cümlede kendini yapay zekâ asistanı olarak tanıtır. İnsan gibi davranmaz; arayan isterse yetkiliye aktarılır ya da geri arama kaydı açılır.</p></details>
+<details><summary>Kart bilgisi alıyor mu?</summary><p>Hayır. Telefonda ödeme bilgisi alınmaz. Rezervasyon için güvenli ödeme bağlantısı mesajla gönderilir.</p></details>
+<details><summary>Ses kaydı tutuluyor mu?</summary><p>Varsayılan olarak hayır; görüşmenin yazılı özeti ve dökümü size iletilir. Aramanın başında arayan bilgilendirilir.</p></details>
+<details><summary>Kurulum ne kadar sürer?</summary><p>5 ile 10 iş günü. Bilgilerinizi alır, metni onayınıza sunarız; bir test haftasında kendi telefonunuzdan deneyip düzeltiriz, sonra canlıya geçeriz.</p></details>
+<details><summary>Fiyat?</summary><p>Kurulum ve aylık kullanım olarak, işletmenizin arama hacmine göre net teklif veririz. Teklif fiyatlarımıza KDV dahil değildir.</p></details>
+
+<div data-anlat="son"><a class="dj-dg" href="https://wa.me/905019452184?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20Ay%C5%9Fe%20%C3%A7a%C4%9Fr%C4%B1%20merkezi%20teklifi%20istiyorum." rel="noopener">WhatsApp'tan teklif iste</a><a class="dj-dg i" href="mailto:info@dijitabela.com?subject=Ay%C5%9Fe%20%C3%A7a%C4%9Fr%C4%B1%20merkezi">E-posta gönder</a></div>
+<div class="dj-alt"><img src="https://dijitabela.com.tr/assets/favicon.svg" alt="" width="26" height="26"><span>Dijitabela · Vergi levhalı işletme · Kepez / Antalya · dijitabela.com.tr · 0501 945 21 84</span></div>
+</div></main>
+<script>
+(function(){"use strict";
+var S={
+otel:{ses:"ses/otel-demo.mp3",r:[["a","İyi akşamlar, Kaleiçi Bahçe Otel, ben otelin yapay zekâ asistanı Ayşe. Size nasıl yardımcı olabilirim?"],["c","İyi akşamlar. Kasımın yedisinden dokuzuna iki kişilik oda var mı acaba?"],["a","7–9 Kasım, iki gece, iki kişi. Bahçe manzaralı çift kişilik odamız müsait. Kahvaltı dahil. İsterseniz deniz manzaralı odayı da söyleyebilirim."],["c","Otopark var mı? Arabayla geleceğiz."],["a","Kaleiçi'ne araç girişi sınırlı; anlaşmalı otoparkımız 150 metre ileride, misafirlerimize ücretsiz. Konumu mesajla gönderiyorum."],["c","Erken giriş olur mu? Sabah on gibi varırız."],["a","Erken giriş o günkü doluluğa bağlı; notunuza ekledim, resepsiyon sabah teyit eder. Eşyalarınızı her durumda bırakabilirsiniz."],["c","Tamam, ayırtalım."],["a","Adınızı alabilir miyim?"],["c","Mehmet Kaya, bu numara."],["a","Teşekkürler Mehmet Bey. Talebinizi oluşturdum; WhatsApp'tan özet ve güvenli ödeme bağlantısı gelecek. Gelişinizden bir gün önce kısa bir hatırlatma için arayacağım. İyi geceler."],["k","OTELİN WHATSAPP'INA · 23:41 · Rezervasyon talebi · 7–9 Kas · 2 kişi · Bahçe çift · erken giriş notu · otopark konumu gönderildi · ödeme bağlantısı bekliyor"]]},
+klinik:{ses:"ses/klinik-demo.mp3",r:[["a","Hello, Lara Smile Dental, this is Ayşe, the clinic's AI assistant. How can I help you today?"],["c","Hi, I'm calling from Manchester. I'm thinking about dental implants in Antalya. How much would it cost?"],["a","I can't give you a final price over the phone — that depends on your doctor's examination. I can book you a free online consultation with our dentist. Would that help?"],["c","Yes, please."],["a","Do you have a recent X-ray or photos? I'll text you a secure WhatsApp link — only the clinic team will see them."],["c","I have an X-ray from last year."],["a","Our dentist has Thursday 11 a.m. or Friday 3 p.m., UK time. Which suits you?"],["c","Thursday works."],["a","Booked: Thursday 11 a.m. UK time, 1 p.m. in Antalya. The coordinator can also explain airport transfer and partner hotels. May I have your name?"],["c","James Walker."],["a","Thank you, James. Medical questions will be answered by the dentist on Thursday. Have a nice day."],["k","KOORDİNATÖRE TÜRKÇE ÖZET · İngiltere · İngilizce · İlgi: implant · Röntgen var → WA bağlantısı gitti · Online görüşme Perşembe 13:00 TSİ · Transfer/otel sordu · Fiyat verilmedi (kural)"]]},
+genel:{ses:"ses/genel-demo.mp3",r:[["a","Merhaba, Kepez Usta Oto, ben servisin yapay zekâ asistanı Ayşe. Ustalarımız araç başında, size ben yardımcı olayım."],["c","Dün bıraktığım beyaz Corolla hazır mı?"],["a","Plakanızın son üç hanesini söyler misiniz?"],["c","412."],["a","Teşekkürler. Balata değişimi bitti, araç yıkamada. Saat 16:00'da teslime hazır."],["c","Eşimin arabasının periyodik bakımı için ne zaman gelebiliriz?"],["a","Perşembe 09:00 ya da cuma 14:00 boş. Hangisi uygun?"],["c","Perşembe dokuz."],["a","Perşembe 09:00'a yazdım. Bir gün önce hatırlatma mesajı gelecek. İyi günler."],["k","USTANIN WHATSAPP'INA · Corolla …412 aradı, 16:00 teslim bilgisi verildi · Yeni randevu: Perşembe 09:00 periyodik bakım"]]}};
+var akt="otel",zam=[],ekran=document.getElementById("ekran"),dinle=document.getElementById("dinle"),ses=document.getElementById("ses");
+var AZ=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function temizle(){zam.forEach(clearTimeout);zam=[];ekran.innerHTML="";}
+function bas(r){var d=document.createElement("div");if(r[0]==="k"){d.className="kart";d.textContent=r[1];}else{d.className="bl "+r[0];var s=document.createElement("small");s.textContent=r[0]==="a"?"AYŞE · YAPAY ZEKÂ":"ARAYAN";d.appendChild(s);d.appendChild(document.createTextNode(r[1]));}ekran.appendChild(d);ekran.scrollTop=ekran.scrollHeight;}
+function oynat(){temizle();var t=0;S[akt].r.forEach(function(r){if(AZ){bas(r);return;}zam.push(setTimeout(function(){bas(r);},t));t+=Math.min(4200,900+r[1].length*28);});}
+function sesKontrol(){dinle.disabled=true;dinle.textContent="🔊 Sesli dinle · yakında";var u=S[akt].ses;fetch(u,{method:"HEAD"}).then(function(x){if(x.ok){dinle.disabled=false;dinle.textContent="🔊 Sesli dinle";dinle.dataset.u=u;}}).catch(function(){});}
+document.querySelectorAll(".dm-sek button").forEach(function(b){b.onclick=function(){akt=b.dataset.s;document.querySelectorAll(".dm-sek button").forEach(function(x){x.setAttribute("aria-pressed",x===b);});ses.pause();oynat();sesKontrol();};});
+document.getElementById("oynat").onclick=oynat;
+dinle.onclick=function(){if(!dinle.dataset.u)return;ses.src=dinle.dataset.u;ses.play();oynat();};
+oynat();sesKontrol();
+var D={tr:"Merhaba, ben kliniğin yapay zekâ asistanı Ayşe. Size nasıl yardımcı olabilirim?",en:"Hello, I'm Ayşe, the clinic's AI assistant. How can I help you?",de:"Guten Tag, ich bin Ayşe, die KI-Assistentin der Klinik. Wie kann ich Ihnen helfen?",ru:"Здравствуйте, я Айше, ИИ-ассистент клиники. Чем могу помочь?",ar:"مرحباً، أنا عائشة، المساعدة الذكية للعيادة. كيف يمكنني مساعدتك؟",fr:"Bonjour, je suis Ayşe, l'assistante IA de la clinique. Comment puis-je vous aider ?",nl:"Hallo, ik ben Ayşe, de AI-assistent van de kliniek. Waarmee kan ik u helpen?"};
+var dlc=document.getElementById("dlc");
+document.querySelectorAll(".dl button").forEach(function(b){b.onclick=function(){var k=b.dataset.d;dlc.textContent=D[k];dlc.dir=k==="ar"?"rtl":"ltr";dlc.lang=k;document.querySelectorAll(".dl button").forEach(function(x){x.setAttribute("aria-pressed",x===b);});};});
+dlc.textContent=D.tr;
+function hes(){var a=+document.getElementById("h1").value||0,b=+document.getElementById("h2").value||0,c=+document.getElementById("h3").value||0;document.getElementById("hs").textContent=Math.round(a*b/100*c).toLocaleString("tr-TR")+" TL";}
+["h1","h2","h3"].forEach(function(i){document.getElementById(i).addEventListener("input",hes);});hes();
+})();
+</script>
+<script>window.DJ_REHBER={ses:"ses/",tts:true,satirlar:{
+"giris":{"metin":"Öncelikle merhabalar! Dijitabela'nın yapay zekâ çağrı merkezi Ayşe'yi anlatmak için ben görevlendirildim. Kısaca: telefonunuz çalıp kimse açamadığında Ayşe açar, sorulara cevap verir, talebi alır ve size yazar. Aşağı indikçe devamını anlatacağım."},
+"nasil2":{"metin":"Dört adımda çalışır: aramayı açar, arayanın dilinde anlar, rezervasyon ya da randevuyu işler, özeti saniyeler içinde WhatsApp'ınıza gönderir. Numaranız değişmez."},
+"otel":{"metin":"Oteller için Ayşe gece resepsiyonu gibidir: oda ve müsaitlik sorularını cevaplar, rezervasyon talebini alır, gelişten önce hatırlatma yapar, gelmeyen misafiri takip eder."},
+"klinik":{"metin":"Sağlık turizmi kliniklerinde Ayşe yedi dilde karşılar; fotoğraf ve röntgen için güvenli bağlantı gönderir, doktorla ön görüşme randevusu verir. Teşhis koymaz, fiyat garantisi vermez; tıbbi soruyu doktora iletir."},
+"genel":{"metin":"Esnaf için: elinizin dolu olduğu anda aramayı açar, takviminize randevu yazar, kaçan aramaya geri döner."},
+"demo":{"metin":"Şimdi bir örnek aramayı izleyin. Yukarıdan otel, klinik ya da oto servis senaryosunu seçin."},
+"hesap":{"metin":"Bu küçük hesap makinesine kendi rakamlarınızı yazın; açılamayan aramaların ayda ne kadar ciroya mal olduğunu görün."},
+"son":{"metin":"İşletmenize özel kurulum için WhatsApp'tan yazın; size net bir teklif hazırlayalım. Teklif fiyatlarımıza KDV dahil değildir.","dugme":["WhatsApp'tan yaz","https://wa.me/905019452184"]}}};</script>
+<script src="../_dijitabela/rehber.js" defer></script><script src="../_dijitabela/izle.js" defer></script>
+<script src="/ornek/_dijitabela/wa-buton.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
