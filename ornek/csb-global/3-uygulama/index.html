@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr" data-yerlesim="uygulama" data-kok="../">
+<head><script src="/ornek/_sure.js" data-bitis="2026-10-29T23:59:00+03:00" data-slug="csb-global"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex">
+<meta name="theme-color" content="#1E2328">
+<title>CSB Yol Yapı · Makine kirala: takvim, anında teklif, metraj</title>
+<meta name="description" content="CSB Yol Yapı uygulaması: iş makinesi müsaitlik takvimi, anında kiralama teklifi, asfalt ve parke metraj hesabı, referans projeler.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231E2328'/%3E%3Cpath d='M6 24 14 8h4l8 16' fill='none' stroke='%23F2B705' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/ortak.css">
+<style>
+:root{--ana:#1E2328;--vur:#F2B705;--zem:#EEEEEB;--kart:#fff;--yazi:#16191C;--soluk:#5D636A;--cizgi:#D9DAD6;--yuvarlak:12px;--dilzem:#1E2328}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--zem);color:var(--yazi);line-height:1.5;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+img{display:block;max-width:100%}a{color:inherit}
+.app{max-width:560px;margin:0 auto;padding:0 16px}
+@media(min-width:1000px){body{background:#D8DAD6}.app{background:var(--zem);min-height:100vh;box-shadow:0 0 0 1px var(--cizgi)}}
+.bar{position:sticky;top:0;z-index:700;background:var(--ana);color:#fff;margin:0 -16px;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.bar b{font-size:1.05rem}.bar small{display:block;font-size:.72rem;opacity:.75;font-weight:600}
+.bar .cg-dil{margin-left:auto;color:#fff}
+.sek{display:none}.sek.on{display:block;animation:gir .25s ease}
+@keyframes gir{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.kah{position:relative;margin:14px 0;border-radius:16px;overflow:hidden;color:#fff;min-height:300px;display:flex;align-items:flex-end}
+.kah img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.kah:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(10,12,14,.88))}
+.kah div{position:relative;z-index:1;padding:18px}.kah small{color:var(--vur);font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.kah h1{font-size:1.75rem;line-height:1.1;margin:6px 0}.kah p{font-size:.9rem;color:#e2e4e6}
+.hizli{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.hizli button,.hizli a{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:12px 4px;font:700 .74rem Manrope;color:var(--yazi);cursor:pointer;display:grid;justify-items:center;gap:6px;min-height:78px;text-decoration:none}
+.hizli svg{width:26px;height:26px;stroke:var(--ana)}
+.kart{background:var(--kart);border-radius:16px;padding:16px;margin:12px 0;border:1px solid var(--cizgi)}
+.kart h2{font-size:1.15rem;margin-bottom:4px}.kart>p{font-size:.86rem;color:var(--soluk);margin-bottom:12px}
+.yatay{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:2px 16px 8px}
+.yatay article{flex:0 0 68%;scroll-snap-align:start;background:var(--kart);border-radius:14px;overflow:hidden;border:1px solid var(--cizgi);cursor:pointer}
+.yatay img{aspect-ratio:16/10;object-fit:cover;width:100%}.yatay div{padding:10px 12px}.yatay b{display:block}.yatay span{font-size:.8rem;color:var(--soluk)}
+.rozet{display:inline-block;background:var(--vur);color:#3a2c00;font-weight:800;font-size:.7rem;padding:3px 8px;border-radius:10px;margin-bottom:6px}
+.durum{display:flex;align-items:center;gap:10px;background:var(--ana);color:#fff;border-radius:14px;padding:12px 14px;margin:12px 0}
+.durum i{width:10px;height:10px;border-radius:50%;background:#3BD16F;box-shadow:0 0 0 4px rgba(59,209,111,.25);flex:none}.durum span{font-size:.86rem}.durum b{color:var(--vur)}
+.alt-menu{position:fixed;left:0;right:0;bottom:0;z-index:800;background:#fff;border-top:1px solid var(--cizgi);padding-bottom:env(safe-area-inset-bottom)}
+.alt-menu div{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.alt-menu button{background:none;border:0;font:700 .68rem Manrope;color:var(--soluk);padding:8px 0 10px;display:grid;justify-items:center;gap:3px;cursor:pointer;min-height:60px}
+.alt-menu svg{width:24px;height:24px;stroke:currentColor}.alt-menu button.on{color:var(--ana)}
+.cg-proje{grid-template-columns:1fr 1fr!important;gap:10px}.pj figcaption{padding:8px}.pj .ek{display:none}.pj b{font-size:.9rem}
+#blog .cg-blog-l{display:grid;gap:10px}
+.bk{display:grid;grid-template-columns:96px 1fr;gap:12px;background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;text-decoration:none}
+.bk img{width:100%;height:100%;object-fit:cover}.bk div{padding:10px 10px 10px 0}.bk small{font-size:.68rem;color:var(--soluk);font-weight:800}.bk h3{font-size:.95rem;line-height:1.25;margin:3px 0}.bk p{display:none}
+.cg-as-ac{bottom:calc(76px + env(safe-area-inset-bottom))}.cg-as{bottom:calc(140px + env(safe-area-inset-bottom))}
+.cg-tak button.sec{color:var(--vur)}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="bar"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26 14 7h4l9 19" fill="none" stroke="#F2B705" stroke-width="3"/></svg><div><b>CSB Yol Yapı</b><small>Makine · asfalt · parke</small></div><div class="cg-dil" aria-label="Dil"></div></header>
+
+<section class="sek on" id="s-ana" data-anlat="giris">
+ <div class="kah cg-dil-alan"><img src="../img/k/kah-silindir.jpg" alt="Yeni asfaltı sıkıştıran silindir"><div><small data-d="ust">Yol yapımı · asfalt · iş makinesi kiralama · Antalya</small><h1 data-d="bas">Yolu yapar, makinesini getiririz.</h1><p data-d="alt">Müsait makineyi görün, kiralama teklifini anında alın.</p></div></div>
+ <div class="durum"><i></i><span>Yarın boş: <b>10 t silindir, bekoloder, greyder</b> · takvimden 2 saat ayırtın</span></div>
+ <div class="hizli">
+  <button type="button" data-git="s-kirala"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Kirala</button>
+  <button type="button" data-git="s-metraj"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 17 17 3l4 4L7 21H3z"/><path d="M13 7l2 2M10 10l2 2M7 13l2 2"/></svg>Metraj</button>
+  <a href="tel:+905461832323"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ara</a>
+  <button type="button" data-asistan><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg>Sor</button>
+ </div>
+ <div class="kart" data-anlat="filo"><h2>Makine parkı</h2><p>Kaydırın; dokununca o makinenin takvimi açılır.</p>
+  <div class="yatay">
+   <article data-ek="silindir10"><img src="../img/k/kah-silindir.jpg" alt="Tandem silindir" loading="lazy"><div><span class="rozet">En çok kiralanan</span><b>Tandem silindir 10 t</b><span>11.000 TL/gün · operatörlü</span></div></article>
+   <article data-ek="finiser"><img src="../img/k/finiser.jpg" alt="Asfalt finişeri" loading="lazy"><div><b>Asfalt finişeri</b><span>22.000 TL/gün · operatörlü</span></div></article>
+   <article data-ek="bekoloder"><img src="../img/k/saha.jpg" alt="Bekoloder" loading="lazy"><div><b>Bekoloder</b><span>8.500 TL/gün · operatörlü</span></div></article>
+   <article data-ek="greyder"><img src="../img/k/greyder.jpg" alt="Greyder" loading="lazy"><div><b>Greyder</b><span>15.000 TL/gün · operatörlü</span></div></article>
+   <article data-ek="silindir25"><img src="../img/k/kompaktor.jpg" alt="Küçük silindir" loading="lazy"><div><b>Küçük silindir 2,5 t</b><span>4.500 TL/gün · operatörlü</span></div></article>
+  </div><p class="cg-not">Fiyatlar temsilîdir, KDV hariç.</p></div>
+ <div class="kart"><h2>Son işler</h2><p>Referanslar ve şantiye galerisi.</p><button type="button" class="cg-btn" data-git="s-proje">Projeleri gör</button></div>
+</section>
+
+<section class="sek" id="s-kirala" data-anlat="kirala"><div class="kart"><h2>Makine kirala</h2><p>Makine → günler → ilçe · fiyat anında, 2 saat ayırtma</p><div id="kirala-arac"></div></div></section>
+<section class="sek" id="s-metraj" data-anlat="metraj"><div class="kart"><h2>Metraj hesabı</h2><p>Asfalt tonajı ya da parke adedi.</p><div id="metraj"></div></div></section>
+<section class="sek" id="s-proje" data-anlat="projeler"><div class="kart"><h2>Projeler</h2><p>İş türüne göre süzün.</p><div id="projeler"></div></div></section>
+<section class="sek" id="s-blog" data-anlat="blog"><div class="kart"><h2>Yol ve asfalt rehberi</h2><p>Ayda 4 yeni yazı.</p><div id="blog"></div></div>
+ <div class="kart"><h2>Adres</h2><p style="margin:0">Fener Mah., Bülent Ecevit Blv. No:201, Muratpaşa / Antalya · <a href="https://www.google.com/maps?q=36.8616427,30.7875407" target="_blank" rel="noopener">Haritada aç</a></p></div></section>
+<p class="cg-not" style="text-align:center;padding:10px 0 20px">Dijitabela örneği · görseller, projeler ve fiyatlar temsilîdir.</p>
+</div>
+
+<nav class="alt-menu" aria-label="Alt menü"><div>
+ <button type="button" class="on" data-git="s-ana"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 11 12 4l8 7v9H4z"/></svg>Ana</button>
+ <button type="button" data-git="s-kirala"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>Kirala</button>
+ <button type="button" data-git="s-metraj"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 17 17 3l4 4L7 21H3z"/></svg>Metraj</button>
+ <button type="button" data-git="s-proje"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/></svg>Projeler</button>
+ <button type="button" data-git="s-blog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 4h14v16H5zM9 8h6M9 12h6"/></svg>Rehber</button>
+</div></nav>
+
+<script src="../ortak/ortak.js"></script>
+<script>
+CG.basla("../","silindir10");
+(function(){function git(id){document.querySelectorAll(".sek").forEach(function(s){s.classList.toggle("on",s.id===id);});document.querySelectorAll(".alt-menu button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-git")===id);});window.scrollTo(0,0);}
+document.querySelectorAll("[data-git]").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();git(b.getAttribute("data-git"));});});
+document.querySelectorAll(".yatay article").forEach(function(a){a.addEventListener("click",function(){git("s-kirala");});});
+document.addEventListener("click",function(e){var a=e.target.closest('a[href="#kirala"]');if(a){e.preventDefault();git("s-kirala");}});})();
+</script>
+<script>window.DJ_REHBER={tts:true,ses:false,satirlar:{
+giris:{metin:"Merhaba! Ben Dijitabela tabelasıyım. Bu, CSB Yol Yapı için üçüncü tasarım: uygulama yerleşimi. Şantiyedeki müteahhit telefondan bir dakikada makine kiralar."},
+filo:{metin:"Makine parkını yana kaydırın; dokununca o makinenin takvimi açılır."},
+kirala:{metin:"Takvimde boş günleri seçin; kira, nakliye ve KDV'li toplam anında çıkar."},
+metraj:{metin:"Metraj hesabı: asfalt tonajı ya da parke adedi."},
+projeler:{metin:"Projeler: iş türüne göre süzülür."},
+blog:{metin:"Rehber yazılar ve adres."}}};</script>
+<script src="../../_dijitabela/rehber.js" defer></script>
+<script src="../../_dijitabela/izle.js" defer></script>
+
+<section data-sv360 style="padding:64px 16px;background:inherit;color:inherit"><div style="max-width:1120px;margin:0 auto">
+  <p style="font:700 12px/1 ui-monospace,monospace;letter-spacing:.18em;opacity:.65;margin:0 0 12px">360° GÖRÜNÜM</p>
+  <h2 style="margin:0 0 10px;font-size:clamp(26px,4vw,40px);line-height:1.1">Gelmeden önce bizi görün</h2>
+  <p style="margin:0 0 20px;opacity:.75;max-width:640px">Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın.</p>
+  <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(127,127,127,.35);background:#222"><iframe src="https://www.google.com/maps/embed?pb=!6m6!1m5!2m2!1d36.8616427!2d30.7875407!4f0!5f0.8" title="csb-global 360° görünüm" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" style="display:block;width:100%;height:min(62vh,520px);border:0"></iframe></div>
+  <p style="font-size:13px;opacity:.6;margin:12px 0 0">Görüntü: Google Street View · <a href="https://www.google.com/maps/place/Csb+Yol+Yap%C4%B1/@36.8616427,30.7875407,17z" target="_blank" rel="noopener" style="color:inherit">Yol tarifi al</a></p>
+</div></section>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>
