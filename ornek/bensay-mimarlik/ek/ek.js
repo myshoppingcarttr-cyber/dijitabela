@@ -1,4 +1,4 @@
-/* Erkam Benli · Mimarlık & İç Mimarlık — ek bölümlerin davranışı (YZ önizleme, WhatsApp sohbet, kentsel dönüşüm, takvim, takip paneli, giriş animasyonları). GSAP 3.12.5 + ScrollTrigger. */
+/* bensay Mimarlık — ek bölümlerin davranışı (YZ önizleme, WhatsApp sohbet, kentsel dönüşüm, takvim, takip paneli, giriş animasyonları). GSAP 3.12.5 + ScrollTrigger. */
 (function () {
   "use strict";
   var $ = function (s, r) { return (r || document).querySelector(s); };

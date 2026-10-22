@@ -365,7 +365,7 @@
   function dokumCiz(r) {
     var el = kok.querySelector('[data-dokum]');
     if (!r.m2) { el.innerHTML = ''; return; }
-    var h = '<h1>Erkam Benli · Mimarlık &amp; İç Mimarlık · Ön maliyet dökümü</h1><p>Tarih: ' + new Date().toLocaleDateString('tr-TR') + ' · Fiyatlar ' + esc(tarihTR(veri.ayar.gecerlilik)) + ' tarihine kadar geçerli · <b>KDV hariç · örnek fiyat</b></p>';
+    var h = '<h1>bensay Mimarlık · Ön maliyet dökümü</h1><p>Tarih: ' + new Date().toLocaleDateString('tr-TR') + ' · Fiyatlar ' + esc(tarihTR(veri.ayar.gecerlilik)) + ' tarihine kadar geçerli · <b>KDV hariç · örnek fiyat</b></p>';
     r.odalar.forEach(function (od) {
       if (!od.satirlar.length) return;
       h += '<h2>' + esc(od.ad) + ' · ' + sayi(od.m2) + ' m² · ' + kaliteAd(od.kalite) + '</h2><table><thead><tr><th>Kalem</th><th>Miktar</th><th>Birim fiyat</th><th>Tutar</th></tr></thead><tbody>';
