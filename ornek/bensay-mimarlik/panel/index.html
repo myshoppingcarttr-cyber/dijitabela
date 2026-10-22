@@ -239,7 +239,7 @@ input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-vis
     var h = '<h2>Gelen talepler</h2><p class="acik">Hesaplayıcıdan “Detaylı teklif iste” ile gelen müşteri özetleri. Bu sekmedeki liste, sayfa açıkken yeni talepleri otomatik alır.</p>';
     h += '<div class="satir" style="margin-bottom:12px"><button class="dg i" type="button" data-a="tTemizle"' + (V.talepler.length ? '' : ' disabled') + '>Listeyi temizle</button></div><div class="kaydir"><table style="min-width:760px"><thead><tr><th>Ad</th><th>Telefon</th><th>Odalar</th><th>m²</th><th>Toplam (KDV hariç)</th><th>Tarih</th><th></th></tr></thead><tbody>';
     V.talepler.forEach(function (t, i) {
-      var msg = 'Merhaba ' + t.ad + ', Erkam Benli Mimarlık olarak maliyet hesaplayıcısındaki talebinizi aldık (' + t.odalar + ', yaklaşık ' + tl(t.toplam) + ' + KDV). Keşif için uygun olduğunuz zamanı paylaşır mısınız?';
+      var msg = 'Merhaba ' + t.ad + ', bensay Mimarlık olarak maliyet hesaplayıcısındaki talebinizi aldık (' + t.odalar + ', yaklaşık ' + tl(t.toplam) + ' + KDV). Keşif için uygun olduğunuz zamanı paylaşır mısınız?';
       h += '<tr><td><b>' + e(t.ad) + '</b></td><td>' + e(t.tel) + '</td><td>' + e(t.odalar) + '</td><td class="n">' + e(t.m2) + '</td><td class="n"><b>' + tl(t.toplam) + '</b></td><td>' + e(tarih(t.tarih)) + '</td>' +
         '<td class="n"><a class="dg wa s" target="_blank" rel="noopener" href="https://wa.me/' + e(waTel(t.tel)) + '?text=' + encodeURIComponent(msg) + '">WhatsApp\'tan dön</a> <button class="dg i s" type="button" data-a="tSil" data-i="' + i + '">Sil</button></td></tr>';
     });
