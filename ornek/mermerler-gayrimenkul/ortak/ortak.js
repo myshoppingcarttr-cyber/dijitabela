@@ -55,6 +55,11 @@
     return '<div class="mg-fotoyok"><b>' + esc(il.mahalle) + "</b><span>" + esc(il.tur) + " · fotoğraflar ofiste</span></div>";
   }
 
+  function kaynakLink(il, sinif) {
+    var u = il.shb || O.facebook, t = il.shb ? "sahibinden'de gör" : "Facebook'ta gör";
+    return '<a class="' + (sinif || "mg-shb") + '" target="_blank" rel="noopener" href="' + esc(u) + '" title="İlan no ' + esc(il.no) + '">' + t + " ↗</a>";
+  }
+
   /* ---- Filtre ---- */
   var F = { durum: "", tur: "", oda: "", mahalle: "", azami: 0, sira: "yeni", ara: "" };
   function filtrele(f) {
@@ -133,8 +138,8 @@
       '<div class="mg-det-dug"><a class="mg-btn wa" target="_blank" rel="noopener" href="' + wa(ilanSor(il)) + '">WhatsApp\'tan bu ilanı sor</a>' +
       '<a class="mg-btn ince" href="tel:+9' + O.tel1.replace(/\s/g, "") + '">Ara: ' + O.tel1 + "</a>" +
       (il.durum === "Satılık" && konutMu(il) && il.fiyat ? '<button class="mg-btn ince" data-kredi>Kredi hesapla</button>' : "") +
-      '<button class="mg-btn ince" data-alarm>Fiyatı düşünce haber ver</button></div>' +
-      '<p class="mg-kaynak">İlan no ' + esc(il.no) + " · " + esc(il.tarih) + " · kaynak: " + esc(il.kaynak) + "</p></div></div>";
+      '<button class="mg-btn ince" data-alarm>Fiyatı düşünce haber ver</button>' + kaynakLink(il, "mg-btn ince") + "</div>" +
+      '<p class="mg-kaynak">İlan no ' + esc(il.no) + " · " + esc(il.tarih) + " · kaynak: " + esc(il.kaynak) + (O.fotoNot ? " · " + esc(O.fotoNot) : "") + "</p></div></div>";
     var p = pencere(html, "mg-pen-det");
     var g = $("[data-gal]", p); if (g) g.onclick = function () { p.remove(); galeri(il); };
     var k = $("[data-kredi]", p); if (k) k.onclick = function () { p.remove(); var hedef = $("[data-mg-kredi]"); if (hedef) { hedef.scrollIntoView({ behavior: "smooth" }); hedef.dispatchEvent(new CustomEvent("mg-tutar", { detail: il.fiyat })); } };
@@ -461,7 +466,7 @@
 
   window.MGU = { D: D, O: O, IL: IL, $: $, $$: $$, esc: esc, tl: tl, foto: foto, fiyatYaz: fiyatYaz, ozet: ozet, rozet: rozet, kapak: kapak, alan: alan, yasYaz: yasYaz, aidatYaz: aidatYaz, m2Fiyat: m2Fiyat,
     konutMu: konutMu, bul: bul, wa: wa, ilanSor: ilanSor, filtrele: filtrele, filtreUI: filtreUI, F: F, secenekler: secenekler, favMi: favMi, favDegis: favDegis, fav: function () { return fav.slice(); },
-    pencere: pencere, galeri: galeri, detay: detay, alarm: alarm, karsilastir: karsilastir, harita: harita, kredi: kredi, kiraKredi: kiraKredi, degerleme: degerleme, eslestir: eslestir, ilanMetni: ilanMetni,
+    pencere: pencere, galeri: galeri, detay: detay, kaynakLink: kaynakLink, alarm: alarm, karsilastir: karsilastir, harita: harita, kredi: kredi, kiraKredi: kiraKredi, degerleme: degerleme, eslestir: eslestir, ilanMetni: ilanMetni,
     asistan: asistan, google: google, filigran: filigran, depo: depo };
   document.addEventListener("DOMContentLoaded", filigran);
 })();

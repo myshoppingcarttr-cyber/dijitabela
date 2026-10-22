@@ -55,6 +55,7 @@ img{display:block;max-width:100%}a{color:inherit}
 .satir .bilgi{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.84rem;color:var(--soluk)}.satir .bilgi b{color:var(--yazi);font-weight:600}
 .satir .sag{text-align:right}.satir .sag .f{font-family:var(--baslik);font-size:1.45rem;font-weight:800}.satir .sag s{display:block;color:var(--soluk);font-size:.85rem}
 .satir .sag a{display:inline-block;margin-top:6px;font-size:.82rem;font-weight:700;color:#1FA855;text-decoration:none;border-bottom:1.5px solid}
+.satir .sag a.mg-shb{display:block;margin-top:4px;min-height:0;color:var(--soluk);border-bottom:0;font-size:.76rem}
 .satir .fav{background:none;border:0;font-size:1.1rem;color:var(--ana);cursor:pointer;min-width:40px;min-height:40px}
 @media(max-width:760px){.satir{grid-template-columns:110px minmax(0,1fr);gap:12px}.satir .sira{display:none}.satir .sag{grid-column:1/-1;text-align:left;display:flex;align-items:center;gap:14px;flex-wrap:wrap}.satir .sag a{margin:0}}
 .defter-alt{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px;font-size:.9rem;color:var(--soluk)}
@@ -90,7 +91,7 @@ img{display:block;max-width:100%}a{color:inherit}
 </nav>
 <main class="icerik">
   <div class="kunye"><span>Sayı · Ekim 2026</span><a href="https://wa.me/905384400429" target="_blank" rel="noopener">WhatsApp ↗</a><span>Yetki 0703590</span></div>
-  <header class="masthead" data-anlat="giris"><h1>Mermerler</h1><p>Korkuteli'nin ev, arsa ve tarla defteri · 15 güncel ilan</p></header>
+  <header class="masthead" data-anlat="giris"><h1>Mermerler</h1><p>Korkuteli'nin ev, arsa ve tarla defteri · 15 güncel ilan · 22 Ekim</p></header>
 
   <section class="bol" id="kapak" data-anlat="kapak">
     <p class="no">No. 01 — Kapak ilanı</p>
@@ -113,6 +114,7 @@ img{display:block;max-width:100%}a{color:inherit}
     <p class="giris" style="font-size:1.02rem">Satırdaki her şey tek bakışta: fiyat, metrekare, oda, bina yaşı, aidat. Boş görünen alanlar ilanda yazmayanlar; panelden doldurulunca burada belirir.</p>
     <div class="mg-filtre" id="filtre"></div>
     <div class="defter" id="liste"></div>
+    <p class="mg-fotonot">Fotoğraflar Mermerler Gayrimenkul'ün kendi ilanlarından · son güncelleme 22 Ekim 2026</p>
     <div class="defter-alt"><span id="sonuc"></span><button class="mg-btn ince" id="karBtn">♥ Seçtiklerimi karşılaştır</button></div>
   </section>
 
@@ -180,7 +182,7 @@ img{display:block;max-width:100%}a{color:inherit}
     return '<div class="satir" data-no="'+il.no+'"><span class="sira">'+String(i+1).padStart(2,"0")+'</span><div class="k">'+U.kapak(il,true)+'</div>'+
       '<div><p class="mg-ust" style="font-size:.66rem">'+esc(il.durum+" · "+il.mahalle)+(il.yeni?' · <span style="color:var(--ana)">Yeni</span>':'')+(il.eskiFiyat?' · <span style="color:#1FA855">Fiyatı düştü</span>':'')+'</p><h3>'+esc(il.baslik)+'</h3>'+
       '<div class="bilgi"><span>m² <b>'+U.alan(il.m2)+'</b></span>'+(U.konutMu(il)?'<span>Oda <b>'+U.alan(il.oda)+'</b></span><span>Bina yaşı <b>'+U.alan(U.yasYaz(il))+'</b></span><span>Aidat <b>'+U.alan(U.aidatYaz(il))+'</b></span>':'<span>Tür <b>'+esc(il.tur)+'</b></span>')+'</div></div>'+
-      '<div class="sag"><span class="f">'+(il.fiyat?esc(U.fiyatYaz(il)):'<span class="mg-bos">Fiyat sorun</span>')+'</span>'+(il.eskiFiyat?'<s>'+U.tl(il.eskiFiyat)+'</s>':'')+'<a target="_blank" rel="noopener" href="'+U.wa(U.ilanSor(il))+'">WhatsApp\'tan sor</a><button class="fav" data-fav="'+il.no+'" aria-label="Seç">'+(U.favMi(il.no)?"♥":"♡")+'</button></div></div>';
+      '<div class="sag"><span class="f">'+(il.fiyat?esc(U.fiyatYaz(il)):'<span class="mg-bos">Fiyat sorun</span>')+'</span>'+(il.eskiFiyat?'<s>'+U.tl(il.eskiFiyat)+'</s>':'')+'<a target="_blank" rel="noopener" href="'+U.wa(U.ilanSor(il))+'">WhatsApp\'tan sor</a><button class="fav" data-fav="'+il.no+'" aria-label="Seç">'+(U.favMi(il.no)?"♥":"♡")+'</button>'+U.kaynakLink(il)+'</div></div>';
   }
   function ciz(l){$("#liste").innerHTML=l.length?l.map(satir).join(""):'<p style="padding:30px 0">Bu ölçütlere uyan ilan yok.</p>';$("#sonuc").textContent=l.length+" ilan listeleniyor";
     $$("#liste .satir").forEach(function(s){s.onclick=function(e){if(e.target.closest("a,button"))return;U.detay(U.bul(s.getAttribute("data-no")));};});

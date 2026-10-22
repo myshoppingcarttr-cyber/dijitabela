@@ -59,7 +59,7 @@ h2{font-size:1.45rem;font-weight:800;line-height:1.15;margin:4px 0 4px}
 .lk .b{padding:10px 10px 10px 0;min-width:0}.lk h3{font-size:.95rem;line-height:1.25;margin:2px 0}.lk .p{font-weight:800;color:var(--ana)}
 .lk .m{display:flex;gap:6px;flex-wrap:wrap;font-size:.74rem;color:var(--soluk);margin-top:4px}.lk .m span{background:var(--kart2);padding:2px 7px;border-radius:6px}.lk .m .mg-bos{font-size:.74rem}
 .lk .s{display:flex;gap:6px;margin-top:6px}.lk .s a,.lk .s button{font:700 .74rem Manrope;border-radius:8px;padding:6px 9px;border:0;min-height:32px;cursor:pointer;text-decoration:none}
-.lk .s a{background:#1FA855;color:#fff}.lk .s button{background:var(--kart2)}
+.lk .s a{background:#1FA855;color:#fff}.lk .s{flex-wrap:wrap}.lk .s a.mg-shb{background:transparent;color:var(--soluk);padding:0;min-height:24px;font-size:.72rem;flex-basis:100%}.lk .s button{background:var(--kart2)}
 /* harita */
 #harita{height:calc(100vh - 220px);min-height:380px;border-radius:16px}
 /* favoriler + rota */
@@ -95,6 +95,7 @@ h2{font-size:1.45rem;font-weight:800;line-height:1.15;margin:4px 0 4px}
     <div class="deste-d"><button class="h" id="gec" aria-label="Geç">✕</button><button class="b" id="geri" aria-label="Geri al">↺</button><button class="e" id="begen" aria-label="Favorilere ekle">♥</button></div>
     <details class="akord" data-anlat="liste"><summary>Tüm ilanlar ve filtre</summary><div class="ici"><div class="mg-filtre" id="filtre"></div></div></details>
     <div class="lis" id="liste"></div>
+    <p class="mg-fotonot" style="padding:0 16px">Fotoğraflar Mermerler Gayrimenkul'ün kendi ilanlarından · son güncelleme 22 Ekim 2026</p>
   </section>
 
   <section class="pan" id="p-harita" data-anlat="harita"><div class="ic"><p class="mg-ust">Harita</p><h2>Mahalle mahalle ilanlar</h2><p class="alt-b">Sayıya dokunun; o mahallenin ilanları Keşfet'te açılır.</p><div id="harita"></div></div></section>
@@ -158,7 +159,7 @@ h2{font-size:1.45rem;font-weight:800;line-height:1.15;margin:4px 0 4px}
   // liste
   function kart(il){return '<article class="lk" data-no="'+il.no+'"><div class="f">'+U.kapak(il,true)+'</div><div class="b"><span class="mg-ust" style="font-size:.62rem">'+esc(il.durum+" · "+il.mahalle)+'</span><h3>'+esc(il.baslik)+'</h3><div class="p">'+(il.fiyat?esc(U.fiyatYaz(il)):'<span class="mg-bos">Fiyat sorun</span>')+'</div>'+
     '<div class="m"><span>'+(il.m2?il.m2+" m²":"m² —")+'</span>'+(U.konutMu(il)?'<span>'+(il.oda||"")+'</span><span>Yaş: '+(U.yasYaz(il)||'<em class="mg-bos">sorun</em>')+'</span><span>Aidat: '+(U.aidatYaz(il)||'<em class="mg-bos">sorun</em>')+'</span>':'<span>'+esc(il.tur)+'</span>')+'</div>'+
-    '<div class="s"><a target="_blank" rel="noopener" href="'+U.wa(U.ilanSor(il))+'">WhatsApp\'tan sor</a><button data-fav="'+il.no+'">'+(U.favMi(il.no)?"♥ Favoride":"♡ Favori")+'</button></div></div></article>';}
+    '<div class="s"><a target="_blank" rel="noopener" href="'+U.wa(U.ilanSor(il))+'">WhatsApp\'tan sor</a><button data-fav="'+il.no+'">'+(U.favMi(il.no)?"♥ Favoride":"♡ Favori")+'</button>'+U.kaynakLink(il)+'</div></div></article>';}
   function bagla(k){$$(".lk",k).forEach(function(c){c.onclick=function(e){if(e.target.closest("a,button"))return;U.detay(U.bul(c.getAttribute("data-no")));};});
     $$("[data-fav]",k).forEach(function(b){b.onclick=function(){var v=U.favDegis(b.getAttribute("data-fav"));b.textContent=v?"♥ Favoride":"♡ Favori";};});}
   function ciz(l){$("#liste").innerHTML=l.map(kart).join("")||'<p class="alt-b">Bu filtrede ilan yok.</p>';bagla($("#liste"));desteKur(l);}

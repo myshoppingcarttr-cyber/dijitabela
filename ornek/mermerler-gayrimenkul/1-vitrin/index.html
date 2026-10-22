@@ -69,6 +69,7 @@ h2{font-size:clamp(2.2rem,5vw,3.6rem)}
 .kart-ic .mg-ust{font-size:.7rem}.kart-ic h3{font-size:1.65rem;margin:4px 0 2px}
 .kart-ic .fiy{font-family:var(--baslik);font-size:2rem;color:var(--ana);line-height:1;margin-top:6px}.kart-ic .fiy s{font-size:1.1rem;color:var(--soluk);margin-left:8px}
 .kart-ic .mg-ozet{grid-template-columns:repeat(auto-fit,minmax(78px,1fr))}.kart-ic .mg-ozet div:first-child{display:none}
+.kart-ic .mg-shb{margin-top:8px;align-self:flex-start}
 .kart-d{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:auto}.kart-d .mg-btn{font-size:.88rem;padding:8px 12px}
 @media(max-width:1000px){.izgara{grid-template-columns:1fr 1fr}}@media(max-width:640px){.izgara{grid-template-columns:1fr}}
 .bos{padding:40px;text-align:center;background:#fff;border:1px dashed var(--cizgi);grid-column:1/-1}
@@ -155,10 +156,11 @@ h2{font-size:clamp(2.2rem,5vw,3.6rem)}
 </div></section>
 
 <section class="bol" id="ilanlar" data-anlat="ilanlar" style="padding-top:20px"><div class="kap">
-  <div class="bas"><div><p class="mg-ust">Portföy</p><h2>Tüm ilanlar</h2></div><p>sahibinden mağazanızdaki 14 ilan + Facebook'taki yeni 3+1. Kart üstündeki ♡ ile seçin, yan yana karşılaştırın.</p></div>
+  <div class="bas"><div><p class="mg-ust">Portföy</p><h2>Tüm ilanlar</h2></div><p>sahibinden mağazanızdaki 14 ilanın tamamı + Facebook'taki yeni 3+1 (son güncelleme 22 Eki). Kart üstündeki ♡ ile seçin, yan yana karşılaştırın; her ilanda sahibinden bağlantısı var.</p></div>
   <div class="mg-filtre" id="filtre"></div>
   <div class="ara"><input id="ara" type="search" placeholder="Ara: doğalgaz, otopark, sıfır, ilan no…" aria-label="İlanlarda ara"><b id="sonuc"></b></div>
   <div class="izgara" id="izgara"></div>
+  <p class="mg-fotonot">Fotoğraflar Mermerler Gayrimenkul'ün kendi ilanlarından · ilan bilgileri sahibinden mağazasından, son güncelleme 22 Ekim 2026.</p>
 </div></section>
 <div class="karbar" id="karbar"><span id="karSay"></span><button class="mg-btn" id="karBtn">Yan yana karşılaştır</button></div>
 
@@ -219,7 +221,7 @@ h2{font-size:clamp(2.2rem,5vw,3.6rem)}
     return '<article class="kart"><div class="kart-f" data-det="'+il.no+'">'+U.kapak(il,true)+'<div class="roz">'+U.rozet(il)+'</div>'+(il.foto.length>1?'<span class="sayi">'+il.foto.length+' foto</span>':'')+
       '<button class="fav" data-fav="'+il.no+'" aria-label="Karşılaştırmaya ekle">'+(U.favMi(il.no)?"♥":"♡")+'</button></div>'+
       '<div class="kart-ic"><p class="mg-ust">'+esc(il.durum+" · "+il.tur+" · "+il.mahalle)+'</p><h3>'+esc(il.baslik)+'</h3><p class="fiy">'+(il.fiyat?esc(U.fiyatYaz(il)):'<span class="mg-bos" style="font-size:1rem">Fiyat ilanda yok · sorun</span>')+(il.eskiFiyat?'<s>'+U.tl(il.eskiFiyat)+'</s>':'')+'</p>'+U.ozet(il)+
-      '<div class="kart-d"><a class="mg-btn wa" target="_blank" rel="noopener" href="'+U.wa(U.ilanSor(il))+'">WhatsApp\'tan bu ilanı sor</a><button class="mg-btn ince" data-det="'+il.no+'">Detay</button></div></div></article>';
+      '<div class="kart-d"><a class="mg-btn wa" target="_blank" rel="noopener" href="'+U.wa(U.ilanSor(il))+'">WhatsApp\'tan bu ilanı sor</a><button class="mg-btn ince" data-det="'+il.no+'">Detay</button></div>'+U.kaynakLink(il)+'</div></article>';
   }
   function ciz(l){
     $("#izgara").innerHTML=l.length?l.map(kart).join(""):'<div class="bos">Bu filtreye uyan ilan yok. <a href="#eslestir">Talep bırakın</a>, gelince haber verelim.</div>';

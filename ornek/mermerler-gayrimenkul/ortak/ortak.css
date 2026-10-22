@@ -85,3 +85,7 @@
 @media print{.mg-as,.mg-fil{display:none}}
 :focus-visible{outline:3px solid var(--ana);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* sahibinden bağlantısı (22 Eki) */
+.mg-shb{display:inline-flex;align-items:center;min-height:32px;font-size:.8rem;font-weight:700;color:var(--soluk);text-decoration:underline;text-underline-offset:3px}.mg-shb:hover{color:var(--ana)}
+.mg-fotonot{color:var(--soluk);font-size:.78rem;margin-top:10px}
