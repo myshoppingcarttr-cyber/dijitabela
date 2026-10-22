@@ -10,6 +10,9 @@
   var TEL = WA_NUMARA, FIYAT = "4.900 TL";
   // CK-2: kahve falı sayfalarında (yol bazlı) ya da <html data-fiyatsiz> işaretli sayfalarda tutar yazılmaz.
   var FIYATSIZ = /\/ornek\/kahve-fali(\/|$)/.test(location.pathname) || document.documentElement.hasAttribute("data-fiyatsiz");
+  // 23 Eki (bensay): <html data-fiyat-metni="..."> varsa alt çubukta "Giriş paketi" yerine bu metin yazar (müşteriye özel kabul edilmiş paket).
+  var OZEL = temizOzel(document.documentElement.getAttribute("data-fiyat-metni"));
+  function temizOzel(t) { return String(t || "").replace(/[<>]/g, "").trim(); }
   var temiz = function (t) { return String(t || "").replace(/\s+/g, " ").trim(); };
   var ad = temiz(document.title.split(/\s[·|–]\s/)[0]) || temiz((document.querySelector("h1") || {}).textContent).slice(0, 60);
   if (ad.length > 70) ad = ad.slice(0, 70).replace(/\s+\S*$/, "");
@@ -43,8 +46,8 @@
     var span = taslak.querySelector("span"), link = taslak.querySelector("a");
     taslak.classList.add("djwa-ici");
     if (span) {
-      span.innerHTML = '<span class="djwa-uzun">' + span.innerHTML + (FIYATSIZ ? " · Fiyat için WhatsApp'tan yazın</span>" : ' · Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar</span>") +
-        (FIYATSIZ ? '<span class="djwa-kisa"><span>Fiyat için</span><span>WhatsApp&#39;tan yazın</span></span>' : '<span class="djwa-kisa"><span>Giriş paketi</span><span><b class="djwa-fy">' + FIYAT + "'den</b><span class=\"djwa-bs\"> başlar</span></span></span>");
+      span.innerHTML = '<span class="djwa-uzun">' + span.innerHTML + (OZEL ? " · " + OZEL + "</span>" : FIYATSIZ ? " · Fiyat için WhatsApp'tan yazın</span>" : ' · Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar</span>") +
+        (OZEL ? '<span class="djwa-kisa"><span>' + OZEL + "</span></span>" : FIYATSIZ ? '<span class="djwa-kisa"><span>Fiyat için</span><span>WhatsApp&#39;tan yazın</span></span>' : '<span class="djwa-kisa"><span>Giriş paketi</span><span><b class="djwa-fy">' + FIYAT + "'den</b><span class=\"djwa-bs\"> başlar</span></span></span>");
       taslak.querySelector(".kap") ? (span.style.display = "contents") : 0;
     }
     var tut = document.createElement("span"); tut.innerHTML = dugme; tut = tut.firstChild;
@@ -52,7 +55,7 @@
   } else {
     var cubuk = document.createElement("div");
     cubuk.id = "djwa"; cubuk.setAttribute("role", "complementary"); cubuk.setAttribute("aria-label", "Dijitabela ile iletişim");
-    cubuk.innerHTML = '<div class="djwa-ic"><div class="djwa-f">' + (FIYATSIZ ? "Fiyat için WhatsApp'tan yazın" : 'Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar") + "<small>Beğendiğiniz tasarımı birlikte yayına alalım</small></div>" + dugme + "</div>";
+    cubuk.innerHTML = '<div class="djwa-ic"><div class="djwa-f">' + (OZEL ? OZEL : FIYATSIZ ? "Fiyat için WhatsApp'tan yazın" : 'Giriş paketi <b class="djwa-fy">' + FIYAT + "'den</b> başlar") + "<small>Beğendiğiniz tasarımı birlikte yayına alalım</small></div>" + dugme + "</div>";
     document.body.appendChild(cubuk);
     document.documentElement.classList.add("djwa-cubuk");
   }
