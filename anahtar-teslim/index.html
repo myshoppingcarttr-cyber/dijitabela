@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anahtar Teslim Dijital Ajans Kurulumu · Dijitabela</title>
+<meta name="description" content="Yerel işletmelere web sitesi, Google İşletme Profili ve içerik hizmeti vermek isteyenler için çalışma düzeni kurulumu: kurulum + 16 saat canlı eğitim + 30 gün destek. Gelir garantisi verilmez.">
+<link rel="canonical" href="https://dijitabela.com/anahtar-teslim">
+<style>
+@font-face{font-family:Archivo;src:url(font/archivo.ttf);font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(font/plusjakartasans-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(font/plusjakartasans-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(font/plusjakartasans-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Space Mono";src:url(font/spacemono-bold.ttf);font-weight:700;font-display:swap}
+:root{--panel:#16181D;--gece:#0E0F12;--sonuk:#2C3038;--amber:#FFB000;--amber-y:#8A5A00;--gun:#ECEEEA;--mur:#15171A;--soluk-k:#A0A6AD;--soluk-a:#535960;--iyi:#17803F;--kotu:#C62E25;--pad:clamp(16px,4vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 "Plus Jakarta Sans",system-ui,sans-serif;color:var(--mur);background:var(--gun);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.w{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+.et{font:700 13px/1.3 "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+h1,h2,h3{font-family:Archivo,Impact,sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+h1{font-size:clamp(46px,9.5vw,118px)}
+h2{font-size:clamp(38px,6.4vw,76px);margin:14px 0 22px}
+h3{font-size:clamp(24px,3vw,32px);line-height:1}
+p{max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:2px solid var(--mur);background:var(--amber);color:var(--mur);font:700 15px "Space Mono",monospace;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.btn.ikinci{background:transparent;color:inherit;border-color:currentColor}
+/* üst şerit */
+.ust{background:var(--gece);color:#fff;border-bottom:2px solid var(--sonuk)}
+.ust .w{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:14px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font:900 22px Archivo;font-stretch:62%;letter-spacing:.04em;text-transform:uppercase}
+.led{display:grid;grid-template-columns:repeat(5,6px);grid-template-rows:repeat(7,6px);gap:2px;padding:6px;background:var(--panel)}
+.led i{background:var(--sonuk);border-radius:50%}
+.led i.a{background:var(--amber);box-shadow:0 0 6px rgba(255,176,0,.7)}
+.ust .btn{min-height:42px;padding:0 16px;font-size:12px}
+/* kahraman */
+.kahraman{position:relative;background:var(--gece);color:#fff;overflow:hidden}
+.kahraman::before{content:"";position:absolute;inset:0;background:url(img/masa-laptop.jpg) center/cover;opacity:.38}
+.kahraman::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,15,18,.96) 0%,rgba(14,15,18,.75) 55%,rgba(14,15,18,.4) 100%)}
+.kahraman .w{position:relative;z-index:2;padding-top:clamp(56px,9vw,120px);padding-bottom:clamp(56px,9vw,120px)}
+.kahraman .et{color:var(--amber)}
+.kahraman h1{margin:18px 0 26px;max-width:11ch}
+.kahraman h1 em{font-style:normal;color:var(--amber)}
+.kahraman p{font-size:clamp(17px,2vw,20px);color:#E4E6E8}
+.kahraman .sat{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.kahraman .btn.ikinci{color:#fff}
+.not-k{margin-top:26px;font-size:14px;color:var(--soluk-k)}
+/* bölümler */
+section{padding:clamp(56px,8vw,104px) 0;border-top:2px solid var(--mur)}
+section.gece{background:var(--gece);color:#fff;border-top-color:var(--amber)}
+section.gece .et{color:var(--amber)}
+section.gun .et{color:var(--amber-y)}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)}
+.liste{list-style:none;margin-top:6px}
+.liste li{padding:14px 0 14px 34px;border-top:1px solid rgba(128,128,128,.35);position:relative}
+.liste li:last-child{border-bottom:1px solid rgba(128,128,128,.35)}
+.liste li::before{content:"";position:absolute;left:4px;top:23px;width:14px;height:14px;background:var(--iyi)}
+.liste.hayir li::before{background:var(--kotu);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);transform:rotate(45deg) scale(.8)}
+.liste b{font-weight:700}
+.foto-bant{height:clamp(200px,32vw,360px);background-size:cover;background-position:center;border-top:2px solid var(--mur)}
+/* adımlar */
+.adimlar{counter-reset:a;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;border-top:2px solid #fff}
+.adimlar li{list-style:none;counter-increment:a;padding:22px 22px 26px 0;border-bottom:1px solid var(--sonuk)}
+.adimlar li::before{content:"0" counter(a);display:block;font:900 54px Archivo;font-stretch:62%;color:var(--amber);line-height:1;margin-bottom:8px}
+.adimlar b{display:block;font:700 18px "Plus Jakarta Sans";margin-bottom:4px}
+.adimlar span{color:var(--soluk-k);font-size:15.5px}
+.protolar{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.protolar figure{border:2px solid var(--mur);background:var(--panel)}
+.protolar img{width:100%;height:230px;object-fit:cover;object-position:top}
+.protolar figcaption{padding:10px 14px;color:var(--soluk-k);font-size:13px}
+/* gider tablosu */
+table{width:100%;border-collapse:collapse;margin-top:18px;font-size:16px}
+th,td{text-align:left;padding:13px 10px;border-bottom:1px solid rgba(128,128,128,.4);vertical-align:top}
+th{font:700 12px "Space Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--amber-y)}
+td.s,th.s{text-align:right;white-space:nowrap}
+tr.top td{font-weight:700;border-top:2px solid var(--mur);border-bottom:2px solid var(--mur)}
+.dipnot{font-size:14.5px;color:var(--soluk-a);margin-top:14px}
+/* fiyat */
+.fiyat{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.buyuk{font:900 clamp(64px,10vw,128px)/.9 Archivo;font-stretch:62%;color:var(--amber)}
+.buyuk small{font-size:.36em;color:#fff}
+.kdv{font:700 14px "Space Mono";letter-spacing:.08em;color:var(--soluk-k);margin-top:8px}
+.secenek{border-top:1px solid var(--sonuk);padding:18px 0}
+.secenek b{display:block;font-size:19px}
+.secenek span{color:var(--soluk-k);font-size:15.5px}
+.secenek strong{font:700 15px "Space Mono";color:var(--amber);display:block;margin-top:4px}
+/* SSS */
+details{border-top:1px solid rgba(128,128,128,.45);padding:4px 0}
+details:last-of-type{border-bottom:1px solid rgba(128,128,128,.45)}
+summary{cursor:pointer;list-style:none;padding:16px 36px 16px 0;font-weight:700;position:relative;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:10px;font:700 26px "Space Mono"}
+details[open] summary::after{content:"−"}
+details p{padding:0 0 18px;color:#2B2F35}
+/* form */
+form{display:grid;gap:16px;max-width:640px;margin-top:24px}
+label{display:block;font-weight:700;font-size:15px;margin-bottom:6px}
+input[type=text],input[type=email],input[type=tel],select{width:100%;min-height:50px;padding:0 14px;font:400 17px "Plus Jakarta Sans";border:2px solid #fff;background:var(--panel);color:#fff;border-radius:0}
+.onay{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:#E4E6E8}
+.onay input{width:24px;height:24px;margin-top:2px;flex:none;accent-color:var(--amber)}
+.opt{font-weight:400;color:var(--soluk-k);font-size:13px}
+.sonuc{min-height:24px;font:700 14px "Space Mono";color:var(--amber)}
+.wa{margin-top:26px;max-width:640px}
+.wa p{font-size:15px;color:var(--soluk-k);margin-bottom:14px}
+/* açıklamalar */
+.acik{background:var(--gun);padding:clamp(40px,6vw,72px) 0;border-top:2px solid var(--mur)}
+.acik ul{list-style:none;max-width:90ch;font-size:14.5px;color:#2B2F35}
+.acik li{padding:8px 0 8px 18px;border-top:1px solid rgba(128,128,128,.35);position:relative}
+.acik li::before{content:"";position:absolute;left:0;top:17px;width:7px;height:7px;background:var(--mur)}
+footer{background:var(--gece);color:var(--soluk-k);padding:30px 0;font-size:14px}
+@media(max-width:860px){.iki,.fiyat{grid-template-columns:1fr}.adimlar,.protolar{grid-template-columns:1fr}.kahraman h1{max-width:none}.ust .logo span.ad{display:none}}
+@media(max-width:480px){body{font-size:16px}.btn{width:100%}.ust .btn{width:auto}th,td{padding:11px 6px;font-size:15px}}
+@media(prefers-reduced-motion:no-preference){.led i.a{animation:y 3s infinite alternate}@keyframes y{to{opacity:.7}}}
+</style>
+</head>
+<body>
+<header class="ust"><div class="w">
+  <a class="logo" href="https://dijitabela.com" aria-label="Dijitabela"><span class="led" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="a"></i><i class="a"></i><i class="a"></i><i></i><i></i><i></i><i class="a"></i><i></i><i class="a"></i><i></i><i class="a"></i><i></i><i class="a"></i><i></i><i class="a"></i><i></i><i class="a"></i><i></i><i class="a"></i><i class="a"></i><i></i><i class="a"></i><i></i><i class="a"></i><i></i><i class="a"></i><i class="a"></i><i class="a"></i><i></i></span><span class="ad">Dijitabela</span></a>
+  <a class="btn" href="https://wa.me/905019452184?text=KURULUM" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+</div></header>
+
+<main>
+<section class="kahraman" style="border-top:0">
+  <div class="w">
+    <div class="et">Anahtar teslim · uzaktan · kendi markanızla</div>
+    <h1>Kendi dijital ajansınızı <em>kuruyoruz</em></h1>
+    <p>Yerel işletmelere web sitesi, Google İşletme Profili, içerik ve basit otomasyon hizmeti vermek isteyenler için: araçları, şablonları ve çalışma düzenini bilgisayarınıza kuruyoruz. Yapay zekâ destekli, uzaktan, kendi markanızla.</p>
+    <p style="margin-top:12px"><b>Kurulum + 16 saat canlı eğitim + 30 gün destek.</b> Gelir garantisi yoktur; aylık giderlerin tablosunu baştan gösteriyoruz.</p>
+    <div class="sat"><a class="btn" href="https://wa.me/905019452184?text=KURULUM" target="_blank" rel="noopener">WhatsApp'tan yazın</a><a class="btn ikinci" href="#gider">Aylık gider tablosu</a></div>
+    <p class="not-k">İlk 5 kayda kurucu fiyatı: 65.000 TL + KDV. Sonrası 79.000 TL + KDV.</p>
+  </div>
+</section>
+
+<section class="gun" id="kimler">
+  <div class="w iki">
+    <div>
+      <div class="et">Kimler için</div>
+      <h2>Bilgisayarla rahat, haftada 20+ saat ayırabilen</h2>
+      <ul class="liste">
+        <li><b>Grafiker, serbest çalışan yazılımcı veya tasarımcı,</b> sosyal medya yöneticisi, küçük ajans çalışanı.</li>
+        <li>Haftada <b>en az 20 saat</b> ayırabilen; dosya, klasör, tarayıcı ve e-postayla rahat çalışan.</li>
+        <li>Müşteriyle yazışmaktan ve teklif vermekten çekinmeyen.</li>
+        <li>Yapay zekâ aboneliğini <b>kendi adına, kendi kartıyla</b> açabilen 18 yaş üstü kişi.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="et">Kimler için değil</div>
+      <h2>Bunu baştan söylüyoruz</h2>
+      <ul class="liste hayir">
+        <li>Kısa sürede kazanç bekleyenler. İlk 1–3 ay iş gelmeyebilir.</li>
+        <li>Birkaç ay gelir gelmezse aylık giderini karşılayamayacak olanlar. En az 3 aylık gider cepte olmalı.</li>
+        <li>Yatırımla borcunu ya da işsizlik tazminatını çevirmeyi planlayanlar.</li>
+        <li>Bilgisayar kullanımı çok zayıf olanlar ve yurt dışı işlemine açık kartı olmayanlar.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="foto-bant" style="background-image:url(img/masa-ustten.jpg)" role="img" aria-label="Masa başında dizüstü bilgisayarlarla çalışan ekip, yukarıdan görünüm"></div>
+
+<section class="gece" id="ne-alirsin">
+  <div class="w iki">
+    <div>
+      <div class="et">Ne alırsınız</div>
+      <h2>Alet çantası, şablonlar ve çalışma düzeni</h2>
+      <ul class="liste">
+        <li>Kendi yapay zekâ aboneliğiniz üzerinde kurulu, <b>iş kuralları yazılmış çalışma ortamı</b>.</li>
+        <li><b>Komut ve şablon kütüphanesi:</b> ihtiyaç analizi, 3 farklı yerleşimde prototip site, Google profil denetimi, yerel SEO, teklif yazımı, teslim kontrol listesi.</li>
+        <li><b>6 sektör için</b> prototip başlangıç setleri.</li>
+        <li><b>Teklif ve kâr hesap tablosu:</b> KDV, platform komisyonu, ödeme kesintisi dahil.</li>
+        <li>Kendi alan adınız + tanıtım siteniz + 3 örnek portföy çalışması (ilk yıl alan adı dahil).</li>
+        <li><b>Satış kanalları kurulumu:</b> freelance platform profili ve ilanları, LinkedIn, Google İşletme Profili, Instagram.</li>
+        <li>Şirket, fatura, ödeme alma ve vergi için yol haritası ve mali müşavirinize götüreceğiniz soru listesi.</li>
+        <li><b>8 × 2 saat canlı eğitim</b> (kayıtlar sizde kalır) + 30 gün destek.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="et">Ne almazsınız</div>
+      <h2>Dürüst liste</h2>
+      <ul class="liste hayir">
+        <li><b>Gelir veya müşteri garantisi.</b> Müşteriyi bulmak sizin emeğinizdir.</li>
+        <li>Sizin yerinize iş yapılması; müşterinize bizim yazmamız.</li>
+        <li>Hazır müşteri listesi ve bizim markamız. Kendi markanızla çalışırsınız.</li>
+        <li>Aylık giderlerinizin karşılanması.</li>
+        <li>Muhasebe ve hukuk hizmeti, donanım temini, yerinde kurulum.</li>
+        <li>Hesap açma, şifre tutma, hesap paylaşımı veya devri. Her hesap sizin adınıza, sizin ödemenizle açılır.</li>
+      </ul>
+      <p style="margin-top:20px;color:var(--soluk-k);font-size:15px">Üretimin önemli kısmı yapay zekâ ile yapılır. Müşterilerinize bunu gizlememeyi öğretiyoruz; teklif şablonlarında açıkça yazılıdır. Yapay zekâ hata yapabilir, her çıktıyı kontrol etmek sizin sorumluluğunuzdadır.</p>
+    </div>
+  </div>
+  <div class="w">
+    <div class="protolar">
+      <figure><img src="img/proto-vitrin.jpg" alt="Çilingir işletmesi için vitrin yerleşimli örnek prototip ekran görüntüsü" width="1000" height="230"><figcaption>Örnek prototip · vitrin yerleşimi</figcaption></figure>
+      <figure><img src="img/proto-dergi.jpg" alt="Aynı işletme için dergi yerleşimli örnek prototip ekran görüntüsü" width="1000" height="230"><figcaption>Örnek prototip · dergi yerleşimi</figcaption></figure>
+      <figure><img src="img/proto-uygulama.jpg" alt="Aynı işletme için uygulama yerleşimli örnek prototip ekran görüntüsü" width="1000" height="230"><figcaption>Örnek prototip · uygulama yerleşimi</figcaption></figure>
+    </div>
+    <p style="margin-top:14px;color:var(--soluk-k);font-size:14px">Her teklife çalışan prototip ekliyoruz. Kendi ajansımızı (Antalya) bu yöntemle yürütüyoruz; size kurduğumuz, kullandığımız düzenin sadeleştirilmiş hâlidir.</p>
+  </div>
+</section>
+
+<section class="gun" id="nasil">
+  <div class="w">
+    <div class="et">Nasıl işler</div>
+    <h2>Ön görüşmeden teslim tutanağına</h2>
+    <ol class="adimlar" style="border-top-color:var(--mur)">
+      <li><b>Ücretsiz 30 dk ön görüşme</b><span style="color:var(--soluk-a)">Uygunluğa bakıyoruz, aylık gider tablosunu birlikte inceliyoruz.</span></li>
+      <li><b>Sözleşme + fatura</b><span style="color:var(--soluk-a)">Ön bilgilendirme formu ve sözleşme onaylanır, fatura kesilir.</span></li>
+      <li><b>Hesaplarınızı siz açıyorsunuz</b><span style="color:var(--soluk-a)">Abonelik, barındırma, alan adı: kontrol listesiyle, kendi adınıza.</span></li>
+      <li><b>2 oturumda kurulum</b><span style="color:var(--soluk-a)">Çalışma ortamı, klasör düzeni, yedekleme, güvenlik ayarları.</span></li>
+      <li><b>4 haftada 8 eğitim oturumu</b><span style="color:var(--soluk-a)">Her oturum 2 saat, canlı; ödevli, kayıtlar sizde.</span></li>
+      <li><b>30 gün destek, teslim tutanağı</b><span style="color:var(--soluk-a)">Haftada 1 saat canlı soru-cevap + yazılı destek.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="gece" id="gider">
+  <div class="w">
+    <div class="et">Gider tablosu özeti</div>
+    <h2>Gizli gider yok, gelir garantisi de yok</h2>
+    <p>Aylık işletme giderleri size aittir. Aşağıdaki rakamlar tahmindir; kur ve tarifelere göre değişir, ayrıntılı tablo görüşmede verilir.</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Kalem</th><th class="s">Aylık (TL)</th></tr></thead>
+      <tbody>
+        <tr><td>Yapay zekâ aboneliği (kendi adınıza; önerilen plan 100 USD + KDV)</td><td class="s">≈ 6.100</td></tr>
+        <tr><td>Muhasebe (mali müşavir)</td><td class="s">≈ 2.500–4.000</td></tr>
+        <tr><td>İnternet</td><td class="s">≈ 800</td></tr>
+        <tr><td>Alan adı yenilemesi (ilk yıl pakete dahil)</td><td class="s">≈ 80</td></tr>
+        <tr><td>Barındırma (statik site, ücretsiz katman)</td><td class="s">0</td></tr>
+        <tr><td>Sigorta primi (Bağ-Kur; başka işte sigortalı çalışanlarda doğmayabilir, mali müşavir teyit eder)</td><td class="s">≈ 9.800</td></tr>
+        <tr class="top"><td>Toplam, sigorta primi hariç</td><td class="s">≈ 10.000</td></tr>
+        <tr class="top"><td>Toplam, sigorta primi dahil</td><td class="s">≈ 19.800</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="dipnot" style="color:var(--soluk-k)">Gelir veya müşteri garantisi verilmez. Sonuç; emeğinize, bölgenize ve piyasaya bağlıdır. Bu rakamlar bir kazanç tahmini değil, gider tahminidir.</p>
+  </div>
+</section>
+
+<section class="gece" id="fiyat" style="border-top-color:var(--sonuk)">
+  <div class="w fiyat">
+    <div>
+      <div class="et">Fiyat</div>
+      <h2 style="margin-bottom:8px">İlk 5 kayda kurucu fiyatı</h2>
+      <div class="buyuk">65.000 <small>TL + KDV</small></div>
+      <div class="kdv">KDV DAHİL 78.000 TL · FATURA KESİLİR</div>
+      <p style="margin-top:18px;color:var(--soluk-k)">Kurucu fiyatı gerçekten ilk 5 kayıtla sınırlıdır. Sonraki kayıtlar 79.000 TL + KDV (KDV dahil 94.800 TL). Toplam müşteri sayısında sınır yoktur.</p>
+    </div>
+    <div>
+      <div class="secenek"><b>Temel paket · 30 gün destek</b><span>Kurulum, 8 × 2 saat eğitim, haftada 1 saat canlı soru-cevap ve yazılı destek (toplam üst sınır 8 saat).</span><strong>Kurucu fiyatı 65.000 TL + KDV</strong></div>
+      <div class="secenek"><b>Genişletilmiş paket · 60 gün destek</b><span>Temele ek 4 hafta: haftalık canlı görüşme, 2 ek eğitim oturumu, ilk 3 gerçek teklifinizin incelenmesi (üst sınır 16 saat).</span><strong>85.000 TL + KDV (KDV dahil 102.000 TL)</strong></div>
+      <div class="secenek"><b>Taksit</b><span>Kartla ödemede taksit seçeneği olabilir; taksit farkı ödeme ekranında gösterilir.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="gun" id="sss">
+  <div class="w" style="max-width:960px">
+    <div class="et">Sık sorulanlar</div>
+    <h2>Altı soru, altı açık cevap</h2>
+    <details><summary>Ayda ne kadar kazanırım?</summary><p>Söz veremeyiz, vermemiz de doğru olmaz. Gösterebildiğimiz, aylık giderinizin tahmini ve giderinizi çıkarmak için gereken iş sayısının iki senaryolu hesabıdır. İlk 1–3 ay iş gelmeyebilir; en az 3 aylık gideriniz cepte olmalı.</p></details>
+    <details><summary>Yazılım bilmem gerekiyor mu?</summary><p>Hayır, ama bilgisayarla rahat olmalısınız: dosya, klasör, tarayıcı, e-posta. Kod yazmıyorsunuz; yapay zekâya doğru işi tarif etmeyi ve çıktıyı kontrol etmeyi öğreniyorsunuz.</p></details>
+    <details><summary>Yapay zekâ aboneliğini siz mi açıyorsunuz?</summary><p>Hayır. Kendi adınıza, kendi kartınızla açarsınız (öneri: aylık 100 USD + KDV plan, yaklaşık 6.100 TL). Hesap paylaşımı veya devri yapılmaz; biz şifrenizi almayız. 200 USD'lik plan ancak sık sık limite takılırsanız gerekir.</p></details>
+    <details><summary>Müşteri bulmayı garanti ediyor musunuz?</summary><p>Hayır. Profillerinizi, ilanlarınızı ve teklif düzeninizi kuruyoruz; müşteriye ulaşmak sizin emeğinizdir. Soğuk mesaj ve sahte yorum gibi yasak yollar eğitimde açıkça anlatılır.</p></details>
+    <details><summary>Bayi ya da ortak mı oluyorum? Şirket kurmam gerekir mi?</summary><p>Bayilik veya üyelik sistemi değildir; kendi markanızla çalışırsınız, bizim adımızı kullanamazsınız, biz de ciro payı almayız. Fatura kesip düzenli iş yapacaksanız çoğunlukla şahıs şirketi gerekir; kuruluşu mali müşaviriniz yapar, biz yol haritasını ve soru listesini veririz.</p></details>
+    <details><summary>Vazgeçersem ne olur?</summary><p>Sözleşmede ve ön bilgilendirme formunda yazılı cayma ve iade koşulları geçerlidir. Mesafeli satışta yasal haklarınız saklıdır.</p></details>
+  </div>
+</section>
+
+<section class="gece" id="basvuru">
+  <div class="w">
+    <div class="et">Ön görüşme başvurusu</div>
+    <h2>WhatsApp'tan yazın, size dönelim</h2>
+    <p>Telefona soğuk arama yapmıyoruz. Yalnız bize kendisi yazanlarla görüşürüz. Ücretsiz 30 dakikalık ön görüşme için aşağıdaki düğmeye basıp “KURULUM” yazmanız yeterli.</p>
+    
+    <div class="wa">
+      <p>Bu düğmeye basmak sizin başlattığınız bir yazışmadır; size kendiliğimizden mesaj atmayız.</p>
+      <a class="btn" id="wa" href="https://wa.me/905019452184?text=KURULUM" target="_blank" rel="noopener">WhatsApp'tan yaz: KURULUM</a>
+    </div>
+  </div>
+</section>
+
+<section class="acik" aria-labelledby="acik-b">
+  <div class="w">
+    <div class="et" id="acik-b" style="color:var(--amber-y);margin-bottom:14px">Önemli açıklamalar</div>
+    <ul>
+      <li>Gelir veya müşteri garantisi verilmez. Sonuç; emeğinize, bölgenize ve piyasaya bağlıdır.</li>
+      <li>Aylık işletme giderleri (yapay zekâ aboneliği, internet, muhasebe, sigorta primi vb.) ayrıca size aittir: yaklaşık 10.000–20.000 TL/ay (ayrıntılı tablo görüşmede verilir).</li>
+      <li>Yapay zekâ aboneliğini kendi adınıza, kendi kartınızla açarsınız; hesap paylaşımı veya devri yapılmaz.</li>
+      <li>Fiyat: 65.000 TL + KDV (KDV dahil 78.000 TL), ilk 5 kayda kurucu fiyatıdır; sonrası 79.000 TL + KDV. Fatura kesilir. Cayma hakkı dahil mesafeli satıştaki yasal haklarınız saklıdır.</li>
+      <li>Bu bir bayilik veya üyelik sistemi değildir; kendi markanızla çalışırsınız.</li>
+      <li>Bu sayfada anılan üçüncü taraf ürün ve platform adları ilgili sahiplerine aittir; bu hizmet onlarla bağlantılı, onların temsilcisi veya ortağı değildir.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer><div class="w">Dijitabela · Antalya · <a href="https://dijitabela.com">dijitabela.com</a></div></footer>
+
+
+</body>
+</html>
