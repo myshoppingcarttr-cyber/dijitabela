@@ -1,0 +1,7 @@
+﻿Pixabay lisansi (ticari kullanim serbest, atif gerekmez). Kaynak: pixabay.com, API ile 22 Eki 2026.
+kapi-kilit.jpg = Pixabay #4521068 (https://pixabay.com/photos/locksmith-door-lock-close-shut-down-4521068/)
+kapi-anahtar.jpg = Pixabay #4521069 (https://pixabay.com/photos/locksmith-open-the-door-to-open-key-4521069/)
+gece-kilit.jpg = Pixabay #499986 (https://pixabay.com/photos/night-castle-key-burglary-burglar-499986/)
+silindir.jpg = Pixabay #3856 (https://pixabay.com/photos/castle-key-safety-lock-3856/)
+anahtar.jpg = Pixabay #182917 (https://pixabay.com/photos/key-safe-key-door-key-to-open-182917/)
+usta-takim.jpg = Pixabay #1947387 (https://pixabay.com/photos/locksmith-locks-unlock-open-1947387/)

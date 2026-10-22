@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Berrak Oto Yıkama · Muratpaşa, Antalya</title>
+<meta name="description" content="Berrak Oto Yıkama: kuyrukta kaç araç var, ne kadar beklersin, aylık sınırsız yıkama aboneliği. Kurgusal işletme, Dijitabela prototipi.">
+<link rel="stylesheet" href="../yikama.css">
+<style>
+:root{--zemin:#0b1c2c;--zemin-in:#10263a;--yuzey:#12304a;--yazi:#eaf4fb;--soluk:#9fb8cc;--cizgi:#25506f;--vurgu:#22d3ee;--vurgu2:#0ea5e9;--vurgu-yazi:#062030;--hata:#ff7a7a;--uyari:#ffd166;--r:12px;--harita-deniz:#0b1c2c;--harita-deniz2:#12304a;--harita-kara:#1c4766;--harita-uzerinde:#2a6491;--harita-yazi:#eaf4fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--zemin);color:var(--yazi);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;line-height:1.55}
+a{color:inherit}
+.ust{position:sticky;top:0;z-index:30;background:rgba(11,28,44,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--cizgi)}
+.ust .ic{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px}
+.logo{font-weight:900;font-size:1.15rem;letter-spacing:.02em;text-decoration:none}.logo b{color:var(--vurgu)}
+.ust nav{display:flex;gap:18px;font-size:.92rem;font-weight:600}.ust nav a{text-decoration:none;color:var(--soluk)}.ust nav a:hover{color:var(--yazi)}
+.cagri{background:var(--vurgu);color:var(--vurgu-yazi)!important;font-weight:800;padding:10px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.kah{position:relative;min-height:78vh;display:grid;align-items:end;overflow:hidden}
+.kah img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kah::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,28,44,.35),rgba(11,28,44,.92))}
+.kah .kap{position:relative;z-index:1;max-width:1180px;margin:auto;width:100%;padding:90px 20px 56px}
+.etiket{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--vurgu)}
+h1{font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.04;margin:10px 0 14px;max-width:16ch}
+h1 em{font-style:normal;color:var(--vurgu)}
+.kah p{max-width:52ch;font-size:1.15rem;color:#d3e6f3;margin:0 0 24px}
+.dgm{display:flex;gap:12px;flex-wrap:wrap}
+.dg{display:inline-flex;align-items:center;min-height:50px;padding:0 22px;border-radius:999px;font-weight:800;text-decoration:none;background:var(--vurgu);color:var(--vurgu-yazi)}
+.dg.i{background:transparent;border:2px solid #fff;color:#fff}
+.sinyal{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;font-size:.88rem}
+.sinyal span{background:rgba(255,255,255,.12);padding:7px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.bol{padding:72px 20px;border-top:1px solid var(--cizgi)}
+.bol>.ic{max-width:1180px;margin:auto}
+h2{font-size:clamp(1.7rem,4vw,2.6rem);margin:6px 0 10px;line-height:1.1}
+.alt{color:var(--soluk);max-width:60ch;margin:0 0 28px}
+.iki>*,.alt-bilgi>*,.uc>*,.adim>*{min-width:0}.iki{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
+.kart{background:var(--yuzey);border:1px solid var(--cizgi);border-radius:18px;padding:22px}
+.uc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.uc figure{margin:0;border-radius:18px;overflow:hidden;background:var(--yuzey);border:1px solid var(--cizgi)}
+.uc img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.uc figcaption{padding:16px}.uc b{display:block;font-size:1.05rem}.uc span{color:var(--soluk);font-size:.9rem}
+.adim{counter-reset:a;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;padding:0;margin:0}
+.adim li{counter-increment:a;background:var(--yuzey);border:1px solid var(--cizgi);border-radius:16px;padding:18px}
+.adim li::before{content:counter(a);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--vurgu);color:var(--vurgu-yazi);font-weight:900;margin-bottom:10px}
+.adim b{display:block}.adim span{font-size:.9rem;color:var(--soluk)}
+.alt-bilgi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+footer{padding:40px 20px 100px;border-top:1px solid var(--cizgi);color:var(--soluk);font-size:.9rem;text-align:center}
+@media (max-width:900px){.iki,.uc,.adim,.alt-bilgi{grid-template-columns:1fr}.ust nav{display:none}.kah{min-height:70vh}}
+</style>
+</head>
+<body>
+<header class="ust"><div class="ic"><a class="logo" href="#ust">BERRAK<b>.</b> oto yıkama</a><nav aria-label="Bölümler"><a href="#kuyruk">Kuyruk</a><a href="#fiyat">Fiyat</a><a href="#abonelik">Abonelik</a><a href="#nasil">Nasıl çalışır</a><a href="#konum">Konum</a></nav><a class="cagri" href="#abonelik">Abone ol</a></div></header>
+<main id="ust">
+<section class="kah" data-anlat="giris"><img src="../img/f9.jpg" alt="Fırçalı otomatik yıkama tünelinden geçen kırmızı araç" width="1280" height="853">
+<div class="kap"><span class="etiket">Muratpaşa · Antalya</span><h1>Kuyrukta <em>kaç araç</em> var, gelmeden gör.</h1><p>Dükkâna gelmeden önce tahmini bekleme süreni gör. Sürekli yıkatıyorsan aylık sınırsız aboneliğe geç: plakan okunur, kasada para ödemezsin.</p>
+<div class="dgm"><a class="dg" href="#kuyruk">Şimdi kuyruğa bak</a><a class="dg i" href="#abonelik">Aylık abonelik</a></div>
+<div class="sinyal"><span>Canlı kuyruk (demo)</span><span>Aylık sınırsız iç-dış</span><span>Binek · SUV · ticari</span></div></div></section>
+
+<section class="bol" id="kuyruk" data-anlat="b1"><div class="ic"><span class="etiket">Canlı kuyruk</span><h2>Şu an kuyrukta kaç araç, ne kadar beklersin?</h2><p class="alt">Araç tipini ve yıkamayı seç; sıraya yazıl. Tahmin, önündeki işlerin kalan süresinden hesaplanır.</p>
+<div class="kart"><div data-yk="kuyruk" data-hat="2"></div></div></div></section>
+
+<section class="bol" id="fiyat" data-anlat="b2"><div class="ic"><span class="etiket">Fiyat</span><h2>Araç tipine göre net fiyat.</h2><p class="alt">Binek, SUV ve ticari için ayrı liste. Önce seç, fiyatı gör; kasada sürpriz çıkmasın.</p>
+<div class="iki"><div class="kart"><div data-yk="fiyat" data-tur="tesis"></div></div>
+<div class="uc" style="grid-template-columns:1fr 1fr;gap:12px"><figure><img src="../img/f1.jpg" alt="Köpüklü sünger ile elde yıkama" loading="lazy"><figcaption><b>Elde köpük</b><span>Boya yüzeyine nazik</span></figcaption></figure><figure><img src="../img/f8.jpg" alt="Cilalanmış kırmızı araç farı" loading="lazy"><figcaption><b>Cila ve parlatma</b><span>Detay paketinde</span></figcaption></figure></div></div></div></section>
+
+<section class="bol" id="abonelik" data-anlat="b3"><div class="ic"><span class="etiket">Aylık abonelik</span><h2>Sınırsız yıkama, tek aylık ücret.</h2><p class="alt">Plan seç, plakanı yaz, öde (demo), abonelik kartın hazır. İstediğin an iptal et.</p>
+<div class="iki"><div class="kart"><div data-yk="abonelik"></div></div>
+<div><figure style="margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--cizgi)"><img src="../img/f12.jpg" alt="Koyu renkli SUV, yıkama sonrası" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" loading="lazy"></figure>
+<ul style="color:var(--soluk);padding-left:20px"><li>Plakan okununca abonelik doğrulanır.</li><li>Sınırsız = adil kullanım: günde en fazla 1 yıkama.</li><li>İptal tek dokunuş; dönem sonuna kadar kullanırsın.</li></ul></div></div></div></section>
+
+<section class="bol" id="nasil" data-anlat="b4"><div class="ic"><span class="etiket">Nasıl çalışır</span><h2>Dört adımda yıkama.</h2><p class="alt">Telefon yeter; uygulama indirmek gerekmez.</p>
+<ol class="adim"><li><b>Kuyruğa bak</b><span>Tahmini bekleme sayfada.</span></li><li><b>Sıraya yazıl</b><span>Araç tipini ve yıkamayı seç.</span></li><li><b>Gel, teslim et</b><span>Sıran gelince mesaj gelir.</span></li><li><b>Parlak çık</b><span>Abonesen ödeme yok, plaka okunur.</span></li></ol></div></section>
+
+<section class="bol" id="konum" data-anlat="b5"><div class="ic"><span class="etiket">Konum ve saat</span><h2>Bizi bulmak kolay.</h2><p class="alt">Kurgusal işletme; gerçek adres, saat ve harita bağlantısı müşterinin Google işletme profilinden gelir.</p>
+<div class="alt-bilgi"><div class="kart"><b>Adres</b><br>Muratpaşa / Antalya (örnek)</div><div class="kart"><b>Saatler</b><br>Hafta içi 08:00-19:00 (örnek)</div><div class="kart"><b>WhatsApp</b><br>Kuyruk ve abonelik sorusu için (demo bağlantı yok)</div></div></div></section>
+</main>
+<footer>Berrak Oto Yıkama kurgusal bir işletmedir; Dijitabela prototipi. Kuyruk, fiyat ve ödeme ekranları demodur.</footer>
+<script src="../yikama.js"></script>
+<script>window.DJ_REHBER={tts:true,ses:false,satirlar:{giris:{metin:"Merhaba! Ben Dijitabela tabelasıyım. Bu sayfa bir oto yıkama için çalışır tasarım: gelmeden kuyruğu görüp, aylık sınırsız aboneliğe geçebiliyorsunuz."},b1:{metin:"Canlı kuyruk. Kaç araç var, ne kadar beklersiniz, buradan görürsünüz."},b2:{metin:"Fiyat. Araç tipine göre örnek liste."},b3:{metin:"Aylık abonelik. Plan seç, plakanı yaz, demo ödeme ile kartını al."},b4:{metin:"Nasıl çalışır. Dört adımda yıkama."},b5:{metin:"Konum ve saat bilgisi işletmenin kendi profilinden gelir."}}};</script>
+<script src="../_dijitabela/rehber.js" defer></script>
+<script src="../_dijitabela/filigran.js" data-gucu="0.04"></script>
+<script src="/ornek/_dijitabela/izle.js" defer></script></body>
+</html>

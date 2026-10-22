@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Çilingir · 3 prototip · Dijitabela</title>
+<meta name="description" content="Çilingirler için çalışan örnek: konumdan en yakın usta süresi, kapı tipine göre fiyat aralığı, WhatsApp'tan talep; üç ayrı yerleşim.">
+<style>
+body{margin:0;font-family:"Segoe UI",system-ui,Arial,sans-serif;background:#f4f5f7;color:#151a22;line-height:1.5}
+main{max-width:1000px;margin:auto;padding:32px 20px 80px}
+h1{font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;margin:0 0 8px}p.alt{color:#5a6472;margin:0 0 26px;max-width:62ch}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+a.k{display:block;background:#fff;border:1px solid #d9dde3;border-radius:16px;overflow:hidden;text-decoration:none;color:inherit}
+a.k:hover,a.k:focus-visible{border-color:#f59e0b;outline:3px solid #f59e0b;outline-offset:2px}
+a.k img{width:100%;height:170px;object-fit:cover;display:block}a.k div{padding:18px 20px}
+a.k b{display:block;font-size:1.2rem}a.k span{display:block;color:#5a6472;font-size:.92rem;margin-top:6px}a.k i{font-style:normal;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b45309}
+.oz{margin-top:28px;background:#fff;border:1px solid #d9dde3;border-radius:16px;padding:20px 22px}.oz li{margin:6px 0}
+small.n{display:block;margin-top:22px;color:#5a6472}
+@media(max-width:760px){.g{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<h1>Çilingir: gece çağrısı kaçmasın</h1>
+<p class="alt">Üç ayrı yerleşim, aynı çalışan araçlar: müşteri konumunu paylaşır, en yakın ustanın tahmini varış süresini görür; kapı tipini seçer, fiyat aralığını öğrenir; talebi WhatsApp'tan tek dokunuşla iletir. İşletmeler kurgusaldır; usta ve fiyat verileri örnektir.</p>
+<div class="g">
+<a class="k" href="1-vitrin/"><img src="img/gece-kilit.jpg" alt="" loading="lazy"><div><i>Vitrin · koyu, tam ekran</i><b>Kilit Atölyesi</b><span>Gece acil çağrı odaklı; konumdan "~X dk" ve kapı tipi fiyatı.</span></div></a>
+<a class="k" href="2-dergi/"><img src="img/kapi-kilit.jpg" alt="" loading="lazy"><div><i>Dergi · krem, sütunlu</i><b>Nöbetçi Anahtar</b><span>Hizmetler, semt seçimi, fiyat aralıkları ve sık sorulanlar.</span></div></a>
+<a class="k" href="3-uygulama/"><img src="img/usta-takim.jpg" alt="" loading="lazy"><div><i>Uygulama · sekmeli</i><b>AçıkKapı</b><span>Telefonda uygulama gibi; usta durumu ve yol takibi.</span></div></a>
+</div>
+<div class="oz"><b>Pakette:</b><ul><li>Konum ya da semt → en yakın usta, tahmini süre</li><li>Kapı tipi (çelik, oto, kasa, kilit değişimi) → fiyat aralığı ve işlem süresi</li><li>WhatsApp asistanı: konum + kapı tipini sorar, ustaya özet düşer</li><li>Google İşletme Profili düzenleme: 7/24 saat, hizmet bölgeleri, fotoğraflar</li></ul></div>
+<small class="n">Fotoğraflar temsilî stoktur. Kendi adınız, ustalarınız ve fiyatlarınızla yayına alınır.</small>
+</main>
+<script src="_dijitabela/filigran.js" data-gucu="0.04"></script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/wa-buton.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body>
+</html>
