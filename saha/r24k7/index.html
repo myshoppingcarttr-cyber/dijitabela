@@ -1,0 +1,244 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Sanayi Rotası"><title>Sanayi Rotası</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Yerleşim: sahada tek elle kullanılan dikey liste; üstte ilerleme, her durak bir kart, eylemler başparmak hizasında. */
+:root{
+  --bg:#f2f1ed; --kart:#ffffff; --yazi:#1d1f22; --soluk:#62666c; --cizgi:#dcdad3;
+  --vurgu:#1f4e79; --vurgu-acik:#e3ecf5; --iyi:#1e6b47; --iyi-acik:#e1f1e8; --uyari:#9a5b00; --uyari-acik:#fbefd9; --kotu:#a2342b; --kotu-acik:#f8e3e1;
+  --f-baslik:"Barlow Condensed","Arial Narrow",system-ui,sans-serif; --f-govde:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141619; --kart:#1d2024; --yazi:#ebebe8; --soluk:#a2a6ab; --cizgi:#30343a;
+  --vurgu:#8cb8e6; --vurgu-acik:#1d2c3b; --iyi:#7fd1a6; --iyi-acik:#16291f; --uyari:#f0b860; --uyari-acik:#2e2414; --kotu:#f09a91; --kotu-acik:#331a18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141619; --kart:#1d2024; --yazi:#ebebe8; --soluk:#a2a6ab; --cizgi:#30343a;
+  --vurgu:#8cb8e6; --vurgu-acik:#1d2c3b; --iyi:#7fd1a6; --iyi-acik:#16291f; --uyari:#f0b860; --uyari-acik:#2e2414; --kotu:#f09a91; --kotu-acik:#331a18; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--yazi);font:16px/1.45 var(--f-govde);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 32px}
+.kap{max-width:640px;margin:0 auto}
+header{padding-block:16px 8px}
+h1{font:700 30px/1.05 var(--f-baslik);letter-spacing:.2px;margin:0;text-wrap:balance}
+.alt{color:var(--soluk);font-size:14px;margin-top:2px}
+.ilerleme{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.ilerleme div{background:var(--kart);border:1px solid var(--cizgi);border-radius:10px;padding:8px 6px;text-align:center}
+.ilerleme b{display:block;font:700 24px/1 var(--f-baslik);font-variant-numeric:tabular-nums}
+.ilerleme span{font-size:12px;color:var(--soluk)}
+.uyari-kutu{margin-top:10px;font-size:13px;color:var(--uyari);background:var(--uyari-acik);border-radius:8px;padding:8px 10px}
+.sekme{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.sekme button{flex:none;border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi);font:600 14px var(--f-govde);padding:8px 12px;border-radius:20px;min-height:40px}
+.sekme button[aria-pressed="true"]{background:var(--yazi);color:var(--bg);border-color:var(--yazi)}
+.siradaki{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--vurgu);color:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;text-decoration:none}
+:root[data-theme="dark"] .siradaki{color:#0d1620}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .siradaki{color:#0d1620}}
+.siradaki small{display:block;opacity:.85;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.siradaki strong{font:700 20px/1.1 var(--f-baslik)}
+.bolum-baslik{font:700 20px var(--f-baslik);margin:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.bolum-baslik span{font:400 13px var(--f-govde);color:var(--soluk)}
+.liste{display:grid;gap:10px}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:12px;overflow:hidden}
+.kart.durum-gorusuldu,.kart.durum-liste,.kart.durum-ilgilendi{border-color:var(--iyi)}
+.kart.durum-olumsuz{opacity:.75}
+.kart-ust{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:12px 12px 8px;align-items:start;cursor:pointer;width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit}
+.no{font:700 22px/1 var(--f-baslik);min-width:34px;text-align:center;padding-top:2px;font-variant-numeric:tabular-nums}
+.no small{display:block;font:600 11px var(--f-govde);color:var(--soluk)}
+.ad{font:700 19px/1.15 var(--f-baslik);min-width:0;overflow-wrap:anywhere}
+.uz{font-size:13px;color:var(--soluk)}
+.rozetler{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.rz{font-size:12px;font-weight:700;border-radius:6px;padding:2px 7px;background:var(--bg);color:var(--soluk)}
+.rz.kotu{background:var(--kotu-acik);color:var(--kotu)}
+.rz.uyari{background:var(--uyari-acik);color:var(--uyari)}
+.rz.iyi{background:var(--iyi-acik);color:var(--iyi)}
+.rz.vurgu{background:var(--vurgu-acik);color:var(--vurgu)}
+.govde{padding:0 12px 12px;display:grid;gap:10px}
+.govde[hidden]{display:none!important}
+.eylem{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:10px;border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi);font:700 15px var(--f-govde);text-decoration:none;cursor:pointer;padding:0 10px}
+.btn.ana{background:var(--vurgu);border-color:var(--vurgu);color:#fff}
+:root[data-theme="dark"] .btn.ana{color:#0d1620}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.ana{color:#0d1620}}
+.btn:focus-visible,.sekme button:focus-visible,textarea:focus-visible,input:focus-visible,.durum-sec button:focus-visible{outline:3px solid var(--vurgu);outline-offset:2px}
+.bilgi{font-size:14px;display:grid;gap:3px}
+.bilgi .tel{font-variant-numeric:tabular-nums;user-select:all}
+.firsat{background:var(--bg);border-radius:10px;padding:10px 12px}
+.firsat h4{margin:0 0 6px;font:700 15px var(--f-baslik);letter-spacing:.3px;text-transform:uppercase;color:var(--soluk)}
+.firsat ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.firsat li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:14px}
+.firsat li b{font-weight:700}
+.firsat li .fiyat{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.firsat li .neden{grid-column:1/-1;color:var(--soluk);font-size:13px}
+.durum-sec{display:flex;flex-wrap:wrap;gap:6px}
+.durum-sec button{border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi);border-radius:20px;padding:7px 11px;font:600 13px var(--f-govde);min-height:38px;cursor:pointer}
+.durum-sec button[aria-pressed="true"]{background:var(--yazi);color:var(--bg);border-color:var(--yazi)}
+label.lbl{font-size:13px;font-weight:700;display:block;margin-bottom:4px}
+textarea,input[type=text],input[type=date]{width:100%;font:16px var(--f-govde);color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);border-radius:10px;padding:10px}
+textarea{min-height:96px;resize:vertical}
+.ipucu{font-size:12.5px;color:var(--soluk);margin-top:4px}
+.kayit{font-size:12.5px;color:var(--soluk);min-height:1em}
+.fotolar{display:flex;gap:6px;flex-wrap:wrap}
+.fotolar img{width:72px;height:72px;object-fit:cover;border-radius:8px;border:1px solid var(--cizgi)}
+.dosya{position:relative;overflow:hidden}
+.dosya input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--yazi);color:var(--bg);padding:10px 14px;border-radius:10px;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
+.dip{font-size:12.5px;color:var(--soluk);margin-top:22px;line-height:1.5}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
+body{margin:0;-webkit-text-size-adjust:100%}[hidden]{display:none!important}</style></head><body>
+
+<div class="kap">
+  <header>
+    <h1>Sanayi Rotası · 24 Ekim Cumartesi</h1>
+    <div class="alt">Akdeniz + Yeşil Sanayi · Müşteri Geri Çağırma pilotu · sabah 10:45-12:30, öğleden sonra 14:00-16:30</div>
+    <div class="ilerleme" aria-live="polite">
+      <div><b id="sGidilen">0</b><span>gidildi</span></div>
+      <div><b id="sGorusulen">0</b><span>görüşüldü</span></div>
+      <div><b id="sListe">0</b><span>liste alındı</span></div>
+      <div><b id="sToplam">0</b><span>durak</span></div>
+    </div>
+    <div class="uyari-kutu" id="kayitUyari" hidden></div>
+  </header>
+
+  <nav class="sekme" aria-label="Duraklar">
+    <button type="button" data-f="hepsi" aria-pressed="true">Tümü</button>
+    <button type="button" data-f="sabah" aria-pressed="false">Sabah</button>
+    <button type="button" data-f="ogle" aria-pressed="false">Öğleden sonra</button>
+    <button type="button" data-f="kalan" aria-pressed="false">Gidilmeyen</button>
+    <button type="button" data-f="yedek" aria-pressed="false">Yedek</button>
+  </nav>
+
+  <button class="btn ana" id="disaAktar" type="button" style="width:100%;margin-bottom:10px">Notları bana gönder (WhatsApp)</button>
+  <a class="siradaki" id="siradaki" href="#" target="_blank" rel="noopener">
+    <div><small>Sıradaki durak</small><strong id="siradakiAd">—</strong></div><span aria-hidden="true">Yol tarifi →</span>
+  </a>
+
+  <div id="listeAlani"></div>
+
+  <p class="dip">Satılabilecekler, Google Haritalar'da herkese açık görünen bilgiye göre öneridir; ustaya söylemeden önce dükkânda teyit et. Fiyatlar KDV hariç; ana ürün fiyatı Patron onayı bekliyor. Sesli not için not kutusuna dokunup klavyedeki mikrofon tuşuna bas. Notlar bu telefonda saklanır; akşam "Notları bana gönder" ile ilet. Hazırlayan Dijitabela.</p>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+var DURAKLAR = [{"id":"ref0","kus":"sabah","sira":"Sabah 0","saat":"10:45","ad":"Hasan Usta · referans müşterimiz","uz":"BMW özel servis","bolge":"Akdeniz Sanayi","adres":"Akdeniz Sanayi Sitesi, 5008. Sk. No:24 Kepez/Antalya","tel":"","puan":"","yorum":"","web":"Var","goze":"referans: site, randevu, bakım takip sayfası bizden","cmt":"","yakin":"","harita":"","oncelik":"REF"},{"id":"d1","kus":"sabah","sira":"Sabah 1","saat":"10:55","ad":"Antalya Volkswagen Servis Tamir Bakım Varyant Oto Servis","uz":"VAG (VW/Audi/Seat/Skoda)","bolge":"Akdeniz Sanayi","adres":"Akdeniz Sanayi Sitesi, Şafak, 5009. Sk. No:16 Kepez/Antalya","tel":"0549 223 40 53","puan":"5","yorum":"38","web":"Var","goze":"","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=1796089754408397167\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d2","kus":"sabah","sira":"Sabah 2","saat":"11:03","ad":"Akif Kaya Özel Servis","uz":"Genel bakım-onarım","bolge":"Akdeniz Sanayi","adres":"Şafak, 5009. Sk. D:10 Kepez/Antalya","tel":"(0242) 221 00 05","puan":"4.8","yorum":"383","web":"Yok","goze":"web sitesi yok","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=1700760659894329265\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d3","kus":"sabah","sira":"Sabah 3","saat":"11:11","ad":"AKS BMW SERVİSİ (ALİ AKSU)","uz":"BMW özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak, 5006. Sk. Kepez/Antalya","tel":"0546 657 57 07","puan":"4.6","yorum":"50","web":"Yok","goze":"web sitesi yok","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=8411602362789419588\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d4","kus":"sabah","sira":"Sabah 4","saat":"11:19","ad":"Ol-Mer Otomotiv","uz":"Mercedes özel servis","bolge":"Akdeniz Sanayi","adres":"Kepez 5002 Sk, Şafak, 5007. Sk. D:44 Kepez/Antalya","tel":"0543 662 95 40","puan":"4.7","yorum":"40","web":"Yok","goze":"web sitesi yok","cmt":"Açık (07:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=15680039151811079768\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d5","kus":"sabah","sira":"Sabah 5","saat":"11:27","ad":"Show Oto Servis","uz":"Genel bakım-onarım","bolge":"Akdeniz Sanayi","adres":"Şafak, 5001. Sk. no:44 D:ç Kepez/Antalya","tel":"0532 418 16 70","puan":"4.5","yorum":"187","web":"Var","goze":"","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=8051133689695988897\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d6","kus":"sabah","sira":"Sabah 6","saat":"11:35","ad":"BMW SERVİS ŞANLI SERVİCE ANTALYA","uz":"BMW özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak, 5037. Sk. NO29 Kepez/Antalya","tel":"0543 787 97 00","puan":"4.9","yorum":"101","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=5273634932311623360\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d7","kus":"sabah","sira":"Sabah 7","saat":"11:43","ad":"ADALYA OTOMOTİV Volkswagen Seat Skoda Mercedes Audi servisi","uz":"Mercedes özel servis, VAG (VW/Audi/Seat/Skoda)","bolge":"Akdeniz Sanayi","adres":"Şafak, 5004. Sk. no 64 Kepez/Antalya","tel":"0537 405 57 91","puan":"5","yorum":"30","web":"Yok","goze":"web sitesi yok","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=8264264556555432648\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d8","kus":"sabah","sira":"Sabah 8","saat":"11:51","ad":"AB OTOMOTİV","uz":"Genel bakım-onarım","bolge":"Akdeniz Sanayi","adres":"Şafak, 5004. Sk. Yeni sanayi sitesi No:71 D:No: 71 Kepez/Antalya","tel":"0536 627 91 79","puan":"4.7","yorum":"175","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:30\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=3163508039727057704\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d9","kus":"sabah","sira":"Sabah 9","saat":"11:59","ad":"Premium Mercedes-Benz Service","uz":"Mercedes özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak, 5007. Sk. NO: 64 Kepez/Antalya","tel":"0541 368 81 41","puan":"4.9","yorum":"61","web":"Var","goze":"","cmt":"Açık (08:30\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=13061544146192316463\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d10","kus":"sabah","sira":"Sabah 10","saat":"12:07","ad":"Volvo Devrin Oto","uz":"Volvo özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak, 5007. Sk. D:65 Kepez/Antalya","tel":"0542 834 96 97","puan":"4.5","yorum":"233","web":"Var","goze":"","cmt":"Açık (08:30\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=2816204749695672811\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d11","kus":"sabah","sira":"Sabah 11","saat":"12:15","ad":"TÜRKMENOĞLU VOLKSWAGEN SERVİSİ","uz":"VAG (VW/Audi/Seat/Skoda)","bolge":"Akdeniz Sanayi","adres":"Şafak, 5009. Sk. No:84 Kepez/Antalya","tel":"0545 221 62 72","puan":"4.4","yorum":"165","web":"Yok","goze":"web sitesi yok","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=4010692890386727454\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d12","kus":"ogle","sira":"Öğleden sonra 1","saat":"14:00","ad":"Antalya Volvo Servis","uz":"Volvo özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak Mahallesi Akdeniz Sanayii Sitesi, Şafak, 5008. Sk. No:105 Kepez/Antalya","tel":"0543 377 44 44","puan":"4.9","yorum":"183","web":"Var","goze":"","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=12261326017698024331\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d13","kus":"ogle","sira":"Öğleden sonra 2","saat":"14:10","ad":"Elegance Mercedes Servisi","uz":"Mercedes özel servis","bolge":"Akdeniz Sanayi","adres":"Akdeniz San. Sit, Şafak, 5012. Sk. No:39 Kepez/Antalya","tel":"0543 695 57 88","puan":"4.9","yorum":"51","web":"Var","goze":"","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=14679695487783497911\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d14","kus":"ogle","sira":"Öğleden sonra 3","saat":"14:20","ad":"Ak-Mer Mercedes Benz Özel Servisi","uz":"Mercedes özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak, 5012. Sk. No:60 Kepez/Antalya","tel":"0531 237 05 11","puan":"4.8","yorum":"90","web":"Yalnız sosyal medya","goze":"sitesi yalnız Instagram/Facebook","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=6376519871388305376\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d15","kus":"ogle","sira":"Öğleden sonra 4","saat":"14:30","ad":"Yumak Otomotiv Antalya","uz":"Genel bakım-onarım","bolge":"Akdeniz Sanayi","adres":"Şafak Mahallesi, Akdeniz Sanayi Sitesi 5006.Sk No :130, Şafak Kepez/Antalya","tel":"(0242) 221 12 21","puan":"4.5","yorum":"122","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=16946447907302643014\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d16","kus":"ogle","sira":"Öğleden sonra 5","saat":"14:40","ad":"Fark Otomotiv","uz":"Genel bakım-onarım","bolge":"Akdeniz Sanayi","adres":"Şafak Mahallesi Akdeniz Sanayi Sitesi 49.Blok, Şafak, 5036. Sk. No:47 Kepez/Antalya","tel":"(0242) 221 24 23","puan":"4.4","yorum":"163","web":"Yalnız sosyal medya","goze":"sitesi yalnız Instagram/Facebook","cmt":"Açık (08:30\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=3791155105519090680\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d17","kus":"ogle","sira":"Öğleden sonra 6","saat":"14:50","ad":"Modern Line BMW Servisi","uz":"BMW özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak, 5043. Sk. NO:22 Kepez/Antalya","tel":"0536 436 38 16","puan":"4.6","yorum":"35","web":"Var","goze":"","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=8563518413043452966\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d18","kus":"ogle","sira":"Öğleden sonra 7","saat":"15:00","ad":"MT Bmw Özel Servis","uz":"BMW özel servis","bolge":"Akdeniz Sanayi","adres":"Şafak, 5043. Sk. No:36 Kepez/Antalya","tel":"0532 660 60 17","puan":"5","yorum":"31","web":"Var","goze":"","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=15778771409795390453\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d19","kus":"ogle","sira":"Öğleden sonra 8","saat":"15:10","ad":"Ali Usta Otomotiv Mercedes Benz Özel Servisi","uz":"Mercedes özel servis","bolge":"Yeşil Sanayi","adres":"Kepez, 5069. Sk. No:21 Kepez/Antalya","tel":"0533 294 43 53","puan":"4.9","yorum":"339","web":"Var","goze":"","cmt":"Açık (08:30\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=6804055962080027318\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d20","kus":"ogle","sira":"Öğleden sonra 9","saat":"15:20","ad":"Kuzu Otomotiv Kia ve Hyundai Özel servis","uz":"Hyundai/Kia","bolge":"Yeşil Sanayi","adres":"ŞAFAK MAH. 3189/1 SOK, YEŞİL, ANTALYA SANAYİ SİTESİ No:53 Kepez/Antalya","tel":"","puan":"4.8","yorum":"125","web":"Yok","goze":"web sitesi yok; telefon yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=15604333458387256330\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d21","kus":"ogle","sira":"Öğleden sonra 10","saat":"15:30","ad":"Doktor Mercedes","uz":"Mercedes özel servis","bolge":"Yeşil Sanayi","adres":"Kepez, 3189. Sk. No:95 Kepez/Antalya","tel":"","puan":"4.6","yorum":"150","web":"Yok","goze":"web sitesi yok; çalışma saati yok; telefon yok","cmt":"","yakin":"","harita":"https://maps.google.com/?cid=15185864861734026841\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d22","kus":"ogle","sira":"Öğleden sonra 11","saat":"15:40","ad":"ADA OTO TAMIR BAKIM SERVİSİ","uz":"Genel bakım-onarım","bolge":"Yeşil Sanayi","adres":"Kepez, 3189/6. Sk. No:5 Kepez/Antalya","tel":"0535 247 90 18","puan":"4.9","yorum":"140","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=6575231394249975928\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d23","kus":"ogle","sira":"Öğleden sonra 12","saat":"15:50","ad":"Hts Otomotiv","uz":"Genel bakım-onarım","bolge":"Yeşil Sanayi","adres":"10 Yeşil Antalya Sanayi Sitesi, Kepez, 3189/6. Sk. Kepez/Antalya","tel":"","puan":"4.8","yorum":"151","web":"Var","goze":"telefon yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=12522569633269829848\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d24","kus":"ogle","sira":"Öğleden sonra 13","saat":"16:00","ad":"KAYA VOLKSWAGEN AUDİ SEAT SKODA bakım Servisi","uz":"VAG (VW/Audi/Seat/Skoda)","bolge":"Yeşil Sanayi","adres":"Kepez, 3189/7. Sk. Yeşil Antalya Sanayi Sitesi No:15 Kepez/Antalya","tel":"0539 885 30 65","puan":"5","yorum":"230","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=17407868698552751156\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d25","kus":"ogle","sira":"Öğleden sonra 14","saat":"16:10","ad":"ANTALYA VOLVO SERVİSİ VOLANT","uz":"Volvo özel servis","bolge":"Yeşil Sanayi","adres":"Yeşil sanayi sitesi, 3189/8. Sk. No:9 Kepez/Antalya","tel":"0534 983 23 52","puan":"4.9","yorum":"50","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"","harita":"https://maps.google.com/?cid=17452434874744225889\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"A"},{"id":"d26","kus":"yedek","sira":"","saat":"","ad":"Bosch Car Service - Turgut Otomotiv","uz":"Bosch Car Service (zincir)","bolge":"Akdeniz Sanayi","adres":"Şafak, 5001. Sk. no:98 Kepez/Antalya","tel":"(0242) 221 09 09","puan":"4.8","yorum":"1858","web":"Var","goze":"","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"Sabah 2 (Akif Kaya Özel Servis) yakını, ~127 m","harita":"https://maps.google.com/?cid=13712703673294684149\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"B"},{"id":"d66","kus":"yedek","sira":"","saat":"","ad":"Koyuncu Oto Elektrik Klima Akü","uz":"Oto elektrik/klima","bolge":"Akdeniz Sanayi","adres":"Şafak, 5008. Sk. No:125 Kepez/Antalya","tel":"0532 423 11 59","puan":"4.1","yorum":"781","web":"Var","goze":"puan düşük (4.1)","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"Öğleden sonra 2 (Elegance Mercedes Servisi) yakını, ~76 m","harita":"https://maps.google.com/?cid=6220750626094016801\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d67","kus":"yedek","sira":"","saat":"","ad":"Ercan Oto Elektirik","uz":"Oto elektrik/klima","bolge":"Akdeniz Sanayi","adres":"Şafak, 5007. Sk. Akdeniz Sanayi Sit. No:70 Kepez/Antalya","tel":"(0242) 221 22 47","puan":"4.2","yorum":"439","web":"Yok","goze":"web sitesi yok","cmt":"Açık (07:00\u0027da açılıyor)","yakin":"Sabah 9 (Premium Mercedes-Benz Servic) yakını, ~32 m","harita":"https://maps.google.com/?cid=5830206982418503477\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d27","kus":"yedek","sira":"","saat":"","ad":"Eurorepar Antalya Çakmaklı Otomotiv","uz":"Eurorepar (zincir)","bolge":"Akdeniz Sanayi","adres":"Şafak, 5009. Sk. No:76 Kepez/Antalya","tel":"(0242) 221 56 56","puan":"4.4","yorum":"393","web":"Var","goze":"","cmt":"Açık (08:30\u0027da açılıyor)","yakin":"Sabah 11 (TÜRKMENOĞLU VOLKSWAGEN SERVİ) yakını, ~30 m","harita":"https://maps.google.com/?cid=12573554772050694524\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"B"},{"id":"d28","kus":"yedek","sira":"","saat":"","ad":"SEB ALTIN ÇEKİÇ OTO SERVİS","uz":"Genel bakım-onarım","bolge":"Akdeniz Sanayi","adres":"Şafak, 5007. Sk. No:94 Kepez/Antalya","tel":"(0242) 221 07 81","puan":"4.3","yorum":"201","web":"Yok","goze":"web sitesi yok; çalışma saati yok","cmt":"","yakin":"Öğleden sonra 1 (Antalya Volvo Servis) yakını, ~105 m","harita":"https://maps.google.com/?cid=16007077299840453384\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"B"},{"id":"d29","kus":"yedek","sira":"","saat":"","ad":"Umut Otomatik Şanzıman Servisi","uz":"Otomatik şanzıman","bolge":"Akdeniz Sanayi","adres":"Şafak, 5005. Sk. no 76 Kepez/Antalya","tel":"(0242) 220 02 92","puan":"4.5","yorum":"191","web":"Var","goze":"","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"Sabah 8 (AB OTOMOTİV) yakını, ~57 m","harita":"https://maps.google.com/?cid=12472564529754196632\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"B"},{"id":"d68","kus":"yedek","sira":"","saat":"","ad":"Yeni Çözüm Oto Elektrik Klima","uz":"Oto elektrik/klima","bolge":"Akdeniz Sanayi","adres":"Kepez, 5008. Sk. No:35 Kepez/Antalya","tel":"0543 889 07 88","puan":"4.2","yorum":"190","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"Sabah 1 (Antalya Volkswagen Servis Ta) yakını, ~127 m","harita":"https://maps.google.com/?cid=7734620995625988242\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d69","kus":"yedek","sira":"","saat":"","ad":"Koru Oto • Araç Bakım \u0026 Tamiri Antalya • Lastik \u0026 Rotbalans","uz":"lastik/rot","bolge":"Yeşil Sanayi","adres":"Kepez, 3189/1. Sk. Yeşil Antalya Sanayi Sitesi, No:17 Kepez/Antalya","tel":"0538 358 66 36","puan":"4.7","yorum":"178","web":"Yalnız sosyal medya","goze":"sitesi yalnız Instagram/Facebook","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"Öğleden sonra 10 (Doktor Mercedes) yakını, ~86 m","harita":"https://maps.google.com/?cid=11567875167734537735\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d30","kus":"yedek","sira":"","saat":"","ad":"AntAktif Otomatik Şanzıman","uz":"Otomatik şanzıman","bolge":"Akdeniz Sanayi","adres":"Şafak, 5036. Sk. No: 91 Kepez/Antalya","tel":"0533 372 67 34","puan":"4.2","yorum":"150","web":"Yok","goze":"web sitesi yok","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"Öğleden sonra 2 (Elegance Mercedes Servisi) yakını, ~95 m","harita":"https://maps.google.com/?cid=10273280827622477811\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"B"},{"id":"d70","kus":"yedek","sira":"","saat":"","ad":"🚗🚗GÜVEN OTO ELEKTRİK KLİMA🚗🚗","uz":"Oto elektrik/klima","bolge":"Akdeniz Sanayi","adres":"Şafak, 5003. Sk. 29 56 a blok Kepez/Antalya","tel":"0530 552 08 02","puan":"4.4","yorum":"146","web":"Var","goze":"çalışma saati yok","cmt":"","yakin":"Sabah 4 (Ol-Mer Otomotiv) yakını, ~78 m","harita":"https://maps.google.com/?cid=14851599226577865941\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d71","kus":"yedek","sira":"","saat":"","ad":"YALÇIN OTO ELEKTRIK","uz":"Oto elektrik/klima","bolge":"Akdeniz Sanayi","adres":"Şafak mahallesi Akdeniz sanayi sitesi, Şafak, 5025. Sk. No:13 Kepez/Antalya","tel":"0530 824 50 25","puan":"4.2","yorum":"127","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"Sabah 11 (TÜRKMENOĞLU VOLKSWAGEN SERVİ) yakını, ~96 m","harita":"https://maps.google.com/?cid=6795747051068270667\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d31","kus":"yedek","sira":"","saat":"","ad":"Otomatikcim","uz":"Otomatik şanzıman","bolge":"Akdeniz Sanayi","adres":"Şafak, 5009. Sk. Kepez/Antalya","tel":"0530 521 49 40","puan":"4.6","yorum":"123","web":"Var","goze":"","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"Sabah 1 (Antalya Volkswagen Servis Ta) yakını, ~34 m","harita":"https://maps.google.com/?cid=18327404817122726812\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"B"},{"id":"d72","kus":"yedek","sira":"","saat":"","ad":"Yaşar Oto Elektronik","uz":"Oto elektrik/klima","bolge":"Akdeniz Sanayi","adres":"Akdeniz Sanayi Sitesi 5001. Sokak No : 112, Kepez/Antalya, (1 Nolu Giriş Sonu), Kepez Kepez/Antalya","tel":"0533 386 04 44","puan":"4.4","yorum":"105","web":"Yok","goze":"web sitesi yok","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"Sabah 2 (Akif Kaya Özel Servis) yakını, ~123 m","harita":"https://maps.google.com/?cid=12292386078393931036\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d73","kus":"yedek","sira":"","saat":"","ad":"EROL OTO ELEKTRİK","uz":"Oto elektrik/klima","bolge":"Akdeniz Sanayi","adres":"Şafak, 5003. Sk. No:97 Kepez/Antalya","tel":"0535 202 69 19","puan":"4.4","yorum":"85","web":"Yok","goze":"web sitesi yok","cmt":"Açık (09:00\u0027da açılıyor)","yakin":"Sabah 2 (Akif Kaya Özel Servis) yakını, ~86 m","harita":"https://maps.google.com/?cid=13833550133347992089\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"C"},{"id":"d32","kus":"yedek","sira":"","saat":"","ad":"Son Otomotiv","uz":"Genel bakım-onarım","bolge":"Yeşil Sanayi","adres":"Kepez, 3189/3. Sk. Yeşil Antalya Sanayi Sitesi No:15 Kepez/Antalya","tel":"0537 502 74 18","puan":"4.9","yorum":"83","web":"Yalnız sosyal medya","goze":"sitesi yalnız Instagram/Facebook","cmt":"Açık (08:00\u0027da açılıyor)","yakin":"Öğleden sonra 11 (ADA OTO TAMIR BAKIM SERVİSİ) yakını, ~116 m","harita":"https://maps.google.com/?cid=4744146815824020232\u0026g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA","oncelik":"B"}];
+var SAHIP = {};
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var durumlar=[["gidildi","Gidildi"],["gorusuldu","Görüşüldü"],["ilgilendi","İlgilendi"],["liste","Liste aldım"],["tekrar","Sonra tekrar"],["olumsuz","Olumsuz"]];
+var kayitlar={}; var db=null, assets=null, depoTipi="yerel";
+var filtre="hepsi", acik={};
+function toast(m){var t=$("toast");t.textContent=m;t.hidden=false;clearTimeout(toast.z);toast.z=setTimeout(function(){t.hidden=true},2200)}
+function lsAl(){try{return JSON.parse(localStorage.getItem("rota_kayit")||"{}")}catch(e){return{}}}
+function lsKoy(){try{localStorage.setItem("rota_kayit",JSON.stringify(kayitlar))}catch(e){}}
+function yolLink(d){
+  var hedef=d.adres?(d.ad.replace(/\(.*?\)/g,"").trim()+", "+d.adres):d.ad;
+  return "https://www.google.com/maps/dir/?api=1&travelmode=walking&destination="+encodeURIComponent(hedef);
+}
+function haritaLink(d){return d.harita||("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(d.ad+" "+d.adres))}
+function sayi(s){var n=parseFloat(String(s||"").replace(",","."));return isNaN(n)?null:n}
+function firsatlar(d){
+  var f=[{u:"Müşteri Geri Çağırma",fy:"990 TL/ay + kurulum 1.490 (öneri)",n:"Ana ürün: 1 ay ücretsiz pilot, eski 30-40 müşteri listesiyle."}];
+  var s=SAHIP[d.id]||{};
+  if(s.sahiplenme==="SAHİPLENİLMEMİŞ") f.push({u:"Google profil sahiplenme + düzeltme",fy:"2.000-3.000 TL",n:"Profil sahipsiz görünüyor; biri değiştirse haberi olmaz."});
+  var goze=(d.goze||"").toLowerCase();
+  if(d.web==="Yok"||/instagram|facebook/.test(goze)) f.push({u:"Web sitesi (randevu formlu)",fy:"4.900 TL",n:/instagram|facebook/.test(goze)?"Sitesi yalnız Instagram/Facebook sayfası.":"Google'da web sitesi yok."});
+  if(/telefon yok|çalışma saati yok/.test(goze)) f.push({u:"Google profil düzeltme",fy:"1.900 TL",n:"Google'da "+(goze.indexOf("telefon yok")>-1?"telefon":"")+(goze.indexOf("telefon yok")>-1&&goze.indexOf("çalışma saati yok")>-1?" ve ":"")+(goze.indexOf("çalışma saati yok")>-1?"çalışma saati":"")+" görünmüyor; müşteri arayamıyor."});
+  var p=sayi(d.puan), y=sayi(d.yorum);
+  if((p!==null&&p<4.5)||(y!==null&&y<60)||s.cevap===false) f.push({u:"Yorum Asistanı",fy:"490 TL/ay",n:s.cevap===false?"Yorumlara cevap verilmiyor.":(p!==null&&p<4.5?"Puan "+d.puan+"; yeni memnun müşteriden yorum istemek puanı toparlar.":"Yorum sayısı az ("+d.yorum+").")});
+  return f;
+}
+function rozetler(d){
+  var r=[]; var s=SAHIP[d.id]||{};
+  if(d.oncelik==="REF") r.push(['iyi','Referans müşterimiz']);
+  if(d.puan) r.push(['', d.puan+'★ · '+(d.yorum||0)+' yorum']);
+  if(d.web==="Yok") r.push(['kotu','Web sitesi yok']);
+  if(s.sahiplenme==="SAHİPLENİLMEMİŞ") r.push(['kotu','Google profili sahipsiz']);
+  else if(s.sahiplenme) r.push(['iyi','Profil sahiplenilmiş']);
+  if(/telefon yok/.test(d.goze||"")) r.push(['uyari','Google\'da telefon yok']);
+  if(d.cmt) r.push([/Açık/.test(d.cmt)?'vurgu':'uyari','Cmt: '+d.cmt.replace(/^Açık /,"").replace(/[()]/g,"")]);
+  return r.map(function(x){return '<span class="rz '+x[0]+'">'+esc(x[1])+'</span>'}).join("");
+}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function no(d){if(d.kus==="yedek")return "Y";var m=/(\d+)/.exec(d.sira||"");return m?m[1]:"·"}
+function gorunur(d){var k=kayitlar[d.id]||{};
+  if(filtre==="hepsi")return d.kus!=="yedek"; if(filtre==="kalan")return d.kus!=="yedek"&&!k.durum; return d.kus===filtre}
+function ciz(){
+  var gr={sabah:[],ogle:[],yedek:[]}; DURAKLAR.forEach(function(d){if(gorunur(d))gr[d.kus].push(d)});
+  var adlar={sabah:["Sabah · Akdeniz Sanayi güney","10:45-12:30"],ogle:["Öğleden sonra · Akdeniz kuzey → Yeşil Sanayi","14:00-16:30"],yedek:["Yedek · yolda vakit kalırsa","A duraklarına yakın"]};
+  var h="";
+  ["sabah","ogle","yedek"].forEach(function(k){ if(!gr[k].length)return;
+    h+='<div class="bolum-baslik">'+adlar[k][0]+'<span>'+adlar[k][1]+'</span></div><div class="liste">';
+    gr[k].forEach(function(d){h+=kart(d)}); h+='</div>';
+    if(k==="sabah"&&filtre==="hepsi") h+='<div class="bolum-baslik">Öğle arası<span>12:30-14:00 · dükkâna girme</span></div>';
+  });
+  $("listeAlani").innerHTML=h||'<p class="alt">Bu filtrede durak kalmadı.</p>';
+  istatistik(); siradaki();
+}
+function kart(d){
+  var k=kayitlar[d.id]||{}; var f=firsatlar(d); var ac=!!acik[d.id];
+  var ds=durumlar.map(function(x){return '<button type="button" data-durum="'+x[0]+'" data-id="'+d.id+'" aria-pressed="'+(k.durum===x[0])+'">'+x[1]+'</button>'}).join("");
+  var fotolar=(k.fotolar||[]).map(function(id){return '<img src="/_blob/'+esc(id)+'" alt="Ziyaret fotoğrafı" loading="lazy">'}).join("");
+  return '<article class="kart'+(k.durum?' durum-'+k.durum:'')+'" id="k-'+d.id+'">'+
+   '<button class="kart-ust" type="button" data-ac="'+d.id+'" aria-expanded="'+ac+'"><div class="no">'+no(d)+'<small>'+esc(d.saat||"")+'</small></div>'+
+   '<div style="min-width:0"><div class="ad">'+esc(d.ad)+'</div><div class="uz">'+esc(d.uz)+(k.durum?' · <b>'+esc((durumlar.filter(function(x){return x[0]===k.durum})[0]||[])[1]||"")+'</b>':'')+'</div><div class="rozetler">'+rozetler(d)+'</div></div></button>'+
+   '<div class="govde" '+(ac?'':'hidden')+'>'+
+     '<div class="eylem"><a class="btn ana" href="'+yolLink(d)+'" target="_blank" rel="noopener">Yol tarifi</a><a class="btn" href="'+haritaLink(d)+'" target="_blank" rel="noopener">Haritada aç</a></div>'+
+     '<div class="bilgi"><div>'+esc(d.adres||"")+'</div>'+(d.tel?'<div>Tel: <span class="tel">'+esc(d.tel)+'</span> <button class="btn" style="display:inline-flex;min-height:32px;padding:0 10px;font-size:13px" type="button" data-kopya="'+esc(d.tel)+'">Kopyala</button></div>':'<div class="uz">Google\'da telefon görünmüyor</div>')+(d.goze?'<div class="uz">Göze çarpan: '+esc(d.goze)+'</div>':'')+'</div>'+
+     '<div class="firsat"><h4>Satabileceklerin</h4><ul>'+f.map(function(x){return '<li><b>'+esc(x.u)+'</b><span class="fiyat">'+esc(x.fy)+'</span><span class="neden">'+esc(x.n)+'</span></li>'}).join("")+'</ul></div>'+
+     '<div><label class="lbl">Ziyaret durumu</label><div class="durum-sec">'+ds+'</div></div>'+
+     '<div><label class="lbl" for="n-'+d.id+'">Görüşme notu</label><textarea id="n-'+d.id+'" data-not="'+d.id+'" placeholder="Kiminle görüştün, ne dedi, itirazı ne?">'+esc(k.not||"")+'</textarea><div class="ipucu">Sesli not: kutuya dokun, klavyedeki mikrofona bas, konuş.</div></div>'+
+     '<div><label class="lbl" for="s-'+d.id+'">Sonraki adım</label><input type="text" id="s-'+d.id+'" data-sonraki="'+d.id+'" value="'+esc(k.sonraki||"")+'" placeholder="Ör. Pazartesi 11:00 listeyi WhatsApp\'tan gönderecek"></div>'+
+     (assets?'<div><label class="btn dosya">Fotoğraf ekle (kartvizit, tabela, defter)<input type="file" accept="image/*" capture="environment" data-foto="'+d.id+'"></label><div class="fotolar" style="margin-top:6px">'+fotolar+'</div></div>':(fotolar?'<div class="fotolar">'+fotolar+'</div>':''))+
+     '<div class="kayit" id="ky-'+d.id+'">'+(k.guncel?'Son kayıt: '+new Date(k.guncel).toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"}):'')+'</div>'+
+   '</div></article>';
+}
+function istatistik(){
+  var ana=DURAKLAR.filter(function(d){return d.kus!=="yedek"}); var g=0,gr=0,l=0;
+  DURAKLAR.forEach(function(d){var k=kayitlar[d.id]||{}; if(k.durum)g++; if(/gorusuldu|ilgilendi|liste/.test(k.durum||""))gr++; if(k.durum==="liste")l++});
+  $("sGidilen").textContent=g;$("sGorusulen").textContent=gr;$("sListe").textContent=l;$("sToplam").textContent=ana.length;
+}
+function siradaki(){
+  var d=DURAKLAR.filter(function(x){return x.kus!=="yedek"&&!(kayitlar[x.id]||{}).durum})[0];
+  var a=$("siradaki"); if(!d){a.hidden=true;return} a.hidden=false; $("siradakiAd").textContent=no(d)+" · "+d.ad; a.href=yolLink(d);
+}
+var bekleyen={};
+function kaydet(id,parca){
+  kayitlar[id]=Object.assign({},kayitlar[id]||{},parca,{guncel:new Date().toISOString()});
+  lsKoy(); var el=$("ky-"+id); if(el)el.textContent="Kaydediliyor…";
+  clearTimeout(bekleyen[id]); bekleyen[id]=setTimeout(function(){yaz(id)},800);
+}
+function yaz(id){
+  var veri=Object.assign({},kayitlar[id],{dukkan:(DURAKLAR.filter(function(d){return d.id===id})[0]||{}).ad||id});
+  var el=$("ky-"+id);
+  if(!db){ if(el)el.textContent="Bu telefona kaydedildi"; return; }
+  db.doc("ziyaretler/"+id).set(veri).then(function(){ if(el)el.textContent="Kaydedildi "+new Date().toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"}); })
+   .catch(function(e){ if(el)el.textContent="Sunucuya yazılamadı, telefonda duruyor ("+(e&&e.code||"hata")+")"; });
+}
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-f],[data-ac],[data-durum],[data-kopya]"); if(!t)return;
+  if(t.dataset.f){filtre=t.dataset.f; document.querySelectorAll(".sekme button").forEach(function(b){b.setAttribute("aria-pressed",String(b===t))}); ciz(); return}
+  if(t.dataset.ac){var id=t.dataset.ac; acik[id]=!acik[id]; var k=$("k-"+id); k.querySelector(".govde").hidden=!acik[id]; t.setAttribute("aria-expanded",String(acik[id])); return}
+  if(t.dataset.durum){var id2=t.dataset.id; var yeni=(kayitlar[id2]||{}).durum===t.dataset.durum?"":t.dataset.durum; kaydet(id2,{durum:yeni}); acik[id2]=true; ciz(); var kk=$("k-"+id2); if(kk) kk.scrollIntoView({block:"nearest"}); toast(yeni?"Durum kaydedildi":"Durum temizlendi"); return}
+  if(t.dataset.kopya){var m=t.dataset.kopya; if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(function(){toast("Numara kopyalandı")},function(){toast("Numarayı uzun basıp kopyala")})}else toast("Numarayı uzun basıp kopyala"); return}
+});
+document.addEventListener("input",function(e){
+  var t=e.target; if(t.dataset.not)kaydet(t.dataset.not,{not:t.value}); else if(t.dataset.sonraki)kaydet(t.dataset.sonraki,{sonraki:t.value});
+});
+document.addEventListener("change",function(e){
+  var t=e.target; if(!t.dataset.foto||!t.files||!t.files[0]||!assets)return; var id=t.dataset.foto;
+  toast("Fotoğraf yükleniyor…");
+  assets.upload(t.files[0]).then(function(r){var f=((kayitlar[id]||{}).fotolar||[]).slice(); f.push(r.id); kaydet(id,{fotolar:f}); acik[id]=true; ciz(); toast("Fotoğraf eklendi")})
+   .catch(function(err){toast("Fotoğraf yüklenemedi ("+(err&&err.code||"hata")+")")});
+});
+kayitlar=lsAl(); ciz();
+$("disaAktar").addEventListener("click",function(){
+  var satir=["SANAYİ ROTASI · "+new Date().toLocaleString("tr-TR")];
+  DURAKLAR.forEach(function(d){var k=kayitlar[d.id]; if(!k||!(k.durum||k.not||k.sonraki))return;
+    var ad=(durumlar.filter(function(x){return x[0]===k.durum})[0]||[])[1]||"-";
+    satir.push("\n• "+d.ad+" ["+ad+"]"+(d.tel?" · "+d.tel:"")+(k.not?"\n  Not: "+k.not:"")+(k.sonraki?"\n  Sonraki: "+k.sonraki:""));});
+  if(satir.length<2){toast("Henüz not yok");return}
+  var metin=satir.join("\n");
+  window.open("https://wa.me/905019452184?text="+encodeURIComponent(metin),"_blank");
+});
+
+})();
+</script></body></html>
