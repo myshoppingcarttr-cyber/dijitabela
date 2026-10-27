@@ -108,7 +108,7 @@
     }
     function etiket() {
       var i = ben.ilan, a = A();
-      el.etiket.innerHTML = '<div class="no">' + i.no + " · " + a.t("ornek_ilan") + '</div><div class="bas">' + a.baslik(i).replace(/</g, "&lt;") + '</div><div class="sat"><span><b>' + a.sayi(i.m2) + " m²</b></span><span><b>" + a.tl(i.fiyat) + "</b>" + (dil() !== "tr" ? " · " + a.eur(a.euroKarsilik(i.fiyat)) : "") + "</span><span>" + a.imarAd(i.imar) + "</span></div>";
+      el.etiket.innerHTML = '<div class="no">' + i.no + " · " + a.t(i.gercek ? "gercek_ilan" : "ornek_ilan") + '</div><div class="bas">' + a.baslik(i).replace(/</g, "&lt;") + '</div><div class="sat"><span><b>' + a.sayi(i.m2) + " m²</b></span><span><b>" + a.tl(i.fiyat) + "</b>" + (dil() !== "tr" ? " · " + a.eur(a.euroKarsilik(i.fiyat)) : "") + "</span><span>" + a.imarAd(i.imar) + "</span></div>";
       el.not.textContent = k("not");
     }
     function yan() {

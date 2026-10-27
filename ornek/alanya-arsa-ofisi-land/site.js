@@ -316,6 +316,34 @@
     kt_skor: ["Konum skoru", "Location score", "Оценка локации", "Lage-Score"],
     kt_deniz: ["Denize (kuş uçuşu)", "To the sea (straight line)", "До моря (по прямой)", "Zum Meer (Luftlinie)"],
     kt_gzp: ["GZP havalimanı", "GZP airport", "Аэропорт GZP", "Flughafen GZP"],
+    gercek_ilan: ["Gerçek ilan", "Real listing", "Реальный объект", "Echtes Angebot"],
+    ofis_bilgi: ["Ofisten bilgi alınız", "Please ask our office", "Уточняйте в офисе", "Bitte im Büro erfragen"],
+    d_kat_izin: ["Kat sayısı", "Number of floors", "Этажность", "Geschosszahl"],
+    d_deniz: ["Denize uzaklık", "Distance to the sea", "До моря", "Entfernung zum Meer"],
+    d_deniz_v: ["Yaklaşık 4 km (ilan bilgisi)", "Approx. 4 km (per the listing)", "Около 4 км (по данным объявления)", "Ca. 4 km (laut Inserat)"],
+    d_altyapi: ["Altyapı", "Utilities", "Коммуникации", "Erschließung"],
+    d_altyapi_v: ["Yol, su ve elektrik mevcut", "Road, water and electricity available", "Есть дорога, вода и электричество", "Straße, Wasser und Strom vorhanden"],
+    d_hafriyat: ["Hafriyat", "Excavation", "Земляные работы", "Erdaushub"],
+    d_hafriyat_v: ["Hafriyat masrafı yok", "No excavation costs", "Без затрат на земляные работы", "Keine Aushubkosten"],
+    d_tarih: ["İlan tarihi", "Listing date", "Дата объявления", "Inseriert am"],
+    d_tek_m: ["Müstakil tapu (tek tapu, hisse yok)", "Sole title deed (no shared ownership)", "Отдельное тапу (без долей)", "Eigene Grundbuchurkunde (keine Anteile)"],
+    d_gercek_not: ["İlan bilgileri ofisimizin ilanından alınmıştır. Videodaki konum ve inşaat görselleştirmesi temsilîdir.", "Details are taken from our office's listing. The location and construction visualisation in the video are illustrative.", "Данные взяты из объявления нашего офиса. Расположение и визуализация застройки в видео приведены условно.", "Die Angaben stammen aus dem Inserat unseres Büros. Lage- und Bauvisualisierung im Video sind symbolisch."],
+    d_odeme_ofis: ["Ödeme koşulları için ofisten bilgi alınız.", "Please ask our office about payment terms.", "Об условиях оплаты уточняйте в офисе.", "Zu den Zahlungsbedingungen fragen Sie bitte im Büro nach."],
+    d_video: ["İlan videosu", "Listing video", "Видео объекта", "Objektvideo"],
+    rz_video: ["Video", "Video", "Видео", "Video"],
+    oz_fullm: ["Full deniz manzarası", "Full sea view", "Панорамный вид на море", "Voller Meerblick"],
+    oz_yolsifir: ["Yola sıfır", "Directly on the road", "Прямо у дороги", "Direkt an der Straße"],
+    oz_altyapi: ["Yol, su, elektrik mevcut", "Road, water, electricity available", "Дорога, вода, электричество", "Straße, Wasser, Strom vorhanden"],
+    oz_hafriyat: ["Hafriyat masrafı yok", "No excavation costs", "Без затрат на земляные работы", "Keine Aushubkosten"],
+    vt_ust: ["Gerçek ilan · video", "Real listing · video", "Реальный объект · видео", "Echtes Angebot · Video"],
+    vt_h: ["Her ilana drone + 3D inşaat videosu", "A drone + 3D construction video for every listing", "Видео с дрона и 3D-визуализацией для каждого объекта", "Drohnen- und 3D-Bauvideo für jedes Angebot"],
+    vt_p: ["Ofisimizin Mahmutlar'daki 528 m² arsa ilanı için hazırlanan video. Alıcı, arsayı görmeye gelmeden konumu, altyapıyı ve olası yapıyı anlar.", "The video made for our 528 m² plot listing in Mahmutlar. Buyers understand the location, utilities and a possible building before they visit.", "Видео к нашему объявлению об участке 528 м² в Махмутларе. Покупатель понимает расположение, коммуникации и возможную застройку ещё до просмотра.", "Das Video zu unserem 528-m²-Grundstücksangebot in Mahmutlar. Käufer verstehen Lage, Erschließung und mögliche Bebauung schon vor der Besichtigung."],
+    vt_1: ["Drone ile konum: arsanın yeri, denize ve merkeze uzaklığı havadan.", "Drone location shots: where the plot is and how far it is from the sea and the centre.", "Съёмка с дрона: где участок и как далеко до моря и центра.", "Drohnenaufnahmen: Lage des Grundstücks, Entfernung zu Meer und Zentrum aus der Luft."],
+    vt_2: ["Altyapı tek bakışta: yol, su ve elektrik bilgisi videoda.", "Utilities at a glance: road, water and electricity shown in the video.", "Коммуникации сразу видны: дорога, вода и электричество в ролике.", "Erschließung auf einen Blick: Straße, Wasser und Strom im Video."],
+    vt_3: ["Gerçekçi inşaat görselleştirmesi: arsaya neler yapılabileceğini gösterir.", "Realistic construction visualisation: shows what could be built on the plot.", "Реалистичная визуализация застройки: что можно построить на участке.", "Realistische Bauvisualisierung: zeigt, was auf dem Grundstück entstehen könnte."],
+    vt_4: ["Sosyal medyaya hazır dikey format: Reels, TikTok ve WhatsApp durumu için.", "Vertical format ready for social media: Reels, TikTok and WhatsApp Status.", "Вертикальный формат для соцсетей: Reels, TikTok и статусы WhatsApp.", "Hochformat für Social Media: Reels, TikTok und WhatsApp-Status."],
+    vt_dg: ["Bu ilanı incele", "View this listing", "Открыть объявление", "Dieses Angebot ansehen"],
+    vt_not: ["Konum ve inşaat görselleştirmesi temsilîdir.", "Location and construction visualisation are illustrative.", "Расположение и визуализация застройки приведены условно.", "Lage- und Bauvisualisierung sind symbolisch."],
     tl_karsilik: ["≈ {e}", "≈ {e}", "≈ {e}", "≈ {e}"]
   };
 
@@ -336,6 +364,10 @@
   /* ---------- Örnek ilanlar (fiyatlar TL; € = TL / KUR) ----------
      Koordinatlar mahalle düzeyinde YAKLAŞIK; gerçek ilanlarda tapu koordinatı kullanılır. */
   var ILAN = [
+    { no: "MAH-528", gercek: true, tur: "arsa", bolge: "mahmutlar", m2: 528, fiyat: 5500000, imar: "", tek: true, takas: true, tarih: "2026-09-03",
+      lat: 36.5132, lng: 32.1274, kapak: "video/mahmutlar-528-kapak.jpg", video: "video/mahmutlar-528.mp4", oz: ["fullm", "yolsifir", "altyapi", "hafriyat"],
+      b: ["Mahmutlar'da full deniz manzaralı 528 m² arsa", "528 m² plot with full sea view in Mahmutlar", "Участок 528 м² с панорамным видом на море, Махмутлар", "528 m² Grundstück mit vollem Meerblick in Mahmutlar"],
+      o: ["Müstakil tapulu (hisse yok), yola sıfır arsa. Yol, su ve elektrik mevcut, hafriyat masrafı yok. Denize yaklaşık 4 km. Takas olur.", "Plot with its own title deed (no shared ownership), directly on the road. Road, water and electricity available; no excavation costs. Approx. 4 km to the sea. Trade-in possible.", "Участок с отдельным тапу (без долей), прямо у дороги. Есть дорога, вода и электричество, затрат на земляные работы нет. До моря около 4 км. Возможен обмен.", "Grundstück mit eigener Grundbuchurkunde (keine Anteile), direkt an der Straße. Straße, Wasser und Strom vorhanden, keine Aushubkosten. Ca. 4 km zum Meer. Tausch möglich."] },
     { no: "AAO-101", tur: "daire", bolge: "mahmutlar", m2: 110, oda: "2+1", kat: "5/9", yil: 2019, fiyat: 8250000, imar: "kat", lat: 36.4925, lng: 32.1005, img: ["stok-k9.jpg", "s1.jpg", "s4.jpg"], oz: ["havuz", "otopark", "asansor", "guvenlik", "fitness", "denizm"], plan: "pesin",
       b: ["Mahmutlar'da denize yakın, havuzlu sitede 2+1", "2-bed flat near the beach in Mahmutlar, complex with pool", "2+1 у моря в Махмутларе, комплекс с бассейном", "2+1 nahe am Strand in Mahmutlar, Anlage mit Pool"],
       o: ["Plaja yürüme mesafesinde, güney cepheli, eşyasız teslim. Site aidatı aylık ödenir; kiraya uygun.", "Walking distance to the beach, south-facing, sold unfurnished. Monthly service charge; well suited for letting.", "В пешей доступности от пляжа, окна на юг, без мебели. Ежемесячный взнос за обслуживание; подходит для сдачи в аренду.", "Strand fußläufig erreichbar, Südausrichtung, unmöbliert. Monatliches Hausgeld; gut vermietbar."] },
@@ -360,9 +392,6 @@
     { no: "AAO-108", tur: "arsa", bolge: "oba", m2: 600, fiyat: 7750000, imar: "konut", emsal: "0,60", takas: true, lat: 36.5470, lng: 32.0480, oz: ["yol", "elektrik"], plan: "arsa50",
       b: ["Oba'da yola cepheli 600 m² konut imarlı arsa", "600 m² residential plot with road frontage in Oba", "Участок 600 м² под жильё с выходом на дорогу, Оба", "600 m² Wohnbaugrundstück mit Straßenanbindung in Oba"],
       o: ["Altyapısı tamam bir mahallede, düz parsel. Müteahhitle kat karşılığı ve takas teklifleri değerlendirilir.", "Level plot in a fully serviced neighbourhood. Land-for-flats deals with a developer and trade-ins are considered.", "Ровный участок в районе с готовой инфраструктурой. Рассматриваем обмен на квартиры с застройщиком и другие варианты обмена.", "Ebenes Grundstück in voll erschlossenem Viertel. Bauträger-Tausch gegen Wohnungen und andere Tauschangebote möglich."] },
-    { no: "AAO-109", tur: "arsa", bolge: "mahmutlar", m2: 950, fiyat: 12250000, imar: "konut", emsal: "0,60", tek: true, lat: 36.5010, lng: 32.1080, oz: ["denizm", "yol", "elektrik"], plan: "arsa50",
-      b: ["Mahmutlar'da deniz manzaralı 950 m² konut imarlı arsa", "950 m² residential plot with sea view in Mahmutlar", "Участок 950 м² под жильё с видом на море, Махмутлар", "950 m² Wohnbaugrundstück mit Meerblick in Mahmutlar"],
-      o: ["Mahmutlar'ın üst kesiminde, önü kapanmayacak deniz manzarası; tek tapu, imar durumu belgesi hazır.", "In the upper part of Mahmutlar with a sea view that cannot be built over; sole title, zoning certificate ready.", "В верхней части Махмутлара, вид на море не закроют; единоличное тапу, справка о зонировании готова.", "Im oberen Teil von Mahmutlar mit unverbaubarem Meerblick; Alleineigentum, Bebauungsauskunft liegt vor."] },
     { no: "AAO-110", tur: "daire", bolge: "cikcilli", m2: 220, oda: "4+1", kat: "7/7", yil: 2024, fiyat: 19250000, imar: "kat", lat: 36.5520, lng: 32.0250, img: ["s3.jpg", "stok-k9.jpg", "s2.jpg"], oz: ["havuz", "fitness", "guvenlik", "otopark", "teras", "kalem", "denizm"], plan: "taksit12",
       b: ["Cikcilli'de 4+1 çatı dubleksi, kale ve deniz manzaralı", "4-bed penthouse in Cikcilli with castle and sea views", "Пентхаус 4+1 в Джикджилли с видом на крепость и море", "4+1-Penthouse in Cikcilli mit Burg- und Meerblick"],
       o: ["Özel çatı terası ve jakuzi; sitede kapalı ve açık havuz. %30 peşinat ve 12 ay taksit seçeneği.", "Private roof terrace with jacuzzi; indoor and outdoor pools in the complex. Option of 30% down and 12 monthly instalments.", "Собственная терраса с джакузи; в комплексе крытый и открытый бассейны. Возможен взнос 30% и рассрочка на 12 месяцев.", "Eigene Dachterrasse mit Whirlpool; Innen- und Außenpool in der Anlage. Optional 30 % Anzahlung und 12 Monatsraten."] },
@@ -426,7 +455,7 @@
   function kisa(n) { try { return new Intl.NumberFormat(yerel(), { notation: "compact", maximumFractionDigits: 1 }).format(n) + " TL"; } catch (e) { return sayi(n) + " TL"; } }
   function euroKarsilik(tlTutar) { return Math.round(tlTutar / KUR / 1000) * 1000; }
   function bolgeAd(k) { return BOLGE[k] ? L(BOLGE[k]) : k; }
-  function imarAd(k) { return t("im_" + k); }
+  function imarAd(k) { return k ? t("im_" + k) : t("ofis_bilgi"); }
   function turAd(i) { return i.hobi ? (dil === "tr" ? "Hobi bahçesi" : dil === "en" ? "Hobby garden" : dil === "ru" ? "Садовый участок" : "Freizeitgarten") : i.imar === "tarla" ? t("tarla") : t(i.tur); }
   function baslik(i) { return L(i.b); }
   function waLink(metin) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(metin); }
@@ -446,8 +475,12 @@
     else a.push("<span>" + imarAd(i.imar) + "</span>");
     return a.join("");
   }
+  function etiketIlan(i) { return i.gercek ? '<span class="rz gercek">' + t("gercek_ilan") + "</span>" : '<span class="rz ornek">' + t("ornek_ilan") + "</span>"; }
+  function tarihYaz(d) { return new Date(d + "T12:00:00").toLocaleDateString(yerel(), { day: "numeric", month: "long", year: "numeric" }); }
+  function videoHtml(i, sinif) { return '<div class="video-kap ' + (sinif || "") + '"><video src="' + i.video + '" poster="' + i.kapak + '" controls playsinline preload="metadata" data-video="' + i.no + '"></video></div>'; }
   function rozetler(i) {
-    var r = ['<span class="rz mavi">' + imarAd(i.imar) + "</span>"];
+    var r = [i.imar ? '<span class="rz mavi">' + imarAd(i.imar) + "</span>" : ""];
+    if (i.video) r.push('<span class="rz">▶ ' + t("rz_video") + "</span>");
     if (i.tek) r.push('<span class="rz yesil">' + t("rz_tek") + "</span>");
     if (i.takas) r.push('<span class="rz altin">' + t("rz_takas") + "</span>");
     if (i.yeni) r.push('<span class="rz">' + t("rz_yeni") + "</span>");
@@ -486,6 +519,7 @@
       '<text x="24" y="40" fill="#E2C48A" font-size="18" font-family="IBM Plex Mono,monospace" letter-spacing="2">' + esc(i.no) + " · " + sayi(i.m2) + ' m²</text></svg>';
   }
   function gorselHtml(i, k) {
+    if (i.kapak) return '<img src="' + i.kapak + '" alt="' + esc(baslik(i)) + '" loading="lazy" decoding="async" width="720" height="1280" style="object-position:50% 27%">';
     if (i.img) return '<img src="img/' + i.img[k || 0] + '" alt="' + esc(baslik(i)) + '" loading="lazy" decoding="async" width="1200" height="800">';
     return parselSvg(i, k ? "uydu" : "plan");
   }
@@ -504,7 +538,7 @@
     $$("[data-i18n-aria]").forEach(function (e) { e.setAttribute("aria-label", t(e.getAttribute("data-i18n-aria"))); });
     $$(".wa-genel").forEach(function (a) { a.href = waLink(t("wa_genel")); });
     $("#gPuan").textContent = (4.2).toLocaleString(yerel());
-    seceneklerKur(); rehberKur(); reelsKur(); cizIzgara(); acikMi(); hesapKira(); hesapKredi(); panelCiz(); karsBar(); sohbetDil(); ilanSecKur();
+    seceneklerKur(); rehberKur(); reelsKur(); cizIzgara(); acikMi(); hesapKira(); hesapKredi(); panelCiz(); karsBar(); sohbetDil(); ilanSecKur(); vitrinDil();
     if (window.AAOKonum) window.AAOKonum.dilDegisti();
     if (detayAcik) detayAc(detayAcik, true);
     if ($("#kars").open) karsAc();
@@ -561,9 +595,9 @@
     var fv = favs.indexOf(i.no) >= 0, kv = kars.indexOf(i.no) >= 0;
     return '<article class="kart" data-no="' + i.no + '">' +
       '<div class="gorsel" data-ac="' + i.no + '">' + gorselHtml(i, 0) +
-      '<div class="rozet-ust"><span class="rz ornek">' + t("ornek_ilan") + '</span><span class="rz">' + turAd(i) + "</span></div>" +
+      '<div class="rozet-ust">' + etiketIlan(i) + '<span class="rz">' + turAd(i) + "</span></div>" +
       '<button class="kalp" type="button" data-fav="' + i.no + '" aria-pressed="' + fv + '" aria-label="' + esc(fv ? t("fav_cikar") : t("fav_ekle")) + '">' + KALP + "</button>" +
-      '<span class="gorsel-not">' + t("gorsel_not") + "</span></div>" +
+      (i.gercek ? "" : '<span class="gorsel-not">' + t("gorsel_not") + "</span>") + "</div>" +
       '<div class="govde"><div class="ust-bilgi"><span>' + bolgeAd(i.bolge) + "</span><span>" + i.no + "</span></div>" +
       '<h3 data-ac="' + i.no + '">' + esc(baslik(i)) + "</h3>" +
       '<div class="ozellik">' + ozetSatir(i) + "</div>" +
@@ -621,23 +655,29 @@
     detayAcik = no;
     var tablo = [[t("d_fiyat"), "<b>" + tl(i.fiyat) + "</b>" + (dil !== "tr" ? " · " + eur(euroKarsilik(i.fiyat)) : "")], [t("d_m2"), sayi(i.m2) + " m²"], [t("d_m2fiyat"), tl(Math.round(i.fiyat / i.m2))], [t("d_tur"), turAd(i)], [t("d_bolge"), bolgeAd(i.bolge) + ", Alanya"]];
     if (i.tur === "daire") tablo.push([t("d_oda"), i.oda], [t("d_kat"), i.kat], [t("d_yil"), i.yil]);
-    tablo.push([t("d_imar"), imarAd(i.imar)]);
-    if (i.emsal) tablo.push([t("d_emsal"), i.emsal]);
-    tablo.push([t("d_ada"), '<span class="not">' + t("d_ada_v") + "</span>"], [t("d_tek"), i.tek ? t("d_tek_v") : i.tur === "daire" ? t("d_hisse_v") : "—"], [t("d_takas"), i.takas ? t("evet") : t("hayir")]);
+    if (i.gercek) {
+      var ob = '<span class="not">' + t("ofis_bilgi") + "</span>";
+      tablo.push([t("d_imar"), ob], [t("d_emsal"), ob], [t("d_kat_izin"), ob], [t("d_tek"), t("d_tek_m")], [t("d_takas"), t("evet")], [t("d_deniz"), t("d_deniz_v")], [t("d_altyapi"), t("d_altyapi_v")], [t("d_hafriyat"), t("d_hafriyat_v")], [t("d_tarih"), tarihYaz(i.tarih)]);
+    } else {
+      tablo.push([t("d_imar"), imarAd(i.imar)]);
+      if (i.emsal) tablo.push([t("d_emsal"), i.emsal]);
+      tablo.push([t("d_ada"), '<span class="not">' + t("d_ada_v") + "</span>"], [t("d_tek"), i.tek ? t("d_tek_v") : i.tur === "daire" ? t("d_hisse_v") : "—"], [t("d_takas"), i.takas ? t("evet") : t("hayir")]);
+    }
     var fv = favs.indexOf(i.no) >= 0;
     $("#detayIc").innerHTML =
       '<div class="m-bas"><span class="no">' + i.no + '</span><h3 id="dBaslik">' + esc(baslik(i)) + '</h3><button class="kalp" style="position:static;flex:none" type="button" data-fav="' + i.no + '" aria-pressed="' + fv + '" aria-label="' + esc(t(fv ? "fav_cikar" : "fav_ekle")) + '">' + KALP + '</button><button class="ib" type="button" data-kapat aria-label="' + t("kapat") + '">✕</button></div>' +
-      '<div class="m-govde"><div class="galeri"><div class="ana-g" id="gAna"></div>' +
+      '<div class="m-govde">' + (i.video ? '<div class="galeri galeri-video">' + videoHtml(i) + '<p class="not" style="padding:0 14px 14px">' + t("vt_not") + "</p></div>" :
+      '<div class="galeri"><div class="ana-g" id="gAna"></div>' +
       '<button class="ok-g sol" type="button" data-g="-1" aria-label="‹">‹</button><button class="ok-g sag" type="button" data-g="1" aria-label="›">›</button>' +
-      '<div class="kucukler" id="gKucuk">' + galeriListe(i).map(function (k, n) { return '<button type="button" data-gk="' + n + '">' + gorselHtml(i, k) + "</button>"; }).join("") + "</div></div>" +
-      '<div class="m-bilgi"><div class="rozetler"><span class="rz ornek">' + t("ornek_ilan") + "</span>" + rozetler(i) + '</div><h2>' + esc(baslik(i)) + '</h2><p style="color:#c9d0da">' + esc(L(i.o)) + "</p>" +
+      '<div class="kucukler" id="gKucuk">' + galeriListe(i).map(function (k, n) { return '<button type="button" data-gk="' + n + '">' + gorselHtml(i, k) + "</button>"; }).join("") + "</div></div>") +
+      '<div class="m-bilgi"><div class="rozetler">' + etiketIlan(i) + rozetler(i) + '</div><h2>' + esc(baslik(i)) + '</h2><p style="color:#c9d0da">' + esc(L(i.o)) + "</p>" +
       '<table class="tablo"><tbody>' + tablo.map(function (r) { return "<tr><th>" + r[0] + "</th><td>" + r[1] + "</td></tr>"; }).join("") + "</tbody></table>" +
-      '<p class="not">' + t("d_tapu_not") + "</p>" +
+      '<p class="not">' + t(i.gercek ? "d_gercek_not" : "d_tapu_not") + "</p>" +
       '<div class="m-eylem"><a class="dg wa" data-wa="' + i.no + '" href="' + waIlan(i) + '" target="_blank" rel="noopener">' + WAIKON + t("wa_ilan") + '</a><button class="dg ince" type="button" data-randevu="' + i.no + '">' + t("d_randevu") + "</button></div></div></div>" +
       '<div class="m-alt"><div><h4>' + t("d_ozellik") + '</h4><div class="etiketler">' + i.oz.map(function (o) { return "<span>" + t("oz_" + o) + "</span>"; }).join("") + "</div></div>" +
-      "<div><h4>" + t("d_odeme") + '</h4><div class="odeme">' + odemeHtml(i) + '</div><p class="not" style="margin-top:8px">' + t("d_odeme_not") + "</p></div>" +
+      "<div><h4>" + t("d_odeme") + "</h4>" + (i.plan ? '<div class="odeme">' + odemeHtml(i) + '</div><p class="not" style="margin-top:8px">' + t("d_odeme_not") + "</p>" : "<p>" + t("d_odeme_ofis") + "</p>") + "</div>" +
       "<div><h4>" + t("d_konum") + '</h4><div id="detayKonum"></div></div></div>';
-    galeriCiz(i);
+    if (!i.video) galeriCiz(i);
     var dlg = $("#detay");
     if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); document.body.style.overflow = "hidden"; }
     if (detayKonum) { detayKonum.yokEt(); detayKonum = null; }
@@ -661,19 +701,19 @@
       [t("d_tur"), l.map(function (i) { return turAd(i) + (i.oda ? " · " + i.oda : ""); }), null],
       [t("d_bolge"), l.map(function (i) { return bolgeAd(i.bolge); }), null],
       [t("d_imar"), l.map(function (i) { return imarAd(i.imar); }), null],
-      [t("d_tek"), l.map(function (i) { return i.tek ? t("d_tek_v") : i.tur === "daire" ? t("d_hisse_v") : "—"; }), null],
+      [t("d_tek"), l.map(function (i) { return i.gercek ? t("d_tek_m") : i.tek ? t("d_tek_v") : i.tur === "daire" ? t("d_hisse_v") : "—"; }), null],
       [t("d_takas"), l.map(function (i) { return i.takas ? t("evet") : t("hayir"); }), null],
       [t("kt_skor"), sk.map(function (a) { return a ? a.skor : null; }), function (v) { return v == null ? "—" : v + " / 100"; }, false],
       [t("kt_deniz"), sk.map(function (a) { return a ? a.deniz : null; }), function (v) { return v == null ? "—" : K.km(v); }, true],
       [t("kt_gzp"), sk.map(function (a) { return a ? a.gzp : null; }), function (v) { return v == null ? "—" : K.km(v); }, true],
-      [t("d_odeme"), l.map(function (i) { return i.plan === "pesin" ? t("d_pesin") : i.plan === "arsa50" ? "50% + 50%" : "30% + " + (i.plan === "taksit24" ? 24 : 12) + " " + t("ay"); }), null]
+      [t("d_odeme"), l.map(function (i) { return !i.plan ? t("ofis_bilgi") : i.plan === "pesin" ? t("d_pesin") : i.plan === "arsa50" ? "50% + 50%" : "30% + " + (i.plan === "taksit24" ? 24 : 12) + " " + t("ay"); }), null]
     ];
     var govde = satirlar.map(function (s) {
       var best = s[2] && typeof s[1][0] === "number" ? enIyi(s[1], s[3]) : null;
       return "<tr><th>" + s[0] + "</th>" + s[1].map(function (v, k) { var h = s[2] ? s[2](v, l[k]) : esc(v); return "<td" + (best != null && v === best ? ' class="en-iyi"' : "") + ">" + h + "</td>"; }).join("") + "</tr>";
     }).join("");
     $("#karsIc").innerHTML = '<div class="m-bas"><span class="no">' + kars.length + '/3</span><h3>' + t("kars_bas") + '</h3><button class="ib" type="button" data-kapat aria-label="' + t("kapat") + '">✕</button></div>' +
-      '<div class="kt-sar"><table class="kt"><thead><tr><th></th>' + l.map(function (i) { return '<td><div class="kg">' + gorselHtml(i, 0) + '</div><span class="rz ornek">' + t("ornek_ilan") + '</span><b style="margin-top:6px">' + esc(baslik(i)) + '</b><small class="not">' + i.no + "</small></td>"; }).join("") + "</tr></thead><tbody>" + govde +
+      '<div class="kt-sar"><table class="kt"><thead><tr><th></th>' + l.map(function (i) { return '<td><div class="kg">' + gorselHtml(i, 0) + "</div>" + etiketIlan(i) + '<b style="margin-top:6px">' + esc(baslik(i)) + '</b><small class="not">' + i.no + "</small></td>"; }).join("") + "</tr></thead><tbody>" + govde +
       "<tr><th></th>" + l.map(function (i) { return '<td><a class="dg wa kucuk" style="white-space:normal" data-wa="' + i.no + '" href="' + waIlan(i) + '" target="_blank" rel="noopener">WhatsApp</a> <button class="dg ince kucuk" type="button" data-ac="' + i.no + '">' + t("detay") + "</button></td>"; }).join("") + "</tr></tbody></table>" +
       '<p class="not" style="margin-top:10px">' + t("kars_iyi") + "</p></div>";
     var d = $("#kars"); if (!d.open) { d.showModal ? d.showModal() : d.setAttribute("open", ""); }
@@ -913,7 +953,7 @@
 
   /* ---------- Konum bölümü ilan seçici ---------- */
   var anaKonum = null;
-  function ilanSecKur() { var s = $("#kIlan"), v = s.value || "AAO-103"; s.innerHTML = ILAN.map(function (i) { return '<option value="' + i.no + '">' + i.no + " · " + esc(baslik(i)) + "</option>"; }).join(""); s.value = v; }
+  function ilanSecKur() { var s = $("#kIlan"), v = s.value || "MAH-528"; s.innerHTML = ILAN.map(function (i) { return '<option value="' + i.no + '">' + i.no + " · " + esc(baslik(i)) + "</option>"; }).join(""); s.value = v; }
 
   /* ---------- Olaylar ---------- */
   function olaylar() {
@@ -998,6 +1038,20 @@
     setInterval(acikMi, 60000);
   }
 
+  /* ---------- Video vitrini ---------- */
+  function vitrinKur() {
+    var i = ilanBul("MAH-528"), y = $("#vitrinVideo"); if (!i || !y) return;
+    y.innerHTML = videoHtml(i, "vitrin-v");
+    $("#vitrinDg").setAttribute("data-ac", i.no);
+    $("#vitrinWa").setAttribute("data-wa", i.no);
+  }
+  function vitrinDil() { var i = ilanBul("MAH-528"), w = $("#vitrinWa"); if (i && w) w.href = waIlan(i); }
+  document.addEventListener("play", function (e) {
+    if (!e.target || e.target.tagName !== "VIDEO") return;
+    $$("video").forEach(function (v) { if (v !== e.target && !v.paused) v.pause(); });
+    try { if (window.djIzle) window.djIzle("video:" + (e.target.getAttribute("data-video") || "")); } catch (x) {}
+  }, true);
+
   /* ---------- Başlat ---------- */
   window.AAO = { ILAN: ILAN, t: t, tl: tl, eur: eur, sayi: sayi, imarAd: imarAd, baslik: baslik, euroKarsilik: euroKarsilik, parselKoord: parselKoord, dil: function () { return dil; }, yerel: yerel, waIlan: waIlan, ilanBul: ilanBul, detayAc: function (n) { detayAc(n); }, panelEkle: panelEkle };
   function baslat() {
@@ -1005,7 +1059,7 @@
     if (!ilk) { var nl = (navigator.language || "tr").slice(0, 2).toLowerCase(); ilk = DILLER.indexOf(nl) >= 0 ? nl : "tr"; }
     try { var q = new URLSearchParams(location.search).get("dil"); if (q && DILLER.indexOf(q) >= 0) ilk = q; } catch (e) {}
     $("#qrKod").innerHTML = QR;
-    yildizKur(); sohbetKur(); olaylar();
+    yildizKur(); vitrinKur(); sohbetKur(); olaylar();
     dilUygula(ilk, true);
     if (window.AAOKonum) anaKonum = window.AAOKonum.kur($("#konumAna"), ilanBul($("#kIlan").value), { ana: true });
     else document.addEventListener("aao-konum-hazir", function () { anaKonum = window.AAOKonum.kur($("#konumAna"), ilanBul($("#kIlan").value), { ana: true }); }, { once: true });
