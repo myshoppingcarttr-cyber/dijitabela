@@ -31,6 +31,7 @@
     google_ac: ["Google Haritalar'da aç", "Open in Google Maps", "Открыть в Google Картах", "In Google Maps öffnen"],
     ctrl: ["Haritayı yakınlaştırmak için Ctrl + kaydırma kullanın", "Use Ctrl + scroll to zoom the map", "Используйте Ctrl + колесо для масштабирования", "Strg + Scrollen zum Zoomen der Karte"],
     mac: ["Yakınlaştırmak için ⌘ + kaydırma kullanın", "Use ⌘ + scroll to zoom the map", "Используйте ⌘ + колесо для масштабирования", "⌘ + Scrollen zum Zoomen"],
+    sabit_not: ["Örnek değer · deniz, merkez, havalimanı erişimi ve yola cepheye göre", "Sample value · based on sea, centre, airport access and road frontage", "Примерное значение · с учётом моря, центра, доступа к аэропорту и выхода на дорогу", "Beispielwert · nach Meer, Zentrum, Flughafenanbindung und Straßenanbindung"],
     mobil: ["Haritayı iki parmakla kaydırın", "Use two fingers to move the map", "Двигайте карту двумя пальцами", "Karte mit zwei Fingern bewegen"]
   };
   function dil() { return window.AAO ? window.AAO.dil() : "tr"; }
@@ -74,8 +75,9 @@
     h.forEach(function (x) { x.d = hav(p, x.n); x.arac = sure(x.d); x.yuru = yuruSure(x.d); x.yon = yon(p, x.n); });
     var by = {}; h.forEach(function (x) { by[x.id] = x; });
     var b = { deniz: puan(by.deniz.d, 0.3, 6), merkez: puan(by.merkez.d, 1, 15), hava: puan(by.gzp.d, 25, 60), hizmet: (puan(by.hastane.d, 0.5, 8) + puan(by.okul.d, 0.5, 8) + puan(by.avm.d, 0.5, 8)) / 3 };
-    var skor = Math.round(b.deniz * 35 + b.hizmet * 30 + b.merkez * 20 + b.hava * 15);
-    return { hedef: h, by: by, b: b, skor: skor, deniz: by.deniz.d, gzp: by.gzp.d };
+    var skor = Math.round(b.deniz * 35 + b.hizmet * 30 + b.merkez * 20 + b.hava * 15), sabit = typeof i.skorSabit === "number";
+    if (sabit) skor = i.skorSabit; // yalnız bu ilan: videodaki örnek değerle aynı
+    return { hedef: h, by: by, b: b, skor: skor, sabit: sabit, deniz: by.deniz.d, gzp: by.gzp.d };
   }
 
   /* ---------- Kütüphane yükleme ---------- */
@@ -114,8 +116,8 @@
     function yan() {
       var an = analiz(ben.ilan); ben.an = an;
       var b = an.b, bil = [["b_deniz", b.deniz, 35], ["b_hizmet", b.hizmet, 30], ["b_merkez", b.merkez, 20], ["b_hava", b.hava, 15]];
-      el.yan.innerHTML = '<div class="skor"><div class="halka" style="--p:' + an.skor + '"><div><b>' + an.skor + '</b><small>/ 100</small></div></div><div><h4>' + k("skor") + "</h4><p>" + k("skor_p") + "</p></div></div>" +
-        '<div class="bilesen">' + bil.map(function (x) { return "<div><span>" + k(x[0]) + "</span><i><s style='width:" + Math.round(x[1] * 100) + "%'></s></i><em>" + Math.round(x[1] * x[2]) + "/" + x[2] + "</em></div>"; }).join("") + "</div>" +
+      el.yan.innerHTML = '<div class="skor"><div class="halka" style="--p:' + an.skor + '"><div><b>' + an.skor + '</b><small>/ 100</small></div></div><div><h4>' + k("skor") + "</h4><p>" + (an.sabit ? k("sabit_not") : k("skor_p")) + "</p></div></div>" +
+        (an.sabit ? "" : '<div class="bilesen">' + bil.map(function (x) { return "<div><span>" + k(x[0]) + "</span><i><s style='width:" + Math.round(x[1] * 100) + "%'></s></i><em>" + Math.round(x[1] * x[2]) + "/" + x[2] + "</em></div>"; }).join("") + "</div>") +
         '<ul class="hedefler">' + an.hedef.map(function (h) {
           var alt = h.genel ? h.n.ad + " · " + k("genel") : h.id === "merkez" ? "" : h.n.ad;
           return '<li data-hedef="' + h.id + '"><span class="ik" style="color:' + RENK[h.id] + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">' + IKON[h.id] + '</svg></span><span class="ad">' + k("h_" + h.id) + (alt ? "<small>" + alt + "</small>" : "") + '</span><span class="mes">' + km(h.d) + "<small>" + (h.yuru ? k("yuru", { d: h.yuru }) : k("arac", { d: h.arac })) + "</small></span></li>";
