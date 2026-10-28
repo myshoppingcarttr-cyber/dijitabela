@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Dijital — Performans Pazarlama Ajansı (Örnek Tasarım)</title>
+<meta name="description" content="Google Ads, Meta Ads, TikTok Ads, SEO ve web sitesi hizmetlerini tek ekipten alın. Şeffaf rapor, taahhütsüz aylık çalışma. (Örnek tasarım)">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d0d0e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff6b3d'/%3E%3Cpath d='M9 23V9h3l8 9.5V9h3v14h-3l-8-9.5V23z' fill='%23160a05'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/hero-1200.webp" imagesrcset="img/hero-720.webp 720w, img/hero-1200.webp 1200w" imagesizes="(max-width: 900px) 92vw, 46vw" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0e; --bg-2:#121214; --surface:#17171a; --surface-2:#1d1d21;
+  --line:#2a2a2f; --text:#eeebe6; --muted:#a6a29b; --dim:#77736d;
+  --accent:#ff6b3d; --accent-ink:#1a0b05; --accent-soft:rgba(255,107,61,.12);
+  --radius:14px; --radius-lg:22px; --max:1200px;
+  --display:"Bricolage Grotesque", "Manrope", system-ui, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin:0}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--accent)}
+.sec{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.sec-head h2{font-size:clamp(32px,4.2vw,52px);margin-top:16px}
+.sec-head p{color:var(--muted);max-width:480px;justify-self:end}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:700;font-size:15.5px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease;font-family:var(--body)}
+.btn svg{width:18px;height:18px;transition:transform .2s ease}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:#ff8259}
+.btn-ghost{border-color:var(--line);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:#4a4a52;background:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* ---------- Header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .25s ease,border-color .25s ease;border-bottom:1px solid transparent}
+.hdr.scrolled{background:rgba(13,13,14,.86);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border-color:var(--line)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.logo-mark{width:32px;height:32px;border-radius:9px;background:var(--accent);display:grid;place-items:center}
+.logo-mark svg{width:18px;height:18px}
+.logo span{color:var(--muted);font-weight:600}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--text)}
+.nav .btn{display:none}
+.hdr .btn{padding:11px 18px;font-size:14.5px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.burger svg{width:22px;height:22px}
+
+/* ---------- Hero ---------- */
+.hero{padding:150px 0 90px;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 380px at 85% 10%,rgba(255,107,61,.10),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;position:relative}
+.hero h1{font-size:clamp(42px,6.2vw,80px);margin:22px 0 24px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:19px;color:var(--muted);max-width:540px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line);color:var(--muted);font-size:14.5px}
+.hero-meta div{display:flex;align-items:center;gap:8px}
+.hero-meta svg{width:18px;height:18px;color:var(--accent);flex:none}
+.hero-visual{position:relative}
+.hero-photo{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/4.4;background:var(--surface)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.05) brightness(.85)}
+.report{position:absolute;left:-44px;bottom:36px;width:280px;background:rgba(23,23,26,.94);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.report-top{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted)}
+.tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.report-num{font-family:var(--display);font-size:34px;font-weight:700;margin:10px 0 2px;letter-spacing:-.02em}
+.report-delta{font-size:13px;color:#8fd19e;display:flex;align-items:center;gap:6px}
+.bars{display:flex;align-items:flex-end;gap:6px;height:56px;margin-top:16px}
+.bars i{flex:1;background:#3a3a41;border-radius:4px;height:var(--h);transform-origin:bottom;animation:grow .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--d) * 70ms + 300ms)}
+.bars i.on{background:var(--accent)}
+@keyframes grow{from{transform:scaleY(.1)}to{transform:scaleY(1)}}
+.chip{position:absolute;top:28px;right:-18px;background:var(--text);color:#141414;border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+.chip b{font-family:var(--display);font-size:18px}
+
+/* ---------- Platforms strip ---------- */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.strip-in{display:flex;align-items:center;gap:40px;padding:26px 20px;flex-wrap:wrap;justify-content:space-between}
+.strip-in p{color:var(--dim);font-size:14px;font-weight:600}
+.strip-list{display:flex;flex-wrap:wrap;gap:12px 34px;font-family:var(--display);font-size:19px;font-weight:600;color:#cfcbc4}
+
+/* ---------- Services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.svc{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;display:flex;flex-direction:column;transition:border-color .25s ease,transform .25s ease;text-decoration:none}
+.svc:hover{border-color:#45454d;transform:translateY(-3px)}
+.svc.wide{grid-column:span 3}
+.svc-ic{width:48px;height:48px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:26px}
+.svc-ic svg{width:24px;height:24px;color:var(--accent)}
+.svc h3{font-size:24px;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:15.5px}
+.svc ul{list-style:none;padding:0;margin:20px 0 26px;display:grid;gap:9px;font-size:14.5px;color:#cfcbc4}
+.svc li{display:flex;gap:10px;align-items:flex-start}
+.svc li::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--accent);margin-top:9px;flex:none}
+.svc-more{margin-top:auto;font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;color:var(--text)}
+.svc-more svg{width:16px;height:16px;transition:transform .2s}
+.svc:hover .svc-more svg{transform:translateX(4px)}
+
+/* ---------- Service detail (tabs) ---------- */
+.detail{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);padding:11px 18px;border-radius:999px;font:600 15px var(--body);cursor:pointer;transition:all .2s}
+.tab:hover{color:var(--text);border-color:#45454d}
+.tab[aria-selected="true"]{background:var(--text);color:#141414;border-color:var(--text)}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.panel[hidden]{display:none}
+.panel.show{animation:fade .45s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel-img{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/2;background:var(--surface)}
+.panel-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.9)}
+.panel h3{font-size:clamp(28px,3vw,38px);margin-bottom:16px}
+.panel > div > p{color:var(--muted);font-size:17px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px;margin:30px 0 32px}
+.feat div{border-top:1px solid var(--line);padding-top:14px}
+.feat b{display:block;font-size:15.5px;margin-bottom:4px}
+.feat span{color:var(--muted);font-size:14.5px;line-height:1.5;display:block}
+
+/* ---------- Pricing ---------- */
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px;margin-bottom:40px;flex-wrap:wrap}
+.seg button{appearance:none;border:0;background:transparent;color:var(--muted);font:600 15px var(--body);padding:11px 20px;border-radius:999px;cursor:pointer;transition:all .2s}
+.seg button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plans[hidden]{display:none}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 30px;display:flex;flex-direction:column;position:relative}
+.plan.pop{border-color:var(--accent);background:linear-gradient(180deg,rgba(255,107,61,.07),var(--surface) 45%)}
+.plan .badge{position:absolute;top:-13px;left:30px;background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.plan h3{font-size:22px}
+.plan .for{color:var(--muted);font-size:14.5px;margin-top:6px;min-height:44px}
+.price{display:flex;align-items:baseline;gap:6px;margin:24px 0 4px}
+.price b{font-family:var(--display);font-size:44px;letter-spacing:-.03em}
+.price span{color:var(--muted);font-size:15px}
+.vat{color:var(--dim);font-size:13px}
+.plan ul{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:12px;font-size:15px}
+.plan li{display:flex;gap:11px;align-items:flex-start;color:#d6d2cb}
+.plan li svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--accent)}
+.plan li.no{color:var(--dim)}
+.plan li.no svg{color:var(--dim)}
+.plan .btn{margin-top:auto;width:100%}
+.price-note{margin-top:22px;color:var(--dim);font-size:13.5px}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{padding:30px 26px 32px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);position:relative}
+.step .n{font-family:var(--display);font-size:15px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:12px;margin-bottom:46px}
+.step .n::after{content:"";height:1px;flex:1;background:var(--line)}
+.step h3{font-size:21px;margin-bottom:10px}
+.step p{color:var(--muted);font-size:15px}
+.step small{display:inline-block;margin-top:18px;font-size:12.5px;font-weight:700;color:#cfcbc4;background:var(--surface-2);border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+
+/* ---------- Cases ---------- */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column}
+.case-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.case-top .sector{font-size:14px;color:var(--muted);font-weight:600}
+.case h3{font-size:24px;margin-bottom:10px;max-width:460px}
+.case > p{color:var(--muted);font-size:15.5px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.kpi b{display:block;font-family:var(--display);font-size:30px;letter-spacing:-.02em;color:var(--text)}
+.kpi span{display:block;font-size:13px;color:var(--muted);line-height:1.4;margin-top:4px}
+.kpi b.up{color:var(--accent)}
+.case-foot{margin-top:22px;font-size:13px;color:var(--dim);display:flex;gap:14px;flex-wrap:wrap}
+.case-foot span{display:inline-flex;gap:6px;align-items:center}
+.case-note{margin-top:20px;color:var(--dim);font-size:13.5px}
+
+/* ---------- Why ---------- */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.why-photo{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3.2;background:var(--surface)}
+.why-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.85)}
+.why h2{font-size:clamp(32px,4vw,48px);margin:16px 0 18px}
+.why > div > p{color:var(--muted);font-size:17px}
+.why-list{display:grid;gap:0;margin-top:30px}
+.why-list div{display:grid;grid-template-columns:42px 1fr;gap:4px 14px;padding:18px 0;border-top:1px solid var(--line)}
+.why-list svg{width:24px;height:24px;color:var(--accent);grid-row:span 2;margin-top:2px}
+.why-list b{font-size:16.5px}
+.why-list span{color:var(--muted);font-size:15px}
+
+/* ---------- FAQ ---------- */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.faq-grid h2{font-size:clamp(32px,4vw,48px);margin:16px 0 18px}
+.faq-side p{color:var(--muted)}
+.faq-side .btn{margin-top:26px}
+details{border-bottom:1px solid var(--line)}
+details:first-child{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:600;font-size:17.5px}
+summary::-webkit-details-marker{display:none}
+summary .pm{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:transform .25s ease,background .2s}
+summary .pm svg{width:14px;height:14px}
+details[open] summary .pm{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+details p{color:var(--muted);padding:0 50px 24px 0;font-size:16px}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--bg-2);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px}
+.contact h2{font-size:clamp(34px,4.4vw,56px);margin:16px 0 18px}
+.contact-info{margin-top:36px;display:grid;gap:16px}
+.contact-info a,.contact-info div{display:flex;gap:14px;align-items:center;text-decoration:none;color:#d6d2cb;font-size:16px}
+.contact-info svg{width:20px;height:20px;color:var(--accent);flex:none}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px}
+.demo-note{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);border:1px solid rgba(255,107,61,.3);color:#ffc5b0;padding:12px 14px;border-radius:12px;font-size:13.5px;margin-bottom:24px}
+.demo-note svg{width:18px;height:18px;flex:none;margin-top:1px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.field label{font-size:13.5px;font-weight:600;color:#cfcbc4}
+.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;color:var(--text);font:500 16px var(--body);padding:13px 14px;transition:border-color .2s}
+.field textarea{min-height:110px;resize:vertical}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a6a29b' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:18px;padding-right:40px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted);margin:6px 0 22px}
+.check input{width:18px;height:18px;accent-color:var(--accent);margin-top:2px;flex:none}
+.form-ok{display:none;margin-top:16px;font-size:14.5px;color:#8fd19e}
+.form-ok.on{display:block}
+form .btn{width:100%}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding:70px 0 40px}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.ft p{color:var(--muted);font-size:15px;margin-top:16px;max-width:300px}
+.ft h4{font-family:var(--body);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:16px;font-weight:700}
+.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ft a{text-decoration:none;color:#cfcbc4;font-size:15px}
+.ft a:hover{color:var(--accent)}
+.ft-bot{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--dim);font-size:13.5px}
+
+/* ---------- Örnek etiketi ---------- */
+.ornek{position:fixed;left:14px;bottom:14px;z-index:60;display:inline-flex;align-items:center;gap:8px;background:rgba(18,18,20,.92);border:1px solid var(--line);color:#cfcbc4;font-size:12px;font-weight:600;padding:7px 12px 7px 10px;border-radius:999px;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ornek i{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.ornek:hover{color:var(--text)}
+
+/* ---------- Reveal ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1060px){
+  .nav{gap:22px}
+  .svc,.svc.wide{grid-column:span 3}
+  .steps{grid-template-columns:1fr 1fr}
+  .ft{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .nav,.hdr .btn-primary{display:none}
+  .burger{display:inline-flex}
+  .nav.open{display:flex;position:fixed;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 22px}
+  .nav.open a{padding:15px 0;border-bottom:1px solid var(--line);font-size:17px;color:var(--text)}
+  .nav.open .btn{display:inline-flex;margin-top:18px;border-bottom:0;color:var(--accent-ink);padding:15px}
+  .hero{padding:118px 0 70px}
+  .hero-grid,.panel,.why,.faq-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{max-width:560px}
+  .report{left:14px;bottom:14px;width:250px}
+  .chip{right:12px;top:14px}
+  .sec{padding:80px 0}
+  .sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:40px}
+  .sec-head p{justify-self:start}
+  .plans{grid-template-columns:1fr;max-width:520px}
+  .cases{grid-template-columns:1fr}
+  .why-photo{order:2}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .hero h1{font-size:40px}
+  .hero-sub{font-size:17px}
+  .hero-cta .btn{width:100%}
+  .hero-photo{aspect-ratio:4/4.6}
+  .report{width:auto;right:14px;padding:14px}
+  .report-num{font-size:28px}
+  .bars{height:40px}
+  .svc,.svc.wide{grid-column:1/-1;padding:26px}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step .n{margin-bottom:26px}
+  .feat{grid-template-columns:1fr}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 28px;padding:0 16px 4px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{white-space:nowrap}
+  .seg{display:flex;width:100%}
+  .seg button{flex:1;padding:11px 8px;font-size:14px}
+  .row{grid-template-columns:1fr;gap:0}
+  form{padding:24px 18px}
+  .case{padding:24px}
+  .kpi b{font-size:24px}
+  details p{padding-right:0}
+  summary{font-size:16.5px}
+  .ft{grid-template-columns:1fr 1fr;gap:32px}
+  .ft > div:first-child{grid-column:1/-1}
+  .ft-bot{padding-bottom:40px}
+  .strip-in{gap:14px}
+  .strip-list{font-size:16px;gap:8px 22px}
+}
+</style>
+</head>
+<body class="no-js">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 12h12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+</svg>
+
+<!-- ============ BLOK: Üst menü (WP: Header şablonu / Elementor Theme Builder) ============ -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo" aria-label="Nova Dijital ana sayfa">
+      <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M5 19V5h2.6l8.8 10.2V5H19v14h-2.6L7.6 8.8V19z" fill="#1a0b05"/></svg></span>
+      nova<span>dijital</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Ana menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#paketler">Paketler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#sonuclar">Sonuçlar</a>
+      <a href="#sss">SSS</a>
+      <a href="#iletisim" class="btn btn-primary">Ücretsiz analiz iste</a>
+    </nav>
+    <a href="#iletisim" class="btn btn-primary">Ücretsiz analiz iste</a>
+    <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ BLOK: Hero (WP: Kapsayıcı + Başlık + Metin + 2 Buton + Görsel) ============ -->
+<section class="hero" data-blok="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Performans pazarlama ajansı</span>
+      <h1>Reklam bütçeniz harcanmasın, <em>çalışsın.</em></h1>
+      <p class="hero-sub">Google, Meta ve TikTok reklamlarınızı; SEO ve web sitenizle birlikte tek ekip yönetir. Her ay neye ne harcandığını ve kaç müşteri geldiğini tek sayfalık, sade bir raporda görürsünüz.</p>
+      <div class="hero-cta">
+        <a href="#iletisim" class="btn btn-primary">Ücretsiz hesap analizi iste <svg><use href="#i-arrow"/></svg></a>
+        <a href="#paketler" class="btn btn-ghost">Paketleri incele</a>
+      </div>
+      <div class="hero-meta">
+        <div><svg><use href="#i-check"/></svg>Taahhütsüz, aylık çalışma</div>
+        <div><svg><use href="#i-check"/></svg>Reklam hesapları sizin adınıza</div>
+        <div><svg><use href="#i-check"/></svg>48 saatte ilk analiz</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo">
+        <img src="img/hero-1200.webp" srcset="img/hero-720.webp 720w, img/hero-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 46vw" width="1200" height="800" alt="Ajans ekibi duvara yapıştırılmış notlarla kampanya planı üzerinde çalışıyor" fetchpriority="high">
+      </div>
+      <div class="chip" aria-hidden="true">ROAS <b>4,6x</b></div>
+      <div class="report" aria-label="Örnek aylık rapor özeti">
+        <div class="report-top"><span>Ekim · başvuru maliyeti</span><span class="tag">Örnek</span></div>
+        <div class="report-num">₺137</div>
+        <div class="report-delta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M6 13l6 6 6-6"/></svg>Geçen aya göre %22 düşük</div>
+        <div class="bars" aria-hidden="true">
+          <i style="--h:78%;--d:0"></i><i style="--h:70%;--d:1"></i><i style="--h:74%;--d:2"></i><i style="--h:61%;--d:3"></i><i style="--h:55%;--d:4"></i><i style="--h:48%;--d:5"></i><i class="on" style="--h:40%;--d:6"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOK: Platform şeridi ============ -->
+<div class="strip" data-blok="platformlar">
+  <div class="wrap strip-in">
+    <p>Yönettiğimiz platformlar</p>
+    <div class="strip-list"><span>Google Ads</span><span>Meta Ads</span><span>TikTok Ads</span><span>Search Console</span><span>GA4</span><span>WordPress</span></div>
+  </div>
+</div>
+
+<!-- ============ BLOK: Hizmetler (WP: 5 kart — Elementor Icon Box / Gutenberg Columns) ============ -->
+<section class="sec" id="hizmetler" data-blok="hizmetler">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Hizmetler</span><h2>Müşteriyi bulduğu yerden yakalayan beş hizmet.</h2></div>
+      <p>Her kanal ayrı bir ekip değil, tek bir plan. Reklam, SEO ve site birbirini besler; böylece aynı müşteri için iki kez ödeme yapmazsınız.</p>
+    </div>
+    <div class="svc-grid">
+      <a href="#detay" data-tab="t-google" class="svc wide rv">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></div>
+        <h3>Google Ads</h3>
+        <p>Arama, Performance Max ve YouTube kampanyaları. Satın almaya hazır kişinin aramasında üstte olursunuz.</p>
+        <ul><li>Anahtar kelime ve negatif liste yönetimi</li><li>Dönüşüm takibi (GA4 + Tag Manager)</li><li>Haftalık teklif ve bütçe ayarı</li></ul>
+        <span class="svc-more">Detayı gör <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#detay" data-tab="t-meta" class="svc wide rv">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M8 15h4"/></svg></div>
+        <h3>Meta Ads</h3>
+        <p>Instagram ve Facebook'ta doğru kitleye, doğru kreatifle ulaşırsınız. Form, mesaj ya da satış kampanyası.</p>
+        <ul><li>Kitle ve yeniden pazarlama kurgusu</li><li>Kreatif testleri (görsel, video, metin)</li><li>Pixel + Conversions API kurulumu</li></ul>
+        <span class="svc-more">Detayı gör <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#detay" data-tab="t-tiktok" class="svc rv">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="m10.5 9.5 4 2.5-4 2.5z"/></svg></div>
+        <h3>TikTok Ads</h3>
+        <p>Kısa videoyla genç ve geniş kitleye düşük gösterim maliyetiyle ulaşın.</p>
+        <ul><li>Spark Ads ve içerik üretici iş birliği</li><li>Kanca odaklı video senaryosu</li></ul>
+        <span class="svc-more">Detayı gör <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#detay" data-tab="t-seo" class="svc rv">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+        <h3>SEO paketleri</h3>
+        <p>Reklamı kapattığınızda da gelen ziyaretçi. Teknik SEO, içerik ve bağlantı çalışması.</p>
+        <ul><li>Aylık içerik ve sıralama takibi</li><li>Google İşletme Profili</li></ul>
+        <span class="svc-more">Detayı gör <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#detay" data-tab="t-web" class="svc rv">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></div>
+        <h3>Web site hizmetleri</h3>
+        <p>Hızlı açılan, reklamdan gelen ziyaretçiyi müşteriye çeviren WordPress siteler.</p>
+        <ul><li>Kurumsal, landing ve e-ticaret</li><li>Bakım ve hız optimizasyonu</li></ul>
+        <span class="svc-more">Detayı gör <svg><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOK: Hizmet detayı (WP: Elementor Tabs / her sekme ayrı alt sayfa da olabilir) ============ -->
+<section class="sec detail" id="detay" data-blok="hizmet-detay">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Hizmet detayı</span><h2>Ne yapıyoruz, ne teslim ediyoruz?</h2></div>
+      <p>Her hizmette ilk ay kurulum, sonraki aylar ölçüm ve iyileştirme. Neyin yapıldığı aylık raporda madde madde yazar.</p>
+    </div>
+    <div class="tabs rv" role="tablist" aria-label="Hizmetler">
+      <button class="tab" role="tab" id="t-google" aria-controls="p-google" aria-selected="true">Google Ads</button>
+      <button class="tab" role="tab" id="t-meta" aria-controls="p-meta" aria-selected="false" tabindex="-1">Meta Ads</button>
+      <button class="tab" role="tab" id="t-tiktok" aria-controls="p-tiktok" aria-selected="false" tabindex="-1">TikTok Ads</button>
+      <button class="tab" role="tab" id="t-seo" aria-controls="p-seo" aria-selected="false" tabindex="-1">SEO</button>
+      <button class="tab" role="tab" id="t-web" aria-controls="p-web" aria-selected="false" tabindex="-1">Web Site</button>
+    </div>
+
+    <div class="panel show" role="tabpanel" id="p-google" aria-labelledby="t-google">
+      <div class="panel-img"><img src="img/google-ads-900.webp" width="900" height="641" loading="lazy" decoding="async" alt="Masada açık dizüstü bilgisayarda kampanya performans paneli"></div>
+      <div>
+        <h3>Google Ads yönetimi</h3>
+        <p>Paranın en çok boşa gittiği yer alakasız aramalardır. Önce hesabınızı denetler, boşa harcayan kelimeleri keser, sonra bütçeyi kazandıran kampanyalara taşırız.</p>
+        <div class="feat">
+          <div><b>Hesap denetimi</b><span>Mevcut hesabın 40 maddelik kontrolü, ilk hafta</span></div>
+          <div><b>Dönüşüm takibi</b><span>Form, arama ve WhatsApp tıklamaları ölçülür</span></div>
+          <div><b>Kampanya yapısı</b><span>Arama, PMax, YouTube ve yeniden pazarlama</span></div>
+          <div><b>Haftalık optimizasyon</b><span>Teklif, kelime, reklam metni ve bütçe ayarı</span></div>
+        </div>
+        <a href="#paketler" class="btn btn-ghost" data-plan="reklam">Reklam paketlerini gör <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-meta" aria-labelledby="t-meta" hidden>
+      <div class="panel-img"><img src="img/meta-ads-900.webp" width="900" height="675" loading="lazy" decoding="async" alt="Ahşap masada dizüstü bilgisayarın yanında sosyal medya uygulaması açık telefon"></div>
+      <div>
+        <h3>Meta Ads (Instagram + Facebook)</h3>
+        <p>İyi kreatif, iyi hedeflemeden daha çok kazandırır. Her ay yeni kreatif varyasyonları test eder, kazananı ölçekleriz.</p>
+        <div class="feat">
+          <div><b>Kitle kurgusu</b><span>İlgi alanı, benzer kitle ve site ziyaretçileri</span></div>
+          <div><b>Kreatif testi</b><span>Ayda 6-12 görsel/video varyasyonu</span></div>
+          <div><b>Teknik kurulum</b><span>Pixel, Conversions API, katalog</span></div>
+          <div><b>Mesaj kampanyaları</b><span>DM ve WhatsApp'a yönlendiren reklamlar</span></div>
+        </div>
+        <a href="#paketler" class="btn btn-ghost" data-plan="reklam">Reklam paketlerini gör <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-tiktok" aria-labelledby="t-tiktok" hidden>
+      <div class="panel-img"><img src="img/tiktok-ads-900.webp" width="900" height="600" loading="lazy" decoding="async" alt="Telefon ekranında sosyal medya uygulamaları klasörü"></div>
+      <div>
+        <h3>TikTok Ads</h3>
+        <p>TikTok'ta reklam gibi görünen reklam izlenmez. İlk 2 saniyede durduran, gerçek kişilerin çektiği videolarla kampanya kurarız.</p>
+        <div class="feat">
+          <div><b>Video senaryosu</b><span>Kanca, fayda, çağrı: 15-30 saniyelik kurgular</span></div>
+          <div><b>Spark Ads</b><span>İçerik üreticilerin videolarını reklama çevirme</span></div>
+          <div><b>Pixel ve olaylar</b><span>Sepete ekleme, satın alma, form takibi</span></div>
+          <div><b>Kitle testleri</b><span>Geniş kitle ve ilgi alanı karşılaştırması</span></div>
+        </div>
+        <a href="#paketler" class="btn btn-ghost" data-plan="reklam">Reklam paketlerini gör <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-seo" aria-labelledby="t-seo" hidden>
+      <div class="panel-img"><img src="img/seo-900.webp" width="900" height="600" loading="lazy" decoding="async" alt="Ahşap masada pazarlama stratejisi notu, kitaplar ve kalemler"></div>
+      <div>
+        <h3>SEO paketleri</h3>
+        <p>SEO bir ayda bitmez ama her ay birikir. Teknik altyapıyı düzeltir, müşterinizin aradığı sorulara cevap veren içerikler yazar, otoritenizi artırırız.</p>
+        <div class="feat">
+          <div><b>Teknik SEO</b><span>Hız, indeksleme, site haritası, yapısal veri</span></div>
+          <div><b>İçerik</b><span>Anahtar kelime planına göre aylık makaleler</span></div>
+          <div><b>Yerel SEO</b><span>Google İşletme Profili ve harita sıralaması</span></div>
+          <div><b>Sıralama takibi</b><span>Hedef kelimelerde aylık konum raporu</span></div>
+        </div>
+        <a href="#paketler" class="btn btn-ghost" data-plan="seo">SEO paketlerini gör <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-web" aria-labelledby="t-web" hidden>
+      <div class="panel-img"><img src="img/web-900.webp" width="900" height="600" loading="lazy" decoding="async" alt="İki tasarımcı ofiste büyük ekranlarda web sitesi üzerinde çalışıyor"></div>
+      <div>
+        <h3>Web site hizmetleri</h3>
+        <p>Reklamın başarısı, tıklayan kişinin indiği sayfaya bağlıdır. Hızlı açılan, mobilde kusursuz, tek amaca odaklı WordPress siteler kurarız.</p>
+        <div class="feat">
+          <div><b>Landing page</b><span>Kampanyaya özel, tek hedefli sayfa</span></div>
+          <div><b>Kurumsal site</b><span>Yönetim panelli, SEO altyapılı WordPress</span></div>
+          <div><b>E-ticaret</b><span>WooCommerce, ödeme ve kargo entegrasyonu</span></div>
+          <div><b>Bakım</b><span>Güncelleme, yedek, güvenlik ve hız</span></div>
+        </div>
+        <a href="#paketler" class="btn btn-ghost" data-plan="web">Web paketlerini gör <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOK: Paketler / fiyat tablosu (WP: Elementor Price Table x3, sekmeli) ============ -->
+<section class="sec" id="paketler" data-blok="paketler">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Paketler</span><h2>Ne ödediğinizi baştan bilin.</h2></div>
+      <p>Gizli kalem yok. Reklam bütçesi platforma doğrudan sizin kartınızdan ödenir; bize yalnızca yönetim ücreti ödersiniz.</p>
+    </div>
+    <div class="seg rv" role="tablist" aria-label="Paket türü">
+      <button role="tab" aria-selected="true" aria-controls="pl-seo" id="s-seo" data-seg="seo">SEO</button>
+      <button role="tab" aria-selected="false" aria-controls="pl-reklam" id="s-reklam" data-seg="reklam" tabindex="-1">Reklam yönetimi</button>
+      <button role="tab" aria-selected="false" aria-controls="pl-web" id="s-web" data-seg="web" tabindex="-1">Web site</button>
+    </div>
+
+    <div class="plans" id="pl-seo" role="tabpanel" aria-labelledby="s-seo">
+      <div class="plan rv">
+        <h3>Başlangıç</h3><p class="for">Yeni siteler ve yerel işletmeler için temel SEO.</p>
+        <div class="price"><b>₺6.900</b><span>/ ay</span></div><div class="vat">+ KDV · taahhütsüz</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>20 hedef anahtar kelime</li>
+          <li><svg><use href="#i-check"/></svg>Teknik SEO denetimi ve düzeltme</li>
+          <li><svg><use href="#i-check"/></svg>Ayda 2 SEO uyumlu içerik</li>
+          <li><svg><use href="#i-check"/></svg>Google İşletme Profili düzenleme</li>
+          <li><svg><use href="#i-check"/></svg>Aylık sıralama raporu</li>
+          <li class="no"><svg><use href="#i-minus"/></svg>Bağlantı kazanımı</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-ghost" data-pick="SEO — Başlangıç">Bu paketi seç</a>
+      </div>
+      <div class="plan pop rv">
+        <span class="badge">En çok tercih edilen</span>
+        <h3>Büyüme</h3><p class="for">Rekabetçi sektörlerde trafiği düzenli artırmak isteyenler.</p>
+        <div class="price"><b>₺12.900</b><span>/ ay</span></div><div class="vat">+ KDV · taahhütsüz</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>50 hedef anahtar kelime</li>
+          <li><svg><use href="#i-check"/></svg>Teknik SEO + hız optimizasyonu</li>
+          <li><svg><use href="#i-check"/></svg>Ayda 4 içerik + sayfa iyileştirme</li>
+          <li><svg><use href="#i-check"/></svg>Aylık bağlantı kazanımı</li>
+          <li><svg><use href="#i-check"/></svg>Rakip analizi</li>
+          <li><svg><use href="#i-check"/></svg>Aylık değerlendirme görüşmesi</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-primary" data-pick="SEO — Büyüme">Bu paketi seç</a>
+      </div>
+      <div class="plan rv">
+        <h3>Kurumsal</h3><p class="for">E-ticaret, çok dilli ve çok şubeli yapılar için.</p>
+        <div class="price"><b>₺22.900</b><span>/ ay</span></div><div class="vat">+ KDV · taahhütsüz</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>120+ hedef anahtar kelime</li>
+          <li><svg><use href="#i-check"/></svg>Kategori ve ürün sayfası SEO'su</li>
+          <li><svg><use href="#i-check"/></svg>Ayda 8 içerik, çok dil desteği</li>
+          <li><svg><use href="#i-check"/></svg>Dijital PR ve bağlantı kazanımı</li>
+          <li><svg><use href="#i-check"/></svg>Canlı rapor paneli</li>
+          <li><svg><use href="#i-check"/></svg>Size özel SEO danışmanı</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-ghost" data-pick="SEO — Kurumsal">Bu paketi seç</a>
+      </div>
+    </div>
+
+    <div class="plans" id="pl-reklam" role="tabpanel" aria-labelledby="s-reklam" hidden>
+      <div class="plan">
+        <h3>Tek platform</h3><p class="for">Google, Meta ya da TikTok'tan birinde başlamak isteyenler.</p>
+        <div class="price"><b>₺7.500</b><span>/ ay</span></div><div class="vat">+ KDV · reklam bütçesi hariç</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>1 platformda hesap yönetimi</li>
+          <li><svg><use href="#i-check"/></svg>Aylık 60.000 TL'ye kadar bütçe</li>
+          <li><svg><use href="#i-check"/></svg>Dönüşüm takibi kurulumu</li>
+          <li><svg><use href="#i-check"/></svg>Haftalık optimizasyon</li>
+          <li><svg><use href="#i-check"/></svg>Aylık rapor</li>
+          <li class="no"><svg><use href="#i-minus"/></svg>Kreatif üretimi</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-ghost" data-pick="Reklam — Tek platform">Bu paketi seç</a>
+      </div>
+      <div class="plan pop">
+        <span class="badge">En çok tercih edilen</span>
+        <h3>Çoklu platform</h3><p class="for">Google + Meta birlikte; arayanı ve keşfedeni yakalayın.</p>
+        <div class="price"><b>₺13.500</b><span>/ ay</span></div><div class="vat">+ KDV · reklam bütçesi hariç</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Google Ads + Meta Ads</li>
+          <li><svg><use href="#i-check"/></svg>Aylık 150.000 TL'ye kadar bütçe</li>
+          <li><svg><use href="#i-check"/></svg>Ayda 6 statik kreatif</li>
+          <li><svg><use href="#i-check"/></svg>Yeniden pazarlama kurgusu</li>
+          <li><svg><use href="#i-check"/></svg>İki haftada bir rapor görüşmesi</li>
+          <li><svg><use href="#i-check"/></svg>Landing page önerileri</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-primary" data-pick="Reklam — Çoklu platform">Bu paketi seç</a>
+      </div>
+      <div class="plan">
+        <h3>Tam yönetim</h3><p class="for">Google, Meta ve TikTok'ta ölçeklenen markalar için.</p>
+        <div class="price"><b>₺21.000</b><span>/ ay</span></div><div class="vat">+ KDV · reklam bütçesi hariç</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Google + Meta + TikTok</li>
+          <li><svg><use href="#i-check"/></svg>Bütçe sınırı yok</li>
+          <li><svg><use href="#i-check"/></svg>Ayda 8 kreatif (4 video dahil)</li>
+          <li><svg><use href="#i-check"/></svg>Haftalık rapor ve görüşme</li>
+          <li><svg><use href="#i-check"/></svg>Canlı rapor paneli</li>
+          <li><svg><use href="#i-check"/></svg>Size özel hesap yöneticisi</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-ghost" data-pick="Reklam — Tam yönetim">Bu paketi seç</a>
+      </div>
+    </div>
+
+    <div class="plans" id="pl-web" role="tabpanel" aria-labelledby="s-web" hidden>
+      <div class="plan">
+        <h3>Landing page</h3><p class="for">Tek kampanya, tek hedef: form ya da arama.</p>
+        <div class="price"><b>₺9.900</b><span>tek sefer</span></div><div class="vat">+ KDV · 5 iş günü</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Tek sayfa, dönüşüm odaklı tasarım</li>
+          <li><svg><use href="#i-check"/></svg>Form, WhatsApp ve arama butonu</li>
+          <li><svg><use href="#i-check"/></svg>Reklam takip kodları</li>
+          <li><svg><use href="#i-check"/></svg>Mobil hız optimizasyonu</li>
+          <li class="no"><svg><use href="#i-minus"/></svg>Blog ve çoklu sayfa</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-ghost" data-pick="Web — Landing page">Bu paketi seç</a>
+      </div>
+      <div class="plan pop">
+        <span class="badge">En çok tercih edilen</span>
+        <h3>Kurumsal site</h3><p class="for">Güven veren, SEO'ya hazır şirket sitesi.</p>
+        <div class="price"><b>₺24.900</b><span>tek sefer</span></div><div class="vat">+ KDV · 2-3 hafta</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>8 sayfaya kadar WordPress site</li>
+          <li><svg><use href="#i-check"/></svg>Kolay yönetim paneli</li>
+          <li><svg><use href="#i-check"/></svg>Teknik SEO altyapısı</li>
+          <li><svg><use href="#i-check"/></svg>Blog ve teklif formu</li>
+          <li><svg><use href="#i-check"/></svg>3 ay ücretsiz bakım</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-primary" data-pick="Web — Kurumsal site">Bu paketi seç</a>
+      </div>
+      <div class="plan">
+        <h3>E-ticaret</h3><p class="for">Ürünlerini internetten satmak isteyen markalar.</p>
+        <div class="price"><b>₺49.900</b><span>tek sefer</span></div><div class="vat">+ KDV · 4-6 hafta</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>WooCommerce mağaza kurulumu</li>
+          <li><svg><use href="#i-check"/></svg>Sanal POS ve kargo entegrasyonu</li>
+          <li><svg><use href="#i-check"/></svg>Ürün feed'i (Google, Meta)</li>
+          <li><svg><use href="#i-check"/></svg>50 ürün yükleme dahil</li>
+          <li><svg><use href="#i-check"/></svg>6 ay ücretsiz bakım</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-ghost" data-pick="Web — E-ticaret">Bu paketi seç</a>
+      </div>
+    </div>
+    <p class="price-note">Fiyatlar örnek amaçlıdır; ajansın kendi fiyatlarıyla değiştirilecektir.</p>
+  </div>
+</section>
+
+<!-- ============ BLOK: Süreç (WP: 4 sütun / Elementor Icon List) ============ -->
+<section class="sec detail" id="surec" data-blok="surec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Süreç</span><h2>İlk görüşmeden ilk rapora dört adım.</h2></div>
+      <p>Sözleşme imzalamadan önce ne yapacağımızı yazılı olarak görürsünüz. Sürpriz yok.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="n">01</div><h3>Ücretsiz analiz</h3><p>Reklam hesaplarınızı, sitenizi ve rakiplerinizi inceleriz. Nerede para kaybettiğinizi gösteririz.</p><small>48 saat</small></div>
+      <div class="step rv"><div class="n">02</div><h3>Strateji ve teklif</h3><p>Hangi kanala ne kadar bütçe, hangi hedef, hangi takvim: tek sayfalık net bir plan.</p><small>3 iş günü</small></div>
+      <div class="step rv"><div class="n">03</div><h3>Kurulum ve yayın</h3><p>Takip kodları, kampanyalar, kreatifler ve gerekiyorsa landing page hazırlanır, yayına alınır.</p><small>İlk 14 gün</small></div>
+      <div class="step rv"><div class="n">04</div><h3>Ölç, iyileştir, raporla</h3><p>Her hafta optimizasyon, her ay sade bir rapor ve bir sonraki ayın planı.</p><small>Her ay</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOK: Örnek vaka sonuçları (WP: Elementor Loop / Gutenberg Query) ============ -->
+<section class="sec" id="sonuclar" data-blok="vakalar">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Sonuçlar</span><h2>Rakamla konuşan işler.</h2></div>
+      <p>Aşağıdaki çalışmalar sektör ortalamalarına dayanan örnek vakalardır; ajansın kendi referanslarıyla değiştirilecektir.</p>
+    </div>
+    <div class="cases">
+      <article class="case rv">
+        <div class="case-top"><span class="sector">E-ticaret · ev tekstili</span><span class="tag">Örnek vaka</span></div>
+        <h3>Bütçe aynı kaldı, satış 2,8 katına çıktı.</h3>
+        <p>Dağınık Google ve Meta kampanyaları tek yapıda toplandı, ürün feed'i düzeltildi, kazanmayan ürünler reklamdan çıkarıldı.</p>
+        <div class="kpis"><div class="kpi"><b class="up">4,6x</b><span>ROAS (önce 2,1x)</span></div><div class="kpi"><b>−%41</b><span>Satış başı maliyet</span></div><div class="kpi"><b>+%180</b><span>Aylık ciro</span></div></div>
+        <div class="case-foot"><span>Google Ads</span><span>Meta Ads</span><span>6 ay</span></div>
+      </article>
+      <article class="case rv">
+        <div class="case-top"><span class="sector">Sağlık · özel klinik</span><span class="tag">Örnek vaka</span></div>
+        <h3>Başvuru maliyeti yarıdan fazla düştü.</h3>
+        <p>Alakasız aramalar negatif listeye alındı, her tedavi için ayrı landing page kuruldu, arama takibi eklendi.</p>
+        <div class="kpis"><div class="kpi"><b class="up">₺185</b><span>Başvuru maliyeti (önce ₺410)</span></div><div class="kpi"><b>3,2x</b><span>Organik randevu</span></div><div class="kpi"><b>%31</b><span>Form dönüşüm oranı</span></div></div>
+        <div class="case-foot"><span>Google Ads</span><span>SEO</span><span>9 ay</span></div>
+      </article>
+      <article class="case rv">
+        <div class="case-top"><span class="sector">B2B · endüstriyel üretici</span><span class="tag">Örnek vaka</span></div>
+        <h3>Reklamsız gelen teklif talebi 4 katına çıktı.</h3>
+        <p>Site WordPress'te yeniden kuruldu, her ürün grubu için teknik içerik yazıldı, İngilizce sürüm eklendi.</p>
+        <div class="kpis"><div class="kpi"><b class="up">+%212</b><span>Organik trafik</span></div><div class="kpi"><b>61</b><span>Aylık teklif talebi (önce 14)</span></div><div class="kpi"><b>1,2 sn</b><span>Mobil açılış süresi</span></div></div>
+        <div class="case-foot"><span>SEO</span><span>Web site</span><span>12 ay</span></div>
+      </article>
+      <article class="case rv">
+        <div class="case-top"><span class="sector">Kozmetik · D2C marka</span><span class="tag">Örnek vaka</span></div>
+        <h3>TikTok'ta ilk ay kârlı kampanya.</h3>
+        <p>8 içerik üreticisiyle 24 kısa video çekildi; en iyi 3 video Spark Ads ile ölçeklendi.</p>
+        <div class="kpis"><div class="kpi"><b class="up">1,9M</b><span>Görüntülenme</span></div><div class="kpi"><b>₺38</b><span>Bin gösterim maliyeti</span></div><div class="kpi"><b>3,1x</b><span>ROAS (ilk 30 gün)</span></div></div>
+        <div class="case-foot"><span>TikTok Ads</span><span>Kreatif</span><span>1 ay</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOK: Neden biz (WP: Görsel + Metin, 2 sütun) ============ -->
+<section class="sec detail" data-blok="neden-biz">
+  <div class="wrap why">
+    <div class="why-photo rv"><img src="img/ekip-1000.webp" width="1000" height="667" loading="lazy" decoding="async" alt="Ekip ahşap masa etrafında dizüstü bilgisayarlarla birlikte çalışıyor"></div>
+    <div class="rv">
+      <span class="eyebrow">Çalışma şeklimiz</span>
+      <h2>Ajans değil, pazarlama ekibiniz gibi.</h2>
+      <p>Hesabınızı bir stajyere devretmiyoruz. Kampanyanızı kuran kişi, aylık raporunuzu da sunan kişidir.</p>
+      <div class="why-list">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><b>Hesaplar sizin</b><span>Reklam hesapları ve veriler sizin adınıza açılır; ayrılırsanız her şey sizde kalır.</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="M8 15v-3M12 15V9M16 15v-5"/></svg><b>Sade rapor</b><span>Teknik terim yığını yok: harcama, gelen müşteri, müşteri başı maliyet.</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><b>Aynı gün dönüş</b><span>Mesai içinde yazdığınız her soruya aynı gün cevap.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOK: SSS (WP: Elementor Accordion / Gutenberg Details) ============ -->
+<section class="sec" id="sss" data-blok="sss">
+  <div class="wrap faq-grid">
+    <div class="faq-side rv">
+      <span class="eyebrow">SSS</span>
+      <h2>Sık sorulan sorular</h2>
+      <p>Aradığınız cevap burada yoksa bize yazın; aynı gün dönelim.</p>
+      <a href="#iletisim" class="btn btn-ghost">Soru sor <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="rv">
+      <details><summary>Minimum sözleşme süresi var mı?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p>Hayır. Çalışma aylıktır; bırakmak isterseniz 30 gün önceden haber vermeniz yeterli. SEO'da anlamlı sonuç için en az 4-6 ay öneririz, ama zorunlu tutmayız.</p></details>
+      <details><summary>Reklam bütçesi paket fiyatına dahil mi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p>Hayır. Reklam bütçesi Google, Meta ya da TikTok'a doğrudan sizin kartınızdan ödenir. Paket fiyatı yalnızca yönetim, kurulum ve raporlama ücretidir.</p></details>
+      <details><summary>Ne zaman sonuç görürüm?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p>Reklam kampanyalarında ilk anlamlı veri 2-4 haftada oluşur. SEO'da ilk sıralama hareketleri genellikle 2-3. ayda, trafik artışı 4-6. ayda görülür.</p></details>
+      <details><summary>Raporları nasıl alacağım?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p>Her ayın ilk haftası tek sayfalık PDF rapor ve kısa bir görüntülü görüşme. Büyüme ve üstü paketlerde 7/24 açık canlı panel de verilir.</p></details>
+      <details><summary>Mevcut web sitemle çalışabilir misiniz?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p>Evet. İlk analizde sitenizin hızını ve dönüşüm durumunu kontrol ederiz. Gerekirse yalnızca kampanyaya özel bir landing page kurarız; siteyi baştan yapmak şart değildir.</p></details>
+      <details><summary>Hangi sektörlerle çalışıyorsunuz?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><p>E-ticaret, sağlık, eğitim, B2B üretim, turizm ve hizmet sektörleri. Aynı şehirde birbirine rakip iki firmayla aynı anda çalışmayız.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOK: İletişim + form (WP: Contact Form 7 / Elementor Form / WPForms) ============ -->
+<section class="sec contact" id="iletisim" data-blok="iletisim">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <span class="eyebrow">İletişim</span>
+      <h2>Hesabınızı ücretsiz inceleyelim.</h2>
+      <p style="color:var(--muted);font-size:17px">Formu doldurun, 48 saat içinde reklam hesaplarınız ve siteniz için nerede para kaybettiğinizi gösteren kısa bir analiz gönderelim.</p>
+      <div class="contact-info">
+        <a href="#iletisim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>0 (212) 000 00 00</a>
+        <a href="#iletisim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>merhaba@novadijital.example</a>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Örnek Mah. Ajans Sk. No:1, İstanbul</div>
+      </div>
+    </div>
+    <form id="form" class="rv" novalidate>
+      <div class="demo-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><span><b>Demo form:</b> Bu örnek tasarımda form gönderim yapmaz. WordPress kurulumunda Contact Form 7 / Elementor Form ile e-postanıza bağlanır.</span></div>
+      <div class="row">
+        <div class="field"><label for="f-ad">Ad soyad</label><input id="f-ad" name="ad" autocomplete="name" placeholder="Adınız soyadınız"></div>
+        <div class="field"><label for="f-firma">Firma</label><input id="f-firma" name="firma" autocomplete="organization" placeholder="Firma adı"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></div>
+        <div class="field"><label for="f-mail">E-posta</label><input id="f-mail" name="mail" type="email" autocomplete="email" placeholder="ornek@firma.com"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-hizmet">İlgilendiğiniz hizmet</label>
+          <select id="f-hizmet" name="hizmet"><option>Google Ads</option><option>Meta Ads</option><option>TikTok Ads</option><option>SEO</option><option>Web site</option><option>Birden fazla / emin değilim</option></select></div>
+        <div class="field"><label for="f-butce">Aylık reklam bütçesi</label>
+          <select id="f-butce" name="butce"><option>Henüz reklam vermiyorum</option><option>25.000 TL altı</option><option>25.000 - 75.000 TL</option><option>75.000 - 200.000 TL</option><option>200.000 TL üzeri</option></select></div>
+      </div>
+      <div class="field"><label for="f-mesaj">Kısaca hedefiniz</label><textarea id="f-mesaj" name="mesaj" placeholder="Örn. Google reklamlarından gelen başvuruların maliyetini düşürmek istiyoruz."></textarea></div>
+      <label class="check"><input type="checkbox" name="kvkk"> KVKK aydınlatma metnini okudum, iletişim için bilgilerimin kullanılmasını kabul ediyorum.</label>
+      <button class="btn btn-primary" type="submit">Ücretsiz analiz iste <svg><use href="#i-arrow"/></svg></button>
+      <p class="form-ok" id="form-ok" role="status">Teşekkürler. Bu bir demo form olduğu için gönderim yapılmadı.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ============ BLOK: Footer (WP: Footer şablonu) ============ -->
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <a href="#top" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M5 19V5h2.6l8.8 10.2V5H19v14h-2.6L7.6 8.8V19z" fill="#1a0b05"/></svg></span>nova<span>dijital</span></a>
+        <p>Google, Meta ve TikTok reklamları, SEO ve web siteleri. Tek ekip, tek plan, sade rapor.</p>
+      </div>
+      <div><h4>Hizmetler</h4><ul><li><a href="#detay" data-tab="t-google">Google Ads</a></li><li><a href="#detay" data-tab="t-meta">Meta Ads</a></li><li><a href="#detay" data-tab="t-tiktok">TikTok Ads</a></li><li><a href="#detay" data-tab="t-seo">SEO paketleri</a></li><li><a href="#detay" data-tab="t-web">Web site</a></li></ul></div>
+      <div><h4>Ajans</h4><ul><li><a href="#surec">Süreç</a></li><li><a href="#sonuclar">Sonuçlar</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#sss">SSS</a></li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a href="#iletisim">Teklif al</a></li><li><a href="#iletisim">0 (212) 000 00 00</a></li><li><a href="#iletisim">KVKK</a></li></ul></div>
+    </div>
+    <div class="ft-bot"><span>© 2026 Nova Dijital. Marka adı, iletişim bilgileri, fiyatlar ve vakalar yer tutucudur.</span><span>Fotoğraflar: Unsplash</span></div>
+  </div>
+</footer>
+
+<a class="ornek" href="https://dijitabela.com" target="_blank" rel="noopener"><i></i>Örnek tasarım — Dijitabela</a>
+
+<script>
+(function(){
+  var d=document,b=d.body;b.classList.remove('no-js');
+  var hdr=d.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('scrolled',window.scrollY>10)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Mobil menü
+  var burger=d.getElementById('burger'),nav=d.getElementById('nav');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Menüyü kapat':'Menüyü aç')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+  // Sekme yardımcı
+  function tabset(btns,getPanel,onShow){
+    function sel(btn,focus){
+      btns.forEach(function(x){var on=x===btn;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;var p=getPanel(x);p.hidden=!on;if(on){p.classList.remove('show');void p.offsetWidth;p.classList.add('show')}});
+      if(focus)btn.focus();if(onShow)onShow(btn);
+    }
+    btns.forEach(function(btn,i){
+      btn.addEventListener('click',function(){sel(btn)});
+      btn.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight')n=btns[(i+1)%btns.length];if(k==='ArrowLeft')n=btns[(i-1+btns.length)%btns.length];if(n){e.preventDefault();sel(n,true)}});
+    });
+    return sel;
+  }
+  var tabs=[].slice.call(d.querySelectorAll('.tab'));
+  var selTab=tabset(tabs,function(x){return d.getElementById(x.getAttribute('aria-controls'))});
+  d.querySelectorAll('[data-tab]').forEach(function(a){a.addEventListener('click',function(){selTab(d.getElementById(a.getAttribute('data-tab')))})});
+
+  var segs=[].slice.call(d.querySelectorAll('.seg button'));
+  var selSeg=tabset(segs,function(x){return d.getElementById(x.getAttribute('aria-controls'))},function(){
+    d.querySelectorAll('.plans:not([hidden]) .rv').forEach(function(el){el.classList.add('in')});
+  });
+  d.querySelectorAll('[data-plan]').forEach(function(a){a.addEventListener('click',function(){selSeg(d.getElementById('s-'+a.getAttribute('data-plan')))})});
+
+  // Paket seçince formu doldur
+  var msg=d.getElementById('f-mesaj');
+  d.querySelectorAll('[data-pick]').forEach(function(a){a.addEventListener('click',function(){msg.value='İlgilendiğim paket: '+a.getAttribute('data-pick')+'\n'})});
+
+  // Demo form
+  d.getElementById('form').addEventListener('submit',function(e){e.preventDefault();d.getElementById('form-ok').classList.add('on')});
+
+  // Kaydırınca beliren öğeler
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  } else els.forEach(function(el){el.classList.add('in')});
+})();
+</script>
+</body>
+</html>
