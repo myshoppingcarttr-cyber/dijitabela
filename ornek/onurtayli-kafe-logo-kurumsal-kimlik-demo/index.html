@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Kafe Logo ve Kurumsal Kimlik Ön Çalışması · Dijitabela demo</title>
+<meta name="description" content="İsmi yenilenen bir kafe için 2 farklı logo konsepti, renk ve yazı rehberi, kartvizit, menü kapağı, Instagram profili ve kahve bardağı maketleri. Dijitabela ön çalışma demosu.">
+<link rel="icon" href="https://dijitabela.com/assets/favicon.svg">
+<style>
+:root{--pk:#1d1a17;--pm:#675e54;--pbg:#f5f1ea;--pl:#e2dacd;--pc:#c2410c;--pcd:#9a3412}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--pbg);color:var(--pk);font:400 16px/1.6 system-ui,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+.k{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.1;letter-spacing:-.01em}
+
+/* üst menü */
+nav{position:sticky;top:0;z-index:50;background:rgba(29,26,23,.94);backdrop-filter:blur(10px);color:#fff}
+nav .k{display:flex;align-items:center;gap:20px;min-height:64px}
+nav .br{margin-right:auto;font-weight:800;letter-spacing:.02em;text-decoration:none;display:flex;flex-direction:column;line-height:1.15}
+nav .br small{font-weight:500;font-size:.72rem;color:#d8cfc2;letter-spacing:.08em;text-transform:uppercase}
+nav a.l{color:#e9e2d6;text-decoration:none;font-size:.92rem}
+nav a.l:hover{color:#fff;text-decoration:underline}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:12px;background:var(--pc);color:#fff!important;font-weight:800;text-decoration:none;border:2px solid var(--pc);cursor:pointer;font-size:1rem;transition:.2s}
+.btn:hover{background:var(--pcd);border-color:var(--pcd);transform:translateY(-2px)}
+.btn.o{background:transparent;color:var(--pk)!important;border-color:var(--pk)}
+.btn.o:hover{background:var(--pk);color:#fff!important}
+@media(max-width:700px){nav a.l{display:none}}
+
+/* hero */
+.hero{padding:clamp(40px,7vw,90px) 0 30px}
+.et{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pcd);font-weight:800}
+h1{font-size:clamp(2.2rem,6vw,4.4rem);margin:14px 0 18px;max-width:15ch}
+.hero p.lead{color:var(--pm);max-width:660px;font-size:1.12rem}
+.hero .bt{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.fact{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:38px 0 30px}
+.fact div{background:#fff;border:1px solid var(--pl);border-radius:16px;padding:16px 18px}
+.fact b{display:block;font:700 1.7rem Georgia,serif}
+.fact span{color:var(--pm);font-size:.88rem}
+@media(max-width:760px){.fact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:760px){.duo{grid-template-columns:minmax(0,1fr)}}
+.duo a{display:block;text-decoration:none;border-radius:22px;padding:clamp(20px,3vw,34px);position:relative;overflow:hidden;transition:.25s;border:1px solid rgba(0,0,0,.08)}
+.duo a:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,0,0,.14)}
+.duo small{display:block;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;margin-bottom:14px}
+.duo span.go{display:block;margin-top:14px;font-weight:700;font-size:.92rem}
+
+/* konsept bölümü */
+section.cs{padding:clamp(48px,7vw,84px) 0 20px;border-top:1px solid var(--pl);margin-top:30px}
+.sh{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:end;margin-bottom:26px}
+.sh .no{font:700 clamp(3.4rem,9vw,6.4rem)/0.9 Georgia,serif;color:var(--acc)}
+.sh h2{font-size:clamp(1.9rem,4.6vw,3.2rem)}
+.sh .tg{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.sh .tg span{font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:99px;border:1px solid var(--ink);color:var(--ink)}
+.idea{max-width:760px;color:var(--pm);font-size:1.08rem;margin-bottom:34px}
+.idea b{color:var(--pk)}
+h3.sb{font-size:1.25rem;margin:38px 0 14px;display:flex;align-items:center;gap:12px}
+h3.sb:after{content:"";flex:1;height:1px;background:var(--pl)}
+
+/* logo tahtası */
+.lg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lg .vs{grid-column:span 2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:860px){.lg{grid-template-columns:minmax(0,1fr)}.lg .vs{grid-column:auto}}
+@media(max-width:520px){.lg .vs{grid-template-columns:minmax(0,1fr)}}
+.tile{border-radius:18px;display:grid;place-items:center;padding:clamp(26px,4vw,44px) 20px 22px;position:relative;aspect-ratio:7/4;border:1px solid rgba(0,0,0,.1)}
+.tile small,.sp small{position:absolute;left:16px;top:12px;font:800 .68rem system-ui;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.lg-mark,.lg-lock{display:block;height:auto}
+.symc{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+@media(max-width:860px){.symc{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none}}
+@media(max-width:520px){.symc{grid-template-columns:minmax(0,1fr)}}
+.sp{border-radius:18px;position:relative;padding:40px 18px 20px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;border:1px solid rgba(0,0,0,.1)}
+.sp .av{border-radius:50%;display:grid;place-items:center;flex:none}
+
+/* palet + yazı */
+.pal{display:flex;border-radius:14px;overflow:hidden;height:14px;margin-bottom:14px;border:1px solid rgba(0,0,0,.1)}
+.sws{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media(max-width:860px){.sws{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sw{border-radius:16px;padding:16px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid rgba(0,0,0,.1)}
+.sw b{font-size:1rem}.sw code{font:700 .95rem ui-monospace,Consolas,monospace;letter-spacing:.04em}.sw span{font-size:.8rem;opacity:.92}
+.ty{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:760px){.ty{grid-template-columns:minmax(0,1fr)}}
+.tc{background:#fff;border:1px solid var(--pl);border-radius:18px;padding:22px}
+.tc .aa{font-size:4.2rem;line-height:1;color:var(--ink)}
+.tc h4{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pm);margin-bottom:8px}
+.tc .nm{font-weight:800;font-size:1.1rem;margin:10px 0 2px}
+.tc p{color:var(--pm);font-size:.94rem}
+.tc .smp{margin-top:12px;padding-top:12px;border-top:1px dashed var(--pl);color:var(--pk)}
+.note{color:var(--pm);font-size:.86rem;margin-top:12px}
+
+/* maketler */
+.mg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.mg figure{margin:0}
+.mg .w4{grid-column:span 4}.mg .w2{grid-column:span 2}
+@media(max-width:900px){.mg .w4,.mg .w2{grid-column:span 3}}
+@media(max-width:620px){.mg .w4,.mg .w2{grid-column:span 6}}
+.mg figcaption{font-size:.84rem;color:var(--pm);margin-top:8px;font-weight:600}
+.stg{position:relative;overflow:hidden;border-radius:16px;container-type:inline-size;border:1px solid rgba(0,0,0,.08)}
+
+/* vitrin */
+.sf{aspect-ratio:16/10;background:linear-gradient(#b9cbd6,#e9eeea 62%)}
+.sf>*{position:absolute}
+.sf-wall{left:6%;right:6%;top:5%;bottom:12%;background:var(--wallbg)}
+.sf-fa{left:14%;right:14%;top:11%;height:21%;background:var(--sign);border-radius:1cqw;display:flex;align-items:center;justify-content:center;box-shadow:0 1cqw 2cqw rgba(0,0,0,.3),inset 0 0 0 .3cqw rgba(255,255,255,.14)}
+.sf-fa svg{height:74%;width:auto;aspect-ratio:11/3}
+.sf-aw{left:10%;right:10%;top:34%;height:9%;background:repeating-linear-gradient(90deg,var(--acc) 0 6.25%,var(--paper) 6.25% 12.5%);border-radius:0 0 1.6cqw 1.6cqw;box-shadow:0 1.2cqw 1.8cqw rgba(0,0,0,.3)}
+.sf-win{left:12%;width:46%;top:46%;bottom:12%;border:1cqw solid var(--frame);background:linear-gradient(135deg,rgba(255,255,255,.5),rgba(255,255,255,0) 38%),var(--glass);overflow:hidden}
+.sf-win>*{position:absolute}
+.sf-lamp{top:0;width:.25cqw;height:20%;background:var(--frame)}
+.sf-lamp:after{content:"";position:absolute;left:50%;bottom:-1.6cqw;width:3cqw;height:3cqw;margin-left:-1.5cqw;border-radius:50%;background:#ffd27a;box-shadow:0 0 2.4cqw 1cqw rgba(255,210,122,.65)}
+.sf-cups{left:42%;right:6%;top:40%;height:14%;display:flex;gap:7%;align-items:flex-end}
+.sf-cups i{display:block;width:14%;height:100%;background:var(--paper);clip-path:polygon(0 0,100% 0,84% 100%,16% 100%)}
+.sf-cups i:nth-child(2){background:var(--acc)}
+.sf-shelf{left:38%;right:4%;top:54%;height:3%;background:var(--frame)}
+.sf-ctr{left:0;right:0;bottom:0;height:26%;background:var(--frame)}
+.sf-decal{left:7%;top:12%;width:22%}
+.sf-door{left:62%;width:20%;top:46%;bottom:12%;border:1cqw solid var(--frame);background:linear-gradient(120deg,rgba(255,255,255,.45),transparent 42%),var(--glass)}
+.sf-door:after{content:"";position:absolute;right:8%;top:48%;width:.8cqw;height:5cqw;border-radius:1cqw;background:var(--paper)}
+.sf-hang{position:absolute;left:50%;top:18%;transform:translateX(-50%);padding:.5cqw 1.8cqw;background:var(--paper);color:var(--ink);font:800 1.4cqw system-ui;letter-spacing:.14em;border-radius:.6cqw;box-shadow:0 .4cqw .8cqw rgba(0,0,0,.25)}
+.sf-pave{left:0;right:0;bottom:0;height:12%;background:linear-gradient(#948f87,#6f6b65)}
+.sf-blade{left:84%;top:35%;width:10%;aspect-ratio:1;border-radius:50%;background:var(--acc);display:grid;place-items:center;box-shadow:0 1cqw 1.6cqw rgba(0,0,0,.3);border:.6cqw solid var(--paper)}
+.sf-blade svg{width:68%}
+
+/* kartvizit */
+.bc{aspect-ratio:4/5}
+.bcc{position:absolute;width:74%;aspect-ratio:1.65;border-radius:2.2cqw;container-type:inline-size;box-shadow:0 3cqw 5cqw rgba(0,0,0,.3),0 .4cqw .8cqw rgba(0,0,0,.2)}
+.bcf{left:8%;top:9%;transform:rotate(-6deg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4cqw}
+.bcb{left:18%;top:46%;transform:rotate(4deg);padding:6cqw 7cqw}
+.bc-sub{font:800 3.2cqw system-ui;letter-spacing:.3em}
+.bc-nm{font-size:7.6cqw;font-weight:700;line-height:1.1}
+.bc-rl{font:700 3.8cqw system-ui;margin-top:1.2cqw}
+.bcb ul{list-style:none;margin-top:4cqw;font:500 3.6cqw/1.6 system-ui}
+.bcb svg{position:absolute;right:7cqw;bottom:7cqw;width:17cqw}
+
+/* instagram */
+.igs{aspect-ratio:4/5}
+.ph{position:absolute;left:13%;width:74%;top:2%;height:96%;border-radius:9cqw;border:1.4cqw solid #14110f;background:#fff;overflow:hidden;container-type:inline-size;color:#111;box-shadow:0 3cqw 6cqw rgba(0,0,0,.28)}
+.ph-st{display:flex;justify-content:space-between;align-items:center;padding:3cqw 8cqw 0;font:700 4cqw system-ui}
+.ph-nt{width:22cqw;height:5cqw;border-radius:5cqw;background:#14110f}
+.ph-hd{padding:3cqw 5cqw 0;font:800 5.2cqw system-ui}
+.ph-pr{display:flex;align-items:center;gap:5cqw;padding:3cqw 5cqw 0}
+.ph-av{width:24cqw;aspect-ratio:1;border-radius:50%;padding:1cqw;background:conic-gradient(var(--acc),var(--acc2),var(--soft),var(--acc));flex:none}
+.ph-av div{width:100%;height:100%;border-radius:50%;background:var(--paper);border:1cqw solid #fff;display:grid;place-items:center}
+.ph-av svg{width:60%}
+.ph-sts{flex:1;display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.ph-sts b{display:block;font:800 4.8cqw system-ui}.ph-sts span{font:500 3.1cqw system-ui;color:#555}
+.ph-bio{padding:2.4cqw 5cqw 0;font:500 3.5cqw/1.4 system-ui}.ph-bio b{display:block;font-size:3.9cqw}.ph-bio em{font-style:normal;color:var(--acc);font-weight:700}
+.ph-bt{display:flex;gap:2cqw;padding:2.6cqw 5cqw 0}
+.ph-bt span{flex:1;text-align:center;padding:2cqw 0;border-radius:2cqw;font:700 3.5cqw system-ui;background:#efeeec}
+.ph-bt span.f{background:var(--ink);color:var(--paper)}
+.ph-hl{display:flex;gap:4cqw;padding:3cqw 5cqw 0}
+.ph-hl div{text-align:center;font:600 2.8cqw system-ui;color:#333}
+.ph-hl i{display:grid;place-items:center;width:13.5cqw;aspect-ratio:1;border-radius:50%;margin:0 auto 1cqw;border:.6cqw solid #ddd;padding:.9cqw;font-style:normal}
+.ph-hl i b{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--ink);color:var(--paper);font:800 5cqw Georgia,serif}
+.ph-gr{display:grid;grid-template-columns:repeat(3,1fr);gap:.6cqw;margin-top:3.4cqw;border-top:.3cqw solid #e5e5e5;padding-top:.6cqw}
+.ph-gr div{aspect-ratio:1;display:grid;place-items:center;overflow:hidden;position:relative}
+.ph-gr svg{width:56%}
+.ph-q{font:700 4.4cqw/1.15 Georgia,serif;text-align:center;padding:0 3cqw}
+.ph-cup{width:38%;height:46%;clip-path:polygon(0 0,100% 0,84% 100%,16% 100%)}
+
+/* bardak */
+.cps{aspect-ratio:4/5;background:linear-gradient(var(--surf) 62%,var(--table) 62%)}
+.cps>*{position:absolute}
+.cp-sh{left:6%;width:88%;bottom:12%;height:9%;background:radial-gradient(closest-side,rgba(0,0,0,.4),transparent);filter:blur(1cqw)}
+.cup .ld{position:relative;height:6cqw;border-radius:1.4cqw;background:var(--lid);margin:0 -3cqw;z-index:2;box-shadow:0 .6cqw 1cqw rgba(0,0,0,.25)}
+.cup .ld:before{content:"";position:absolute;left:14%;right:14%;top:-3cqw;height:3.4cqw;border-radius:2cqw 2cqw 0 0;background:var(--lid);filter:brightness(1.12)}
+.cup .bd{position:relative;background:var(--cupc);clip-path:polygon(0 0,100% 0,85% 100%,15% 100%);margin-top:-.4cqw}
+.cup .bd:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.2),transparent 24%,rgba(255,255,255,.22) 40%,transparent 62%,rgba(0,0,0,.24))}
+.cup .sl{position:absolute;left:0;right:0;top:26%;height:48%;background:var(--slv);display:grid;place-items:center}
+.cup .sl svg,.cup .bd>svg{width:40%}
+.cup .bd>svg{position:absolute;left:30%;top:28%;width:40%}
+.bn{width:5cqw;height:7.4cqw;border-radius:50%;background:#3b2a20;bottom:7%}
+.bn:after{content:"";position:absolute;left:50%;top:12%;bottom:12%;width:.35cqw;background:rgba(255,255,255,.3);border-radius:1cqw;transform:rotate(12deg)}
+
+/* menü */
+.mns{aspect-ratio:4/5}
+.mns>*{position:absolute}
+.mn-pg{left:26%;top:9%;width:56%;aspect-ratio:3/4.1;background:#fffdf8;transform:rotate(6deg);box-shadow:0 2cqw 4cqw rgba(0,0,0,.22)}
+.mn-cv{left:17%;top:12%;width:56%;aspect-ratio:3/4.1;transform:rotate(-3deg);container-type:inline-size;box-shadow:0 3cqw 5.5cqw rgba(0,0,0,.34);border-radius:.8cqw;overflow:hidden;background:var(--cvb);color:var(--cvt)}
+.mn-cv>*{position:absolute}
+.mn-in{inset:6cqw;border:.5cqw solid var(--acc2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5cqw;text-align:center}
+.mn-ti{font:700 11cqw Georgia,serif;letter-spacing:.28em;padding-left:.28em}
+.mn-or{display:flex;align-items:center;gap:3cqw;width:50%}
+.mn-or i{flex:1;height:.4cqw;background:var(--acc2)}.mn-or b{width:2.6cqw;height:2.6cqw;background:var(--acc2);transform:rotate(45deg)}
+.mn-li{font:600 4cqw/1.7 Georgia,serif;letter-spacing:.06em}
+.mn-ft{font:700 3.2cqw system-ui;letter-spacing:.24em;text-transform:uppercase;color:var(--acc2)}
+.mn-el{top:0;bottom:0;left:9cqw;width:5cqw;background:var(--acc);box-shadow:inset .6cqw 0 1cqw rgba(0,0,0,.3),inset -.6cqw 0 1cqw rgba(255,255,255,.18)}
+
+/* paket */
+.paket{padding:clamp(48px,7vw,84px) 0;border-top:1px solid var(--pl);margin-top:46px}
+.pk{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;align-items:stretch}
+@media(max-width:860px){.pk{grid-template-columns:minmax(0,1fr)}}
+.pk .box{background:#fff;border:1px solid var(--pl);border-radius:22px;padding:clamp(22px,3.5vw,38px)}
+.pk h3{font-size:1.5rem;margin-bottom:14px}
+.pk ul{list-style:none;display:grid;gap:10px}
+.pk li{padding-left:30px;position:relative;color:#3c352e}
+.pk li:before{content:"";position:absolute;left:0;top:.45em;width:16px;height:9px;border-left:3px solid var(--pc);border-bottom:3px solid var(--pc);transform:rotate(-45deg) scale(.9)}
+.pk .pr{background:var(--pk);color:#fff;border-radius:22px;padding:clamp(22px,3.5vw,38px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.pk .pr small{font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#f0c7a8;font-size:.76rem}
+.pk .pr .fy{font:700 clamp(2.4rem,6vw,3.6rem)/1 Georgia,serif}
+.pk .pr .fy span{font:600 1rem system-ui;color:#d8cfc2}
+.pk .pr p{color:#d8cfc2}
+.pk .pr .btn{margin-top:10px}
+.pk .pr .btn.o{color:#fff!important;border-color:#8a8076}
+.pk .pr .btn.o:hover{background:#fff;color:var(--pk)!important}
+
+footer{padding:34px 0 50px;color:var(--pm);font-size:.86rem;border-top:1px solid var(--pl)}
+footer b{color:var(--pk)}
+
+/* filigran: tüm ekranı kaplar, tıklamayı engellemez */
+.wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='250'%3E%3Cg font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='15' letter-spacing='3' text-anchor='middle' fill='rgba(255,255,255,.26)' stroke='rgba(0,0,0,.24)' stroke-width='.9' paint-order='stroke'%3E%3Ctext transform='translate(122 66) rotate(-28)'%3ED%C4%B0J%C4%B0TABELA %C2%B7 %C3%96RNEK%3C/text%3E%3Ctext transform='translate(258 188) rotate(-28)'%3ED%C4%B0J%C4%B0TABELA %C2%B7 %C3%96RNEK%3C/text%3E%3C/g%3E%3C/svg%3E");background-size:380px 250px}
+</style></head><body>
+
+<!-- logo sembolleri: elle çizilmiş SVG, renkler --c1/--c2/--c3 ile değişir -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="a-mark" viewBox="0 0 120 120">
+<circle cx="60" cy="60" r="57" fill="none" stroke="var(--c1)" stroke-width="3"/>
+<circle cx="60" cy="60" r="51" fill="none" stroke="var(--c1)" stroke-width="1.2"/>
+<path d="M51 56c-6-6 5-10 0-17s3-10 3-10" fill="none" stroke="var(--c2)" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M67 56c-6-6 5-10 0-17s3-10 3-10" fill="none" stroke="var(--c2)" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M35 61h50v7c0 14-10 24-22 24h-6c-12 0-22-10-22-24z" fill="var(--c1)"/>
+<path d="M85 66h4c8 0 8 14 0 14h-5" fill="none" stroke="var(--c1)" stroke-width="4.6" stroke-linecap="round"/>
+<path d="M36 74h48" stroke="var(--c2)" stroke-width="3"/>
+<path d="M29 98h62" stroke="var(--c2)" stroke-width="3.4" stroke-linecap="round"/>
+</symbol>
+<symbol id="a-lock" viewBox="0 0 440 120">
+<use href="#a-mark" x="0" y="0" width="120" height="120"/>
+<text x="140" y="70" font-family="Georgia,'Times New Roman',serif" font-size="50" font-weight="700" letter-spacing="-1" fill="var(--c1)">Markanız</text>
+<text x="143" y="95" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="5.2" fill="var(--c2)">KAHVE · ATÖLYE</text>
+</symbol>
+<symbol id="b-mark" viewBox="0 0 120 120">
+<path d="M16 100V52a22 22 0 0 1 44 0 22 22 0 0 1 44 0v48" fill="none" stroke="var(--c1)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="rotate(16 60 82)"><ellipse cx="60" cy="82" rx="12.5" ry="18" fill="var(--c2)"/><path d="M58 65c9 9 9 25 0 34" fill="none" stroke="var(--c3)" stroke-width="3" stroke-linecap="round"/></g>
+</symbol>
+<symbol id="b-lock" viewBox="0 0 440 120">
+<use href="#b-mark" x="0" y="0" width="120" height="120"/>
+<text x="140" y="74" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="52" font-weight="600" letter-spacing="-1.5" fill="var(--c1)">markanız</text>
+<text x="143" y="98" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="6" fill="var(--c1)" fill-opacity=".72">SPECIALTY COFFEE</text>
+</symbol>
+</defs></svg>
+
+<nav><div class="k"><a class="br" href="#top">Dijitabela<small>Ön çalışma demosu</small></a><a class="l" href="#konsept-a">Konsept A</a><a class="l" href="#konsept-b">Konsept B</a><a class="l" href="#paket">Paket ve fiyat</a><a class="btn" style="min-height:42px;padding:8px 18px" href="#paket">Teklif</a></div></nav>
+
+<header class="hero k" id="top">
+<span class="et">R10 · Logo ve kurumsal kimlik · Ön çalışma</span>
+<h1>İsmi yenilenen kafeniz için iki ayrı yön.</h1>
+<p class="lead">Anlaşma öncesi hazırladığımız ön çalışma: 2 farklı logo konsepti, renk ve yazı rehberi, kartvizit, menü kapağı, Instagram profili ve kahve bardağı maketleri. Kafenin yeni adı ilanda yazmadığı için her yerde nötr <b>“Markanız”</b> yer tutucusu kullanıldı; isim netleşince tüm çalışma birebir yeni isimle işlenir.</p>
+<div class="bt"><a class="btn" href="#konsept-a">Konsept A’yı gör</a><a class="btn o" href="#konsept-b">Konsept B’yi gör</a></div>
+<div class="fact"><div><b>2</b><span>farklı logo konsepti</span></div><div><b>5</b><span>maket / konsept</span></div><div><b>2.500 TL</b><span>+ KDV · tam paket</span></div><div><b>3 iş günü</b><span>teslim süresi</span></div></div>
+<div class="duo" id="duo"></div>
+<noscript><p class="note">Bu sunum sayfası logoları ve maketleri tarayıcıda çizer; lütfen JavaScript’i açın.</p></noscript>
+</header>
+
+<main class="k">
+<section class="cs tA" id="konsept-a"></section>
+<section class="cs tB" id="konsept-b"></section>
+</main>
+
+<section class="paket" id="paket"><div class="k">
+<span class="et">Paket ve fiyat</span>
+<h2 style="font-size:clamp(1.9rem,4.6vw,3.2rem);margin:10px 0 24px">Seçtiğiniz konsept, eksiksiz kimlik.</h2>
+<div class="pk">
+<div class="box"><h3>Pakete dahil olanlar</h3><ul>
+<li>Seçtiğiniz konseptin final logosu: yatay, dikey ve yalnız sembol sürümleri (SVG, PNG, PDF)</li>
+<li>Açık zemin, koyu zemin ve tek renk kullanımlar</li>
+<li>Renk paleti (HEX, RGB, CMYK) ve yazı tipi rehberi, tek sayfa kimlik özeti</li>
+<li>Kartvizit tasarımı, baskıya hazır dosya</li>
+<li>Menü kapağı, Instagram profil görseli ve öne çıkan kapakları</li>
+<li>Kahve bardağı ve bardak kılıfı tasarımı</li>
+<li>2 tur düzeltme hakkı; dosyalar sizin, ek ücret yok</li>
+</ul></div>
+<div class="pr"><small>Paket bedeli</small><div class="fy">2.500 TL <span>+ KDV</span></div><p>Teslim süresi <b>3 iş günü</b>. KDV dahil değildir. Bu sayfadaki ön çalışma ücretsizdir; beğenmezseniz hiçbir yükümlülük yok.</p>
+<a class="btn" href="https://www.r10.net/tasarim-isleri/4914581-logo-ve-kurumsal-kimlik-tasarimi-yaptirilacaktir.html">Beğendiğiniz konsepti R10’dan yazın</a>
+<a class="btn o" href="https://wa.me/905019452184?text=Merhaba%2C%20kafe%20logo%20%C3%B6n%20%C3%A7al%C4%B1%C5%9Fman%C4%B1z%C4%B1%20inceledim.">WhatsApp: 0501 945 21 84</a></div>
+</div></div></section>
+
+<footer><div class="k"><b>Bu bir ön çalışma demosudur · dijitabela.com</b><br>Sayfadaki ad, telefon ve adres bilgileri yer tutucudur. Üzerindeki “DİJİTABELA · ÖRNEK” filigranı yalnız bu önizlemede bulunur; teslim edilen dosyalarda yoktur. Yazı tipleri önizlemede sistem yazı tipiyle gösterilmiştir.</div></footer>
+
+<div class="wm" aria-hidden="true"></div>
+
+<script>
+(function(){
+var T={
+A:{k:'a',id:'konsept-a',no:'A',name:'Demlik Mührü',tags:['Klasik','Zanaat','Sıcak'],
+ ink:'#3A2218',acc:'#A8571F',acc2:'#E0925A',paper:'#F3E8D6',deep:'#2A1810',soft:'#D9BFA0',surf:'#E4D6BF',
+ wallbg:'repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 .35cqw,transparent .35cqw 2.2cqw),repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 .3cqw,transparent .3cqw 5cqw),#8c5a3e',
+ sign:'#2A1810',frame:'#2A1810',glass:'#6a4630',table:'#b78f66',
+ idea:'Yuvarlak bir mühürün içinde buğusu tüten fincan: mahallenin köklü kahvecisinin güvenini, el yapımı bir damganın sıcaklığıyla anlatır. Serif harfler ve bakır detay, ismi değişen yerin eski dostluğunu koruyup yüzünü tazeler.',
+ pal:[['Espresso','#3A2218','Ana renk · yazı',25],['Bakır','#A8571F','Vurgu · detay',15],['Krem','#F3E8D6','Zemin',45],['Zeytin','#5B6A3C','İkincil · etiket',10],['Kahve Sütü','#D9BFA0','Yardımcı zemin',5]],
+ hf:'Playfair Display',hff:'Georgia,"Times New Roman",serif',hw:'Bold 700',bf:'Source Sans 3',bff:'system-ui,"Segoe UI",Arial,sans-serif',bw:'Regular 400 · Semibold 600',
+ hs:'Taze çekim, yavaş demleme.',bs:'Her fincan sipariş üzerine hazırlanır; çekirdeğimizi haftalık kavuruyoruz.',
+ sub:'KAHVE · ATÖLYE',avs:'Markanız · Kahve Atölyesi'},
+B:{k:'b',id:'konsept-b',no:'B',name:'Çekirdek m',tags:['Modern','Minimal','Genç'],
+ ink:'#0F3B36',acc:'#FF7A59',acc2:'#FF9A7D',paper:'#F7F2EA',deep:'#0F3B36',soft:'#9FD8C8',surf:'#DCE9E4',
+ wallbg:'#E7E1D7',sign:'#0F3B36',frame:'#1B1F1E',glass:'#CFE6DE',table:'#D8CFC2',
+ idea:'Küçük “m” harfinin ortadaki bacağını bir kahve çekirdeğine çevirdik: tek hamlede hem harf hem ürün. Düz çizgiler, canlı mercan ve gece yeşili; ambalajda, ekranda ve küçük boyutta net okunan bir kimlik kurar.',
+ pal:[['Gece Yeşili','#0F3B36','Ana renk · yazı',30],['Mercan','#FF7A59','Vurgu · çekirdek',15],['Kum','#F7F2EA','Zemin',40],['Nane','#9FD8C8','İkincil · etiket',10],['Grafit','#1B1F1E','Yardımcı koyu',5]],
+ hf:'Outfit',hff:'"Segoe UI Semibold","Segoe UI",system-ui,Arial,sans-serif',hw:'SemiBold 600',bf:'Inter',bff:'system-ui,"Segoe UI",Arial,sans-serif',bw:'Regular 400 · Medium 500',
+ hs:'taze çekim, hızlı keyif.',bs:'Günün çekirdeği tezgâhta yazılı; seçin, biz demleyelim.',
+ sub:'SPECIALTY COFFEE',avs:'Markanız · Specialty Coffee'}
+};
+function vars(a,b,c){return '--c1:'+a+';--c2:'+b+';--c3:'+c+';'}
+function svg(k,t,css,label){var vb=t==='mark'?'0 0 120 120':'0 0 440 120';return '<svg class="lg-'+t+'" viewBox="'+vb+'" style="'+css+'" role="img" aria-label="'+label+'"><use href="#'+k+'-'+t+'"/></svg>'}
+function lum(h){var n=parseInt(h.slice(1),16);return(.299*(n>>16&255)+.587*(n>>8&255)+.114*(n&255))/255}
+var lb='Markanız logosu';
+
+function tile(k,label,bg,c1,c2,c3,fg){return '<div class="tile" style="background:'+bg+';color:'+fg+'"><small>'+label+'</small>'+svg(k,'lock',vars(c1,c2,c3)+'width:84%;max-width:440px',lb+', '+label)+'</div>'}
+
+function symcard(t){var k=t.k;
+ var light='<div class="sp" style="background:'+t.paper+';color:'+t.ink+'"><small>Sembol · açık zemin</small>'
+  +svg(k,'mark',vars(t.ink,t.acc,t.paper)+'width:92px',lb+' sembol')
+  +svg(k,'mark',vars(t.ink,t.acc,t.paper)+'width:54px',lb+' sembol küçük')
+  +svg(k,'mark',vars(t.ink,t.acc,t.paper)+'width:30px',lb+' sembol çok küçük')
+  +'<span class="av" style="width:66px;height:66px;background:'+t.deep+'">'+svg(k,'mark',vars(t.paper,t.acc2,t.deep)+'width:62%',lb+' profil')+'</span></div>';
+ var dark='<div class="sp" style="background:'+t.deep+';color:'+t.paper+'"><small>Sembol · koyu zemin</small>'
+  +svg(k,'mark',vars(t.paper,t.acc2,t.deep)+'width:92px',lb+' sembol koyu')
+  +svg(k,'mark',vars(t.paper,t.acc2,t.deep)+'width:40px',lb+' sembol koyu küçük')
+  +'<span class="av" style="width:66px;height:66px;background:'+t.paper+'">'+svg(k,'mark',vars(t.ink,t.acc,t.paper)+'width:62%',lb+' profil açık')+'</span></div>';
+ return '<div class="symc">'+light+dark+'</div>'}
+
+function palette(t){var bar='',sw='';
+ t.pal.forEach(function(p){bar+='<i style="flex:'+p[3]+';background:'+p[1]+'"></i>';
+  var fg=lum(p[1])>.6?'#1d1a17':'#fff';
+  sw+='<div class="sw" style="background:'+p[1]+';color:'+fg+'"><b>'+p[0]+'</b><code>'+p[1]+'</code><span>'+p[2]+' · %'+p[3]+'</span></div>'});
+ return '<div class="pal">'+bar+'</div><div class="sws">'+sw+'</div>'}
+
+function typo(t){return '<div class="ty">'
+ +'<div class="tc"><h4>Başlık yazı tipi</h4><div class="aa" style="font-family:'+t.hff+';font-weight:'+(t.k==='a'?700:600)+'">Aa</div><div class="nm">'+t.hf+'</div><p>'+t.hw+'</p><div class="smp" style="font-family:'+t.hff+';font-weight:'+(t.k==='a'?700:600)+';font-size:1.5rem;line-height:1.2">'+t.hs+'</div></div>'
+ +'<div class="tc"><h4>Metin yazı tipi</h4><div class="aa" style="font-family:'+t.bff+';font-weight:400">Aa</div><div class="nm">'+t.bf+'</div><p>'+t.bw+'</p><div class="smp" style="font-family:'+t.bff+'">'+t.bs+'</div></div></div>'
+ +'<p class="note">Önizlemede, yazı tipleri sistemde yüklü değilse benzer bir yazı tipiyle gösterilir. Teslimde açık lisanslı (Google Fonts) dosyalar ve kullanım ölçüleri verilir.</p>'}
+
+/* ---- maketler ---- */
+function mkSf(t){var A=t.k==='a',k=t.k;
+ return '<div class="stg sf" style="--wallbg:'+t.wallbg+';--sign:'+t.sign+';--frame:'+t.frame+';--glass:'+t.glass+'">'
+ +'<div class="sf-wall"></div>'
+ +'<div class="sf-fa">'+svg(k,'lock',vars(t.paper,t.acc2,t.sign),lb+' tabela')+'</div>'
+ +(A?'<div class="sf-aw"></div>':'')
+ +'<div class="sf-win"><i class="sf-lamp" style="left:62%"></i><i class="sf-lamp" style="left:84%;height:14%"></i><div class="sf-decal">'+svg(k,'mark',vars('#fff','#fff','transparent')+'width:100%',lb+' vitrin yazısı')+'</div><div class="sf-cups"><i></i><i></i><i></i></div><div class="sf-shelf"></div><div class="sf-ctr"></div></div>'
+ +'<div class="sf-door"><span class="sf-hang">AÇIK</span></div>'
+ +(A?'':'<div class="sf-blade">'+svg(k,'mark',vars(t.ink,t.paper,t.acc),lb+' çıkma tabela')+'</div>')
+ +'<div class="sf-pave"></div></div>'}
+
+function mkBc(t){var A=t.k==='a',k=t.k;
+ var front=A?svg(k,'mark',vars(t.paper,t.acc2,t.deep)+'width:34%',lb)+'<span class="bc-sub" style="color:'+t.acc2+'">'+t.sub+'</span>'
+            :svg(k,'lock',vars(t.ink,t.paper,t.acc)+'width:76%',lb);
+ var ff=A?'Georgia,serif':'"Segoe UI",system-ui,sans-serif';
+ return '<div class="stg bc" style="background:'+t.surf+'">'
+ +'<div class="bcc bcf" style="background:'+(A?t.deep:t.acc)+'">'+front+'</div>'
+ +'<div class="bcc bcb" style="background:'+(A?t.paper:t.deep)+';color:'+(A?t.ink:t.paper)+'"><div class="bc-nm" style="font-family:'+ff+'">Ad Soyad</div><div class="bc-rl" style="color:'+(A?t.acc:t.acc2)+'">Kurucu · Baş Barista</div><ul><li>0 (5xx) xxx xx xx</li><li>@markaniz</li><li>Adres bilgisi · İlçe / İl</li></ul>'
+ +svg(k,'mark',A?vars(t.ink,t.acc,t.paper):vars(t.paper,t.acc2,t.deep),lb)+'</div></div>'}
+
+function mkIg(t){var A=t.k==='a',k=t.k;
+ var tiles=[
+  ['background:'+t.deep,svg(k,'mark',vars(t.paper,t.acc2,t.deep),lb)],
+  ['background:'+t.acc,'<div class="ph-q" style="color:'+(A?'#fff':t.ink)+'">'+(A?'Yeni sezon çekirdeği geldi':'yeni çekirdek geldi')+'</div>'],
+  ['background:'+t.paper,'<div class="ph-cup" style="background:'+t.ink+'"></div>'],
+  ['background:'+t.soft,'<div class="ph-q" style="color:'+t.ink+'">'+(A?'Güne bir fincanla başla':'önce kahve, sonra her şey')+'</div>'],
+  ['background:'+t.paper,svg(k,'lock',vars(t.ink,t.acc,t.paper)+'width:82%',lb)],
+  ['background:'+t.ink,'<div class="ph-q" style="color:'+t.paper+';font-size:9cqw">'+(A?'M':'m')+'</div>']];
+ var g='';tiles.forEach(function(x){g+='<div style="'+x[0]+'">'+x[1]+'</div>'});
+ var hl=['Menü','Çekirdek','Etkinlik','Konum'],h='';
+ hl.forEach(function(n){h+='<div><i><b>'+n.charAt(0)+'</b></i>'+n+'</div>'});
+ return '<div class="stg igs" style="background:'+t.surf+'"><div class="ph">'
+ +'<div class="ph-st"><span>9:41</span><i class="ph-nt"></i><span>100%</span></div>'
+ +'<div class="ph-hd">markaniz</div>'
+ +'<div class="ph-pr"><div class="ph-av"><div>'+svg(k,'mark',vars(t.ink,t.acc,t.paper),lb+' profil')+'</div></div><div class="ph-sts"><div><b>128</b><span>gönderi</span></div><div><b>2,4 B</b><span>takipçi</span></div><div><b>310</b><span>takip</span></div></div></div>'
+ +'<div class="ph-bio"><b>'+t.avs+'</b>'+(A?'Taze çekim, yavaş demleme.':'taze çekim, hızlı keyif.')+'<br>08.00–22.00 · İlçe / İl<br><em>Sipariş ve rezervasyon için DM</em></div>'
+ +'<div class="ph-bt"><span class="f">Takip Et</span><span>Mesaj</span></div>'
+ +'<div class="ph-hl">'+h+'</div><div class="ph-gr">'+g+'</div></div></div>'}
+
+function mkCp(t){var A=t.k==='a',k=t.k;
+ var c1=A?{cup:t.paper,slv:t.deep,lid:t.deep,m:vars(t.paper,t.acc2,t.deep)}:{cup:t.paper,slv:t.acc,lid:t.ink,m:vars(t.ink,t.paper,t.acc)};
+ var c2=A?{cup:t.deep,lid:t.paper,m:vars(t.paper,t.acc2,t.deep)}:{cup:t.ink,lid:t.acc,m:vars(t.paper,t.acc2,t.ink)};
+ return '<div class="stg cps" style="--surf:'+t.surf+';--table:'+t.table+'">'
+ +'<div class="cp-sh"></div>'
+ +'<div class="cup" style="left:10%;bottom:19%;width:40cqw;--lid:'+c1.lid+';--cupc:'+c1.cup+';--slv:'+c1.slv+'"><div class="ld"></div><div class="bd" style="height:48cqw"><div class="sl">'+svg(k,'mark',c1.m,lb+' bardak')+'</div></div></div>'
+ +'<div class="cup" style="left:58%;bottom:15%;width:29cqw;--lid:'+c2.lid+';--cupc:'+c2.cup+'"><div class="ld"></div><div class="bd" style="height:35cqw">'+svg(k,'mark',c2.m,lb+' küçük bardak')+'</div></div>'
+ +'<i class="bn" style="left:8%;transform:rotate(30deg)"></i><i class="bn" style="left:15%;bottom:5%;transform:rotate(-20deg)"></i><i class="bn" style="left:88%;bottom:9%;transform:rotate(60deg)"></i><i class="bn" style="left:50%;bottom:6%;transform:rotate(-50deg)"></i>'
+ +'</div>'}
+
+function mkMn(t){var A=t.k==='a',k=t.k,body;
+ if(A){body='<div class="mn-el"></div><div class="mn-in">'+svg(k,'mark',vars(t.paper,t.acc2,t.deep)+'width:34cqw',lb)+'<div class="mn-ti">MENÜ</div><div class="mn-or"><i></i><b></b><i></i></div><div class="mn-li">Kahveler<br>Soğuk İçecekler<br>Tatlılar</div><div class="mn-ft">Hoş geldiniz</div></div>'}
+ else{body='<div style="left:9cqw;top:9cqw;width:17cqw">'+svg(k,'mark',vars(t.paper,t.acc,t.deep),lb)+'</div>'
+  +'<div style="left:9cqw;bottom:25cqw;font:600 27cqw/0.9 \'Segoe UI\',system-ui,sans-serif;letter-spacing:-.04em">menü<span style="color:'+t.acc+'">.</span></div>'
+  +'<div style="left:9cqw;bottom:16cqw;font:700 3.4cqw system-ui;letter-spacing:.22em;color:'+t.soft+'">KAHVE · SOĞUK · TATLI</div>'
+  +'<div style="left:9cqw;right:9cqw;bottom:9cqw;height:4cqw;display:flex;gap:1.6cqw"><i style="flex:3;background:'+t.acc+'"></i><i style="flex:2;background:'+t.soft+'"></i><i style="flex:1;background:'+t.paper+'"></i></div>'}
+ return '<div class="stg mns" style="background:'+t.surf+'"><div class="mn-pg"></div><div class="mn-cv" style="--cvb:'+(A?t.deep:t.ink)+';--cvt:'+t.paper+';--acc:'+t.acc+';--acc2:'+t.acc2+'">'+body+'</div></div>'}
+
+function fig(cls,html,cap){return '<figure class="'+cls+'">'+html+'<figcaption>'+cap+'</figcaption></figure>'}
+
+function sec(c){var t=T[c],k=t.k;
+ var tags='';t.tags.forEach(function(x){tags+='<span>'+x+'</span>'});
+ return '<div class="sh"><div class="no" style="color:'+(c==='A'?t.acc:t.ink)+'">'+t.no+'</div><div><span class="et" style="color:'+t.ink+'">Konsept '+t.no+'</span><h2>'+t.name+'</h2><div class="tg">'+tags+'</div></div></div>'
+ +'<p class="idea"><b>Fikir.</b> '+t.idea+'</p>'
+ +'<h3 class="sb">Logo ve kullanımları</h3>'
+ +'<div class="lg"><div class="vs">'
+ +tile(k,'Açık zemin',t.paper,t.ink,t.acc,t.paper,t.ink)
+ +tile(k,'Koyu zemin',t.deep,t.paper,t.acc2,t.deep,t.paper)
+ +tile(k,'Tek renk · koyu','#ffffff','#1b1b1b','#1b1b1b','#ffffff','#1b1b1b')
+ +tile(k,'Tek renk · ters','#1b1b1b','#ffffff','#ffffff','#1b1b1b','#ffffff')
+ +'</div>'+symcard(t)+'</div>'
+ +'<h3 class="sb">Renk paleti</h3>'+palette(t)
+ +'<h3 class="sb">Yazı tipi önerisi</h3>'+typo(t)
+ +'<h3 class="sb">Maketler</h3>'
+ +'<div class="mg">'
+ +fig('w4',mkSf(t),'Tabela ve vitrin')
+ +fig('w2',mkIg(t),'Instagram profili')
+ +fig('w2',mkBc(t),'Kartvizit (ön / arka)')
+ +fig('w2',mkCp(t),'Kahve bardağı ve kılıf')
+ +fig('w2',mkMn(t),'Menü kapağı')
+ +'</div>'}
+
+document.getElementById('konsept-a').innerHTML=sec('A');
+document.getElementById('konsept-b').innerHTML=sec('B');
+
+var d='';
+['A','B'].forEach(function(c){var t=T[c];
+ d+='<a href="#'+t.id+'" style="background:'+t.paper+';color:'+t.ink+'"><small style="color:'+t.ink+'">Konsept '+t.no+' · '+t.tags.join(' · ')+'</small>'
+  +svg(t.k,'lock',vars(t.ink,t.acc,t.paper)+'width:100%;max-width:420px',lb+' konsept '+t.no)
+  +'<span class="go">'+t.name+' →</span></a>'});
+document.getElementById('duo').innerHTML=d;
+})();
+</script>
+</body></html>
