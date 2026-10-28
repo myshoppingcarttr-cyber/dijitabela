@@ -58,7 +58,21 @@ td b.sayi{color:var(--altin)}
 .btn.wa{background:#25d366;color:#08210f}
 .btn.ikincil{background:var(--kart);color:var(--yazi);border:1px solid var(--cizgi)}
 footer{padding:28px 0 48px;color:var(--soluk);font-size:13.5px}
-@media (max-width:640px){.demo{grid-template-columns:1fr}.demo video{max-width:320px;margin:0 auto}}
+nav a.yeni{border:1px solid var(--altin);color:var(--altin)}
+.buyume-kart{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:16px;background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:18px;align-items:center}
+.buyume-kart ul{margin:0;padding-left:18px;color:#cdd6df;font-size:14.5px}
+.buyume-kart li{margin-bottom:6px}
+.mini-fiyat{background:var(--zemin);border:1px solid var(--cizgi);border-radius:12px;padding:14px}
+.mini-fiyat .fiyat{font-size:24px}
+.mini-fiyat .btn{display:block;text-align:center;margin-top:12px;background:var(--altin);color:#111}
+.etk{font-size:11px;font-weight:700;color:#111;background:var(--altin);border-radius:5px;padding:1px 6px;vertical-align:middle;margin-left:4px}
+.tablo-sar{overflow-x:auto;margin-top:6px}
+.toplam-tablo{min-width:560px}
+.toplam-tablo td.r,.toplam-tablo th.r{text-align:right;white-space:nowrap}
+.toplam-tablo tr.top td{border-top:2px solid var(--cizgi);font-weight:700}
+.toplam-tablo tr.ind td{background:rgba(76,195,138,.1);color:var(--yesil);font-weight:800;font-size:16px}
+.toplam-tablo td small{display:block;color:var(--soluk);font-size:12.5px;font-weight:400}
+@media (max-width:640px){.buyume-kart{grid-template-columns:1fr}.demo{grid-template-columns:1fr}.demo video{max-width:320px;margin:0 auto}}
 </style>
 </head>
 <body>
@@ -71,7 +85,7 @@ footer{padding:28px 0 48px;color:var(--soluk);font-size:13.5px}
 </header>
 
 <nav><div class="sar">
-  <a href="#bulgular">Bulgular</a><a href="#rakipler">Rakipler</a><a href="#demo">Ayşe demo</a><a href="#paketler">Paketler</a><a href="#iletisim">İletişim</a>
+  <a href="#bulgular">Bulgular</a><a href="#rakipler">Rakipler</a><a href="#demo">Ayşe demo</a><a href="#paketler">Paketler</a><a class="yeni" href="#sarj">Şarj İstasyonu</a><a class="yeni" href="#transfer">Transfer</a><a href="#iletisim">İletişim</a><a href="#buyume">Toplam plan</a>
 </div></nav>
 
 <main class="sar">
@@ -156,6 +170,49 @@ footer{padding:28px 0 48px;color:var(--soluk);font-size:13.5px}
   <p class="not">Telefon asistanının konuşma süresi kullanıma göre ayrıca yansıtılır; aylık çağrı sayınıza göre netleştirilir. Aylık hizmetlerde 3 ay taahhüt. Ödeme: %50 kapora ile başlanır, kalan teslimde; kartla (PayTR) ya da havale.</p>
 </section>
 
+<section id="sarj">
+  <h2>Büyüme 1: Araç şarj istasyonu işini reklamla büyütelim<small>Sitenizde zaten var olan hizmet; ama "Antalya şarj istasyonu kurulumu" arayan kişi sizi bulamıyor</small></h2>
+  <div class="izgara">
+    <div class="kart iyi"><span class="rozet y">Fırsat</span><h3>Elektrikli araç sahibi artıyor</h3><p>Togg, Tesla, BYD sahipleri evine, sitesine, işyerine duvar tipi şarj cihazı kurduracak uzman arıyor. Oteller ve site yönetimleri de şarj noktası istiyor.</p></div>
+    <div class="kart"><h3>Hazırladığımız</h3><p>3 grup Google arama reklamı (başlıklar, açıklamalar, anahtar ve negatif kelimeler), 2 Instagram/Facebook reklam tasarımı ve keşif talebi toplayan mobil açılış sayfası prototipi.</p></div>
+  </div>
+  <div class="buyume-kart">
+    <ul>
+      <li>Reklama tıklayan kişi tek amaçlı sayfaya gelir: "WhatsApp'tan keşif iste"</li>
+      <li>Talep anında sizin WhatsApp'ınıza düşer</li>
+      <li>Ayda kaç keşif talebi geldiğini rapor ederiz</li>
+    </ul>
+    <div class="mini-fiyat">
+      <div class="aylik">Şarj İstasyonu Reklam Paketi <span class="etk">ÖNERİ</span></div>
+      <div class="fiyat">7.900 TL <small>+ KDV kurulum</small></div>
+      <div class="aylik">+ 3.900 TL + KDV / ay · reklam bütçesi ayrı</div>
+      <a class="btn" href="sarj.html">Reklam örneklerini ve sayfayı gör →</a>
+    </div>
+  </div>
+</section>
+
+<section id="transfer">
+  <h2>Büyüme 2: Transfer işiniz 4 dilde rezervasyon alsın<small>Antalya Havalimanı ↔ Alanya, Side, Belek, Kemer, Lara… turist ve yerel müşteri</small></h2>
+  <div class="izgara">
+    <div class="kart iyi"><span class="rozet y">Fırsat</span><h3>Turist inmeden önce transferini ayarlar</h3><p>Rezervasyon çoğunlukla tatilden önce, internetten ve kendi dilinde yapılır. Gece Almanya'dan ya da Rusya'dan yazan misafire anında cevap veren kazanır.</p></div>
+    <div class="kart"><h3>Hazırladığımız</h3><p>TR/EN/DE/RU çalışan rezervasyon sitesi prototipi (güzergâh, tarih, uçuş no, araç, karşılama tabelası), WhatsApp yapay zekâ asistanı örnek konuşması, otel resepsiyonu için QR'lı kartvizit.</p></div>
+  </div>
+  <div class="buyume-kart">
+    <ul>
+      <li>Asistan misafirin dilinde rezervasyonu eksiksiz alır</li>
+      <li>Türkçe özet size / şoföre tek mesajla düşer, son onay sizde</li>
+      <li>Google Haritalar'da ayrı transfer profili, listeleme siteleri, otel anlaşmaları</li>
+    </ul>
+    <div class="mini-fiyat">
+      <div class="aylik">Transfer Rezervasyon Sistemi <span class="etk">ÖNERİ</span></div>
+      <div class="fiyat">14.900 TL <small>+ KDV kurulum</small></div>
+      <div class="aylik">+ 2.900 TL + KDV / ay</div>
+      <a class="btn" href="transfer.html">Rezervasyon sitesini dene →</a>
+    </div>
+  </div>
+  <p class="not">Marka adı bilinmediği için prototipte "Tekin Güven Transfer" yazdık; adı siz belirlersiniz.</p>
+</section>
+
 <section id="iletisim">
   <h2>Nasıl başlarız?</h2>
   <ol class="adimlar">
@@ -166,6 +223,27 @@ footer{padding:28px 0 48px;color:var(--soluk);font-size:13.5px}
   <div class="cta">
     <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%20Alim%20Bey%2C%20Tekin%20G%C3%BCven%20Elektrik%20teklifi%20hakk%C4%B1nda%20yaz%C4%B1yorum.">WhatsApp'tan yazın · 0501 945 21 84</a>
     <a class="btn ikincil" href="tel:+905019452184">Arayın</a>
+  </div>
+</section>
+
+<section id="buyume">
+  <h2>Toplam büyüme planı<small>Elektrik işinde görünürlük ve çağrı karşılama + iki yeni gelir kanalı · fiyatlar KDV hariç</small></h2>
+  <div class="tablo-sar">
+  <table class="toplam-tablo">
+    <tr><th>Paket</th><th>Ne kazandırır</th><th class="r">Kurulum</th><th class="r">Aylık</th></tr>
+    <tr><td><b>Google'da Görün</b></td><td>Google Haritalar'da görünürsünüz, yorum toplamaya başlarsınız<small>"Hiçbir Çağrı Kaçmasın" paketine dahildir</small></td><td class="r">6.900 TL</td><td class="r">—</td></tr>
+    <tr><td><b>Hiçbir Çağrı Kaçmasın</b></td><td>Ayşe telefonu, WhatsApp asistanı 7/24 arıza kaydı alır</td><td class="r">14.900 TL</td><td class="r">2.900 TL</td></tr>
+    <tr><td><b>Şarj Reklamı</b> <span class="etk">ÖNERİ</span></td><td>Şarj istasyonu kurulum talebi: Google + Instagram reklamı, açılış sayfası<small>reklam bütçesi ayrı</small></td><td class="r">7.900 TL</td><td class="r">3.900 TL</td></tr>
+    <tr><td><b>Transfer</b> <span class="etk">ÖNERİ</span></td><td>4 dilli rezervasyon sitesi + WhatsApp rezervasyon asistanı</td><td class="r">14.900 TL</td><td class="r">2.900 TL</td></tr>
+    <tr class="top"><td>Toplam</td><td>Hiçbir Çağrı Kaçmasın + Şarj Reklamı + Transfer<small>Google'da Görün dahil</small></td><td class="r">37.700 TL</td><td class="r">9.700 TL</td></tr>
+    <tr class="ind"><td>Birlikte alırsanız</td><td>Kurulum ücretlerinde %15 paket indirimi (öneri)<small>5.655 TL kazanç</small></td><td class="r">32.045 TL</td><td class="r">9.700 TL</td></tr>
+  </table>
+  </div>
+  <p class="not">"Bölgede 1 Numara" (aylık 4.900 TL + KDV, elektrik işi için Google reklam yönetimi) isteğe bağlıdır, tabloya dahil değildir. Paketler tek tek de alınabilir; önerdiğimiz sıra: önce Hiçbir Çağrı Kaçmasın, ardından Şarj Reklamı ve Transfer. Aylık hizmetlerde 3 ay taahhüt; %50 kapora ile başlanır, kalan teslimde (PayTR ya da havale).</p>
+  <div class="cta">
+    <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%20Alim%20Bey%2C%20Tekin%20G%C3%BCven%20toplam%20b%C3%BCy%C3%BCme%20plan%C4%B1%20hakk%C4%B1nda%20yaz%C4%B1yorum.">Planı konuşalım · 0501 945 21 84</a>
+    <a class="btn ikincil" href="sarj.html">Şarj planı</a>
+    <a class="btn ikincil" href="transfer.html">Transfer planı</a>
   </div>
 </section>
 </main>
