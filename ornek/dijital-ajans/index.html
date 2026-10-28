@@ -11,11 +11,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="img/hero-1200.webp" imagesrcset="img/hero-720.webp 720w, img/hero-1200.webp 1200w" imagesizes="(max-width: 900px) 92vw, 46vw" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@400;500;600;700&display=swap"></noscript>
 <style>
 :root{
   --bg:#0d0d0e; --bg-2:#121214; --surface:#17171a; --surface-2:#1d1d21;
-  --line:#2a2a2f; --text:#eeebe6; --muted:#a6a29b; --dim:#77736d;
+  --line:#2a2a2f; --text:#eeebe6; --muted:#a6a29b; --dim:#8e8a83;
   --accent:#ff6b3d; --accent-ink:#1a0b05; --accent-soft:rgba(255,107,61,.12);
   --radius:14px; --radius-lg:22px; --max:1200px;
   --display:"Bricolage Grotesque", "Manrope", system-ui, sans-serif;
@@ -229,7 +231,7 @@ form .btn{width:100%}
 footer{border-top:1px solid var(--line);padding:70px 0 40px}
 .ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
 .ft p{color:var(--muted);font-size:15px;margin-top:16px;max-width:300px}
-.ft h4{font-family:var(--body);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:16px;font-weight:700}
+.ft h3.fh{font-family:var(--body);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:16px;font-weight:700}
 .ft ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .ft a{text-decoration:none;color:#cfcbc4;font-size:15px}
 .ft a:hover{color:var(--accent)}
@@ -316,7 +318,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px}
 <!-- ============ BLOK: Üst menü (WP: Header şablonu / Elementor Theme Builder) ============ -->
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
-    <a href="#top" class="logo" aria-label="Nova Dijital ana sayfa">
+    <a href="#top" class="logo">
       <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M5 19V5h2.6l8.8 10.2V5H19v14h-2.6L7.6 8.8V19z" fill="#1a0b05"/></svg></span>
       nova<span>dijital</span>
     </a>
@@ -798,9 +800,9 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px}
         <a href="#top" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M5 19V5h2.6l8.8 10.2V5H19v14h-2.6L7.6 8.8V19z" fill="#1a0b05"/></svg></span>nova<span>dijital</span></a>
         <p>Google, Meta ve TikTok reklamları, SEO ve web siteleri. Tek ekip, tek plan, sade rapor.</p>
       </div>
-      <div><h4>Hizmetler</h4><ul><li><a href="#detay" data-tab="t-google">Google Ads</a></li><li><a href="#detay" data-tab="t-meta">Meta Ads</a></li><li><a href="#detay" data-tab="t-tiktok">TikTok Ads</a></li><li><a href="#detay" data-tab="t-seo">SEO paketleri</a></li><li><a href="#detay" data-tab="t-web">Web site</a></li></ul></div>
-      <div><h4>Ajans</h4><ul><li><a href="#surec">Süreç</a></li><li><a href="#sonuclar">Sonuçlar</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#sss">SSS</a></li></ul></div>
-      <div><h4>İletişim</h4><ul><li><a href="#iletisim">Teklif al</a></li><li><a href="#iletisim">0 (212) 000 00 00</a></li><li><a href="#iletisim">KVKK</a></li></ul></div>
+      <div><h3 class="fh">Hizmetler</h3><ul><li><a href="#detay" data-tab="t-google">Google Ads</a></li><li><a href="#detay" data-tab="t-meta">Meta Ads</a></li><li><a href="#detay" data-tab="t-tiktok">TikTok Ads</a></li><li><a href="#detay" data-tab="t-seo">SEO paketleri</a></li><li><a href="#detay" data-tab="t-web">Web site</a></li></ul></div>
+      <div><h3 class="fh">Ajans</h3><ul><li><a href="#surec">Süreç</a></li><li><a href="#sonuclar">Sonuçlar</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#sss">SSS</a></li></ul></div>
+      <div><h3 class="fh">İletişim</h3><ul><li><a href="#iletisim">Teklif al</a></li><li><a href="#iletisim">0 (212) 000 00 00</a></li><li><a href="#iletisim">KVKK</a></li></ul></div>
     </div>
     <div class="ft-bot"><span>© 2026 Nova Dijital. Marka adı, iletişim bilgileri, fiyatlar ve vakalar yer tutucudur.</span><span>Fotoğraflar: Unsplash</span></div>
   </div>
