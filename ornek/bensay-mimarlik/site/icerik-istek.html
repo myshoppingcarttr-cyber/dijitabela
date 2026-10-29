@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>bensay · Site içerik listesi</title>
+<meta name="description" content="bensay Mimarlık sitesinin yayına çıkması için gereken içerik ve bilgiler.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=1">
+<style>
+.blok{background:var(--yuzey);border:1px solid var(--cizgi);padding:24px;margin-top:18px}
+.blok h2{font-size:1.5rem;margin-bottom:6px}
+.proj{border-top:1px solid var(--cizgi);padding-top:14px;margin-top:18px}
+.proj b{color:var(--bej2);letter-spacing:.1em;font-size:.8rem}
+.ikili{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}@media(max-width:620px){.ikili{grid-template-columns:1fr}}
+.alt-bar{position:sticky;bottom:0;background:rgba(244,242,238,.97);border-top:1px solid var(--cizgi);padding:12px 0;margin-top:30px}
+.alt-bar .kap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.durum{font-size:.85rem;color:var(--soluk)}
+</style>
+</head>
+<body>
+<header class="ust"><div class="kap"><span class="logo"><span class="mark" role="img" aria-label="bensay"></span><small>Site içerik listesi</small></span></div></header>
+<main id="icerik" class="kap" style="padding-top:40px;padding-bottom:20px">
+<div class="etiket">Erkam Benli için</div>
+<h1 style="font-size:clamp(2rem,5vw,3.2rem)">Sitenin yayına çıkması için gerekenler</h1>
+<p class="acik" style="margin-top:12px">Bildiğiniz alanları doldurmanız yeterli; boş kalanları sonra tamamlarız. Yazdıklarınız bu cihazda otomatik saklanır. En altta <b>WhatsApp ile gönder</b> düğmesine basınca bilgiler hazır mesaj olarak gelir. Fotoğrafları aynı sohbete ayrıca ya da Google Drive / WeTransfer linkiyle gönderebilirsiniz.</p>
+<p style="margin-top:12px"><a href="./">Sitenin önizlemesini aç →</a></p>
+
+<form id="f" class="form" autocomplete="on">
+<section class="blok"><h2>1. Projeler</h2><p class="acik">6–9 proje öneriyoruz. Her proje için 3–8 fotoğraf (yatay tercih, en az 1600 px).</p>
+<div id="projeler"></div>
+<button type="button" class="dg i" id="projeEkle" style="margin-top:16px">+ Proje ekle</button>
+<label for="fotoLink">Fotoğraf klasörü linki (Drive / WeTransfer, varsa)</label><input id="fotoLink" name="fotoLink" type="url" placeholder="https://">
+</section>
+
+<section class="blok"><h2>2. Ekip</h2>
+<label for="ekip">Ekip üyeleri ve unvanları (her satıra bir kişi)</label>
+<textarea id="ekip" name="ekip" placeholder="Erkam Benli — (tercih ettiğiniz unvan)&#10;Ad Soyad — Unvan"></textarea>
+<p class="not">Portre fotoğrafları isteğe bağlıdır; göndermezseniz baş harflerle sade kart kullanırız.</p></section>
+
+<section class="blok"><h2>3. İletişim bilgileri</h2>
+<label for="adres">Ofis adresi</label><textarea id="adres" name="adres" style="min-height:70px"></textarea>
+<div class="ikili"><div><label for="tel">Telefon</label><input id="tel" name="tel" type="tel" inputmode="tel"></div>
+<div><label for="wa">WhatsApp numarası</label><input id="wa" name="wa" type="tel" inputmode="tel" placeholder="Telefonla aynıysa boş bırakın"></div>
+<div><label for="eposta">E-posta</label><input id="eposta" name="eposta" type="email"></div>
+<div><label for="saat">Çalışma saatleri</label><input id="saat" name="saat" placeholder="Örn. Hafta içi 09:00–18:00, Cumartesi 10:00–14:00"></div></div></section>
+
+<section class="blok"><h2>4. Sosyal medya</h2>
+<div class="ikili"><div><label for="ig">Instagram</label><input id="ig" name="ig" value="https://www.instagram.com/bnlmimarlik/"></div>
+<div><label for="li">LinkedIn</label><input id="li" name="li" value="https://www.linkedin.com/company/bnl-architecture/"></div></div>
+<p class="not">Önizlemede bu adresleri kullandık; değiştiyse düzeltin.</p></section>
+
+<section class="blok"><h2>5. Google İşletme Profili</h2>
+<label for="gmail">Profilin açılacağı Google hesabı (Gmail adresi)</label><input id="gmail" name="gmail" type="email">
+<p class="not">Şifre istemiyoruz. Bu adrese yönetici daveti gönderip Haritalar kaydını birlikte doğrulayacağız.</p></section>
+
+<section class="blok"><h2>6. Tasarım tercihi</h2>
+<div class="secim" role="radiogroup" aria-label="Tasarım tercihi">
+<label><input type="radio" name="tasarim" value="Beton" checked>Beton</label><label><input type="radio" name="tasarim" value="Gece">Gece</label><label><input type="radio" name="tasarim" value="Atölye">Atölye</label></div>
+<p class="not"><a href="../">3 tasarımı yeniden görün</a>. Seçim yapılmazsa Beton ile ilerliyoruz.</p></section>
+
+<section class="blok"><h2>7. İngilizce metinler</h2>
+<p class="acik">Sitede sağ üstteki <b>EN</b> düğmesiyle İngilizce metinleri görebilirsiniz.</p>
+<div class="secim" role="radiogroup" aria-label="İngilizce metin onayı" style="margin-top:12px">
+<label><input type="radio" name="en" value="Onaylıyorum">Onaylıyorum</label><label><input type="radio" name="en" value="Düzeltme var">Düzeltme var</label><label><input type="radio" name="en" value="Sonra bakacağım" checked>Sonra bakacağım</label></div>
+<label for="enNot">Düzeltme notları</label><textarea id="enNot" name="enNot"></textarea></section>
+
+<section class="blok"><h2>8. Eklemek istedikleriniz</h2><label for="not">Notlar</label><textarea id="not" name="not"></textarea></section>
+</form>
+</main>
+<div class="alt-bar"><div class="kap">
+<a class="dg wa" id="gonder" href="#" target="_blank" rel="noopener">WhatsApp ile gönder (0501 945 21 84)</a>
+<button type="button" class="dg i" id="kopya">Metni kopyala</button>
+<span class="durum" id="durum" aria-live="polite"></span></div></div>
+<footer style="padding:24px 0"><div class="kap son" style="margin-top:0;border:0;padding:0"><span>bensay Mimarlık · site hazırlığı</span><span>tasarım: <a href="https://dijitabela.com" target="_blank" rel="noopener">Dijitabela</a></span></div></footer>
+<script>
+(function(){
+var NO="905019452184",K="bensay_icerik_v1",f=document.getElementById("f"),pk=document.getElementById("projeler"),n=0;
+function proje(){n++;var d=document.createElement("div");d.className="proj";var i="p"+n;
+ d.innerHTML='<b>PROJE '+String(n).padStart(2,"0")+'</b><div class="ikili"><div><label for="'+i+'ad">Proje adı</label><input id="'+i+'ad" name="'+i+'ad"></div><div><label for="'+i+'yil">Yılı</label><input id="'+i+'yil" name="'+i+'yil" inputmode="numeric"></div><div><label for="'+i+'konum">Konumu</label><input id="'+i+'konum" name="'+i+'konum" placeholder="İlçe / şehir"></div><div><label for="'+i+'tur">Türü</label><select id="'+i+'tur" name="'+i+'tur"><option>Mimarlık</option><option>İç Mimarlık</option><option>Proje Yönetimi</option></select></div></div><label for="'+i+'acik">Kısa açıklama</label><textarea id="'+i+'acik" name="'+i+'acik" style="min-height:70px"></textarea><label for="'+i+'foto">Fotoğraf sayısı / not</label><input id="'+i+'foto" name="'+i+'foto" placeholder="Örn. 5 fotoğraf WhatsApp\'tan gelecek">';
+ pk.appendChild(d)}
+var kayit={};try{kayit=JSON.parse(localStorage.getItem(K)||"{}")}catch(e){}
+var adet=Math.max(3,+kayit._n||0);for(var j=0;j<adet;j++)proje();
+Object.keys(kayit).forEach(function(k){var e=f.elements[k];if(!e)return;if(e.length&&e[0]&&e[0].type==="radio"){[].forEach.call(e,function(r){r.checked=r.value===kayit[k]})}else if(e.value!==undefined)e.value=kayit[k]});
+function v(k){var e=f.elements[k];return e?(e.value||"").trim():""}
+function metin(){var s=["bensay Mimarlık · site içerik bilgileri",""];
+ for(var j=1;j<=n;j++){var a=v("p"+j+"ad"),y=v("p"+j+"yil"),k=v("p"+j+"konum"),t=v("p"+j+"tur"),c=v("p"+j+"acik"),fo=v("p"+j+"foto");if(a||y||k||c||fo)s.push("PROJE "+j+": "+[a,y,k,t].filter(Boolean).join(" · ")+(c?"\n  "+c:"")+(fo?"\n  Foto: "+fo:""))}
+ if(v("fotoLink"))s.push("Fotoğraf linki: "+v("fotoLink"));
+ [["EKİP","ekip"],["Adres","adres"],["Telefon","tel"],["WhatsApp","wa"],["E-posta","eposta"],["Çalışma saatleri","saat"],["Instagram","ig"],["LinkedIn","li"],["Google hesabı","gmail"],["Tasarım","tasarim"],["İngilizce metin","en"],["İngilizce notları","enNot"],["Not","not"]].forEach(function(x){var d=v(x[1]);if(d)s.push(x[0]+": "+d)});
+ return s.join("\n")}
+function kaydet(){var o={_n:n};[].forEach.call(f.elements,function(e){if(!e.name)return;if(e.type==="radio"){if(e.checked)o[e.name]=e.value}else o[e.name]=e.value});try{localStorage.setItem(K,JSON.stringify(o));document.getElementById("durum").textContent="Taslak bu cihazda kaydedildi."}catch(e){}
+ document.getElementById("gonder").href="https://wa.me/"+NO+"?text="+encodeURIComponent(metin())}
+f.addEventListener("input",kaydet);f.addEventListener("change",kaydet);
+document.getElementById("projeEkle").onclick=function(){if(n<12){proje();kaydet()}};
+document.getElementById("kopya").onclick=function(){var t=metin();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){document.getElementById("durum").textContent="Metin kopyalandı."},function(){document.getElementById("durum").textContent="Kopyalanamadı; WhatsApp düğmesini kullanın."})};
+kaydet();document.getElementById("durum").textContent="";
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

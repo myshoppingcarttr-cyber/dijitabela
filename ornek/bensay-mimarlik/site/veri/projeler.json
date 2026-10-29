@@ -1,0 +1,149 @@
+{
+ "_aciklama": "Gerçek projeler gelince doldurulur. tur: mimari | ic | yonetim. gorseller: 'img/projeler/p01-1.jpg' gibi yollar (3-8 adet). Boş alan sitede 'eklenecek' görünür; uydurma bilgi girilmez.",
+ "projeler": [
+  {
+   "id": "p01",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p02",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p03",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p04",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p05",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p06",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p07",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p08",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p09",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "tur": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  }
+ ]
+}
