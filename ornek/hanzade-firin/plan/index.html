@@ -238,6 +238,10 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
 .kosul span{background:var(--murekkep);color:#fff;border-radius:99px;padding:6px 14px;font-weight:700;font-size:.88rem}
 .kosul span.a{background:#fbf1de;color:var(--murekkep);border:1px solid var(--altin)}
 
+.pk[hidden],.fiyat-satir[hidden],.gizli-not[hidden],.kosul[hidden]{display:none}
+.gizli-not{margin-top:16px;background:var(--murekkep);color:#fff;border-radius:14px;padding:18px 20px}
+.gizli-not b{display:block;font-size:1.2rem;color:#ffcf8a}
+.gizli-not span{color:#e8dccb;font-size:.95rem}
 /* 10 kapanış */
 .kapanis{background:var(--koyu);color:#fff;max-width:none;border:0}
 .kapanis .ic{max-width:1080px;margin:0 auto}
@@ -629,15 +633,15 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
   <p class="not">Yaka mikrofonu (yaklaşık 1.000–2.000 TL) yoksa bir kez alınır; çekim telefonla yapılır.</p>
 </section>
 
-<!-- 9 · DİJİTABELA -->
+<!-- 9 · DİJİTABELA — PATRON ONAYI BEKLİYOR: rakamlar ve görünürlük yalnız fiyat.js (window.FIYAT) içinden -->
 <section class="sayfa" id="ucret">
   <div class="no">08 · Dijitabela'nın işi</div>
-  <h2>Bizim yapacaklarımız ve ücreti</h2>
+  <h2>Bizim yapacaklarımız ve çalışma modeli</h2>
   <p class="giris">Dükkânın içindeki işi siz yaparsınız; ekranın arkasındaki işi, tasarımları ve takibi biz.</p>
-  <div class="paket">
-    <div class="pk">
+  <div class="paket" id="ucret-kartlar">
+    <div class="pk" data-kalem="kurulum">
       <div class="ad">Kurulum · tek sefer</div>
-      <div class="f"><span data-fiyat="kurulum">—</span> <small>TL + KDV</small></div>
+      <div class="f fiyat-satir"><span data-fiyat="kurulum">—</span> <small>TL + KDV</small></div>
       <ul>
         <li>Web sitesi + kaporalı pasta siparişi</li>
         <li>Google profil düzeni</li>
@@ -646,9 +650,9 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
         <li>Etiket ve afiş tasarımları</li>
       </ul>
     </div>
-    <div class="pk ana">
-      <div class="ad">Aylık büyüme yönetimi</div>
-      <div class="f"><span data-fiyat="aylik">—</span> <small>TL + KDV / ay</small></div>
+    <div class="pk ana" data-kalem="aylik">
+      <div class="ad">Aylık büyüme yönetimi · sabit</div>
+      <div class="f fiyat-satir"><span data-fiyat="aylik">—</span> <small>TL + KDV / ay</small></div>
       <ul>
         <li>Google yönetimi (yorum, fotoğraf, ürün, gönderi)</li>
         <li>Haftada 3 Reels kurgusu + içerik planı</li>
@@ -657,9 +661,18 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
         <li>Haftalık Z takibi + aylık rapor</li>
       </ul>
     </div>
+    <div class="pk" data-kalem="prim" hidden>
+      <div class="ad">Ciro artışı primi</div>
+      <div class="f fiyat-satir" style="font-size:1.6rem"><span data-fiyat="prim">—</span></div>
+      <ul>
+        <li>Yalnız ciro bugünkü seviyenin (günde ~105 bin TL) üstüne çıkarsa</li>
+        <li>Artış, Z raporlarından birlikte hesaplanır</li>
+        <li>Ciro artmazsa prim yok</li>
+      </ul>
+    </div>
   </div>
-  <div class="kart" id="prim-satir" hidden style="margin-top:16px"><b>Başarı primi:</b> <span data-fiyat="prim"></span></div>
-  <div class="kosul"><span>KDV dahil değildir</span><span class="a">%50 kapora ile başlar</span></div>
+  <div class="gizli-not" id="ucret-gizli" hidden><b>Ücret ve çalışma modeli görüşmede konuşulacak.</b><span>Yukarıdaki işlerin kapsamı ve ücretlendirme, yüz yüze birlikte netleştirilecek.</span></div>
+  <div class="kosul" id="ucret-kosul"><span>KDV dahil değildir</span><span class="a">%50 kapora ile başlar</span></div>
 </section>
 
 <!-- 10 · KAPANIŞ -->
@@ -703,13 +716,22 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
   document.getElementById("kalemler").innerHTML = h;
 
   // Dijitabela ücretleri: PATRON ONAYI BEKLİYOR — yalnız fiyat.js (window.FIYAT) değiştirilir
-  var F = window.FIYAT || {};
+  // gizli:true → hiçbir rakam görünmez, "görüşmede konuşulacak" notu çıkar. Değilse her kalem (kurulum/aylik/prim) null ise kartı gizlenir.
+  var F = window.FIYAT || { gizli: true }, gizli = F.gizli !== false;
+  var dolu = function (v) { return v != null && v !== "" && v !== false; };
   document.querySelectorAll("[data-fiyat]").forEach(function (e) {
     var v = F[e.getAttribute("data-fiyat")];
-    if (v == null || v === "") return;
-    e.textContent = typeof v === "number" ? tl(v) : String(v);
+    if (!gizli && dolu(v)) e.textContent = typeof v === "number" ? tl(v) : String(v); else e.textContent = "";
   });
-  if (F.prim != null && F.prim !== "") document.getElementById("prim-satir").hidden = false;
+  document.querySelectorAll("#ucret [data-kalem]").forEach(function (k) {
+    var ad = k.getAttribute("data-kalem");
+    if (gizli) { k.hidden = ad === "prim"; k.querySelector(".fiyat-satir").hidden = true; }
+    else k.hidden = !dolu(F[ad]);
+  });
+  document.getElementById("ucret-gizli").hidden = !gizli;
+  document.getElementById("ucret-kosul").hidden = gizli;
+  var gorunen = document.querySelectorAll("#ucret [data-kalem]:not([hidden])").length;
+  document.getElementById("ucret-kartlar").style.gridTemplateColumns = gorunen >= 3 ? "repeat(auto-fit,minmax(240px,1fr))" : "";
 })();
 </script>
 <script src="/ornek/_dijitabela/izle.js" defer></script></body>
