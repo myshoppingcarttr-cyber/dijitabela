@@ -87,7 +87,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 "Plus Jakarta S
       <div class="fis" id="fis"><p class="bos">Sohbet ilerledikçe sipariş fişi burada kendiliğinden dolar. Onaylanınca ustanın tabletine ve Hüseyin Bey'in telefonuna aynı anda düşer.</p></div>
       <div class="bildirim" id="bildirim"></div>
       <ol class="adim" id="adimlar"><li>Model seçimi (fotoğraflı)</li><li>Kişi sayısı → boy</li><li>Teslim günü ve saati</li><li>Pasta üstü yazı</li><li>Gel-al (%15) ya da adrese teslim</li><li>Fiyat ve onay</li><li>Ustaya fiş + müşteriye onay mesajı</li></ol>
-      <p class="uyari"><b>Demo:</b> Bu sayfa tamamen tarayıcıda çalışır, hiçbir numaraya mesaj göndermez. Fiyatlar örnektir. Kurulumda Hanzade'nin kendi WhatsApp Business hattına bağlanır; "açık mısınız, evlere servis var mı, bugün simit kaldı mı" gibi soruları da cevaplar.</p>
+      <p class="uyari"><b>Demo:</b> Bu sayfa tamamen tarayıcıda çalışır, hiçbir numaraya mesaj göndermez. Fiyatlar dükkân listesinden, değişebilir. Kurulumda Hanzade'nin kendi WhatsApp Business hattına bağlanır; "açık mısınız, evlere servis var mı, bugün simit kaldı mı" gibi soruları da cevaplar.</p>
     </div>
   </div>
 </main>
@@ -122,7 +122,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 "Plus Jakarta S
       if(!p){bot("Bu modeli listede bulamadım. Aşağıdan seçebilir ya da fotoğrafını gönderebilirsiniz; usta fiyatı aynı gün bildirir.",modelGoster);return}
       O.model=p.id;O.boy=0;fis("Model");adim(1);
       bot("Güzel seçim 👌 *"+p.ad+"*: "+p.not+".",function(){bot("Kaç kişilik olsun?",function(){bekle="boy";sec(H.boylar.map(function(b){return [b.ad+" · "+H.tl(H.fiyat({model:O.model,boy:b.id}).ara),b.id]}))})});return}
-    if(bekle==="boy"){var b=typeof v==="number"?v:(function(){var n=parseInt(t,10);return isNaN(n)?0:n<=8?0:n<=12?1:n<=20?2:3})();O.boy=b;O.boyS=true;fis("Boy");adim(2);
+    if(bekle==="boy"){var b=typeof v==="number"?v:(function(){var n=parseInt(t,10);return isNaN(n)?0:n<=4?0:n<=8?1:2})();O.boy=b;O.boyS=true;fis("Boy");adim(2);
       bot(H.boylar[b].ad+" ("+H.boylar[b].cap+") not ettim. Hangi gün lazım?",function(){bekle="tarih";sec(gunler())});return}
     if(bekle==="tarih"){O.tarihYazi=String(v);O.tarih=O.tarihYazi;fis("Teslim");
       bot("Saat kaçta hazır olsun?",function(){bekle="saat";sec([["12:00"],["15:00"],["18:00"],["20:00"]])});return}
@@ -151,7 +151,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 "Plus Jakarta S
   $("form").onsubmit=function(e){e.preventDefault();if(oto)return;var v=G.value.trim();if(!v)return;G.value="";temizSec();cevap(v)};
   // otomatik oynatma (Patron'un tablette göstermesi için)
   function otomatik(){basla();oto=true;$("oto").textContent="■ Oynatılıyor…";
-    var plan=[["model","Bitter Çikolatalı Meyveli","cikolata"],["boy","10–12 kişilik",1],["tarih",null,null],["saat","18:00","18:00"],["yazi","İyi ki doğdun Elif","İyi ki doğdun Elif"],["teslim","Adrese teslim","adres"],["adres","Liman Mh. 25. Sk. No:8 D:4, Konyaaltı","Liman Mh. 25. Sk. No:8 D:4, Konyaaltı"],["ad","Ayşe Demir","Ayşe Demir"],["onay","Onaylıyorum ✅","evet"]],i=0;
+    var plan=[["model","Çikolata-frambuazlı","frambuazli"],["boy","6–8 kişilik · 1.000 TL",1],["tarih",null,null],["saat","18:00","18:00"],["yazi","İyi ki doğdun Elif","İyi ki doğdun Elif"],["teslim","Adrese teslim","adres"],["adres","Liman Mh. 25. Sk. No:8 D:4, Konyaaltı","Liman Mh. 25. Sk. No:8 D:4, Konyaaltı"],["ad","Ayşe Demir","Ayşe Demir"],["onay","Onaylıyorum ✅","evet"]],i=0;
     (function sira(){if(!oto)return;if(i>=plan.length){oto=false;$("oto").textContent="▶ Otomatik oynat";return}
       if(bekle!==plan[i][0]){zam.push(setTimeout(sira,400));return}
       var p=plan[i++];zam.push(setTimeout(function(){if(!oto)return;temizSec();var m=p[1],d=p[2];if(p[0]==="tarih"){var g=gunler()[1];m=g[0];d=g[1]}cevap(m,d);zam.push(setTimeout(sira,700))},1500))})();}

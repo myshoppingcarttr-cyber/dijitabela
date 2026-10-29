@@ -1,5 +1,5 @@
 /* Hanzade Fırın & Cafe — 3 prototip için ortak veri ve çalışan özellikler (Dijitabela, 29 Eki 2026).
-   - Ürün ve fiyatlar ÖRNEKTİR; gerçek liste kurulumda işletmeden alınır.
+   - Ürün ve fiyatlar dükkânın 29 Eki 2026 listesinden (liste fiyatı; kasada %10 indirim ayrıca). Listede olmayan ürün/ek için fiyat yazılmaz.
    - Sipariş formu hiçbir yere mesaj GÖNDERMEZ: son adımda WhatsApp'a düşecek mesajın ve ustanın fişinin önizlemesini gösterir.
    - Görseller: işletmenin kendi Instagram'ından (@hanzadefirin, işletme izniyle) img/ig/*.webp; gerçek görseli olmayan birkaç ürün için Pixabay temsilî fotoğraf kaldı (img/LISANS.txt). */
 (function () {
@@ -14,55 +14,65 @@
     harita: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Hanzade Fırın Uncalı Konyaaltı Antalya"),
     haritaGom: "https://maps.google.com/maps?q=" + encodeURIComponent("Uncalı Caddesi, Molla Yusuf, Konyaaltı, Antalya") + "&z=16&output=embed" };
 
-  // Pasta modelleri (örnek fiyat = 6-8 kişilik taban; boy çarpanı aşağıda)
+  // Yaş pasta çeşitleri — dükkânın gerçek 9 çeşidi (Hüseyin Bey'in listesi, 29 Eki 2026). Fiyat çeşide göre değil boya göre: 0/1/2 No = 750/1.000/1.250 TL (liste fiyatı, kasada %10 indirim öncesi).
+  // Fotoğraflar işletmenin kendi Instagram'ından; süsleme örnektir, her çeşit istenen süslemeyle yapılır.
   H.pastalar = [
-    { id: "dogumgunu", ad: "Lotuslu Çilekli Yaş Pasta", kat: "meyveli", img: "p-dogumgunu", taban: 1150, not: "Karamelize bisküvi, taze çilek" },
-    { id: "cikolata", ad: "Bitter Çikolatalı Meyveli", kat: "cikolata", img: "p-cikolata", taban: 1290, not: "Çikolatalı krema, kakaolu kek, orman meyvesi" },
-    { id: "cilek", ad: "Çilekli Katlı Mini Pasta", kat: "meyveli", img: "p-cilek", taban: 1190, not: "Taze çilek, krema katları, çikolata top süsü" },
-    { id: "gul", ad: "Gül Şelaleli Pasta", kat: "ozel", img: "p-gul", taban: 1390, not: "Şeker hamurundan gül şelalesi, altın inci süsü" },
-    { id: "beyaz", ad: "Beyaz Fiyonklu Pasta", kat: "dogum", img: "p-beyaz", taban: 1150, not: "Şeker hamuru kaplama, fiyonk süslü" },
-    { id: "drip", ad: "Ayıcıklı Kat Pasta", kat: "dogum", img: "p-drip", taban: 1490, not: "Kat kat şeker hamuru kuşak, ayıcık ve top süsü" },
-    { id: "cocuk", ad: "Çocuk Doğum Günü", kat: "dogum", img: "p-cocuk", taban: 1350, not: "Gökkuşağı, bulut ve yıldız süsü" },
-    { id: "charlotte", ad: "Kestaneli Pasta", kat: "cikolata", img: "p-charlotte", taban: 1450, not: "Çikolata kaplama, kestane süsü" },
-    { id: "dugun", ad: "Nişan & Söz Pastası (2 kat)", kat: "ozel", img: "p-dugun", taban: 2900, not: "Şeker hamuru kaplama, orkide şelalesi, 3 kat", min: 2 }
+    { id: "cikolatali", ad: "Çikolatalı", kat: "cikolata", img: "p-drip", taban: 750, not: "Kakaolu kek, çikolatalı krema · fotoğraf: ayıcıklı süsleme" },
+    { id: "fistikli", ad: "Çikolata-fıstıklı", kat: "ozel", img: "p-cilek", taban: 750, not: "Çikolata ve Antep fıstığı · fotoğraf: fıstık katlı model" },
+    { id: "muzlu", ad: "Çikolata-muzlu", kat: "meyveli", img: "p-beyaz", taban: 750, not: "Çikolata ve muz · fotoğraf: beyaz fiyonklu süsleme" },
+    { id: "cilekli", ad: "Çikolata-çilekli", kat: "meyveli", img: "p-cocuk", taban: 750, not: "Çikolata ve çilek · fotoğraf: gökkuşağı süsleme" },
+    { id: "lotuslu", ad: "Çikolata-lotuslu", kat: "ozel", img: "p-dogumgunu", taban: 750, not: "Çikolata ve karamelize lotus bisküvi" },
+    { id: "kestaneli", ad: "Çikolata-kestaneli", kat: "ozel", img: "p-charlotte", taban: 750, not: "Çikolata kaplama, kestane" },
+    { id: "frambuazli", ad: "Çikolata-frambuazlı", kat: "meyveli", img: "p-cikolata", taban: 750, not: "Çikolatalı krema, kakaolu kek, frambuaz" },
+    { id: "meyveli", ad: "Karışık meyveli", kat: "meyveli", img: "dilim", taban: 750, not: "Mevsim meyveleri, krema" },
+    { id: "krokantli", ad: "Çikolata-krokantlı", kat: "cikolata", img: "p-gul", taban: 750, not: "Çikolata ve krokan · fotoğraf: gül şelaleli süsleme" }
   ];
-  H.kategoriler = [["hepsi", "Hepsi"], ["dogum", "Doğum günü"], ["cikolata", "Çikolatalı"], ["meyveli", "Meyveli"], ["ozel", "Özel gün"]];
+  H.kategoriler = [["hepsi", "Hepsi"], ["cikolata", "Çikolatalı"], ["meyveli", "Meyveli"], ["ozel", "Fıstık · lotus · kestane"]];
   H.boylar = [
-    { id: 0, ad: "6–8 kişilik", cap: "Ø18 cm", k: 1 },
-    { id: 1, ad: "10–12 kişilik", cap: "Ø22 cm", k: 1.38 },
-    { id: 2, ad: "15–20 kişilik", cap: "Ø26 cm", k: 1.95 },
-    { id: 3, ad: "25–30 kişilik", cap: "2 kat", k: 2.9 }
+    { id: 0, ad: "4 kişilik", cap: "0 No", f: 750 },
+    { id: 1, ad: "6–8 kişilik", cap: "1 No", f: 1000 },
+    { id: 2, ad: "8–10 kişilik", cap: "2 No", f: 1250 }
   ];
+  // Ekler: dükkân listesinde fiyatı yok → fiyat uydurulmadı (f: null), tutara eklenmez; "Kasada sorun" yazar.
   H.ekler = [
     { id: "yazi", ad: "İsim / mesaj yazısı", f: 0 },
-    { id: "foto", ad: "Yenilebilir fotoğraf baskı", f: 250 },
-    { id: "mum", ad: "Rakam mum + maytap", f: 60 },
-    { id: "kutu", ad: "Hediye kutusu + kurdele", f: 90 }
+    { id: "foto", ad: "Yenilebilir fotoğraf baskı", f: null },
+    { id: "mum", ad: "Rakam mum + maytap", f: null },
+    { id: "kutu", ad: "Hediye kutusu + kurdele", f: null }
   ];
+  // Fırın menüsü — gerçek fiyatlar (Hüseyin Bey'in el yazısı listesi, 29 Eki 2026). Listede olmayanlar (kruvasan, kahvaltı tabağı, çay, profiterol, ekler, cheesecake, dilim pasta, kurabiye) çıkarıldı.
+  // Eski veri yedeği: DIJITABELA/MUSTERILER/hanzade-firin/_yedek-site-2910/ortak.js
   H.firin = [
-    { id: "simit", ad: "Susamlı simit", img: "simit", f: 20, b: "adet", grup: "Fırından" },
-    { id: "acma", ad: "Sade açma", img: "acma", f: 25, b: "adet", grup: "Fırından" },
-    { id: "ekmek", ad: "Taş fırın ekmeği", img: "ekmek", f: 25, b: "adet", grup: "Fırından" },
-    { id: "eksimaya", ad: "Ekşi mayalı köy ekmeği", img: "eksimaya", f: 95, b: "adet", grup: "Fırından" },
-    { id: "borek", ad: "Kol böreği (kıymalı)", img: "borek", f: 110, b: "porsiyon", grup: "Börek & kahvaltı" },
-    { id: "kruvasan", ad: "Tereyağlı kruvasan", img: "kruvasan", f: 65, b: "adet", grup: "Börek & kahvaltı" },
-    { id: "kahvalti", ad: "Hanzade kahvaltı tabağı", img: "kahvalti", f: 340, b: "kişi", grup: "Börek & kahvaltı" },
-    { id: "cay", ad: "İnce belli çay", img: "cay", f: 20, b: "bardak", grup: "Börek & kahvaltı" },
-    { id: "baklava", ad: "Baklava", img: "baklava", f: 1150, b: "kg", grup: "Tatlı & pastane" },
-    { id: "profiterol", ad: "Profiterol", img: "profiterol", f: 145, b: "porsiyon", grup: "Tatlı & pastane" },
-    { id: "ekler", ad: "Çilekli ekler", img: "ekler", f: 75, b: "adet", grup: "Tatlı & pastane" },
-    { id: "cheesecake", ad: "Frambuazlı cheesecake", img: "cheesecake", f: 160, b: "dilim", grup: "Tatlı & pastane" },
-    { id: "dilim", ad: "Mangolu dilim pasta", img: "dilim", f: 120, b: "dilim", grup: "Tatlı & pastane" },
-    { id: "kurabiye", ad: "Kurabiye çeşitleri", img: "kurabiye", f: 480, b: "kg", grup: "Tatlı & pastane" }
+    { id: "ekmek", ad: "Normal taş ekmek", img: "ekmek", f: 20, b: "adet", grup: "Fırından" },
+    { id: "cicek", ad: "Çiçek ekmek", img: "ekmek", f: 50, b: "adet", grup: "Fırından" },
+    { id: "tava", ad: "Tava ekmek", img: "ekmek", f: 50, b: "adet", grup: "Fırından" },
+    { id: "tandir", ad: "Tandır ekmek", img: "ekmek", f: 20, b: "adet", grup: "Fırından" },
+    { id: "ramazan", ad: "Ramazan pidesi", img: "ekmek", f: 30, b: "adet", grup: "Fırından" },
+    { id: "eksimaya", ad: "Ekşi maya köy ekmeği (1 kg)", img: "eksimaya", f: 200, b: "adet", grup: "Fırından" },
+    { id: "muhacir", ad: "Ekşi maya muhacir (1 kg)", img: "eksimaya", f: 200, b: "adet", grup: "Fırından" },
+    { id: "saribugday", ad: "Ekşi maya sarı buğday", img: "eksimaya", f: 80, b: "adet", grup: "Fırından" },
+    { id: "karakilcik", ad: "Ekşi maya karakılçık", img: "eksimaya", f: 125, b: "adet", grup: "Fırından" },
+    { id: "simit", ad: "Ankara simidi", img: "simit", f: 20, b: "adet", grup: "Fırından" },
+    { id: "tereyagsimit", ad: "Tereyağlı simit", img: "simit", f: 30, b: "adet", grup: "Fırından" },
+    { id: "acma", ad: "Açma (kaşarlı, peynirli, zeytinli, patatesli)", img: "acma", f: 35, b: "adet", grup: "Fırından" },
+    { id: "pogaca", ad: "Poğaça (kaşarlı, peynirli, zeytinli, patatesli)", img: "acma", f: 30, b: "adet", grup: "Fırından" },
+    { id: "borek", ad: "Kol böreği", img: "borek", f: 700, b: "kg", grup: "Börek & kahvaltı" },
+    { id: "suboregi", ad: "Su böreği", img: "borek", f: 700, b: "kg", grup: "Börek & kahvaltı" },
+    { id: "gozleme", ad: "Gözleme çeşitleri", img: "borek", f: 150, b: "adet", grup: "Börek & kahvaltı" },
+    { id: "kesme", ad: "Kesme börekler", img: "borek", f: 75, b: "adet", grup: "Börek & kahvaltı" },
+    { id: "fbaklava", ad: "Fıstıklı baklava", img: "baklava", f: 1450, b: "kg", grup: "Tatlı & pastane" },
+    { id: "cbaklava", ad: "Cevizli baklava", img: "baklava", f: 900, b: "kg", grup: "Tatlı & pastane" },
+    { id: "kurupasta", ad: "Tatlı kuru pasta", img: "kurabiye", f: 750, b: "kg", grup: "Tatlı & pastane" },
+    { id: "tuzlukuru", ad: "Tuzlu kuru pasta", img: "kurabiye", f: 750, b: "kg", grup: "Tatlı & pastane" }
   ];
   // Fırından çıkış saatleri (örnek düzen) — tazelik panosu bunlardan hesaplanır
   H.cikislar = [
-    { k: "Ekmek", ad: "Taş fırın ekmeği", img: "ekmek", s: ["05:40", "08:30", "11:30", "15:00", "18:00"] },
-    { k: "Simit", ad: "Simit", img: "simit", s: ["06:00", "09:00", "13:00", "16:30"] },
+    { k: "Ekmek", ad: "Normal taş ekmek", img: "ekmek", s: ["05:40", "08:30", "11:30", "15:00", "18:00"] },
+    { k: "Simit", ad: "Ankara simidi", img: "simit", s: ["06:00", "09:00", "13:00", "16:30"] },
     { k: "Açma", ad: "Açma & poğaça", img: "acma", s: ["06:15", "09:30", "14:00"] },
     { k: "Börek", ad: "Kol böreği", img: "borek", s: ["06:30", "10:00", "15:30"] },
-    { k: "Kruvasan", ad: "Kruvasan", img: "kruvasan", s: ["07:00", "12:00"] },
-    { k: "Ekşi maya", ad: "Ekşi mayalı ekmek", img: "eksimaya", s: ["07:30", "16:00"] }
+    { k: "Çiçek", ad: "Çiçek ekmek", img: "ekmek", s: ["07:00", "12:00"] },
+    { k: "Ekşi maya", ad: "Ekşi maya köy ekmeği (1 kg)", img: "eksimaya", s: ["07:30", "16:00"] }
   ];
   function dk(s) { var p = s.split(":"); return +p[0] * 60 + +p[1]; }
   function simdiDk() { var d = new Date(); return d.getHours() * 60 + d.getMinutes(); }
@@ -85,8 +95,8 @@
 
   H.fiyat = function (o) {
     var p = H.pastalar.filter(function (x) { return x.id === o.model; })[0]; if (!p) return null;
-    var b = H.boylar[o.boy || 0], ara = Math.round(p.taban * b.k / 10) * 10, ek = 0;
-    (o.ekler || []).forEach(function (id) { H.ekler.forEach(function (e) { if (e.id === id) ek += e.f; }); });
+    var b = H.boylar[o.boy || 0] || H.boylar[0], ara = b.f, ek = 0;
+    (o.ekler || []).forEach(function (id) { H.ekler.forEach(function (e) { if (e.id === id && e.f) ek += e.f; }); });
     var top = ara + ek, ind = o.teslim === "gelal" ? Math.round(top * 0.15) : 0;
     return { pasta: p, boy: b, ara: ara, ek: ek, indirim: ind, toplam: top - ind };
   };
@@ -141,7 +151,7 @@
     if (document.querySelector(".hz-ornek")) return;
     var o = document.createElement("div"); o.className = "hz-ornek"; o.setAttribute("aria-hidden", "true"); o.innerHTML = "<span>ÖRNEK</span>"; document.body.appendChild(o);
     var s = document.createElement("div"); s.className = "hz-serit";
-    s.innerHTML = "ÖRNEK TASARIM · Dijitabela tarafından Hanzade Fırın & Cafe için hazırlandı · Fiyatlar ve fotoğraflar temsilîdir · <a href=\"../\">Tüm taslaklar</a>";
+    s.innerHTML = "ÖRNEK TASARIM · Dijitabela tarafından Hanzade Fırın & Cafe için hazırlandı · Fiyatlar dükkân listesinden, değişebilir · <a href=\"../\">Tüm taslaklar</a>";
     document.body.insertBefore(s, document.body.firstChild);
   }
 
@@ -167,7 +177,7 @@
     var ic = p.querySelector(".hz-ic"), alt = p.querySelector(".hz-alt"), f = A.model ? H.fiyat(A) : null, h = "";
     p.querySelector(".hz-ad").innerHTML = ADIMLAR.map(function (_, i) { return "<i class='" + (i <= A.adim ? "ok" : "") + "'></i>"; }).join("");
     if (A.adim === 0) {
-      h = "<h4>Hangi pasta?</h4><p class='al'>Vitrindeki modellerden seçin; kurulumda kendi pasta fotoğraflarınız gelir.</p><div class='hz-mod'>" +
+      h = "<h4>Hangi çeşit?</h4><p class='al'>Fiyat boya göre: 0 No 750 · 1 No 1.000 · 2 No 1.250 TL. Fotoğraftaki süsleme örnektir.</p><div class='hz-mod'>" +
         H.pastalar.map(function (x) { return "<button data-m='" + x.id + "' class='" + (A.model === x.id ? "s" : "") + "'><img src='" + H.img(x.img) + "' alt='' loading='lazy'><span>" + H.esc(x.ad) + "<br><em style='font-style:normal;color:#7a6a58'>" + H.tl(x.taban) + "'den</em></span></button>"; }).join("") + "</div>";
     } else if (A.adim === 1) {
       h = "<h4>Kaç kişilik?</h4><p class='al'>" + H.esc(f.pasta.ad) + " · " + H.esc(f.pasta.not) + "</p><div class='hz-sec'>" +
@@ -180,7 +190,7 @@
     } else if (A.adim === 3) {
       h = "<h4>Pastanın üstüne ne yazalım?</h4><p class='al'>Yazdıkça önizlemede görünür (en fazla 28 harf).</p><input class='hz-gir' id='hzYazi' maxlength='28' placeholder='Örn. İyi ki doğdun Elif' value='" + H.esc(A.yazi) + "'>" +
         "<div class='hz-onz'><div style=\"background-image:url('" + H.img(f.pasta.img) + "')\"><span id='hzOnz'>" + H.esc(A.yazi || "İyi ki doğdun") + "</span></div></div><div class='hz-sec'>" +
-        H.ekler.map(function (e) { var s = A.ekler.indexOf(e.id) > -1; return "<label class='" + (s ? "s" : "") + "'><span><input type='checkbox' data-e='" + e.id + "'" + (s ? " checked" : "") + "> " + e.ad + "</span><em>" + (e.f ? "+" + H.tl(e.f) : "Ücretsiz") + "</em></label>"; }).join("") + "</div>";
+        H.ekler.map(function (e) { var s = A.ekler.indexOf(e.id) > -1; return "<label class='" + (s ? "s" : "") + "'><span><input type='checkbox' data-e='" + e.id + "'" + (s ? " checked" : "") + "> " + e.ad + "</span><em>" + (e.f == null ? "Kasada sorun" : e.f ? "+" + H.tl(e.f) : "Ücretsiz") + "</em></label>"; }).join("") + "</div>";
     } else if (A.adim === 4) {
       h = "<h4>Nasıl alacaksınız?</h4><p class='al'>Gel-al siparişlerde %15 indirim uygulanır.</p><div class='hz-sec'>" +
         "<button data-tes='gelal' class='" + (A.teslim === "gelal" ? "s" : "") + "'><span><b>Gel-al</b><br><em>Uncalı Cad. No:2/A · %15 indirim</em></span><b>−" + H.tl(Math.round((f.ara + f.ek) * .15)) + "</b></button>" +
@@ -199,7 +209,7 @@
     }
     ic.innerHTML = h;
     var hazir = [A.model, true, A.tarih, true, A.teslim === "gelal" || (A.adres || "").trim().length > 4, true][A.adim];
-    alt.innerHTML = "<div><small>" + (f ? "Tahmini tutar (örnek fiyat)" : "Adım " + (A.adim + 1) + "/6") + "</small><strong>" + (f ? H.tl(f.toplam) : "—") + "</strong></div><div style='display:flex;gap:8px'>" +
+    alt.innerHTML = "<div><small>" + (f ? "Tutar (liste fiyatı, değişebilir)" : "Adım " + (A.adim + 1) + "/6") + "</small><strong>" + (f ? H.tl(f.toplam) : "—") + "</strong></div><div style='display:flex;gap:8px'>" +
       (A.adim > 0 ? "<button class='hz-btn g' data-geri>Geri</button>" : "") +
       (A.adim < 5 ? "<button class='hz-btn' data-ileri" + (hazir ? "" : " disabled") + ">" + (A.adim === 4 ? "Özeti gör" : "Devam") + "</button>" : "<button class='hz-btn' data-bitti>Tamam</button>") + "</div>";
     // olaylar

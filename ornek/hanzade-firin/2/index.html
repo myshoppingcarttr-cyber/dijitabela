@@ -142,24 +142,24 @@ footer{border-top:3px double var(--murekkep);padding:28px 0 40px;text-align:cent
 
 <section class="bol" id="pasta" data-anlat="pasta">
   <div class="no"><b>03</b><h2>Pasta kitabı</h2></div>
-  <p style="max-width:640px;margin:0 0 26px">Doğum günü, nişan, söz, çocuk partisi. Kaydırın, beğendiğinizi seçin. Fiyatlar 6–8 kişilik içindir; aşağıdaki hesaplayıcı kişi sayısına göre boyu kendisi önerir.</p>
+  <p style="max-width:640px;margin:0 0 26px">Doğum günü, nişan, söz, çocuk partisi. Kaydırın, beğendiğinizi seçin. Fiyat boya göre: 0 No (4 kişilik) 750 TL, 1 No (6–8 kişilik) 1.000 TL, 2 No (8–10 kişilik) 1.250 TL. Aşağıdaki hesaplayıcı kişi sayısına göre boyu kendisi önerir.</p>
   <div class="lookbook" id="look"></div>
   <div class="hesap" id="hesap">
     <div><p class="mono" style="color:#c9bca8">Pasta hesaplayıcı</p><h3>Kaç kişi geliyor?</h3>
       <p>Kaydırın; boyu ve fiyatı söyleyelim.</p>
-      <div class="kisi" id="kisiG">12</div>
-      <input type="range" id="kisi" min="4" max="30" value="12" aria-label="Kişi sayısı">
+      <div class="kisi" id="kisiG">6</div>
+      <input type="range" id="kisi" min="4" max="10" value="6" aria-label="Kişi sayısı">
       <select id="model" aria-label="Pasta modeli"></select>
       <label style="display:flex;gap:10px;align-items:center;margin-top:12px;font-size:.95rem;color:#c9bca8"><input type="checkbox" id="gelal" checked> Gel-al (%15 indirim)</label>
     </div>
-    <div class="sonuc"><dl id="dl"></dl><div class="top" id="top"></div><p style="font-size:.8rem;margin:8px 0 16px">Örnek fiyat · kesin fiyat sipariş onayında</p><button class="btn" id="hesapSip">Bu ayarla sipariş ver</button></div>
+    <div class="sonuc"><dl id="dl"></dl><div class="top" id="top"></div><p style="font-size:.8rem;margin:8px 0 16px">Fiyatlar dükkân listesinden, değişebilir · kesin tutar sipariş onayında</p><button class="btn" id="hesapSip">Bu ayarla sipariş ver</button></div>
   </div>
 </section>
 
 <section class="bol" id="menu" data-anlat="menu">
   <div class="no"><b>04</b><h2>Menü</h2></div>
   <div class="iki"><div class="fiyat-liste" id="fl"></div>
-    <div class="kucuk-foto"><img src="../img/ig/simit.webp" alt="Simit" loading="lazy"><img src="../img/ig/borek.webp" alt="Kol böreği" loading="lazy"><img src="../img/ig/baklava.webp" alt="Baklava" loading="lazy"><img src="../img/ig/kahvalti.webp" alt="Kahvaltı" loading="lazy"><p class="mono" style="grid-column:1/-1">Fiyatlar örnektir · kurulumda kasadaki listeden aktarılır</p></div></div>
+    <div class="kucuk-foto"><img src="../img/ig/simit.webp" alt="Simit" loading="lazy"><img src="../img/ig/borek.webp" alt="Kol böreği" loading="lazy"><img src="../img/ig/baklava.webp" alt="Baklava" loading="lazy"><img src="../img/ig/kahvalti.webp" alt="Kahvaltı" loading="lazy"><p class="mono" style="grid-column:1/-1">Fiyatlar dükkân listesinden, değişebilir</p></div></div>
 </section>
 
 <section class="bol" id="yorum" data-anlat="yorum">
@@ -200,8 +200,8 @@ footer{border-top:3px double var(--murekkep);padding:28px 0 40px;text-align:cent
   cizelge();setInterval(cizelge,60000);
   document.getElementById("look").innerHTML=H.pastalar.map(function(p){return "<figure><img src='"+H.img(p.img)+"' alt='"+H.esc(p.ad)+"' loading='lazy'><figcaption><h3>"+H.esc(p.ad)+"</h3><p>"+H.esc(p.not)+"</p><div class='alt'><span>"+H.tl(p.taban)+"'den</span><button data-siparis='"+p.id+"'>Sipariş et</button></div></figcaption></figure>"}).join("");
   var sel=document.getElementById("model");sel.innerHTML=H.pastalar.map(function(p){return "<option value='"+p.id+"'>"+H.esc(p.ad)+"</option>"}).join("");
-  function boyBul(k){return k<=8?0:k<=12?1:k<=20?2:3;}
-  function hesap(){var k=+document.getElementById("kisi").value;document.getElementById("kisiG").textContent=k+(k>=30?"+":"")+" kişi";
+  function boyBul(k){return k<=4?0:k<=8?1:2;}
+  function hesap(){var k=+document.getElementById("kisi").value;document.getElementById("kisiG").textContent=k+(k>=10?"+":"")+" kişi";
     var f=H.fiyat({model:sel.value,boy:boyBul(k),teslim:document.getElementById("gelal").checked?"gelal":"adres"});
     document.getElementById("dl").innerHTML="<dt>Önerilen boy</dt><dd>"+f.boy.ad+" · "+f.boy.cap+"</dd><dt>Pasta</dt><dd>"+H.tl(f.ara)+"</dd>"+(f.indirim?"<dt>Gel-al indirimi</dt><dd>−"+H.tl(f.indirim)+"</dd>":"<dt>Teslimat</dt><dd>Ücretsiz</dd>")+"<dt>Kişi başı</dt><dd>"+H.tl(f.toplam/Math.max(k,1))+"</dd>";
     document.getElementById("top").textContent=H.tl(f.toplam);}
