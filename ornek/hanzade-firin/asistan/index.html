@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hanzade · WhatsApp Pasta Sipariş Asistanı · Demo</title>
+<meta name="description" content="Hanzade Fırın & Cafe için WhatsApp pasta sipariş asistanı demosu: model, boy, tarih, yazı, adres, fiyat ve ustaya özet. Gerçek mesaj gönderilmez.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--fg:#16181D;--mute:#646A75;--line:#E3E0D8;--led:#FFB000;--bg:#F4F3EF;--wa:#075E54;--wa2:#128C7E;--vurgu:#075E54}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif}
+.kap{max-width:1140px;margin:0 auto;padding:0 16px}
+.dj{background:var(--fg);color:#fff}.dj .kap{display:flex;align-items:center;gap:12px;height:60px}.dj b{font-weight:800}.dj span{margin-left:auto;font:700 .72rem "Space Mono",monospace;color:var(--led);letter-spacing:.06em}
+.dj a{color:#fff;text-decoration:none;font-size:.85rem;opacity:.8}
+.bas{padding:30px 0 10px}
+.bas .et{font:700 .74rem "Space Mono",monospace;letter-spacing:.12em;color:#8A5A00;background:#FFF3D6;display:inline-block;padding:4px 10px}
+.bas h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:12px 0 8px;letter-spacing:-.02em}
+.bas p{color:var(--mute);max-width:720px;margin:0}
+.duzen{display:grid;grid-template-columns:400px 1fr;gap:34px;padding:24px 0 60px;align-items:start}
+@media(max-width:900px){.duzen{grid-template-columns:1fr;justify-items:center}}
+/* telefon */
+.tel{width:min(380px,100%);height:min(760px,calc(100vh - 40px));min-height:600px;background:#111;border-radius:42px;padding:12px;box-shadow:0 30px 60px rgba(0,0,0,.25);position:sticky;top:16px}
+@media(max-width:900px){.tel{position:relative;top:0;height:640px}}
+.ekran{height:100%;border-radius:32px;overflow:hidden;display:flex;flex-direction:column;background:#efeae2}
+.wa-ust{background:var(--wa);color:#fff;display:flex;align-items:center;gap:10px;padding:14px 14px 10px}
+.wa-ust .av{width:38px;height:38px;border-radius:50%;background:#f3e6d3;color:#2a1a12;display:grid;place-items:center;font-weight:800}
+.wa-ust b{display:block;font-size:.95rem}.wa-ust small{font-size:.72rem;opacity:.85}
+.sohbet{flex:1;overflow-y:auto;padding:12px 10px;background:#efeae2 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M10 10h4v4h-4zM40 30h3v3h-3zM25 50h3v3h-3z' fill='%23e2dbd0'/%3E%3C/svg%3E");scroll-behavior:smooth}
+.gun{text-align:center;margin:4px 0 10px}.gun span{background:#e1f2fb;color:#54656f;font-size:.7rem;padding:4px 10px;border-radius:8px}
+.m{max-width:84%;padding:7px 10px 6px;border-radius:10px;margin:4px 0;font-size:.88rem;line-height:1.4;box-shadow:0 1px .5px rgba(0,0,0,.13);white-space:pre-wrap;word-wrap:break-word;position:relative;animation:gel .2s ease-out}
+@keyframes gel{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.m.b{background:#fff;border-top-left-radius:2px}
+.m.k{background:#d9fdd3;margin-left:auto;border-top-right-radius:2px}
+.m small{display:block;text-align:right;font-size:.64rem;color:#667781;margin-top:2px}
+.m.k small::after{content:" ✓✓";color:#53bdeb}
+.m img{width:100%;border-radius:6px;margin:-2px 0 4px;aspect-ratio:4/3;object-fit:cover}
+.kartlar{display:flex;gap:8px;overflow-x:auto;padding:4px 0 6px;scrollbar-width:none;max-width:100%}
+.kartlar button{flex:0 0 150px;background:#fff;border:0;border-radius:10px;padding:0;overflow:hidden;cursor:pointer;text-align:left;box-shadow:0 1px .5px rgba(0,0,0,.13);font:inherit}
+.kartlar img{width:100%;height:96px;object-fit:cover}
+.kartlar span{display:block;padding:6px 8px 8px;font-size:.76rem;line-height:1.3}.kartlar em{font-style:normal;color:var(--wa2);font-weight:700}
+.secenek{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
+.secenek button{border:1px solid #cfd8d4;background:#fff;color:var(--wa2);border-radius:18px;padding:7px 12px;font:600 .8rem "Plus Jakarta Sans",sans-serif;cursor:pointer}
+.secenek button:hover{background:#f0faf7}
+.yaziyor{background:#fff;display:inline-flex;gap:4px;padding:10px 12px;border-radius:10px;margin:4px 0}
+.yaziyor i{width:6px;height:6px;border-radius:50%;background:#9aa;animation:zip 1s infinite}.yaziyor i:nth-child(2){animation-delay:.15s}.yaziyor i:nth-child(3){animation-delay:.3s}
+@keyframes zip{50%{opacity:.3;transform:translateY(-2px)}}
+.giris{display:flex;gap:8px;padding:8px;background:#f0f2f5;align-items:center}
+.giris input{flex:1;border:0;border-radius:20px;padding:11px 14px;font:inherit;font-size:.9rem;background:#fff;min-width:0}
+.giris button{width:42px;height:42px;border-radius:50%;border:0;background:var(--wa2);color:#fff;cursor:pointer;font-size:1.1rem;flex:none}
+.giris input:disabled{background:#e9ebee}
+/* sağ panel */
+.sag h2{font-size:1.25rem;margin:0 0 10px;letter-spacing:-.01em}
+.kontrol{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border:1px solid var(--fg);background:#fff;font:700 .92rem "Plus Jakarta Sans",sans-serif;cursor:pointer;text-decoration:none;color:var(--fg)}
+.btn.d{background:var(--fg);color:#fff}.btn.y{background:var(--led);border-color:var(--led)}
+.fis{background:#fff;border:1px solid var(--line);padding:20px;font:13px/1.65 "Space Mono",monospace;min-height:280px;position:relative}
+.fis .bos{color:var(--mute);font-family:"Plus Jakarta Sans",sans-serif;font-size:.9rem}
+.fis h3{margin:0 0 10px;font-size:14px;display:flex;justify-content:space-between;border-bottom:1px dashed #999;padding-bottom:8px}
+.fis dl{display:grid;grid-template-columns:110px 1fr;margin:0;gap:2px 10px}.fis dt{color:var(--mute)}.fis dd{margin:0}
+.fis dd.yeni{background:#FFF3D6}
+.fis .durum{margin-top:12px;padding-top:10px;border-top:1px dashed #999;display:flex;justify-content:space-between}
+.bildirim{margin-top:16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--led);padding:14px 16px;font-size:.9rem;display:none}
+.bildirim.a{display:block}
+.adim{list-style:none;padding:0;margin:22px 0 0;counter-reset:a}
+.adim li{counter-increment:a;padding:10px 0 10px 40px;border-bottom:1px solid var(--line);position:relative;color:var(--mute);font-size:.92rem}
+.adim li::before{content:counter(a,decimal-leading-zero);position:absolute;left:0;top:10px;font:700 .8rem "Space Mono",monospace;color:var(--fg)}
+.adim li.ok{color:var(--fg)}.adim li.ok::after{content:"✓";position:absolute;right:4px;top:10px;color:#17a55a;font-weight:800}
+.uyari{font-size:.82rem;color:var(--mute);margin-top:18px;background:#fff;border:1px solid var(--line);padding:12px 14px}
+</style>
+</head>
+<body>
+<header class="dj"><div class="kap"><svg width="34" height="34" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#2C3038"/><g fill="#FFB000"><circle cx="9" cy="12" r="2"/><circle cx="23" cy="12" r="2"/><rect x="9" y="19" width="14" height="2.4" rx="1.2"/></g></svg><b>Dijitabela</b><a href="../">← Hanzade sunumu</a><span>ASİSTAN DEMOSU</span></div></header>
+<main class="kap">
+  <div class="bas" data-anlat="giris"><span class="et">Hanzade Fırın &amp; Cafe için</span><h1>WhatsApp Pasta Sipariş Asistanı</h1><p>Müşteri WhatsApp'tan yazar; asistan modeli, boyu, tarihi, pasta üstü yazıyı ve adresi sorar, fiyatı söyler, onaylanınca ustaya fiş düşer. Gece 2'de de, bayram yoğunluğunda da. Soldaki telefonda kendiniz deneyin ya da "Otomatik oynat"a basın.</p></div>
+  <div class="duzen">
+    <div class="tel"><div class="ekran">
+      <div class="wa-ust"><div class="av">H</div><div><b>Hanzade Fırın &amp; Cafe</b><small id="cevrim">çevrimiçi · sipariş asistanı</small></div></div>
+      <div class="sohbet" id="sohbet"><div class="gun"><span>BUGÜN</span></div></div>
+      <form class="giris" id="form"><input id="girdi" placeholder="Mesaj yazın" autocomplete="off" aria-label="Mesaj"><button aria-label="Gönder">➤</button></form>
+    </div></div>
+    <div class="sag">
+      <div class="kontrol"><button class="btn y" id="oto">▶ Otomatik oynat</button><button class="btn" id="bas">↺ Baştan başla</button></div>
+      <h2>Ustanın ekranı</h2>
+      <div class="fis" id="fis"><p class="bos">Sohbet ilerledikçe sipariş fişi burada kendiliğinden dolar. Onaylanınca ustanın tabletine ve Hüseyin Bey'in telefonuna aynı anda düşer.</p></div>
+      <div class="bildirim" id="bildirim"></div>
+      <ol class="adim" id="adimlar"><li>Model seçimi (fotoğraflı)</li><li>Kişi sayısı → boy</li><li>Teslim günü ve saati</li><li>Pasta üstü yazı</li><li>Gel-al (%15) ya da adrese teslim</li><li>Fiyat ve onay</li><li>Ustaya fiş + müşteriye onay mesajı</li></ol>
+      <p class="uyari"><b>Demo:</b> Bu sayfa tamamen tarayıcıda çalışır, hiçbir numaraya mesaj göndermez. Fiyatlar örnektir. Kurulumda Hanzade'nin kendi WhatsApp Business hattına bağlanır; "açık mısınız, evlere servis var mı, bugün simit kaldı mı" gibi soruları da cevaplar.</p>
+    </div>
+  </div>
+</main>
+
+<script src="../ortak.js"></script>
+<script>
+(function(){
+  var H=window.HZ,$=function(i){return document.getElementById(i)},S=$("sohbet"),G=$("girdi");
+  var O,bekle,oto=false,zam=[];
+  function saat(){return new Date().toTimeString().slice(0,5)}
+  function kaydir(){S.scrollTop=S.scrollHeight}
+  function mesaj(t,kim,ek){var d=document.createElement("div");d.className="m "+kim;d.innerHTML=(ek||"")+H.esc(t).replace(/\*(.+?)\*/g,"<b>$1</b>")+"<small>"+saat()+"</small>";S.appendChild(d);kaydir();return d}
+  function sec(lst){var d=document.createElement("div");d.className="secenek";lst.forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[0];b.onclick=function(){if(oto)return;temizSec();cevap(x[0],x[1])};d.appendChild(b)});S.appendChild(d);kaydir()}
+  function temizSec(){S.querySelectorAll(".secenek,.kartlar").forEach(function(e){e.remove()})}
+  function bot(t,sonra,gec){var y=document.createElement("div");y.className="yaziyor";y.innerHTML="<i></i><i></i><i></i>";S.appendChild(y);kaydir();$("cevrim").textContent="yazıyor…";
+    zam.push(setTimeout(function(){y.remove();$("cevrim").textContent="çevrimiçi · sipariş asistanı";if(t)mesaj(t,"b");if(sonra)sonra()},gec||Math.min(1400,500+t.length*12)))}
+  function cevap(metin,deger){mesaj(metin,"k");akis(deger!==undefined?deger:metin)}
+  function adim(n){[].forEach.call($("adimlar").children,function(l,i){l.classList.toggle("ok",i<n)})}
+  function fis(son){var f=O.model?H.fiyat(O):null;if(!O.model){$("fis").innerHTML="<p class='bos'>Sohbet ilerledikçe sipariş fişi burada kendiliğinden dolar.</p>";return}
+    var r=[["Model",f.pasta.ad],["Boy",O.boyS?f.boy.ad+" · "+f.boy.cap:"…"],["Teslim",O.tarihYazi?O.tarihYazi+(O.saat?" "+O.saat:""):"…"],["Yazı",O.yaziS?(O.yazi||"—"):"…"],["Teslimat",O.teslimS?(O.teslim==="gelal"?"GEL-AL (%15)":"ADRES: "+(O.adres||"…")):"…"],["Müşteri",O.ad||"…"],["Tutar",O.boyS?H.tl(f.toplam):"…"]];
+    $("fis").innerHTML="<h3><span>PASTA FİŞİ "+O.no+"</span><span>"+saat()+"</span></h3><dl>"+r.map(function(x){return "<dt>"+x[0]+"</dt><dd class='"+(x[0]===son?"yeni":"")+"'>"+H.esc(x[1])+"</dd>"}).join("")+"</dl><div class='durum'><span>Durum</span><b>"+(O.onay?"ONAYLANDI ✓":"Sohbet sürüyor")+"</b></div>"}
+  var GUN=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"],AY=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+  function gunYaz(d){return d.getDate()+" "+AY[d.getMonth()]+" "+GUN[d.getDay()]}
+  function gunler(){var l=[],d=new Date();for(var i=1;i<=7;i++){var x=new Date(d);x.setDate(d.getDate()+i);l.push([(i===1?"Yarın · ":"")+gunYaz(x),gunYaz(x)])}return l.slice(0,4)}
+  function basla(){zam.forEach(clearTimeout);zam=[];S.innerHTML="<div class='gun'><span>BUGÜN</span></div>";O={no:H.fisNo(),ekler:["yazi"]};bekle="menu";fis();adim(0);$("bildirim").classList.remove("a");G.disabled=false;G.placeholder="Mesaj yazın";
+    mesaj("Merhaba, pasta siparişi vermek istiyorum","k");
+    bot("Merhaba, Hanzade Fırın & Cafe'ye hoş geldiniz 🎂 Ben sipariş asistanıyım. Birkaç soruyla siparişinizi hazırlayıp ustamıza ileteceğim.",function(){bot("Önce modeli seçelim. Kaydırıp birine dokunun 👇",modelGoster,900)})}
+  function modelGoster(){bekle="model";var d=document.createElement("div");d.className="kartlar";H.pastalar.forEach(function(p){var b=document.createElement("button");b.type="button";b.dataset.id=p.id;b.innerHTML="<img src='"+H.img(p.img)+"' alt=''><span>"+H.esc(p.ad)+"<br><em>"+H.tl(p.taban)+"'den</em></span>";b.onclick=function(){if(oto)return;temizSec();cevap(p.ad,p.id)};d.appendChild(b)});S.appendChild(d);kaydir()}
+  function akis(v){
+    var t=String(v).toLocaleLowerCase("tr");
+    if(bekle==="model"){var p=H.pastalar.filter(function(x){return x.id===v||x.ad.toLocaleLowerCase("tr")===t||t.indexOf(x.ad.split(" ")[0].toLocaleLowerCase("tr"))>-1})[0];
+      if(!p){bot("Bu modeli listede bulamadım. Aşağıdan seçebilir ya da fotoğrafını gönderebilirsiniz; usta fiyatı aynı gün bildirir.",modelGoster);return}
+      O.model=p.id;O.boy=0;fis("Model");adim(1);
+      bot("Güzel seçim 👌 *"+p.ad+"*: "+p.not+".",function(){bot("Kaç kişilik olsun?",function(){bekle="boy";sec(H.boylar.map(function(b){return [b.ad+" · "+H.tl(H.fiyat({model:O.model,boy:b.id}).ara),b.id]}))})});return}
+    if(bekle==="boy"){var b=typeof v==="number"?v:(function(){var n=parseInt(t,10);return isNaN(n)?0:n<=8?0:n<=12?1:n<=20?2:3})();O.boy=b;O.boyS=true;fis("Boy");adim(2);
+      bot(H.boylar[b].ad+" ("+H.boylar[b].cap+") not ettim. Hangi gün lazım?",function(){bekle="tarih";sec(gunler())});return}
+    if(bekle==="tarih"){O.tarihYazi=String(v);O.tarih=O.tarihYazi;fis("Teslim");
+      bot("Saat kaçta hazır olsun?",function(){bekle="saat";sec([["12:00"],["15:00"],["18:00"],["20:00"]])});return}
+    if(bekle==="saat"){O.saat=String(v);fis("Teslim");adim(3);
+      bot("Pastanın üstüne ne yazalım? Yazmanızı istediğiniz metni gönderin (ör. İyi ki doğdun Elif). Yazı istemiyorsanız \"yazı olmasın\" deyin.",function(){bekle="yazi";G.placeholder="Pasta üstü yazı…";sec([["Yazı olmasın",""]]);G.focus()});return}
+    if(bekle==="yazi"){O.yazi=(t==="yazı olmasın"?"":String(v)).slice(0,28);O.yaziS=true;G.placeholder="Mesaj yazın";fis("Yazı");adim(4);
+      bot((O.yazi?"\""+O.yazi+"\" yazısını krema ile yazacağız ✍️ ":"Yazısız hazırlayacağız. ")+"Nasıl teslim alacaksınız?",function(){bekle="teslim";sec([["Gel-al (%15 indirim)","gelal"],["Adrese teslim","adres"]])});return}
+    if(bekle==="teslim"){O.teslim=v==="gelal"||t.indexOf("gel")>-1?"gelal":"adres";O.teslimS=true;fis("Teslimat");
+      if(O.teslim==="adres"){bot("Teslim adresini yazar mısınız? (mahalle, cadde, apartman, daire)",function(){bekle="adres";G.placeholder="Adres…";G.focus()});return}
+      bot("Uncalı Cad. No:2/A'dan teslim alacaksınız, %15 indirim uygulandı. Siparişi kimin adına yazalım?",function(){bekle="ad";G.placeholder="Ad Soyad…";G.focus()});return}
+    if(bekle==="adres"){O.adres=String(v);fis("Teslimat");bot("Teşekkürler 📍 Konyaaltı içi teslimat ücretsiz. Siparişi kimin adına yazalım?",function(){bekle="ad";G.placeholder="Ad Soyad…";G.focus()});return}
+    if(bekle==="ad"){O.ad=String(v);G.placeholder="Mesaj yazın";fis("Müşteri");adim(5);var f=H.fiyat(O);
+      bot("Sipariş özetiniz:\n\n🎂 *"+f.pasta.ad+"*\n👥 "+f.boy.ad+" ("+f.boy.cap+")\n📅 "+O.tarihYazi+" · "+O.saat+"\n✍️ "+(O.yazi?"\""+O.yazi+"\"":"Yazısız")+"\n🚚 "+(O.teslim==="gelal"?"Gel-al":O.adres)+"\n\nPasta: "+H.tl(f.ara)+(f.indirim?"\nGel-al indirimi: −"+H.tl(f.indirim):"")+"\n*Toplam: "+H.tl(f.toplam)+"*\n\nOnaylıyor musunuz?",function(){bekle="onay";sec([["Onaylıyorum ✅","evet"],["Bir şeyi değiştir","degis"]])},1600);return}
+    if(bekle==="onay"){if(v==="degis"||t.indexOf("değiş")>-1){bot("Tabii, baştan alalım 🙂",function(){O.model=null;O.boyS=O.yaziS=O.teslimS=false;fis();modelGoster()});return}
+      O.onay=true;fis("Müşteri");adim(7);var f2=H.fiyat(O);
+      bot("Siparişiniz alındı ✅ Fiş no: *"+O.no+"*\nUstamıza iletildi. Pasta hazır olunca size buradan haber vereceğiz.\n\nKapora (%30): "+H.tl(Math.round(f2.toplam*.3))+" · ödeme bağlantısı kurulumda eklenecek (demo).",function(){
+        var b=$("bildirim");b.innerHTML="<b>📲 Hüseyin Bey'in telefonuna düşen bildirim</b><br>Yeni pasta siparişi "+O.no+": "+H.esc(f2.pasta.ad)+", "+f2.boy.ad+", "+H.esc(O.tarihYazi)+" "+O.saat+", "+H.tl(f2.toplam)+". Müşteri: "+H.esc(O.ad)+".";b.classList.add("a");bekle="son";
+        bot("Başka bir isteğiniz var mı? Evlere servis, açılış saatleri ya da bugün çıkan ürünleri sorabilirsiniz.",function(){sec([["Açık mısınız?"],["Bugün simit var mı?"],["Yeni sipariş"]])})},1300);return}
+    // serbest sorular
+    if(/açık|saat|kaça kadar/.test(t)){var d=H.durum();bot(d.metin+" ("+d.alt+"). Her gün 06:00–21:30 açığız. Adres: Uncalı Cad. Sidney Apt. No:2/A, Konyaaltı.",function(){sec([["Yeni sipariş"]])});return}
+    if(/simit|ekmek|börek|poğaça|açma|kruvasan/.test(t)){var z=H.tazelik().filter(function(x){return t.indexOf(x.ad.split(" ")[0].toLocaleLowerCase("tr").slice(0,4))>-1})[0]||H.tazelik()[1];
+      bot(z.ad+": "+(z.son?"son çıkış "+z.son+" ("+H.farkYazi(z.fark)+")":"bugün henüz çıkmadı")+(z.sonraki?", sonraki çıkış "+z.sonraki:"")+". Evlere servis için ürünleri yazmanız yeterli 🙂",function(){sec([["Yeni sipariş"]])});return}
+    if(/sipariş|pasta|yeni/.test(t)){O={no:H.fisNo(),ekler:["yazi"]};fis();adim(0);bot("Hemen başlayalım. Modeli seçin 👇",modelGoster);return}
+    bot("Bunu ustamıza soruyorum; size buradan dönüş yapılacak. Bu arada pasta siparişi için \"pasta\" yazabilirsiniz.",function(){sec([["Pasta siparişi","pasta"],["Açık mısınız?"]])});
+  }
+  $("form").onsubmit=function(e){e.preventDefault();if(oto)return;var v=G.value.trim();if(!v)return;G.value="";temizSec();cevap(v)};
+  // otomatik oynatma (Patron'un tablette göstermesi için)
+  function otomatik(){basla();oto=true;$("oto").textContent="■ Oynatılıyor…";
+    var plan=[["model","Bitter Çikolatalı Meyveli","cikolata"],["boy","10–12 kişilik",1],["tarih",null,null],["saat","18:00","18:00"],["yazi","İyi ki doğdun Elif","İyi ki doğdun Elif"],["teslim","Adrese teslim","adres"],["adres","Liman Mh. 25. Sk. No:8 D:4, Konyaaltı","Liman Mh. 25. Sk. No:8 D:4, Konyaaltı"],["ad","Ayşe Demir","Ayşe Demir"],["onay","Onaylıyorum ✅","evet"]],i=0;
+    (function sira(){if(!oto)return;if(i>=plan.length){oto=false;$("oto").textContent="▶ Otomatik oynat";return}
+      if(bekle!==plan[i][0]){zam.push(setTimeout(sira,400));return}
+      var p=plan[i++];zam.push(setTimeout(function(){if(!oto)return;temizSec();var m=p[1],d=p[2];if(p[0]==="tarih"){var g=gunler()[1];m=g[0];d=g[1]}cevap(m,d);zam.push(setTimeout(sira,700))},1500))})();}
+  $("oto").onclick=function(){if(oto){oto=false;zam.forEach(clearTimeout);$("oto").textContent="▶ Otomatik oynat";return}otomatik()};
+  $("bas").onclick=function(){oto=false;$("oto").textContent="▶ Otomatik oynat";basla()};
+  basla();
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>

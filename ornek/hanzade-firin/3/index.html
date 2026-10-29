@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#2a1a12">
+<title>Hanzade Fırın & Cafe · Uygulama · Taslak 3</title>
+<meta name="description" content="Hanzade Fırın & Cafe — telefonda uygulama gibi: bugün çıkanlar, gel-al sepeti, pasta siparişi. (Dijitabela örnek tasarım)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#efe9e1;--kart:#fff;--murekkep:#24170f;--soluk:#7b6c5c;--cizgi:#e6ddd1;--vurgu:#b4462a;--koyu:#2a1a12;--yesil:#2f7a3d}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#d8cfc3;color:var(--murekkep);font:15px/1.5 Manrope,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+a{color:inherit}
+.sahne{display:grid;grid-template-columns:1fr minmax(0,460px) 1fr;min-height:100vh}
+.yan{padding:60px 40px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center}
+.yan h2{font:800 2rem/1.1 Manrope,sans-serif;margin:0 0 12px}
+.yan p{color:#5e5145;margin:0 0 10px}
+.yan ol{padding-left:18px;color:#5e5145}
+.app{min-width:0}
+@media(max-width:1000px){.sahne{grid-template-columns:minmax(0,1fr)}.yan{display:none}}
+.app{background:var(--zemin);min-height:100vh;position:relative;padding-bottom:96px;box-shadow:0 0 60px rgba(0,0,0,.18)}
+/* kapak kartı */
+.kapak{position:relative;background:var(--koyu);color:#fff;padding:18px 18px 20px}
+.kapak .ust{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:14px;background:#f3e6d3;color:var(--koyu);display:grid;place-items:center;font:800 1.3rem Manrope,sans-serif}
+.kapak h1{font:800 1.25rem/1.15 Manrope,sans-serif;margin:0}
+.kapak .ust small{color:#d9c8b4;font-size:.8rem}
+.durum{margin-left:auto;font-size:.72rem;font-weight:700;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.1);white-space:nowrap}
+.durum i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5bd078;margin-right:6px}
+.durum.k i{background:#e46a55}
+.kapak .foto{margin-top:16px;border-radius:18px;overflow:hidden;aspect-ratio:16/10}
+.kapak .foto img{width:100%;height:100%;object-fit:cover}
+.kapak .bilgi{display:flex;gap:8px;margin-top:12px;overflow-x:auto;scrollbar-width:none}
+.kapak .bilgi span{flex:none;font-size:.78rem;padding:7px 11px;border-radius:10px;background:rgba(255,255,255,.08);color:#f0e4d4}
+/* hikâye halkaları */
+.halkalar{display:flex;gap:14px;overflow-x:auto;padding:16px 16px 6px;scrollbar-width:none}
+.halka{flex:none;width:72px;text-align:center;border:0;background:none;padding:0;cursor:pointer}
+.halka .c{width:68px;height:68px;border-radius:50%;padding:3px;background:conic-gradient(var(--vurgu),#e8a33d,var(--vurgu));margin:0 auto}
+.halka .c.eski{background:#c9bcae}
+.halka img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--zemin)}
+.halka span{display:block;font-size:.7rem;font-weight:700;margin-top:5px;line-height:1.2}
+.halka small{display:block;font:500 .62rem "JetBrains Mono",monospace;color:var(--vurgu)}
+/* sekmeler */
+.sekme{position:sticky;top:0;z-index:20;background:var(--zemin);padding:10px 16px}
+.sekme div{display:flex;background:#e2d8cb;border-radius:12px;padding:4px}
+.sekme button{flex:1;border:0;background:none;padding:9px 4px;border-radius:9px;font-weight:700;font-size:.85rem;cursor:pointer}
+.sekme button.s{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.liste{padding:6px 16px 10px;display:grid;gap:10px}
+.urun{display:grid;grid-template-columns:84px 1fr auto;gap:12px;align-items:center;background:var(--kart);border-radius:16px;padding:10px}
+.urun img{width:84px;height:84px;border-radius:12px;object-fit:cover}
+.urun b{display:block;font-size:.95rem;line-height:1.25}
+.urun small{color:var(--soluk);font-size:.78rem}
+.urun .f{font-weight:800;margin-top:4px;display:block}
+.ekle{width:40px;height:40px;border-radius:12px;border:0;background:var(--koyu);color:#fff;font-size:1.3rem;cursor:pointer}
+.adet{display:flex;align-items:center;gap:6px}.adet button{width:32px;height:32px;border-radius:10px;border:0;background:#efe5d8;cursor:pointer;font-weight:800}
+.pkart{background:var(--kart);border-radius:18px;overflow:hidden}
+.pkart img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.pkart .ic{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pkart b{display:block}.pkart small{color:var(--soluk)}
+.pbtn{border:0;background:var(--vurgu);color:#fff;font-weight:800;padding:11px 14px;border-radius:12px;cursor:pointer;white-space:nowrap}
+/* paneller */
+.paneller{padding:8px 16px;display:grid;gap:10px}
+details{background:var(--kart);border-radius:16px;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:16px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;color:var(--soluk)}
+details[open] summary::after{content:"−"}
+details .ic{padding:0 16px 16px}
+.saat-t{width:100%;border-collapse:collapse;font-size:.9rem}.saat-t td{padding:7px 0;border-bottom:1px solid var(--cizgi)}.saat-t td:last-child{text-align:right;font-family:"JetBrains Mono",monospace}.saat-t tr.bu td{color:var(--vurgu);font-weight:800}
+.harita iframe{width:100%;height:260px;border:0;border-radius:12px;display:block}
+.qrk{display:flex;gap:14px;align-items:center}.qrk #qr{background:#fff;padding:8px;border:1px solid var(--cizgi);border-radius:12px;flex:none}
+/* sepet */
+.sepet-bar{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);width:min(428px,calc(100% - 32px));background:var(--vurgu);color:#fff;border-radius:16px;padding:12px 16px;display:none;justify-content:space-between;align-items:center;z-index:45;box-shadow:0 10px 30px rgba(0,0,0,.25);border:0;cursor:pointer;font-weight:800}
+.sepet-bar.a{display:flex}
+/* alt menü */
+.alt-menu{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(460px,100%);background:#fff;border-top:1px solid var(--cizgi);display:grid;grid-template-columns:repeat(5,1fr);z-index:50;padding-bottom:env(safe-area-inset-bottom)}
+.alt-menu a,.alt-menu button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 12px;font-size:.68rem;font-weight:700;text-decoration:none;border:0;background:none;cursor:pointer;color:var(--soluk)}
+.alt-menu svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}
+.alt-menu .orta{color:#fff}.alt-menu .orta span.ik{width:50px;height:50px;border-radius:16px;background:var(--vurgu);display:grid;place-items:center;margin-top:-22px;box-shadow:0 6px 16px rgba(180,70,42,.4)}
+.alt-menu .orta em{font-style:normal;color:var(--vurgu)}
+/* hikâye görüntüleyici */
+.hik{position:fixed;inset:0;background:#000;z-index:2147483200;display:none;flex-direction:column}
+.hik.a{display:flex}
+.hik .cubuk{display:flex;gap:4px;padding:12px 12px 0}.hik .cubuk i{flex:1;height:3px;background:rgba(255,255,255,.3);border-radius:2px;overflow:hidden}.hik .cubuk i b{display:block;height:100%;width:0;background:#fff}
+.hik .bas{display:flex;align-items:center;gap:10px;color:#fff;padding:10px 14px;font-weight:700}
+.hik .bas small{font-weight:500;opacity:.75}
+.hik .bas button{margin-left:auto;border:0;background:none;color:#fff;font-size:28px;cursor:pointer}
+.hik img{flex:1;min-height:0;width:100%;object-fit:cover}
+.hik .alt{position:absolute;left:0;right:0;bottom:0;padding:30px 18px 34px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff}
+.hik .alt b{font-size:1.4rem;display:block}
+.hik .sol,.hik .sag{position:absolute;top:80px;bottom:120px;width:40%}.hik .sol{left:0}.hik .sag{right:0}
+.panel-alt{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2147483150;display:none;align-items:flex-end;justify-content:center}
+.panel-alt.a{display:flex}
+.panel-alt .k{background:#fff;width:min(460px,100%);border-radius:20px 20px 0 0;padding:18px 18px 28px;max-height:86vh;overflow:auto}
+.panel-alt h3{margin:0 0 10px;font-size:1.2rem}
+.panel-alt table{width:100%;border-collapse:collapse;font-size:.92rem}.panel-alt td{padding:8px 0;border-bottom:1px solid var(--cizgi)}.panel-alt td:last-child{text-align:right}
+.segment{display:flex;gap:8px;margin:12px 0}.segment button{flex:1;border:1px solid var(--cizgi);background:#fff;border-radius:12px;padding:10px;cursor:pointer;font-weight:700;font-size:.85rem}.segment button.s{border-color:var(--vurgu);color:var(--vurgu);box-shadow:inset 0 0 0 1px var(--vurgu)}
+.kod{font:500 2rem "JetBrains Mono",monospace;letter-spacing:.2em;text-align:center;background:#f6efe6;border-radius:14px;padding:16px;margin:10px 0}
+.not{font-size:.8rem;color:var(--soluk)}
+.bolum-b{padding:16px 16px 4px;font:800 1.05rem Manrope,sans-serif;display:flex;justify-content:space-between;align-items:baseline}
+.bolum-b small{font:500 .7rem "JetBrains Mono",monospace;color:var(--soluk)}
+.alt-yazi{padding:20px 16px;text-align:center;font-size:.75rem;color:var(--soluk)}
+</style>
+</head>
+<body>
+<div class="sahne">
+  <aside class="yan"><p style="font:500 .75rem 'JetBrains Mono',monospace;letter-spacing:.14em;color:#8a5a3c">TASLAK 3 / 3 · UYGULAMA</p><h2>Telefonda uygulama gibi çalışan site</h2><p>İndirme yok, mağaza yok. Müşteri Instagram'daki linke dokunur, Hanzade ana ekranına eklenir.</p><ol><li>Hikâye halkaları: bugün fırından çıkanlar, çıkış saatiyle</li><li>Gel-al sepeti: ürünü seç, %15 indirim, kasada hazır</li><li>Pasta siparişi: model, boy, tarih, yazı</li><li>Saatler, harita, 360° ve yorum karekodu</li></ol><p class="not">Bu görünümü telefonda açmanız önerilir.</p></aside>
+  <div class="app">
+    <header class="kapak" data-anlat="giris">
+      <div class="ust"><div class="logo">H</div><div><h1>Hanzade Fırın &amp; Cafe</h1><small>Uncalı · Konyaaltı</small></div><span class="durum" id="durum"><i></i><span></span></span></div>
+      <div class="foto"><img src="../img/vitrin2.jpg" alt="Hanzade vitrini"></div>
+      <div class="bilgi"><span>06:00–21:30 her gün</span><span>Gel-al %15</span><span>Evlere servis</span><span>Kişiye özel pasta</span></div>
+    </header>
+
+    <div class="bolum-b" data-anlat="taze"><span>Bugün fırından</span><small id="saatYaz"></small></div>
+    <div class="halkalar" id="halkalar"></div>
+
+    <div class="sekme" id="menu"><div id="sekmeler"></div></div>
+    <div class="liste" id="liste"></div>
+
+    <div class="bolum-b" data-anlat="bilgi"><span>Bilgi</span><small>dokunun, açılsın</small></div>
+    <div class="paneller">
+      <details open><summary>Çalışma saatleri</summary><div class="ic"><table class="saat-t" id="saatT"></table></div></details>
+      <details><summary>Adres &amp; yol tarifi</summary><div class="ic harita"><p style="margin:0 0 10px">Molla Yusuf Mh. Uncalı Cad. Sidney Apt. No:2/A, Konyaaltı · (0242) 227 35 25</p><iframe id="harita" title="Hanzade konumu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p style="margin:10px 0 0"><a id="yol" target="_blank" rel="noopener" style="font-weight:800;color:var(--vurgu)">Google Haritalar'da aç →</a></p></div></details>
+      <details data-sv360><summary>360° caddeyi gezin</summary><div class="ic harita"><iframe data-src="https://www.google.com/maps/embed?pb=!6m6!1m5!2m2!1d36.8921!2d30.6264!4f0!5f0.8" title="Uncalı Caddesi 360° görünüm" allowfullscreen referrerpolicy="no-referrer-when-downgrade" style="height:320px"></iframe><p class="not" style="margin:8px 0 0">Görüntü: Google Street View</p></div></details>
+      <details id="yorum"><summary>Google'da değerlendirin</summary><div class="ic qrk"><div id="qr"></div><p style="margin:0;font-size:.9rem">Karekodu okutun ya da <a id="yorumLink" target="_blank" rel="noopener" style="color:var(--vurgu);font-weight:800">buraya dokunun</a>. Herkese aynı bağlantı açılır; her yoruma adımızla cevap veriyoruz.</p></div></details>
+    </div>
+    <p class="alt-yazi">Görseller temsilîdir (Pixabay lisansı) · Taslak 3 / 3 — Uygulama</p>
+
+    <button class="sepet-bar" id="sepetBar"><span id="sepetAdet"></span><span id="sepetTop"></span></button>
+    <nav class="alt-menu">
+      <a href="#" onclick="scrollTo({top:0,behavior:'smooth'});return false"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Ana</a>
+      <a href="#menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Menü</a>
+      <button class="orta" data-siparis><span class="ik"><svg viewBox="0 0 24 24"><path d="M4 20h16v-7H4zM6 13V9h12v4M12 9V5M10 5h4"/></svg></span><em>Pasta</em></button>
+      <button id="sepetAc"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.5 12h-11zM9 8V6a3 3 0 0 1 6 0v2"/></svg>Sepet</button>
+      <a id="yol2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Yol</a>
+    </nav>
+  </div>
+  <div></div>
+</div>
+
+<div class="hik" id="hik"><div class="cubuk" id="hikCubuk"></div><div class="bas"><img id="hikK" style="width:34px;height:34px;border-radius:50%;object-fit:cover"><div><span id="hikAd"></span><br><small id="hikZ"></small></div><button aria-label="Kapat" id="hikX">×</button></div><img id="hikI" alt=""><div class="sol" id="hikSol"></div><div class="sag" id="hikSag"></div><div class="alt"><b id="hikB"></b><span id="hikS"></span><div style="margin-top:12px"><button class="pbtn" id="hikEkle">Gel-al sepetine ekle</button></div></div></div>
+<div class="panel-alt" id="sepetP"><div class="k" id="sepetK"></div></div>
+
+<script src="../ortak.js"></script>
+<script>
+(function(){
+  var H=window.HZ,$=function(i){return document.getElementById(i)};
+  function durum(){var d=H.durum();$("durum").className="durum"+(d.acik?"":" k");$("durum").querySelector("span").textContent=d.metin;$("saatYaz").textContent=new Date().toTimeString().slice(0,5)+" itibarıyla";}
+  durum();setInterval(durum,60000);
+  // hikâyeler
+  var tz;function halka(){tz=H.tazelik();$("halkalar").innerHTML=tz.map(function(t,i){return "<button class='halka' data-h='"+i+"'><div class='c "+(t.sicak?"":"eski")+"'><img src='"+H.img(t.img)+"' alt=''></div><span>"+t.k+"</span><small>"+(t.son||"—")+"</small></button>"}).join("");
+    document.querySelectorAll("[data-h]").forEach(function(b){b.onclick=function(){hikAc(+b.dataset.h)}});}
+  halka();setInterval(halka,60000);
+  var hi=0,hz;function hikAc(i){hi=i;$("hik").classList.add("a");$("hikCubuk").innerHTML=tz.map(function(){return "<i><b></b></i>"}).join("");hikGoster();}
+  function hikGoster(){clearTimeout(hz);var t=tz[hi];[].forEach.call($("hikCubuk").children,function(c,j){var b=c.firstChild;b.style.transition="none";b.style.width=j<hi?"100%":"0";});
+    var b=$("hikCubuk").children[hi].firstChild;requestAnimationFrame(function(){requestAnimationFrame(function(){b.style.transition="width 5s linear";b.style.width="100%";})});
+    $("hikI").src=$("hikK").src=H.img(t.img);$("hikAd").textContent="hanzadefirin";$("hikZ").textContent=t.son?t.son+" · "+H.farkYazi(t.fark):"Bugün henüz çıkmadı";
+    $("hikB").textContent=t.ad;$("hikS").textContent=(t.sicak?"Sıcak! ":"")+(t.sonraki?"Sonraki çıkış "+t.sonraki:"Bugünkü son çıkış yapıldı");
+    hz=setTimeout(function(){if(hi<tz.length-1){hi++;hikGoster()}else hikKapa()},5000);}
+  function hikKapa(){clearTimeout(hz);$("hik").classList.remove("a");}
+  $("hikX").onclick=hikKapa;$("hikSag").onclick=function(){if(hi<tz.length-1){hi++;hikGoster()}else hikKapa()};$("hikSol").onclick=function(){if(hi>0){hi--;hikGoster()}};
+  $("hikEkle").onclick=function(){var ad=tz[hi].ad,u=H.firin.filter(function(x){return x.img===tz[hi].img})[0];if(u)ekle(u.id);hikKapa();};
+  // sekmeler ve liste
+  var sek=[["pasta","Pasta"],["Fırından","Fırın"],["Börek & kahvaltı","Kahvaltı"],["Tatlı & pastane","Tatlı"]],aktif="pasta",sepet={};
+  function sekme(){$("sekmeler").innerHTML=sek.map(function(s){return "<button data-s='"+s[0]+"' class='"+(aktif===s[0]?"s":"")+"'>"+s[1]+"</button>"}).join("");document.querySelectorAll("[data-s]").forEach(function(b){b.onclick=function(){aktif=b.dataset.s;sekme();liste()}});}
+  function liste(){if(aktif==="pasta"){$("liste").innerHTML=H.pastalar.map(function(p){return "<div class='pkart'><img src='"+H.img(p.img)+"' alt='' loading='lazy'><div class='ic'><div><b>"+H.esc(p.ad)+"</b><small>"+H.tl(p.taban)+"'den · 6–8 kişilik</small></div><button class='pbtn' data-siparis='"+p.id+"'>Sipariş</button></div></div>"}).join("");return;}
+    $("liste").innerHTML=H.firin.filter(function(u){return u.grup===aktif}).map(function(u){var a=sepet[u.id]||0;return "<div class='urun'><img src='"+H.img(u.img)+"' alt='' loading='lazy'><div><b>"+u.ad+"</b><small>"+u.b+"</small><span class='f'>"+H.tl(u.f)+"</span></div>"+(a?"<div class='adet'><button data-c='"+u.id+"'>−</button><b>"+a+"</b><button data-a='"+u.id+"'>+</button></div>":"<button class='ekle' data-a='"+u.id+"' aria-label='Sepete ekle'>+</button>")+"</div>"}).join("");
+    document.querySelectorAll("#liste [data-a]").forEach(function(b){b.onclick=function(){ekle(b.dataset.a)}});document.querySelectorAll("#liste [data-c]").forEach(function(b){b.onclick=function(){sepet[b.dataset.c]--;if(!sepet[b.dataset.c])delete sepet[b.dataset.c];guncel()}});}
+  function ekle(id){sepet[id]=(sepet[id]||0)+1;guncel();}
+  function hesap(){var ara=0,n=0;Object.keys(sepet).forEach(function(id){var u=H.firin.filter(function(x){return x.id===id})[0];ara+=u.f*sepet[id];n+=sepet[id]});return{ara:ara,n:n,ind:Math.round(ara*.15),top:ara-Math.round(ara*.15)};}
+  function guncel(){liste();var h=hesap();$("sepetBar").classList.toggle("a",h.n>0);$("sepetAdet").textContent=h.n+" ürün · Gel-al sepeti";$("sepetTop").textContent=H.tl(h.top)+" →";}
+  var saatSec="20 dk sonra";
+  function sepetCiz(kod){var h=hesap();
+    if(kod){$("sepetK").innerHTML="<h3>Siparişiniz hazırlanıyor</h3><p>Kasada bu kodu söyleyin:</p><div class='kod'>"+kod+"</div><p>Hazır olma: <b>"+saatSec+"</b> · Ödeme kasada · Tutar <b>"+H.tl(h.top)+"</b></p><p class='not'>Demo: hiçbir yere sipariş gönderilmedi. Kurulumda bu fiş kasadaki ekrana düşer.</p><button class='pbtn' style='width:100%' id="+"'kapat'"+">Tamam</button>";$("kapat").onclick=function(){sepet={};guncel();$("sepetP").classList.remove("a")};return;}
+    if(!h.n){$("sepetK").innerHTML="<h3>Sepet boş</h3><p class='not'>Fırın, kahvaltı ya da tatlı sekmesinden + ile ekleyin.</p><button class='pbtn' style='width:100%' id='kapat'>Kapat</button>";$("kapat").onclick=function(){$("sepetP").classList.remove("a")};return;}
+    $("sepetK").innerHTML="<h3>Gel-al sepeti</h3><table>"+Object.keys(sepet).map(function(id){var u=H.firin.filter(function(x){return x.id===id})[0];return "<tr><td>"+sepet[id]+" × "+u.ad+"</td><td>"+H.tl(u.f*sepet[id])+"</td></tr>"}).join("")+"<tr><td>Gel-al indirimi (%15)</td><td>−"+H.tl(h.ind)+"</td></tr><tr><td><b>Toplam</b></td><td><b>"+H.tl(h.top)+"</b></td></tr></table>"+
+      "<p style='margin:14px 0 0;font-weight:800'>Ne zaman alacaksınız?</p><div class='segment'>"+["20 dk sonra","1 saat sonra","Yarın 07:00"].map(function(s){return "<button data-z='"+s+"' class='"+(saatSec===s?"s":"")+"'>"+s+"</button>"}).join("")+"</div><button class='pbtn' style='width:100%;padding:15px' id='onay'>Siparişi ver · "+H.tl(h.top)+"</button><p class='not' style='text-align:center'>Örnek fiyatlar · ödeme kasada</p>";
+    document.querySelectorAll("[data-z]").forEach(function(b){b.onclick=function(){saatSec=b.dataset.z;sepetCiz()}});$("onay").onclick=function(){sepetCiz("HZ-"+Math.floor(100+Math.random()*900))};}
+  $("sepetBar").onclick=$("sepetAc").onclick=function(){sepetCiz();$("sepetP").classList.add("a")};
+  $("sepetP").onclick=function(e){if(e.target===this)this.classList.remove("a")};
+  sekme();liste();
+  var gun=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"],bu=new Date().getDay();
+  $("saatT").innerHTML=[1,2,3,4,5,6,0].map(function(i){return "<tr class='"+(i===bu?"bu":"")+"'><td>"+gun[i]+"</td><td>06:00 – 21:30</td></tr>"}).join("");
+  $("yol").href=$("yol2").href=$("yorumLink").href=H.isletme.harita;
+  document.querySelectorAll("details").forEach(function(d){d.addEventListener("toggle",function(){if(!d.open)return;var f=d.querySelector("iframe");if(f&&!f.src){f.src=f.dataset.src||H.isletme.haritaGom}if(d.id==="yorum"&&!$("qr").innerHTML)H.qr($("qr"),120)})});
+})();
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>
