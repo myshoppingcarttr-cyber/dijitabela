@@ -1,0 +1,621 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Telegram E-Pin Market Botu · Vitrin · Dijitabela demo</title><link rel="icon" href="https://dijitabela.com/assets/favicon.svg"><style>
+:root{--ff:system-ui,"Segoe UI",Roboto,Arial,sans-serif;--bg:#070b16;--fg:#e8eefc;--mut:#8fa0c4;--card:#0f1730;--card2:#0b1226;--line:rgba(255,255,255,.1);--ac:#38bdf8;--ac2:#818cf8;--ac-fg:#04101c;--r:16px;--head:var(--ff)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:radial-gradient(900px 520px at 88% -8%,rgba(56,189,248,.2),transparent),radial-gradient(700px 420px at -8% 38%,rgba(129,140,248,.15),transparent),var(--bg);color:var(--fg);font:500 16px/1.6 var(--ff);overflow-x:hidden}
+a{color:inherit}.k{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
+nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,11,22,.7);border-bottom:1px solid var(--line)}
+nav.top .k{display:flex;align-items:center;gap:20px;min-height:64px}
+nav.top b{font-size:1.1rem;margin-right:auto;display:flex;align-items:center;gap:10px}
+nav.top b i{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;color:#04101c;font-style:normal;font-weight:900}
+nav.top a{text-decoration:none;color:#b6c3e3;font-size:.93rem}nav.top a:hover{color:#fff}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:13px;background:linear-gradient(90deg,var(--ac),var(--ac2));color:#04101c!important;font:800 1rem var(--ff);text-decoration:none;border:0;cursor:pointer}
+.cta.o{background:none;color:#fff!important;border:1px solid rgba(255,255,255,.28)}
+@media(max-width:860px){nav.top a:not(.cta){display:none}}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,420px);gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(40px,7vw,90px) 0 40px}
+@media(max-width:940px){.hero{grid-template-columns:minmax(0,1fr)}.hero .ph{order:2;max-width:420px;margin:0 auto;width:100%}}
+.et{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);font-weight:800}
+h1{font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:1.05;margin:14px 0 18px;letter-spacing:-.025em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:#a9b7da;font-size:1.1rem;max-width:560px}
+.bt2{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+.chk{list-style:none;display:grid;gap:8px;margin-top:6px}.chk li{color:#c3cee9;font-size:.97rem;padding-left:28px;position:relative}.chk li:before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:rgba(56,189,248,.18);color:var(--ac);display:grid;place-items:center;font-size:.75rem;font-weight:900;top:3px}
+.ph{position:relative}.ph:before{content:"";position:absolute;inset:-26px;background:radial-gradient(closest-side,rgba(56,189,248,.28),transparent);filter:blur(24px);z-index:0}
+.ph .fr0{position:relative;z-index:1;padding:9px;border-radius:36px;background:linear-gradient(160deg,#27324f,#0c1222);box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.12)}
+.ph small{display:block;text-align:center;color:var(--mut);margin-top:12px;font-size:.84rem;position:relative;z-index:1}
+section{padding:clamp(40px,6vw,72px) 0}
+h2{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--mut);max-width:640px;margin-bottom:28px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}@media(max-width:940px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.g4{grid-template-columns:minmax(0,1fr)}}
+.ft{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border-radius:20px;padding:22px;transition:.25s}.ft:hover{transform:translateY(-4px);border-color:var(--ac)}.adn .ft:hover{transform:none;border-color:transparent}
+.ft .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--ac),var(--ac2));margin-bottom:14px}.ft .ic svg{width:24px;height:24px;stroke:#04101c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ft h3{font-size:1.08rem;margin-bottom:6px}.ft p{color:var(--mut);font-size:.94rem}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;counter-reset:s}@media(max-width:1000px){.flow{grid-template-columns:minmax(0,1fr)}}
+.flow div{border:1px solid var(--line);border-radius:18px;padding:18px 18px 18px 64px;background:var(--card);position:relative;counter-increment:s}
+.flow div:before{content:counter(s);position:absolute;left:16px;top:16px;width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#04101c;font-weight:900;display:grid;place-items:center}
+.flow b{display:block;margin-bottom:3px}.flow span{color:var(--mut);font-size:.9rem}
+.try{border:1px dashed rgba(56,189,248,.55);border-radius:20px;padding:22px;background:rgba(56,189,248,.05);margin-top:26px}
+.try h3{margin-bottom:6px}.try p{color:#b6c3e3;margin-bottom:14px}.try .row{display:flex;gap:10px;flex-wrap:wrap}
+.panelhd{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.tk{border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,38px);background:linear-gradient(135deg,rgba(56,189,248,.12),rgba(129,140,248,.1))}
+.tk p{color:#c3cee9;max-width:680px;margin:8px 0 18px}
+footer{padding:34px 0 60px;color:#7f8db0;font-size:.86rem;border-top:1px solid var(--line);margin-top:20px}
+/* motor: bot */
+.tg{--tb:#0e1621;--tp:#17212b;--tbub:#182533;--tme:#2b5278;--ttx:#e9eef5;--tmu:#7f91a4;--tac:#6ab3f3;--tkb:rgba(44,66,92,.88);--tbg2:rgba(255,255,255,.035);display:flex;flex-direction:column;width:100%;height:min(660px,88vh);background:var(--tb);color:var(--ttx);border-radius:28px;overflow:hidden;font:400 14.5px/1.42 var(--ff);position:relative;text-align:left}
+.tg *{box-sizing:border-box}
+.tg.light{--tb:#cddbe0;--tp:#fff;--tbub:#fff;--tme:#e1f6c9;--ttx:#10181f;--tmu:#6f7d89;--tac:#2481cc;--tkb:rgba(54,84,66,.62);--tbg2:rgba(0,0,0,.035)}
+.tgh{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--tp);border-bottom:1px solid rgba(0,0,0,.18);flex:none}
+.tga{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#6ab3f3,#4f7cff);display:grid;place-items:center;font-weight:800;color:#fff;flex:none}
+.tgh b{display:block;font-size:15px;line-height:1.2}.tgh small{color:var(--tmu);font-size:12px}
+.tgb{margin-left:auto;background:rgba(106,179,243,.16);color:var(--tac);padding:5px 10px;border-radius:99px;font-weight:700;font-size:12.5px;white-space:nowrap}
+.tgr{background:none;border:0;color:var(--tmu);font-size:18px;cursor:pointer;padding:6px;min-width:34px;min-height:34px}
+.tgm{flex:1;min-height:0;overflow-y:auto;padding:12px 10px;display:flex;flex-direction:column;gap:7px;scroll-behavior:smooth;background-image:radial-gradient(var(--tbg2) 1.5px,transparent 1.5px);background-size:18px 18px;overscroll-behavior:contain}
+.m{max-width:90%;display:flex;flex-direction:column;align-self:flex-start;animation:mi .22s ease-out}.m.me{align-self:flex-end}
+@keyframes mi{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.bub{background:var(--tbub);padding:7px 10px 5px;border-radius:14px 14px 14px 4px;white-space:pre-wrap;word-break:break-word;box-shadow:0 1px 1px rgba(0,0,0,.18)}
+.m.me .bub{background:var(--tme);border-radius:14px 14px 4px 14px}
+.bub time{float:right;margin:7px 0 0 12px;font-size:11px;color:var(--tmu)}
+.bub code{font:600 13px ui-monospace,Consolas,monospace;background:rgba(0,0,0,.22);padding:3px 7px;border-radius:7px;cursor:copy;display:inline-block;margin:2px 0;color:var(--tac);word-break:break-all}
+.tg.light .bub code{background:rgba(0,0,0,.06)}
+.ikb{display:grid;gap:4px;margin-top:4px;width:100%}.ikr{display:flex;gap:4px}
+.ib{flex:1;min-width:0;background:var(--tkb);color:#e9eef5;border:0;border-radius:10px;padding:9px 8px;font:500 13px/1.25 var(--ff);cursor:pointer;min-height:40px;transition:filter .15s,transform .1s}
+.ib:hover{filter:brightness(1.25)}.ib:active{transform:scale(.97)}
+.rk{display:flex;flex-wrap:wrap;gap:5px;padding:6px 8px;background:var(--tp);flex:none;border-top:1px solid rgba(0,0,0,.15)}
+.rk button{flex:1 1 30%;background:var(--tbub);color:var(--ttx);border:0;border-radius:9px;padding:9px 6px;font:500 12.5px var(--ff);cursor:pointer;min-height:40px}.rk button:hover{filter:brightness(1.2)}
+.tgf{display:flex;gap:8px;padding:8px;background:var(--tp);flex:none;border-top:1px solid rgba(0,0,0,.15)}
+.tgf input{flex:1;min-width:0;background:var(--tb);border:0;border-radius:20px;color:var(--ttx);padding:11px 15px;font:inherit;font-size:16px;outline:0}
+.tgf button{width:44px;height:44px;border-radius:50%;border:0;background:var(--tac);color:#fff;font-size:18px;cursor:pointer;flex:none}
+.ty{align-self:flex-start;background:var(--tbub);border-radius:14px;padding:11px 14px;display:flex;gap:4px}
+.ty i{width:6px;height:6px;border-radius:50%;background:var(--tmu);animation:tb 1s infinite}.ty i:nth-child(2){animation-delay:.15s}.ty i:nth-child(3){animation-delay:.3s}
+@keyframes tb{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.etoast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 18px;border-radius:12px;font:600 14px var(--ff);z-index:99999;box-shadow:0 10px 30px rgba(0,0,0,.4);max-width:90vw;animation:mi .2s}
+/* motor: katalog */
+.ct{color:var(--fg);font-family:var(--ff)}.ct *{box-sizing:border-box}
+.ctb{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}.ctb .in{flex:1 1 220px;min-width:0}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--fg);padding:8px 13px;border-radius:99px;font:600 13px var(--ff);cursor:pointer;min-height:38px}.chip.on{background:var(--ac);color:var(--ac-fg);border-color:var(--ac)}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}.cc:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.cart{height:92px;display:flex;align-items:flex-end;justify-content:space-between;padding:12px 14px;color:#fff;position:relative;overflow:hidden}
+.cart:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.12) 0 2px,transparent 2px 14px)}
+.cart b{font-size:2rem;line-height:1;position:relative;letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.3)}.cart span{font-weight:800;position:relative;opacity:.92;font-size:.95rem}
+.ccb{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}.ccb small{color:var(--mut);font-size:12px}.ccb h4{font-size:1rem;margin:0}.pr{font-size:1.35rem;font-weight:800;color:var(--fg)}.ccb .bt{margin-top:auto}
+/* motor: panel */
+.ad{--ok:#1fa971;--warn:#d98a0b;--bad:#dc3c4d;display:grid;grid-template-columns:218px minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-height:600px;color:var(--fg);font:400 14px/1.5 var(--ff);text-align:left}
+.ad *{box-sizing:border-box}
+.adn{border-right:1px solid var(--line);padding:14px 10px;display:flex;flex-direction:column;gap:3px;background:var(--card2)}
+.adn h5{margin:4px 10px 12px;font:800 11px/1 var(--ff);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.adn button{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;background:none;border:0;color:var(--fg);padding:11px 12px;border-radius:10px;font:600 14px var(--ff);cursor:pointer;min-height:44px}
+.adn button:hover{background:rgba(127,127,127,.12)}.adn button.on{background:var(--ac);color:var(--ac-fg)}
+.adn em{font-style:normal;font-size:11px;font-weight:800;background:var(--bad);color:#fff;border-radius:99px;padding:2px 7px;min-width:20px;text-align:center}
+.adn .ft{margin-top:auto;padding:12px 10px 4px;color:var(--mut);font-size:12px;line-height:1.45;border:0;background:none;border-radius:0}
+.adm{padding:22px;min-width:0;overflow:auto;max-height:760px}
+.adm h3{font:800 1.3rem/1.2 var(--ff);margin:0 0 4px}.adm h4{font:800 .98rem/1.3 var(--ff);margin:22px 0 10px}
+.adm p.sb{color:var(--mut);margin:0 0 18px;max-width:70ch}.adm p,.adm li{max-width:78ch}
+.sc{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.sc div{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--card2)}.sc b{display:block;font-size:1.55rem;line-height:1.1}.sc span{color:var(--mut);font-size:12.5px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}.tbl table{width:100%;border-collapse:collapse;min-width:560px}
+.tbl th{font:800 11px/1 var(--ff);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);text-align:left;padding:11px 12px;background:var(--card2);border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr.cl{cursor:pointer}.tbl tbody tr.cl:hover td{background:rgba(127,127,127,.08)}.tbl tr.sel td{background:rgba(127,127,127,.14)}
+.r{text-align:right}
+.bd{display:inline-block;font:800 11.5px/1 var(--ff);padding:5px 9px;border-radius:99px;white-space:nowrap}
+.bd.ok{background:rgba(31,169,113,.16);color:var(--ok)}.bd.warn{background:rgba(217,138,11,.18);color:var(--warn)}.bd.bad{background:rgba(220,60,77,.16);color:var(--bad)}.bd.info{background:rgba(127,127,127,.18);color:var(--fg)}
+.bar{height:8px;background:rgba(127,127,127,.2);border-radius:9px;overflow:hidden;min-width:70px}.bar i{display:block;height:100%;border-radius:9px;background:var(--ok)}.bar i.warn{background:var(--warn)}.bar i.bad{background:var(--bad)}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:10px 18px;border-radius:calc(var(--r)*.7);background:var(--ac);color:var(--ac-fg);border:1px solid var(--ac);font:700 14px var(--ff);cursor:pointer;text-decoration:none}
+.bt:hover{filter:brightness(1.1)}.bt[disabled]{opacity:.45;cursor:not-allowed;filter:none}
+.bt.g{background:transparent;color:var(--fg);border-color:var(--line)}.bt.sm{min-height:36px;padding:6px 12px;font-size:13px}.bt.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.in,.ad select,.ad textarea,.ad input[type=number]{width:100%;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:calc(var(--r)*.7);padding:11px 13px;font:inherit;font-size:15px;min-height:44px;outline:0}
+.in:focus,.ad select:focus,.ad textarea:focus,.ad input:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 25%,transparent)}
+.ad textarea{min-height:120px;font-family:ui-monospace,Consolas,monospace;font-size:13.5px;resize:vertical}
+.fr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:14px;align-items:start}
+.cd{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--card2)}.cd label{display:block;font-weight:700;font-size:13px;margin:0 0 6px}.cd .row{margin-bottom:12px}
+.tg2{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sw{position:relative;width:50px;height:28px;flex:none;border-radius:99px;background:rgba(127,127,127,.4);border:0;cursor:pointer;padding:0}
+.sw:after{content:"";position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.2s}.sw.on{background:var(--ok)}.sw.on:after{left:25px}
+.lg{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}.lg li{padding:9px 14px;border-bottom:1px solid var(--line);display:flex;gap:12px}.lg li:last-child{border:0}.lg time{color:var(--mut);white-space:nowrap;font-size:12.5px;min-width:78px}
+.nt{border-left:4px solid var(--ac);background:var(--card2);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.cdx{font:600 13px ui-monospace,Consolas,monospace;background:rgba(127,127,127,.15);padding:3px 8px;border-radius:6px;display:inline-block;margin:2px 4px 2px 0}
+.ad .pi{width:104px;text-align:right;padding:8px 10px;min-height:38px}
+@media(max-width:820px){.ad{grid-template-columns:minmax(0,1fr)}.adn{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px;gap:4px;scrollbar-width:none}.adn h5,.adn .ft{display:none}.adn button{white-space:nowrap;flex:none}.adm{padding:16px;max-height:none}.fr{grid-template-columns:minmax(0,1fr)}}
+</style></head><body>
+<nav class="top"><div class="k"><b><i>M</i>Markanız · E-Pin Bot</b><a href="#bot">Bot</a><a href="#akis">Akış</a><a href="#fiyat">Fiyat listesi</a><a href="#yonetim">Yönetim</a><a class="cta" href="#teklif">Bu demoyu isteyin</a></div></nav>
+
+<header class="k hero" id="bot">
+ <div>
+  <span class="et">Telegram · E-pin · Otomatik teslim</span>
+  <h1>Telegram'da e-pin satan, kodu <em>kendisi teslim eden</em> market botu</h1>
+  <p class="lead">Müşteri kategoriyi seçer, ürünü ve adedi belirler, bakiyesiyle öder; kod saniyeler içinde aynı sohbette gelir. Siz de stok ve siparişleri yönetim ekranından izlersiniz.</p>
+  <div class="bt2"><a class="cta" href="#dene">Botu hemen deneyin</a><a class="cta o" href="#yonetim">Yönetim ekranını görün</a></div>
+  <ul class="chk"><li>Ürün kategorileri ve fiyat listesi menüsü</li><li>Ürün seçme, adet belirleme, sipariş onayı</li><li>Bakiye yükleme: havale/EFT, USDT, kart</li><li>Satın alınan kodun otomatik teslimi</li><li>Stok ve siparişleri izleyen yönetici ekranı</li></ul>
+ </div>
+ <div class="ph"><div class="fr0"><div id="botmount"></div></div><small>Sağdaki bot gerçekten çalışır: dokunun, yazın, satın alın.</small></div>
+</header>
+
+<section class="k" id="ozellik"><h2>Bir market botunun ihtiyacı olan her şey</h2><p class="sub">Demo, ilanda istenen dört parçayı tek akışta birleştirir. Hepsi aşağıda ve yukarıdaki botta canlı çalışır.</p>
+<div class="g4">
+ <div class="ft"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Kategori ve fiyat menüsü</h3><p>Oyun kodları, cüzdan kartları ve diğer ürünler kategori kategori listelenir; fiyat ve stok her ekranda görünür.</p></div>
+ <div class="ft"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h18v12H3zM3 7l3-3h12l3 3M16 13h2"/></svg></div><h3>Bakiye sistemi</h3><p>Müşteri bakiye yükler, alışverişi bakiyeden öder. Eksik bakiyede bot tutarı hesaplayıp yükleme ekranını açar.</p></div>
+ <div class="ft"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Otomatik kod teslimi</h3><p>Ödeme düştüğü anda stoktan kod ayrılır ve sohbete gönderilir. Aynı kod iki kişiye gitmez.</p></div>
+ <div class="ft"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Yönetici ekranı</h3><p>Stok girişi, fiyat güncelleme, sipariş ve iade yönetimi, bakiye onayı ve duyuru; hepsi tek panelde.</p></div>
+</div></section>
+
+<section class="k" id="akis"><h2>Müşteri yolculuğu: 5 adım</h2><p class="sub">Bottaki akış, müşterinin alışveriş yaparken karşılaşacağı sırayla çalışır.</p>
+<div class="flow"><div><b>Kategori seç</b><span>Ürünler menüsünden kategoriyi açar.</span></div><div><b>Ürün ve adet</b><span>Fiyat ve stoku görür, adet belirler.</span></div><div><b>Siparişi onayla</b><span>Özeti görür, tek dokunuşla öder.</span></div><div><b>Kodu al</b><span>Kod aynı sohbette anında gelir.</span></div><div><b>Siz izleyin</b><span>Satış, stok ve bakiye panelinize düşer.</span></div></div>
+<div class="try" id="dene"><h3>Demoyu şu sırayla deneyin</h3><p>Hesabınızda başlangıçta 250 ₺ bakiye var. Pahalı bir ürün seçerek yetersiz bakiye ve bakiye yükleme akışını da görebilirsiniz.</p>
+<div class="row"><button class="cta" type="button" data-go="p60">45 ₺ ürün al (bakiye yeter)</button><button class="cta o" type="button" data-go="p660">440 ₺ ürün al (bakiye yetmez)</button><button class="cta o" type="button" data-go="v1000">1.000 VP seç</button></div></div></section>
+
+<section class="k" id="fiyat"><h2>Fiyat listesi</h2><p class="sub">Aramayla süzün, kategoriye göre daraltın, kart ya da liste görünümünü seçin. “Botta satın al” sizi bottaki ürün ekranına götürür.</p><div id="catmount"></div></section>
+
+<section class="k" id="yonetim"><div class="panelhd"><div><h2>Yönetim ekranı</h2><p class="sub" style="margin-bottom:0">Stoğa kod ekleyin, fiyatı değiştirin, bekleyen bakiyeyi onaylayın, bir siparişi iade edin. Bottan alışveriş yaptıkça sipariş burada belirir.</p></div></div><div style="margin-top:22px" id="admmount"></div></section>
+
+<section class="k" id="teklif"><div class="tk"><span class="et">Sıradaki adım</span><h2 style="margin-top:8px">Bu demoyu markanıza uyarlayalım</h2><p>Ürün listenizi, fiyatlarınızı ve ödeme yöntemlerinizi aldıktan sonra botu sizin Telegram hesabınıza bağlı, canlı çalışan hâle getiriyoruz. Demo beğenilmezse hiçbir yükümlülük yoktur.</p><a class="cta" href="https://wa.me/905019452184?text=Merhaba%2C%20Telegram%20e-pin%20botu%20demonuzu%20inceledim.">WhatsApp ile yazın</a> <a class="cta o" href="../">Diğer 2 tasarım</a></div></section>
+<footer><div class="k">Bu bir ön çalışma demosudur · dijitabela.com<br>Gösterilen ürün, fiyat ve kullanıcılar örnek verilerdir; gerçek ödeme alınmaz.</div></footer>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var TL=function(n){n=Math.round(n*100)/100;return n.toLocaleString('tr-TR',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2})+' ₺'};
+var wait=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
+var lc=function(s){return String(s).toLocaleLowerCase('tr-TR')};
+function now(){var d=new Date();return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
+var CATS=[
+ {id:'pubg',n:'PUBG Mobile UC',sn:'PUBG Mobile',e:'🎯',c:['#f5a623','#c2410c']},
+ {id:'val',n:'Valorant VP',sn:'Valorant',e:'⚔️',c:['#ff4655','#9f1239']},
+ {id:'steam',n:'Steam Cüzdan Kodu',sn:'Steam',e:'🎮',c:['#38bdf8','#1e3a8a']},
+ {id:'gplay',n:'Google Play Kartı',sn:'Google Play',e:'▶️',c:['#34d399','#047857']},
+ {id:'ff',n:'Free Fire Elmas',sn:'Free Fire',e:'💎',c:['#fb923c','#b91c1c']}
+];
+var PROD_SEED=[
+ ['p60','pubg','60 UC',45,38,'60','UC'],['p325','pubg','325 UC',225,24,'325','UC'],['p660','pubg','660 UC',440,17,'660','UC'],['p1800','pubg','1.800 UC',1100,6,'1.8K','UC'],
+ ['v475','val','475 VP',150,30,'475','VP'],['v1000','val','1.000 VP',300,19,'1K','VP'],['v2050','val','2.050 VP',600,3,'2K','VP'],
+ ['s100','steam','100 TL Cüzdan',105,42,'100','TL'],['s250','steam','250 TL Cüzdan',262,15,'250','TL'],['s500','steam','500 TL Cüzdan',520,9,'500','TL'],
+ ['g100','gplay','100 TL Kart',104,0,'100','TL'],['g250','gplay','250 TL Kart',258,12,'250','TL'],['g500','gplay','500 TL Kart',515,7,'500','TL'],
+ ['f100','ff','100 Elmas',38,28,'100','◆'],['f530','ff','530 Elmas',190,14,'530','◆'],['f1080','ff','1.080 Elmas',380,4,'1K','◆']
+];
+var USERS=['@demo_alici01','@demo_alici02','@demo_alici03','@demo_alici04','@demo_alici05','@demo_alici06','@demo_alici07','@demo_alici08'];
+var ORD_SEED=[
+ [1,'p660',1,'27 Eki 11:42'],[2,'s250',1,'27 Eki 13:05'],[3,'v1000',2,'27 Eki 16:18'],[4,'g100',1,'27 Eki 20:51'],
+ [1,'p325',2,'28 Eki 09:27'],[5,'f530',1,'28 Eki 12:40'],[6,'s500',1,'28 Eki 15:03'],[2,'v475',3,'28 Eki 18:36'],
+ [7,'p60',5,'28 Eki 21:10'],[3,'g250',1,'28 Eki 22:48','İade edildi'],[8,'f100',2,'Dün 08:55'],[4,'p1800',1,'Dün 10:12'],
+ [6,'s100',3,'Dün 11:39'],[5,'v2050',1,'Dün 13:21'],[1,'f1080',1,'Dün 14:47'],[7,'g500',1,'Dün 16:05'],
+ [2,'p660',2,'Bugün 09:14'],[8,'s250',2,'Bugün 10:02']
+];
+var TOP_SEED=[
+ [1,500,'Havale/EFT','27 Eki 11:30','Onaylandı'],[2,300,'Kripto (USDT)','27 Eki 12:58','Onaylandı'],[3,1000,'Havale/EFT','27 Eki 16:02','Onaylandı'],[4,100,'Kart','27 Eki 20:40','Onaylandı'],
+ [5,250,'Havale/EFT','28 Eki 12:31','Onaylandı'],[6,500,'Kripto (USDT)','28 Eki 14:55','Onaylandı'],[7,150,'Kart','28 Eki 21:00','Onaylandı'],[8,200,'Havale/EFT','Dün 08:40','Onaylandı'],
+ [6,750,'Havale/EFT','Dün 11:20','Onaylandı'],[5,100,'Kart','Dün 13:10','Reddedildi'],[3,500,'Havale/EFT','Bugün 10:04','Bekliyor'],[6,250,'Kripto (USDT)','Bugün 10:21','Bekliyor']
+];
+var LOG_SEED=[
+ ['Bugün 10:21','Bakiye yükleme bildirimi: @demo_alici06 · 250 ₺ · USDT — onay bekliyor'],
+ ['Bugün 10:04','Bakiye yükleme bildirimi: @demo_alici03 · 500 ₺ · Havale — onay bekliyor'],
+ ['Bugün 10:02','Sipariş #1042 teslim edildi · Steam 250 TL Cüzdan ×2'],
+ ['Bugün 09:14','Sipariş #1041 teslim edildi · PUBG Mobile 660 UC ×2'],
+ ['Dün 17:30','Stok girişi: Valorant 1.000 VP · 20 kod eklendi'],
+ ['Dün 13:10','Bakiye yükleme reddedildi: @demo_alici05 · 100 ₺ (dekont eşleşmedi)'],
+ ['Dün 09:00','Günlük stok sayımı tamamlandı, fark yok'],
+ ['28 Eki 22:48','Sipariş #1034 iade edildi · Google Play 250 TL Kart']
+];
+var STOCK_LOG_SEED=[
+ ['Dün 17:30','Valorant 1.000 VP','+20 kod','Toplu yapıştırma'],['Dün 09:05','PUBG Mobile 325 UC','+30 kod','Toplu yapıştırma'],
+ ['28 Eki 16:40','Steam 100 TL Cüzdan','+40 kod','Toplu yapıştırma'],['28 Eki 10:15','Free Fire 100 Elmas','+25 kod','Toplu yapıştırma'],
+ ['27 Eki 18:22','Google Play 250 TL Kart','+15 kod','Toplu yapıştırma']
+];
+var AL='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function mkCode(cat,r){
+ var g=function(n){var s='';for(var i=0;i<n;i++)s+=AL.charAt(Math.floor(r()*AL.length));return s};
+ if(cat==='steam')return g(5)+'-'+g(5)+'-'+g(5);
+ if(cat==='gplay')return g(4)+'-'+g(4)+'-'+g(4)+'-'+g(4);
+ if(cat==='val')return 'VP-'+g(4)+'-'+g(4)+'-'+g(4);
+ if(cat==='ff')return 'FF'+g(2)+'-'+g(4)+'-'+g(4);
+ return g(4)+'-'+g(4)+'-'+g(4)+'-'+g(4);
+}
+var P=[],S,subs=[];
+function pid(id){for(var i=0;i<P.length;i++)if(P[i].id===id)return P[i]}
+function cat(id){for(var i=0;i<CATS.length;i++)if(CATS[i].id===id)return CATS[i]}
+function full(p){return cat(p.c).sn+' '+p.n}
+function init(){
+ var r=rng(20261030);
+ P=PROD_SEED.map(function(x){return {id:x[0],c:x[1],n:x[2],p:x[3],a:x[5],u:x[6],on:true,cost:Math.round(x[3]*.94)}});
+ S={bal:250,auto:true,nextOrd:1043,nextTop:219,stock:{},orders:[],tops:[],log:[],slog:STOCK_LOG_SEED.slice(),cb:{}};
+ PROD_SEED.forEach(function(x){var a=[];for(var i=0;i<x[4];i++)a.push(mkCode(x[1],r));S.stock[x[0]]=a});
+ ORD_SEED.forEach(function(o,i){var p=pid(o[1]),cs=[];for(var k=0;k<o[2];k++)cs.push(mkCode(p.c,r));
+  S.orders.unshift({id:1025+i,u:USERS[o[0]-1],pid:o[1],q:o[2],t:p.p*o[2],time:o[3],st:o[4]||'Teslim edildi',codes:cs})});
+ TOP_SEED.forEach(function(t,i){S.tops.unshift({id:'Y-'+(207+i),u:USERS[t[0]-1],amt:t[1],m:t[2],time:t[3],st:t[4]})});
+ LOG_SEED.forEach(function(l){S.log.push({t:l[0],m:l[1]})});
+ S.cb={'@demo_alici01':120,'@demo_alici02':35,'@demo_alici03':640,'@demo_alici04':0,'@demo_alici05':85,'@demo_alici06':410,'@demo_alici07':15,'@demo_alici08':260};
+}
+init();
+function emit(){subs.forEach(function(f){try{f()}catch(e){}})}
+function log(m){S.log.unshift({t:'Bugün '+now(),m:m})}
+function stk(id){return S.stock[id].length}
+function stState(n){return n===0?['bad','Tükendi']:n<=5?['warn','Az kaldı']:['ok','Yeterli']}
+function who(u){return u==='me'?'@siz_demo (siz)':u}
+function toast(m){var t=document.createElement('div');t.className='etoast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},2600)}
+function copy(txt){try{navigator.clipboard.writeText(txt).then(function(){toast('Kopyalandı')},function(){toast('Kopyalanamadı, kodu elle seçin')})}catch(e){toast('Kopyalanamadı, kodu elle seçin')}}
+var hooks={focusBot:function(){},botMsg:function(){},adminAlert:function(){}};
+var B={};
+var MENU={u:'🛒 Ürünler',b:'💰 Bakiye Yükle',s:'📦 Siparişlerim',h:'👤 Hesabım',d:'🆘 Destek'};
+function kbHtml(kb){return '<div class="ikb">'+kb.map(function(r){return '<div class="ikr">'+r.map(function(b){return '<button class="ib" type="button" data-cb="'+esc(b[1])+'">'+b[0]+'</button>'}).join('')+'</div>'}).join('')+'</div>'}
+function inner(from,html,kb){return '<div class="bub">'+html+'<time>'+now()+(from==='me'?' ✓✓':'')+'</time></div>'+(kb?kbHtml(kb):'')}
+function sc(){if(B.msgs)B.msgs.scrollTop=B.msgs.scrollHeight}
+function typing(){var t=document.createElement('div');t.className='ty';t.innerHTML='<i></i><i></i><i></i>';B.msgs.appendChild(t);sc();return t}
+function send(html,kb,delay){
+ if(!B.msgs)return Promise.resolve(null);
+ var ty=typing();
+ return wait(delay==null?420:delay).then(function(){ty.remove();var n=document.createElement('div');n.className='m bot';n.innerHTML=inner('bot',html,kb);B.msgs.appendChild(n);sc();hooks.botMsg();return n});
+}
+function edit(n,html,kb){if(n){n.innerHTML=inner('bot',html,kb);}}
+function mine(){return S.orders.filter(function(o){return o.u==='me'})}
+function me(t){if(!B.msgs)return;var n=document.createElement('div');n.className='m me';n.innerHTML=inner('me',esc(t));B.msgs.appendChild(n);sc()}
+function scr(html,kb,node){if(node){edit(node,html,kb);return Promise.resolve(node)}return send(html,kb)}
+function hdr(){if(B.bal)B.bal.textContent=TL(S.bal)}
+var mainKb=function(){return [[['🛒 Ürünler','cats'],['💰 Bakiye Yükle','top']],[['📦 Siparişlerim','orders'],['👤 Hesabım','acct']],[['🆘 Destek','help']]]};
+function menuTxt(){return '👋 <b>Markanız E-Pin Market</b>\nOyun ve dijital kart kodlarını saniyeler içinde, <b>otomatik teslim</b> ile alın.\n\n💰 Bakiyeniz: <b>'+TL(S.bal)+'</b>\n\nBir işlem seçin 👇'}
+function menu(node){return scr(menuTxt(),mainKb(),node)}
+function cats(node){
+ var kb=CATS.map(function(c){var n=P.filter(function(p){return p.c===c.id&&p.on}).length;return [[c.e+' '+c.n+' · '+n+' ürün','cat:'+c.id]]});
+ kb.push([['⬅ Ana menü','menu']]);
+ return scr('🛒 <b>Ürün kategorileri</b>\nGüncel fiyatlar ve anlık stok. Bir kategori seçin:',kb,node);
+}
+function catPage(id,node){
+ var c=cat(id),list=P.filter(function(p){return p.c===id&&p.on});
+ var t='<b>'+c.e+' '+c.n+'</b>\n\n'+list.map(function(p){var n=stk(p.id);return '• <b>'+p.n+'</b> — '+TL(p.p)+(n?'  <i>(stok '+n+')</i>':'  <i>(tükendi)</i>')}).join('\n')+'\n\nSatın almak için ürüne dokunun:';
+ var kb=[],row=[];
+ list.forEach(function(p){var n=stk(p.id);row.push([n?p.n+' · '+TL(p.p):'❌ '+p.n,n?'prod:'+p.id:'out:'+p.id]);if(row.length===2){kb.push(row);row=[]}});
+ if(row.length)kb.push(row);
+ kb.push([['⬅ Kategoriler','cats']]);
+ return scr(t,kb,node);
+}
+function prodPage(id,node){
+ var p=pid(id),n=stk(id);
+ if(!p.on)return scr('Bu ürün şu an satışta değil.',[[['⬅ Kategoriler','cats']]],node);
+ var qs=[1,2,3,5,10].filter(function(q){return q<=n});
+ var kb=[];if(qs.length)kb.push(qs.map(function(q){return [q+' adet','qty:'+id+':'+q]}));
+ kb.push([['⬅ Geri','cat:'+p.c]]);
+ return scr('📦 <b>'+full(p)+'</b>\n\n💵 Birim fiyat: <b>'+TL(p.p)+'</b>\n📊 Stok: <b>'+(n?n+' adet':'tükendi')+'</b>\n⚡ Teslimat: ödeme sonrası otomatik\n\n💰 Bakiyeniz: '+TL(S.bal)+'\n\n'+(n?'Kaç adet almak istiyorsunuz?':'Bu ürün tükendi, stok girişi yapılınca burada görünür.'),kb,node);
+}
+function confirmPage(id,q,node){
+ var p=pid(id),tot=p.p*q;
+ return scr('🧾 <b>Sipariş özeti</b>\n\nÜrün: <b>'+full(p)+'</b>\nAdet: <b>'+q+'</b>\nToplam: <b>'+TL(tot)+'</b>\n\nBakiyeniz: '+TL(S.bal)+'\nİşlem sonrası: <b>'+TL(S.bal-tot)+'</b>',[[['✅ Onayla ve öde','buy:'+id+':'+q]],[['🔢 Adedi değiştir','prod:'+id],['✖ İptal','cat:'+p.c]]],node);
+}
+async function buy(id,q,node){
+ var p=pid(id),tot=p.p*q;
+ if(!p.on||stk(id)<q)return scr('⚠️ <b>Stok yetersiz</b>\nSeçtiğiniz adet şu an mevcut değil. Güncel stok: '+stk(id),[[['⬅ Geri','prod:'+id]]],node);
+ if(S.bal<tot){var ek=tot-S.bal;return scr('❌ <b>Yetersiz bakiye</b>\n\nTutar: '+TL(tot)+'\nBakiyeniz: '+TL(S.bal)+'\nEksik: <b>'+TL(ek)+'</b>',[[['💰 Eksik tutarı yükle ('+TL(Math.max(50,Math.ceil(ek)))+')','ta:'+Math.max(50,Math.ceil(ek))]],[['⬅ Geri','prod:'+id]]],node)}
+ edit(node,'⏳ <b>Sipariş işleniyor…</b>\nÖdeme bakiyenizden alınıyor, kod ayrılıyor.');
+ await wait(900);
+ if(stk(id)<q){edit(node,'⚠️ Stok bu sırada tükendi, işlem iptal edildi.',[[['⬅ Geri','prod:'+id]]]);return}
+ var codes=S.stock[id].splice(0,q);S.bal-=tot;
+ var o={id:S.nextOrd++,u:'me',pid:id,q:q,t:tot,time:'Bugün '+now(),st:'Teslim edildi',codes:codes};
+ S.orders.unshift(o);log('Sipariş #'+o.id+' teslim edildi · '+full(p)+' ×'+q+' · '+who('me'));
+ edit(node,'✅ <b>Ödeme alındı</b> · Sipariş #'+o.id+'\n'+full(p)+' ×'+q+' — '+TL(tot));
+ emit();
+ var left=stk(id);
+ await send(deliveryTxt(o),[[['📋 Kodu kopyala','copy:'+o.id]],[['🛒 Yeni alışveriş','cats'],['📦 Siparişlerim','orders']]]);
+ if(left<=5){hooks.adminAlert(left?full(p)+' için stok azaldı: '+left+' adet kaldı':full(p)+' tükendi');log('Düşük stok uyarısı · '+full(p)+' · kalan '+left)}
+}
+function deliveryTxt(o){
+ var p=pid(o.pid);
+ return '📦 <b>Siparişiniz teslim edildi</b>\n\nSipariş: <b>#'+o.id+'</b>\nÜrün: '+full(p)+' ×'+o.q+'\nTutar: '+TL(o.t)+'\n\n🔑 <b>Kodunuz'+(o.q>1?'unuz':'')+'</b> (dokunup kopyalayın):\n'+o.codes.map(function(c){return '<code data-copy="'+c+'">'+c+'</code>'}).join('\n')+'\n\nKalan bakiye: <b>'+TL(S.bal)+'</b>\nKodu ilgili platformda “Kod Kullan” bölümüne girin.';
+}
+function topPage(node){
+ return scr('💰 <b>Bakiye yükle</b>\nMevcut bakiye: <b>'+TL(S.bal)+'</b>\n\nYüklemek istediğiniz tutarı seçin (min 50 ₺ · maks 25.000 ₺):',[[['100 ₺','ta:100'],['250 ₺','ta:250']],[['500 ₺','ta:500'],['1.000 ₺','ta:1000']],[['✍ Başka tutar yaz','tc']],[['⬅ Ana menü','menu']]],node);
+}
+function methodPage(amt,node){
+ return scr('💳 <b>Ödeme yöntemi</b>\nYüklenecek tutar: <b>'+TL(amt)+'</b>',[[['🏦 Havale / EFT','tm:h:'+amt]],[['₮ Kripto (USDT · TRC20)','tm:u:'+amt]],[['💳 Kredi / banka kartı','tm:k:'+amt]],[['⬅ Tutarı değiştir','top']]],node);
+}
+var MN={h:'Havale/EFT',u:'Kripto (USDT)',k:'Kart'};
+function payPage(k,amt,node){
+ var ref='BK-'+(10000+Math.floor(Math.random()*89999)),t;
+ if(k==='h')t='🏦 <b>Havale / EFT bilgileri</b>\n\nAlıcı: <b>Markanız Dijital Hizmetler</b>\nIBAN: <code data-copy="TR00 0000 0000 0000 0000 0000 00">TR00 0000 0000 0000 0000 0000 00</code>\nTutar: <b>'+TL(amt)+'</b>\nAçıklama: <code data-copy="'+ref+'">'+ref+'</code>\n\n⚠️ Açıklamaya yalnızca referans kodunu yazın. Ödemeyi yaptıktan sonra aşağıdaki düğmeye dokunun.';
+ else if(k==='u')t='₮ <b>USDT (TRC20) ödemesi</b>\n\nGönderilecek: <b>'+(amt/40).toFixed(2).replace('.',',')+' USDT</b>\n<i>(demo kur: 1 USDT = 40 ₺)</i>\nAğ: <b>TRC20</b>\nAdres: <code data-copy="T000000000000000000000000000000000">T000000000000000000000000000000000</code>\nReferans: <code data-copy="'+ref+'">'+ref+'</code>\n\nGönderimden sonra aşağıdaki düğmeye dokunun.';
+ else t='💳 <b>Kart ile ödeme</b>\n\nTutar: <b>'+TL(amt)+'</b>\nCanlı kurulumda burada sizi güvenli ödeme sayfasına götüren bağlantı çıkar.\nReferans: <code data-copy="'+ref+'">'+ref+'</code>\n\nDemoda ödeme alınmaz; devam etmek için aşağıdaki düğmeye dokunun.';
+ return scr(t,[[['✅ Ödemeyi yaptım','paid:'+k+':'+amt]],[['✖ Vazgeç','menu']]],node);
+}
+async function paid(k,amt,node){
+ var rec={id:'Y-'+(S.nextTop++),u:'me',amt:amt,m:MN[k],time:'Bugün '+now(),st:'Bekliyor'};
+ S.tops.unshift(rec);log('Bakiye yükleme bildirimi: '+who('me')+' · '+TL(amt)+' · '+MN[k]+' — onay bekliyor');
+ edit(node,'⏳ <b>Ödeme bildirimi alındı</b> · '+rec.id+'\n'+TL(amt)+' · '+MN[k]+'\nKontrol ediliyor…');
+ emit();
+ if(S.auto){await wait(2200);if(rec.st==='Bekliyor')approveTop(rec.id)}
+ else await send('🕐 Yönetici onayı bekleniyor. Onaylandığında buradan bildirim alacaksınız.');
+}
+function approveTop(id){
+ var r=S.tops.filter(function(t){return t.id===id})[0];if(!r||r.st!=='Bekliyor')return;
+ r.st='Onaylandı';
+ if(r.u==='me'){S.bal+=r.amt}else S.cb[r.u]=(S.cb[r.u]||0)+r.amt;
+ log('Bakiye yükleme onaylandı: '+who(r.u)+' · '+TL(r.amt));emit();
+ if(r.u==='me')send('✅ <b>Bakiyeniz yüklendi</b>\n+'+TL(r.amt)+' ('+r.m+')\nYeni bakiye: <b>'+TL(S.bal)+'</b>',[[['🛒 Alışverişe başla','cats']]]);
+}
+function rejectTop(id){
+ var r=S.tops.filter(function(t){return t.id===id})[0];if(!r||r.st!=='Bekliyor')return;
+ r.st='Reddedildi';log('Bakiye yükleme reddedildi: '+who(r.u)+' · '+TL(r.amt));emit();
+ if(r.u==='me')send('❌ <b>Yükleme onaylanmadı</b>\n'+r.id+' · '+TL(r.amt)+'. Dekont bilgisi eşleşmedi; destekle iletişime geçin.');
+}
+function ordersPage(node){
+ var m=mine().slice(0,6);
+ if(!m.length)return scr('📦 <b>Siparişlerim</b>\n\nHenüz siparişiniz yok. İlk alışverişinizi yapın, kodunuz saniyeler içinde burada olur.',[[['🛒 Alışverişe başla','cats']],[['⬅ Ana menü','menu']]],node);
+ var kb=m.map(function(o){return [['#'+o.id+' · '+full(pid(o.pid))+' ×'+o.q,'ord:'+o.id]]});kb.push([['⬅ Ana menü','menu']]);
+ return scr('📦 <b>Son siparişleriniz</b>\n\n'+m.map(function(o){return '#'+o.id+' · '+full(pid(o.pid))+' ×'+o.q+' · '+TL(o.t)+' · '+(o.st==='Teslim edildi'?'✅':'↩️')}).join('\n')+'\n\nKodu görmek için siparişe dokunun:',kb,node);
+}
+function ordPage(id,node){
+ var o=S.orders.filter(function(x){return String(x.id)===String(id)})[0];
+ if(!o)return ordersPage(node);
+ return scr('🧾 <b>Sipariş #'+o.id+'</b>\n'+full(pid(o.pid))+' ×'+o.q+' · '+TL(o.t)+'\n'+o.time+' · '+o.st+'\n\n🔑 '+o.codes.map(function(c){return '<code data-copy="'+c+'">'+c+'</code>'}).join('\n'),[[['📋 Kodu kopyala','copy:'+o.id]],[['⬅ Siparişlerim','orders']]],node);
+}
+function acctPage(node){
+ var m=mine().filter(function(o){return o.st==='Teslim edildi'}),sp=m.reduce(function(a,o){return a+o.t},0);
+ return scr('👤 <b>Hesabım</b>\n\nKullanıcı: @siz_demo\nBakiye: <b>'+TL(S.bal)+'</b>\nTamamlanan sipariş: <b>'+m.length+'</b>\nToplam harcama: <b>'+TL(sp)+'</b>',[[['💰 Bakiye yükle','top'],['📦 Siparişlerim','orders']],[['⬅ Ana menü','menu']]],node);
+}
+function helpPage(node){
+ return scr('🆘 <b>Destek ve komutlar</b>\n\n/start — ana menü\n/urunler — kategoriler\n/bakiye — bakiye yükle\n/siparis — siparişlerim\n/admin — yönetici özeti (demo)\n\nBir ürün adı yazarak da arama yapabilirsiniz, örn. <i>pubg</i> veya <i>steam 250</i>.\n\nDestek hattı: 0 (5xx) xxx xx xx\nÇalışma saati: 7/24 otomatik, insan desteği 09:00–23:00',[[['⬅ Ana menü','menu']]],node);
+}
+function adminSummary(){
+ var low=P.filter(function(p){return p.on&&stk(p.id)<=5});
+ var rev=S.orders.filter(function(o){return o.st==='Teslim edildi'}).reduce(function(a,o){return a+o.t},0);
+ var pend=S.tops.filter(function(t){return t.st==='Bekliyor'}).length;
+ return send('🔐 <b>Yönetici özeti</b> (demo)\n\nToplam sipariş: <b>'+S.orders.length+'</b>\nCiro (teslim edilen): <b>'+TL(rev)+'</b>\nBekleyen bakiye yükleme: <b>'+pend+'</b>\nToplam stok: <b>'+P.reduce(function(a,p){return a+stk(p.id)},0)+' kod</b>\n\n'+(low.length?'⚠️ Az / biten stok:\n'+low.map(function(p){return '• '+full(p)+' — '+stk(p.id)}).join('\n'):'Düşük stok yok.')+'\n\nStok ekleme, fiyat ve sipariş yönetimi için yönetim panelini kullanın.');
+}
+function search(q){
+ var toks=lc(q).split(/\s+/).filter(Boolean);
+ var res=P.filter(function(p){var h=lc(full(p)+' '+cat(p.c).n+' '+p.id);return p.on&&toks.every(function(t){return h.indexOf(t)>-1})});
+ if(!res.length)return send('🔎 “'+esc(q)+'” için ürün bulamadım. Kategorilere göz atın:',mainKb());
+ var kb=res.slice(0,8).map(function(p){return [[stk(p.id)?full(p)+' · '+TL(p.p):'❌ '+full(p)+' · tükendi',stk(p.id)?'prod:'+p.id:'out:'+p.id]]});kb.push([['⬅ Ana menü','menu']]);
+ return send('🔎 <b>'+res.length+' ürün bulundu</b> — “'+esc(q)+'”',kb);
+}
+async function route(cbd,node){
+ var a=cbd.split(':');
+ switch(a[0]){
+  case 'menu':return menu(node);
+  case 'cats':return cats(node);
+  case 'cat':return catPage(a[1],node);
+  case 'prod':return prodPage(a[1],node);
+  case 'out':return toast('Bu ürün tükendi');
+  case 'qty':return confirmPage(a[1],+a[2],node);
+  case 'buy':return buy(a[1],+a[2],node);
+  case 'top':return topPage(node);
+  case 'ta':return methodPage(+a[1],node);
+  case 'tc':B.aw='amt';return send('✍ Yüklemek istediğiniz tutarı yazın (örn. <b>350</b>). Min 50 ₺ · maks 25.000 ₺.');
+  case 'tm':return payPage(a[1],+a[2],node);
+  case 'paid':return paid(a[1],+a[2],node);
+  case 'orders':return ordersPage(node);
+  case 'ord':return ordPage(a[1],node);
+  case 'acct':return acctPage(node);
+  case 'help':return helpPage(node);
+  case 'copy':var o=S.orders.filter(function(x){return String(x.id)===a[1]})[0];if(o)copy(o.codes.join('\n'));return;
+ }
+}
+function handleText(t){
+ t=t.trim();if(!t)return Promise.resolve();
+ if(B.aw==='amt'){
+  var v=parseFloat(t.replace(/[^\d.,]/g,'').replace(',','.'));
+  if(!isFinite(v)||v<50||v>25000)return send('⚠️ Geçerli bir tutar yazın: en az 50, en çok 25.000 ₺.');
+  B.aw=null;return methodPage(Math.round(v*100)/100);
+ }
+ var l=lc(t);
+ if(t===MENU.u||l==='/urunler')return cats();
+ if(t===MENU.b||l==='/bakiye')return topPage();
+ if(t===MENU.s||l==='/siparis')return ordersPage();
+ if(t===MENU.h)return acctPage();
+ if(t===MENU.d||l==='/yardim')return helpPage();
+ if(l==='/start'||l==='/menu'||l==='merhaba'||l==='selam')return menu();
+ if(l==='/admin')return adminSummary();
+ return search(t);
+}
+var Bot={
+ mount:function(root,opt){
+  opt=opt||{};
+  root.innerHTML='<div class="tg'+(opt.light?' light':'')+'"><div class="tgh"><div class="tga">M</div><div><b>Markanız E-Pin Bot</b><small>bot · çevrimiçi</small></div><span class="tgb">0 ₺</span><button class="tgr" type="button" title="Demoyu sıfırla" aria-label="Demoyu sıfırla">↻</button></div><div class="tgm" role="log" aria-live="polite"></div><div class="rk">'+Object.keys(MENU).map(function(k){return '<button type="button">'+MENU[k]+'</button>'}).join('')+'</div><form class="tgf"><input type="text" placeholder="Mesaj yazın: pubg, steam 250, /admin" aria-label="Mesaj" autocomplete="off" enterkeyhint="send"><button type="submit" aria-label="Gönder">➤</button></form></div>';
+  B.msgs=$('.tgm',root);B.bal=$('.tgb',root);B.inp=$('input',root);
+  $('.tgr',root).onclick=function(){Engine.reset()};
+  $('.rk',root).onclick=function(e){var b=e.target.closest('button');if(!b)return;me(b.textContent);handleText(b.textContent)};
+  $('.tgf',root).onsubmit=function(e){e.preventDefault();var v=B.inp.value;if(!v.trim())return;B.inp.value='';me(v);handleText(v)};
+  B.msgs.onclick=function(e){
+   var c=e.target.closest('code[data-copy]');if(c){copy(c.dataset.copy);return}
+   var b=e.target.closest('.ib');if(!b)return;
+   var node=b.closest('.m');route(b.dataset.cb,node);
+  };
+  subs.push(hdr);hdr();Bot.greet();
+ },
+ greet:function(){B.aw=null;return wait(250).then(function(){return send(menuTxt(),mainKb(),500)})},
+ clear:function(){if(B.msgs)B.msgs.innerHTML=''},
+ push:function(html,kb){return send(html,kb)},
+ open:function(id){hooks.focusBot();var p=pid(id);me('🛒 '+full(p));return prodPage(id)}
+};
+var C={q:'',cat:'',view:'card'};
+var Cat={
+ mount:function(root){
+  root.classList.add('ct');
+  root.innerHTML='<div class="ctb"><input class="in" type="search" placeholder="Ürün ara: pubg, steam 250, 660 uc…" aria-label="Ürün ara"><div class="chips" data-v><button class="chip on" type="button" data-v="card">Kartlar</button><button class="chip" type="button" data-v="list">Liste</button></div></div><div class="chips" data-c style="margin-bottom:16px"></div><div data-g></div>';
+  var g=$('[data-g]',root),cc=$('[data-c]',root);
+  function chips(){cc.innerHTML='<button class="chip'+(C.cat?'':' on')+'" type="button" data-c="">Tümü</button>'+CATS.map(function(c){return '<button class="chip'+(C.cat===c.id?' on':'')+'" type="button" data-c="'+c.id+'">'+c.n+'</button>'}).join('')}
+  function list(){
+   var toks=lc(C.q).split(/\s+/).filter(Boolean);
+   return P.filter(function(p){if(!p.on)return false;if(C.cat&&p.c!==C.cat)return false;var h=lc(full(p)+' '+cat(p.c).n);return toks.every(function(t){return h.indexOf(t)>-1})});
+  }
+  function draw(){
+   var l=list(),h='';
+   if(!l.length){g.innerHTML='<div class="nt">Bu aramaya uyan ürün yok. Başka bir ürün adı deneyin.</div>';return}
+   if(C.view==='card'){
+    h='<div class="cg">'+l.map(function(p){var c=cat(p.c),n=stk(p.id),s=stState(n);
+     return '<div class="cc"><div class="cart" style="background:linear-gradient(135deg,'+c.c[0]+','+c.c[1]+')"><b>'+p.a+'</b><span>'+p.u+'</span></div><div class="ccb"><small>'+c.sn+'</small><h4>'+p.n+'</h4><div class="pr">'+TL(p.p)+'</div><div><span class="bd '+s[0]+'">'+(n?'Stok '+n:'Tükendi')+'</span></div><button class="bt sm" type="button" data-buy="'+p.id+'"'+(n?'':' disabled')+'>'+(n?'Botta satın al':'Tükendi')+'</button></div></div>'}).join('')+'</div>';
+   }else{
+    h='<div class="tbl"><table><thead><tr><th>Ürün</th><th>Kategori</th><th class="r">Fiyat</th><th class="r">Stok</th><th></th></tr></thead><tbody>'+l.map(function(p){var n=stk(p.id),s=stState(n);return '<tr><td><b>'+p.n+'</b></td><td>'+cat(p.c).sn+'</td><td class="r"><b>'+TL(p.p)+'</b></td><td class="r"><span class="bd '+s[0]+'">'+(n?n:'Tükendi')+'</span></td><td class="r"><button class="bt sm" type="button" data-buy="'+p.id+'"'+(n?'':' disabled')+'>Satın al</button></td></tr>'}).join('')+'</tbody></table></div>';
+   }
+   g.innerHTML=h+'<p style="color:var(--mut);font-size:13px;margin-top:12px">Fiyat ve stok değerleri canlıdır: yönetim panelinde değiştirdiğinizde burada ve botta anında yansır. Fiyatlar örnektir.</p>';
+  }
+  chips();draw();
+  $('.in',root).oninput=function(e){C.q=e.target.value;draw()};
+  root.onclick=function(e){
+   var v=e.target.closest('[data-v]'),c=e.target.closest('[data-c]'),b=e.target.closest('[data-buy]');
+   if(v&&v.tagName==='BUTTON'){C.view=v.dataset.v;root.querySelectorAll('.chip[data-v]').forEach(function(x){x.classList.toggle('on',x.dataset.v===C.view)});draw()}
+   else if(c&&c.tagName==='BUTTON'){C.cat=c.dataset.c;chips();draw()}
+   else if(b){Bot.open(b.dataset.buy)}
+  };
+  subs.push(function(){chips();draw()});
+ }
+};
+var U={tab:'ov',q:'',f:'Tümü',pre:'',txt:'',sel:null,rev:false,bc:''};
+var TABS=[['ov','Genel Bakış'],['st','Stok'],['or','Siparişler'],['tp','Bakiye Yüklemeleri'],['pr','Fiyat & Ürünler'],['cu','Müşteriler']];
+function revenue(){return S.orders.filter(function(o){return o.st==='Teslim edildi'}).reduce(function(a,o){return a+o.t},0)}
+function lowList(){return P.filter(function(p){return p.on&&stk(p.id)<=5})}
+function pendList(){return S.tops.filter(function(t){return t.st==='Bekliyor'})}
+function bdSt(s){return '<span class="bd '+(s==='Teslim edildi'||s==='Onaylandı'?'ok':s==='Bekliyor'?'warn':'bad')+'">'+s+'</span>'}
+function mask(c){return c.length>9?c.slice(0,4)+'-••••-'+c.slice(-4):c}
+function ordRows(){
+ var toks=lc(U.q).split(/\s+/).filter(Boolean);
+ var l=S.orders.filter(function(o){
+  if(U.f!=='Tümü'&&o.st!==U.f)return false;
+  var h=lc('#'+o.id+' '+who(o.u)+' '+full(pid(o.pid)));return toks.every(function(t){return h.indexOf(t)>-1});
+ });
+ if(!l.length)return '<tr><td colspan="6">Bu filtreye uyan sipariş yok.</td></tr>';
+ return l.map(function(o){return '<tr class="cl'+(U.sel===o.id?' sel':'')+'" data-o="'+o.id+'"><td><b>#'+o.id+'</b></td><td>'+who(o.u)+'</td><td>'+full(pid(o.pid))+'</td><td class="r">'+o.q+'</td><td class="r">'+TL(o.t)+'</td><td>'+bdSt(o.st)+'<br><small style="color:var(--mut)">'+o.time+'</small></td></tr>'}).join('');
+}
+function ordDetail(){
+ var o=S.orders.filter(function(x){return x.id===U.sel})[0];if(!o)return '';
+ return '<h4>Sipariş #'+o.id+' ayrıntısı</h4><div class="cd"><p style="margin:0 0 10px"><b>'+full(pid(o.pid))+'</b> ×'+o.q+' · '+TL(o.t)+' · '+who(o.u)+' · '+o.time+' · '+bdSt(o.st)+'</p><p style="margin:0 0 8px;color:var(--mut)">Teslim edilen kodlar'+(U.rev?'':' (maskeli)')+':</p><p style="margin:0 0 14px">'+o.codes.map(function(c){return '<span class="cdx">'+(U.rev?c:mask(c))+'</span>'}).join('')+'</p><button class="bt g sm" type="button" data-a="rev">'+(U.rev?'Kodları gizle':'Kodları göster')+'</button> <button class="bt bad sm" type="button" data-a="refund" data-id="'+o.id+'"'+(o.st==='Teslim edildi'?'':' disabled')+'>İade et</button><p style="margin:12px 0 0;color:var(--mut);font-size:13px">İade, tutarı müşteri bakiyesine geri yazar. Teslim edilmiş kod stoğa geri alınmaz; çünkü müşteri kodu görmüş olabilir.</p></div>';
+}
+function tab(t){
+ var h='';
+ if(t==='ov'){
+  var low=lowList(),pend=pendList(),cnt=P.reduce(function(a,p){return a+stk(p.id)},0);
+  h='<h3>Genel Bakış</h3><p class="sb">Botunuzdaki satışlar, stok ve bakiye hareketleri tek ekranda. Rakamlar aşağıdaki demo verisinden ve bu oturumda yaptığınız işlemlerden canlı hesaplanır.</p>'+
+  '<div class="sc"><div><b>'+TL(revenue())+'</b><span>Ciro (teslim edilen siparişler)</span></div><div><b>'+S.orders.length+'</b><span>Toplam sipariş</span></div><div><b>'+cnt+'</b><span>Stoktaki toplam kod</span></div><div><b>'+pend.length+'</b><span>Onay bekleyen yükleme</span></div></div>'+
+  '<h4>Dikkat gerektirenler</h4>'+(low.length?'<div class="tbl"><table><thead><tr><th>Ürün</th><th class="r">Kalan</th><th>Durum</th><th></th></tr></thead><tbody>'+low.map(function(p){var s=stState(stk(p.id));return '<tr><td><b>'+full(p)+'</b></td><td class="r">'+stk(p.id)+'</td><td><span class="bd '+s[0]+'">'+s[1]+'</span></td><td class="r"><button class="bt sm g" type="button" data-a="goadd" data-id="'+p.id+'">Stok ekle</button></td></tr>'}).join('')+'</tbody></table></div>':'<div class="nt">Şu an düşük stoklu ürün yok.</div>')+
+  (pend.length?'<div class="nt"><b>'+pend.length+' bakiye yüklemesi onay bekliyor.</b> “Bakiye Yüklemeleri” sekmesinden tek dokunuşla onaylayabilirsiniz.</div>':'')+
+  '<h4>Kategoriye göre stok</h4><div class="tbl"><table><tbody>'+CATS.map(function(c){var items=P.filter(function(p){return p.c===c.id}),sum=items.reduce(function(a,p){return a+stk(p.id)},0),mx=items.length*40,pc=Math.min(100,Math.round(sum/mx*100));return '<tr><td style="width:36%"><b>'+c.n+'</b></td><td><div class="bar"><i class="'+(pc<20?'bad':pc<45?'warn':'')+'" style="width:'+Math.max(pc,3)+'%"></i></div></td><td class="r" style="width:90px">'+sum+' kod</td></tr>'}).join('')+'</tbody></table></div>'+
+  '<h4>Son siparişler</h4><div class="tbl"><table><thead><tr><th>No</th><th>Müşteri</th><th>Ürün</th><th class="r">Tutar</th><th>Durum</th></tr></thead><tbody>'+S.orders.slice(0,7).map(function(o){return '<tr><td><b>#'+o.id+'</b></td><td>'+who(o.u)+'</td><td>'+full(pid(o.pid))+' ×'+o.q+'</td><td class="r">'+TL(o.t)+'</td><td>'+bdSt(o.st)+'</td></tr>'}).join('')+'</tbody></table></div>'+
+  '<h4>Etkinlik günlüğü</h4><ul class="lg">'+S.log.slice(0,10).map(function(l){return '<li><time>'+l.t+'</time><span>'+esc(l.m)+'</span></li>'}).join('')+'</ul>'+
+  '<h4>Günlük kontrol listesi</h4><ol style="margin:0;padding-left:20px"><li>Düşük stoklu ürünleri gözden geçirin ve tedarikçiden gelen kodları “Stok” sekmesinden yapıştırın.</li><li>Bekleyen bakiye yüklemelerini banka hareketleriyle karşılaştırıp onaylayın.</li><li>İade talebi olan siparişleri “Siparişler” sekmesinden açıp işleyin.</li><li>Tedarikçi fiyatı değiştiyse “Fiyat &amp; Ürünler” sekmesinden satış fiyatını güncelleyin; bot anında yeni fiyatı gösterir.</li><li>Gün sonunda stok sayısı ile teslim edilen sipariş adedini eşleştirin.</li></ol>';
+ }
+ if(t==='st'){
+  h='<h3>Stok</h3><p class="sb">Her ürünün kalan kod sayısı. Botta satış yapıldıkça kod stoktan düşer ve müşteriye gider; bir ürünün stoğu bitince bot o ürünü “tükendi” gösterir.</p>'+
+  '<div class="tbl"><table><thead><tr><th>Ürün</th><th>Kategori</th><th style="width:150px">Doluluk</th><th class="r">Kalan</th><th>Durum</th></tr></thead><tbody>'+P.map(function(p){var n=stk(p.id),s=stState(n),pc=Math.min(100,Math.round(n/40*100));return '<tr><td><b>'+p.n+'</b></td><td>'+cat(p.c).sn+'</td><td><div class="bar"><i class="'+(s[0]==='ok'?'':s[0])+'" style="width:'+Math.max(pc,3)+'%"></i></div></td><td class="r"><b>'+n+'</b></td><td><span class="bd '+s[0]+'">'+s[1]+'</span></td></tr>'}).join('')+'</tbody></table></div>'+
+  '<h4>Stok ekle (toplu kod girişi)</h4><div class="fr"><div class="cd"><div class="row"><label for="ad-pre">Ürün</label><select id="ad-pre">'+P.map(function(p){return '<option value="'+p.id+'"'+(U.pre===p.id?' selected':'')+'>'+full(p)+' (kalan '+stk(p.id)+')</option>'}).join('')+'</select></div><div class="row"><label for="ad-txt">Kodlar (her satıra bir kod)</label><textarea id="ad-txt" placeholder="XXXX-XXXX-XXXX-XXXX&#10;XXXX-XXXX-XXXX-XXXX">'+esc(U.txt)+'</textarea></div><button class="bt" type="button" data-a="addstock">Kodları ekle</button> <button class="bt g" type="button" data-a="demogen">10 demo kod üret</button></div>'+
+  '<div><div class="nt" style="margin-top:0"><b>Nasıl çalışır?</b><br>Tedarikçiden aldığınız kodları kopyalayıp kutuya yapıştırın. Boş satırlar atlanır, aynı ürüne daha önce girilmiş kodlar tekrar eklenmez. Eklenen kodlar hemen satışa açılır.</div><p style="color:var(--mut);margin:0">Güvenlik notu: Canlı kurulumda kodlar veritabanında şifreli saklanır, panelde yalnızca yetkili yöneticiler görür. Teslim edilen her kod bir kez kullanılır; aynı kod iki müşteriye gitmez.</p></div></div>'+
+  '<h4>Son stok girişleri</h4><div class="tbl"><table><thead><tr><th>Zaman</th><th>Ürün</th><th>Miktar</th><th>Yöntem</th></tr></thead><tbody>'+S.slog.slice(0,8).map(function(l){return '<tr><td>'+l[0]+'</td><td>'+l[1]+'</td><td>'+l[2]+'</td><td>'+l[3]+'</td></tr>'}).join('')+'</tbody></table></div>';
+ }
+ if(t==='or'){
+  h='<h3>Siparişler</h3><p class="sb">Botta verilen tüm siparişler. Bir satıra dokunarak ayrıntıyı, teslim edilen kodu ve iade seçeneğini açın. Sizin demo hesabınızla bottan verdiğiniz siparişler de buraya anında düşer.</p>'+
+  '<div class="ctb"><input class="in" id="ad-q" type="search" placeholder="Sipariş no, müşteri veya ürün ara" value="'+esc(U.q)+'" aria-label="Sipariş ara"><div class="chips">'+['Tümü','Teslim edildi','İade edildi'].map(function(f){return '<button class="chip'+(U.f===f?' on':'')+'" type="button" data-a="filt" data-f="'+f+'">'+f+'</button>'}).join('')+'</div></div>'+
+  '<div class="tbl"><table><thead><tr><th>No</th><th>Müşteri</th><th>Ürün</th><th class="r">Adet</th><th class="r">Tutar</th><th>Durum</th></tr></thead><tbody data-slot="ordtbl">'+ordRows()+'</tbody></table></div><div data-slot="orddet">'+ordDetail()+'</div>'+
+  '<h4>Teslimat kuralları</h4><ul style="margin:0;padding-left:20px"><li>Ödeme bakiyeden düşer düşmez kod ayrılır ve aynı sohbette gönderilir; bekleme yoktur.</li><li>Stok yetmezse sipariş açılmaz, müşteriye adet seçimi tekrar sunulur.</li><li>Teslim edilen kod müşterinin “Siparişlerim” ekranında her zaman tekrar görülebilir.</li><li>İade yalnızca yönetici tarafından yapılır ve tutar bakiyeye yazılır.</li></ul>';
+ }
+ if(t==='tp'){
+  var pend2=pendList();
+  h='<h3>Bakiye Yüklemeleri</h3><p class="sb">Müşterilerin bottan bildirdiği yüklemeler. Otomatik onay açıksa demo yüklemeleri birkaç saniyede onaylanır; kapalıyken buradan sizin onayınızı bekler.</p>'+
+  '<div class="cd"><div class="tg2"><button class="sw'+(S.auto?' on':'')+'" type="button" data-a="auto" role="switch" aria-checked="'+S.auto+'" aria-label="Otomatik onay"></button><div><b>Otomatik onay (demo)</b><br><span style="color:var(--mut)">'+(S.auto?'Açık: bottan “Ödemeyi yaptım” denince bakiye hemen yüklenir.':'Kapalı: yüklemeler sizin onayınızı bekler. Bottan bir yükleme deneyip burada onaylayın.')+'</span></div></div></div>'+
+  (pend2.length?'<div class="nt"><b>'+pend2.length+' yükleme onay bekliyor</b></div>':'')+
+  '<h4>Tüm yüklemeler</h4><div class="tbl"><table><thead><tr><th>No</th><th>Müşteri</th><th>Yöntem</th><th class="r">Tutar</th><th>Zaman</th><th>Durum</th><th></th></tr></thead><tbody>'+S.tops.map(function(t){return '<tr><td><b>'+t.id+'</b></td><td>'+who(t.u)+'</td><td>'+t.m+'</td><td class="r">'+TL(t.amt)+'</td><td>'+t.time+'</td><td>'+bdSt(t.st)+'</td><td class="r" style="white-space:nowrap">'+(t.st==='Bekliyor'?'<button class="bt sm" type="button" data-a="tok" data-id="'+t.id+'">Onayla</button> <button class="bt sm g" type="button" data-a="tno" data-id="'+t.id+'">Reddet</button>':'')+'</td></tr>'}).join('')+'</tbody></table></div>'+
+  '<h4>Ödeme yöntemleri</h4><div class="tbl"><table><thead><tr><th>Yöntem</th><th>Nasıl doğrulanır?</th><th>Not</th></tr></thead><tbody><tr><td><b>Havale / EFT</b></td><td>Açıklamadaki referans kodu banka hareketiyle eşleştirilir.</td><td>Kod eşleşmezse yükleme reddedilir, müşteriye bildirim gider.</td></tr><tr><td><b>Kripto (USDT · TRC20)</b></td><td>Zincir üzerindeki işlem, referans ve tutarla karşılaştırılır.</td><td>Kur ve ağ ücreti kurulumda sizin ayarınıza göre belirlenir.</td></tr><tr><td><b>Kredi / banka kartı</b></td><td>Ödeme kuruluşunun geri dönüşü bakiyeyi otomatik yükler.</td><td>Canlıda ödeme kuruluşu anlaşmanız gerekir; demoda ödeme alınmaz.</td></tr></tbody></table></div>';
+ }
+ if(t==='pr'){
+  h='<h3>Fiyat &amp; Ürünler</h3><p class="sb">Satış fiyatını ve alış maliyetini girin, kâr marjı otomatik hesaplanır. Fiyat kutusuna yeni değeri yazıp Enter’a basın; bot ve katalog anında yeni fiyatı gösterir. Ürünü “satışta” anahtarıyla gizleyebilirsiniz.</p>'+
+  '<div class="tbl"><table><thead><tr><th>Ürün</th><th class="r">Alış</th><th class="r">Satış (₺)</th><th class="r">Kâr / adet</th><th class="r">Marj</th><th>Satışta</th></tr></thead><tbody>'+P.map(function(p){var k=p.p-p.cost,m=p.p?k/p.p*100:0;return '<tr><td><b>'+full(p)+'</b></td><td class="r">'+TL(p.cost)+'</td><td class="r"><input class="pi" type="number" min="1" step="0.5" value="'+p.p+'" data-pr="'+p.id+'" aria-label="'+full(p)+' satış fiyatı"></td><td class="r" style="color:var(--'+(k>0?'ok':'bad')+')"><b>'+TL(k)+'</b></td><td class="r">%'+m.toFixed(1).replace('.',',')+'</td><td><button class="sw'+(p.on?' on':'')+'" type="button" data-a="onoff" data-id="'+p.id+'" role="switch" aria-checked="'+p.on+'" aria-label="'+full(p)+' satışta"></button></td></tr>'}).join('')+'</tbody></table></div>'+
+  '<div class="nt"><b>Fiyat politikası önerisi:</b> e-pin ürünlerinde marj dardır. Tedarikçi fiyatı değiştiğinde satış fiyatını aynı gün güncelleyin; marjı negatife düşen ürünler yukarıda kırmızı görünür.</div>'+
+  '<h4>Kategori özeti</h4><div class="tbl"><table><thead><tr><th>Kategori</th><th class="r">Ürün</th><th class="r">Satışta</th><th class="r">Ortalama marj</th></tr></thead><tbody>'+CATS.map(function(c){var it=P.filter(function(p){return p.c===c.id}),on=it.filter(function(p){return p.on}),av=it.reduce(function(a,p){return a+(p.p-p.cost)/p.p*100},0)/it.length;return '<tr><td><b>'+c.n+'</b></td><td class="r">'+it.length+'</td><td class="r">'+on.length+'</td><td class="r">%'+av.toFixed(1).replace('.',',')+'</td></tr>'}).join('')+'</tbody></table></div>';
+ }
+ if(t==='cu'){
+  var us=USERS.concat(['me']);
+  h='<h3>Müşteriler</h3><p class="sb">Botu kullanan hesaplar, bakiyeleri ve alışveriş özetleri. Aşağıdan tüm kullanıcılara duyuru gönderebilirsiniz; duyuru demo sohbetinde hemen görünür.</p>'+
+  '<div class="tbl"><table><thead><tr><th>Kullanıcı</th><th class="r">Bakiye</th><th class="r">Sipariş</th><th class="r">Harcama</th><th class="r">Yüklenen</th><th>Son işlem</th></tr></thead><tbody>'+us.map(function(u){var os=S.orders.filter(function(o){return o.u===u}),sp=os.filter(function(o){return o.st==='Teslim edildi'}).reduce(function(a,o){return a+o.t},0),yk=S.tops.filter(function(t){return t.u===u&&t.st==='Onaylandı'}).reduce(function(a,t){return a+t.amt},0),bal=u==='me'?S.bal:S.cb[u];return '<tr><td><b>'+who(u)+'</b></td><td class="r">'+TL(bal)+'</td><td class="r">'+os.length+'</td><td class="r">'+TL(sp)+'</td><td class="r">'+TL(yk)+'</td><td>'+(os[0]?os[0].time:'—')+'</td></tr>'}).join('')+'</tbody></table></div>'+
+  '<h4>Duyuru gönder</h4><div class="cd"><div class="row"><label for="ad-bc">Mesaj</label><textarea id="ad-bc" style="min-height:90px;font-family:inherit" placeholder="Örn: Bu hafta Steam cüzdan kodlarında stok yenilendi.">'+esc(U.bc)+'</textarea></div><button class="bt" type="button" data-a="bcast">Tüm kullanıcılara gönder ('+us.length+')</button></div>'+
+  '<h4>Müşteri segmentleri</h4><ul style="margin:0;padding-left:20px"><li><b>Aktif alıcı:</b> son 7 günde en az bir sipariş veren hesaplar.</li><li><b>Bakiyesi yüksek:</b> bakiyesi 500 ₺ ve üzeri olup harcama yapmayanlar; kampanya duyurusu için uygun.</li><li><b>Bakiye bekleyen:</b> yükleme bildirimi yapıp onayı bekleyenler.</li><li><b>Pasif:</b> hiç sipariş vermemiş kayıtlar; hatırlatma mesajıyla geri kazanılabilir.</li></ul>';
+ }
+ return h+(EXTRA[t]||'');
+}
+var EXTRA={
+ ov:'<h4>Panel ipuçları</h4><p style="color:var(--mut)">Soldaki menüden diğer sekmelere geçebilirsiniz. Sekme adının yanındaki kırmızı sayı, ilgilenmeniz gereken kayıt adedidir: stokta az kalan ürünler ve onay bekleyen bakiye yüklemeleri. Bottan bir alışveriş yaptığınızda bu ekrandaki ciro, sipariş adedi ve stok sayısı birlikte güncellenir.</p>',
+ st:'<h4>Stok kuralları</h4><ul style="margin:0;padding-left:20px"><li><b>Az kaldı eşiği:</b> bir üründe 5 ve altında kod kalırsa durum “Az kaldı” olur, genel bakışta uyarı çıkar ve bot satışa devam eder.</li><li><b>Tükendi:</b> kod kalmayan ürün botta “tükendi” görünür; sipariş açılmaz, müşteri başka ürüne yönlendirilir.</li><li><b>Tekrar eden kod:</b> aynı ürüne daha önce girilen bir kod yeniden yapıştırılırsa atlanır, böylece aynı kod iki kez satılmaz.</li><li><b>Format kontrolü:</b> PUBG ve Google Play kodları dört gruplu, Steam kodları beş karakterli üç gruplu, Valorant kodları “VP-” önekli olur; tedarikçinizin formatına göre kuruluma özel kural eklenir.</li><li><b>Sayım:</b> gün sonunda stok sayısı ile teslim edilen sipariş adedini karşılaştırmak, tedarikçi ile olası farkları erken yakalamanızı sağlar.</li></ul>',
+ or:'<h4>Sipariş durumları</h4><div class="tbl"><table><thead><tr><th>Durum</th><th>Anlamı</th><th>Yönetici ne yapar?</th></tr></thead><tbody><tr><td><b>Teslim edildi</b></td><td>Ödeme bakiyeden alındı, kod müşteriye gönderildi.</td><td>Gerekirse kodu görüntüler, müşteri talep ederse iade eder.</td></tr><tr><td><b>İade edildi</b></td><td>Tutar müşterinin bakiyesine geri yazıldı.</td><td>Ek işlem gerekmez; kayıt etkinlik günlüğünde tutulur.</td></tr></tbody></table></div><p style="margin-top:12px;color:var(--mut)">Sipariş numaraları sırayla artar. Aynı müşterinin birden fazla ürünü ayrı siparişler olarak listelenir; böylece her kod ayrı izlenir.</p>',
+ tp:'<h4>Onay süreci</h4><ol style="margin:0;padding-left:20px"><li>Müşteri bottan tutarı ve yöntemi seçer, ödemeyi yapar ve “Ödemeyi yaptım” düğmesine dokunur.</li><li>Yükleme “Bekliyor” durumuyla bu listeye düşer; açıklamadaki referans kodu ödeme kaydıyla eşleştirilir.</li><li>Yönetici “Onayla” der: tutar müşterinin bakiyesine yazılır ve müşteriye sohbette bildirim gider.</li><li>Eşleşme yoksa “Reddet” denir; müşteriye nedeni içeren bir mesaj iletilir.</li></ol><p style="margin-top:12px;color:var(--mut)">Otomatik onay yalnızca demo içindir. Canlı kurulumda havale ve kripto yüklemeleri için yönetici onayı ya da banka/zincir doğrulaması kullanılması önerilir.</p>',
+ pr:'<h4>Fiyat güncelleme ipuçları</h4><ul style="margin:0;padding-left:20px"><li>Fiyatı değiştirdiğinizde bot, katalog ve yeni sipariş özetleri yeni fiyatı hemen kullanır. Onay ekranı açıkken fiyat değişirse ödeme güncel fiyata göre alınır.</li><li>Alış fiyatı tedarikçiden gelen birim maliyettir; kâr ve marj bu değerden hesaplanır.</li><li>Bir ürünü geçici olarak satıştan kaldırmak için “Satışta” anahtarını kapatın; stok korunur, bot ürünü göstermez.</li><li>Kampanya için fiyatı düşürüp marjı izleyin; marj sıfırın altına inerse kâr sütunu kırmızıya döner.</li></ul>',
+ cu:'<h4>Duyuru yazım önerileri</h4><ul style="margin:0;padding-left:20px"><li>Kısa ve tek konulu yazın: stok yenilendi, yeni ürün eklendi ya da bakım saati gibi.</li><li>Fiyat değişikliklerini duyururken hangi ürünlerin etkilendiğini açıkça belirtin.</li><li>Gece saatlerinde duyuru göndermemeye özen gösterin; kullanıcılar bildirimden rahatsız olabilir.</li></ul><h4>Bakiye ve güvenlik notları</h4><p style="color:var(--mut)">Müşteri bakiyeleri yalnızca onaylanmış yüklemeler ve iadelerle değişir. Bakiye üzerindeki her hareket etkinlik günlüğüne yazılır. Canlı kurulumda yönetici girişi şifre ve ek doğrulamayla korunur, kod görüntüleme işlemleri ayrıca kaydedilir.</p>'
+};
+var Admin={
+ mount:function(root){
+  root.classList.add('ad');
+  function nav(){
+   var low=lowList().length,pend=pendList().length;
+   return '<nav class="adn" aria-label="Yönetim menüsü"><h5>Yönetim</h5>'+TABS.map(function(t){var b=t[0]==='st'?low:t[0]==='tp'?pend:0;return '<button type="button" class="'+(U.tab===t[0]?'on':'')+'" data-t="'+t[0]+'">'+t[1]+(b?'<em>'+b+'</em>':'')+'</button>'}).join('')+'<div class="ft">Demo verisiyle çalışır. Burada yaptığınız her değişiklik bota anında yansır.</div></nav>';
+  }
+  function render(){
+   var old=$('.adm',root),st=old?old.scrollTop:0;
+   root.innerHTML=nav()+'<div class="adm">'+tab(U.tab)+'</div>';
+   var m=$('.adm',root);if(m)m.scrollTop=st;
+  }
+  render();subs.push(render);
+  root.addEventListener('click',function(e){
+   var t=e.target.closest('[data-t]');if(t&&t.closest('.adn')){U.tab=t.dataset.t;U.sel=null;render();var m=$('.adm',root);if(m)m.scrollTop=0;return}
+   var r=e.target.closest('tr[data-o]');if(r){U.sel=+r.dataset.o;U.rev=false;$('[data-slot=ordtbl]',root).innerHTML=ordRows();$('[data-slot=orddet]',root).innerHTML=ordDetail();var d=$('[data-slot=orddet]',root);if(d&&d.scrollIntoView)d.scrollIntoView({block:'nearest',behavior:'smooth'});return}
+   var b=e.target.closest('[data-a]');if(!b)return;
+   var a=b.dataset.a,id=b.dataset.id;
+   if(a==='filt'){U.f=b.dataset.f;render()}
+   else if(a==='rev'){U.rev=!U.rev;$('[data-slot=orddet]',root).innerHTML=ordDetail()}
+   else if(a==='refund'){
+    var o=S.orders.filter(function(x){return String(x.id)===id})[0];if(!o||o.st!=='Teslim edildi')return;
+    o.st='İade edildi';if(o.u==='me')S.bal+=o.t;else S.cb[o.u]=(S.cb[o.u]||0)+o.t;
+    log('Sipariş #'+o.id+' iade edildi · '+TL(o.t));emit();toast('İade yapıldı: '+TL(o.t));
+    if(o.u==='me')send('↩️ <b>Siparişiniz iade edildi</b>\n#'+o.id+' · '+TL(o.t)+' bakiyenize geri yazıldı.\nYeni bakiye: <b>'+TL(S.bal)+'</b>');
+   }
+   else if(a==='auto'){S.auto=!S.auto;emit()}
+   else if(a==='tok'){approveTop(id);toast('Yükleme onaylandı')}
+   else if(a==='tno'){rejectTop(id);toast('Yükleme reddedildi')}
+   else if(a==='onoff'){var p=pid(id);p.on=!p.on;log((p.on?'Satışa açıldı: ':'Satıştan kaldırıldı: ')+full(p));emit()}
+   else if(a==='goadd'){U.tab='st';U.pre=id;render()}
+   else if(a==='demogen'){
+    var sel=$('#ad-pre',root).value,p2=pid(sel),ls=[];for(var i=0;i<10;i++)ls.push(mkCode(p2.c,Math.random));
+    var ta=$('#ad-txt',root);ta.value=ls.join('\n');U.txt=ta.value;U.pre=sel;
+   }
+   else if(a==='addstock'){
+    var sid=$('#ad-pre',root).value,raw=$('#ad-txt',root).value.split(/\r?\n/).map(function(x){return x.trim()}).filter(Boolean);
+    if(!raw.length){toast('Önce kodları yapıştırın');return}
+    var have={};S.stock[sid].forEach(function(c){have[c]=1});var add=[];
+    raw.forEach(function(c){if(!have[c]){have[c]=1;add.push(c)}});
+    S.stock[sid]=S.stock[sid].concat(add);var pp=pid(sid);
+    S.slog.unshift(['Bugün '+now(),full(pp),'+'+add.length+' kod','Toplu yapıştırma']);log('Stok girişi: '+full(pp)+' · '+add.length+' kod eklendi');
+    U.txt='';U.pre=sid;emit();toast(add.length+' kod eklendi'+(raw.length>add.length?' ('+(raw.length-add.length)+' tekrar atlandı)':''));
+   }
+   else if(a==='bcast'){
+    var tx=$('#ad-bc',root).value.trim();if(!tx){toast('Duyuru metnini yazın');return}
+    send('📢 <b>Duyuru</b>\n'+esc(tx));log('Duyuru gönderildi: '+tx.slice(0,60));U.bc='';emit();toast('Duyuru iletildi (demo: sohbet penceresine düştü)');
+   }
+  });
+  root.addEventListener('input',function(e){
+   var t=e.target;
+   if(t.id==='ad-q'){U.q=t.value;$('[data-slot=ordtbl]',root).innerHTML=ordRows()}
+   else if(t.id==='ad-txt')U.txt=t.value;
+   else if(t.id==='ad-bc')U.bc=t.value;
+  });
+  root.addEventListener('change',function(e){
+   var t=e.target;
+   if(t.id==='ad-pre')U.pre=t.value;
+   else if(t.dataset&&t.dataset.pr){
+    var v=parseFloat(t.value),p=pid(t.dataset.pr);
+    if(!isFinite(v)||v<=0){toast('Geçerli bir fiyat girin');render();return}
+    var old=p.p;p.p=Math.round(v*100)/100;log('Fiyat güncellendi: '+full(p)+' · '+TL(old)+' → '+TL(p.p));emit();toast('Fiyat güncellendi: '+TL(p.p));
+   }
+  });
+ }
+};
+var Engine={Bot:Bot,Admin:Admin,Cat:Cat,hooks:hooks,toast:toast,
+ reset:function(){init();U.sel=null;U.q='';U.f='Tümü';U.txt='';Bot.clear();emit();Bot.greet();toast('Demo başlangıç durumuna döndü')}};
+window.Engine=Engine;
+})();
+</script>
+<script>
+(function(){
+var E=window.Engine;
+E.hooks.focusBot=function(){var el=document.getElementById('botmount');if(el&&el.scrollIntoView)el.scrollIntoView({behavior:'smooth',block:'center'})};
+E.hooks.adminAlert=function(m){E.toast('Yönetici uyarısı: '+m)};
+E.Bot.mount(document.getElementById('botmount'));
+E.Cat.mount(document.getElementById('catmount'));
+E.Admin.mount(document.getElementById('admmount'));
+document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){E.Bot.open(b.dataset.go)})});
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>

@@ -1,0 +1,53 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Telegram E-Pin Market Botu · 3 tasarım seçin · Dijitabela demo</title><link rel="icon" href="https://dijitabela.com/assets/favicon.svg"><style>
+:root{--ff:system-ui,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:#080c18;color:#e9eefb;font:500 16px/1.6 var(--ff);overflow-x:hidden;background-image:radial-gradient(900px 500px at 85% -10%,rgba(56,189,248,.2),transparent),radial-gradient(700px 420px at -10% 40%,rgba(167,139,250,.16),transparent)}
+.k{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
+header{padding:clamp(40px,8vw,96px) 0 30px}
+.et{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:#38bdf8;font-weight:800}
+h1{font-size:clamp(2rem,5.4vw,3.8rem);line-height:1.06;letter-spacing:-.025em;margin:14px 0 16px;max-width:18ch}
+h1 em{font-style:normal;background:linear-gradient(90deg,#38bdf8,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:#a8b5d6;max-width:640px;font-size:1.08rem}
+.list{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.list span{border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:7px 14px;font-size:.88rem;color:#c3cde8;background:rgba(255,255,255,.04)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:20px 0 50px}
+@media(max-width:940px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.12);border-radius:24px;overflow:hidden;background:rgba(255,255,255,.04);text-decoration:none;color:inherit;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover,.card:focus-visible{transform:translateY(-6px);border-color:#38bdf8;box-shadow:0 26px 60px rgba(0,0,0,.45);outline:0}
+.pv{height:230px;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.1)}
+.body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body small{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#38bdf8;font-weight:800}
+.body h2{font-size:1.5rem;letter-spacing:-.01em}.body p{color:#a8b5d6;font-size:.97rem}
+.go{margin-top:auto;padding-top:10px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}.go:after{content:"→";transition:transform .2s}.card:hover .go:after{transform:translateX(5px)}
+/* v1 önizleme */
+.p1{background:linear-gradient(160deg,#0b1226,#070b16)}
+.p1 .h{position:absolute;left:18px;top:22px;width:55%}.p1 .h i{display:block;height:12px;border-radius:6px;background:linear-gradient(90deg,#38bdf8,#818cf8);margin-bottom:9px}.p1 .h i:nth-child(1){width:90%;height:16px}.p1 .h i:nth-child(2){width:70%;height:16px}.p1 .h i:nth-child(3){width:85%;background:#243055;height:8px;margin-top:14px}.p1 .h i:nth-child(4){width:60%;background:#243055;height:8px}.p1 .h b{display:block;width:90px;height:26px;border-radius:9px;background:linear-gradient(90deg,#38bdf8,#818cf8);margin-top:14px}
+.p1 .ph{position:absolute;right:18px;top:20px;width:34%;height:200px;border-radius:20px;background:#0e1621;border:3px solid #27324f;padding:8px;display:flex;flex-direction:column;gap:5px}.p1 .ph i{display:block;height:18px;border-radius:8px;background:#182533}.p1 .ph i:nth-child(2){width:80%;background:#2b5278;align-self:flex-end}.p1 .ph i:nth-child(4){width:70%}.p1 .ph b{margin-top:auto;height:22px;border-radius:8px;background:#2c425c}
+.p1 .st{position:absolute;left:18px;bottom:0;right:0;height:46px;display:flex;gap:8px}.p1 .st i{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px 10px 0 0}
+/* v2 önizleme */
+.p2{background:#f3eee3;color:#1d1a16}
+.p2 .t{position:absolute;left:18px;top:14px;right:18px;border-bottom:1px solid #1d1a16;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding-bottom:6px;color:#6a6154;display:flex;justify-content:space-between}
+.p2 .g{position:absolute;left:18px;top:42px;font:700 2.1rem/1 Georgia,serif;letter-spacing:-.03em;width:62%}.p2 .g em{color:#b4492b;font-weight:400}
+.p2 .f{position:absolute;right:18px;top:48px;width:30%;height:128px;border:1px solid #1d1a16;background:#fffdf8;box-shadow:5px 5px 0 #d8ccb7}.p2 .f i{display:block;height:8px;margin:10px;background:#d8ccb7;border-radius:2px}.p2 .f i:nth-child(1){background:#b4492b;width:40%}
+.p2 .n{position:absolute;left:18px;bottom:14px;font:400 3rem/1 Georgia,serif;color:#b4492b}.p2 .n s{text-decoration:none;font:700 .7rem system-ui;letter-spacing:.14em;text-transform:uppercase;color:#6a6154;margin-left:8px}
+/* v3 önizleme */
+.p3{background:#eceffa}
+.p3 .ph{position:absolute;left:50%;top:18px;transform:translateX(-50%);width:132px;height:210px;border-radius:22px;background:#0e1621;padding:8px;display:flex;flex-direction:column;gap:5px;box-shadow:0 12px 30px rgba(40,40,110,.3)}.p3 .ph i{display:block;height:16px;border-radius:8px;background:#182533}.p3 .ph i:nth-child(2){width:80%;background:#2b5278;align-self:flex-end}.p3 .ph i:nth-child(4){width:65%}.p3 .ph b{margin-top:auto;height:20px;border-radius:8px;background:#2c425c}
+.p3 .nv{position:absolute;left:0;right:0;bottom:0;height:42px;background:#fff;border-top:1px solid #dfe3f3;display:flex;justify-content:space-around;align-items:center}.p3 .nv i{width:22px;height:6px;border-radius:4px;background:#c9cee6}.p3 .nv i:first-child{background:#5b5bf0}
+.p3 .sp{position:absolute;left:12px;top:30px;width:58px;height:70px;border-radius:14px;background:linear-gradient(160deg,#4338ca,#db2777);transform:rotate(-8deg)}
+.p3 .sp2{position:absolute;right:12px;top:60px;width:58px;height:70px;border-radius:14px;background:#fff;border:1px solid #dfe3f3;transform:rotate(7deg)}
+.how{border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:22px;margin-bottom:40px;background:rgba(255,255,255,.03)}
+.how h3{margin-bottom:6px}.how p{color:#a8b5d6}
+footer{padding:26px 0 56px;color:#7f8db0;font-size:.86rem;border-top:1px solid rgba(255,255,255,.08)}
+</style></head><body>
+<header class="k"><span class="et">Dijitabela · Çalışan demo</span><h1>Telegram e-pin botunuz için <em>üç ayrı tasarım</em></h1>
+<p class="lead">Üçü de aynı çalışan botu taşır: ürün kategorileri ve fiyat listesi, sipariş akışı, bakiye yükleme, otomatik kod teslimi ve stok ile siparişleri izleyen yönetim ekranı. Fark, sayfanın yerleşiminde ve anlatım biçimindedir.</p>
+<div class="list"><span>Çalışan Telegram sohbeti</span><span>Filtreli fiyat listesi</span><span>Stok ve sipariş paneli</span><span>Mobil uyumlu</span></div></header>
+<main class="k"><div class="grid">
+ <a class="card" href="v1/"><div class="pv p1"><div class="h"><i></i><i></i><i></i><i></i><b></b></div><div class="ph"><i></i><i></i><i></i><i></i><b></b></div><div class="st"><i></i><i></i><i></i><i></i></div></div><div class="body"><small>Tasarım 1</small><h2>Vitrin</h2><p>Büyük karşılama alanı ve yanında canlı bot; altında akış, fiyat listesi ve yönetim bölümleri alt alta.</p><span class="go">Vitrin tasarımını aç</span></div></a>
+ <a class="card" href="v2/"><div class="pv p2"><div class="t"><span>Sayı 01</span><span>E-pin botu</span></div><div class="g">Kodu <em>anında</em> teslim eden bot</div><div class="f"><i></i><i></i><i></i><i></i></div><div class="n">01<s>Canlı bot</s></div></div><div class="body"><small>Tasarım 2</small><h2>Dergi</h2><p>Serif başlıklar, numaralı bölümler ve çerçeveli şekiller; bot, tablo ve panel birer “şekil” olarak sunulur.</p><span class="go">Dergi tasarımını aç</span></div></a>
+ <a class="card" href="v3/"><div class="pv p3"><div class="sp"></div><div class="sp2"></div><div class="ph"><i></i><i></i><i></i><i></i><b></b></div><div class="nv"><i></i><i></i><i></i><i></i></div></div><div class="body"><small>Tasarım 3</small><h2>Uygulama</h2><p>Açılış kartı, alt sabit menü ve açılır paneller; mobil öncelikli, telefonda gerçek bir uygulama gibi.</p><span class="go">Uygulama tasarımını aç</span></div></a>
+</div>
+<div class="how"><h3>Demoda neleri deneyebilirsiniz?</h3><p>Bottan ürün alın, bakiyeniz yetmezse bakiye yükleyin ve kodu sohbette görün. Sonra yönetim ekranına geçip siparişin düştüğünü, stoğun azaldığını görün; stoğa kod ekleyin, fiyat değiştirin, bekleyen bir bakiye yüklemesini onaylayın. Her değişiklik bota ve fiyat listesine anında yansır.</p></div></main>
+<footer><div class="k">Bu bir ön çalışma demosudur · dijitabela.com</div></footer>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
