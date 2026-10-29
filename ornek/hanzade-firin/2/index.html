@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hanzade Fırın & Cafe · Uncalı'dan Bir Fırın Hikâyesi · Taslak 2 Dergi</title>
+<meta name="description" content="Hanzade Fırın & Cafe — Uncalı, Konyaaltı. Pasta hesaplayıcı, fırın saatleri, menü ve adres. (Dijitabela örnek tasarım)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--kagit:#efe7da;--yuzey:#f8f3ea;--murekkep:#1b1712;--soluk:#6b5f50;--cizgi:#cdbfa9;--vurgu:#7a2418;--altin:#a87a2a}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--kagit);color:var(--murekkep);font:18px/1.7 "Source Serif 4",Georgia,serif}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;line-height:1.05;margin:0}
+.mono{font:600 .72rem/1.4 "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--soluk)}
+.kap{width:min(1120px,100% - 32px);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;min-height:50px;padding:0 24px;background:var(--murekkep);color:var(--yuzey);border:1px solid var(--murekkep);font:600 .95rem "JetBrains Mono",monospace;letter-spacing:.04em;text-decoration:none;cursor:pointer;border-radius:0}
+.btn.h{background:none;color:var(--murekkep)}
+.btn:hover{background:var(--vurgu);border-color:var(--vurgu);color:#fff}
+/* künye */
+.kunye{border-bottom:3px double var(--murekkep);padding:22px 0 14px;text-align:center}
+.kunye .ust{display:flex;justify-content:space-between;font:600 .7rem "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--soluk);border-bottom:1px solid var(--murekkep);padding-bottom:10px;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.kunye h1{font-size:clamp(3rem,10vw,7.4rem);font-weight:900;letter-spacing:-.02em;line-height:.9}
+.kunye h1 em{font-weight:500;color:var(--vurgu)}
+.kunye p{margin:10px 0 0;font-style:italic;color:var(--soluk)}
+/* bölüm menüsü */
+.icindekiler{position:sticky;top:0;z-index:30;background:var(--kagit);border-bottom:1px solid var(--murekkep)}
+.icindekiler .kap{display:flex;gap:24px;overflow-x:auto;white-space:nowrap;padding:12px 0;font:600 .74rem "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;scrollbar-width:none}
+.icindekiler a{text-decoration:none;color:var(--soluk)}.icindekiler a.s{color:var(--vurgu)}
+.icindekiler a span{color:var(--vurgu);margin-right:6px}
+/* manşet */
+.manset{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;padding:56px 0;align-items:center}
+.cerceve{background:var(--yuzey);padding:14px 14px 10px;border:1px solid var(--cizgi);box-shadow:0 1px 0 var(--cizgi)}
+.cerceve img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.cerceve figcaption{font:500 .7rem "JetBrains Mono",monospace;color:var(--soluk);padding-top:8px;letter-spacing:.04em}
+.manset h2{font-size:clamp(2.4rem,5vw,4rem)}
+.manset h2 em{color:var(--vurgu)}
+.manset .giris::first-letter{float:left;font:900 4.6rem/.8 "Playfair Display",serif;padding:6px 10px 0 0;color:var(--vurgu)}
+@media(max-width:860px){.manset{grid-template-columns:1fr;gap:26px;padding:30px 0}.cerceve img{aspect-ratio:4/3}}
+/* bölümler */
+section.bol{padding:72px 0;border-top:1px solid var(--murekkep)}
+.no{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+.no b{font:900 4.2rem/1 "Playfair Display",serif;color:var(--vurgu)}
+.no h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.ikiS{grid-template-columns:1fr 2fr}
+@media(max-width:860px){.iki,.ikiS{grid-template-columns:minmax(0,1fr);gap:28px}}
+.sutun{columns:2;column-gap:36px}
+@media(max-width:700px){.sutun{columns:1}}
+.alinti{font:italic 500 1.6rem/1.35 "Playfair Display",serif;border-left:3px solid var(--vurgu);padding:4px 0 4px 20px;margin:26px 0}
+/* fırın saati çizelgesi */
+.cizelge{background:var(--yuzey);border:1px solid var(--cizgi);padding:22px 22px 10px}
+.satir{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--cizgi)}
+.satir:last-child{border:0}
+.satir .ad{font-weight:600;font-size:.95rem;line-height:1.3}.satir .ad small{display:block;font:500 .72rem "JetBrains Mono",monospace;color:var(--soluk)}
+.serit{position:relative;height:30px;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/15.5 - 1px),var(--cizgi) calc(100%/15.5 - 1px) calc(100%/15.5))}
+.serit i{position:absolute;top:5px;width:12px;height:20px;margin-left:-6px;background:var(--murekkep)}
+.serit i.g{background:var(--cizgi)}
+.serit i.sic{background:var(--vurgu);box-shadow:0 0 0 3px rgba(122,36,24,.2)}
+.simdi{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--vurgu)}
+.olcek{display:grid;grid-template-columns:150px 1fr;gap:14px;font:500 .66rem "JetBrains Mono",monospace;color:var(--soluk)}
+.olcek div{display:flex;justify-content:space-between}
+@media(max-width:600px){.satir,.olcek{grid-template-columns:96px 1fr}.satir .ad{font-size:.82rem}}
+/* lookbook */
+.lookbook{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;margin-right:calc(50% - 50vw);padding-right:16px}
+.lookbook figure{flex:0 0 min(340px,78vw);margin:0;scroll-snap-align:start;background:var(--yuzey);border:1px solid var(--cizgi);padding:12px}
+.lookbook img{aspect-ratio:4/5;width:100%;object-fit:cover}
+.lookbook figcaption{padding:12px 4px 4px}
+.lookbook h3{font-size:1.35rem}
+.lookbook p{margin:4px 0 8px;font-size:.92rem;color:var(--soluk);line-height:1.5}
+.lookbook .alt{display:flex;justify-content:space-between;align-items:center;font:600 .82rem "JetBrains Mono",monospace}
+.lookbook button{border:0;background:none;color:var(--vurgu);font:inherit;cursor:pointer;text-decoration:underline;padding:6px 0}
+/* hesaplayıcı */
+.hesap{background:var(--murekkep);color:var(--yuzey);padding:32px;margin-top:36px;display:grid;grid-template-columns:1fr 1.2fr;gap:36px}
+@media(max-width:860px){.hesap{grid-template-columns:1fr;padding:22px}}
+.hesap h3{font-size:2rem}
+.hesap p{color:#c9bca8;font-size:.95rem}
+.hesap input[type=range]{width:100%;accent-color:#d9a441;margin:14px 0 4px}
+.kisi{font:900 4rem/1 "Playfair Display",serif;color:#d9a441}
+.hesap select{width:100%;padding:12px;font:inherit;font-size:.95rem;background:var(--yuzey);border:0;margin-top:8px;border-radius:0}
+.sonuc{border:1px solid #4b4136;padding:18px}
+.sonuc dl{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin:0 0 16px;font-size:.95rem}
+.sonuc dt{color:#c9bca8}.sonuc dd{margin:0;text-align:right;font-family:"JetBrains Mono",monospace}
+.sonuc .top{font:900 2.4rem/1 "Playfair Display",serif;color:#fff}
+.sonuc .btn{background:#d9a441;color:var(--murekkep);border-color:#d9a441}
+/* menü */
+.fiyat-liste h3{font-size:1.5rem;font-style:italic;margin:0 0 8px;color:var(--vurgu)}
+.fiyat-liste ul{list-style:none;margin:0 0 30px;padding:0}
+.fiyat-liste li{display:flex;align-items:baseline;gap:8px;padding:7px 0}
+.fiyat-liste li span{white-space:nowrap}
+.fiyat-liste li i{flex:1;border-bottom:1px dotted var(--soluk);transform:translateY(-4px)}
+.fiyat-liste li b{font:600 .88rem "JetBrains Mono",monospace;white-space:nowrap}
+.fiyat-liste small{color:var(--soluk);font-size:.78rem}
+.kucuk-foto{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kucuk-foto img{aspect-ratio:1;object-fit:cover;width:100%;border:1px solid var(--cizgi);padding:6px;background:var(--yuzey)}
+/* mektup */
+.mektup{background:var(--yuzey);border:1px solid var(--cizgi);padding:34px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}
+@media(max-width:700px){.mektup{grid-template-columns:1fr;padding:22px}}
+.mektup .qr{border:1px solid var(--murekkep);padding:12px;background:#fff}
+/* ziyaret */
+.adres{font:italic 500 1.5rem/1.4 "Playfair Display",serif}
+.saatler{font:500 .9rem "JetBrains Mono",monospace;border-top:1px solid var(--murekkep);border-bottom:1px solid var(--murekkep);padding:12px 0;margin:18px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.harita{border:1px solid var(--cizgi);padding:10px;background:var(--yuzey)}
+.harita iframe{display:block;width:100%;height:360px;border:0;filter:sepia(.25)}
+footer{border-top:3px double var(--murekkep);padding:28px 0 40px;text-align:center;font:500 .72rem "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--soluk);text-transform:uppercase}
+</style>
+</head>
+<body data-yerlesim="dergi">
+<header class="kunye kap" data-anlat="giris">
+  <div class="ust"><span>Sayı 20 · Uncalı, Konyaaltı</span><span id="tarih"></span><span id="durum"></span></div>
+  <h1>Hanzade <em>Fırın</em></h1>
+  <p>Sabah altıdan gece dokuz buçuğa, aynı köşede yirmi yıl.</p>
+</header>
+<nav class="icindekiler"><div class="kap" id="ic">
+  <a href="#hikaye"><span>01</span>Hikâye</a><a href="#saat"><span>02</span>Fırın saati</a><a href="#pasta"><span>03</span>Pastalar</a><a href="#menu"><span>04</span>Menü</a><a href="#yorum"><span>05</span>Okur mektubu</a><a href="#ziyaret"><span>06</span>Ziyaret</a>
+</div></nav>
+
+<main class="kap">
+<section class="manset" id="hikaye" data-anlat="hikaye">
+  <figure class="cerceve" style="margin:0"><img src="../img/usta.jpg" alt="Usta pastayı hazırlıyor"><figcaption>Fotoğraf: temsilî · yayında kendi ustanız ve fırınınız</figcaption></figure>
+  <div>
+    <p class="mono">01 · Hikâye</p>
+    <h2>Yirmi yıl, <em>aynı köşe,</em> yeni bir vitrin.</h2>
+    <p class="giris">Uncalı Caddesi'nde ilk ekmeği çıkardığımızda mahalle daha yeni kuruluyordu. Bugün sabah altıda kapıyı açtığımızda ilk gelen yine komşularımız. Dükkânı baştan yeniledik, vitrini genişlettik; ama ekmek aynı ekmek, börek aynı el.</p>
+    <p>Kişiye özel pastalarımızı artık bu sayfadan seçip fiyatını görebilir, siparişi WhatsApp'tan ustamıza doğrudan bırakabilirsiniz.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px"><button class="btn" data-siparis>Pasta siparişi</button><a class="btn h" href="#saat">Fırın saati</a></div>
+  </div>
+</section>
+
+<section class="bol" id="saat" data-anlat="saat">
+  <div class="no"><b>02</b><h2>Fırın saati</h2></div>
+  <div class="iki ikiS">
+    <div><p>Hangi ürün ne zaman fırından çıkıyor? Çizgi şu anı gösterir; kırmızı işaretler son 45 dakikada çıkanlar. Siyahlar bugün çıkmış, gri olanlar daha çıkacak.</p>
+      <p class="alinti">"Bu sabah mı yapıldı?" diye sormanıza gerek kalmasın.</p></div>
+    <div class="cizelge"><div id="ciz"></div><div class="olcek"><span></span><div><span>06</span><span>09</span><span>12</span><span>15</span><span>18</span><span>21:30</span></div></div></div>
+  </div>
+</section>
+
+<section class="bol" id="pasta" data-anlat="pasta">
+  <div class="no"><b>03</b><h2>Pasta kitabı</h2></div>
+  <p style="max-width:640px;margin:0 0 26px">Doğum günü, nişan, söz, çocuk partisi. Kaydırın, beğendiğinizi seçin. Fiyatlar 6–8 kişilik içindir; aşağıdaki hesaplayıcı kişi sayısına göre boyu kendisi önerir.</p>
+  <div class="lookbook" id="look"></div>
+  <div class="hesap" id="hesap">
+    <div><p class="mono" style="color:#c9bca8">Pasta hesaplayıcı</p><h3>Kaç kişi geliyor?</h3>
+      <p>Kaydırın; boyu ve fiyatı söyleyelim.</p>
+      <div class="kisi" id="kisiG">12</div>
+      <input type="range" id="kisi" min="4" max="30" value="12" aria-label="Kişi sayısı">
+      <select id="model" aria-label="Pasta modeli"></select>
+      <label style="display:flex;gap:10px;align-items:center;margin-top:12px;font-size:.95rem;color:#c9bca8"><input type="checkbox" id="gelal" checked> Gel-al (%15 indirim)</label>
+    </div>
+    <div class="sonuc"><dl id="dl"></dl><div class="top" id="top"></div><p style="font-size:.8rem;margin:8px 0 16px">Örnek fiyat · kesin fiyat sipariş onayında</p><button class="btn" id="hesapSip">Bu ayarla sipariş ver</button></div>
+  </div>
+</section>
+
+<section class="bol" id="menu" data-anlat="menu">
+  <div class="no"><b>04</b><h2>Menü</h2></div>
+  <div class="iki"><div class="fiyat-liste" id="fl"></div>
+    <div class="kucuk-foto"><img src="../img/simit.jpg" alt="Simit" loading="lazy"><img src="../img/borek.jpg" alt="Kol böreği" loading="lazy"><img src="../img/baklava.jpg" alt="Baklava" loading="lazy"><img src="../img/kahvalti.jpg" alt="Kahvaltı" loading="lazy"><p class="mono" style="grid-column:1/-1">Fiyatlar örnektir · kurulumda kasadaki listeden aktarılır</p></div></div>
+</section>
+
+<section class="bol" id="yorum" data-anlat="yorum">
+  <div class="no"><b>05</b><h2>Okur mektubu</h2></div>
+  <div class="mektup"><div class="qr" id="qr"></div>
+    <div><p class="alinti" style="margin-top:0">Bize yazın; iyi de olsa kötü de olsa okuyoruz.</p>
+      <p>Karekodu okutun, Google'da Hanzade'yi değerlendirin. Herkese aynı bağlantı açılır; yorumların hepsine ustamızın ya da Hüseyin Bey'in adıyla cevap veriyoruz. Bir şeye kırıldıysanız önce bize söyleyin, aynı gün düzeltelim.</p>
+      <p class="mono">Kasada · masalarda · paket poşetinde</p></div></div>
+</section>
+
+<section class="bol" id="ziyaret" data-anlat="ziyaret">
+  <div class="no"><b>06</b><h2>Ziyaret</h2></div>
+  <div class="iki">
+    <div><p class="adres">Molla Yusuf Mh. Uncalı Cad.<br>Sidney Apt. No:2/A<br>Konyaaltı / Antalya</p>
+      <div class="saatler"><span>Her gün</span><span>06:00 — 21:30</span></div>
+      <p>Telefon (0242) 227 35 25 · Konyaaltı içi evlere servis · Gel-al siparişte %15 indirim.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" id="yol" target="_blank" rel="noopener">Yol tarifi</a><button class="btn h" data-siparis>Pasta siparişi</button></div></div>
+    <div class="harita"><iframe id="harita" title="Hanzade Fırın konumu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+  <div data-sv360 style="margin-top:40px"><p class="mono">360° · Gelmeden önce caddeyi gezin</p>
+    <div class="harita" style="margin-top:10px"><iframe src="https://www.google.com/maps/embed?pb=!6m6!1m5!2m2!1d36.8921!2d30.6264!4f0!5f0.8" title="Uncalı Caddesi 360° görünüm" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" style="height:min(56vh,440px);filter:none"></iframe></div>
+    <p class="mono" style="margin-top:8px">Görüntü: Google Street View</p></div>
+</section>
+</main>
+<footer>Hanzade Fırın &amp; Cafe · Uncalı · Görseller temsilîdir (Pixabay lisansı) · Taslak 2 / 3 — Dergi</footer>
+
+<script src="../ortak.js"></script>
+<script>
+(function(){
+  var H=window.HZ;
+  document.getElementById("tarih").textContent=H.bugun();
+  function durum(){var d=H.durum();document.getElementById("durum").textContent=(d.acik?"● ":"○ ")+d.metin;}
+  durum();setInterval(durum,60000);
+  // fırın saati çizelgesi (06:00–21:30 = 930 dk)
+  function x(t){var p=t.split(":"),m=+p[0]*60+ +p[1];return Math.max(0,Math.min(100,(m-360)/930*100));}
+  function cizelge(){var n=new Date(),nm=n.getHours()*60+n.getMinutes(),sx=Math.max(0,Math.min(100,(nm-360)/930*100)),tz=H.tazelik();
+    document.getElementById("ciz").innerHTML=H.cikislar.map(function(u,i){var t=tz[i];return "<div class='satir'><div class='ad'>"+u.ad+"<small>"+(t.son?"son "+t.son+" · ":"")+(t.sonraki?"sonraki "+t.sonraki:"bugün bitti")+"</small></div><div class='serit'>"+u.s.map(function(s){var p=s.split(":"),m=+p[0]*60+ +p[1];var c=m>nm?"g":(nm-m<=45?"sic":"");return "<i class='"+c+"' style='left:"+x(s)+"%' title='"+s+"'></i>"}).join("")+(nm>=360&&nm<=1290?"<span class='simdi' style='left:"+sx+"%'></span>":"")+"</div></div>"}).join("");}
+  cizelge();setInterval(cizelge,60000);
+  document.getElementById("look").innerHTML=H.pastalar.map(function(p){return "<figure><img src='"+H.img(p.img)+"' alt='"+H.esc(p.ad)+"' loading='lazy'><figcaption><h3>"+H.esc(p.ad)+"</h3><p>"+H.esc(p.not)+"</p><div class='alt'><span>"+H.tl(p.taban)+"'den</span><button data-siparis='"+p.id+"'>Sipariş et</button></div></figcaption></figure>"}).join("");
+  var sel=document.getElementById("model");sel.innerHTML=H.pastalar.map(function(p){return "<option value='"+p.id+"'>"+H.esc(p.ad)+"</option>"}).join("");
+  function boyBul(k){return k<=8?0:k<=12?1:k<=20?2:3;}
+  function hesap(){var k=+document.getElementById("kisi").value;document.getElementById("kisiG").textContent=k+(k>=30?"+":"")+" kişi";
+    var f=H.fiyat({model:sel.value,boy:boyBul(k),teslim:document.getElementById("gelal").checked?"gelal":"adres"});
+    document.getElementById("dl").innerHTML="<dt>Önerilen boy</dt><dd>"+f.boy.ad+" · "+f.boy.cap+"</dd><dt>Pasta</dt><dd>"+H.tl(f.ara)+"</dd>"+(f.indirim?"<dt>Gel-al indirimi</dt><dd>−"+H.tl(f.indirim)+"</dd>":"<dt>Teslimat</dt><dd>Ücretsiz</dd>")+"<dt>Kişi başı</dt><dd>"+H.tl(f.toplam/Math.max(k,1))+"</dd>";
+    document.getElementById("top").textContent=H.tl(f.toplam);}
+  ["kisi","model","gelal"].forEach(function(id){document.getElementById(id).addEventListener("input",hesap)});hesap();
+  document.getElementById("hesapSip").onclick=function(){H.siparisAc({model:sel.value});};
+  var gr={};H.firin.forEach(function(u){(gr[u.grup]=gr[u.grup]||[]).push(u)});
+  document.getElementById("fl").innerHTML=Object.keys(gr).map(function(g){return "<h3>"+g+"</h3><ul>"+gr[g].map(function(u){return "<li><span>"+u.ad+" <small>/ "+u.b+"</small></span><i></i><b>"+H.tl(u.f)+"</b></li>"}).join("")+"</ul>"}).join("");
+  H.qr(document.getElementById("qr"),160);
+  document.getElementById("yol").href=H.isletme.harita;document.getElementById("harita").src=H.isletme.haritaGom;
+  // içindekiler vurgusu
+  var linkler=[].slice.call(document.querySelectorAll("#ic a"));
+  addEventListener("scroll",function(){var en=null;linkler.forEach(function(a){var s=document.querySelector(a.getAttribute("href"));if(s&&s.getBoundingClientRect().top<160)en=a;});linkler.forEach(function(a){a.classList.toggle("s",a===en)});},{passive:true});
+})();
+</script>
+<!-- rehber --><script>window.DJ_REHBER={"ses": "../ses/", "satirlar": {"giris": {"metin": "Bu ikinci taslak, dergi düzeni. Yirmi yıllık hikâyenizi bir dergi sayfası gibi anlatıyor.", "dosya": "p2-giris"}, "saat": {"metin": "Fırın saati çizelgesinde hangi ürünün ne zaman fırından çıktığı görünüyor. Kırmızı çizgi şu anı gösteriyor.", "dosya": "p2-saat"}, "pasta": {"metin": "Pasta hesaplayıcıda kişi sayısını kaydırın. Boyu ve fiyatı kendisi öneriyor.", "dosya": "p2-pasta"}}};</script><script src="/ornek/_dijitabela/rehber.js" defer></script><!-- /rehber -->
+<script src="/ornek/_dijitabela/izle.js" defer></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>

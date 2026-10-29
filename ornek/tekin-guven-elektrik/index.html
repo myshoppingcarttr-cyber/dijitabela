@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tekin Güven Elektrik · Dijitabela önerisi</title>
+<style>
+:root{--zemin:#0f1419;--kart:#171e26;--cizgi:#26313d;--yazi:#e8edf2;--soluk:#9aa7b4;--altin:#f2b233;--kirmizi:#ff6b5e;--yesil:#4cc38a;--mavi:#5aa9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--zemin);color:var(--yazi);font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;line-height:1.5}
+.sar{max-width:980px;margin:0 auto;padding:0 16px}
+header{padding:36px 0 24px;border-bottom:1px solid var(--cizgi)}
+.etiket{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--altin);border:1px solid var(--altin);border-radius:999px;padding:3px 10px}
+h1{font-size:clamp(28px,5vw,44px);margin:12px 0 6px;line-height:1.15}
+h1 span{color:var(--altin)}
+.alt{color:var(--soluk);margin:0}
+nav{position:sticky;top:0;z-index:5;background:rgba(15,20,25,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--cizgi)}
+nav .sar{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+nav a{color:var(--yazi);text-decoration:none;font-size:14px;padding:6px 12px;border-radius:999px;background:var(--kart);white-space:nowrap}
+nav a:hover{background:var(--cizgi)}
+section{padding:36px 0;border-bottom:1px solid var(--cizgi)}
+h2{font-size:24px;margin:0 0 6px}
+h2 small{display:block;font-size:14px;font-weight:400;color:var(--soluk);margin-top:4px}
+.izgara{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:16px}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:16px}
+.kart h3{margin:0 0 6px;font-size:16px}
+.kart p{margin:0;color:var(--soluk);font-size:14.5px}
+.kart.kotu{border-left:4px solid var(--kirmizi)}
+.kart.iyi{border-left:4px solid var(--yesil)}
+.rozet{font-size:12px;font-weight:600;border-radius:6px;padding:2px 8px;display:inline-block;margin-bottom:6px}
+.rozet.k{background:rgba(255,107,94,.15);color:var(--kirmizi)}
+.rozet.y{background:rgba(76,195,138,.15);color:var(--yesil)}
+figure{margin:16px 0 0}
+figure img{width:100%;border-radius:12px;border:1px solid var(--cizgi);display:block}
+figcaption{font-size:13px;color:var(--soluk);margin-top:6px}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--cizgi);vertical-align:top}
+th{color:var(--soluk);font-weight:600;font-size:13px}
+td b.sayi{color:var(--altin)}
+.demo{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:20px;align-items:start;margin-top:16px}
+.demo video{width:100%;border-radius:14px;border:1px solid var(--cizgi);background:#000}
+.adimlar{margin:0;padding-left:20px}
+.adimlar li{margin-bottom:8px}
+.paketler{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:16px}
+.paket{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:18px;display:flex;flex-direction:column}
+.paket.on{border:2px solid var(--altin);box-shadow:0 0 0 4px rgba(242,178,51,.08)}
+.paket .ad{font-weight:700;font-size:17px}
+.paket .one{font-size:12px;color:#111;background:var(--altin);border-radius:6px;padding:2px 8px;align-self:flex-start;margin-bottom:8px;font-weight:700}
+.fiyat{font-size:30px;font-weight:800;margin:8px 0 0}
+.fiyat small{font-size:14px;font-weight:500;color:var(--soluk)}
+.aylik{color:var(--altin);font-weight:600;font-size:15px}
+.paket ul{padding-left:18px;margin:12px 0 0;color:#cdd6df;font-size:14.5px}
+.paket li{margin-bottom:6px}
+.not{font-size:13px;color:var(--soluk);margin-top:14px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:12px;padding:13px 18px}
+.btn.wa{background:#25d366;color:#08210f}
+.btn.ikincil{background:var(--kart);color:var(--yazi);border:1px solid var(--cizgi)}
+footer{padding:28px 0 48px;color:var(--soluk);font-size:13.5px}
+nav a.yeni{border:1px solid var(--altin);color:var(--altin)}
+.buyume-kart{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:16px;background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:18px;align-items:center}
+.buyume-kart ul{margin:0;padding-left:18px;color:#cdd6df;font-size:14.5px}
+.buyume-kart li{margin-bottom:6px}
+.mini-fiyat{background:var(--zemin);border:1px solid var(--cizgi);border-radius:12px;padding:14px}
+.mini-fiyat .fiyat{font-size:24px}
+.mini-fiyat .btn{display:block;text-align:center;margin-top:12px;background:var(--altin);color:#111}
+.etk{font-size:11px;font-weight:700;color:#111;background:var(--altin);border-radius:5px;padding:1px 6px;vertical-align:middle;margin-left:4px}
+.tablo-sar{overflow-x:auto;margin-top:6px}
+.toplam-tablo{min-width:560px}
+.toplam-tablo td.r,.toplam-tablo th.r{text-align:right;white-space:nowrap}
+.toplam-tablo tr.top td{border-top:2px solid var(--cizgi);font-weight:700}
+.toplam-tablo tr.ind td{background:rgba(76,195,138,.1);color:var(--yesil);font-weight:800;font-size:16px}
+.toplam-tablo td small{display:block;color:var(--soluk);font-size:12.5px;font-weight:400}
+@media (max-width:640px){.buyume-kart{grid-template-columns:1fr}.demo{grid-template-columns:1fr}.demo video{max-width:320px;margin:0 auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="sar">
+    <span class="etiket">Tekin Güven Elektrik için hazırlandı</span>
+    <h1>Gece gelen arıza çağrısı<br><span>artık kaçmasın.</span></h1>
+    <p class="alt">Kepez / Antalya · Dijital durum incelemesi ve öneri · Dijitabela · 28 Ekim 2026</p>
+  </div>
+</header>
+
+<nav><div class="sar">
+  <a href="#bulgular">Bulgular</a><a href="#rakipler">Rakipler</a><a href="#demo">Ayşe demo</a><a href="#paketler">Paketler</a><a class="yeni" href="#sarj">Şarj İstasyonu</a><a class="yeni" href="#transfer">Transfer</a><a href="#iletisim">İletişim</a><a href="#buyume">Toplam plan</a>
+</div></nav>
+
+<main class="sar">
+
+<section id="bulgular">
+  <h2>Bugün müşteri sizi nerede buluyor, nerede kaçırıyor?<small>İnternette sizi arayan bir müşterinin gördükleri</small></h2>
+  <div class="izgara">
+    <div class="kart kotu"><span class="rozet k">En büyük açık</span><h3>Google Haritalar'da yoksunuz</h3><p>"Tekin Güven Elektrik" adıyla da, 0507 133 33 07 numarasıyla da aratınca işletme çıkmıyor. "Kepez elektrikçi" arayan müşteri doğrudan rakibe gidiyor.</p></div>
+    <div class="kart kotu"><span class="rozet k">Çağrı kaybı</span><h3>Gece ve sahadayken telefon açılamıyor</h3><p>Acil elektrik işinde açılmayan her çağrı, rakibe giden bir iş demek. Müşteri ikinci kez aramıyor, listede bir sonrakini arıyor.</p></div>
+    <div class="kart kotu"><span class="rozet k">Karışıklık</span><h3>Çalışma saatleri çelişkili</h3><p>Instagram'da "7/24 acil elektrikçi", web sitesinde "Pazartesi–Cumartesi 08:00–17:00, Pazar kapalı" yazıyor. Gece arayan müşteri kapalı sanıyor.</p></div>
+    <div class="kart iyi"><span class="rozet y">Güçlü yan</span><h3>Web siteniz ve markanız hazır</h3><p>Logo, görseller ve hizmet listesi (tesisat, pano, LED, solar, araç şarj, kamera) iyi durumda. Onaylı Instagram hesabınız var. Temel sağlam; eksik olan görünürlük ve çağrı karşılama.</p></div>
+  </div>
+  <figure><img src="site.jpg" alt="Tekin Güven Elektrik web sitesi ana sayfası"><figcaption>tekinguvenelektrik.com.tr: görsel olarak iyi, ama Google'da "Kepez elektrikçi" aramasında öne çıkaracak içerik ve Haritalar kaydı yok.</figcaption></figure>
+</section>
+
+<section id="rakipler">
+  <h2>"Kepez elektrikçi" aramasında kimler var?<small>28 Ekim 2026, Google Haritalar</small></h2>
+  <table>
+    <tr><th>İşletme</th><th>Google yorumu</th><th>Durum</th></tr>
+    <tr><td>BEED Elektrik</td><td><b class="sayi">113</b> yorum · 5,0</td><td>24 saat açık · reklam veriyor</td></tr>
+    <tr><td>Küçüker Elektrik</td><td><b class="sayi">66</b> yorum · 5,0</td><td>21:00'e kadar açık · reklam veriyor</td></tr>
+    <tr><td>Serkan Güven Elektrik</td><td><b class="sayi">13</b> yorum · 4,9</td><td>Haritada görünüyor</td></tr>
+    <tr><td><b>Tekin Güven Elektrik</b></td><td><b class="sayi" style="color:var(--kirmizi)">0</b></td><td style="color:var(--kirmizi)">Haritada yok</td></tr>
+  </table>
+  <figure><img src="rakipler.jpg" alt="Google Haritalar Kepez elektrikçi arama sonuçları"><figcaption>Rakipler hem ücretli (sponsorlu) hem ücretsiz sonuçlarda en üstte. İyi haber: yorum sayıları yetişilemeyecek kadar yüksek değil.</figcaption></figure>
+</section>
+
+<section id="demo">
+  <h2>Telefonu Ayşe açarsa<small>Gece 23:40'ta gelen bir arıza çağrısı · örnek görüşme (41 sn, sesi açın)</small></h2>
+  <div class="demo">
+    <video src="ayse-demo.mp4" poster="ayse-kapak.jpg" controls playsinline preload="metadata"></video>
+    <div>
+      <ol class="adimlar">
+        <li>Siz uyurken ya da sahadayken çağrı gelir; açamadığınız çağrıyı <b>Ayşe</b> karşılar: "Tekin Güven Elektrik'e hoş geldiniz."</li>
+        <li>Sorunu, adresi ve telefonu alır. Fiyat vermez, söz vermez; yalnız kaydı alır.</li>
+        <li>Arıza kaydı <b>anında sizin telefonunuza</b> WhatsApp mesajı olarak düşer: kim, nerede, ne sorun.</li>
+        <li>Siz uygun olunca ararsınız. Müşteri "cevap veren, ilgilenen elektrikçi" diye sizde kalır.</li>
+      </ol>
+      <p class="not">Aynı asistan WhatsApp'a yazan müşteriye de 7/24 ilk cevabı verir, fotoğraf ister, randevu kaydı açar.</p>
+    </div>
+  </div>
+</section>
+
+<section id="paketler">
+  <h2>Öneri: hiçbir arama, hiçbir çağrı kaçmasın<small>Fiyatlara KDV dahil değildir · teklif 30 gün geçerlidir</small></h2>
+  <div class="paketler">
+    <div class="paket">
+      <div class="ad">Google'da Görün</div>
+      <div class="fiyat">6.900 TL <small>+ KDV</small></div>
+      <div class="aylik">tek sefer · aylık ücret yok</div>
+      <ul>
+        <li>Google İşletme Profili kurulumu ve doğrulama</li>
+        <li>Doğru kategori, hizmet bölgesi (Kepez, Muratpaşa, Konyaaltı, Döşemealtı…), fotoğraflar</li>
+        <li>Yorum toplama bağlantısı ve müşteriye verilecek QR kartı</li>
+        <li>Site düzeltmeleri: tutarlı saatler, boş sosyal bağlantılar, "Kepez elektrikçi" sayfası</li>
+      </ul>
+    </div>
+    <div class="paket on">
+      <span class="one">ÖNERİLEN</span>
+      <div class="ad">Hiçbir Çağrı Kaçmasın</div>
+      <div class="fiyat">14.900 TL <small>+ KDV kurulum</small></div>
+      <div class="aylik">+ 2.900 TL + KDV / ay</div>
+      <ul>
+        <li>"Google'da Görün" paketindeki her şey</li>
+        <li>Telefon asistanı Ayşe: açamadığınız çağrıyı karşılar, arıza kaydını alır</li>
+        <li>WhatsApp asistanı: 7/24 ilk cevap, arıza kaydı (adres, sorun, fotoğraf), randevu</li>
+        <li>Her kayıt anında telefonunuza mesaj olarak düşer</li>
+      </ul>
+    </div>
+    <div class="paket">
+      <div class="ad">Bölgede 1 Numara</div>
+      <div class="fiyat">+ 4.900 TL <small>+ KDV / ay</small></div>
+      <div class="aylik">önerilen paketin üstüne</div>
+      <ul>
+        <li>Google reklam yönetimi: "Kepez / Antalya acil elektrikçi" aramaları</li>
+        <li>Aylık Google profili yönetimi ve yorum takibi</li>
+        <li>Aylık rapor: kaç çağrı, kaç arıza kaydı, kaç iş</li>
+        <li>Reklam bütçesi ayrıdır, doğrudan Google'a ödenir</li>
+      </ul>
+    </div>
+  </div>
+  <p class="not">Telefon asistanının konuşma süresi kullanıma göre ayrıca yansıtılır; aylık çağrı sayınıza göre netleştirilir. Aylık hizmetlerde 3 ay taahhüt. Ödeme: %50 kapora ile başlanır, kalan teslimde; kartla (PayTR) ya da havale.</p>
+</section>
+
+<section id="sarj">
+  <h2>Büyüme 1: Araç şarj istasyonu işini reklamla büyütelim<small>Sitenizde zaten var olan hizmet; ama "Antalya şarj istasyonu kurulumu" arayan kişi sizi bulamıyor</small></h2>
+  <div class="izgara">
+    <div class="kart iyi"><span class="rozet y">Fırsat</span><h3>Elektrikli araç sahibi artıyor</h3><p>Togg, Tesla, BYD sahipleri evine, sitesine, işyerine duvar tipi şarj cihazı kurduracak uzman arıyor. Oteller ve site yönetimleri de şarj noktası istiyor.</p></div>
+    <div class="kart"><h3>Hazırladığımız</h3><p>3 grup Google arama reklamı (başlıklar, açıklamalar, anahtar ve negatif kelimeler), 2 Instagram/Facebook reklam tasarımı ve keşif talebi toplayan mobil açılış sayfası prototipi.</p></div>
+  </div>
+  <div class="buyume-kart">
+    <ul>
+      <li>Reklama tıklayan kişi tek amaçlı sayfaya gelir: "WhatsApp'tan keşif iste"</li>
+      <li>Talep anında sizin WhatsApp'ınıza düşer</li>
+      <li>Ayda kaç keşif talebi geldiğini rapor ederiz</li>
+    </ul>
+    <div class="mini-fiyat">
+      <div class="aylik">Şarj İstasyonu Reklam Paketi <span class="etk">ÖNERİ</span></div>
+      <div class="fiyat">7.900 TL <small>+ KDV kurulum</small></div>
+      <div class="aylik">+ 3.900 TL + KDV / ay · reklam bütçesi ayrı</div>
+      <a class="btn" href="sarj.html">Reklam örneklerini ve sayfayı gör →</a>
+    </div>
+  </div>
+</section>
+
+<section id="transfer">
+  <h2>Büyüme 2: Transfer işiniz 4 dilde rezervasyon alsın<small>Antalya Havalimanı ↔ Alanya, Side, Belek, Kemer, Lara… turist ve yerel müşteri</small></h2>
+  <div class="izgara">
+    <div class="kart iyi"><span class="rozet y">Fırsat</span><h3>Turist inmeden önce transferini ayarlar</h3><p>Rezervasyon çoğunlukla tatilden önce, internetten ve kendi dilinde yapılır. Gece Almanya'dan ya da Rusya'dan yazan misafire anında cevap veren kazanır.</p></div>
+    <div class="kart"><h3>Hazırladığımız</h3><p>TR/EN/DE/RU çalışan rezervasyon sitesi prototipi (güzergâh, tarih, uçuş no, araç, karşılama tabelası), WhatsApp yapay zekâ asistanı örnek konuşması, otel resepsiyonu için QR'lı kartvizit.</p></div>
+  </div>
+  <div class="buyume-kart">
+    <ul>
+      <li>Asistan misafirin dilinde rezervasyonu eksiksiz alır</li>
+      <li>Türkçe özet size / şoföre tek mesajla düşer, son onay sizde</li>
+      <li>Google Haritalar'da ayrı transfer profili, listeleme siteleri, otel anlaşmaları</li>
+    </ul>
+    <div class="mini-fiyat">
+      <div class="aylik">Transfer Rezervasyon Sistemi <span class="etk">ÖNERİ</span></div>
+      <div class="fiyat">14.900 TL <small>+ KDV kurulum</small></div>
+      <div class="aylik">+ 2.900 TL + KDV / ay</div>
+      <a class="btn" href="transfer.html">Rezervasyon sitesini dene →</a>
+    </div>
+  </div>
+  <p class="not">Marka adı bilinmediği için prototipte "Tekin Güven Transfer" yazdık; adı siz belirlersiniz.</p>
+</section>
+
+<section id="iletisim">
+  <h2>Nasıl başlarız?</h2>
+  <ol class="adimlar">
+    <li><b>Bu hafta:</b> Google İşletme Profili açılır; Google doğrulama kartını 1–2 hafta içinde adresinize gönderir.</li>
+    <li><b>3 gün içinde:</b> WhatsApp asistanı ve Ayşe sizin hizmetlerinizle kurulur, birlikte deneriz.</li>
+    <li><b>İlk ay sonunda:</b> kaç çağrının kurtarıldığını birlikte görürüz.</li>
+  </ol>
+  <div class="cta">
+    <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%20Alim%20Bey%2C%20Tekin%20G%C3%BCven%20Elektrik%20teklifi%20hakk%C4%B1nda%20yaz%C4%B1yorum.">WhatsApp'tan yazın · 0501 945 21 84</a>
+    <a class="btn ikincil" href="tel:+905019452184">Arayın</a>
+  </div>
+</section>
+
+<section id="buyume">
+  <h2>Toplam büyüme planı<small>Elektrik işinde görünürlük ve çağrı karşılama + iki yeni gelir kanalı · fiyatlar KDV hariç</small></h2>
+  <div class="tablo-sar">
+  <table class="toplam-tablo">
+    <tr><th>Paket</th><th>Ne kazandırır</th><th class="r">Kurulum</th><th class="r">Aylık</th></tr>
+    <tr><td><b>Google'da Görün</b></td><td>Google Haritalar'da görünürsünüz, yorum toplamaya başlarsınız<small>"Hiçbir Çağrı Kaçmasın" paketine dahildir</small></td><td class="r">6.900 TL</td><td class="r">—</td></tr>
+    <tr><td><b>Hiçbir Çağrı Kaçmasın</b></td><td>Ayşe telefonu, WhatsApp asistanı 7/24 arıza kaydı alır</td><td class="r">14.900 TL</td><td class="r">2.900 TL</td></tr>
+    <tr><td><b>Şarj Reklamı</b> <span class="etk">ÖNERİ</span></td><td>Şarj istasyonu kurulum talebi: Google + Instagram reklamı, açılış sayfası<small>reklam bütçesi ayrı</small></td><td class="r">7.900 TL</td><td class="r">3.900 TL</td></tr>
+    <tr><td><b>Transfer</b> <span class="etk">ÖNERİ</span></td><td>4 dilli rezervasyon sitesi + WhatsApp rezervasyon asistanı</td><td class="r">14.900 TL</td><td class="r">2.900 TL</td></tr>
+    <tr class="top"><td>Toplam</td><td>Hiçbir Çağrı Kaçmasın + Şarj Reklamı + Transfer<small>Google'da Görün dahil</small></td><td class="r">37.700 TL</td><td class="r">9.700 TL</td></tr>
+    <tr class="ind"><td>Birlikte alırsanız</td><td>Kurulum ücretlerinde %15 paket indirimi (öneri)<small>5.655 TL kazanç</small></td><td class="r">32.045 TL</td><td class="r">9.700 TL</td></tr>
+  </table>
+  </div>
+  <p class="not">"Bölgede 1 Numara" (aylık 4.900 TL + KDV, elektrik işi için Google reklam yönetimi) isteğe bağlıdır, tabloya dahil değildir. Paketler tek tek de alınabilir; önerdiğimiz sıra: önce Hiçbir Çağrı Kaçmasın, ardından Şarj Reklamı ve Transfer. Aylık hizmetlerde 3 ay taahhüt; %50 kapora ile başlanır, kalan teslimde (PayTR ya da havale).</p>
+  <div class="cta">
+    <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%20Alim%20Bey%2C%20Tekin%20G%C3%BCven%20toplam%20b%C3%BCy%C3%BCme%20plan%C4%B1%20hakk%C4%B1nda%20yaz%C4%B1yorum.">Planı konuşalım · 0501 945 21 84</a>
+    <a class="btn ikincil" href="sarj.html">Şarj planı</a>
+    <a class="btn ikincil" href="transfer.html">Transfer planı</a>
+  </div>
+</section>
+</main>
+
+<footer><div class="sar">Dijitabela · Alim Hoşlar · 0501 945 21 84 · dijitabela.com · info@dijitabela.com<br>Bu sayfa Tekin Güven Elektrik için hazırlanmış bir öneridir; rakip bilgileri 28 Ekim 2026'da Google Haritalar'dan alınmıştır.</div></footer>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Transfer Rezervasyon Sistemi · Tekin Güven</title>
+<style>
+:root{--zemin:#0f1419;--kart:#171e26;--cizgi:#26313d;--yazi:#e8edf2;--soluk:#9aa7b4;--altin:#f2b233;--kirmizi:#ff6b5e;--yesil:#4cc38a;--mavi:#5aa9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--zemin);color:var(--yazi);font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;line-height:1.5}
+.sar{max-width:980px;margin:0 auto;padding:0 16px}
+header{padding:36px 0 24px;border-bottom:1px solid var(--cizgi)}
+.etiket{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--altin);border:1px solid var(--altin);border-radius:999px;padding:3px 10px}
+h1{font-size:clamp(28px,5vw,44px);margin:12px 0 6px;line-height:1.15}
+h1 span{color:var(--altin)}
+.alt{color:var(--soluk);margin:0}
+nav{position:sticky;top:0;z-index:5;background:rgba(15,20,25,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--cizgi)}
+nav .sar{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+nav a{color:var(--yazi);text-decoration:none;font-size:14px;padding:6px 12px;border-radius:999px;background:var(--kart);white-space:nowrap}
+nav a:hover{background:var(--cizgi)}
+nav a.geri{background:transparent;border:1px solid var(--cizgi)}
+section{padding:36px 0;border-bottom:1px solid var(--cizgi)}
+h2{font-size:24px;margin:0 0 6px}
+h2 small{display:block;font-size:14px;font-weight:400;color:var(--soluk);margin-top:4px}
+h3{font-size:17px;margin:22px 0 8px}
+.izgara{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:16px}
+.izgara.iki{grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:16px;min-width:0}
+.kart h3,.kart h4{margin:0 0 6px;font-size:16px}
+.kart p{margin:0;color:var(--soluk);font-size:14.5px}
+.kart ul{margin:6px 0 0;padding-left:18px;color:#cdd6df;font-size:14.5px}
+.not{font-size:13px;color:var(--soluk);margin-top:12px}
+.rozet{font-size:12px;font-weight:600;border-radius:6px;padding:2px 8px;display:inline-block;margin-bottom:6px;background:rgba(242,178,51,.15);color:var(--altin)}
+/* Rezervasyon sitesi prototipi */
+.tarayici{border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;margin-top:16px;background:#0b1015}
+.tarayici .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#05080b;border-bottom:1px solid var(--cizgi)}
+.tarayici .bar i{width:10px;height:10px;border-radius:50%;background:#2b3641;flex:0 0 10px}
+.tarayici .bar span{margin-left:8px;font-size:12px;color:var(--soluk);background:var(--kart);border-radius:6px;padding:3px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
+.ts{font-size:15px}
+.ts-ust{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--cizgi);flex-wrap:wrap}
+.ts-logo{font-weight:900;letter-spacing:.05em;font-size:15px}
+.ts-logo span{color:var(--altin)}
+.ts-logo small{display:block;font-weight:400;font-size:11px;color:var(--soluk);letter-spacing:0}
+.diller{display:flex;gap:4px}
+.diller button{background:var(--kart);color:var(--yazi);border:1px solid var(--cizgi);border-radius:8px;padding:6px 10px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
+.diller button.secili{background:var(--altin);color:#111;border-color:var(--altin)}
+.ts-hero{display:grid;grid-template-columns:1fr minmax(0,440px);gap:24px;padding:26px 18px;background:radial-gradient(circle at 10% 0,rgba(242,178,51,.18),transparent 55%),radial-gradient(circle at 100% 100%,rgba(90,169,255,.12),transparent 50%)}
+.ts-hero h4{font-size:clamp(26px,4.4vw,40px);line-height:1.1;margin:0 0 10px}
+.ts-hero h4 span{color:var(--altin)}
+.ts-hero p{color:var(--soluk);margin:0 0 14px}
+.guven{display:flex;flex-wrap:wrap;gap:6px}
+.guven span{font-size:12.5px;border:1px solid var(--cizgi);border-radius:999px;padding:4px 10px;color:#cdd6df;background:rgba(23,30,38,.7)}
+.form{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form .tam{grid-column:1/-1}
+.form label{display:block;font-size:12px;color:var(--soluk);margin-bottom:3px}
+.form input,.form select,.form textarea{width:100%;background:var(--zemin);border:1px solid var(--cizgi);color:var(--yazi);border-radius:10px;padding:10px 11px;font-size:15px;font-family:inherit}
+.form textarea{resize:vertical;min-height:54px}
+.yon{display:flex;gap:6px}
+.yon button{flex:1;background:var(--zemin);color:var(--yazi);border:1px solid var(--cizgi);border-radius:10px;padding:9px 6px;font-size:13px;cursor:pointer;font-family:inherit}
+.yon button.secili{border-color:var(--altin);color:var(--altin);font-weight:700}
+.araclar{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.arac{border:1px solid var(--cizgi);border-radius:12px;padding:10px;cursor:pointer;background:var(--zemin)}
+.arac.secili{border-color:var(--altin);box-shadow:0 0 0 2px rgba(242,178,51,.2)}
+.arac b{display:block;font-size:14px}
+.arac small{color:var(--soluk);font-size:12px}
+.fiyat-kutu{display:flex;justify-content:space-between;align-items:center;gap:8px;background:rgba(242,178,51,.08);border:1px dashed rgba(242,178,51,.5);border-radius:10px;padding:9px 12px;font-size:14px}
+.fiyat-kutu b{color:var(--altin)}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#08210f;font-weight:800;text-decoration:none;border-radius:12px;padding:14px 16px;font-size:16px;border:0;width:100%;cursor:pointer;font-family:inherit}
+.ts-guzergah{padding:18px;border-top:1px solid var(--cizgi)}
+.ts-guzergah h5{margin:0 0 10px;font-size:17px}
+.gz{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.gz div{background:var(--kart);border:1px solid var(--cizgi);border-radius:10px;padding:10px 12px;font-size:14px}
+.gz div small{display:block;color:var(--soluk);font-size:12px}
+.ts-alt{padding:14px 18px;font-size:12px;color:var(--soluk);border-top:1px solid var(--cizgi)}
+/* WhatsApp sohbet */
+.wa-izgara{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:24px;align-items:start;margin-top:16px}
+.wa-ekran{border:10px solid #05080b;border-radius:34px;overflow:hidden;background:#0b141a;box-shadow:0 0 0 1px var(--cizgi),0 20px 50px rgba(0,0,0,.45);font-family:"Segoe UI",Arial,sans-serif}
+.wa-bas{display:flex;align-items:center;gap:10px;background:#1f2c34;padding:10px 12px}
+.wa-bas .av{width:36px;height:36px;border-radius:50%;background:#0f1419;border:2px solid var(--altin);color:var(--altin);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.wa-bas b{font-size:15px;display:block;line-height:1.2}
+.wa-bas small{font-size:12px;color:#8696a0}
+.wa-govde{padding:12px 10px;display:flex;flex-direction:column;gap:6px;background:#0b141a;background-image:radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:14px 14px}
+.bal{max-width:84%;padding:7px 10px 18px;border-radius:9px;font-size:14px;line-height:1.4;position:relative;color:#e9edef;word-wrap:break-word}
+.bal.gelen{background:#202c33;align-self:flex-start;border-top-left-radius:2px}
+.bal.giden{background:#005c4b;align-self:flex-end;border-top-right-radius:2px}
+.bal .s{position:absolute;right:8px;bottom:3px;font-size:10.5px;color:rgba(233,237,239,.6)}
+.bal .yz{display:block;font-size:11px;color:#53bdeb;font-weight:700;margin-bottom:2px}
+.ozet{background:#0b141a;border:1px solid #2a3942;border-radius:8px;padding:6px 8px;margin-top:4px;font-size:13px}
+.gun{align-self:center;font-size:11.5px;background:#182229;color:#8696a0;border-radius:6px;padding:3px 10px;margin:4px 0}
+.akis{margin:0;padding-left:0;list-style:none;counter-reset:a}
+.akis li{counter-increment:a;position:relative;padding-left:40px;margin-bottom:12px}
+.akis li::before{content:counter(a);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:8px;background:rgba(242,178,51,.15);color:var(--altin);font-weight:800;display:flex;align-items:center;justify-content:center}
+.akis li b{display:block}
+.akis li span{color:var(--soluk);font-size:14px}
+.selam{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px}
+.selam div{background:var(--kart);border:1px solid var(--cizgi);border-radius:10px;padding:8px 10px;font-size:13px}
+.selam div b{color:var(--altin);margin-right:4px}
+.sofor{background:var(--kart);border:1px solid var(--cizgi);border-left:4px solid var(--yesil);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:14px}
+.sofor b{color:var(--yesil)}
+/* Kartvizit */
+.kartvizit-satir{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;align-items:center}
+.kartvizit{width:340px;max-width:100%;aspect-ratio:85/55;border-radius:14px;background:linear-gradient(135deg,#18222d,#0b0f13);border:1px solid var(--altin);padding:16px;display:flex;justify-content:space-between;gap:12px;position:relative}
+.kartvizit .sol{display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.kartvizit .sol b{font-size:15px;letter-spacing:.05em;line-height:1.15}
+.kartvizit .sol b span{color:var(--altin)}
+.kartvizit .sol small{color:var(--soluk);font-size:11.5px;display:block;line-height:1.35}
+.kartvizit .sol .dil{font-size:11px;color:var(--altin);font-weight:700;letter-spacing:.1em}
+.qr{flex:0 0 108px;align-self:center;background:#fff;border-radius:8px;padding:6px;display:grid;grid-template-columns:repeat(21,1fr);aspect-ratio:1/1;height:max-content}
+.qr i{display:block;aspect-ratio:1/1}
+.qr i.d{background:#0f1419}
+.kartvizit .temsili{position:absolute;right:8px;bottom:6px;font-size:9.5px;color:#8896a3}
+/* Teklif */
+.paket{background:var(--kart);border:2px solid var(--altin);box-shadow:0 0 0 4px rgba(242,178,51,.08);border-radius:16px;padding:20px;margin-top:16px}
+.paket .ad{font-weight:700;font-size:19px}
+.paket .one{font-size:12px;color:#111;background:var(--altin);border-radius:6px;padding:2px 8px;display:inline-block;margin-bottom:8px;font-weight:700}
+.fiyat-satir{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:10px}
+.fiyat{font-size:28px;font-weight:800;margin:0}
+.fiyat small{font-size:14px;font-weight:500;color:var(--soluk)}
+.fiyat-et{font-size:13px;color:var(--altin);font-weight:600}
+.paket ul{padding-left:18px;margin:14px 0 0;color:#cdd6df;font-size:14.5px;columns:2;column-gap:28px}
+.paket li{margin-bottom:6px;break-inside:avoid}
+.indirim{margin-top:14px;background:rgba(76,195,138,.1);border:1px solid rgba(76,195,138,.4);border-radius:12px;padding:12px 14px;font-size:14.5px}
+.indirim b{color:var(--yesil)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:12px;padding:13px 18px}
+.btn.wa{background:#25d366;color:#08210f}
+.btn.ikincil{background:var(--kart);color:var(--yazi);border:1px solid var(--cizgi)}
+footer{padding:28px 0 48px;color:var(--soluk);font-size:13.5px}
+@media (max-width:820px){.ts-hero{grid-template-columns:1fr}.wa-izgara{grid-template-columns:1fr}.wa-ekran{max-width:380px;width:100%;margin:0 auto}.paket ul{columns:1}}
+@media (max-width:420px){.form{grid-template-columns:1fr}.ts-hero{padding:20px 12px}.ts-ust{padding:10px 12px}.wa-ekran{border-width:6px;border-radius:24px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="sar">
+    <span class="etiket">Tekin Güven · Büyüme planı 2</span>
+    <h1>Havalimanında inen turist<br><span>sizi 4 dilde bulsun.</span></h1>
+    <p class="alt">Antalya Havalimanı ↔ Alanya, Side, Belek, Kemer… transfer işi için çok dilli rezervasyon sitesi ve WhatsApp yapay zekâ asistanı · Dijitabela · 28 Ekim 2026</p>
+  </div>
+</header>
+
+<nav><div class="sar">
+  <a class="geri" href="index.html">← Ana sunum</a><a href="#site">Rezervasyon sitesi</a><a href="#asistan">WhatsApp asistanı</a><a href="#kanallar">Kanallar</a><a href="#teklif">Teklif</a>
+</div></nav>
+
+<main class="sar">
+
+<section id="site">
+  <h2>Çok dilli transfer rezervasyon sitesi · prototip<small>Dil düğmelerine basın, güzergâh seçin, "WhatsApp'tan rezervasyon"a dokunun: mesaj hazır olarak açılır</small></h2>
+
+  <div class="tarayici">
+    <div class="bar"><i></i><i></i><i></i><span>tekinguventransfer.com (örnek alan adı)</span></div>
+    <div class="ts" id="ts">
+      <div class="ts-ust">
+        <div class="ts-logo">TEKİN GÜVEN <span>TRANSFER</span><small>(marka adı sizden)</small></div>
+        <div class="diller" role="group" aria-label="Dil">
+          <button data-dil="tr" class="secili">TR</button><button data-dil="en">EN</button><button data-dil="de">DE</button><button data-dil="ru">RU</button>
+        </div>
+      </div>
+      <div class="ts-hero">
+        <div>
+          <h4 data-t="baslik">Antalya Havalimanı'ndan <span>otelinize özel transfer</span></h4>
+          <p data-t="alt">Uçuşunuzu takip ederiz, gecikmede bekleriz. Şoförünüz adınızın yazılı olduğu tabelayla sizi karşılar.</p>
+          <div class="guven">
+            <span data-t="g1">Uçuş takibi</span><span data-t="g2">İsimli karşılama</span><span data-t="g3">7/24</span><span data-t="g4">Bebek koltuğu (talep üzerine)</span>
+          </div>
+        </div>
+        <form class="form" id="rez" onsubmit="event.preventDefault()">
+          <div class="tam">
+            <label data-t="l_yon">Yön</label>
+            <div class="yon">
+              <button type="button" class="secili" data-yon="git" data-t="yon1">Havalimanı → Otel</button>
+              <button type="button" data-yon="don" data-t="yon2">Otel → Havalimanı</button>
+            </div>
+          </div>
+          <div class="tam">
+            <label data-t="l_nere">Nereye</label>
+            <select id="nere">
+              <option>Lara</option><option>Kundu</option><option>Antalya Merkez</option><option>Konyaaltı</option><option>Belek</option><option>Kadriye</option><option>Side</option><option>Manavgat</option><option>Alanya</option><option>Mahmutlar</option><option>Kemer</option><option>Beldibi</option><option>Tekirova</option>
+            </select>
+          </div>
+          <div><label data-t="l_tarih">Tarih</label><input type="date" id="tarih" value="2026-11-14"></div>
+          <div><label data-t="l_saat">Saat</label><input type="time" id="saat" value="15:40"></div>
+          <div><label data-t="l_kisi">Kişi</label><select id="kisi"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></div>
+          <div><label data-t="l_bagaj">Bagaj</label><select id="bagaj"><option>0</option><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+          <div class="tam">
+            <label data-t="l_arac">Araç</label>
+            <div class="araclar">
+              <div class="arac secili" data-arac="Sedan"><b>Sedan</b><small data-t="a1">1–3 kişi · 3 bagaj</small></div>
+              <div class="arac" data-arac="Mercedes Vito"><b>Mercedes Vito</b><small data-t="a2">1–7 kişi · 7 bagaj</small></div>
+            </div>
+          </div>
+          <div><label data-t="l_ucus">Uçuş no</label><input id="ucus" placeholder="TK 2412"></div>
+          <div><label data-t="l_ad">Ad soyad</label><input id="ad" placeholder="Anna Schmidt"></div>
+          <div class="tam"><label data-t="l_otel">Otel / adres</label><input id="otel" data-tp="p_otel" placeholder="Otel adı"></div>
+          <div class="tam"><label data-t="l_tabela">Karşılama tabelası notu</label><textarea id="tabela" data-tp="p_tabela" placeholder="Tabelada yazacak isim, ör. ANNA SCHMIDT"></textarea></div>
+          <div class="tam fiyat-kutu"><span data-t="fiyat">Fiyat</span><b data-t="fiyat2">rezervasyonda bildirilir</b></div>
+          <div class="tam"><a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener" data-t="wa">WhatsApp'tan rezervasyon</a></div>
+        </form>
+      </div>
+      <div class="ts-guzergah">
+        <h5 data-t="pop">Popüler güzergâhlar</h5>
+        <div class="gz">
+          <div>AYT → Lara<small data-t="sure1">yaklaşık 20 dk</small></div>
+          <div>AYT → Belek<small data-t="sure2">yaklaşık 30 dk</small></div>
+          <div>AYT → Kemer<small data-t="sure3">yaklaşık 1 saat</small></div>
+          <div>AYT → Side<small data-t="sure4">yaklaşık 1 saat</small></div>
+          <div>AYT → Alanya<small data-t="sure5">yaklaşık 2 saat</small></div>
+        </div>
+      </div>
+      <div class="ts-alt" data-t="dip">Tekin Güven Transfer · Antalya · WhatsApp +90 507 133 33 07</div>
+    </div>
+  </div>
+  <p class="not">Prototiptir: fiyat alanına sizin fiyat listeniz girilecek; süreler trafiğe göre değişen yaklaşık değerlerdir. Araç tipleri örnektir, filonuza göre düzenlenir. Dil değiştirici çalışır: TR ve EN tam, DE ve RU ana başlıklar ve form çevrilidir (yayında tamamı çevrilir).</p>
+</section>
+
+<section id="asistan">
+  <h2>WhatsApp yapay zekâ rezervasyon asistanı<small>Gece 03:00'te Almanya'dan yazan misafire de anında, kendi dilinde cevap verir</small></h2>
+  <div class="wa-izgara">
+    <div class="wa-ekran">
+      <div class="wa-bas"><div class="av">TGT</div><div><b>Tekin Güven Transfer</b><small>çevrimiçi · yapay zekâ asistanı</small></div></div>
+      <div class="wa-govde">
+        <div class="gun">BUGÜN</div>
+        <div class="bal giden">Hi! We land at Antalya airport on 14 Nov, 15:40. 2 adults + 1 child, going to Side. How much?<span class="s">02:47</span></div>
+        <div class="bal gelen"><span class="yz">Asistan</span>Hello and welcome to Tekin Güven Transfer! Happy to help. Could you share your flight number, hotel name in Side and the number of suitcases? Do you need a child seat?<span class="s">02:47</span></div>
+        <div class="bal giden">TK 2412, hotel in Side: [hotel name], 3 suitcases. Yes, child seat please (4 years).<span class="s">02:49</span></div>
+        <div class="bal gelen"><span class="yz">Asistan</span>Thank you! Here is your request:
+          <div class="ozet">AYT → Side · 14 Nov, 15:40<br>Flight TK 2412 · 2+1 pax · 3 bags<br>Sedan · child seat (4 y)<br>Meeting sign: <b>SCHMIDT FAMILY</b></div>
+          Your driver will track your flight and wait at arrivals with your name sign. We will confirm the price and driver details shortly.<span class="s">02:49</span></div>
+        <div class="bal giden">Perfect, thank you!<span class="s">02:50</span></div>
+        <div class="bal gelen"><span class="yz">Asistan</span>Your request is registered. Have a good flight! You can write here any time.<span class="s">02:50</span></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Nasıl çalışır?</h3>
+      <ol class="akis">
+        <li><b>Misafirin dilinde karşılar</b><span>Yazılan dili tanır; Türkçe, İngilizce, Almanca, Rusça cevap verir.</span></li>
+        <li><b>Rezervasyon bilgilerini eksiksiz toplar</b><span>Tarih, saat, uçuş no, kişi, bagaj, otel, bebek koltuğu, tabela ismi.</span></li>
+        <li><b>Fiyatı sizin listenizden verir ya da size bırakır</b><span>Sabit fiyat listeniz varsa onu söyler; yoksa "fiyatı birazdan bildiriyoruz" der, uydurmaz.</span></li>
+        <li><b>Özgür Bey'e / şoföre iletir</b><span>Türkçe özet tek mesajla telefonunuza düşer; onaylayınca misafire şoför bilgisi gider.</span></li>
+        <li><b>Hatırlatma</b><span>Transferden bir gün önce misafire ve şoföre hatırlatma mesajı.</span></li>
+      </ol>
+      <div class="selam">
+        <div><b>TR</b>Merhaba, Tekin Güven Transfer'e hoş geldiniz!</div>
+        <div><b>EN</b>Hello, welcome to Tekin Güven Transfer!</div>
+        <div><b>DE</b>Hallo, willkommen bei Tekin Güven Transfer!</div>
+        <div><b>RU</b>Здравствуйте, добро пожаловать в Tekin Güven Transfer!</div>
+      </div>
+      <div class="sofor"><b>Size düşen mesaj:</b> Yeni transfer · 14 Kas 15:40 · AYT → Side (otel adı) · TK 2412 · 2 yetişkin + 1 çocuk (4 yaş, bebek koltuğu) · 3 bavul · Sedan · Tabela: SCHMIDT FAMILY · Dil: İngilizce. <u>Onayla</u> / <u>Fiyat yaz</u></div>
+    </div>
+  </div>
+  <p class="not">Örnek konuşmadır; isim ve uçuş numarası örnektir. Asistan ödeme almaz, söz vermez; son onay her zaman sizdedir.</p>
+</section>
+
+<section id="kanallar">
+  <h2>Turist sizi nereden bulacak?<small>Site tek başına yetmez; turistin baktığı yerlerde görünmek gerekir</small></h2>
+  <div class="izgara iki">
+    <div class="kart"><span class="rozet">1 · Google Haritalar</span><h3>Ayrı "transfer" profili</h3><p>"Antalya airport transfer" arayan turist Haritalar'a bakar. Transfer işi elektrik işinden ayrı bir işletme olarak, Google kurallarına uygun şekilde ayrı profil açılır; İngilizce açıklama, araç fotoğrafları ve misafir yorumlarıyla.</p></div>
+    <div class="kart"><span class="rozet">2 · Listeleme siteleri</span><h3>TripAdvisor, GetYourGuide ve benzerleri</h3><p>Turist tatil öncesi bu sitelerde arar. Listelemeye başvuruyu birlikte hazırlarız; her platform kendi belge ve komisyon şartlarını ister, uygunluğu başvuruda netleşir. (Öneri)</p></div>
+    <div class="kart"><span class="rozet">3 · Otel resepsiyonları</span><h3>QR'lı kartvizit ve resepsiyon anlaşması</h3><p>Resepsiyon, dönüş transferi soran misafire kartınızı verir. QR okutulunca misafir kendi dilinde WhatsApp'tan rezervasyon yapar. Anlaşmalı otellere komisyon ya da indirim modeli kurulabilir.</p></div>
+    <div class="kart"><span class="rozet">4 · Yerel müşteri</span><h3>Antalyalı da transfer kullanır</h3><p>Uçuşa giden aileler, şirket misafirleri, düğün ve organizasyonlar. Türkçe Google reklamı ve mevcut elektrik müşterilerinize duyuru ile başlanır.</p></div>
+  </div>
+
+  <h3>Resepsiyon kartviziti (örnek)</h3>
+  <div class="kartvizit-satir">
+    <div class="kartvizit">
+      <div class="sol">
+        <div><b>TEKİN GÜVEN<br><span>TRANSFER</span></b><small>Airport transfer · Antalya</small></div>
+        <div class="dil">TR · EN · DE · RU</div>
+        <small>Scan &amp; book on WhatsApp<br>+90 507 133 33 07</small>
+      </div>
+      <div class="qr" id="qr" aria-label="temsilî QR kod"></div>
+      <span class="temsili">temsilî QR</span>
+    </div>
+    <p class="not" style="max-width:420px;margin:0">Gerçek kartta QR, WhatsApp rezervasyon bağlantınızı ve otelin kodunu taşır; hangi otelden kaç rezervasyon geldiğini böylece ayrı ayrı görürsünüz.</p>
+  </div>
+  <p class="not">Not: Yolcu taşımacılığı için gereken yetki belgesi, sigorta ve araç evraklarının sizde olduğu varsayılmıştır; listeleme sitelerine başvuruda bunlar istenir.</p>
+</section>
+
+<section id="teklif">
+  <h2>Teklif: Transfer Rezervasyon Sistemi<small>Öneri fiyatlardır · KDV hariç</small></h2>
+  <div class="paket">
+    <span class="one">ÖNERİ</span>
+    <div class="ad">Transfer Rezervasyon Sistemi</div>
+    <div class="fiyat-satir">
+      <div><div class="fiyat">14.900 TL <small>+ KDV</small></div><div class="fiyat-et">tek sefer kurulum</div></div>
+      <div><div class="fiyat">2.900 TL <small>+ KDV / ay</small></div><div class="fiyat-et">asistan + bakım + destek</div></div>
+    </div>
+    <ul>
+      <li>4 dilli (TR/EN/DE/RU) transfer rezervasyon sitesi</li>
+      <li>Güzergâh, araç ve fiyat listenize göre rezervasyon formu</li>
+      <li>WhatsApp yapay zekâ rezervasyon asistanı (4 dil)</li>
+      <li>Her rezervasyon Türkçe özetle telefonunuza</li>
+      <li>Google Haritalar transfer profili kurulumu</li>
+      <li>Otel resepsiyonu için QR'lı kartvizit tasarımı</li>
+      <li>Listeleme sitelerine başvuru desteği</li>
+      <li>Aylık: asistan çalışması, site bakımı, küçük güncellemeler</li>
+    </ul>
+    <div class="indirim"><b>Elektrik + Transfer birlikte alırsanız:</b> kurulum ücretlerinde %15 paket indirimi (öneri). Toplam tablo ana sunumun sonundadır.</div>
+    <p class="not">Alan adı ve barındırma yıllık gideri, WhatsApp mesaj ücretleri kullanıma göre ayrıca yansıtılır. Aylık hizmette 3 ay taahhüt. Ödeme: %50 kapora ile başlanır, kalan teslimde; kartla (PayTR) ya da havale.</p>
+  </div>
+  <div class="cta">
+    <a class="btn wa" href="https://wa.me/905019452184?text=Merhaba%20Alim%20Bey%2C%20transfer%20rezervasyon%20sistemi%20hakk%C4%B1nda%20yaz%C4%B1yorum.">Dijitabela · 0501 945 21 84</a>
+    <a class="btn ikincil" href="index.html#buyume">Toplam büyüme planı →</a>
+  </div>
+</section>
+</main>
+
+<footer><div class="sar">Dijitabela · Alim Hoşlar · 0501 945 21 84 · dijitabela.com · info@dijitabela.com<br>Bu sayfa Tekin Güven Elektrik için hazırlanmış bir öneridir. Marka adı, alan adı, fiyatlar ve araç bilgileri örnektir; sizin bilgilerinizle netleşir.</div></footer>
+
+<script>
+var S={
+tr:{baslik:"Antalya Havalimanı'ndan <span>otelinize özel transfer</span>",alt:"Uçuşunuzu takip ederiz, gecikmede bekleriz. Şoförünüz adınızın yazılı olduğu tabelayla sizi karşılar.",g1:"Uçuş takibi",g2:"İsimli karşılama",g3:"7/24",g4:"Bebek koltuğu (talep üzerine)",l_yon:"Yön",yon1:"Havalimanı → Otel",yon2:"Otel → Havalimanı",l_nere:"Nereye",l_tarih:"Tarih",l_saat:"Saat",l_kisi:"Kişi",l_bagaj:"Bagaj",l_arac:"Araç",a1:"1–3 kişi · 3 bagaj",a2:"1–7 kişi · 7 bagaj",l_ucus:"Uçuş no",l_ad:"Ad soyad",l_otel:"Otel / adres",p_otel:"Otel adı",l_tabela:"Karşılama tabelası notu",p_tabela:"Tabelada yazacak isim, ör. ANNA SCHMIDT",fiyat:"Fiyat",fiyat2:"rezervasyonda bildirilir",wa:"WhatsApp'tan rezervasyon",pop:"Popüler güzergâhlar",sure1:"yaklaşık 20 dk",sure2:"yaklaşık 30 dk",sure3:"yaklaşık 1 saat",sure4:"yaklaşık 1 saat",sure5:"yaklaşık 2 saat",dip:"Tekin Güven Transfer · Antalya · WhatsApp +90 507 133 33 07",
+ m:["Merhaba, transfer rezervasyonu istiyorum.","Yön","Nereye","Tarih","Saat","Kişi","Bagaj","Araç","Uçuş no","Ad","Otel/adres","Tabela","Havalimanı → ","Otel → Havalimanı (AYT)"]},
+en:{baslik:"Private transfer from <span>Antalya Airport to your hotel</span>",alt:"We track your flight and wait if it is delayed. Your driver meets you with a name sign.",g1:"Flight tracking",g2:"Name sign meeting",g3:"24/7",g4:"Child seat (on request)",l_yon:"Direction",yon1:"Airport → Hotel",yon2:"Hotel → Airport",l_nere:"Destination",l_tarih:"Date",l_saat:"Time",l_kisi:"Passengers",l_bagaj:"Luggage",l_arac:"Vehicle",a1:"1–3 pax · 3 bags",a2:"1–7 pax · 7 bags",l_ucus:"Flight no",l_ad:"Full name",l_otel:"Hotel / address",p_otel:"Hotel name",l_tabela:"Meeting sign note",p_tabela:"Name on the sign, e.g. ANNA SCHMIDT",fiyat:"Price",fiyat2:"confirmed on booking",wa:"Book on WhatsApp",pop:"Popular routes",sure1:"approx. 20 min",sure2:"approx. 30 min",sure3:"approx. 1 hour",sure4:"approx. 1 hour",sure5:"approx. 2 hours",dip:"Tekin Güven Transfer · Antalya · WhatsApp +90 507 133 33 07",
+ m:["Hello, I would like to book a transfer.","Direction","Destination","Date","Time","Passengers","Luggage","Vehicle","Flight no","Name","Hotel/address","Sign","Airport → ","Hotel → Airport (AYT)"]},
+de:{baslik:"Privater Transfer vom <span>Flughafen Antalya zum Hotel</span>",alt:"Wir verfolgen Ihren Flug und warten bei Verspätung. Ihr Fahrer empfängt Sie mit Namensschild.",g1:"Flugverfolgung",g2:"Namensschild",g3:"24/7",g4:"Kindersitz (auf Anfrage)",l_yon:"Richtung",yon1:"Flughafen → Hotel",yon2:"Hotel → Flughafen",l_nere:"Ziel",l_tarih:"Datum",l_saat:"Uhrzeit",l_kisi:"Personen",l_bagaj:"Gepäck",l_arac:"Fahrzeug",a1:"1–3 Pers. · 3 Koffer",a2:"1–7 Pers. · 7 Koffer",l_ucus:"Flugnummer",l_ad:"Name",l_otel:"Hotel / Adresse",p_otel:"Hotelname",l_tabela:"Namensschild",p_tabela:"Name auf dem Schild",fiyat:"Preis",fiyat2:"bei Buchung",wa:"Über WhatsApp buchen",pop:"Beliebte Strecken",sure1:"ca. 20 Min.",sure2:"ca. 30 Min.",sure3:"ca. 1 Std.",sure4:"ca. 1 Std.",sure5:"ca. 2 Std.",dip:"Tekin Güven Transfer · Antalya · WhatsApp +90 507 133 33 07",
+ m:["Hallo, ich möchte einen Transfer buchen.","Richtung","Ziel","Datum","Uhrzeit","Personen","Gepäck","Fahrzeug","Flugnummer","Name","Hotel/Adresse","Schild","Flughafen → ","Hotel → Flughafen (AYT)"]},
+ru:{baslik:"Индивидуальный трансфер <span>из аэропорта Анталии</span>",alt:"Мы отслеживаем ваш рейс и ждём при задержке. Водитель встретит вас с табличкой.",g1:"Отслеживание рейса",g2:"Встреча с табличкой",g3:"24/7",g4:"Детское кресло",l_yon:"Направление",yon1:"Аэропорт → Отель",yon2:"Отель → Аэропорт",l_nere:"Куда",l_tarih:"Дата",l_saat:"Время",l_kisi:"Пассажиры",l_bagaj:"Багаж",l_arac:"Автомобиль",a1:"1–3 чел. · 3 места",a2:"1–7 чел. · 7 мест",l_ucus:"Номер рейса",l_ad:"Имя",l_otel:"Отель / адрес",p_otel:"Название отеля",l_tabela:"Табличка",p_tabela:"Имя на табличке",fiyat:"Цена",fiyat2:"при бронировании",wa:"Забронировать в WhatsApp",pop:"Популярные маршруты",sure1:"около 20 мин",sure2:"около 30 мин",sure3:"около 1 часа",sure4:"около 1 часа",sure5:"около 2 часов",dip:"Tekin Güven Transfer · Анталия · WhatsApp +90 507 133 33 07",
+ m:["Здравствуйте, хочу забронировать трансфер.","Направление","Куда","Дата","Время","Пассажиры","Багаж","Автомобиль","Рейс","Имя","Отель/адрес","Табличка","Аэропорт → ","Отель → Аэропорт (AYT)"]}
+};
+var dil="tr",yon="git",arac="Sedan";
+function $(s){return document.querySelector(s)}
+function dilUygula(d){dil=d;var t=S[d];
+ document.querySelectorAll("#ts [data-t]").forEach(function(e){var k=e.getAttribute("data-t");if(t[k]!=null)e.innerHTML=t[k]});
+ document.querySelectorAll("#ts [data-tp]").forEach(function(e){var k=e.getAttribute("data-tp");if(t[k])e.placeholder=t[k]});
+ document.querySelectorAll(".diller button").forEach(function(b){b.classList.toggle("secili",b.getAttribute("data-dil")===d)});
+ waGuncelle()}
+function waGuncelle(){var m=S[dil].m,v=function(id){return ($("#"+id).value||"-").trim()||"-"};
+ var y=yon==="git"?m[12]+v("nere"):v("nere")+" → "+m[13].split(" → ")[1];
+ var txt=[m[0],m[1]+": "+(yon==="git"?"AYT → "+v("nere"):v("nere")+" → AYT"),m[3]+": "+v("tarih")+" "+v("saat"),m[5]+": "+v("kisi")+" · "+m[6]+": "+v("bagaj"),m[7]+": "+arac,m[8]+": "+v("ucus"),m[9]+": "+v("ad"),m[10]+": "+v("otel"),m[11]+": "+v("tabela")].join("\n");
+ $("#waBtn").href="https://wa.me/905071333307?text="+encodeURIComponent(txt)}
+document.querySelectorAll(".diller button").forEach(function(b){b.onclick=function(){dilUygula(b.getAttribute("data-dil"))}});
+document.querySelectorAll(".yon button").forEach(function(b){b.onclick=function(){yon=b.getAttribute("data-yon");document.querySelectorAll(".yon button").forEach(function(x){x.classList.toggle("secili",x===b)});waGuncelle()}});
+document.querySelectorAll(".arac").forEach(function(a){a.onclick=function(){arac=a.getAttribute("data-arac");document.querySelectorAll(".arac").forEach(function(x){x.classList.toggle("secili",x===a)});waGuncelle()}});
+document.querySelectorAll("#rez input,#rez select,#rez textarea").forEach(function(e){e.addEventListener("input",waGuncelle);e.addEventListener("change",waGuncelle)});
+var p=new URLSearchParams(location.search).get("dil");dilUygula(S[p]?p:"tr");
+// temsilî QR deseni (gerçek kod değildir)
+(function(){var q=$("#qr"),n=21,h="",s=7;function r(){s=(s*9301+49297)%233280;return s/233280}
+ function bul(x,y){function f(ox,oy){var dx=x-ox,dy=y-oy;if(dx<0||dy<0||dx>6||dy>6)return null;return(dx===0||dy===0||dx===6||dy===6||(dx>1&&dx<5&&dy>1&&dy<5))}
+ var a=f(0,0);if(a!==null)return a;a=f(14,0);if(a!==null)return a;a=f(0,14);if(a!==null)return a;
+ if((x===7||y===7)&&(x<8&&y<8))return false;if(x===13&&y<8||y===7&&x>12)return false;if(y===13&&x<8||x===7&&y>12)return false;return r()>.52}
+ for(var y=0;y<n;y++)for(var x=0;x<n;x++)h+='<i class="'+(bul(x,y)?"d":"")+'"></i>';q.innerHTML=h})();
+</script>
+</body>
+</html>
