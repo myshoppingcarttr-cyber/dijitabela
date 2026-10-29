@@ -107,6 +107,17 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
 .maliyet td,.maliyet th{padding:7px 6px;border-bottom:1px solid var(--cizgi);text-align:left}
 .maliyet th{font:700 .66rem "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk)}
 .maliyet td:last-child,.maliyet th:last-child{text-align:right}
+.gir{width:100%;max-width:120px;font:inherit;font-weight:600;text-align:right;padding:6px 8px;border:1.5px solid var(--soluk);border-radius:8px;background:#fff;color:inherit}
+.gir:focus{outline:2px solid currentColor;outline-offset:1px}
+.gir.kucuk{max-width:90px;padding:3px 6px;font-size:.9em}
+.gir.buyuk{max-width:140px;font-size:1em;text-align:center;background:transparent;border-color:currentColor;color:inherit}
+.soru{display:block;margin:10px 0}.soru span{display:block;font-size:.92em;margin-bottom:4px}
+.gir.metin{max-width:none;text-align:left;font-weight:500}textarea.gir{resize:vertical}
+.sorutab td:nth-child(2),.sorutab td:nth-child(3){width:110px}
+.gir-dip{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.gir-dip button{font:inherit;font-weight:600;padding:10px 14px;border-radius:10px;border:0;background:#1f8f4e;color:#fff;cursor:pointer}
+.gir-dip button.ikincil{background:transparent;color:inherit;border:1.5px solid var(--soluk)}
+@media print{.gir{border:0;border-bottom:1px solid #999;border-radius:0;padding:2px}.gir::placeholder{color:#999}.gir-dip{display:none}}
 .bos{display:inline-block;min-width:64px;border-bottom:1.5px solid var(--soluk);color:var(--soluk);text-align:center}
 
 /* 6 fikirler: mockup'lar */
@@ -331,6 +342,7 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
         <li><b>Sabah güçlü.</b> Ekmek, poğaça ve börek dükkânı ayakta tutuyor.</li>
         <li><b>Pasta kârı yiyor.</b> Çok çeşit, çok miktar ve herkese %10 indirim; sabahın kazancı pastaya gidiyor.</li>
         <li><b>Her şey kendi üretiminiz.</b> Üst kattaki üretimhane en büyük gücünüz; müşteri bunu henüz görmüyor.</li>
+        <li><b>Yatırım yapılmış, düzenli bir dükkân.</b> Büyük içecek dolabı ve kadın/erkek ayrı, özenle yapılmış tuvaletler var. Aileler ve yoldan geçenler için önemli bir tercih sebebi; Google profilinde ve paylaşımlarda bunu da göstereceğiz.</li>
       </ul>
     </div>
     <div class="foto" style="min-height:220px"><img src="../img/ig/vitrin.webp" alt="Hanzade poğaça ve açma rafları"><span>SABAHIN PARASI BU RAFTA</span></div>
@@ -411,17 +423,19 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
       <div class="etk">Örnek maliyet kartı (boş şablon)</div>
       <h3>Çikolatalı yaş pasta · 1 No (6–8 kişilik)</h3>
       <table class="maliyet">
-        <tr><th>Kalem</th><th>Tutar</th></tr>
-        <tr><td>Un, şeker, yumurta, süt</td><td><span class="bos">₺___</span></td></tr>
-        <tr><td>Krema, çikolata, meyve</td><td><span class="bos">₺___</span></td></tr>
-        <tr><td>Kutu, altlık, süs</td><td><span class="bos">₺___</span></td></tr>
-        <tr><td>Usta emeği (dakika × ücret)</td><td><span class="bos">₺___</span></td></tr>
-        <tr><td>Fire payı</td><td><span class="bos">₺___</span></td></tr>
-        <tr><td><b>Toplam maliyet</b></td><td><span class="bos">₺___</span></td></tr>
-        <tr><td><b>Satış fiyatı</b> (liste)</td><td><b>1.000 TL</b></td></tr>
-        <tr><td><b>Pasta başına kalan</b></td><td><span class="bos">₺___</span></td></tr>
+        <tr><th>Kalem</th><th>Tutar (TL)</th></tr>
+        <tr><td>Un, şeker, yumurta, süt</td><td><input class="gir" inputmode="decimal" data-k="m1" placeholder="₺___" aria-label="Un, şeker, yumurta, süt"></td></tr>
+        <tr><td>Krema, çikolata, meyve</td><td><input class="gir" inputmode="decimal" data-k="m2" placeholder="₺___" aria-label="Krema, çikolata, meyve"></td></tr>
+        <tr><td>Kutu, altlık, süs</td><td><input class="gir" inputmode="decimal" data-k="m3" placeholder="₺___" aria-label="Kutu, altlık, süs"></td></tr>
+        <tr><td>Usta emeği (dakika × ücret)</td><td><input class="gir" inputmode="decimal" data-k="m4" placeholder="₺___" aria-label="Usta emeği"></td></tr>
+        <tr><td>Fire payı</td><td><input class="gir" inputmode="decimal" data-k="m5" placeholder="₺___" aria-label="Fire payı"></td></tr>
+        <tr><td><b>Toplam maliyet</b></td><td><b id="m-top">—</b></td></tr>
+        <tr><td><b>Satış fiyatı</b> (liste)</td><td><input class="gir" inputmode="decimal" data-k="sat" value="1000" aria-label="Satış fiyatı"></td></tr>
+        <tr><td><b>Pasta başına kalan</b></td><td><b id="m-kal">—</b></td></tr>
+        <tr><td>Malzeme payı (hedef ≤ %40)</td><td><b id="m-oran">—</b></td></tr>
       </table>
-      <p class="not">Rakamları üretimhaneyle birlikte dolduracağız. Hedef: malzeme payı satış fiyatının %40'ını geçmesin.</p>
+      <div class="gir-dip"><button type="button" id="m-wa">Rakamları Dijitabela'ya WhatsApp'tan gönder</button><button type="button" id="m-sil" class="ikincil">Temizle</button></div>
+      <p class="not">Boş kutulara dokunup rakamı yazın; toplam ve kalan kendiliğinden hesaplanır. Yazılanlar yalnız bu telefonda saklanır. Hedef: malzeme payı satış fiyatının %40'ını geçmesin.</p>
     </div>
   </div>
   <div class="buyuk">
@@ -506,7 +520,7 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
           <li><span>Tereyağı</span><em class="mik">paket</em></li>
         </ul>
       </div>
-      <div class="alt"><div class="eski">Ayrı ayrı <s>₺___</s><br>Fiyat şarküteri listesi gelince</div><div class="fiyat">₺___</div></div>
+      <div class="alt"><div class="eski">Ayrı ayrı <input class="gir kucuk" inputmode="decimal" data-k="sof-ayri" placeholder="₺___" aria-label="Ayrı ayrı toplam"><br>Fiyatı siz yazın</div><div class="fiyat"><input class="gir buyuk" inputmode="decimal" data-k="sof-paket" placeholder="₺___" aria-label="Paket fiyatı"></div></div>
       <div class="dip">EKMEK RAFININ HEMEN YANINDA · HAZIR KUTU</div>
     </div>
     <div class="izgara" style="gap:12px;align-content:start">
@@ -627,10 +641,43 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
   <table class="harca">
     <tr><td>Baskı: raf kartları, etiketler, afişler<small>Sabah paketi kartları, şarküteri etiketleri, "Bu Haftanın Ürünü" afişi, pasta sipariş kartı. Tasarımlar bizden.</small></td><td></td><td>3.000–5.000 TL<br><small>tek sefer</small></td></tr>
     <tr><td>Paket kutusu ve ambalaj<small>Sabah paketi ve kahvaltı paketi için kutu ya da poşet, etiket.</small></td><td></td><td>~5.000 TL<br><small>ilk sipariş</small></td></tr>
-    <tr><td>İçecek dolabı (kasa önü)<small>Genelde içecek bayisi satış taahhüdüyle ücretsiz verir. Bayiye sorulmalı.</small></td><td></td><td>Çoğu zaman 0 TL<br><small>bayiye bağlı</small></td></tr>
+    <tr><td>İçecek dolabı<small>Büyük dolap zaten var. Yalnız yerleşim: kasaya giden yolda, göz hizasında ayran ve soğuk içecek; "poğaça + ayran" kartı dolabın üstünde.</small></td><td></td><td>0 TL<br><small>mevcut</small></td></tr>
     <tr><td>Yerel reklam (isteğe bağlı)<small>Instagram ve Google'da yalnız Uncalı–Konyaaltı çevresine gösterim. İlk ay olmadan da başlanabilir.</small></td><td></td><td>5.000–10.000 TL<br><small>aylık</small></td></tr>
   </table>
   <p class="not">Yaka mikrofonu (yaklaşık 1.000–2.000 TL) yoksa bir kez alınır; çekim telefonla yapılır.</p>
+</section>
+
+<!-- EK · HÜSEYİN BEY'E SORULAR (doldurulabilir) -->
+<section class="sayfa" id="sorular">
+  <div class="no">Ek · Sizden istediğimiz bilgiler</div>
+  <h2>Birkaç rakam, planı netleştirir</h2>
+  <p class="giris">Kutulara dokunup yazabilirsiniz. Yazdıklarınız yalnız bu telefonda saklanır; bitince alttaki düğmeyle WhatsApp'tan bize gönderirsiniz. Bilmediğinizi boş bırakın.</p>
+  <div class="kart">
+    <h3>Fiyat ve maliyet</h3>
+    <table class="maliyet sorutab"><tr><th>Ürün</th><th>Satış</th><th>Maliyet</th></tr><tr><td>Beyaz peynir (kg)</td><td><input class="gir" inputmode="decimal" data-k="f-beyaz" placeholder="₺___" aria-label="Beyaz peynir (kg)"></td><td><input class="gir" inputmode="decimal" data-k="f-beyaz-m" placeholder="₺___" aria-label="Beyaz peynir (kg) maliyet"></td></tr><tr><td>Kaşar (kg)</td><td><input class="gir" inputmode="decimal" data-k="f-kasar" placeholder="₺___" aria-label="Kaşar (kg)"></td><td><input class="gir" inputmode="decimal" data-k="f-kasar-m" placeholder="₺___" aria-label="Kaşar (kg) maliyet"></td></tr><tr><td>Salamura zeytin (kg)</td><td><input class="gir" inputmode="decimal" data-k="f-zeytin" placeholder="₺___" aria-label="Salamura zeytin (kg)"></td><td><input class="gir" inputmode="decimal" data-k="f-zeytin-m" placeholder="₺___" aria-label="Salamura zeytin (kg) maliyet"></td></tr><tr><td>Bal (kavanoz)</td><td><input class="gir" inputmode="decimal" data-k="f-bal" placeholder="₺___" aria-label="Bal (kavanoz)"></td><td><input class="gir" inputmode="decimal" data-k="f-bal-m" placeholder="₺___" aria-label="Bal (kavanoz) maliyet"></td></tr><tr><td>Reçel (kavanoz)</td><td><input class="gir" inputmode="decimal" data-k="f-recel" placeholder="₺___" aria-label="Reçel (kavanoz)"></td><td><input class="gir" inputmode="decimal" data-k="f-recel-m" placeholder="₺___" aria-label="Reçel (kavanoz) maliyet"></td></tr><tr><td>Tereyağı (paket/kg)</td><td><input class="gir" inputmode="decimal" data-k="f-tereyag" placeholder="₺___" aria-label="Tereyağı (paket/kg)"></td><td><input class="gir" inputmode="decimal" data-k="f-tereyag-m" placeholder="₺___" aria-label="Tereyağı (paket/kg) maliyet"></td></tr><tr><td>Ayran</td><td><input class="gir" inputmode="decimal" data-k="f-ayran" placeholder="₺___" aria-label="Ayran"></td><td><input class="gir" inputmode="decimal" data-k="f-ayran-m" placeholder="₺___" aria-label="Ayran maliyet"></td></tr><tr><td>Çay</td><td><input class="gir" inputmode="decimal" data-k="f-cay" placeholder="₺___" aria-label="Çay"></td><td><input class="gir" inputmode="decimal" data-k="f-cay-m" placeholder="₺___" aria-label="Çay maliyet"></td></tr><tr><td>Profiterol (porsiyon)</td><td><input class="gir" inputmode="decimal" data-k="f-profiterol" placeholder="₺___" aria-label="Profiterol (porsiyon)"></td><td><input class="gir" inputmode="decimal" data-k="f-profiterol-m" placeholder="₺___" aria-label="Profiterol (porsiyon) maliyet"></td></tr><tr><td>Sütlaç</td><td><input class="gir" inputmode="decimal" data-k="f-sutlac" placeholder="₺___" aria-label="Sütlaç"></td><td><input class="gir" inputmode="decimal" data-k="f-sutlac-m" placeholder="₺___" aria-label="Sütlaç maliyet"></td></tr><tr><td>Bardak pasta</td><td><input class="gir" inputmode="decimal" data-k="f-bardak" placeholder="₺___" aria-label="Bardak pasta"></td><td><input class="gir" inputmode="decimal" data-k="f-bardak-m" placeholder="₺___" aria-label="Bardak pasta maliyet"></td></tr><tr><td>Dilim pasta</td><td><input class="gir" inputmode="decimal" data-k="f-dilim" placeholder="₺___" aria-label="Dilim pasta"></td><td><input class="gir" inputmode="decimal" data-k="f-dilim-m" placeholder="₺___" aria-label="Dilim pasta maliyet"></td></tr></table>
+  </div>
+  <div class="kart">
+    <h3>Satış ve üretim</h3>
+    <label class="soru"><span>Baklava fiyatları (1.450 / 900 TL) kilo fiyatı mı?</span><input class="gir metin" type="text" data-k="s-baklava" placeholder="Evet / hayır"></label>
+    <label class="soru"><span>Kasadaki %10 indirim baklava ve börekte de uygulanıyor mu?</span><input class="gir metin" type="text" data-k="s-indirim" placeholder=""></label>
+    <label class="soru"><span>Günde kaç pasta yapılıyor, kaçı satılıyor, kaçı kalıyor?</span><textarea class="gir metin" data-k="s-pastauretim" rows="2" placeholder="Bütün / dilim / bardak"></textarea></label>
+    <label class="soru"><span>Haftada kaç siparişli pasta geliyor? Kapora alıyor musunuz?</span><input class="gir metin" type="text" data-k="s-siparis" placeholder=""></label>
+    <label class="soru"><span>Yemeksepeti / Getir / Trendyol: ayda kaç sipariş, ortalama tutar, komisyon %?</span><textarea class="gir metin" data-k="s-online" rows="2" placeholder=""></textarea></label>
+    <label class="soru"><span>Düzenli alan ofis/firma var mı?</span><input class="gir metin" type="text" data-k="s-kurumsal" placeholder=""></label>
+  </div>
+  <div class="kart">
+    <h3>Dükkân ve ekip</h3>
+    <label class="soru"><span>Vardiyalar (isim gerekmez)</span><textarea class="gir metin" data-k="d-vardiya" rows="2" placeholder="Örn. Kasa-1: 06:00–14:00, Tezgâh-2: 14:00–21:30"></textarea></label>
+    <label class="soru"><span>Dışarıya (kaldırıma) masa koyma imkânı var mı?</span><input class="gir metin" type="text" data-k="d-masa" placeholder=""></label>
+    <label class="soru"><span>Google'da ve sitede görünmesini istediğiniz WhatsApp numarası</span><input class="gir metin" type="text" data-k="d-wa" placeholder=""></label>
+    <label class="soru"><span>hanzadeunlumamulleri.com alan adı hâlâ sizde mi?</span><input class="gir metin" type="text" data-k="d-alan" placeholder=""></label>
+    <label class="soru"><span>Instagram çekimleri: kim çekecek, haftada kaç saat ayrılabilir?</span><input class="gir metin" type="text" data-k="d-cekim" placeholder=""></label>
+  </div>
+  <div class="kart">
+    <h3>WhatsApp'tan ayrıca gönderin</h3>
+    <ul class="liste"><li>Son 30 günün Z raporlarının fotoğrafı</li><li>Logo dosyası (varsa yüksek çözünürlük)</li><li>Gündüz çekilmiş dış cephe fotoğrafı (tabela görünsün)</li><li>Şarküteri fiyat listesi (varsa)</li></ul>
+  </div>
+  <div class="gir-dip"><button type="button" id="s-wa">Cevapları WhatsApp'tan Dijitabela'ya gönder</button></div>
 </section>
 
 <!-- 9 · DİJİTABELA — PATRON ONAYI BEKLİYOR: rakamlar ve görünürlük yalnız fiyat.js (window.FIYAT) içinden -->
@@ -732,6 +779,29 @@ h3{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:6px}
   document.getElementById("ucret-kosul").hidden = gizli;
   var gorunen = document.querySelectorAll("#ucret [data-kalem]:not([hidden])").length;
   document.getElementById("ucret-kartlar").style.gridTemplateColumns = gorunen >= 3 ? "repeat(auto-fit,minmax(240px,1fr))" : "";
+})();
+</script>
+<script>
+(function(){"use strict";
+var A="hz-plan-v1",d={};try{d=JSON.parse(localStorage.getItem(A)||"{}")}catch(e){}
+var sayi=function(v){v=String(v||"").replace(/[^0-9,.-]/g,"").replace(/\./g,"").replace(",",".");var n=parseFloat(v);return isFinite(n)?n:null};
+var tl=function(n){return Math.round(n).toLocaleString("tr-TR")+" TL"};
+var G=[].slice.call(document.querySelectorAll(".gir[data-k]"));
+G.forEach(function(i){var k=i.getAttribute("data-k");if(d[k]!=null)i.value=d[k];i.addEventListener("input",function(){d[k]=i.value;try{localStorage.setItem(A,JSON.stringify(d))}catch(e){}hesap()})});
+function v(k){var i=document.querySelector('input.gir[data-k="'+k+'"]');return i?sayi(i.value):null}
+function hesap(){var t=0,var1=false,mal=0;["m1","m2","m3","m4","m5"].forEach(function(k){var n=v(k);if(n!=null){t+=n;var1=true;if(k==="m1"||k==="m2")mal+=n}});
+var s=v("sat");document.getElementById("m-top").textContent=var1?tl(t):"—";
+document.getElementById("m-kal").textContent=var1&&s!=null?tl(s-t):"—";
+var o=document.getElementById("m-oran");if(mal&&s){var p=mal/s*100;o.textContent="%"+p.toFixed(0);o.style.color=p>40?"#c0392b":"#1f8f4e"}else{o.textContent="—";o.style.color=""}}
+hesap();
+document.getElementById("m-sil").onclick=function(){["m1","m2","m3","m4","m5"].forEach(function(k){delete d[k];var i=document.querySelector('input.gir[data-k="'+k+'"]');i.value=""});try{localStorage.setItem(A,JSON.stringify(d))}catch(e){}hesap()};
+document.getElementById("m-wa").onclick=function(){var ad={m1:"Un, şeker, yumurta, süt",m2:"Krema, çikolata, meyve",m3:"Kutu, altlık, süs",m4:"Usta emeği",m5:"Fire payı",sat:"Satış fiyatı"},m=["Hanzade · Çikolatalı yaş pasta 1 No maliyet kartı"];
+Object.keys(ad).forEach(function(k){var n=v(k);m.push(ad[k]+": "+(n!=null?tl(n):"-"))});m.push("Toplam maliyet: "+document.getElementById("m-top").textContent);m.push("Pasta başına kalan: "+document.getElementById("m-kal").textContent);
+window.open("https://wa.me/905019452184?text="+encodeURIComponent(m.join(String.fromCharCode(10))),"_blank")};
+document.getElementById("s-wa").onclick=function(){var m=["Hanzade · Sorulara cevaplar"];
+[].slice.call(document.querySelectorAll("#sorular .gir[data-k]")).forEach(function(i){if(!String(i.value).trim())return;var l=i.getAttribute("aria-label")||(i.closest("label")&&i.closest("label").querySelector("span").textContent)||i.getAttribute("data-k");m.push("• "+l+": "+i.value.trim())});
+if(m.length<2){alert("Henüz bir şey yazılmadı.");return}
+window.open("https://wa.me/905019452184?text="+encodeURIComponent(m.join(String.fromCharCode(10))),"_blank")};
 })();
 </script>
 <script src="/ornek/_dijitabela/izle.js" defer></script></body>
