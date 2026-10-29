@@ -1,29 +1,61 @@
+GÖRSEL KAYNAKLARI · Hanzade Fırın & Cafe prototipleri (29 Eki 2026 güncellemesi)
+
+1) İşletmenin kendi Instagram'ından (@hanzadefirin), işletme izniyle — img/ig/*.webp
+   Kaynak gönderi: https://www.instagram.com/p/KOD/ (yalnız @hanzadefirin hesabının kendi gönderileri; fenomen ortaklık gönderileri kullanılmadı)
+dosya | kaynak (NNN_kod) | içerik
+ig/vitrin.webp | 035_DapwklhIKKB | Vitrin rafları (Taslak 1 büyük fotoğraf)
+ig/vitrin2.webp | 025_DcQPGT8Ie4X | Dükkân içi (Taslak 3)
+ig/usta.webp | 028_DbxlGMHspzX | Pasta süsleme, eldivenli el (Taslak 2)
+ig/simit.webp | 055_DWQn6zpDJmj | Simit
+ig/ekmek.webp | 063_DVJRhqvDOio | Fırında ekmek
+ig/borek.webp | 003_De9JryDoZXy | Kıymalı kol böreği
+ig/kahvalti.webp | 054_DWgMwXpDGQt | Kahvaltı masası
+ig/cay.webp | 058_DVx4JTNjH9q | Çay (kırpma)
+ig/baklava.webp | 011_DeY6vldMNMt | Baklava (reel kapağı)
+ig/kurabiye.webp | 030_DbkRbQljBZf | Kurabiye vitrini
+ig/dilim.webp | 060_DVavFBQDAqF | Mangolu dilim pasta
+ig/p-dogumgunu.webp | 027_Db45skmI_hO | Lotuslu çilekli yaş pasta
+ig/p-cikolata.webp | 049_DXE5ATaDHqJ | Çikolatalı meyveli pasta
+ig/p-cilek.webp | 064_DVGt_HujJ28 | Çilekli katlı mini pasta
+ig/p-gul.webp | 083_DOyGqz9DHs_ | Gül şelaleli pasta
+ig/p-beyaz.webp | 114_DE5MB1BNVas | Beyaz fiyonklu pasta
+ig/p-drip.webp | 153_CzgDsvitFxB | Ayıcıklı kat pasta
+ig/p-cocuk.webp | 120_DDDIXpztPWX | Gökkuşağı pasta
+ig/p-charlotte.webp | 166_CbuOn6Xtpwd | Kestaneli pasta
+ig/p-dugun.webp | 084_DNXj4pEt7c5 | Nişan pastası (3 kat)
+video/vitrin-baklava.mp4 | reel DeY6vldMNMt | Sunum sayfası arka plan videosu (sessiz, 720p)
+
+2) Pixabay İçerik Lisansı ile kalan temsilî görseller (işletmenin bu ürünler için uygun kendi fotoğrafı bulunamadı)
 dosya | pixabay sayfa URL | kullanıcı | lisans
-vitrin.jpg | https://pixabay.com/photos/bakery-breads-assorted-assortment-1868925/ | Pexels | Pixabay Content License
-vitrin2.jpg | https://pixabay.com/photos/afternoon-tea-bread-shop-window-677274/ | 88ayang | Pixabay Content License
-vitrin3.jpg | https://pixabay.com/photos/breads-pastries-croissants-1867459/ | Pexels | Pixabay Content License
-tezgah.jpg | https://pixabay.com/photos/dessert-case-chocolate-food-gourmet-1935187/ | Michelle-Maria | Pixabay Content License
-p-dogumgunu.jpg | https://pixabay.com/photos/cake-birthday-birthday-cake-916253/ | Cimabue | Pixabay Content License
-p-beyaz.jpg | https://pixabay.com/photos/cake-berries-candle-sponge-cake-8470012/ | BISEEISE | Pixabay Content License
-p-cikolata.jpg | https://pixabay.com/photos/cake-berries-dessert-sweet-8233676/ | PixelPerfectMom | Pixabay Content License
-p-cilek.jpg | https://pixabay.com/photos/cake-strawberries-dessert-sweet-6279252/ | artellliii72 | Pixabay Content License
-p-gul.jpg | https://pixabay.com/photos/birthday-cake-candles-bithday-cake-2338813/ | JillWellington | Pixabay Content License
-p-dugun.jpg | https://pixabay.com/photos/wedding-cake-flower-icing-food-2560160/ | StockSnap | Pixabay Content License
-p-cocuk.jpg | https://pixabay.com/photos/cake-food-dessert-delicious-baking-3669245/ | imazite | Pixabay Content License
-p-drip.jpg | https://pixabay.com/photos/cake-wedding-cake-purple-cake-sweet-8988890/ | Nusrat-Kaniz-Fahima | Pixabay Content License
-p-charlotte.jpg | https://pixabay.com/photos/strawberrycake-strawberries-cake-3140004/ | RitaE | Pixabay Content License
-simit.jpg | https://pixabay.com/photos/simit-food-stack-turkish-bagel-6674615/ | Engin_Akyurt | Pixabay Content License
-ekmek.jpg | https://pixabay.com/photos/bread-baguettes-loaves-6570934/ | dimkatomson21 | Pixabay Content License
-borek.jpg | https://pixabay.com/photos/food-patty-nutrition-fresh-healthy-4179127/ | smuldur | Pixabay Content License
 acma.jpg | https://pixabay.com/photos/bread-braided-challah-shabbat-food-5785608/ | svetlanabar | Pixabay Content License
+eksimaya.jpg | https://pixabay.com/photos/sourdough-bread-food-homemade-9865309/ | terski | Pixabay Content License
 kruvasan.jpg | https://pixabay.com/photos/bread-croissant-morning-puff-paste-1284438/ | Pexels | Pixabay Content License
-baklava.jpg | https://pixabay.com/photos/food-eastern-sweets-baklava-sweet-5158702/ | luckyhand2010 | Pixabay Content License
 profiterol.jpg | https://pixabay.com/photos/cream-puffs-delicious-confectionery-489842/ | cegoh | Pixabay Content License
 ekler.jpg | https://pixabay.com/photos/eclair-strawberrycake-strawberries-3366430/ | RitaE | Pixabay Content License
-kurabiye.jpg | https://pixabay.com/photos/marori-cookies-jeera-cookies-5076883/ | Manojdnp | Pixabay Content License
 cheesecake.jpg | https://pixabay.com/photos/dessert-pastry-shop-cake-delicious-5105032/ | thechuk | Pixabay Content License
-kahvalti.jpg | https://pixabay.com/photos/breakfast-tea-tomato-morning-food-944305/ | emregokyuz | Pixabay Content License
-cay.jpg | https://pixabay.com/photos/tea-turkish-tea-turkish-culture-7079252/ | YakupIpek | Pixabay Content License
-eksimaya.jpg | https://pixabay.com/photos/sourdough-bread-food-homemade-9865309/ | terski | Pixabay Content License
-dilim.jpg | https://pixabay.com/photos/cake-chocolate-chocolate-cake-1850011/ | Pexels | Pixabay Content License
-usta.jpg | https://pixabay.com/photos/pastry-chef-hand-raspberry-tart-10327105/ | tehzeebkazmii | Pixabay Content License
+
+Sayfalarda kullanılmayan (yalnız klasörde duran) Pixabay görselleri:
+vitrin3.jpg | https://pixabay.com/photos/breads-pastries-croissants-1867459/ | Pexels | Pixabay Content License
+tezgah.jpg | https://pixabay.com/photos/dessert-case-chocolate-food-gourmet-1935187/ | Michelle-Maria | Pixabay Content License
+
+Yerine gerçek fotoğraf konan eski Pixabay görselleri img/_eski/ klasörüne taşındı (silinmedi):
+_eski/vitrin.jpg | https://pixabay.com/photos/bakery-breads-assorted-assortment-1868925/ | Pexels | Pixabay Content License
+_eski/vitrin2.jpg | https://pixabay.com/photos/afternoon-tea-bread-shop-window-677274/ | 88ayang | Pixabay Content License
+_eski/usta.jpg | https://pixabay.com/photos/pastry-chef-hand-raspberry-tart-10327105/ | tehzeebkazmii | Pixabay Content License
+_eski/simit.jpg | https://pixabay.com/photos/simit-food-stack-turkish-bagel-6674615/ | Engin_Akyurt | Pixabay Content License
+_eski/ekmek.jpg | https://pixabay.com/photos/bread-baguettes-loaves-6570934/ | dimkatomson21 | Pixabay Content License
+_eski/borek.jpg | https://pixabay.com/photos/food-patty-nutrition-fresh-healthy-4179127/ | smuldur | Pixabay Content License
+_eski/kahvalti.jpg | https://pixabay.com/photos/breakfast-tea-tomato-morning-food-944305/ | emregokyuz | Pixabay Content License
+_eski/cay.jpg | https://pixabay.com/photos/tea-turkish-tea-turkish-culture-7079252/ | YakupIpek | Pixabay Content License
+_eski/baklava.jpg | https://pixabay.com/photos/food-eastern-sweets-baklava-sweet-5158702/ | luckyhand2010 | Pixabay Content License
+_eski/kurabiye.jpg | https://pixabay.com/photos/marori-cookies-jeera-cookies-5076883/ | Manojdnp | Pixabay Content License
+_eski/dilim.jpg | https://pixabay.com/photos/cake-chocolate-chocolate-cake-1850011/ | Pexels | Pixabay Content License
+_eski/p-dogumgunu.jpg | https://pixabay.com/photos/cake-birthday-birthday-cake-916253/ | Cimabue | Pixabay Content License
+_eski/p-cikolata.jpg | https://pixabay.com/photos/cake-berries-dessert-sweet-8233676/ | PixelPerfectMom | Pixabay Content License
+_eski/p-cilek.jpg | https://pixabay.com/photos/cake-strawberries-dessert-sweet-6279252/ | artellliii72 | Pixabay Content License
+_eski/p-gul.jpg | https://pixabay.com/photos/birthday-cake-candles-bithday-cake-2338813/ | JillWellington | Pixabay Content License
+_eski/p-beyaz.jpg | https://pixabay.com/photos/cake-berries-candle-sponge-cake-8470012/ | BISEEISE | Pixabay Content License
+_eski/p-drip.jpg | https://pixabay.com/photos/cake-wedding-cake-purple-cake-sweet-8988890/ | Nusrat-Kaniz-Fahima | Pixabay Content License
+_eski/p-cocuk.jpg | https://pixabay.com/photos/cake-food-dessert-delicious-baking-3669245/ | imazite | Pixabay Content License
+_eski/p-charlotte.jpg | https://pixabay.com/photos/strawberrycake-strawberries-cake-3140004/ | RitaE | Pixabay Content License
+_eski/p-dugun.jpg | https://pixabay.com/photos/wedding-cake-flower-icing-food-2560160/ | StockSnap | Pixabay Content License

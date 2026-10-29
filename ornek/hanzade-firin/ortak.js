@@ -1,11 +1,12 @@
 /* Hanzade Fırın & Cafe — 3 prototip için ortak veri ve çalışan özellikler (Dijitabela, 29 Eki 2026).
    - Ürün ve fiyatlar ÖRNEKTİR; gerçek liste kurulumda işletmeden alınır.
    - Sipariş formu hiçbir yere mesaj GÖNDERMEZ: son adımda WhatsApp'a düşecek mesajın ve ustanın fişinin önizlemesini gösterir.
-   - Görseller Pixabay İçerik Lisansı ile kullanılan temsilî fotoğraflardır (img/LISANS.txt). */
+   - Görseller: işletmenin kendi Instagram'ından (@hanzadefirin, işletme izniyle) img/ig/*.webp; gerçek görseli olmayan birkaç ürün için Pixabay temsilî fotoğraf kaldı (img/LISANS.txt). */
 (function () {
   "use strict";
   var H = window.HZ = {};
-  H.img = function (k) { return (window.HZ_KOK || "../") + "img/" + k + ".jpg"; };
+  H.ig = { vitrin: 1, vitrin2: 1, usta: 1, simit: 1, ekmek: 1, borek: 1, kahvalti: 1, cay: 1, baklava: 1, kurabiye: 1, dilim: 1, "p-dogumgunu": 1, "p-cikolata": 1, "p-cilek": 1, "p-gul": 1, "p-beyaz": 1, "p-drip": 1, "p-cocuk": 1, "p-charlotte": 1, "p-dugun": 1 };
+  H.img = function (k) { return (window.HZ_KOK || "../") + "img/" + (H.ig[k] ? "ig/" + k + ".webp" : k + ".jpg"); };
   H.tl = function (n) { return Math.round(n).toLocaleString("tr-TR") + " TL"; };
   H.esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
 
@@ -15,15 +16,15 @@
 
   // Pasta modelleri (örnek fiyat = 6-8 kişilik taban; boy çarpanı aşağıda)
   H.pastalar = [
-    { id: "dogumgunu", ad: "Meyveli Doğum Günü", kat: "dogum", img: "p-dogumgunu", taban: 1150, not: "Mevsim meyvesi, vanilyalı krema, pandispanya" },
-    { id: "cikolata", ad: "Bitter Çikolatalı Meyveli", kat: "cikolata", img: "p-cikolata", taban: 1290, not: "Bitter ganaj, kakaolu kek, orman meyvesi" },
-    { id: "cilek", ad: "Çilekli Rulo Kremalı", kat: "meyveli", img: "p-cilek", taban: 1190, not: "Taze çilek, hafif krema, beyaz kek" },
-    { id: "gul", ad: "Pembe Gül Kremalı", kat: "ozel", img: "p-gul", taban: 1390, not: "Gül sıkma krema, frambuazlı iç" },
-    { id: "beyaz", ad: "Beyaz Vişneli", kat: "meyveli", img: "p-beyaz", taban: 1150, not: "Vişne, beyaz çikolata, mascarpone" },
-    { id: "drip", ad: "Böğürtlenli Drip Pasta", kat: "ozel", img: "p-drip", taban: 1490, not: "Mor ganaj akıtma, böğürtlen, çikolatalı kek" },
-    { id: "cocuk", ad: "Çocuk Doğum Günü", kat: "dogum", img: "p-cocuk", taban: 1350, not: "Renkli akıtma, makaron, şekerleme süsü" },
-    { id: "charlotte", ad: "Frambuazlı Şarlot", kat: "meyveli", img: "p-charlotte", taban: 1450, not: "Kedidili çevre, frambuaz, çilek" },
-    { id: "dugun", ad: "Nişan & Söz Pastası (2 kat)", kat: "ozel", img: "p-dugun", taban: 2900, not: "Yarı çıplak kaplama, canlı çiçek, 2 kat", min: 2 }
+    { id: "dogumgunu", ad: "Lotuslu Çilekli Yaş Pasta", kat: "meyveli", img: "p-dogumgunu", taban: 1150, not: "Karamelize bisküvi, taze çilek" },
+    { id: "cikolata", ad: "Bitter Çikolatalı Meyveli", kat: "cikolata", img: "p-cikolata", taban: 1290, not: "Çikolatalı krema, kakaolu kek, orman meyvesi" },
+    { id: "cilek", ad: "Çilekli Katlı Mini Pasta", kat: "meyveli", img: "p-cilek", taban: 1190, not: "Taze çilek, krema katları, çikolata top süsü" },
+    { id: "gul", ad: "Gül Şelaleli Pasta", kat: "ozel", img: "p-gul", taban: 1390, not: "Şeker hamurundan gül şelalesi, altın inci süsü" },
+    { id: "beyaz", ad: "Beyaz Fiyonklu Pasta", kat: "dogum", img: "p-beyaz", taban: 1150, not: "Şeker hamuru kaplama, fiyonk süslü" },
+    { id: "drip", ad: "Ayıcıklı Kat Pasta", kat: "dogum", img: "p-drip", taban: 1490, not: "Kat kat şeker hamuru kuşak, ayıcık ve top süsü" },
+    { id: "cocuk", ad: "Çocuk Doğum Günü", kat: "dogum", img: "p-cocuk", taban: 1350, not: "Gökkuşağı, bulut ve yıldız süsü" },
+    { id: "charlotte", ad: "Kestaneli Pasta", kat: "cikolata", img: "p-charlotte", taban: 1450, not: "Çikolata kaplama, kestane süsü" },
+    { id: "dugun", ad: "Nişan & Söz Pastası (2 kat)", kat: "ozel", img: "p-dugun", taban: 2900, not: "Şeker hamuru kaplama, orkide şelalesi, 3 kat", min: 2 }
   ];
   H.kategoriler = [["hepsi", "Hepsi"], ["dogum", "Doğum günü"], ["cikolata", "Çikolatalı"], ["meyveli", "Meyveli"], ["ozel", "Özel gün"]];
   H.boylar = [
@@ -43,16 +44,16 @@
     { id: "acma", ad: "Sade açma", img: "acma", f: 25, b: "adet", grup: "Fırından" },
     { id: "ekmek", ad: "Taş fırın ekmeği", img: "ekmek", f: 25, b: "adet", grup: "Fırından" },
     { id: "eksimaya", ad: "Ekşi mayalı köy ekmeği", img: "eksimaya", f: 95, b: "adet", grup: "Fırından" },
-    { id: "borek", ad: "Kol böreği (peynirli)", img: "borek", f: 110, b: "porsiyon", grup: "Börek & kahvaltı" },
+    { id: "borek", ad: "Kol böreği (kıymalı)", img: "borek", f: 110, b: "porsiyon", grup: "Börek & kahvaltı" },
     { id: "kruvasan", ad: "Tereyağlı kruvasan", img: "kruvasan", f: 65, b: "adet", grup: "Börek & kahvaltı" },
     { id: "kahvalti", ad: "Hanzade kahvaltı tabağı", img: "kahvalti", f: 340, b: "kişi", grup: "Börek & kahvaltı" },
     { id: "cay", ad: "İnce belli çay", img: "cay", f: 20, b: "bardak", grup: "Börek & kahvaltı" },
-    { id: "baklava", ad: "Fıstıklı baklava", img: "baklava", f: 1150, b: "kg", grup: "Tatlı & pastane" },
+    { id: "baklava", ad: "Baklava", img: "baklava", f: 1150, b: "kg", grup: "Tatlı & pastane" },
     { id: "profiterol", ad: "Profiterol", img: "profiterol", f: 145, b: "porsiyon", grup: "Tatlı & pastane" },
     { id: "ekler", ad: "Çilekli ekler", img: "ekler", f: 75, b: "adet", grup: "Tatlı & pastane" },
     { id: "cheesecake", ad: "Frambuazlı cheesecake", img: "cheesecake", f: 160, b: "dilim", grup: "Tatlı & pastane" },
-    { id: "dilim", ad: "Çikolatalı yaş pasta", img: "dilim", f: 120, b: "dilim", grup: "Tatlı & pastane" },
-    { id: "kurabiye", ad: "Tuzlu & tatlı kurabiye", img: "kurabiye", f: 480, b: "kg", grup: "Tatlı & pastane" }
+    { id: "dilim", ad: "Mangolu dilim pasta", img: "dilim", f: 120, b: "dilim", grup: "Tatlı & pastane" },
+    { id: "kurabiye", ad: "Kurabiye çeşitleri", img: "kurabiye", f: 480, b: "kg", grup: "Tatlı & pastane" }
   ];
   // Fırından çıkış saatleri (örnek düzen) — tazelik panosu bunlardan hesaplanır
   H.cikislar = [

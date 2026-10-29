@@ -48,6 +48,13 @@
 .iletisim b{font-size:1.5rem}.iletisim p{color:#c9ccd3}
 .iletisim a.tel{font-size:1.6rem;font-weight:800;color:var(--led);text-decoration:none;font-family:"Space Mono",monospace}
 .kucuk{color:var(--mute);font-size:.85rem;margin-top:10px}
+.hz-video{position:relative;margin:22px 0 6px;aspect-ratio:21/8;overflow:hidden;background:#2a1d12}
+@media(max-width:800px){.hz-video{aspect-ratio:16/10}}
+.hz-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hz-video:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.08) 70%)}
+.hz-video div{position:absolute;left:22px;bottom:18px;right:22px;z-index:1;color:#fff}
+.hz-video b{display:block;font-size:clamp(1.1rem,2.4vw,1.6rem);font-weight:800;line-height:1.25;max-width:520px}
+.hz-video small{display:block;font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.06em;opacity:.85;margin-top:6px}
 </style>
 </head>
 <body>
@@ -60,6 +67,9 @@
   <p class="cumle">Videolarınız 35 bin kişiye ulaşıyor ama bu insanlar sipariş vermeden geçiyor. Biz o izleyiciyi WhatsApp'tan pasta siparişine ve Google'da 5 yıldıza çeviren sistemi kuruyoruz.</p>
   <p class="dj-giris">Uncalı'da 20 yıllık emek, yeni yapılan tadilat ve bölgenin en düzenli vitrini: elinizde güçlü bir dükkân var. Aşağıda internette gördüklerimizi, size özel hazırladığımız 3 çalışan web sitesi tasarımını ve WhatsApp pasta asistanının canlı demosunu bulacaksınız.</p>
 </div>
+
+<figure class="hz-video" aria-label="Hanzade baklava tezgâhı, kendi Instagram videonuzdan"><video src="video/vitrin-baklava.mp4" poster="video/vitrin-baklava.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><div><b>Sizin tezgâhınız, sizin videonuz: sitenin ilk saniyesi böyle açılabilir.</b><small>Video: @hanzadefirin Instagram reel'inden (izninizle) · sessiz</small></div></figure>
+<script>(function(){var v=document.querySelector(".hz-video video");if(v&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause()}})();</script>
 
 <div data-anlat="bulgular">
 <h2>İnternette ne gördük?</h2>
@@ -84,7 +94,7 @@
 </div>
 
 <h2 id="tasarimlar">Size özel 3 web sitesi tasarımı: 3 ayrı yerleşim, hepsi çalışıyor</h2>
-<p class="kucuk" style="margin:-6px 0 14px">Fotoğraflar temsilîdir (lisanslı). Siteniz yayına girerken kendi ürün ve dükkân fotoğraflarınız kullanılır. Fiyatlar örnektir.</p>
+<p class="kucuk" style="margin:-6px 0 14px">Fotoğraflar kendi Instagram hesabınızdan (@hanzadefirin, izninizle). Gerçek fotoğrafı bulunmayan birkaç ürün için temsilî lisanslı görsel kullanıldı. Fiyatlar örnektir.</p>
 <div class="dj-izg" data-anlat="tasarimlar">
   <a class="dj-sk" href="1/"><div class="on"><img src="_onizleme/1.jpg" alt="Taslak 1 Vitrin önizleme"><div class="t"><img src="_onizleme/1m.jpg" alt=""></div></div><div class="ic"><b><small>SEÇENEK 1</small>Vitrin</b><p>Büyük vitrin fotoğrafı, canlı "bugün çıkanlar" tablosu, filtreli pasta vitrini ve numaralı fiyat listesi. Klasik ve net.</p><span class="git">Canlı aç →</span></div></a>
   <a class="dj-sk" href="2/"><div class="on"><img src="_onizleme/2.jpg" alt="Taslak 2 Dergi önizleme"><div class="t"><img src="_onizleme/2m.jpg" alt=""></div></div><div class="ic"><b><small>SEÇENEK 2</small>Dergi</b><p>20 yıllık hikâyeyi anlatan dergi düzeni: fırın saati çizelgesi, kaydırmalı pasta kitabı ve kişi sayısına göre pasta hesaplayıcı.</p><span class="git">Canlı aç →</span></div></a>
@@ -138,5 +148,5 @@
 <script>window.DJ_REHBER={"ses": "ses/", "satirlar": {"giris": {"metin": "Öncelikle merhabalar! Dijitabela tarafından Hanzade Fırın için hazırlanan çalışmaları anlatmak üzere ben görevlendirildim. Aşağı indikçe her bölümü size anlatacağım.", "dosya": "sunum-giris", "dugme": ["Tasarımlara git", "#tasarimlar"]}, "bulgular": {"metin": "Videolarınız otuz beş bin kişiye ulaşıyor ama hesabınız bin yedi yüz takipçide. Google'da dört puandasınız, yakınınızdaki bir fırın dört virgül yedide. Web siteniz de yok.", "dosya": "sunum-bulgular"}, "tasarimlar": {"metin": "Üç ayrı yerleşimde üç tasarım hazırladık: vitrin, dergi ve uygulama. Hepsi çalışıyor; birine dokunup deneyin.", "dosya": "sunum-tasarimlar"}, "ozellikler": {"metin": "Üçünde de pasta sipariş sihirbazı, bugün fırından çıkanlar panosu, canlı açık kapalı durumu ve Google yorum karekodu var. Karekod herkese aynı bağlantıyı açar.", "dosya": "sunum-ozellikler"}, "asistan": {"metin": "WhatsApp pasta asistanı; modeli, boyu, tarihi, pasta üstü yazıyı ve adresi sorar, fiyatı söyler, ustaya fiş düşürür. Otomatik oynat ile izleyebilirsiniz.", "dosya": "sunum-asistan", "dugme": ["Demoyu aç", "asistan/"]}, "paketler": {"metin": "Giriş paketi dört bin dokuz yüz ile altı bin dokuz yüz lira arası, tek sefer. WhatsApp asistanı aylık bin dokuz yüz ile iki bin dokuz yüz lira. KDV dahil değildir; yüzde elli kapora ile başlıyoruz.", "dosya": "sunum-paketler"}, "son": {"metin": "Sorularınız için sıfır beş yüz bir, dokuz yüz kırk beş, yirmi bir, seksen dört numaralı telefondan bize ulaşabilirsiniz.", "dosya": "sunum-son"}}};</script>
 <script src="../_dijitabela/rehber.js" defer></script>
 <script src="/ornek/_dijitabela/izle.js" defer></script>
-</body>
+<script src="/ornek/_dijitabela/wa-buton.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
 </html>
