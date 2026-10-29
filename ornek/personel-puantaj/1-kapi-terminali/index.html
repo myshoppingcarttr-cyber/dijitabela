@@ -167,7 +167,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   var d=new Date(),soz={giris:"Günaydın",mola:"Afiyet olsun",donus:"Tekrar hoş geldin",cikis:"İyi akşamlar"}[tur];
   var calis=P.calisilanDk(kid),gec=tur==="giris"&&(d.getHours()*60+d.getMinutes())>P.vardiyaBas(k.sube)+5;
   $("#sahne").innerHTML='<div class="onay"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="50"/><path d="M33 57l15 15 30-32"/></svg><h2>'+soz+', '+k.ad.split(" ")[0]+'</h2><p class="mono">'+ETK[tur]+' · '+P.saat(d)+(tur==="cikis"?' · bugün '+P.dk2s(calis):'')+'</p>'+(gec?'<span class="uyari">Geç giriş · yöneticiye WhatsApp bildirimi gönderildi (örnek)</span>':'')+'</div>';
-  try{var au=window.__kapiSes||(window.__kapiSes=new Audio());au.pause();au.src="ses/"+tur+".mp3";var pp=au.play();if(pp&&pp.catch)pp.catch(function(){});}catch(e){} /* 29 Eki: yalnız Ayşe klonu kaydı (ses/<tur>.mp3), cihaz sesi yok */
+  try{if("speechSynthesis" in window){var u=new SpeechSynthesisUtterance(soz+" "+k.ad.split(" ")[0]+". "+{giris:"Giriş",mola:"Mola",donus:"Dönüş",cikis:"Çıkış"}[tur]+" kaydedildi.");u.lang="tr-TR";u.rate=1.05;speechSynthesis.cancel();speechSynthesis.speak(u);}}catch(e){}
   ciz(true);setTimeout(sahne,3200);
  }
  document.addEventListener("click",function(e){

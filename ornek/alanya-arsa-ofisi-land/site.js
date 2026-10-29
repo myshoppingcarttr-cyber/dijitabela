@@ -364,7 +364,7 @@
   /* ---------- Örnek ilanlar (fiyatlar TL; € = TL / KUR) ----------
      Koordinatlar mahalle düzeyinde YAKLAŞIK; gerçek ilanlarda tapu koordinatı kullanılır. */
   var ILAN = [
-    { no: "MAH-528", gercek: true, skorSabit: 87, tur: "arsa", bolge: "mahmutlar", m2: 528, fiyat: 5500000, imar: "", tek: true, takas: true, tarih: "2026-09-03",
+    { no: "MAH-528", gercek: true, tur: "arsa", bolge: "mahmutlar", m2: 528, fiyat: 5500000, imar: "", tek: true, takas: true, tarih: "2026-09-03",
       lat: 36.5132, lng: 32.1274, kapak: "video/mahmutlar-528-kapak.jpg", video: "video/mahmutlar-528.mp4", oz: ["fullm", "yolsifir", "altyapi", "hafriyat"],
       b: ["Mahmutlar'da full deniz manzaralı 528 m² arsa", "528 m² plot with full sea view in Mahmutlar", "Участок 528 м² с панорамным видом на море, Махмутлар", "528 m² Grundstück mit vollem Meerblick in Mahmutlar"],
       o: ["Müstakil tapulu (hisse yok), yola sıfır arsa. Yol, su ve elektrik mevcut, hafriyat masrafı yok. Denize yaklaşık 4 km. Takas olur.", "Plot with its own title deed (no shared ownership), directly on the road. Road, water and electricity available; no excavation costs. Approx. 4 km to the sea. Trade-in possible.", "Участок с отдельным тапу (без долей), прямо у дороги. Есть дорога, вода и электричество, затрат на земляные работы нет. До моря около 4 км. Возможен обмен.", "Grundstück mit eigener Grundbuchurkunde (keine Anteile), direkt an der Straße. Straße, Wasser und Strom vorhanden, keine Aushubkosten. Ca. 4 km zum Meer. Tausch möglich."] },
