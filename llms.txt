@@ -22,6 +22,7 @@
 
 - [Emlak ofisleri](https://dijitabela.com/sektor-emlak.html)
 - [Diş klinikleri](https://dijitabela.com/sektor-dis-klinigi.html)
+- [Sektör vitrinleri: 10 sektöre çalışan örnek site](https://dijitabela.com/sektor/)
 - [Oto galeri](https://dijitabela.com/sektor-oto-galeri.html) · [Oto servis](https://dijitabela.com/sektor-oto-servis.html)
 - [Güzellik merkezi](https://dijitabela.com/sektor-guzellik-merkezi.html) · [Saç ekimi](https://dijitabela.com/sektor-sac-ekimi.html)
 
