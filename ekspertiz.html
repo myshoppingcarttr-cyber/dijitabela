@@ -946,7 +946,7 @@ html{scroll-behavior:smooth}
 <script src="assets/fiyat.js?v=mvshh1ri"></script>
 <script src="assets/data.js?v=mvshh1ri"></script>
 <script>
-const SES_VAR = ["duvar","nedir","alanlar","nasil","eks-baslat","taslak"];   // kayıt dosyası olanlar; olmayanlar cihaz sesiyle okunur (404 yok)
+const SES_VAR = ["duvar","nedir","alanlar","nasil","eks-baslat","taslak"];   // Ayşe klonu kaydı olanlar (29 Eki); olmayanlar yalnız yazıyla gösterilir, cihaz sesi YOK
 // Ekspertiz sayfası motoru (14 Eki 2026, Elif · İ-1014-P11). LED motoru + yüz çizimi: yeni-ana-kaynak.html ile aynı.
 const AZ = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = (s) => document.querySelector(s);
@@ -1144,28 +1144,17 @@ const CEVAP = [
 ];
 CEVAP.forEach((x) => { const k = x[0].source; try { x[0] = new RegExp("(?<!\\p{L})(?:" + k + ")", "iu"); } catch (e) { x[0] = new RegExp("(?:^|[^a-zçğıöşüâîû])(?:" + k + ")", "i"); } });
 
-// Tek ses çalar (iOS dokunuşla açılan çalarda izin verir). Kayıt dosyası yoksa ya da açılamazsa cihaz sesi (tr-TR) yedeği.
+// Tek ses çalar (iOS dokunuşla açılan çalarda izin verir). Yalnız Ayşe klonu kaydı; kayıt yoksa/açılamazsa sessiz geçer (29 Eki, cihaz sesi kaldırıldı).
 const ses = new Audio(); ses.preload = "auto";
 const rehber = $("#rehber"), govde = $("#rehber-govde"), balon = $("#balon"), yazi = $("#balon-yazi"), yuzCv = $("#yuz");
 let sesAcik = false, degisiyor = false, konusuyor = false, yaziyor = false, aktif = "", balonAcik = true, kirp = 0, ifade = "mutlu", ifadeZaman;
 function yuzDongu(t) { if (kirp > 0) kirp--; else if (Math.random() < 0.006) kirp = 8; yuzCiz(t); if (!AZ) requestAnimationFrame(yuzDongu); }
 let bekleyenTepki = null, sonAnlatilan = "", yaziZaman, yedekMetin = "";
 ses.addEventListener("ended", () => { konusuyor = false; sonraki(); });
-ses.addEventListener("error", () => { if (ses.getAttribute("src") && !degisiyor) cihazSesi(yedekMetin); else if (ses.getAttribute("src")) cihazSesi(yedekMetin); });
+ses.addEventListener("error", () => { degisiyor = false; konusuyor = false; sonraki(); });
 ses.addEventListener("pause", () => { if (!degisiyor && !ses.ended && !cihazKonusuyor) konusuyor = false; });
 let cihazKonusuyor = false;
-function cihazSesi(metin) {
-  if (!sesAcik || !metin || !("speechSynthesis" in window)) { konusuyor = false; return; }
-  try {
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(metin); u.lang = "tr-TR"; u.rate = 1;
-    const v = speechSynthesis.getVoices().find((x) => /^tr/i.test(x.lang)); if (v) u.voice = v;
-    cihazKonusuyor = true; konusuyor = true;
-    u.onend = u.onerror = () => { cihazKonusuyor = false; konusuyor = false; sonraki(); };
-    speechSynthesis.speak(u);
-  } catch (e) { cihazKonusuyor = false; konusuyor = false; }
-}
-function sesDur() { degisiyor = false; ses.pause(); if ("speechSynthesis" in window) { cihazKonusuyor = false; speechSynthesis.cancel(); } konusuyor = false; }
+function sesDur() { degisiyor = false; ses.pause(); konusuyor = false; }
 function sesEngellendi() { sesAcik = false; konusuyor = false; $("#ses-dugme").textContent = "Sesi aç (dokunun)"; }
 function soyle(metin) {
   clearInterval(yaziZaman); balonGoster(true);
@@ -1191,10 +1180,10 @@ function anlat(id) {
 function sesCal(id) {
   if (!sesAcik || !SESLI.has(id)) return;
   yedekMetin = REHBER[id];
-  if (!SES_VAR.includes(id)) { degisiyor = false; ses.pause(); ses.removeAttribute("src"); cihazSesi(yedekMetin); return; }
-  degisiyor = true; ses.pause(); ses.src = `assets/yeni/ses/eks-${id}.mp3`; konusuyor = true;
+  if (!SES_VAR.includes(id)) { degisiyor = false; ses.pause(); ses.removeAttribute("src"); konusuyor = false; return; }
+  degisiyor = true; ses.pause(); ses.src = `assets/yeni/ses/eks-ayse-${id}.mp3`; konusuyor = true;
   const p = ses.play();
-  if (p && p.then) p.then(() => (degisiyor = false)).catch((x) => { degisiyor = false; if (x && x.name === "NotAllowedError") sesEngellendi(); else cihazSesi(yedekMetin); });
+  if (p && p.then) p.then(() => (degisiyor = false)).catch((x) => { degisiyor = false; if (x && x.name === "NotAllowedError") sesEngellendi(); else { konusuyor = false; sonraki(); } });
   else degisiyor = false;
 }
 function balonGoster(acik) { balonAcik = acik; balon.hidden = !acik; }
@@ -1228,7 +1217,7 @@ BOLUMLER.forEach((id) => { const a = document.createElement("a"); a.href = "#" +
 window.__rehberHazir = true;
 $("#ses-dugme").addEventListener("click", () => {
   sesAcik = !sesAcik; $("#ses-dugme").textContent = sesAcik ? "Sesi kapat" : "Sesli rehberi aç";
-  if (sesAcik) { if ("speechSynthesis" in window) speechSynthesis.getVoices(); anlat(aktif || "duvar"); } else sesDur();
+  if (sesAcik) anlat(aktif || "duvar"); else sesDur();
 });
 $("#soru-dugme").addEventListener("click", () => {
   const l = $("#sss-l"); l.hidden = !l.hidden; $("#sohbet").hidden = l.hidden; if (!l.hidden && innerWidth > 600) setTimeout(() => $("#sohbet-yaz").focus(), 50);

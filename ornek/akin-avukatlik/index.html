@@ -92,10 +92,10 @@ const base={};document.querySelectorAll('[data-i]').forEach(e=>base[e.dataset.i]
 let dil='tr';const L=document.getElementById('dil');
 L.onclick=()=>{dil=dil==='tr'?'en':'tr';document.documentElement.lang=dil;L.textContent=dil==='tr'?'EN':'TR';document.querySelectorAll('[data-i]').forEach(e=>{const k=e.dataset.i;e.innerHTML=dil==='en'&&T.en[k]?T.en[k]:base[k]})};
 const sb=document.getElementById('sesliBtn');let on=false;
-sb.onclick=()=>{if(!('speechSynthesis' in window)){sb.textContent='Tarayıcı desteklemiyor';return}
- speechSynthesis.cancel();on=!on;sb.setAttribute('aria-pressed',on);if(!on)return;
- const txt=[...document.querySelectorAll('.hero h1,.hero p,#alanlar h3,#alanlar .kart p,#rehber summary,#rehber details p')].map(e=>e.textContent).join('. ');
- const u=new SpeechSynthesisUtterance(txt);u.lang=dil==='tr'?'tr-TR':'en-US';u.onend=()=>{on=false;sb.setAttribute('aria-pressed',false)};speechSynthesis.speak(u)};
+// 29 Eki: sesli rehber yalnız Ayşe klonu kaydı (ses/oku-tr.mp3); İngilizce kaydı olmadığı için EN modunda düğme gizlenir. Cihaz sesi yok.
+const au=new Audio('ses/oku-tr.mp3');au.preload='none';au.onended=au.onerror=()=>{on=false;sb.setAttribute('aria-pressed',false)};au.addEventListener('error',()=>{sb.hidden=true});
+sb.onclick=()=>{on=!on;sb.setAttribute('aria-pressed',on);if(on){au.currentTime=0;const p=au.play();if(p&&p.catch)p.catch(()=>{on=false;sb.setAttribute('aria-pressed',false)})}else au.pause()};
+L.addEventListener('click',()=>{sb.hidden=dil!=='tr';if(dil!=='tr'){au.pause();on=false;sb.setAttribute('aria-pressed',false)}});
 document.getElementById('f').onsubmit=e=>{e.preventDefault();const g=i=>document.getElementById(i).value;
  location.href='mailto:info@akinavukatlik.com?subject='+encodeURIComponent('Ön görüşme talebi: '+g('ko'))+'&body='+encodeURIComponent('Ad soyad: '+g('ad')+'\nTelefon: '+g('tel')+'\n\n'+g('mj')+'\n\nKVKK aydınlatma metnini okudum, kabul ediyorum.')};
 </script>
