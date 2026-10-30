@@ -23,12 +23,12 @@
       "</tbody></table>" +
       '<div class="totals">' +
       (h.carpan !== 1 ? "<div><span>Ölçek: " + FIYAT.OLCEK[h.olcek].ad + " · " + FIYAT.ACIL[h.acil].ad + "</span><span>×" + h.carpan.toFixed(2).replace(".", ",") + "</span></div>" : "") +
-      "<div><span>Ara toplam (KDV hariç)</span><span>" + TL(h.tek) + "</span></div>" +
-      "<div><span>KDV (%" + Math.round(A.kdv * 100) + ")</span><span>" + TL(h.kdv) + "</span></div>" +
+      (h.kdv ? "<div><span>Ara toplam (KDV hariç)</span><span>" + TL(h.tek) + "</span></div>" +
+      "<div><span>KDV (%" + Math.round(A.kdv * 100) + ")</span><span>" + TL(h.kdv) + "</span></div>" : "") +
       '<div class="g"><span>Genel toplam</span><span>' + TL(h.tek + h.kdv) + "</span></div>" +
       (h.ay ? '<div class="small"><span>Aylık hizmetler (isteğe bağlı)</span><span>' + TL(h.ay) + " + KDV / ay</span></div>" : "") +
       "</div>" +
-      '<div class="note" style="margin-top:20px"><b>Ödeme planı:</b> Onayda %50 (' + TL(Math.round((h.tek + h.kdv) / 2)) + " KDV dahil), kalan %50 teslimde. Teslim sonrası mülkiyet işletmenize geçer. Koşullar: <a href=\"mesafeli-satis.html\">mesafeli satış sözleşmesi</a>, <a href=\"iptal-iade.html\">iptal ve iade</a>.</div>" +
+      '<div class="note" style="margin-top:20px"><b>Ödeme planı:</b> Onayda %50 (' + TL(Math.round((h.tek + h.kdv) / 2)) + (h.kdv ? " KDV dahil" : "") + "), kalan %50 teslimde. Teslim sonrası mülkiyet işletmenize geçer. Koşullar: <a href=\"mesafeli-satis.html\">mesafeli satış sözleşmesi</a>, <a href=\"iptal-iade.html\">iptal ve iade</a>.</div>" +
       '<div class="paybox" id="pay"></div>' +
       '<div class="cta no-print" style="margin-top:18px"><button class="btn btn-o" onclick="window.print()">PDF / Yazdır</button>' +
       (A.whatsapp ? '<a class="btn btn-w" href="https://wa.me/' + A.whatsapp + "?text=" + waMsg + '" rel="nofollow">WhatsApp\'tan soru sor</a>' : "") + "</div>";
@@ -43,7 +43,7 @@
         this.disabled = true; API.teklifOnayla(tk).then(ciz);
       };
     } else if (t.durum === "onaylandi") {
-      P.innerHTML = "<h3>Ödeme</h3><p class=\"mute\" style=\"margin-top:6px\">İlk ödeme (%50, KDV dahil): <b>" + TL(kaporaKdvli) + "</b></p>" +
+      P.innerHTML = "<h3>Ödeme</h3><p class=\"mute\" style=\"margin-top:6px\">İlk ödeme (%50" + (h.kdv ? ", KDV dahil" : "") + "): <b>" + TL(kaporaKdvli) + "</b></p>" +
         '<div class="pay-opts">' +
         (A.kartOdeme ? '<div class="box"><b>Kredi / banka kartı</b><p class="small" style="margin:6px 0 12px">Güvenli ödeme ekranı (PayTR). 12 aya varan taksit seçenekleri kartınıza göre gösterilir. Kart bilgileriniz bizde saklanmaz.</p><button class="btn btn-p" id="kart">Kartla öde</button></div>' : '') +
         '<div class="box"><b>Havale / EFT</b><p class="small" style="margin:6px 0 12px">Alıcı: ' + e(A.yasalAd || A.unvan) + (A.yasalAd ? " (" + e(A.unvan) + ")" : "") + (A.iban ? "<br>IBAN: " + e(A.iban) : "<br>IBAN bilgisi size WhatsApp’tan iletilecek: <a href=\"https://wa.me/" + e(A.whatsapp || "") + "\">bize yazın</a>") + (A.banka ? "<br>" + e(A.banka) : "") + "<br>Açıklama: <b>" + e(t.no) + '</b></p><button class="btn btn-o" id="havale"' + (havaleBildirildi ? " disabled" : "") + ">" + (havaleBildirildi ? "Bildirildi, kontrol ediliyor" : "Ödemeyi yaptım") + "</button></div>" +
