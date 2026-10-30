@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="NvlHomedesign için Uygulama yerleşimi: mobil öncelikli, alt sabit menü, açılır paneller, katalog, mekân planlayıcı ve WhatsApp sipariş listesi.">
+<title>NvlHomedesign · Uygulama · Dijitabela demo</title>
+<style>
+:root{--bg:#14161c;--sf:#1d2029;--sf2:#262a36;--ink:#f2ede4;--mut:#a09a8f;--ac:#e0a35f;--ac2:#c98a43;--ok:#4cc38a;--ln:rgba(255,255,255,.09)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 system-ui,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden;min-height:100vh}
+.app{max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:calc(92px + env(safe-area-inset-bottom));position:relative;background:var(--bg)}
+@media(min-width:760px){body{background:#0c0d11}.app{box-shadow:0 0 0 1px var(--ln),0 30px 80px rgba(0,0,0,.6)}}
+/* açılış kartı */
+#splash{position:fixed;inset:0;z-index:80;background:radial-gradient(600px 400px at 70% 10%,rgba(224,163,95,.28),transparent),var(--bg);display:grid;place-items:center;padding:20px;transition:.5s}
+#splash.off{opacity:0;transform:translateY(-30px);pointer-events:none}
+.sc{width:min(420px,100%);background:var(--sf);border:1px solid var(--ln);border-radius:30px;padding:26px;text-align:center;box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
+.sc .ic{width:76px;height:76px;border-radius:24px;margin:0 auto 16px;background:linear-gradient(135deg,var(--ac),#b9603f);display:grid;place-items:center;font:700 2rem Georgia,serif;color:#1a1208}
+.sc h1{font:700 1.7rem/1.1 Georgia,serif}
+.sc p{color:var(--mut);margin:10px 0 18px}
+.sc .pl{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.sc .pl div{background:var(--sf2);border-radius:16px;padding:12px 6px;font-size:.78rem;color:var(--mut)}
+.sc .pl b{display:block;font-size:1.3rem;margin-bottom:2px}
+.bt{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:16px;border:0;background:var(--ac);color:#1a1208;font:800 1rem system-ui;font-family:inherit;cursor:pointer;text-decoration:none;width:100%;transition:.15s}
+.bt:active{transform:scale(.97)}
+.bt.g{background:#1f9d55;color:#fff}
+.bt.o{background:var(--sf2);color:var(--ink)}
+.bt.sm{min-height:42px;width:auto;padding:0 16px;font-size:.88rem;border-radius:12px}
+/* üst */
+.hd{position:sticky;top:0;z-index:20;background:rgba(20,22,28,.9);backdrop-filter:blur(14px);padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--ln)}
+.hd i{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--ac),#b9603f);display:grid;place-items:center;font:700 1.1rem Georgia,serif;color:#1a1208;font-style:normal}
+.hd b{font-size:1.05rem}
+.hd small{display:block;color:var(--mut);font-size:.72rem;margin-top:-2px}
+.hd .bd{margin-left:auto;background:var(--sf2);padding:6px 12px;border-radius:999px;font-size:.78rem;font-weight:700;color:var(--ac)}
+.pg{display:none;padding:18px;animation:in .3s}
+.pg.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+h2{font:700 1.5rem/1.15 Georgia,serif;margin-bottom:6px}
+.sub{color:var(--mut);margin-bottom:16px;font-size:.94rem}
+/* keşfet */
+.hero{border-radius:26px;overflow:hidden;position:relative;margin-bottom:18px;background:var(--sf)}
+.hero svg{display:block;width:100%;height:210px}
+.hero .tx{padding:18px}
+.hero h2{font-size:1.6rem}
+.q3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.q3 button{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:16px 6px;color:var(--ink);font:700 .8rem system-ui;font-family:inherit;display:grid;gap:6px;justify-items:center;cursor:pointer;min-height:92px}
+.q3 button span{font-size:1.6rem}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin:0 -18px;padding-left:18px;padding-right:18px}
+.rail::-webkit-scrollbar{display:none}
+.rc{flex:0 0 150px;scroll-snap-align:start;background:var(--sf);border-radius:20px;overflow:hidden;border:1px solid var(--ln);cursor:pointer;text-align:left;color:var(--ink);font-family:inherit;padding:0}
+.rc svg{display:block;width:100%;height:92px}
+.rc b{display:block;padding:10px 12px 2px;font-size:.9rem}
+.rc small{display:block;padding:0 12px 12px;color:var(--mut);font-size:.76rem}
+/* paneller (accordion) */
+.ac{background:var(--sf);border:1px solid var(--ln);border-radius:20px;margin-bottom:10px;overflow:hidden}
+.ac>button{width:100%;min-height:58px;padding:0 18px;background:none;border:0;color:var(--ink);font:700 .98rem system-ui;font-family:inherit;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;text-align:left}
+.ac>button:after{content:"＋";color:var(--ac);font-size:1.2rem;transition:.2s}
+.ac.on>button:after{transform:rotate(45deg)}
+.ac .bd2{max-height:0;overflow:hidden;transition:max-height .35s;padding:0 18px}
+.ac.on .bd2{max-height:700px;padding-bottom:16px}
+.ac p{color:var(--mut);font-size:.92rem}
+/* katalog */
+.srch{position:sticky;top:67px;z-index:15;background:var(--bg);padding:8px 0 10px}
+.srch input{width:100%;min-height:50px;border-radius:16px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);padding:0 16px;font:inherit}
+.srch input:focus,.fd input:focus,.fd select:focus{outline:2px solid var(--ac)}
+.ch{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px}
+.ch::-webkit-scrollbar{display:none}
+.ch button{flex:none;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);font:600 .85rem system-ui;font-family:inherit;cursor:pointer}
+.ch button[aria-pressed=true]{background:var(--ac);color:#1a1208;border-color:var(--ac)}
+.pg2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc{background:var(--sf);border-radius:20px;overflow:hidden;border:1px solid var(--ln);display:flex;flex-direction:column}
+.pc svg{display:block;width:100%;height:100px}
+.pc .in{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px;flex:1}
+.pc b{font-size:.88rem;line-height:1.25}
+.pc small{color:var(--mut);font-size:.74rem}
+.pc button{margin-top:auto;min-height:40px;border-radius:12px;border:0;background:var(--sf2);color:var(--ink);font:700 .8rem system-ui;font-family:inherit;cursor:pointer;margin-top:10px}
+.pc button.on{background:var(--ac);color:#1a1208}
+/* sepet sheet */
+.sheet{position:fixed;left:50%;transform:translate(-50%,110%);bottom:0;width:min(520px,100%);background:var(--sf);border-radius:26px 26px 0 0;border:1px solid var(--ln);padding:18px 18px calc(24px + env(safe-area-inset-bottom));z-index:60;transition:.35s;max-height:78vh;overflow:auto}
+.sheet.on{transform:translate(-50%,0)}
+.sheet h3{font:700 1.2rem Georgia,serif}
+.sheet ul{list-style:none;margin:10px 0}
+.sheet li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--ln);font-size:.9rem}
+.sheet li button{background:var(--sf2);border:0;color:var(--ink);width:36px;height:36px;border-radius:10px;font-size:1.1rem;cursor:pointer}
+.sheet textarea{width:100%;min-height:90px;background:var(--bg);border:1px solid var(--ln);border-radius:14px;color:var(--ink);padding:10px;font:inherit;font-size:.85rem;margin:8px 0 12px}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:55;opacity:0;pointer-events:none;transition:.3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.fab{position:fixed;right:max(14px,calc(50% - 246px));bottom:calc(92px + env(safe-area-inset-bottom));z-index:45;min-height:52px;padding:0 20px;border-radius:999px;border:0;background:var(--ac);color:#1a1208;font:800 .95rem system-ui;font-family:inherit;box-shadow:0 12px 28px -6px rgba(0,0,0,.6);cursor:pointer}
+/* planlayıcı */
+.fd{display:grid;gap:6px;margin-bottom:14px}
+.fd label{font-weight:700;font-size:.88rem;display:flex;justify-content:space-between}
+.fd label b{color:var(--ac)}
+.fd input[type=range]{width:100%;accent-color:var(--ac);min-height:34px}
+.fd select,.fd input[type=text]{min-height:50px;border-radius:14px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);padding:0 14px;font:inherit;width:100%}
+.tg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.tg2 button{min-height:50px;border-radius:14px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);font:700 .88rem system-ui;font-family:inherit;cursor:pointer}
+.tg2 button[aria-pressed=true]{background:var(--ac);color:#1a1208;border-color:var(--ac)}
+.out{background:var(--sf);border:1px solid var(--ln);border-radius:22px;padding:18px;margin:6px 0 14px}
+.out .big{font:700 2.2rem/1.1 Georgia,serif;color:var(--ac)}
+.out .big small{font:500 .9rem system-ui;color:var(--mut)}
+.out .l{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--ln);font-size:.9rem}
+.out .l span{color:var(--mut)}
+.out .nt{font-size:.78rem;color:var(--mut);margin-top:8px}
+.plan{background:var(--sf);border-radius:22px;padding:10px;margin-bottom:12px}
+.plan svg{display:block;width:100%;height:auto}
+/* iletişim */
+.st{display:grid;gap:10px;margin-bottom:16px}
+.st label{display:flex;gap:12px;align-items:flex-start;background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:14px;cursor:pointer;font-size:.92rem}
+.st input{width:22px;height:22px;accent-color:var(--ac);flex:none;margin-top:2px}
+.st label:has(input:checked){border-color:var(--ok)}
+.pr{height:10px;border-radius:10px;background:var(--sf2);overflow:hidden;margin:6px 0 14px}
+.pr i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--ok));width:0;transition:.4s}
+.sum{background:var(--sf);border:1px dashed var(--ac);border-radius:16px;padding:14px;white-space:pre-wrap;font-size:.88rem;margin:10px 0 12px}
+.not{text-align:center;color:var(--mut);font-size:.74rem;padding:22px 18px 0}
+/* alt menü */
+.tab{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(520px,100%);z-index:50;background:rgba(29,32,41,.96);backdrop-filter:blur(16px);border-top:1px solid var(--ln);display:grid;grid-template-columns:repeat(4,1fr);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+.tab button{background:none;border:0;color:var(--mut);min-height:58px;display:grid;gap:2px;justify-items:center;align-content:center;font:700 .7rem system-ui;font-family:inherit;cursor:pointer;border-radius:16px;position:relative}
+.tab button span{font-size:1.35rem;line-height:1}
+.tab button[aria-current=page]{color:var(--ac);background:rgba(224,163,95,.12)}
+.tab button em{position:absolute;top:4px;right:calc(50% - 26px);min-width:18px;height:18px;border-radius:9px;background:var(--ac);color:#1a1208;font:800 .68rem/18px system-ui;font-style:normal;text-align:center;padding:0 4px}
+</style>
+</head>
+<body>
+<div id="splash"><div class="sc">
+<div class="ic">N</div>
+<h1>NvlHomedesign</h1>
+<p>Ev tekstili ve dekorasyon. Kataloğa göz atın, ölçünüzü hesaplayın, keşif için WhatsApp'a tek dokunuşla yazın.</p>
+<div class="pl"><div><b>1</b>Katalog</div><div><b>2</b>Hesapla</div><div><b>3</b>WhatsApp</div></div>
+<button class="bt" id="go" type="button">Başla</button>
+</div></div>
+
+<div class="app">
+<div class="hd"><i>N</i><div><b>NvlHomedesign</b><small>Ön çalışma demosu</small></div><span class="bd" id="bdg">Liste: 0</span></div>
+
+<main>
+<section class="pg on" id="p-ke" aria-label="Keşfet">
+<div class="hero"><svg id="hv" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice"></svg><div class="tx"><h2>Odanıza göre seçin, ölçüsüyle alın.</h2><p class="sub" style="margin:0">Dört sekme: Keşfet, Katalog, Planla ve Talep. Her biri telefonda tek elle kullanılır.</p></div></div>
+<div class="q3"><button data-go="ka"><span>🛋️</span>Kataloğa git</button><button data-go="pl"><span>📏</span>Ölçü hesapla</button><button data-go="ta"><span>💬</span>Keşif iste</button></div>
+<h2 style="font-size:1.2rem">Koleksiyonlar</h2>
+<div class="rail" id="rail"></div>
+<h2 style="font-size:1.2rem;margin-top:20px">Sık sorulanlar</h2>
+<div id="acc"></div>
+</section>
+
+<section class="pg" id="p-ka" aria-label="Katalog">
+<h2>Katalog</h2><p class="sub">Yazdıkça süzülür. Ürüne dokunarak listeye ekleyin.</p>
+<div class="srch"><input type="search" id="q" placeholder="Ürün ara: kadife, runner, kilim…" aria-label="Ara"></div>
+<div class="ch" id="chc" role="group" aria-label="Kategori"></div>
+<div class="ch" id="chr" role="group" aria-label="Renk"></div>
+<p class="sub" id="cn"></p>
+<div class="pg2" id="grid"></div>
+<div style="margin-top:14px" id="more"></div>
+</section>
+
+<section class="pg" id="p-pl" aria-label="Planla">
+<h2>Planlayıcı</h2><p class="sub">Ne hesaplamak istiyorsunuz?</p>
+<div class="tg2" id="mod"><button aria-pressed="true" data-m="perde">Perde kumaşı</button><button aria-pressed="false" data-m="hali">Halı ebadı</button></div>
+<div id="pf"></div>
+<div class="plan"><svg id="psv" viewBox="0 0 320 170"></svg></div>
+<div class="out" id="po" aria-live="polite"></div>
+<a class="bt g" id="pwa" href="#" target="_blank" rel="noopener">Bu ölçüyle WhatsApp'tan sor</a>
+</section>
+
+<section class="pg" id="p-ta" aria-label="Talep">
+<h2>Keşif talebi</h2><p class="sub">Aşağıdaki adımları tamamladıkça ilerleme çubuğu dolar, mesaj hazır olur.</p>
+<div class="pr"><i id="tpr"></i></div>
+<div class="ac on"><button type="button">1 · Mekân</button><div class="bd2"><div class="tg2" id="t1"></div></div></div>
+<div class="ac"><button type="button">2 · İhtiyaç</button><div class="bd2"><div class="tg2" id="t2"></div></div></div>
+<div class="ac"><button type="button">3 · Gün ve saat</button><div class="bd2"><div class="tg2" id="t3"></div><div class="tg2" id="t4"></div></div></div>
+<div class="ac"><button type="button">4 · Adınız ve notunuz</button><div class="bd2"><div class="fd"><label for="tad">Adınız</label><input type="text" id="tad"></div><div class="fd"><label for="tnt">Not</label><input type="text" id="tnt" placeholder="İsteğe bağlı"></div></div></div>
+<div class="sum" id="tsum"></div>
+<a class="bt g" id="twa" href="#" target="_blank" rel="noopener">WhatsApp'a gönder</a>
+<h2 style="font-size:1.2rem;margin-top:26px">Google'da görünürlük</h2>
+<p class="sub">Yerel aramada bulunmak için işaretleyin:</p>
+<div class="st" id="gst"></div>
+<div class="out" id="gout"></div>
+<p class="not">Bu bir ön çalışma demosudur · dijitabela.com<br>Telefon: 0 (5xx) xxx xx xx</p>
+</section>
+</main>
+</div>
+
+<div class="scrim" id="scr"></div>
+<aside class="sheet" id="sh" aria-label="Listem"><h3>Listem</h3><ul id="ul"></ul><textarea id="msg" readonly aria-label="Mesaj"></textarea><a class="bt g" id="swa" href="#" target="_blank" rel="noopener">WhatsApp'a gönder</a><div style="display:flex;gap:8px;margin-top:8px"><button class="bt o sm" id="cp" type="button">Kopyala</button><button class="bt o sm" id="clr" type="button">Temizle</button><button class="bt o sm" id="cls" type="button" style="margin-left:auto">Kapat</button></div></aside>
+<button class="fab" id="fab" type="button" hidden>Listem · 0</button>
+<nav class="tab" aria-label="Ana menü">
+<button data-go="ke" aria-current="page"><span>🏠</span>Keşfet</button>
+<button data-go="ka"><span>🧵</span>Katalog<em id="tbc" hidden>0</em></button>
+<button data-go="pl"><span>📐</span>Planla</button>
+<button data-go="ta"><span>💬</span>Talep</button>
+</nav>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const wa=m=>'https://wa.me/?text='+encodeURIComponent(m);
+function shade(h,a){const n=parseInt(h.slice(1),16),c=x=>Math.max(0,Math.min(255,x));return '#'+((1<<24)+(c((n>>16)+a)<<16)+(c((n>>8&255)+a)<<8)+c((n&255)+a)).toString(16).slice(1)}
+function art(cat,hex){const d=shade(hex,-40),l=shade(hex,34);let b='';
+if(cat==='perde'||cat==='tul'){const t=cat==='tul';for(let i=0;i<10;i++)b+=`<path d="M${i*20+10} 8 C${i*20+1} 45 ${i*20+19} 85 ${i*20+10} 112" stroke="${i%2?d:l}" stroke-width="${t?3:9}" fill="none" opacity="${t?.55:.6}"/>`;b+=`<rect width="200" height="9" fill="${d}"/>`}
+else if(cat==='hali'){for(let i=0;i<5;i++){const w=14+i*17,h=8+i*10;b+=`<polygon points="100,${60-h} ${100+w},60 100,${60+h} ${100-w},60" fill="none" stroke="${i%2?d:l}" stroke-width="3.5"/>`}b+=`<rect x="6" y="6" width="188" height="108" fill="none" stroke="${d}" stroke-width="2" stroke-dasharray="4 4"/>`}
+else if(cat==='yatak'){for(let i=0;i<6;i++)b+=`<rect x="0" y="${i*20}" width="200" height="10" fill="${i%2?d:l}" opacity=".5"/>`;b+=`<rect x="22" y="14" width="64" height="26" rx="8" fill="${l}" stroke="${d}"/><rect x="114" y="14" width="64" height="26" rx="8" fill="${l}" stroke="${d}"/>`}
+else if(cat==='masa'){b+=`<rect x="0" y="40" width="200" height="40" fill="${l}"/>`;for(let i=0;i<20;i++)b+=`<rect x="${i*10+2}" y="${i%2?44:58}" width="6" height="12" fill="${d}" opacity=".7"/>`;b+=`<rect x="0" y="40" width="200" height="3" fill="${d}"/><rect x="0" y="77" width="200" height="3" fill="${d}"/>`}
+else{b+=`<rect x="54" y="14" width="92" height="92" rx="20" fill="${l}" stroke="${d}" stroke-width="3"/>`;for(let i=0;i<3;i++)for(let j=0;j<3;j++)b+=`<path d="M${74+i*26} ${34+j*26}l8 8m0-8l-8 8" stroke="${d}" stroke-width="2.4"/>`}
+return `<svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="${hex}"/>${b}</svg>`}
+const CATS=[{k:'perde',t:'Perde',m:['Keten görünümlü perde','Kadife perde','Karartma perde']},{k:'tul',t:'Tül & fon',m:['Düz tül','Dokulu fon perde','File tül']},{k:'hali',t:'Halı & kilim',m:['Yolluk halı','Salon halısı','Kilim']},{k:'yatak',t:'Yatak örtüsü',m:['Pike takımı','Yatak örtüsü','Battaniye']},{k:'masa',t:'Masa tekstili',m:['Runner','Masa örtüsü','Amerikan servis']},{k:'yastik',t:'Kırlent',m:['Kadife kırlent','Dokuma kırlent','Kırlent kılıfı']}];
+const COLS=[['kum','Kum','#d9c7a8'],['antrasit','Antrasit','#4a4f5a'],['zeytin','Zeytin','#7a8052'],['kiremit','Kiremit','#b9603f'],['lacivert','Lacivert','#2c4170'],['krem','Krem','#efe6d4']];
+const ITEMS=[];CATS.forEach((c,ci)=>c.m.forEach((m,mi)=>{for(let k=0;k<3;k++){const col=COLS[(ci+mi*2+k*2)%6];ITEMS.push({id:ITEMS.length,cat:c.k,ct:c.t,name:m,col:col[0],cn:col[1],hex:col[2]})}}));
+const nrm=s=>s.toLocaleLowerCase('tr').normalize('NFD').replace(/[̀-ͯ]/g,'');
+/* sekmeler */
+function go(k){$$('.pg').forEach(p=>p.classList.toggle('on',p.id==='p-'+k));$$('.tab button').forEach(b=>b.dataset.go===k?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));if(k==='ka')render();if(k==='pl')pl();scrollTo({top:0,behavior:'smooth'})}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t)go(t.dataset.go)});
+$('#go').addEventListener('click',()=>$('#splash').classList.add('off'));
+/* keşfet */
+$('#hv').innerHTML=`<rect width="400" height="210" fill="#e0c9a0"/>${Array.from({length:16},(_,i)=>`<path d="M${i*26+12} 14 C${i*26} 70 ${i*26+26} 140 ${i*26+12} 200" stroke="${i%2?'#a35a3a':'#c98562'}" stroke-width="19" fill="none" opacity=".72"/>`).join('')}<rect y="8" width="400" height="12" fill="#4b3d31"/><circle cx="340" cy="62" r="28" fill="#fbf1da" opacity=".85"/>`;
+$('#rail').innerHTML=CATS.map((c,i)=>`<button class="rc" data-cat="${c.k}">${art(c.k,COLS[i%6][2])}<b>${c.t}</b><small>${ITEMS.filter(x=>x.cat===c.k).length} model</small></button>`).join('');
+const FAQ=[['Ölçü almaya geliyor musunuz?','Keşif talebi sekmesi bu isteği toplar. Bölge ve kapsam işletmeyle netleştirilip buraya yazılır.'],['Fiyatlar neden yok?','Perde ve halıda fiyat ölçü ve kumaşa göre değişir; demoda fiyat gösterilmedi.'],['Sipariş nasıl veriliyor?','Katalogdaki listeniz WhatsApp mesajına dönüşür; ödeme ve teslimat işletmeyle konuşulur.'],['İçerik güncellenir mi?','Canlıya geçişte ürün ekleme ve fotoğraf yükleme yönetim ekranından yapılır. Bu demodaki ürünler örnektir.']];
+$('#acc').innerHTML=FAQ.map(f=>`<div class="ac"><button type="button">${f[0]}</button><div class="bd2"><p>${f[1]}</p></div></div>`).join('');
+document.addEventListener('click',e=>{const b=e.target.closest('.ac>button');if(b)b.parentElement.classList.toggle('on')});
+/* katalog */
+let fc='',fr='',q='',lim=10;const list=new Map();
+function chips(){$('#chc').innerHTML=`<button aria-pressed="${fc===''}" data-c="">Tümü</button>`+CATS.map(c=>`<button aria-pressed="${fc===c.k}" data-c="${c.k}">${c.t}</button>`).join('');$('#chr').innerHTML=`<button aria-pressed="${fr===''}" data-r="">Tüm renkler</button>`+COLS.map(c=>`<button aria-pressed="${fr===c[0]}" data-r="${c[0]}">● ${c[1]}</button>`).join('')}
+function render(){const r=ITEMS.filter(i=>(!fc||i.cat===fc)&&(!fr||i.col===fr)&&(!q||nrm(i.name+' '+i.cn+' '+i.ct).includes(nrm(q))));
+$('#cn').textContent=r.length+' ürün';
+$('#grid').innerHTML=r.slice(0,lim).map(i=>`<article class="pc">${art(i.cat,i.hex)}<div class="in"><b>${i.name}</b><small>${i.cn} · ${i.ct}</small><button data-add="${i.id}" class="${list.has(i.id)?'on':''}">${list.has(i.id)?'Listede ✓':'Listeye ekle'}</button></div></article>`).join('')||'<p class="sub" style="grid-column:1/-1;text-align:center;padding:30px 0">Eşleşen ürün yok.</p>';
+$('#more').innerHTML=r.length>lim?`<button class="bt o" id="mb" type="button">Daha fazla (${r.length-lim})</button>`:'';chips();sync()}
+function sync(){const a=[...list.values()];$('#bdg').textContent='Liste: '+a.length;$('#fab').hidden=!a.length;$('#fab').textContent='Listem · '+a.length;const t=$('#tbc');t.hidden=!a.length;t.textContent=a.length;
+$('#ul').innerHTML=a.length?a.map(i=>`<li><span>${i.name}<br><small style="color:var(--mut)">${i.cn}</small></span><button data-rm="${i.id}" aria-label="Çıkar">×</button></li>`).join(''):'<li style="color:var(--mut)">Liste boş.</li>';
+const m=a.length?'Merhaba, NvlHomedesign kataloğundan şunlar hakkında bilgi almak istiyorum:\n'+a.map((i,n)=>(n+1)+'. '+i.name+' ('+i.cn+')').join('\n')+'\nÖlçü ve fiyat için dönüş yapar mısınız?':'';$('#msg').value=m;$('#swa').href=m?wa(m):'#';if(!a.length)closeSh()}
+function openSh(){$('#sh').classList.add('on');$('#scr').classList.add('on')}function closeSh(){$('#sh').classList.remove('on');$('#scr').classList.remove('on')}
+document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;
+if(t.dataset.cat!==undefined){fc=t.dataset.cat;lim=10;go('ka')}
+else if(t.dataset.add!==undefined){const i=ITEMS[+t.dataset.add];list.has(i.id)?list.delete(i.id):list.set(i.id,i);render()}
+else if(t.dataset.rm!==undefined){list.delete(+t.dataset.rm);render()}
+else if(t.closest('#chc')){fc=t.dataset.c;lim=10;render()}
+else if(t.closest('#chr')){fr=t.dataset.r;lim=10;render()}
+else if(t.id==='mb'){lim+=10;render()}
+else if(t.id==='fab')openSh();else if(t.id==='cls')closeSh();
+else if(t.id==='clr'){list.clear();render()}
+else if(t.id==='cp'){navigator.clipboard&&navigator.clipboard.writeText($('#msg').value);t.textContent='Kopyalandı ✓';setTimeout(()=>t.textContent='Kopyala',1400)}});
+$('#scr').addEventListener('click',closeSh);
+$('#q').addEventListener('input',e=>{q=e.target.value;lim=10;render()});
+/* planlayıcı */
+let mode='perde';const PV={w:240,h:250,p:2.5,n:2,tul:1,rw:400,rh:500,m:50};
+function pfRender(){ if(mode==='perde')$('#pf').innerHTML=`<div class="fd"><label for="a1">Pencere genişliği <b id="a1v">${PV.w} cm</b></label><input type="range" id="a1" min="60" max="700" step="5" value="${PV.w}"></div><div class="fd"><label for="a2">Perde boyu <b id="a2v">${PV.h} cm</b></label><input type="range" id="a2" min="100" max="350" step="5" value="${PV.h}"></div><div class="fd"><label for="a3">Pile oranı</label><select id="a3"><option value="2">1:2 hafif</option><option value="2.5">1:2,5 dengeli</option><option value="3">1:3 bol</option></select></div><div class="tg2" id="a4"><button aria-pressed="${PV.n===1}" data-n="1">Tek kanat</button><button aria-pressed="${PV.n===2}" data-n="2">Çift kanat</button></div>`;
+else $('#pf').innerHTML=`<div class="fd"><label for="b1">Oda genişliği <b id="b1v">${PV.rw} cm</b></label><input type="range" id="b1" min="200" max="800" step="10" value="${PV.rw}"></div><div class="fd"><label for="b2">Oda uzunluğu <b id="b2v">${PV.rh} cm</b></label><input type="range" id="b2" min="200" max="900" step="10" value="${PV.rh}"></div><div class="fd"><label for="b3">Duvardan boşluk</label><select id="b3"><option value="30">30 cm</option><option value="50">50 cm (önerilen)</option><option value="70">70 cm</option></select></div>`;
+const s3=$('#a3');if(s3)s3.value=String(PV.p);const b3=$('#b3');if(b3)b3.value=String(PV.m);pl()}
+function pl(){ if(mode==='perde'){const en=PV.w*PV.p*1.1,mtr=en/100,fold=Math.round(3+PV.p*2.2);
+$('#po').innerHTML=`<div class="nt" style="margin:0 0 4px">Yaklaşık perde kumaşı</div><div class="big">${mtr.toFixed(1).replace('.',',')} <small>metre (en)</small></div><div class="l"><span>Pile sonrası toplam en</span><b>${Math.round(en)} cm</b></div><div class="l"><span>Kanat başına</span><b>${Math.round(en/PV.n)} cm</b></div><div class="l"><span>Dikim boyu (pay dahil)</span><b>${PV.h+25} cm</b></div><div class="l"><span>140 cm enli kumaşta</span><b>${Math.ceil(en/140)} en</b></div><div class="nt">%10 yan kıvrım payı dahildir. Kumaş eni ve desene göre değişir; kesin ölçü keşifte alınır.</div>`;
+let s='<rect width="320" height="170" fill="#262a36"/><rect x="50" y="26" width="220" height="116" fill="#2f3a4d" stroke="#8a7c6b" stroke-width="3"/><rect x="34" y="14" width="252" height="9" rx="4" fill="#c9a977"/>';
+const dr=(x0,wd)=>{let t='';for(let i=0;i<fold;i++){const x=x0+i*(wd/fold);t+=`<path d="M${x+wd/fold/2} 24 C${x} 66 ${x+wd/fold} 110 ${x+wd/fold/2} 156" stroke="${i%2?'#9c5238':'#c47a5a'}" stroke-width="${wd/fold*.8}" fill="none"/>`}return t};
+s+=PV.n===2?dr(40,128)+dr(152,128):dr(40,240);$('#psv').innerHTML=s;
+$('#pwa').href=wa(`Merhaba, perde için ölçü hesabı yaptım: genişlik ${PV.w} cm, boy ${PV.h} cm, pile 1:${String(PV.p).replace('.',',')}, ${PV.n===2?'çift':'tek'} kanat. Yaklaşık ${mtr.toFixed(1).replace('.',',')} m kumaş çıktı. Bilgi alabilir miyim?`)}
+else{const RUG=[[80,150],[120,170],[160,230],[200,290],[240,340],[300,400]];const aw=PV.rw-2*PV.m,ah=PV.rh-2*PV.m;let best=null;RUG.forEach(r=>{if(r[0]<=aw&&r[1]<=ah)best=r});
+$('#po').innerHTML=`<div class="nt" style="margin:0 0 4px">Önerilen halı ebadı</div><div class="big">${best?best[0]+' × '+best[1]:'Oda çok küçük'} <small>${best?'cm':''}</small></div><div class="l"><span>Halı için kullanılabilir alan</span><b>${aw} × ${ah} cm</b></div>${RUG.map(r=>`<div class="l"><span>${r[0]} × ${r[1]} cm</span><b>${best&&r===best?'Önerilen':(r[0]<=aw&&r[1]<=ah?'Sığar':'Büyük gelir')}</b></div>`).join('')}<div class="nt">Yaygın ebatlar örnektir; halı seçimine göre netleşir.</div>`;
+$('#psv').innerHTML=`<rect width="320" height="170" fill="#262a36"/><rect x="20" y="12" width="280" height="146" fill="#1d2029" stroke="#8a7c6b" stroke-width="3"/>${best?`<rect x="${160-best[0]/PV.rw*130}" y="${85-best[1]/PV.rh*68}" width="${best[0]/PV.rw*260}" height="${best[1]/PV.rh*136}" fill="#b9603f" opacity=".8" stroke="#e0a35f"/>`:''}`;
+$('#pwa').href=wa(`Merhaba, oda ölçüm ${PV.rw} × ${PV.rh} cm. Halı hesabına göre ${best?best[0]+' × '+best[1]+' cm':'uygun ebat'} çıktı. Seçenekleri görebilir miyim?`)}}
+$('#pf').addEventListener('input',e=>{const t=e.target,v=+t.value;if(t.id==='a1'){PV.w=v;$('#a1v').textContent=v+' cm'}else if(t.id==='a2'){PV.h=v;$('#a2v').textContent=v+' cm'}else if(t.id==='a3')PV.p=v;else if(t.id==='b1'){PV.rw=v;$('#b1v').textContent=v+' cm'}else if(t.id==='b2'){PV.rh=v;$('#b2v').textContent=v+' cm'}else if(t.id==='b3')PV.m=v;pl()});
+$('#pf').addEventListener('click',e=>{const t=e.target.closest('[data-n]');if(!t)return;PV.n=+t.dataset.n;$$('#a4 button').forEach(b=>b.setAttribute('aria-pressed',b===t));pl()});
+$('#mod').addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;mode=t.dataset.m;$$('#mod button').forEach(b=>b.setAttribute('aria-pressed',b===t));pfRender()});
+/* talep */
+const T={mek:'',need:new Set(),gun:'',saat:''};
+const MEK=['Salon','Yatak odası','Çocuk odası','Mutfak','Ofis / iş yeri','Diğer'];
+const DG=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+const GUN=[];{const d=new Date();for(let i=1;GUN.length<6;i++){const x=new Date(d);x.setDate(d.getDate()+i);if(x.getDay()!==0)GUN.push(DG[x.getDay()]+' '+x.getDate()+'.'+String(x.getMonth()+1).padStart(2,'0'))}}
+const SAAT=['Sabah','Öğleden sonra','Akşam'];
+function tr(){ $('#t1').innerHTML=MEK.map(m=>`<button data-k="mek" data-v="${m}" aria-pressed="${T.mek===m}">${m}</button>`).join('');
+$('#t2').innerHTML=CATS.map(c=>`<button data-k="need" data-v="${c.t}" aria-pressed="${T.need.has(c.t)}">${c.t}</button>`).join('');
+$('#t3').innerHTML=GUN.map(g=>`<button data-k="gun" data-v="${g}" aria-pressed="${T.gun===g}">${g}</button>`).join('');
+$('#t4').innerHTML=SAAT.map(g=>`<button data-k="saat" data-v="${g}" aria-pressed="${T.saat===g}">${g}</button>`).join('');
+const done=[T.mek,T.need.size,T.gun&&T.saat].filter(Boolean).length;$('#tpr').style.width=Math.round(done/3*100)+'%';
+const a=$('#tad').value.trim(),n=$('#tnt').value.trim();
+const m=done<3?'Adımları tamamlayınca mesajınız burada oluşur.':`Merhaba${a?', ben '+a:''}. Ücretsiz keşif talep ediyorum.\nMekân: ${T.mek}\nİhtiyaç: ${[...T.need].join(', ')}\nUygun zaman: ${T.gun}, ${T.saat}${n?'\nNot: '+n:''}`;
+$('#tsum').textContent=m;$('#twa').href=done<3?'#':wa(m);$('#twa').style.opacity=done<3?.5:1}
+['t1','t2','t3','t4'].forEach(id=>$('#'+id).addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const k=t.dataset.k,v=t.dataset.v;if(k==='need')T.need.has(v)?T.need.delete(v):T.need.add(v);else T[k]=v;tr()}));
+['tad','tnt'].forEach(i=>$('#'+i).addEventListener('input',tr));
+/* google */
+const GK=['Google İşletme Profili sahiplenildi','Kategori ve ilçe doğru girildi','Çalışma saatleri güncel','10+ gerçek fotoğraf yüklü','Müşterilerden yorum isteniyor','Site telefonda hızlı, "Ara/WhatsApp" düğmeli','Ürün grupları için ayrı sayfalar var'];
+$('#gst').innerHTML=GK.map(g=>`<label><input type="checkbox"><span>${g}</span></label>`).join('');
+function gg(){const n=$$('#gst input:checked').length,p=Math.round(n/GK.length*100);const nx=GK.find((g,i)=>!$$('#gst input')[i].checked);
+$('#gout').innerHTML=`<div class="big">%${p} <small>hazır</small></div><div class="pr" style="margin:10px 0"><i style="width:${p}%"></i></div><div class="nt">${nx?'Sıradaki adım: '+nx:'Tüm maddeler tamam.'}</div>`}
+$('#gst').addEventListener('change',gg);gg();
+pfRender();render();tr();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>

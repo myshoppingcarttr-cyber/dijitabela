@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="NvlHomedesign için Vitrin yerleşimi: ev tekstili ve dekorasyon kataloğu, perde kumaş hesaplayıcı, ücretsiz keşif talebi ve WhatsApp ile sipariş listesi.">
+<title>NvlHomedesign · Vitrin · Dijitabela demo</title>
+<style>
+:root{--bg:#faf6ef;--ink:#2a2320;--mut:#6f645c;--ac:#b9603f;--ac2:#8f4527;--ln:#e8dfd1;--card:#fff;--sand:#efe5d3;--ok:#4f7a4a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 system-ui,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+.k{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+h1,h2,h3{line-height:1.12;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:999px;background:var(--ac);color:#fff;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:1rem;font-family:inherit;transition:.2s}
+.btn:hover{background:var(--ac2);transform:translateY(-2px)}
+.btn.o{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.o:hover{background:var(--ink);color:#fff}
+.btn.wa{background:#1f9d55}.btn.wa:hover{background:#17803f}
+.btn.sm{min-height:40px;padding:8px 16px;font-size:.9rem}
+/* üst şerit + menü */
+.top{background:var(--ink);color:#e9dfd2;font-size:.82rem;text-align:center;padding:8px 12px}
+nav{position:sticky;top:0;z-index:30;background:rgba(250,246,239,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+nav .k{display:flex;align-items:center;gap:20px;min-height:70px}
+.logo{font:700 1.35rem/1 Georgia,"Times New Roman",serif;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
+.logo i{width:34px;height:34px;border-radius:10px;background:var(--ac);display:grid;place-items:center;color:#fff;font:700 1rem Georgia,serif;font-style:normal}
+nav .lk{display:flex;gap:22px}
+nav .lk a{text-decoration:none;font-weight:600;font-size:.93rem;color:var(--mut)}
+nav .lk a:hover{color:var(--ac)}
+@media(max-width:860px){nav .lk{display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(40px,7vw,90px) 0 clamp(50px,7vw,80px)}
+.hero .g{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,60px);align-items:center}
+@media(max-width:900px){.hero .g{grid-template-columns:minmax(0,1fr)}}
+.et{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);font-weight:800}
+.hero h1{font:700 clamp(2.3rem,6vw,4.4rem)/1.04 Georgia,"Times New Roman",serif;margin:14px 0 18px}
+.hero h1 em{color:var(--ac);font-style:italic}
+.hero p.lead{font-size:1.12rem;color:var(--mut);max-width:560px}
+.hero .bt{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .mini{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:var(--mut);font-size:.9rem}
+.hero .mini span:before{content:"✓ ";color:var(--ok);font-weight:800}
+.vit{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,56px);gap:12px}
+@media(max-width:900px){.vit{grid-template-rows:repeat(6,44px)}}
+.vit div{border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -18px rgba(42,35,32,.45);position:relative}
+.vit div svg{width:100%;height:100%;display:block}
+.vit div span{position:absolute;left:12px;bottom:10px;font-size:.78rem;font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.45)}
+.vit .a{grid-column:1/5;grid-row:1/5}.vit .b{grid-column:5/7;grid-row:1/4}.vit .c{grid-column:5/7;grid-row:4/7}.vit .d{grid-column:1/3;grid-row:5/7}.vit .e{grid-column:3/5;grid-row:5/7}
+/* bölümler */
+section{padding:clamp(48px,7vw,84px) 0}
+.sh{max-width:680px;margin-bottom:34px}
+.sh h2{font:700 clamp(1.8rem,4.4vw,2.8rem)/1.1 Georgia,"Times New Roman",serif;margin:10px 0 10px}
+.sh p{color:var(--mut)}
+.band{background:var(--sand)}
+.cats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+@media(max-width:980px){.cats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cat{border:0;background:var(--card);border-radius:20px;padding:0 0 14px;cursor:pointer;text-align:center;font-family:inherit;color:inherit;border:1.5px solid transparent;overflow:hidden;transition:.2s}
+.cat:hover{transform:translateY(-4px);border-color:var(--ac)}
+.cat svg{width:100%;height:96px;display:block;margin-bottom:10px}
+.cat b{display:block;font-size:.98rem}
+.cat small{color:var(--mut)}
+/* katalog */
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.tools input[type=search]{flex:1 1 240px;min-height:48px;border-radius:999px;border:1.5px solid var(--ln);padding:0 20px;font:inherit;background:#fff}
+.tools input:focus,.fld input:focus,.fld select:focus{outline:2px solid var(--ac);outline-offset:1px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{min-height:40px;padding:6px 16px;border-radius:999px;border:1.5px solid var(--ln);background:#fff;font:600 .88rem system-ui;font-family:inherit;cursor:pointer;color:var(--ink);transition:.15s}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sw{display:inline-flex;gap:6px;align-items:center}
+.sw i{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.2)}
+.cat-lay{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:26px;align-items:start}
+@media(max-width:1020px){.cat-lay{grid-template-columns:minmax(0,1fr)}}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.pc{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--ln);display:flex;flex-direction:column}
+.pc svg{width:100%;height:auto;display:block;aspect-ratio:5/3}
+.pc .in{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.pc h3{font-size:.98rem}
+.pc small{color:var(--mut);font-size:.82rem}
+.pc .rw{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;gap:8px}
+.pc .fy{font-size:.8rem;color:var(--mut)}
+.empty{padding:36px;text-align:center;color:var(--mut);border:1.5px dashed var(--ln);border-radius:18px}
+.lst{position:sticky;top:86px;background:#fff;border:1px solid var(--ln);border-radius:20px;padding:20px}
+.lst h3{font:700 1.2rem Georgia,serif;margin-bottom:4px}
+.lst ul{list-style:none;margin:12px 0;max-height:280px;overflow:auto}
+.lst li{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--ln);font-size:.9rem}
+.lst li button{background:none;border:0;color:var(--ac);font-size:1.2rem;cursor:pointer;min-width:32px;min-height:32px}
+.lst textarea{width:100%;min-height:96px;border:1.5px solid var(--ln);border-radius:12px;padding:10px;font:inherit;font-size:.85rem;margin-bottom:10px;background:var(--bg);resize:vertical}
+.lst .row{display:flex;gap:8px;flex-wrap:wrap}
+.more{margin-top:18px;text-align:center}
+/* hesaplayıcı */
+.box{background:#fff;border:1px solid var(--ln);border-radius:24px;padding:clamp(18px,3vw,32px)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,36px)}
+@media(max-width:820px){.calc{grid-template-columns:minmax(0,1fr)}}
+.fld{display:grid;gap:6px;margin-bottom:14px}
+.fld label{font-weight:700;font-size:.9rem;display:flex;justify-content:space-between}
+.fld input[type=number],.fld input[type=text],.fld select{min-height:48px;border-radius:12px;border:1.5px solid var(--ln);padding:0 14px;font:inherit;background:var(--bg);width:100%}
+.fld input[type=range]{width:100%;accent-color:var(--ac)}
+.res{background:var(--ink);color:#f3ebe0;border-radius:20px;padding:24px;display:grid;gap:10px;align-content:start}
+.res .big{font:700 2.6rem/1 Georgia,serif;color:#fff}
+.res .big small{font-size:1rem;color:#cdbfae;font-family:system-ui}
+.res .ln{display:flex;justify-content:space-between;gap:10px;border-top:1px solid rgba(255,255,255,.14);padding-top:8px;font-size:.92rem}
+.res .nt{font-size:.8rem;color:#cdbfae}
+.pv{background:var(--sand);border-radius:16px;padding:14px;margin-bottom:6px}
+.pv svg{width:100%;height:150px;display:block}
+/* sihirbaz */
+.wz{max-width:760px;margin:0 auto}
+.stp{display:flex;gap:6px;margin-bottom:22px}
+.stp i{flex:1;height:6px;border-radius:6px;background:var(--ln);transition:.3s}
+.stp i.on{background:var(--ac)}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0 22px}
+.opt{min-height:56px;border:1.5px solid var(--ln);border-radius:14px;background:#fff;padding:10px 14px;font:600 .95rem system-ui;font-family:inherit;cursor:pointer;text-align:left;transition:.15s}
+.opt[aria-pressed=true]{border-color:var(--ac);background:#fbeee7;color:var(--ac2)}
+.wz h3{font:700 1.4rem Georgia,serif}
+.nav2{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.sum{background:var(--bg);border:1px dashed var(--ac);border-radius:16px;padding:16px;white-space:pre-wrap;font-size:.92rem;margin-bottom:16px}
+/* google kontrol */
+.gg{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(18px,3vw,34px)}
+@media(max-width:860px){.gg{grid-template-columns:minmax(0,1fr)}}
+.ck{display:grid;gap:8px}
+.ck label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1.5px solid var(--ln);border-radius:14px;background:#fff;cursor:pointer;font-size:.94rem}
+.ck input{width:22px;height:22px;accent-color:var(--ac);flex:none;margin-top:2px}
+.ck label:has(input:checked){border-color:var(--ok);background:#f1f7ef}
+.ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;background:conic-gradient(var(--ac) var(--p,0%),var(--ln) 0)}
+.ring span{width:112px;height:112px;border-radius:50%;background:#fff;display:grid;place-items:center;font:700 2rem Georgia,serif}
+.faq details{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer;min-height:28px}
+.faq p{color:var(--mut);margin-top:8px}
+footer{background:var(--ink);color:#cbbfb0;padding:44px 0 100px;font-size:.9rem}
+footer b{color:#fff;font-family:Georgia,serif;font-size:1.2rem}
+.wf{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 12px 28px -8px rgba(0,0,0,.4)}
+.not{margin-top:22px;font-size:.78rem;color:#9d9185}
+</style>
+</head>
+<body>
+<div class="top">Ön çalışma demosu · Ürün adları ve kategoriler örnek veridir, fiyat gösterilmez</div>
+<nav><div class="k">
+<a class="logo" href="#ust"><i>N</i>NvlHomedesign</a>
+<div class="lk"><a href="#kategori">Koleksiyon</a><a href="#katalog">Katalog</a><a href="#hesap">Perde hesabı</a><a href="#kesif">Ücretsiz keşif</a><a href="#google">Google'da bulunun</a><a href="#sss">Sorular</a></div>
+<a class="btn sm wa" href="#kesif">Keşif iste</a>
+</div></nav>
+
+<header class="hero" id="ust"><div class="k g">
+<div>
+<span class="et">Ev tekstili &amp; dekorasyon</span>
+<h1>Evinize <em>yakışan</em> kumaşı, ölçüsünü bilerek seçin.</h1>
+<p class="lead">Kataloğu gezin, beğendiklerinizi listeye ekleyin, listeniz tek dokunuşla WhatsApp mesajına dönüşsün. Perde için kumaş miktarını kendiniz hesaplayın; ölçü ve keşif için gün seçin.</p>
+<div class="bt"><a class="btn" href="#katalog">Kataloğu gez</a><a class="btn o" href="#hesap">Perde kumaşı hesapla</a></div>
+<div class="mini"><span>Telefondan rahat kullanım</span><span>Listeyi WhatsApp'a gönderin</span><span>Google'da bulunabilir yapı</span></div>
+</div>
+<div class="vit" id="vit" aria-hidden="true"></div>
+</div></header>
+
+<section class="band" id="kategori"><div class="k">
+<div class="sh"><span class="et">Koleksiyon</span><h2>Odaya göre değil, ihtiyaca göre gezin.</h2><p>Bir kategoriye dokunun; katalog o gruba süzülür. (Kategoriler örnektir; gerçek koleksiyonunuzla değiştirilir.)</p></div>
+<div class="cats" id="cats"></div>
+</div></section>
+
+<section id="katalog"><div class="k">
+<div class="sh"><span class="et">Canlı katalog</span><h2>Ara, süz, listeye ekle.</h2><p>Arama kutusu yazdıkça süzer. Renk ve kategori birlikte çalışır. Listenizi WhatsApp'ta mesaj olarak gönderebilirsiniz.</p></div>
+<div class="tools"><input type="search" id="q" placeholder="Örn. kadife, runner, kilim…" aria-label="Katalogda ara"><span id="cnt" style="color:var(--mut);font-size:.9rem"></span></div>
+<div class="chips" id="fc" role="group" aria-label="Kategori"></div>
+<div class="chips" id="fr" role="group" aria-label="Renk"></div>
+<div class="cat-lay">
+<div><div class="grid" id="grid"></div><div class="more" id="more"></div></div>
+<aside class="lst" aria-live="polite"><h3>Listem</h3><small style="color:var(--mut)">Seçtiğiniz ürünler burada toplanır.</small>
+<ul id="ul"></ul>
+<textarea id="msg" readonly aria-label="WhatsApp mesajı"></textarea>
+<div class="row"><a class="btn wa sm" id="sendwa" href="#" target="_blank" rel="noopener">WhatsApp'a gönder</a><button class="btn o sm" id="cp" type="button">Kopyala</button><button class="btn o sm" id="clr" type="button">Temizle</button></div>
+<p class="not">Mesaj, numarayı sizin seçmenize izin veren WhatsApp bağlantısıyla açılır; canlıya geçişte işletme numarası tanımlanır.</p></aside>
+</div>
+</div></section>
+
+<section class="band" id="hesap"><div class="k">
+<div class="sh"><span class="et">Perde kumaş hesaplayıcı</span><h2>Kaç metre kumaş gerekir?</h2><p>Pencere ölçünüzü ve pile sıklığını seçin, yaklaşık kumaş miktarını görün. Kesin ölçü keşifte alınır.</p></div>
+<div class="box calc">
+<div>
+<div class="fld"><label for="cw">Korniş / pencere genişliği <b id="cwv">240 cm</b></label><input type="range" id="cw" min="60" max="700" step="5" value="240"></div>
+<div class="fld"><label for="ch">Perde boyu (tavan-zemin) <b id="chv">250 cm</b></label><input type="range" id="ch" min="100" max="350" step="5" value="250"></div>
+<div class="fld"><label for="cp2">Pile (kırım) oranı</label><select id="cp2"><option value="2">1:2 — hafif, sade görünüm</option><option value="2.5" selected>1:2,5 — dengeli, en yaygın</option><option value="3">1:3 — bol ve dökümlü</option></select></div>
+<div class="fld"><label for="cn">Kanat sayısı</label><select id="cn"><option value="1">Tek kanat</option><option value="2" selected>Çift kanat (iki yana açılır)</option></select></div>
+<div class="fld"><label for="ctul">Tül de olacak mı?</label><select id="ctul"><option value="0">Hayır, yalnız perde</option><option value="1" selected>Evet, tül + perde</option></select></div>
+</div>
+<div>
+<div class="pv"><svg id="pvs" viewBox="0 0 300 150" role="img" aria-label="Perde önizleme"></svg></div>
+<div class="res" id="res" aria-live="polite"></div>
+<div style="margin-top:12px"><a class="btn wa" id="cwa" href="#" target="_blank" rel="noopener">Bu ölçüyle WhatsApp'tan sor</a></div>
+</div>
+</div>
+</div></section>
+
+<section id="kesif"><div class="k">
+<div class="sh"><span class="et">Ücretsiz keşif sihirbazı</span><h2>Dört adımda keşif talebi.</h2><p>Mekânı, ihtiyacı ve uygun günü seçin; özet mesajınız hazır olsun.</p></div>
+<div class="box wz" id="wz"></div>
+</div></section>
+
+<section class="band" id="google"><div class="k">
+<div class="sh"><span class="et">Google'da bulunun</span><h2>Yerel arama kontrol listesi.</h2><p>Mahallenizde "ev tekstili" ya da "perde" arayan biri sizi bulabiliyor mu? Aşağıdaki maddeleri işaretleyin; skor anlık güncellenir.</p></div>
+<div class="gg">
+<div class="ck" id="ck"></div>
+<div class="box"><div class="ring" id="ring"><span id="rv">0</span></div>
+<p id="rt" style="text-align:center;font-weight:700"></p>
+<p id="rtip" style="text-align:center;color:var(--mut);font-size:.92rem;margin:6px 0 16px"></p>
+<div class="fld"><label for="yn">Yorum isteme mesajı (müşterinize gönderilir)</label><input type="text" id="yn" placeholder="Müşteri adı (isteğe bağlı)"></div>
+<textarea id="ym" readonly style="width:100%;min-height:110px;border:1.5px solid var(--ln);border-radius:12px;padding:10px;font:inherit;font-size:.88rem;background:var(--bg)"></textarea>
+<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><a class="btn wa sm" id="ywa" href="#" target="_blank" rel="noopener">WhatsApp'ta aç</a><button class="btn o sm" id="ycp" type="button">Kopyala</button></div>
+</div>
+</div>
+</div></section>
+
+<section id="sss"><div class="k">
+<div class="sh"><span class="et">Sık sorulanlar</span><h2>Merak edilenler</h2></div>
+<div class="faq" style="max-width:780px">
+<details><summary>Ölçü almak için eve geliniyor mu?</summary><p>Keşif sihirbazı bu talebi toplar. Kapsam ve bölgeler işletmeyle netleştirilip bu bölüme yazılır.</p></details>
+<details><summary>Fiyatlar neden sitede yok?</summary><p>Perde ve halı gibi ürünlerde fiyat ölçüye ve kumaşa göre değiştiği için bu demoda fiyat gösterilmedi. İsterseniz katalog "ölçüye göre fiyat" mantığıyla çalışabilir.</p></details>
+<details><summary>Sipariş nasıl veriliyor?</summary><p>Listenizi WhatsApp mesajına çevirip gönderirsiniz; ödeme ve teslimat adımları işletmeyle konuşulur.</p></details>
+<details><summary>Kataloğu kim güncelliyor?</summary><p>Canlıya geçişte ürün ekleme ve fotoğraf yükleme yönetim ekranından yapılır; bu demoda içerik örnek veridir.</p></details>
+</div>
+</div></section>
+
+<footer><div class="k"><b>NvlHomedesign</b><p style="margin-top:8px">Telefon: 0 (5xx) xxx xx xx · Adres ve çalışma saatleri: işletmeyle netleşecek</p><p class="not">Bu bir ön çalışma demosudur · dijitabela.com</p></div></footer>
+<a class="btn wa wf" href="#kesif">WhatsApp ile yaz</a>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const wa=m=>'https://wa.me/?text='+encodeURIComponent(m);
+function shade(h,a){const n=parseInt(h.slice(1),16),c=x=>Math.max(0,Math.min(255,x));return '#'+((1<<24)+(c((n>>16)+a)<<16)+(c((n>>8&255)+a)<<8)+c((n&255)+a)).toString(16).slice(1)}
+function art(cat,hex){const d=shade(hex,-40),l=shade(hex,34);let b='';
+if(cat==='perde'||cat==='tul'){const t=cat==='tul';for(let i=0;i<10;i++)b+=`<path d="M${i*20+10} 8 C${i*20+1} 45 ${i*20+19} 85 ${i*20+10} 112" stroke="${i%2?d:l}" stroke-width="${t?3:9}" fill="none" opacity="${t?.55:.6}"/>`;b+=`<rect width="200" height="9" fill="${d}"/>`;}
+else if(cat==='hali'){for(let i=0;i<5;i++){const w=14+i*17,h=8+i*10;b+=`<polygon points="100,${60-h} ${100+w},60 100,${60+h} ${100-w},60" fill="none" stroke="${i%2?d:l}" stroke-width="3.5"/>`}b+=`<rect x="6" y="6" width="188" height="108" fill="none" stroke="${d}" stroke-width="2" stroke-dasharray="4 4"/>`}
+else if(cat==='yatak'){for(let i=0;i<6;i++)b+=`<rect x="0" y="${i*20}" width="200" height="10" fill="${i%2?d:l}" opacity=".5"/>`;b+=`<rect x="22" y="14" width="64" height="26" rx="8" fill="${l}" stroke="${d}"/><rect x="114" y="14" width="64" height="26" rx="8" fill="${l}" stroke="${d}"/>`}
+else if(cat==='masa'){b+=`<rect x="0" y="40" width="200" height="40" fill="${l}"/>`;for(let i=0;i<20;i++)b+=`<rect x="${i*10+2}" y="${i%2?44:58}" width="6" height="12" fill="${d}" opacity=".7"/>`;b+=`<rect x="0" y="40" width="200" height="3" fill="${d}"/><rect x="0" y="77" width="200" height="3" fill="${d}"/>`}
+else{b+=`<rect x="54" y="14" width="92" height="92" rx="20" fill="${l}" stroke="${d}" stroke-width="3"/>`;for(let i=0;i<3;i++)for(let j=0;j<3;j++)b+=`<path d="M${74+i*26} ${34+j*26}l8 8m0-8l-8 8" stroke="${d}" stroke-width="2.4"/>`}
+return `<svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="${hex}"/>${b}</svg>`}
+const CATS=[{k:'perde',t:'Perde',m:['Keten görünümlü perde','Kadife perde','Karartma perde']},{k:'tul',t:'Tül & fon',m:['Düz tül','Dokulu fon perde','File tül']},{k:'hali',t:'Halı & kilim',m:['Yolluk halı','Salon halısı','Kilim']},{k:'yatak',t:'Yatak örtüsü',m:['Pike takımı','Yatak örtüsü','Battaniye']},{k:'masa',t:'Masa tekstili',m:['Runner','Masa örtüsü','Amerikan servis']},{k:'yastik',t:'Kırlent',m:['Kadife kırlent','Dokuma kırlent','Kırlent kılıfı']}];
+const COLS=[['kum','Kum','#d9c7a8'],['antrasit','Antrasit','#3b3f46'],['zeytin','Zeytin','#7a8052'],['kiremit','Kiremit','#b9603f'],['lacivert','Lacivert','#25365c'],['krem','Krem','#efe6d4']];
+const ITEMS=[];CATS.forEach((c,ci)=>c.m.forEach((m,mi)=>{for(let k=0;k<3;k++){const col=COLS[(ci+mi*2+k*2)%6];ITEMS.push({id:ITEMS.length,cat:c.k,ct:c.t,name:m,col:col[0],cn:col[1],hex:col[2]})}}));
+/* hero vitrin */
+$('#vit').innerHTML=[['a','perde','#d9c7a8','Perde'],['b','hali','#b9603f','Halı'],['c','yastik','#7a8052','Kırlent'],['d','yatak','#25365c','Yatak'],['e','masa','#3b3f46','Masa']].map(x=>`<div class="${x[0]}">${art(x[1],x[2])}<span>${x[3]}</span></div>`).join('');
+/* kategori kartları */
+$('#cats').innerHTML=CATS.map(c=>`<button class="cat" data-c="${c.k}">${art(c.k,COLS[CATS.indexOf(c)%6][2])}<b>${c.t}</b><small>${ITEMS.filter(i=>i.cat===c.k).length} model</small></button>`).join('');
+/* katalog */
+let fc='',fr='',q='',lim=9;const list=new Map();
+function chips(){ $('#fc').innerHTML=`<button class="chip" aria-pressed="${fc===''}" data-c="">Tümü</button>`+CATS.map(c=>`<button class="chip" aria-pressed="${fc===c.k}" data-c="${c.k}">${c.t}</button>`).join('');
+$('#fr').innerHTML=`<button class="chip" aria-pressed="${fr===''}" data-r="">Tüm renkler</button>`+COLS.map(c=>`<button class="chip" aria-pressed="${fr===c[0]}" data-r="${c[0]}"><span class="sw"><i style="background:${c[2]}"></i>${c[1]}</span></button>`).join('')}
+function norm(s){return s.toLocaleLowerCase('tr').normalize('NFD').replace(/[̀-ͯ]/g,'')}
+function render(){const nq=norm(q);const r=ITEMS.filter(i=>(!fc||i.cat===fc)&&(!fr||i.col===fr)&&(!nq||norm(i.name+' '+i.cn+' '+i.ct).includes(nq)));
+$('#cnt').textContent=r.length+' ürün';
+$('#grid').innerHTML=r.slice(0,lim).map(i=>`<article class="pc">${art(i.cat,i.hex)}<div class="in"><h3>${i.name}</h3><small>${i.ct} · ${i.cn}</small><div class="rw"><span class="fy">Fiyat: ölçüye göre</span><button class="btn sm ${list.has(i.id)?'o':''}" data-add="${i.id}">${list.has(i.id)?'Listede ✓':'Listeme ekle'}</button></div></div></article>`).join('')||'<div class="empty" style="grid-column:1/-1">Bu aramayla ürün bulunamadı. Filtreleri temizleyin.</div>';
+$('#more').innerHTML=r.length>lim?`<button class="btn o" id="mb">Daha fazla göster (${r.length-lim})</button>`:'';chips();renderList()}
+function renderList(){const a=[...list.values()];$('#ul').innerHTML=a.length?a.map(i=>`<li><span>${i.name}<br><small style="color:var(--mut)">${i.cn}</small></span><button data-rm="${i.id}" aria-label="Çıkar">×</button></li>`).join(''):'<li style="color:var(--mut)">Henüz ürün eklemediniz.</li>';
+const m=a.length?`Merhaba, NvlHomedesign kataloğundan şu ürünler hakkında bilgi almak istiyorum:\n`+a.map((i,n)=>`${n+1}. ${i.name} (${i.cn})`).join('\n')+`\nÖlçü ve fiyat için dönüş yapabilir misiniz?`:'';
+$('#msg').value=m||'Listeye ürün ekleyince mesaj burada oluşur.';$('#sendwa').href=m?wa(m):'#';$('#sendwa').style.opacity=m?1:.5}
+document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t)return;
+if(t.dataset.add!==undefined){const i=ITEMS[+t.dataset.add];list.has(i.id)?list.delete(i.id):list.set(i.id,i);render()}
+else if(t.dataset.rm!==undefined){list.delete(+t.dataset.rm);render()}
+else if(t.classList.contains('chip')&&t.dataset.c!==undefined){fc=t.dataset.c;lim=9;render()}
+else if(t.classList.contains('chip')&&t.dataset.r!==undefined){fr=t.dataset.r;lim=9;render()}
+else if(t.id==='mb'){lim+=9;render()}
+else if(t.classList.contains('cat')){fc=t.dataset.c;lim=9;render();$('#katalog').scrollIntoView({behavior:'smooth'})}
+else if(t.id==='clr'){list.clear();render()}
+else if(t.id==='cp'){navigator.clipboard&&navigator.clipboard.writeText($('#msg').value);t.textContent='Kopyalandı ✓';setTimeout(()=>t.textContent='Kopyala',1400)}});
+$('#q').addEventListener('input',e=>{q=e.target.value;lim=9;render()});render();
+/* perde hesabı */
+function calc(){const w=+$('#cw').value,h=+$('#ch').value,p=+$('#cp2').value,n=+$('#cn').value,tul=+$('#ctul').value;
+$('#cwv').textContent=w+' cm';$('#chv').textContent=h+' cm';
+const en=w*p*1.1;const perdeM=en/100;const boyPay=h+25;
+const kanat=en/n;const whole=Math.ceil(en/140);/* 140 cm kumaş eni varsayımı */
+const top=perdeM*(tul?2:1);
+$('#res').innerHTML=`<div class="nt">Yaklaşık perde kumaşı</div><div class="big">${perdeM.toFixed(1).replace('.',',')} <small>metre (en)</small></div>
+<div class="ln"><span>Pile sonrası toplam en</span><b>${Math.round(en)} cm</b></div>
+<div class="ln"><span>Kanat başına en</span><b>${Math.round(kanat)} cm</b></div>
+<div class="ln"><span>Dikim boyu (etek+üst payı dahil)</span><b>${boyPay} cm</b></div>
+<div class="ln"><span>140 cm enli kumaşta kaç en</span><b>${whole} en</b></div>
+${tul?`<div class="ln"><span>Tül için aynı miktar</span><b>${perdeM.toFixed(1).replace('.',',')} m</b></div><div class="ln"><span>Tül + perde toplam</span><b>${top.toFixed(1).replace('.',',')} m</b></div>`:''}
+<div class="nt">%10 yan kıvrım payı eklenmiştir. Kumaş eni ve desen uyumu seçilen kumaşa göre değişir; kesin ölçü keşifte alınır.</div>`;
+/* önizleme */
+let s='<rect width="300" height="150" fill="#efe5d3"/><rect x="40" y="22" width="220" height="108" fill="#dfeaf2" stroke="#8a7c6b" stroke-width="3"/><rect x="26" y="12" width="248" height="8" rx="4" fill="#5c4d40"/>';
+const fold=Math.round(3+p*2.2);const pw=n===2?118:236;
+const drawP=(x0,wd)=>{let t='';for(let i=0;i<fold;i++){const x=x0+i*(wd/fold);t+=`<path d="M${x+wd/fold/2} 20 C${x} 60 ${x+wd/fold} 100 ${x+wd/fold/2} 140" stroke="${i%2?'#9c5238':'#c47a5a'}" stroke-width="${wd/fold*.8}" fill="none"/>`}return t};
+s+=n===2?drawP(32,pw*.62)+drawP(300-32-pw*.62,pw*.62):drawP(32,pw*.9);
+if(tul)s+='<rect x="42" y="24" width="216" height="104" fill="#fff" opacity=".35"/>';
+$('#pvs').innerHTML=s;
+$('#cwa').href=wa(`Merhaba, perde için ölçü hesabı yaptım: genişlik ${w} cm, boy ${h} cm, pile 1:${String(p).replace('.',',')}, ${n===2?'çift':'tek'} kanat${tul?', tül dahil':''}. Yaklaşık ${perdeM.toFixed(1).replace('.',',')} m kumaş çıktı. Bilgi alabilir miyim?`)}
+['cw','ch','cp2','cn','ctul'].forEach(i=>$('#'+i).addEventListener('input',calc));calc();
+/* keşif sihirbazı */
+const WZ={s:0,mek:'',need:new Set(),gun:'',saat:'',ad:''};
+const MEK=['Salon','Yatak odası','Çocuk odası','Mutfak / yemek odası','Ofis / iş yeri','Diğer'];
+const SAAT=['Sabah (09-12)','Öğleden sonra (12-17)','Akşam (17-20)'];
+function days(){const o=[],n=new Date();let d=new Date(n);while(o.length<6){d.setDate(d.getDate()+1);if(d.getDay()!==0)o.push(new Date(d))}return o}
+const DG=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+const fmtD=d=>`${DG[d.getDay()]} ${d.getDate()}.${String(d.getMonth()+1).padStart(2,'0')}`;
+function wz(){const s=WZ.s;let h=`<div class="stp">${[0,1,2,3].map(i=>`<i class="${i<=s?'on':''}"></i>`).join('')}</div>`;
+if(s===0)h+=`<h3>Hangi mekân için?</h3><div class="opts">${MEK.map(m=>`<button class="opt" aria-pressed="${WZ.mek===m}" data-mek="${m}">${m}</button>`).join('')}</div>`;
+if(s===1)h+=`<h3>Neye ihtiyacınız var?</h3><p style="color:var(--mut)">Birden fazla seçebilirsiniz.</p><div class="opts">${CATS.map(c=>`<button class="opt" aria-pressed="${WZ.need.has(c.t)}" data-need="${c.t}">${c.t}</button>`).join('')}</div>`;
+if(s===2)h+=`<h3>Hangi gün ve saat uygun?</h3><div class="opts">${days().map(d=>`<button class="opt" aria-pressed="${WZ.gun===fmtD(d)}" data-gun="${fmtD(d)}">${fmtD(d)}</button>`).join('')}</div><div class="opts">${SAAT.map(x=>`<button class="opt" aria-pressed="${WZ.saat===x}" data-saat="${x}">${x}</button>`).join('')}</div><div class="fld"><label for="wad">Adınız (isteğe bağlı)</label><input type="text" id="wad" value="${WZ.ad}"></div>`;
+if(s===3){const m=wzMsg();h+=`<h3>Özet hazır</h3><div class="sum" id="wsum">${m}</div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn wa" href="${wa(m)}" target="_blank" rel="noopener">WhatsApp'a gönder</a><button class="btn o" data-act="reset">Baştan başla</button></div>`}
+if(s<3){const ok=s===0?WZ.mek:s===1?WZ.need.size:(WZ.gun&&WZ.saat);h+=`<div class="nav2"><button class="btn o" data-act="back" ${s?'':'disabled style="opacity:.4"'}>Geri</button><button class="btn" data-act="next" ${ok?'':'disabled style="opacity:.4"'}>${s===2?'Özeti gör':'Devam'}</button></div>`}
+$('#wz').innerHTML=h;const a=$('#wad');if(a)a.addEventListener('input',e=>WZ.ad=e.target.value)}
+function wzMsg(){return `Merhaba${WZ.ad?', ben '+WZ.ad:''}. Ücretsiz keşif talep ediyorum.\nMekân: ${WZ.mek}\nİhtiyaç: ${[...WZ.need].join(', ')}\nUygun zaman: ${WZ.gun}, ${WZ.saat}\nOnaylar mısınız?`}
+$('#wz').addEventListener('click',e=>{const t=e.target.closest('button');if(!t||t.disabled)return;
+if(t.dataset.mek){WZ.mek=t.dataset.mek}else if(t.dataset.need){WZ.need.has(t.dataset.need)?WZ.need.delete(t.dataset.need):WZ.need.add(t.dataset.need)}
+else if(t.dataset.gun){WZ.gun=t.dataset.gun}else if(t.dataset.saat){WZ.saat=t.dataset.saat}
+else if(t.dataset.act==='next')WZ.s++;else if(t.dataset.act==='back')WZ.s--;else if(t.dataset.act==='reset'){Object.assign(WZ,{s:0,mek:'',gun:'',saat:'',ad:''});WZ.need=new Set()}
+wz()});wz();
+/* google kontrol listesi */
+const CK=[['Google İşletme Profili sahiplenildi ve doğrulandı','Harita ve yerel aramalarda görünmenin ilk şartı.'],['Doğru kategori ve ilçe/adres bilgisi girildi','Kategori, hangi aramalarda çıkacağınızı belirler.'],['Çalışma saatleri güncel (bayram dahil)','Yanlış saat güven kaybettirir.'],['En az 10 gerçek ürün/mekân fotoğrafı yüklendi','Fotoğraflı profiller daha çok tıklanır.'],['Müşterilerden düzenli Google yorumu isteniyor','Yorum sayısı ve yanıtlar sıralamaya katkı verir.'],['Web sitesi telefonda hızlı açılıyor ve "Ara / WhatsApp" düğmesi var','Aramadan gelen kişi hemen ulaşabilmeli.'],['Her ürün grubu için ayrı sayfa/başlık var','Arama motoru "perde", "halı" gibi grupları ayrı görmeli.'],['Instagram bağlantısı siteye ve profile eklendi','Sosyal medya ile site birbirini beslesin.']];
+$('#ck').innerHTML=CK.map((c,i)=>`<label><input type="checkbox" data-i="${i}"><span><b>${c[0]}</b><br><small style="color:var(--mut)">${c[1]}</small></span></label>`).join('');
+function gk(){const n=$$('#ck input:checked').length,p=Math.round(n/CK.length*100);$('#ring').style.setProperty('--p',p+'%');$('#rv').textContent=p;
+$('#rt').textContent=n+' / '+CK.length+' madde tamam';
+const nx=CK.find((c,i)=>!$$('#ck input')[i].checked);$('#rtip').textContent=nx?'Sıradaki adım: '+nx[0]:'Tüm maddeler tamam. Süreklilik için aylık kontrol önerilir.'}
+$('#ck').addEventListener('change',gk);gk();
+function ym(){const a=$('#yn').value.trim();const m=`Merhaba${a?' '+a:''}, bizi tercih ettiğiniz için teşekkür ederiz. Deneyiminizi iki cümleyle Google'da paylaşırsanız bizim için çok değerli olur: [Google yorum bağlantınız]`;$('#ym').value=m;$('#ywa').href=wa(m)}
+$('#yn').addEventListener('input',ym);ym();
+$('#ycp').addEventListener('click',e=>{navigator.clipboard&&navigator.clipboard.writeText($('#ym').value);e.target.textContent='Kopyalandı ✓';setTimeout(()=>e.target.textContent='Kopyala',1400)});
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>
