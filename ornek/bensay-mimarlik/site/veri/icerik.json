@@ -1,0 +1,1758 @@
+{
+ "surum": 2,
+ "meta": {
+  "guncelleme": "varsayilan",
+  "kaynak": "site-uret.py"
+ },
+ "site": {
+  "alan": "https://bensaymimarlik.com/",
+  "yayinda": false,
+  "dil2": true
+ },
+ "marka": {
+  "ad": "bensay",
+  "unvan": "bensay Mimarlık",
+  "logo": "assets/wordmark.png",
+  "logoMaske": true,
+  "altSatirlar": [
+   {
+    "tr": "Mimarlık",
+    "en": "Architecture"
+   },
+   {
+    "tr": "İç Mimarlık",
+    "en": "Interiors"
+   },
+   {
+    "tr": "Tasarım",
+    "en": "Design"
+   }
+  ],
+  "renkler": {
+   "yesil": "#253925",
+   "bej": "#C2B59B",
+   "zemin": "#F4F2EE",
+   "yazi": "#161816"
+  },
+  "altMetin": {
+   "tr": "Ankara'da anahtar teslim tadilat, iç mekân tasarımı ve ruhsat projesi yönetimi.",
+   "en": "Turnkey renovation, interior design and permit project management in Ankara."
+  }
+ },
+ "iletisim": {
+  "tel": "",
+  "wa": "",
+  "eposta": "",
+  "adres": "",
+  "ilce": "",
+  "sehir": "Ankara",
+  "saatler": {
+   "tr": "",
+   "en": ""
+  },
+  "harita": "",
+  "instagram": "https://www.instagram.com/bnlmimarlik/",
+  "linkedin": "https://www.linkedin.com/company/bnl-architecture/"
+ },
+ "menu": [
+  {
+   "ad": {
+    "tr": "Anasayfa",
+    "en": "Home"
+   },
+   "hedef": "index.html",
+   "gorunur": true
+  },
+  {
+   "ad": {
+    "tr": "Kurumsal",
+    "en": "About"
+   },
+   "hedef": "kurumsal.html",
+   "gorunur": true
+  },
+  {
+   "ad": {
+    "tr": "Hizmetler",
+    "en": "Services"
+   },
+   "hedef": "hizmetler.html",
+   "gorunur": true
+  },
+  {
+   "ad": {
+    "tr": "Projeler",
+    "en": "Projects"
+   },
+   "hedef": "projelerimiz.html",
+   "gorunur": true
+  },
+  {
+   "ad": {
+    "tr": "Maliyet Hesaplayıcı",
+    "en": "Cost Estimator"
+   },
+   "hedef": "maliyet.html",
+   "gorunur": true
+  },
+  {
+   "ad": {
+    "tr": "Blog",
+    "en": "Blog"
+   },
+   "hedef": "blog.html",
+   "gorunur": true
+  },
+  {
+   "ad": {
+    "tr": "İletişim",
+    "en": "Contact"
+   },
+   "hedef": "iletisim.html",
+   "gorunur": true
+  }
+ ],
+ "dugmeler": {
+  "kesif": {
+   "etiket": {
+    "tr": "Keşif",
+    "en": "Site visit"
+   },
+   "hedef": "iletisim.html#kesif"
+  },
+  "planla": {
+   "etiket": {
+    "tr": "Proje planla",
+    "en": "Plan your project"
+   },
+   "hedef": "maliyet.html#hesap"
+  }
+ },
+ "hizmetler": [
+  {
+   "id": "anahtar-teslim",
+   "oneCikan": true,
+   "gorsel": "",
+   "baslik": {
+    "tr": "Anahtar Teslim Tadilat",
+    "en": "Turnkey Renovation"
+   },
+   "ozet": {
+    "tr": "Keşiften teslime kadar tüm tadilatı tek ekip ve tek sözleşmeyle yürütüyoruz; siz yalnızca anahtarı alırsınız.",
+    "en": "We run the entire renovation from site visit to handover with one team and one contract; you simply collect the keys."
+   },
+   "maddeler": [
+    {
+     "tr": "Keşif, rölöve ve ihtiyaç analizi",
+     "en": "Site survey and needs analysis"
+    },
+    {
+     "tr": "Tasarım, malzeme seçimi ve kalem kalem teklif",
+     "en": "Design, material selection and itemised quote"
+    },
+    {
+     "tr": "Yıkım, tesisat, ince işler ve mobilya",
+     "en": "Demolition, services, finishes and joinery"
+    },
+    {
+     "tr": "Şantiye takibi, temizlik ve anahtar teslim",
+     "en": "Site management, cleaning and handover"
+    }
+   ]
+  },
+  {
+   "id": "ruhsat",
+   "oneCikan": false,
+   "gorsel": "",
+   "baslik": {
+    "tr": "Ruhsat Projesi Yönetim ve Takibi",
+    "en": "Permit Project Management"
+   },
+   "ozet": {
+    "tr": "Ruhsat projelerinin hazırlanması, disiplin koordinasyonu ve belediye sürecinin takibi.",
+    "en": "Preparation of permit drawings, discipline coordination and follow-up of the municipal process."
+   },
+   "maddeler": [
+    {
+     "tr": "Proje dosyasının hazırlanması",
+     "en": "Preparing the project file"
+    },
+    {
+     "tr": "Disiplin projeleri koordinasyonu",
+     "en": "Coordinating engineering disciplines"
+    },
+    {
+     "tr": "Belediye başvurusu ve takibi",
+     "en": "Municipal application and follow-up"
+    }
+   ]
+  },
+  {
+   "id": "ic-mekan",
+   "oneCikan": false,
+   "gorsel": "",
+   "baslik": {
+    "tr": "İç Mekân Konsept ve Tasarımı",
+    "en": "Interior Concept and Design"
+   },
+   "ozet": {
+    "tr": "Konut, ofis, klinik ve ticari mekânlar için konsept, 3B görsel ve uygulama çizimleri.",
+    "en": "Concept, 3D visuals and construction drawings for homes, offices, clinics and commercial spaces."
+   },
+   "maddeler": [
+    {
+     "tr": "Mekân kurgusu ve 3B görseller",
+     "en": "Space planning and 3D visuals"
+    },
+    {
+     "tr": "Malzeme, renk ve aydınlatma seçimi",
+     "en": "Materials, colour and lighting"
+    },
+    {
+     "tr": "Özel mobilya ve detay çizimleri",
+     "en": "Bespoke furniture and detail drawings"
+    }
+   ]
+  },
+  {
+   "id": "ruhsatlandirma",
+   "oneCikan": false,
+   "gorsel": "",
+   "baslik": {
+    "tr": "Ruhsatlandırma / Danışmanlık / Kroki",
+    "en": "Licensing / Consultancy / Sketch Plans"
+   },
+   "ozet": {
+    "tr": "İşyeri açma ve ruhsatlandırma danışmanlığı, mevcut mekânın krokilendirilmesi.",
+    "en": "Business licensing consultancy and measured sketch plans of existing spaces."
+   },
+   "maddeler": [
+    {
+     "tr": "İşyeri ruhsatı danışmanlığı",
+     "en": "Business licence consultancy"
+    },
+    {
+     "tr": "Mevcut durum krokisi ve rölöve",
+     "en": "As-built sketch plans and surveys"
+    },
+    {
+     "tr": "Sağlık birimleri için mevzuata uygun yerleşim",
+     "en": "Regulation-compliant layouts for healthcare units"
+    }
+   ]
+  }
+ ],
+ "sektorler": [
+  {
+   "id": "saglik",
+   "ad": {
+    "tr": "Özel Sağlık Hizmet Birimleri",
+    "en": "Private Healthcare Units"
+   },
+   "liste": [
+    {
+     "tr": "Diyetisyen",
+     "en": "Dietitian"
+    },
+    {
+     "tr": "Fizyoterapist",
+     "en": "Physiotherapist"
+    },
+    {
+     "tr": "Psikolog",
+     "en": "Psychologist"
+    },
+    {
+     "tr": "Odyolog",
+     "en": "Audiologist"
+    },
+    {
+     "tr": "Podolog",
+     "en": "Podiatrist"
+    },
+    {
+     "tr": "Pilates Stüdyosu",
+     "en": "Pilates studio"
+    },
+    {
+     "tr": "Dil ve Konuşma Terapisti",
+     "en": "Speech and language therapist"
+    },
+    {
+     "tr": "Diş Hekimi",
+     "en": "Dentist"
+    },
+    {
+     "tr": "Doktor Muayenehanesi",
+     "en": "Doctor's practice"
+    },
+    {
+     "tr": "Eczane",
+     "en": "Pharmacy"
+    },
+    {
+     "tr": "Güzellik Merkezi",
+     "en": "Beauty centre"
+    }
+   ]
+  },
+  {
+   "id": "diger",
+   "ad": {
+    "tr": "Diğer alanlar",
+    "en": "Other sectors"
+   },
+   "liste": [
+    {
+     "tr": "Ofis",
+     "en": "Office"
+    },
+    {
+     "tr": "Ev / Konut",
+     "en": "Home / Residential"
+    },
+    {
+     "tr": "Kafe / Restoran",
+     "en": "Café / Restaurant"
+    },
+    {
+     "tr": "Ticari mekânlar",
+     "en": "Commercial spaces"
+    }
+   ]
+  }
+ ],
+ "referanslar": [],
+ "projeKategorileri": [
+  {
+   "id": "ofis",
+   "ad": {
+    "tr": "Ofis",
+    "en": "Office"
+   }
+  },
+  {
+   "id": "konut",
+   "ad": {
+    "tr": "Ev / Konut",
+    "en": "Home / Residential"
+   }
+  },
+  {
+   "id": "kafe",
+   "ad": {
+    "tr": "Kafe / Restoran",
+    "en": "Café / Restaurant"
+   }
+  },
+  {
+   "id": "ticari",
+   "ad": {
+    "tr": "Ticari",
+    "en": "Commercial"
+   }
+  },
+  {
+   "id": "klinik",
+   "ad": {
+    "tr": "Klinik",
+    "en": "Clinic"
+   }
+  },
+  {
+   "id": "kroki",
+   "ad": {
+    "tr": "Krokilendirme",
+    "en": "Sketch plans"
+   }
+  }
+ ],
+ "projeler": [
+  {
+   "id": "p01",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p02",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p03",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p04",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p05",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p06",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p07",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p08",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  },
+  {
+   "id": "p09",
+   "ad": {
+    "tr": "",
+    "en": ""
+   },
+   "kategori": "",
+   "konum": "",
+   "yil": "",
+   "alan": "",
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "gorseller": []
+  }
+ ],
+ "blog": [
+  {
+   "id": "anahtar-teslim-surec",
+   "yayinda": false,
+   "tarih": "",
+   "gorsel": "",
+   "baslik": {
+    "tr": "Anahtar teslim tadilatta süreç nasıl işler?",
+    "en": "How does a turnkey renovation work?"
+   },
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "govde": {
+    "tr": "",
+    "en": ""
+   }
+  },
+  {
+   "id": "klinik-tasarim",
+   "yayinda": false,
+   "tarih": "",
+   "gorsel": "",
+   "baslik": {
+    "tr": "Özel sağlık birimlerinde mekân tasarımı",
+    "en": "Interior design for private healthcare units"
+   },
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "govde": {
+    "tr": "",
+    "en": ""
+   }
+  },
+  {
+   "id": "ruhsat-belgeleri",
+   "yayinda": false,
+   "tarih": "",
+   "gorsel": "",
+   "baslik": {
+    "tr": "İşyeri ruhsatı için hangi belgeler gerekir?",
+    "en": "Which documents does a business licence need?"
+   },
+   "ozet": {
+    "tr": "",
+    "en": ""
+   },
+   "govde": {
+    "tr": "",
+    "en": ""
+   }
+  }
+ ],
+ "surec": [
+  {
+   "ad": {
+    "tr": "Keşif",
+    "en": "Site visit"
+   },
+   "metin": {
+    "tr": "Mekânı yerinde görür; ihtiyacı, bütçeyi ve takvimi konuşuruz.",
+    "en": "We visit the space and discuss needs, budget and timeline."
+   }
+  },
+  {
+   "ad": {
+    "tr": "Tasarım",
+    "en": "Design"
+   },
+   "metin": {
+    "tr": "Konsept, 3B görsel ve malzeme seçimiyle fikri birlikte şekillendiririz.",
+    "en": "We shape the idea with a concept, 3D visuals and material selection."
+   }
+  },
+  {
+   "ad": {
+    "tr": "Teklif",
+    "en": "Quote"
+   },
+   "metin": {
+    "tr": "Kalem kalem yazılı teklif ve iş takvimi.",
+    "en": "An itemised written quote and work schedule."
+   }
+  },
+  {
+   "ad": {
+    "tr": "Ruhsat",
+    "en": "Permits"
+   },
+   "metin": {
+    "tr": "Gerekiyorsa proje ve ruhsat sürecinin takibi.",
+    "en": "Project and permit follow-up where required."
+   }
+  },
+  {
+   "ad": {
+    "tr": "Uygulama",
+    "en": "Build"
+   },
+   "metin": {
+    "tr": "Şantiye koordinasyonu, denetim ve anahtar teslim.",
+    "en": "Site coordination, supervision and handover."
+   }
+  }
+ ],
+ "sss": [
+  {
+   "soru": {
+    "tr": "Maliyet hesaplayıcının sonucu kesin fiyat mı?",
+    "en": "Is the estimator result a firm price?"
+   },
+   "cevap": {
+    "tr": "Hayır; yaklaşık bir ön tekliftir. Kesin fiyat keşif sonrasında kalem kalem yazılı olarak verilir.",
+    "en": "No; it is an approximate preliminary quote. A firm, itemised price is given in writing after the site visit."
+   }
+  },
+  {
+   "soru": {
+    "tr": "Ruhsat sürecini siz mi takip ediyorsunuz?",
+    "en": "Do you handle the permit process?"
+   },
+   "cevap": {
+    "tr": "Evet; belge hazırlığından belediye başvurusuna kadar süreci takip ediyoruz. Süreler belediyeye göre değişebilir.",
+    "en": "Yes; from document preparation to the municipal application. Timelines vary by municipality."
+   }
+  },
+  {
+   "soru": {
+    "tr": "Yalnızca tasarım hizmeti alabilir miyim?",
+    "en": "Can I hire you for design only?"
+   },
+   "cevap": {
+    "tr": "Evet; iç mekân konsept ve tasarım hizmetini uygulamadan bağımsız da veriyoruz.",
+    "en": "Yes; we also offer interior concept and design independently of the build."
+   }
+  }
+ ],
+ "ekip": [
+  {
+   "ad": "Erkam Benli",
+   "unvan": {
+    "tr": "Kurucu",
+    "en": "Founder"
+   },
+   "foto": ""
+  },
+  {
+   "ad": "",
+   "unvan": {
+    "tr": "",
+    "en": ""
+   },
+   "foto": ""
+  },
+  {
+   "ad": "",
+   "unvan": {
+    "tr": "",
+    "en": ""
+   },
+   "foto": ""
+  }
+ ],
+ "maliyet": {
+  "ornek": true,
+  "aralikYuzde": 12,
+  "paraBirimi": "₺",
+  "not": {
+   "tr": "Sonuç yaklaşık bir ön tekliftir; kesin fiyat keşif sonrasında yazılı olarak verilir. Gösterilen birim fiyatlar örnek katsayılardır.",
+   "en": "This is an approximate preliminary quote; the firm price is given in writing after the site visit. Unit rates shown are sample coefficients."
+  },
+  "islakEtiket": {
+   "tr": "Banyo / WC (ıslak hacim)",
+   "en": "Bathrooms / WCs"
+  },
+  "kaliteler": [
+   {
+    "id": "eko",
+    "ad": {
+     "tr": "Ekonomik",
+     "en": "Economy"
+    },
+    "aciklama": {
+     "tr": "Sade, uygun bütçe",
+     "en": "Simple, budget-friendly"
+    },
+    "m2": 6000,
+    "oda": 12000,
+    "salon": 20000,
+    "islak": 60000
+   },
+   {
+    "id": "orta",
+    "ad": {
+     "tr": "Orta",
+     "en": "Standard"
+    },
+    "aciklama": {
+     "tr": "Dengeli, dayanıklı",
+     "en": "Balanced, durable"
+    },
+    "m2": 9500,
+    "oda": 20000,
+    "salon": 35000,
+    "islak": 110000
+   },
+   {
+    "id": "luks",
+    "ad": {
+     "tr": "Lüks",
+     "en": "Premium"
+    },
+    "aciklama": {
+     "tr": "Seçkin, uzun ömürlü",
+     "en": "Premium, long-lasting"
+    },
+    "m2": 16000,
+    "oda": 40000,
+    "salon": 70000,
+    "islak": 220000
+   }
+  ],
+  "tipler": [
+   {
+    "id": "konut",
+    "ad": {
+     "tr": "Konut",
+     "en": "Residential"
+    },
+    "katsayi": 1.0,
+    "odaEtiket": {
+     "tr": "Oda",
+     "en": "Rooms"
+    },
+    "salonEtiket": {
+     "tr": "Salon",
+     "en": "Living rooms"
+    },
+    "altBaslik": {
+     "tr": "",
+     "en": ""
+    },
+    "altTipler": []
+   },
+   {
+    "id": "ofis",
+    "ad": {
+     "tr": "Ofis",
+     "en": "Office"
+    },
+    "katsayi": 0.95,
+    "odaEtiket": {
+     "tr": "Oda (yönetici / çalışma)",
+     "en": "Rooms (private / work)"
+    },
+    "salonEtiket": {
+     "tr": "Salon (açık ofis / toplantı)",
+     "en": "Halls (open plan / meeting)"
+    },
+    "altBaslik": {
+     "tr": "",
+     "en": ""
+    },
+    "altTipler": []
+   },
+   {
+    "id": "ticari",
+    "ad": {
+     "tr": "Ticari",
+     "en": "Commercial"
+    },
+    "katsayi": 1.05,
+    "odaEtiket": {
+     "tr": "Oda / bölüm",
+     "en": "Rooms / sections"
+    },
+    "salonEtiket": {
+     "tr": "Satış salonu",
+     "en": "Sales floors"
+    },
+    "altBaslik": {
+     "tr": "",
+     "en": ""
+    },
+    "altTipler": []
+   },
+   {
+    "id": "kafe",
+    "ad": {
+     "tr": "Kafe / Restoran",
+     "en": "Café / Restaurant"
+    },
+    "katsayi": 1.25,
+    "odaEtiket": {
+     "tr": "Oda (mutfak / depo)",
+     "en": "Rooms (kitchen / storage)"
+    },
+    "salonEtiket": {
+     "tr": "Salon (oturma alanı)",
+     "en": "Dining halls"
+    },
+    "altBaslik": {
+     "tr": "",
+     "en": ""
+    },
+    "altTipler": []
+   },
+   {
+    "id": "klinik",
+    "ad": {
+     "tr": "Klinik",
+     "en": "Clinic"
+    },
+    "katsayi": 1.2,
+    "odaEtiket": {
+     "tr": "Muayene / terapi odası",
+     "en": "Treatment rooms"
+    },
+    "salonEtiket": {
+     "tr": "Bekleme salonu",
+     "en": "Waiting areas"
+    },
+    "altBaslik": {
+     "tr": "Özel Sağlık Hizmet Birimi",
+     "en": "Private healthcare unit"
+    },
+    "altTipler": [
+     {
+      "id": "diyetisyen",
+      "ad": {
+       "tr": "Diyetisyen",
+       "en": "Dietitian"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "fizyoterapist",
+      "ad": {
+       "tr": "Fizyoterapist",
+       "en": "Physiotherapist"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "psikolog",
+      "ad": {
+       "tr": "Psikolog",
+       "en": "Psychologist"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "odyolog",
+      "ad": {
+       "tr": "Odyolog",
+       "en": "Audiologist"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "podolog",
+      "ad": {
+       "tr": "Podolog",
+       "en": "Podiatrist"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "pilates-studyosu",
+      "ad": {
+       "tr": "Pilates Stüdyosu",
+       "en": "Pilates studio"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "dil-ve-konusma-terapisti",
+      "ad": {
+       "tr": "Dil ve Konuşma Terapisti",
+       "en": "Speech and language therapist"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "dis-hekimi",
+      "ad": {
+       "tr": "Diş Hekimi",
+       "en": "Dentist"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "doktor-muayenehanesi",
+      "ad": {
+       "tr": "Doktor Muayenehanesi",
+       "en": "Doctor's practice"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "eczane",
+      "ad": {
+       "tr": "Eczane",
+       "en": "Pharmacy"
+      },
+      "katsayi": 1.0
+     },
+     {
+      "id": "guzellik-merkezi",
+      "ad": {
+       "tr": "Güzellik Merkezi",
+       "en": "Beauty centre"
+      },
+      "katsayi": 1.0
+     }
+    ]
+   }
+  ],
+  "malzemeler": [
+   {
+    "id": "zemin-kaplama",
+    "ad": {
+     "tr": "Zemin kaplama",
+     "en": "Flooring"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "seramik-/-fayans",
+    "ad": {
+     "tr": "Seramik / fayans",
+     "en": "Tiles"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "boya",
+    "ad": {
+     "tr": "Boya",
+     "en": "Paint"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "vitrifiye",
+    "ad": {
+     "tr": "Vitrifiye",
+     "en": "Sanitaryware"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "armatur",
+    "ad": {
+     "tr": "Armatür",
+     "en": "Taps & fittings"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "mutfak-dolabi-/-tezgâh",
+    "ad": {
+     "tr": "Mutfak dolabı / tezgâh",
+     "en": "Kitchen units / worktop"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "ic-kapi",
+    "ad": {
+     "tr": "İç kapı",
+     "en": "Interior doors"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "aydinlatma",
+    "ad": {
+     "tr": "Aydınlatma",
+     "en": "Lighting"
+    },
+    "markalar": {}
+   },
+   {
+    "id": "elektrik-malzemesi",
+    "ad": {
+     "tr": "Elektrik malzemesi",
+     "en": "Electrical fittings"
+    },
+    "markalar": {}
+   }
+  ]
+ },
+ "sayfalar": {
+  "index": {
+   "baslik": {
+    "tr": "bensay Mimarlık · Ankara Anahtar Teslim Tadilat ve İç Mimarlık",
+    "en": "bensay Architecture · Turnkey Renovation & Interior Design in Ankara"
+   },
+   "aciklama": {
+    "tr": "bensay Mimarlık: Ankara'da anahtar teslim tadilat, iç mekân tasarımı, ruhsat projesi yönetimi ve kroki. Maliyetinizi hesaplayın, keşif isteyin.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "kah",
+     "tip": "kahraman",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Ankara · Mimarlık · İç Mimarlık",
+      "en": "Ankara · Architecture · Interiors"
+     },
+     "baslik": {
+      "tr": "Anahtar teslim tadilat, tek ekip ve tek muhatapla.",
+      "en": "Turnkey renovation with one team and one contact."
+     },
+     "metin": {
+      "tr": "bensay; konut, ofis, klinik ve ticari mekânlarda tasarımdan anahtar teslimine kadar tüm süreci yürütür.",
+      "en": "bensay runs the whole process from design to handover for homes, offices, clinics and commercial spaces."
+     },
+     "gorsel": ""
+    },
+    {
+     "id": "ana-hizmet",
+     "tip": "anaHizmet",
+     "gorunur": true,
+     "hizmet": "anahtar-teslim",
+     "etiket": {
+      "tr": "Ana hizmetimiz",
+      "en": "Our core service"
+     },
+     "gorsel": ""
+    },
+    {
+     "id": "hizmetler",
+     "tip": "hizmetler",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Hizmetler",
+      "en": "Services"
+     },
+     "baslik": {
+      "tr": "Tasarımdan anahtar teslimine",
+      "en": "From design to handover"
+     },
+     "metin": {
+      "tr": "İster bir dairenin yenilenmesi, ister bir kliniğin sıfırdan kurulması olsun; projeyi baştan sona aynı ekip yürütür.",
+      "en": "Whether it's a flat renovation or a new clinic fit-out, the same team runs the project from start to finish."
+     },
+     "sadeceDiger": true
+    },
+    {
+     "id": "sektorler",
+     "tip": "sektorler",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Sektörler",
+      "en": "Sectors"
+     },
+     "baslik": {
+      "tr": "Hizmet verdiğimiz sektörler",
+      "en": "Sectors we serve"
+     },
+     "metin": {
+      "tr": "Özel sağlık hizmet birimlerinin mevzuata uygun ve hasta dostu mekânlarını tasarlıyor, anahtar teslim uyguluyoruz.",
+      "en": "We design and deliver regulation-compliant, patient-friendly spaces for private healthcare units."
+     }
+    },
+    {
+     "id": "referanslar",
+     "tip": "referanslar",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Referanslar",
+      "en": "References"
+     },
+     "baslik": {
+      "tr": "Çalıştığımız firmalar",
+      "en": "Companies we work with"
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    },
+    {
+     "id": "projeler",
+     "tip": "projeler",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Portföy",
+      "en": "Portfolio"
+     },
+     "baslik": {
+      "tr": "Projelerimiz",
+      "en": "Our projects"
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     },
+     "limit": 3,
+     "filtre": false
+    },
+    {
+     "id": "maliyet-tanitim",
+     "tip": "metin",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Maliyet hesaplayıcı",
+      "en": "Cost estimator"
+     },
+     "baslik": {
+      "tr": "Projenizin yaklaşık maliyetini hemen görün.",
+      "en": "See an approximate cost for your project."
+     },
+     "metin": {
+      "tr": "Alan tipini, metrekareyi, oda ve salon sayısını girin; ön teklif aralığınız anında çıksın.",
+      "en": "Enter the space type, area and number of rooms; your preliminary range appears instantly."
+     },
+     "gorsel": "",
+     "dugme": "planla"
+    },
+    {
+     "id": "surec",
+     "tip": "surec",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Süreç",
+      "en": "Process"
+     },
+     "baslik": {
+      "tr": "Keşiften anahtar teslimine",
+      "en": "From site visit to handover"
+     }
+    },
+    {
+     "id": "blog",
+     "tip": "blog",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Blog",
+      "en": "Blog"
+     },
+     "baslik": {
+      "tr": "Yazılar",
+      "en": "Articles"
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     },
+     "limit": 3
+    },
+    {
+     "id": "cta",
+     "tip": "cta",
+     "gorunur": true,
+     "baslik": {
+      "tr": "Projenizi konuşalım.",
+      "en": "Let's talk about your project."
+     },
+     "metin": {
+      "tr": "Mekânınızı yerinde görelim; ihtiyacınızı, bütçenizi ve takviminizi birlikte netleştirelim.",
+      "en": "Let us see your space and clarify needs, budget and timeline together."
+     }
+    }
+   ]
+  },
+  "kurumsal": {
+   "baslik": {
+    "tr": "Kurumsal · bensay Mimarlık Ankara",
+    "en": "About · bensay Architecture Ankara"
+   },
+   "aciklama": {
+    "tr": "bensay Mimarlık hakkında: Ankara'da anahtar teslim tadilat, iç mimarlık ve ruhsat projesi ekibi.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Kurumsal",
+      "en": "About"
+     },
+     "baslik": {
+      "tr": "Ankara'da mimarlık, iç mimarlık ve tasarım.",
+      "en": "Architecture, interiors and design in Ankara."
+     },
+     "metin": {
+      "tr": "bensay; anahtar teslim tadilat, iç mekân tasarımı ve ruhsat projesi yönetimini bir arada sunan bir tasarım ofisidir.",
+      "en": "bensay is a design studio offering turnkey renovation, interior design and permit management under one roof."
+     }
+    },
+    {
+     "id": "yaklasim",
+     "tip": "metin",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Yaklaşımımız",
+      "en": "Our approach"
+     },
+     "baslik": {
+      "tr": "Önce dinler, sonra çizeriz.",
+      "en": "We listen first, then we draw."
+     },
+     "metin": {
+      "tr": "Her proje, kullanacak kişinin ihtiyacını anlamakla başlar. Tasarım, proje, ruhsat ve uygulama aşamalarını aynı ekip yürütür; böylece fikir sahaya kaybolmadan taşınır.",
+      "en": "Every project starts with understanding the needs of the people who will use it. The same team handles design, permits and construction, so the idea reaches the site intact."
+     },
+     "gorsel": "",
+     "dugme": ""
+    },
+    {
+     "id": "ekip",
+     "tip": "ekip",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Ekip",
+      "en": "Team"
+     },
+     "baslik": {
+      "tr": "Ekibimiz",
+      "en": "Our team"
+     }
+    },
+    {
+     "id": "referanslar",
+     "tip": "referanslar",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Referanslar",
+      "en": "References"
+     },
+     "baslik": {
+      "tr": "Çalıştığımız firmalar",
+      "en": "Companies we work with"
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    },
+    {
+     "id": "cta",
+     "tip": "cta",
+     "gorunur": true,
+     "baslik": {
+      "tr": "Projenizi konuşalım.",
+      "en": "Let's talk about your project."
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    }
+   ]
+  },
+  "hizmetler": {
+   "baslik": {
+    "tr": "Hizmetler · Anahtar Teslim Tadilat, Ruhsat, İç Mekân · bensay Ankara",
+    "en": "Services · bensay Architecture Ankara"
+   },
+   "aciklama": {
+    "tr": "Anahtar teslim tadilat, ruhsat projesi yönetim ve takibi, iç mekân konsept ve tasarımı, ruhsatlandırma, danışmanlık ve kroki.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Hizmetler",
+      "en": "Services"
+     },
+     "baslik": {
+      "tr": "Ne yapıyoruz?",
+      "en": "What we do"
+     },
+     "metin": {
+      "tr": "Ana hizmetimiz anahtar teslim tadilat; yanında ruhsat, tasarım ve danışmanlık.",
+      "en": "Our core service is turnkey renovation, alongside permits, design and consultancy."
+     }
+    },
+    {
+     "id": "hizmetler",
+     "tip": "hizmetler",
+     "gorunur": true,
+     "etiket": {
+      "tr": "",
+      "en": ""
+     },
+     "baslik": {
+      "tr": "",
+      "en": ""
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     },
+     "sadeceDiger": false
+    },
+    {
+     "id": "sektorler",
+     "tip": "sektorler",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Sektörler",
+      "en": "Sectors"
+     },
+     "baslik": {
+      "tr": "Hizmet verdiğimiz sektörler",
+      "en": "Sectors we serve"
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    },
+    {
+     "id": "surec",
+     "tip": "surec",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Süreç",
+      "en": "Process"
+     },
+     "baslik": {
+      "tr": "Nasıl çalışıyoruz?",
+      "en": "How we work"
+     }
+    },
+    {
+     "id": "sss",
+     "tip": "sss",
+     "gorunur": true,
+     "etiket": {
+      "tr": "SSS",
+      "en": "FAQ"
+     },
+     "baslik": {
+      "tr": "Sık sorulan sorular",
+      "en": "Frequently asked questions"
+     }
+    },
+    {
+     "id": "cta",
+     "tip": "cta",
+     "gorunur": true,
+     "baslik": {
+      "tr": "Projenizi konuşalım.",
+      "en": "Let's talk about your project."
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    }
+   ]
+  },
+  "projeler": {
+   "baslik": {
+    "tr": "Projeler · bensay Mimarlık Ankara",
+    "en": "Projects · bensay Architecture Ankara"
+   },
+   "aciklama": {
+    "tr": "bensay Mimarlık projeleri: ofis, konut, kafe/restoran, ticari, klinik ve krokilendirme.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Portföy",
+      "en": "Portfolio"
+     },
+     "baslik": {
+      "tr": "Projeler",
+      "en": "Projects"
+     },
+     "metin": {
+      "tr": "Ofis, konut, kafe/restoran, ticari, klinik ve krokilendirme projelerimiz.",
+      "en": "Our office, residential, café/restaurant, commercial, clinic and sketch-plan projects."
+     }
+    },
+    {
+     "id": "projeler",
+     "tip": "projeler",
+     "gorunur": true,
+     "etiket": {
+      "tr": "",
+      "en": ""
+     },
+     "baslik": {
+      "tr": "",
+      "en": ""
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     },
+     "limit": 0,
+     "filtre": true
+    },
+    {
+     "id": "cta",
+     "tip": "cta",
+     "gorunur": true,
+     "baslik": {
+      "tr": "Projenizi konuşalım.",
+      "en": "Let's talk about your project."
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    }
+   ]
+  },
+  "proje": {
+   "baslik": {
+    "tr": "Proje · bensay Mimarlık",
+    "en": "Project · bensay Architecture"
+   },
+   "aciklama": {
+    "tr": "bensay Mimarlık proje detayı.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "detay",
+     "tip": "projeDetay",
+     "gorunur": true
+    },
+    {
+     "id": "cta",
+     "tip": "cta",
+     "gorunur": true,
+     "baslik": {
+      "tr": "Projenizi konuşalım.",
+      "en": "Let's talk about your project."
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    }
+   ]
+  },
+  "maliyet": {
+   "baslik": {
+    "tr": "Maliyet Hesaplayıcı · Tadilat Ön Teklifi · bensay Ankara",
+    "en": "Cost Estimator · bensay Architecture Ankara"
+   },
+   "aciklama": {
+    "tr": "Alan tipi, metrekare, oda ve salon sayısına göre yaklaşık tadilat maliyeti (ön teklif). bensay Mimarlık, Ankara.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Maliyet hesaplayıcı",
+      "en": "Cost estimator"
+     },
+     "baslik": {
+      "tr": "Projenizi planlayın",
+      "en": "Plan your project"
+     },
+     "metin": {
+      "tr": "Alan tipini, metrekareyi, oda ve salon sayısını girin; yaklaşık ön teklif aralığınızı görün.",
+      "en": "Enter the space type, area and number of rooms to see an approximate preliminary range."
+     }
+    },
+    {
+     "id": "hesap",
+     "tip": "maliyet",
+     "gorunur": true,
+     "etiket": {
+      "tr": "",
+      "en": ""
+     },
+     "baslik": {
+      "tr": "",
+      "en": ""
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    },
+    {
+     "id": "markalar",
+     "tip": "markalar",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Kalite karşılaştırma",
+      "en": "Quality comparison"
+     },
+     "baslik": {
+      "tr": "Kullandığımız malzeme markaları",
+      "en": "Material brands we use"
+     },
+     "metin": {
+      "tr": "Her kalite seviyesinde hangi markaları kullandığımızı görün.",
+      "en": "See which brands we use at each quality level."
+     }
+    },
+    {
+     "id": "cta",
+     "tip": "cta",
+     "gorunur": true,
+     "baslik": {
+      "tr": "Kesin fiyat için keşif isteyin.",
+      "en": "Request a site visit for a firm price."
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    }
+   ]
+  },
+  "blog": {
+   "baslik": {
+    "tr": "Blog · bensay Mimarlık",
+    "en": "Blog · bensay Architecture"
+   },
+   "aciklama": {
+    "tr": "Tadilat, iç mimarlık ve ruhsat üzerine yazılar.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Blog",
+      "en": "Blog"
+     },
+     "baslik": {
+      "tr": "Yazılar",
+      "en": "Articles"
+     },
+     "metin": {
+      "tr": "Tadilat, iç mimarlık ve ruhsat üzerine notlar.",
+      "en": "Notes on renovation, interiors and permits."
+     }
+    },
+    {
+     "id": "blog",
+     "tip": "blog",
+     "gorunur": true,
+     "etiket": {
+      "tr": "",
+      "en": ""
+     },
+     "baslik": {
+      "tr": "",
+      "en": ""
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     },
+     "limit": 0
+    }
+   ]
+  },
+  "yazi": {
+   "baslik": {
+    "tr": "Yazı · bensay Mimarlık",
+    "en": "Article · bensay Architecture"
+   },
+   "aciklama": {
+    "tr": "bensay Mimarlık blog yazısı.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "detay",
+     "tip": "blogDetay",
+     "gorunur": true
+    },
+    {
+     "id": "cta",
+     "tip": "cta",
+     "gorunur": true,
+     "baslik": {
+      "tr": "Projenizi konuşalım.",
+      "en": "Let's talk about your project."
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    }
+   ]
+  },
+  "iletisim": {
+   "baslik": {
+    "tr": "İletişim · bensay Mimarlık Ankara",
+    "en": "Contact · bensay Architecture Ankara"
+   },
+   "aciklama": {
+    "tr": "bensay Mimarlık iletişim ve keşif talebi. Ankara.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "İletişim",
+      "en": "Contact"
+     },
+     "baslik": {
+      "tr": "Bize ulaşın",
+      "en": "Get in touch"
+     },
+     "metin": {
+      "tr": "Keşif, teklif ya da sorularınız için.",
+      "en": "For site visits, quotes or any questions."
+     }
+    },
+    {
+     "id": "iletisim",
+     "tip": "iletisim",
+     "gorunur": true,
+     "etiket": {
+      "tr": "",
+      "en": ""
+     },
+     "baslik": {
+      "tr": "",
+      "en": ""
+     },
+     "metin": {
+      "tr": "",
+      "en": ""
+     }
+    },
+    {
+     "id": "kesif",
+     "tip": "kesifForm",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Keşif",
+      "en": "Site visit"
+     },
+     "baslik": {
+      "tr": "Keşif talebi",
+      "en": "Request a site visit"
+     },
+     "metin": {
+      "tr": "Formu doldurun; mesajınız hazır olarak WhatsApp'a aktarılır.",
+      "en": "Fill in the form and your message is prepared for WhatsApp."
+     }
+    }
+   ]
+  },
+  "araclar": {
+   "baslik": {
+    "tr": "Mimarlık Araçları · bensay Ankara",
+    "en": "Architecture Tools · bensay Ankara"
+   },
+   "aciklama": {
+    "tr": "Süre planlayıcı, önce/sonra, ruhsat belge listesi ve stil seçici.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Araçlar",
+      "en": "Tools"
+     },
+     "baslik": {
+      "tr": "Projenizi bugünden planlayın",
+      "en": "Start planning your project today"
+     },
+     "metin": {
+      "tr": "Sonuçlar tahminidir; kesin takvim ve teklif keşif görüşmesinden sonra verilir.",
+      "en": "Results are estimates; a firm schedule and quote follow the site visit."
+     }
+    },
+    {
+     "id": "araclar",
+     "tip": "araclar",
+     "gorunur": true
+    }
+   ]
+  },
+  "takip": {
+   "baslik": {
+    "tr": "Proje Takip · bensay Mimarlık",
+    "en": "Client Portal · bensay Architecture"
+   },
+   "aciklama": {
+    "tr": "bensay Mimarlık müşterileri için proje aşama takibi.",
+    "en": ""
+   },
+   "bolumler": [
+    {
+     "id": "bas",
+     "tip": "sayfaBasi",
+     "gorunur": true,
+     "etiket": {
+      "tr": "Müşterilerimize özel",
+      "en": "For our clients"
+     },
+     "baslik": {
+      "tr": "Proje takip",
+      "en": "Client portal"
+     },
+     "metin": {
+      "tr": "Size verilen proje koduyla projenizin hangi aşamada olduğunu görün. Deneme kodu: DEMO-2481",
+      "en": "Use your project code to see your project's phase. Demo code: DEMO-2481"
+     }
+    },
+    {
+     "id": "takip",
+     "tip": "takip",
+     "gorunur": true
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>bensay · Site Yönetimi</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="yonetim.css?v=2">
+</head>
+<body>
+<div id="giris" class="giris" hidden>
+  <form class="giris-k" id="girisForm">
+    <span class="mark" role="img" aria-label="bensay"></span>
+    <h1>Site yönetimi</h1>
+    <p class="ac">Sitedeki tüm metin, görsel, menü, proje, blog ve maliyet ayarlarını buradan yönetirsiniz.</p>
+    <label for="gE">E-posta</label><input id="gE" type="email" autocomplete="username" required>
+    <label for="gS">Şifre</label><input id="gS" type="password" autocomplete="current-password">
+    <button class="dg" type="submit">Giriş yap</button>
+    <button class="dg i" type="button" id="gLink">Şifresiz giriş bağlantısı gönder</button>
+    <p class="msj" id="gMsj" role="status"></p>
+    <p class="ac kucuk">Yalnız yetki verilmiş hesaplar kaydedebilir. Yetki için Dijitabela ile iletişime geçin.</p>
+  </form>
+</div>
+<div id="uyg" class="uyg" hidden>
+  <header class="tb">
+    <span class="mark" role="img" aria-label="bensay"></span><b class="tb-ad">Site yönetimi</b>
+    <span class="durum" id="durum">Yükleniyor…</span>
+    <div class="tb-sag">
+      <button class="dg i kucuk" type="button" id="onizAc">Önizleme</button>
+      <button class="dg kucuk" type="button" id="kaydet" disabled>Kaydet ve yayınla</button>
+      <button class="dg i kucuk" type="button" id="cikis">Çıkış</button>
+    </div>
+  </header>
+  <div class="uyari" id="uyari" hidden></div>
+  <div class="gov">
+    <nav class="sekme" id="sekme" aria-label="Bölümler"></nav>
+    <main class="form-alani" id="form" tabindex="-1"></main>
+    <aside class="oniz" id="oniz">
+      <div class="oniz-ust"><select id="onizSayfa" aria-label="Önizlenen sayfa"></select>
+        <div class="cihaz" role="group" aria-label="Cihaz"><button type="button" data-c="m" aria-pressed="true">Masaüstü</button><button type="button" data-c="t" aria-pressed="false">Telefon</button></div>
+        <button type="button" class="kapat" id="onizKapat" aria-label="Önizlemeyi kapat">×</button></div>
+      <div class="oniz-cerceve" id="cerceve"><iframe id="onizF" title="Site önizlemesi"></iframe></div>
+    </aside>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="../assets/render.js?v=2"></script>
+<script src="yonetim.js?v=2"></script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

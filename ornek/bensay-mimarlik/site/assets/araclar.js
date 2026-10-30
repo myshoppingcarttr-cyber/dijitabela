@@ -1,5 +1,5 @@
 /* bensay · mimarlık araçları: süre planlayıcı, önce/sonra, ruhsat listesi, stil seçici */
-(function(){
+window.bnAraclarBaslat=function(){
 "use strict";
 var $=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))},E=function(){return window.bnEn()},L=function(tr,en){return E()?en:tr};
 /* 1) süre planlayıcı */
@@ -34,7 +34,7 @@ var ST=[[["Minimal","Minimal"],["#F5F4F0","#D9D6CE","#8E8B84","#2B2B2B"],["Beyaz
 var si=0;function stil(i){si=i;var s=ST[i],ad=L(s[0][0],s[0][1]);$$("#stiller button").forEach(function(b,j){b.setAttribute("aria-pressed",j===i)});
  $("#palet").innerHTML=s[1].map(function(c){return'<i style="background:'+c+'" title="'+c+'"></i>'}).join("");$("#malzeme").textContent=L("Önerilen malzemeler: ","Suggested materials: ")+L(s[2][0],s[2][1]);
  var g=$("#stilGorsel");g.src="img/stil"+i+".jpg";g.alt=ad+L(" iç mimari örneği"," interior example");$("#stilEtiket").textContent=ad+L(" · örnek görsel"," · sample image");
- window.DJMaliyet&&window.DJMaliyet.stilSec&&window.DJMaliyet.stilSec(s[3]);
+ 
  $("#stilGonder").href=window.bnWa(L("Merhaba, iç mimaride "+ad+" tarzı düşünüyorum ("+s[2][0]+"). Görüşebilir miyiz?","Hello, I'm considering a "+ad+" interior style ("+s[2][1]+"). Can we talk?"))}
 if($("#stiller")){$$("#stiller button").forEach(function(b,j){b.addEventListener("click",function(){stil(j)})});stil(0);document.addEventListener("bn:dil",function(){stil(si)})}
-})();
+};
