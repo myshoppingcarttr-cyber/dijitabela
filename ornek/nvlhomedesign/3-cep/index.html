@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="tr" data-img="../img/" data-yerlesim="uygulama">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex">
+<meta name="theme-color" content="#efe6d8">
+<title>NVL Home · Perde fiyatı, ölçü randevusu, sipariş takibi</title>
+<meta name="description" content="NVL Home cepte: perde fiyatını hesaplayın, ölçü randevusu alın, siparişinizi takip edin. Kemer, Antalya.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/nvl.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeGoodsStore","name":"NVL Home","address":{"@type":"PostalAddress","streetAddress":"Arslanbucak Mah. Cumhuriyet Cad. No:111","addressLocality":"Kemer","addressRegion":"Antalya","addressCountry":"TR"}}</script>
+<style>
+:root{--z:#f6f1e9;--z2:#fffdf9;--y:#2a241d;--y2:#7a6f60;--a:#8a5a3b;--a-y:#fff;--k:#e3d8c7;--r:18px;--f:"DM Sans",system-ui,sans-serif;--fb:"DM Serif Display",Georgia,serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#e9e0d1;color:var(--y);font:15.5px/1.55 var(--f)}a{color:inherit}img{max-width:100%}
+.uyg{max-width:560px;margin:0 auto;background:var(--z);min-height:100vh;padding-bottom:96px;box-shadow:0 0 60px #0001}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#f6f1e9ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--k)}
+.bar .logo{font:22px var(--fb);letter-spacing:.06em}.bar .logo small{display:block;font:500 11px var(--f);letter-spacing:.14em;color:var(--y2);text-transform:uppercase}
+.bar .acik{font-size:12px;font-weight:700;color:#2e7d32;background:#e3f3e3;padding:5px 10px;border-radius:30px}
+.hik{display:flex;gap:14px;overflow-x:auto;padding:14px 16px 6px;scrollbar-width:none}.hik::-webkit-scrollbar{display:none}
+.hik a{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;font-size:12px;font-weight:500}
+.hik a i{width:66px;height:66px;border-radius:50%;padding:3px;background:conic-gradient(var(--a),#d8b77a,var(--a))}.hik a i img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--z)}
+.acilis{margin:10px 16px 0;border-radius:24px;overflow:hidden;position:relative;color:#fff;min-height:380px;display:flex;align-items:flex-end;background:#333 url(../img/hero1.jpg) center/cover}
+.acilis:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,#000b)}.acilis div{position:relative;padding:22px}
+.acilis h1{font:400 34px/1.08 var(--fb);margin:0 0 8px}.acilis p{margin:0 0 16px;opacity:.9}.acilis .nv-btn{background:#fff;color:#111;border-color:#fff}
+.hizli{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px}
+.hizli a{background:var(--z2);border:1px solid var(--k);border-radius:16px;padding:12px 6px;text-align:center;text-decoration:none;font-size:12px;font-weight:600}.hizli a b{display:block;font-size:22px;margin-bottom:4px}
+.kart{margin:12px 16px;background:var(--z2);border:1px solid var(--k);border-radius:var(--r);overflow:hidden}
+.kart>summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}.kart>summary::-webkit-details-marker{display:none}
+.kart>summary img{width:52px;height:52px;border-radius:14px;object-fit:cover}.kart>summary b{display:block;font-size:16px}.kart>summary span{font-size:13px;color:var(--y2)}
+.kart>summary:after{content:"+";margin-left:auto;font-size:24px;color:var(--y2);transition:transform .2s}.kart[open]>summary:after{transform:rotate(45deg)}
+.kart .ic{padding:0 16px 18px}
+.bas2{padding:22px 16px 4px}.bas2 h2{font:400 26px/1.15 var(--fb);margin:0}.bas2 p{margin:4px 0 0;color:var(--y2);font-size:14px}
+.uyg .nv-pen-satir{grid-template-columns:56px 1fr 1fr;position:relative;padding-right:50px}.uyg .nv-pen-satir img{width:56px;height:56px;grid-row:span 2}.uyg .nv-sil{position:absolute;right:8px;top:8px}.uyg .nv-sonuc{grid-template-columns:1fr}
+.uyg .nv-stil-son{grid-template-columns:1fr}.uyg .nv-prj-izg{grid-template-columns:1fr 1fr}.uyg .nv-yor-izg{grid-template-columns:1fr}.uyg .nv-ig{grid-template-columns:1fr}.uyg .nv-gal-izg{grid-template-columns:1fr 1fr}.uyg .nv-kat{grid-template-columns:1fr}
+.uyg .nv-ai{max-width:none}
+.alt{position:fixed;left:50%;transform:translateX(-50%);bottom:0;z-index:30;width:100%;max-width:560px;display:grid;grid-template-columns:repeat(5,1fr);background:#fffdf9f5;backdrop-filter:blur(10px);border-top:1px solid var(--k);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.alt a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:600;text-decoration:none;color:var(--y2);padding:4px 0}.alt a b{font-size:20px;line-height:1}.alt a.wa{color:#128c4b}
+.yan-bilgi{display:none}
+@media(min-width:1100px){body{display:grid;grid-template-columns:1fr 560px 1fr;align-items:start}.uyg{grid-column:2}.yan-bilgi{display:block;position:sticky;top:40px;padding:40px;grid-column:1;grid-row:1;max-width:360px;justify-self:end}.yan-bilgi h3{font:400 30px/1.15 var(--fb);margin:0 0 10px}.yan-bilgi p{color:var(--y2)}}
+</style>
+</head>
+<body>
+<div class="nv-ornek">ÖRNEK TASARIM</div>
+<aside class="yan-bilgi"><h3>NVL Home cebinizde</h3><p>Bu tasarım telefon için kuruldu: müşterilerin çoğu Instagram'dan telefonla geliyor. Ana ekrana eklenince uygulama gibi açılır.</p><p>Fiyat hesaplayın, ölçü randevusu alın, siparişinizi takip edin.</p></aside>
+<div class="uyg">
+<header class="bar"><div class="logo">NVL HOME<small>Perde · Halı · Kemer</small></div><span class="acik">Pzt–Cmt · 08:30</span></header>
+
+<nav class="hik" aria-label="Kategoriler">
+<a href="#fiyat"><i><img src="../img/tul.jpg" alt=""></i>Tül</a><a href="#fiyat"><i><img src="../img/fon.jpg" alt=""></i>Fon</a><a href="#fiyat"><i><img src="../img/stor.jpg" alt=""></i>Stor</a><a href="#fiyat"><i><img src="../img/zebra.jpg" alt=""></i>Zebra</a><a href="#fiyat"><i><img src="../img/jaluzi.jpg" alt=""></i>Jaluzi</a><a href="#fiyat"><i><img src="../img/plicell.jpg" alt=""></i>Plicell</a><a href="#projeler"><i><img src="../img/otel.jpg" alt=""></i>Projeler</a><a href="#ceyiz"><i><img src="../img/ceyiz.jpg" alt=""></i>Çeyiz</a>
+</nav>
+
+<section class="acilis kah"><div><h1>Perdenizin fiyatı 1 dakikada, ölçüsü evinizde.</h1><p>Kemer ve köylerine ücretsiz ölçü. Kendi atölyemizde dikim.</p><a class="nv-btn" href="#fiyat">Hesaplamaya başla</a></div></section>
+
+<div class="hizli"><a href="#fiyat"><b>📏</b>Fiyat</a><a href="#stil"><b>✨</b>Stil testi</a><a href="#takip"><b>📦</b>Takip</a><a href="#projeler"><b>🏨</b>Otel/Villa</a></div>
+
+<div class="bas2" id="fiyat"><h2>Fiyat ve ölçü randevusu</h2><p>Pencereleri ekleyin, tahmini toplamı görün, randevuyu gönderin.</p></div>
+<details class="kart bol" open><summary><img src="../img/hero3.jpg" alt=""><div><b>Ölçü sihirbazı</b><span>Pile, ray, montaj dahil</span></div></summary><div class="ic"><div data-nv="olcu"></div><small class="nv-dipnot">Örnek fiyatlar; yayında panelden güncellenir.</small></div></details>
+<details class="kart bol"><summary><img src="../img/hali.jpg" alt=""><div><b>Ürünler</b><span>7 perde türü, halı, kırlent</span></div></summary><div class="ic"><div data-nv="katalog"></div></div></details>
+<details class="kart bol"><summary><img src="../img/s_modern.jpg" alt=""><div><b>Kumaş numunesi iste</b><span>5 numune ölçü günü gelsin</span></div></summary><div class="ic"><div data-nv="numune"></div></div></details>
+
+<div class="bas2" id="stil"><h2>Tarzınız ne?</h2><p>4 soru, size özel perde ve halı önerisi.</p></div>
+<details class="kart bol" open><summary><img src="../img/s_akdeniz.jpg" alt=""><div><b>Stil testi</b><span>Odanızın fotoğrafını da ekleyin</span></div></summary><div class="ic"><div data-nv="stil"></div></div></details>
+
+<div class="bas2" id="projeler"><h2>Projeler</h2><p>Önce / sonra ve gerçek işler.</p></div>
+<details class="kart bol" open><summary><img src="../img/sonra.jpg" alt=""><div><b>Önce / sonra</b><span>Çizgiyi kaydırın</span></div></summary><div class="ic"><div data-nv="onceSonra"></div></div></details>
+<details class="kart bol"><summary><img src="../img/hero1.jpg" alt=""><div><b>Proje galerisi</b><span>Villa · otel · konut · ofis</span></div></summary><div class="ic"><div data-nv="galeri"></div></div></details>
+<details class="kart bol"><summary><img src="../img/otel.jpg" alt=""><div><b>Otel ve villa teklifi</b><span>Ücretsiz keşif, 48 saatte fiyat tablosu</span></div></summary><div class="ic"><div data-nv="proje"></div></div></details>
+
+<div class="bas2" id="takip"><h2>Siparişim</h2><p>Kodunuzla aşamayı görün.</p></div>
+<details class="kart bol" open><summary><img src="../img/fon.jpg" alt=""><div><b>Sipariş ve montaj takibi</b><span>Ör. NVL-2611</span></div></summary><div class="ic"><div data-nv="takip"></div></div></details>
+<details class="kart bol"><summary><img src="../img/hero2.jpg" alt=""><div><b>7/24 asistan</b><span>Fiyat, ölçü, teslim soruları</span></div></summary><div class="ic"><div data-nv="asistan"></div></div></details>
+
+<div class="bas2" id="ceyiz"><h2>Çeyiz ve dantel dönüşümü</h2><p>Anne yadigârı dantel, kırlente ve örtüye dönüşür.</p></div>
+<details class="kart bol"><summary><img src="../img/ceyiz.jpg" alt=""><div><b>Dantelinizi dönüştürelim</b><span>Fotoğraf gönderin, fikir verelim</span></div></summary><div class="ic"><img src="../img/ceyiz.jpg" alt="Dantelden kırlent" style="border-radius:14px;width:100%;aspect-ratio:1;object-fit:cover"><p>Kırlent, masa örtüsü, perde bandı. Çeyiz hazırlığında tüm ev tekstilini birlikte planlarız.</p><a class="nv-btn" data-wa="Elimdeki dantelleri dönüştürmek istiyorum.">Fotoğraf gönder</a></div></details>
+
+<div class="bas2"><h2>Yorumlar ve Instagram</h2></div>
+<details class="kart bol" open><summary><img src="../img/kirlent.jpg" alt=""><div><b>Google: 5,0 ★</b><span>13 yorum</span></div></summary><div class="ic"><div data-nv="yorum"></div></div></details>
+<details class="kart bol"><summary><img src="../img/magaza.jpg" alt=""><div><b>@nvlhomedesign</b><span>14,5 B takipçi</span></div></summary><div class="ic"><div data-nv="instagram"></div></div></details>
+
+<div class="bas2" id="iletisim"><h2>Mağaza</h2><p>Arslanbucak Mah. Cumhuriyet Cad. No:111, Kemer</p></div>
+<div class="kart" style="padding:0"><iframe src="https://maps.google.com/maps?q=36.5934938,30.5288801&z=16&output=embed" loading="lazy" title="NVL Home harita" style="width:100%;height:260px;border:0;display:block"></iframe><div style="padding:14px 16px;display:flex;gap:8px;flex-wrap:wrap"><a class="nv-btn" href="https://www.google.com/maps/dir/?api=1&destination=36.5934938,30.5288801" target="_blank" rel="noopener">Yol tarifi</a><a class="nv-btn nv-ince" href="https://www.nvlhome.com" target="_blank" rel="noopener">Online mağaza</a></div></div>
+<p style="text-align:center;color:var(--y2);font-size:12px;padding:10px 16px">Demo: arama ve WhatsApp düğmeleri şimdilik Dijitabela'ya gider.</p>
+</div>
+<nav class="alt"><a href="#"><b>⌂</b>Ana</a><a href="#fiyat"><b>📏</b>Fiyat</a><a href="#stil"><b>✨</b>Stil</a><a href="#takip"><b>📦</b>Takip</a><a class="wa" data-wa="Merhaba, bilgi almak istiyorum."><b>✆</b>WhatsApp</a></nav>
+<script src="../ortak/nvl.js"></script>
+<script src="../../_dijitabela/filigran.js" data-gucu="0.05"></script>
+
+<section data-sv360 style="padding:64px 16px;background:inherit;color:inherit"><div style="max-width:1120px;margin:0 auto">
+  <p style="font:700 12px/1 ui-monospace,monospace;letter-spacing:.18em;opacity:.65;margin:0 0 12px">360° GÖRÜNÜM</p>
+  <h2 style="margin:0 0 10px;font-size:clamp(26px,4vw,40px);line-height:1.1">Gelmeden önce bizi görün</h2>
+  <p style="margin:0 0 20px;opacity:.75;max-width:640px">Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın.</p>
+  <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(127,127,127,.35);background:#222"><iframe src="https://www.google.com/maps/embed?pb=!6m6!1m5!2m2!1d36.5934938!2d30.5288801!4f0!5f0.8" title="nvlhomedesign 360° görünüm" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" style="display:block;width:100%;height:min(62vh,520px);border:0"></iframe></div>
+  <p style="font-size:13px;opacity:.6;margin:12px 0 0">Görüntü: Google Street View · <a href="https://www.google.com/maps/place/NVL+HOME+PERDE/@36.5934938,30.5288801,17z" target="_blank" rel="noopener" style="color:inherit">Yol tarifi al</a></p>
+</div></section>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>

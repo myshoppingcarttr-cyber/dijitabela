@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16181D">
+<title>Ekspertizler · Dijitabela Ofisi</title>
+<link rel="icon" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<!-- Sanal Ofis · Ekspertizler (30 Eki 2026, Patron: "Ekspertiz yapanları göremiyor muyuz?").
+     Kaynak: public.ekspertiz_kayitlari (supabase/ekspertiz-kayitlari.sql); ekspertiz-v2 sitedeki her ekspertizi yazar.
+     Giriş/yetki ofis-maliyet.html ile AYNI: Supabase e-posta kodu (OTP) + RLS yonetici_mi() (yalnız okur).
+     ?demo=1 → örnek veri, giriş/veritabanı yok. -->
+<style>
+:root{--zemin:#EDEBE4;--kart:#fff;--yazi:#16181D;--soluk:#646A75;--cizgi:#DDD9CF;--sari:#FFB000;--yesil:#1E9E5A;--kirmizi:#D64545;--mavi:#2F6FEB;--koyu:#16181D}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--zemin);color:var(--yazi);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45;overflow-x:hidden}
+.kap{max-width:1080px;margin:0 auto;padding:12px 16px 70px}
+header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.logo{flex:none;width:40px;height:40px;border-radius:10px;background:var(--koyu);display:grid;place-items:center;color:var(--sari);font:700 1.2rem 'Space Mono',monospace}
+h1{font-size:1.15rem;font-weight:800;line-height:1.15}
+.alt-b{font-size:.76rem;color:var(--soluk)}
+.baglar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.bag{font-size:.8rem;font-weight:700;color:var(--yazi);background:var(--kart);border:1px solid var(--cizgi);padding:8px 12px;border-radius:999px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.uyari{border-radius:12px;padding:9px 12px;font-size:.86rem;font-weight:600;margin-bottom:8px;overflow-wrap:anywhere;border:1px solid}
+.uyari.kirmizi{background:#FDE2E2;color:#8A1F1F;border-color:#F3B4B4}
+.uyari.mavi{background:#DCE8FF;color:#1B4FB5;border-color:#B7CDF7}
+.durum{font-size:.76rem;color:var(--soluk);padding:0 2px 8px}
+.gost{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.gost>div{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:11px 12px;min-width:0}
+.gost small{display:block;font-size:.72rem;font-weight:700;color:var(--soluk)}
+.gost b{display:block;font:700 1.25rem 'Space Mono',monospace;margin-top:2px}
+section{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:14px;margin-bottom:12px}
+section>h2{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+section>h2 small{font-size:.74rem;font-weight:600;color:var(--soluk)}
+.filtre{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filtre input,.filtre select{font:inherit;font-size:16px;padding:9px 10px;border:1px solid var(--cizgi);border-radius:10px;min-height:44px;background:#fdfcfa;min-width:0}
+.filtre input{flex:1 1 200px}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th{text-align:left;font-size:.7rem;color:var(--soluk);font-weight:800;padding:6px 8px;border-bottom:2px solid var(--cizgi);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid #EEECE4;vertical-align:top;overflow-wrap:anywhere}
+td.s,th.s{text-align:right}
+td a{color:var(--mavi);font-weight:700}
+.skor{display:inline-block;font:700 .8rem 'Space Mono',monospace;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.skor.k{background:var(--kirmizi)}.skor.o{background:#C98A00}.skor.i{background:var(--yesil)}
+.et{display:inline-block;font-size:.66rem;font-weight:800;padding:2px 8px;border-radius:999px;background:#EEE;color:#444;white-space:nowrap;margin:1px 2px 1px 0}
+.et.wa{background:#DFF5E8;color:#14703F}.et.p{background:#FFF1CC;color:#6B4A00}
+.alt{font-size:.72rem;color:var(--soluk);display:block}
+.eksik{font-size:.76rem;color:#5a4a36}
+.bos{border:1px dashed var(--cizgi);border-radius:12px;padding:18px;text-align:center;color:var(--soluk);font-weight:600}
+.giris{max-width:380px;margin:10vh 16px;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:22px}
+.giris h1{margin-bottom:6px}.giris p{font-size:.88rem;color:var(--soluk)}
+.giris input{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--cizgi);border-radius:10px;margin:10px 0}
+.giris button{width:100%;font:inherit;font-weight:800;padding:13px;border:0;border-radius:10px;background:var(--sari);cursor:pointer;min-height:48px}
+@media(min-width:420px){.giris{margin:10vh auto}}
+@media(min-width:720px){.kap{padding:20px 20px 80px}.gost{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:639px){
+  table,thead,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{border:1px solid var(--cizgi);border-radius:12px;padding:8px 10px;margin-bottom:8px;background:#FAF9F5}
+  td{border:0;padding:3px 0;display:flex;justify-content:space-between;gap:10px;text-align:right}
+  td::before{content:attr(data-e);font-size:.7rem;font-weight:800;color:var(--soluk);text-align:left;flex:none;padding-top:2px}
+  td.bas{font-weight:800;font-size:.95rem;text-align:left;display:block}td.bas::before{display:none}
+  td:empty{display:none}
+}
+</style>
+</head>
+<body>
+<div class="kap" id="uyg" hidden>
+  <header>
+    <div class="logo">🔎</div>
+    <div><h1>Ekspertizler</h1><span class="alt-b">sitedeki ücretsiz ekspertizi kim yaptı · yalnız yönetici</span></div>
+    <div class="baglar"><a class="bag" href="ofis-yonetim.html">🧭 Yönetim</a><a class="bag" href="ofis-patron.html">📋 Benim işlerim</a><a class="bag" href="ofis-arama.html">📞 Arama Panosu</a></div>
+  </header>
+  <div class="uyari kirmizi" id="uyari" hidden></div>
+  <div class="uyari mavi" id="demo-b" hidden>ÖRNEK VERİ (demo): veritabanına bağlı değildir.</div>
+  <div class="durum" id="son">Yükleniyor…</div>
+  <div class="gost">
+    <div><small>Bugün</small><b id="k-bugun">–</b></div>
+    <div><small>Son 7 gün</small><b id="k-7">–</b></div>
+    <div><small>WhatsApp'tan yazan (7 gün)</small><b id="k-wa">–</b></div>
+    <div><small>Ortalama skor (7 gün)</small><b id="k-ort">–</b></div>
+  </div>
+  <section>
+    <h2>Son ekspertizler <small id="adet"></small></h2>
+    <div class="filtre">
+      <input id="ara" type="search" placeholder="İşletme, şehir, site ara" aria-label="Ara">
+      <select id="gun" aria-label="Dönem"><option value="1">Bugün</option><option value="7" selected>7 gün</option><option value="30">30 gün</option><option value="365">Tümü</option></select>
+      <select id="sadece" aria-label="Filtre"><option value="">Hepsi</option><option value="wa">WhatsApp'tan yazanlar</option><option value="dusuk">Skor &lt; 85 (prototip adayı)</option></select>
+    </div>
+    <div id="liste"></div>
+    <p class="alt-b" style="margin-top:8px">KVKK: kayıtlarda IP, ad-soyad, telefon yok; yalnız işletme bilgisi ve geldiği sayfa. 12 ay sonra silinir. Yeni kayıt Patron'a e-posta + WhatsApp notu olarak düşer; skor 85 altındaysa prototip kuyruğuna (SATIS\SOZ-TAKIP.md) girer.</p>
+  </section>
+</div>
+<p id="yuk" style="text-align:center;margin:20vh 16px;color:#646A75;font-weight:600">Yükleniyor…</p>
+<div class="giris" id="giris" hidden>
+  <h1>Ekspertizler</h1>
+  <p>Ofis ile aynı giriş. E-postanıza giriş kodu gelir; kodu buraya yazın. Yalnız yönetici hesabı açabilir.</p>
+  <input id="eposta" type="email" value="alimhoslar16@gmail.com" autocomplete="email">
+  <button id="gonder" type="button">Giriş kodu gönder</button>
+  <div id="kodalan" hidden><input id="kod" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="E-postadaki kod"><button id="kodgir" type="button">Giriş</button></div>
+  <p id="gmsg" style="margin-top:10px"></p>
+</div>
+<script src="assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var $ = function (i) { return document.getElementById(i); };
+  var DEMO = /[?&]demo=1\b/.test(location.search);
+  var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var guvenliLink = function (u) { u = String(u || ""); return /^https?:\/\//i.test(u) ? u : u ? "https://" + u : ""; };
+  var saat = function (d) { return new Date(d).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }); };
+  var sb = null, L = [];
+  var DEMO_L = [
+    { id: "1", olusturma: new Date(Date.now() - 36e5).toISOString(), isletme_adi: "NvlHomedesign", sehir: "Antalya", skor: 73, google_durum: "bulundu", google_tur: "Ev eşyası mağazası", google_puan: 4.8, google_yorum: 12, google_harita: "https://maps.google.com", isletme_site: null, kaynak_sayfa: "/ekspertiz.html", referrer_alan: "instagram.com", utm: {}, wa_tiklandi: true, prototip_durum: "prototip: S005 kuyrukta", eksikler: [{ ad: "Web sitesi", durum: "eksik" }, { ad: "Çalışma saatleri", durum: "eksik" }] },
+    { id: "2", olusturma: new Date(Date.now() - 5 * 36e5).toISOString(), isletme_adi: "Örnek Klinik", sehir: "Muratpaşa", skor: 91, google_durum: "bulundu", kaynak_sayfa: "/ekspertiz.html", utm: { utm_source: "google" }, wa_tiklandi: false, prototip_durum: "prototip: gerek yok (skor ≥ 85)", eksikler: [] }
+  ];
+  function hata(m) { $("uyari").hidden = !m; $("uyari").textContent = m || ""; }
+  function sinif(s) { return s == null ? "o" : s < 50 ? "k" : s < 85 ? "o" : "i"; }
+
+  function ciz() {
+    var gun = +$("gun").value, sinir = Date.now() - gun * 864e5, q = $("ara").value.trim().toLocaleLowerCase("tr"), f = $("sadece").value;
+    var bugunBas = new Date(); bugunBas.setHours(0, 0, 0, 0);
+    var s7 = L.filter(function (k) { return Date.parse(k.olusturma) > Date.now() - 7 * 864e5; });
+    $("k-bugun").textContent = L.filter(function (k) { return Date.parse(k.olusturma) >= bugunBas.getTime(); }).length;
+    $("k-7").textContent = s7.length;
+    $("k-wa").textContent = s7.filter(function (k) { return k.wa_tiklandi; }).length;
+    var sk = s7.filter(function (k) { return k.skor != null; }); $("k-ort").textContent = sk.length ? Math.round(sk.reduce(function (a, k) { return a + k.skor; }, 0) / sk.length) : "–";
+    var G = L.filter(function (k) {
+      if (Date.parse(k.olusturma) < sinir) return false;
+      if (f === "wa" && !k.wa_tiklandi) return false;
+      if (f === "dusuk" && !(k.skor < 85)) return false;
+      if (q && [k.isletme_adi, k.sehir, k.girilen_site, k.isletme_site, k.google_tur].join(" ").toLocaleLowerCase("tr").indexOf(q) < 0) return false;
+      return true;
+    });
+    $("adet").textContent = G.length + " kayıt";
+    $("liste").innerHTML = G.length ? "<table><thead><tr><th>İşletme</th><th class='s'>Skor</th><th>En ciddi eksikler</th><th>Geldiği yer</th><th>Durum</th><th>Zaman</th></tr></thead><tbody>" + G.map(function (k) {
+      var eks = (k.eksikler || []).filter(function (e) { return e.durum === "eksik"; }).slice(0, 3).map(function (e) { return esc(e.ad); }).join(", ");
+      var harita = guvenliLink(k.google_harita || k.girilen_harita), site = guvenliLink(k.isletme_site || k.girilen_site);
+      var utm = k.utm && Object.keys(k.utm).length ? " · " + esc(Object.keys(k.utm).map(function (a) { return a.replace("utm_", "") + "=" + k.utm[a]; }).join(" ")) : "";
+      return "<tr><td class='bas' data-e='İşletme'>" + esc(k.isletme_adi || k.girilen_ad || k.girilen_site || "(ad yok)") +
+        "<span class='alt'>" + esc([k.sehir, k.google_tur, k.google_puan != null ? k.google_puan + "★ · " + (k.google_yorum || 0) + " yorum" : ""].filter(Boolean).join(" · ")) + "</span>" +
+        "<span class='alt'>" + (harita ? "<a href='" + esc(harita) + "' target='_blank' rel='noopener'>Harita</a> " : "") + (site ? "<a href='" + esc(site) + "' target='_blank' rel='noopener'>Site</a>" : "") + "</span></td>" +
+        "<td class='s' data-e='Skor'><span class='skor " + sinif(k.skor) + "'>" + (k.skor == null ? "?" : k.skor) + "</span></td>" +
+        "<td class='eksik' data-e='Eksikler'>" + (eks || "–") + "</td>" +
+        "<td data-e='Geldiği yer'>" + esc(k.kaynak_sayfa || "–") + "<span class='alt'>" + esc(k.referrer_alan || "doğrudan") + utm + "</span></td>" +
+        "<td data-e='Durum'>" + (k.wa_tiklandi ? "<span class='et wa'>WhatsApp'tan yazdı</span>" : "") + (k.prototip_durum ? "<span class='et p'>" + esc(k.prototip_durum.replace(/^prototip:\s*/, "")) + "</span>" : k.bildirildi ? "" : "<span class='et'>bildirim bekliyor</span>") + "</td>" +
+        "<td data-e='Zaman'>" + saat(k.olusturma) + "</td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='bos'>Bu filtreyle ekspertiz yok.</div>";
+  }
+
+  async function yukle() {
+    if (DEMO) { L = DEMO_L; $("demo-b").hidden = false; $("son").textContent = "Örnek veri"; ciz(); return; }
+    var r = await sb.from("ekspertiz_kayitlari").select("*").order("olusturma", { ascending: false }).limit(500);
+    if (r.error) { hata("Okunamadı: " + r.error.message + (/does not exist|relation/i.test(r.error.message) ? " (tablo henüz kurulmadı: supabase/ekspertiz-kayitlari.sql Patron onayıyla uygulanacak)" : /permission|policy/i.test(r.error.message) ? " (bu hesapla yetkiniz yok)" : "")); L = []; }
+    else { hata(""); L = r.data || []; }
+    $("son").textContent = "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
+    ciz();
+  }
+  ["ara", "gun", "sadece"].forEach(function (i) { $(i).addEventListener("input", ciz); });
+
+  function basla() { $("giris").hidden = true; $("uyg").hidden = false; yukle(); if (!DEMO) setInterval(function () { if (!document.hidden) yukle(); }, 60000); }
+  if (DEMO) { $("yuk").hidden = true; basla(); return; }
+  var A = window.AJANS, basladi = false;
+  sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
+  function girisGoster(m) { $("yuk").hidden = true; $("giris").hidden = false; if (m) $("gmsg").textContent = m; }
+  $("gonder").onclick = async function () {
+    var r = await sb.auth.signInWithOtp({ email: $("eposta").value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+    $("gmsg").textContent = r.error ? "Olmadı: " + r.error.message : "E-postanıza gelen kodu aşağıya yazın.";
+    if (!r.error) $("kodalan").hidden = false;
+  };
+  $("kodgir").onclick = async function () {
+    var r = await sb.auth.verifyOtp({ email: $("eposta").value.trim(), token: $("kod").value.replace(/\D/g, ""), type: "email" });
+    if (r.error) $("gmsg").textContent = "Kod olmadı: " + r.error.message;
+  };
+  sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
+  sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

@@ -20,6 +20,11 @@
     girdi = { url: web, maps: HARITA.test(harita) ? harita : "", isletme: HARITA.test(harita) ? "" : harita, sehir: f.sehir.value.trim() };
     if (HARITA.test(web) && !girdi.maps) { girdi.maps = web; girdi.url = ""; }
     if (!girdi.url && !girdi.maps && !girdi.isletme) return yaz($("e-durum"), "Google Haritalar bağlantınızı ya da işletmenizin adını yazın.", "kotu");
+    // 30 Eki: sonuç kaydedilir (işletme bilgisi + hangi sayfadan geldiği; IP/kişisel veri yok — sayfadaki aydınlatma notu)
+    var q = new URLSearchParams(location.search), utm = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (k) { if (q.get(k)) utm[k] = q.get(k).slice(0, 100); });
+    var refAlan = ""; try { refAlan = document.referrer ? new URL(document.referrer).hostname : ""; } catch (x) {}
+    girdi.kayit = true; girdi.kaynak = { sayfa: location.pathname, ref: refAlan, utm: utm };
     f.hidden = true; var ilr = $("eks-ilerleme"); ilr.hidden = false; ilr.scrollIntoView({ behavior: "smooth", block: "center" });
     var adimlar = ["İşletmeniz Google Haritalar'da aranıyor…", "Google profiliniz okunuyor: durum, saatler, fotoğraflar…", "Yorumlarınız ve puanınız inceleniyor…", "Çevrenizdeki rakipler bulunuyor…", "Rakiplerle karşılaştırılıyor…", "Web siteniz açılıyor…", "Mobil uyum ve hız ölçülüyor…", "Telefon, WhatsApp ve randevu düğmeleri aranıyor…", "Çözüm planı hazırlanıyor…"], i = 0;
     $("eks-ilerleme-yazi").textContent = adimlar[0];
@@ -29,6 +34,13 @@
       .then(function (d) { if (d.hata) throw new Error(d.hata); veri = d; goster(d); })
       .catch(function (x) { ilr.hidden = true; f.hidden = false; yaz($("e-durum"), "Analiz tamamlanamadı: " + (x && x.message || "bağlantı hatası") + ". Bilgileri kontrol edip tekrar deneyin.", "kotu"); })
       .then(function () { clearInterval(zam); });
+  });
+
+  // 30 Eki: sonuçtaki WhatsApp düğmesine basılınca kayda "WhatsApp'tan yazdı" işareti (sayfa geçişini beklemez)
+  document.addEventListener("click", function (ev) {
+    var a = ev.target && ev.target.closest && ev.target.closest('.eks-dugmeler a[href*="wa.me"]');
+    if (!a || !veri || !veri.kayitId || veri.__wa) return; veri.__wa = true;
+    try { fetch(URL_FN, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json", apikey: A.supabaseAnonKey || "" }, body: JSON.stringify({ islem: "wa", kayitId: veri.kayitId }) }).catch(function () {}); } catch (x) {}
   });
 
   var renk = function (p) { return p >= 75 ? "iyi" : p >= 50 ? "orta" : "kotu"; };
