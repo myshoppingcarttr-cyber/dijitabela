@@ -72,7 +72,36 @@
 .nv-ig{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.nv-ig-k{background:#fff;border:1px solid var(--k);border-radius:var(--r);overflow:hidden;height:560px}.nv-ig-k iframe{width:100%;height:100%;border:0}
 @media(max-width:860px){.nv-ig{grid-template-columns:1fr;max-width:420px}}
 /* katalog */
-.nv-kat{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}.nv-kat article{display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:center;background:var(--z2);border:1px solid var(--k);border-radius:var(--r);padding:10px}
+.nv-kat{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}.nv-kat article{display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:center;background:var(--z2);border:1px solid var(--k);border-radius:var(--r);padding:10px}
 .nv-kat img{width:76px;height:76px;object-fit:cover;border-radius:calc(var(--r)*.6)}.nv-kat b{display:block}.nv-kat span{display:block;font-size:12.5px;color:var(--y2)}.nv-kat em{display:block;font-style:normal;font-size:13px;font-weight:600;margin-top:4px}.nv-kat .nv-btn{min-height:38px;padding:0 12px;font-size:13px}
 /* örnek şeridi */
 .nv-ornek{position:fixed;left:10px;bottom:96px;z-index:99;background:#111d;color:#fff;font:700 10px/1 var(--f);letter-spacing:.14em;padding:7px 10px;border-radius:30px;pointer-events:none}
+/* --- Kendi site içeriği eklemeleri (30 Eki) --- */
+/* kampanya bandı */
+.nv-kamp{overflow:hidden;background:var(--g,#b08d57);color:#fff;font:600 13px/1 var(--f);white-space:nowrap}
+.nv-kamp-ic{display:inline-flex;gap:0;padding:10px 0;animation:nvKay 38s linear infinite}.nv-kamp-ic span{padding:0 22px;position:relative}.nv-kamp-ic span:after{content:"✦";position:absolute;right:-5px;opacity:.7}
+@keyframes nvKay{to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.nv-kamp-ic{animation:none;white-space:normal;flex-wrap:wrap}}
+/* katalog filtre + arama */
+.nv-kat-ust{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}.nv-kat-ust .nv-filtre{margin:0}
+[data-nv] .nv-kat-ara{max-width:280px;border-radius:40px;padding:10px 16px}
+.nv-kat .nv-seri{display:block;font-size:11.5px;color:var(--y2);opacity:.85;margin-top:3px;line-height:1.35}
+.nv-kat-yok{color:var(--y2);font-size:14px}
+@media(max-width:560px){[data-nv] .nv-kat-ara{max-width:none}.nv-kat-ust .nv-filtre button{padding:0 12px;font-size:13px}}
+/* galeri: Instagram kartları */
+.nv-gal-ig a{display:flex;flex-direction:column;justify-content:flex-end;gap:6px;height:100%;min-height:260px;aspect-ratio:4/5;padding:18px;box-sizing:border-box;text-decoration:none;color:#fff;background:radial-gradient(circle at 20% 15%,#c9a35b55,transparent 55%),linear-gradient(160deg,#2a2622,#4a3f35);border-radius:var(--r)}
+.nv-gal-ig b{font:600 19px/1.2 var(--fb)}.nv-gal-ig span{font-size:13px;opacity:.85}.nv-gal-ig em{font-style:normal;font-weight:700;font-size:13px;margin-top:6px}
+.nv-gal-igb{font:700 11.5px var(--f)!important;letter-spacing:.06em;opacity:.75!important;margin-bottom:auto}
+/* Instagram gönderi listesi */
+.nv-ig-liste{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:14px}
+.nv-ig-liste a{display:block;padding:12px 14px;background:var(--z2);border:1px solid var(--k);border-radius:var(--r);text-decoration:none;color:var(--y)}.nv-ig-liste a:hover{border-color:var(--a)}
+.nv-ig-liste b{display:block;font-size:14px}.nv-ig-liste span{display:block;font-size:12.5px;color:var(--y2)}
+/* sık sorulanlar */
+.nv-sss{display:grid;gap:8px}.nv-sss details{background:var(--z2);border:1px solid var(--k);border-radius:var(--r);padding:0 16px}
+.nv-sss summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}.nv-sss summary::-webkit-details-marker{display:none}.nv-sss summary:after{content:"+";font-size:20px;line-height:1;color:var(--y2)}.nv-sss details[open] summary:after{content:"–"}
+.nv-sss p{margin:0 0 14px;color:var(--y2)}.nv-sss>.nv-btn{justify-self:start;margin-top:6px}
+/* hakkımızda */
+.nv-hak{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}.nv-hak img{width:100%;border-radius:var(--r);display:block}
+.nv-hak .ilkeler{display:grid;gap:8px;margin:16px 0 0;padding:0;list-style:none}.nv-hak .ilkeler li{padding:10px 14px;border-left:3px solid var(--g,#b08d57);background:var(--z2);font-size:15px}
+.nv-markalar{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.nv-markalar span{border:1px solid var(--k);border-radius:30px;padding:5px 11px;font-size:12.5px;color:var(--y2)}
+@media(max-width:860px){.nv-hak{grid-template-columns:1fr}}
+.nv-hak-alinti{font:italic 500 clamp(24px,3.2vw,36px)/1.25 var(--fb);margin:0 0 14px;color:var(--y)}

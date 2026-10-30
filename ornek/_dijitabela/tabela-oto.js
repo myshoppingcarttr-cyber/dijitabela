@@ -1,6 +1,6 @@
 // Dijitabela konuşan tabela — otomatik sürüm (9 Eki 2026, Alim Bey: "tabelamızı tüm prototiplere koy").
 // Kendi rehber.json/ses kaydı olmayan prototip sayfalarına _build/tabela-ekle.js ekler. Bölümleri sayfadan okur
-// (başlık + ilk cümle), "Sesli dinle"de cihazın Türkçe sesiyle anlatır (speechSynthesis); görünüm rehber.js ile aynı.
+// (başlık + ilk cümle), "Sesli dinle"de YALNIZ Ayşe kaydını çalar (30 Eki: cihaz sesi kaldırıldı); görünüm rehber.js ile aynı.
 (function () {
   "use strict";
   if (window.DJ_REHBER) return;
@@ -25,9 +25,10 @@
   var hero = document.querySelector(".hero, .kah, header + section, main > section");
   if (hero && !hero.hasAttribute("data-anlat")) hero.setAttribute("data-anlat", "giris");
   // 11 Eki: _build/tabela-ses.js Cartesia kaydını ornek/_ses-oto/<imza>.mp3 merkezine üretir; tabela-ekle.js DJ_OTO_SES = {kok, dosya:{anahtar: imza}} ekler.
-  // Kaydı olan satır mp3 çalar; kaydı olmayan (sayfa sonradan değişmiş) satır cihaz sesiyle (yedek) okunur.
+  // Kaydı olan satır mp3 çalar; kaydı olmayan (sayfa sonradan değişmiş) satır yalnız yazıyla gösterilir, sesli okunmaz (30 Eki).
   var K = window.DJ_OTO_SES, kayitli = K && K.kok && K.dosya ? K : null;
   if (kayitli) Object.keys(satirlar).forEach(function (k) { if (kayitli.dosya[k]) satirlar[k].dosya = kayitli.dosya[k]; else satirlar[k].tts = true; });
-  window.DJ_REHBER = { tts: true, ses: kayitli ? kayitli.kok : false, satirlar: satirlar };
+  else Object.keys(satirlar).forEach(function (k) { satirlar[k].tts = true; });
+  window.DJ_REHBER = { tts: false, ses: kayitli ? kayitli.kok : false, satirlar: satirlar };
   var s = document.createElement("script"); s.src = "/ornek/_dijitabela/rehber.js"; s.defer = true; document.body.appendChild(s);
 })();

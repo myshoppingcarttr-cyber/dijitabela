@@ -13,13 +13,13 @@
 
   /* ---------- Ürün verisi (örnek fiyatlar, KDV dahil) ---------- */
   var URUN = {
-    tul:    { ad: "Tül perde",          birim: "m",  img: "tul",    pile: 3,   fiyat: [380, 620, 980],   not: "Pile 1:3 · ışığı yumuşatır" },
-    fon:    { ad: "Fon perde",          birim: "m",  img: "fon",    pile: 2.5, fiyat: [520, 850, 1450],  not: "Pile 1:2,5 · kadife, keten, blackout" },
-    stor:   { ad: "Stor perde",         birim: "m2", img: "stor",   fiyat: [950, 1350, 1900],  not: "Mutfak, banyo, çocuk odası" },
-    zebra:  { ad: "Zebra perde",        birim: "m2", img: "zebra",  fiyat: [1150, 1550, 2250], not: "Gece-gündüz ayarı" },
-    jaluzi: { ad: "Ahşap jaluzi",       birim: "m2", img: "jaluzi", fiyat: [2300, 3100, 4200], not: "25 / 50 mm · motorlu seçenek" },
-    plicell:{ ad: "Plicell (cam balkon)",birim: "m2", img: "plicell",fiyat: [1500, 2050, 2900], not: "Cam balkon ve çatı katı" },
-    dikey:  { ad: "Dikey perde",        birim: "m2", img: "dikey",  fiyat: [700, 950, 1300],   not: "Ofis, otel lobisi, geniş cam" }
+    tul:    { ad: "Tül perde",          birim: "m",  img: "tul",    pile: 3,   fiyat: [380, 620, 980],   not: "Tam, orta ya da az pile · ışığı yumuşatır", grup: "perde", seri: "Gana, Vista nakışlı, Nora, Nero, Verde, Side ve Didim 300 cm nakışlı, Alaçatı, Bergama" },
+    fon:    { ad: "Fon perde",          birim: "m",  img: "kendi-fon-attiymon", pile: 2.5, fiyat: [520, 850, 1450],  not: "Kadife, keten, nakışlı · özel dikim", grup: "perde", seri: "Dolly, Pinna, Zeugma, Troya Rome, Nova, Vasko, Attiymon, İpek kadife, Gabon nakışlı" },
+    stor:   { ad: "Stor perde",         birim: "m2", img: "stor",   fiyat: [950, 1350, 1900],  not: "Screen, simli, blackout stor", grup: "sistem", seri: "SC ve İbiza screen, PT Como, PS simli, Panama; blackout: PX, LX, YMX sedefli, XX süper" },
+    zebra:  { ad: "Zebra perde",        birim: "m2", img: "zebra",  fiyat: [1150, 1550, 2250], not: "Gece-gündüz ayarı · bambu ve baskılı", grup: "sistem", seri: "Bambu, Eco bambu, Blackstar, Pırıltı, Hasır, Mikro pilse, dijital baskılı" },
+    jaluzi: { ad: "Ahşap jaluzi",       birim: "m2", img: "jaluzi", fiyat: [2300, 3100, 4200], not: "25 / 50 mm · motorlu seçenek", grup: "sistem", seri: "25 ve 50 mm polywood, 50 mm blackout polywood, Truwood, ahşap; AJ metal jaluzi" },
+    plicell:{ ad: "Plicell (cam balkon)",birim: "m2", img: "kendi-plicell",fiyat: [1500, 2050, 2900], not: "Cam balkon, çatı katı, kış bahçesi", grup: "sistem", seri: "Lucidum, Clover, Leafy, Moon, Windy, Dutch, Bright, Niteflite, Lattice" },
+    dikey:  { ad: "Dikey perde",        birim: "m2", img: "dikey",  fiyat: [700, 950, 1300],   not: "Ofis, otel lobisi, geniş cam", grup: "sistem", seri: "Kumaş dikey 89 / 127 mm, PVC dikey, tül dikey" }
   };
   var SINIF = ["Ekonomik", "Standart", "Premium"];
   var BOLGE = ["Kemer merkez", "Arslanbucak", "Göynük", "Beldibi", "Çamyuva", "Kiriş", "Tekirova", "Konyaaltı / Antalya"];
@@ -74,11 +74,11 @@
 
   /* ---------- 2. Stil testi + oda fotoğrafı ---------- */
   var STIL = {
-    s_modern:     { ad: "Modern minimal", ozet: "Dalga pileli gri fon + beyaz tül, tavan rayı, siyah detay. Halıda düz doku.", urun: ["Dalga pile fon", "Keten görünümlü tül", "Antrasit zebra"], renk: ["#4a4d52", "#cfcac2", "#f4f2ee"] },
-    s_bohem:      { ad: "Bohem doğal", ozet: "Keten tül, rattan ve jüt. Toprak tonlu kırlentler, saçaklı halı.", urun: ["Keten tül", "Jüt halı", "Toprak tonlu kırlent seti"], renk: ["#b7835a", "#d9c6a5", "#7f8a63"] },
-    s_klasik:     { ad: "Klasik lüks", ozet: "Kadife ya da damask fon, saçak ve kuşak, nakışlı tül, altın korniş.", urun: ["Kadife fon", "Nakışlı tül", "Altın korniş ve aksesuar"], renk: ["#6d2e2e", "#c9a35b", "#efe4cf"] },
-    s_iskandinav: { ad: "İskandinav ferah", ozet: "Bol ışık: beyaz tül, açık meşe ahşap jaluzi, yün dokulu halı.", urun: ["Beyaz düz tül", "Açık meşe jaluzi", "Yün dokulu halı"], renk: ["#ffffff", "#d8c3a5", "#9aa5a8"] },
-    s_akdeniz:    { ad: "Akdeniz sahil", ozet: "Kemer'e en çok yakışan: beyaz keten, mavi aksan, cam balkonda plicell.", urun: ["Beyaz keten tül", "Plicell cam balkon", "Mavi-beyaz kırlent"], renk: ["#f7f5f0", "#2f6f8f", "#c7b89a"] }
+    s_modern:     { ad: "Modern minimal", ozet: "Tek hareketle ışığı yöneten koyu tonlar, sade tül, düz dokulu halı. Açıkken ferah, kapalıyken daha özel.", urun: ["Koyu Antrasit Silüet perde (yeni)", "PX Panama blackout stor", "Ambiance serisi halı"], renk: ["#3b3d40", "#cfcac2", "#f4f2ee"] },
+    s_bohem:      { ad: "Bohem doğal", ozet: "Soft gold dokunuşlar, katmanlı tüller ve bohem sıcaklık; doğal dokulu keten tül ve ona eşlik eden özel fon.", urun: ["Keten tül + özel fon", "Katmanlı tül (soft gold)", "Sisal halı"], renk: ["#b7835a", "#d9c6a5", "#c9a35b"] },
+    s_klasik:     { ad: "Klasik lüks", ozet: "Mekâna karakter katan kadife fonlar, nakışlı tül, zarafeti tamamlayan rustik kuşak ve püskül detayları.", urun: ["İpek kadife ya da Gabon nakışlı fon", "Vista / Side nakışlı tül", "Rustik kuşak ve aksesuar"], renk: ["#6d2e2e", "#c9a35b", "#efe4cf"] },
+    s_iskandinav: { ad: "İskandinav ferah", ozet: "Bol ışık: soft dokulu beyaz tül, açık tonlu ahşap jaluzi, sade halı. Perde evin önüne geçmez, güzelliğini tamamlar.", urun: ["Soft dokulu beyaz tül", "Truwood / 50 mm polywood jaluzi", "Sade dokulu halı"], renk: ["#ffffff", "#d8c3a5", "#9aa5a8"] },
+    s_akdeniz:    { ad: "Akdeniz sahil", ozet: "Kemer'e en çok yakışan: beyaz keten tül, cam balkonda yıkanabilir plicell; manzaradan ödün vermeden mahremiyet.", urun: ["Beyaz keten tül", "Plicell cam balkon (Leafy, Windy)", "Mavi-beyaz kırlent"], renk: ["#f7f5f0", "#2f6f8f", "#c7b89a"] }
   };
   var SORU = [
     { s: "Evinizde en çok hangi his olsun?", c: [["Sade ve düzenli", { s_modern: 2, s_iskandinav: 1 }], ["Sıcak ve doğal", { s_bohem: 2, s_akdeniz: 1 }], ["Gösterişli ve şık", { s_klasik: 3 }], ["Ferah, deniz havası", { s_akdeniz: 2, s_iskandinav: 1 }]] },
@@ -112,33 +112,43 @@
   /* ---------- 3. Önce / sonra ---------- */
   function onceSonra(el) {
     el.classList.add("nv-os");
-    el.innerHTML = '<img src="' + IMG + 'sonra.jpg" alt="Sonra: tül ve fon perde uygulanmış salon"><div class="nv-os-once"><img src="' + IMG + 'once.jpg" alt="Önce: perdesiz pencere"></div><span class="nv-os-e a">ÖNCE</span><span class="nv-os-e b">SONRA</span><div class="nv-os-cizgi"><i></i></div><input type="range" min="0" max="100" value="50" aria-label="Önce ve sonra karşılaştırma">';
+    el.innerHTML = '<img src="' + IMG + 'sonra.jpg" alt="Sonra: aynı odaya tül, fon perde ve uyumlu mobilya"><div class="nv-os-once"><img src="' + IMG + 'once.jpg" alt="Önce: perdesiz pencere"></div><span class="nv-os-e a">ÖNCE</span><span class="nv-os-e b">SONRA</span><div class="nv-os-cizgi"><i></i></div><input type="range" min="0" max="100" value="50" aria-label="Önce ve sonra karşılaştırma">';
     var r = $("input", el), o = $(".nv-os-once", el), c = $(".nv-os-cizgi", el);
     var f = function () { o.style.clipPath = "inset(0 " + (100 - r.value) + "% 0 0)"; c.style.left = r.value + "%"; };
     r.oninput = f; f();
   }
 
   /* ---------- 4. Proje galerisi (filtreli) ---------- */
+  /* Gerçek projeler: nvlhome.com "Perde projelerimiz" fotoğrafları + @nvlhomedesign gönderileri (Instagram'a bağlantı) */
   var PROJE = [
-    { t: "villa", ad: "Göynük villa · salon", img: "hero1", d: "Keten tül + taupe kadife fon, tavan rayı, 4 cephe" },
-    { t: "otel", ad: "Kemer otel odaları", img: "otel", d: "Blackout + tül, 48 oda, 12 günde montaj" },
-    { t: "konut", ad: "Arslanbucak daire", img: "hero3", d: "Çift katlı perde, gri blackout" },
-    { t: "konut", ad: "Çatı katı plicell", img: "plicell", d: "Eğimli cam için ölçüye özel plicell" },
-    { t: "ofis", ad: "Psikolog ofisi", img: "dikey", d: "Mahremiyet için dikey + tül" },
-    { t: "villa", ad: "Tekirova villa · mutfak", img: "stor", d: "Keten stor, nem dayanımlı kumaş" },
-    { t: "otel", ad: "Butik otel lobisi", img: "hero2", d: "Kadife fon, motorlu ahşap jaluzi" },
-    { t: "konut", ad: "Beldibi yatak odası", img: "zebra", d: "Zebra + kırlent ve halı uyumu" }
+    { t: "konut", ad: "Kemer · salon projesi", img: "kendi-salon-genis", d: "Desenli fon + beyaz tül, korniş ve halıyla uyumlu salon" },
+    { t: "konut", ad: "Kemer · fon detayı", img: "kendi-salon-fon", d: "Özel dikim desenli fon, yere zarif düşüş" },
+    { t: "konut", ad: "Kemer · tül ve fon katmanı", img: "kendi-salon-tul", d: "Gündüz tül, akşam fon; tavandan yere" },
+    { t: "ofis", ad: "Psikolog ofisi · oyun köşesi", img: "kendi-ofis-oyun", d: "Bej fon perde ile ayrılan sakin oyun alanı" },
+    { t: "ofis", ad: "Psikolog ofisi · kuşak detayı", img: "kendi-ofis-kusak", d: "Rustik kuşakla toplanan fon" },
+    { t: "balkon", ad: "Kumluca yayla evi · cam balkon", ig: "p/DbIN8YpjZXO", d: "Plicell: güneşi ve ısıyı azaltır, istenen bölüm açılır, kumaşı yıkanabilir" },
+    { t: "konut", ad: "Mutfaktan salona · motorlu ahşap jaluzi", ig: "reel/Dck8Gl6t21K", d: "Kahve tonları, mermer dokular, özel dikim fon" },
+    { t: "konut", ad: "Yıllardır aynı ailenin evi", ig: "reel/DbKflrNNcGF", d: "Soft gold dokunuşlar, katmanlı tüller, bohem sıcaklık" },
+    { t: "konut", ad: "Salon · keten tül + özel fon", ig: "reel/DbTo-pCt9Ih", d: "Gün ışığını yumuşatan doğal dokulu keten" },
+    { t: "konut", ad: "Lüks Home", ig: "reel/DbgaE-RN5Ue", d: "Kişiye özel proje, premium kumaş, kusursuz pile, profesyonel uygulama" },
+    { t: "konut", ad: "Atölyeden evinize", ig: "reel/Dc1flo_NAFV", d: "Kadife fonlar ve zarafeti tamamlayan rustik detaylar" },
+    { t: "konut", ad: "Koyu Antrasit Silüet", ig: "reel/DeomNb5Npcw", d: "Yeni nesil perde: tek hareketle ışık kontrolü" }
   ];
   function galeri(el) {
     el.classList.add("nv-gal");
-    var f = ["hepsi", "villa", "otel", "konut", "ofis"], ad = { hepsi: "Hepsi", villa: "Villa", otel: "Otel", konut: "Konut", ofis: "Ofis" };
+    var ad = { hepsi: "Hepsi", konut: "Konut", ofis: "Ofis", balkon: "Cam balkon", villa: "Villa", otel: "Otel" }, f = ["hepsi"];
+    PROJE.forEach(function (p) { if (f.indexOf(p.t) < 0) f.push(p.t); });
     el.innerHTML = '<div class="nv-filtre">' + f.map(function (x, i) { return '<button type="button" data-f="' + x + '"' + (i ? "" : ' class="on"') + ">" + ad[x] + "</button>"; }).join("") + '</div><div class="nv-gal-izg">' +
-      PROJE.map(function (p) { return '<figure data-t="' + p.t + '"><img src="' + IMG + p.img + '.jpg" alt="' + p.ad + '" loading="lazy"><figcaption><b>' + p.ad + "</b><span>" + p.d + "</span></figcaption></figure>"; }).join("") + '</div><small class="nv-dipnot">Örnek görsel ve proje metinleri. Yayında NVL Home\'un kendi projeleri ve fotoğrafları girilir.</small>';
+      PROJE.map(function (p) {
+        if (p.ig) return '<figure data-t="' + p.t + '" class="nv-gal-ig"><a href="https://www.instagram.com/' + p.ig + '/" target="_blank" rel="noopener"><span class="nv-gal-igb">Instagram · @nvlhomedesign</span><b>' + p.ad + "</b><span>" + p.d + '</span><em>Gönderide izle →</em></a></figure>';
+        return '<figure data-t="' + p.t + '"><img src="' + IMG + p.img + '.jpg" alt="' + p.ad + '" loading="lazy"><figcaption><b>' + p.ad + "</b><span>" + p.d + "</span></figcaption></figure>";
+      }).join("") + '</div><small class="nv-dipnot">Fotoğraflar NVL Home\'un kendi sitesindeki "Perde projelerimiz" sayfalarından; diğer işler Instagram gönderilerine bağlanır. Yayında villa ve otel projeleri de eklenir.</small>';
     $$(".nv-filtre button", el).forEach(function (b) { b.onclick = function () { $$(".nv-filtre button", el).forEach(function (x) { x.classList.toggle("on", x === b); }); var v = b.getAttribute("data-f"); $$("figure", el).forEach(function (fg) { fg.style.display = v === "hepsi" || fg.getAttribute("data-t") === v ? "" : "none"; }); }; });
   }
 
   /* ---------- 5. Kumaş numune sepeti ---------- */
-  var NUMUNE = [["Keten Ivory", "#efe9dd"], ["Kum Bej", "#d9c7a8"], ["Taupe Kadife", "#8b7d6b"], ["Antrasit Silüet", "#3b3d40"], ["Adaçayı", "#9aa58a"], ["Gece Mavisi", "#26364a"], ["Bordo Damask", "#6d2e2e"], ["Şampanya", "#e3cfa6"], ["Kırık Beyaz Tül", "#faf8f3"], ["Hardal", "#c7963b"]];
+  /* Numune adları NVL Home kataloğundaki (nvlhome.com.tr) serilerden; renk kareleri temsilidir */
+  var NUMUNE = [["Gana tül", "#f3efe6"], ["Vista nakışlı tül", "#faf8f3"], ["Nora tül", "#e9e4da"], ["Dolly fon", "#d9c7a8"], ["Zeugma fon", "#8b7d6b"], ["İpek kadife", "#6d2e2e"], ["Ultra BLC blackout", "#3f4347"], ["Koyu Antrasit Silüet", "#2f3134"], ["Plicell Leafy", "#9aa58a"], ["Sisal 1825 halı", "#c7a77a"]];
   function numune(el) {
     var sec = [];
     el.classList.add("nv-num");
@@ -189,8 +199,11 @@
     [/ölçü|olcu|gel|randevu|ev/i, "Kemer, Göynük, Beldibi, Çamyuva ve Tekirova'ya ölçü ücretsiz. Yarın 10:00 ya da 14:00 uygun mu? Adresinizi yazarsanız randevuyu not ediyorum."],
     [/ne zaman|kaç gün|hazır|teslim|süre/i, "Stor ve zebra genelde 5-7 iş günü, dikim isteyen tül ve fon 7-10 iş günü. Siparişinizin kodu varsa yazın, durumunu söyleyeyim."],
     [/otel|villa|proje|toplu/i, "Otel ve villa projelerinde ücretsiz keşif yapıyoruz; oda başı fiyat tablosu ve numune paneli 48 saatte hazır. Kaç oda ya da pencere var?"],
-    [/halı|hali|kırlent|kirlent|yastık/i, "Perdeyle uyumlu halı ve kırlent de seçiyoruz. Mağazamız Arslanbucak'ta, Cumhuriyet Caddesi'nde; uğrarsanız numunelerle birlikte bakarız."],
-    [/adres|nerede|konum|mağaza/i, "Mağazamız: Arslanbucak Mah. Cumhuriyet Cad. No:111, Kemer. Pazartesi-Cumartesi açığız."]
+    [/balkon|plicell|pilsel|plise|çatı|cati/i, "Cam balkon, çatı katı ve kış bahçesi için plicell öneriyoruz: güneşi ve ısıyı azaltır, istediğiniz bölümü açıp kapatırsınız, kumaşı yıkanabilir. Balkonunuzun fotoğrafını gönderin, uygun sistemi birlikte planlayalım."],
+    [/marka|kumaş|kumas|seri|model/i, "Rome Plus, Quba, Ahsen, Magia Fabrics, Ercan Tekstil, Norr, Arline ve Premier kumaşlarıyla çalışıyoruz; halıda Apex. Tülde Gana, Vista, Nora; fonda Dolly, Zeugma, Troya Rome gibi seriler var. Numuneleri ölçü günü getiririz."],
+    [/halı|hali|kırlent|kirlent|yastık|çarşaf|carsaf|nevresim/i, "Perdeyle uyumlu halı ve kırlent de seçiyoruz. Lastikli çarşaf, yastık kılıfı ve oda kokusu nvlhome.com'da online satışta. Mağazamız Arslanbucak'ta, Cumhuriyet Bulvarı'nda."],
+    [/dantel|kanaviçe|kanavice|çeyiz|ceyiz/i, "Anne yadigârı dantel ve kanaviçeleri bugünün evine uygun, kullanışlı ürünlere dönüştürüyoruz; çeyiz hazırlığında da yanınızdayız. Fotoğraflarını gönderirseniz fikir verelim."],
+    [/adres|nerede|konum|mağaza/i, "Mağazamız: Arslanbucak Mah. Cumhuriyet Bulvarı No:111/B, Kemer / Antalya. Sabit hat: 0242 814 61 49."]
   ];
   function asistan(el) {
     el.classList.add("nv-ai");
@@ -218,17 +231,55 @@
     var k = ["Dc4BW21DbOi", "Dck8Gl6t21K", "DeomNb5Npcw"];
     el.classList.add("nv-ig");
     el.innerHTML = k.map(function (c) { return '<div class="nv-ig-k"><iframe src="https://www.instagram.com/p/' + c + '/embed" loading="lazy" title="NVL Home Instagram gönderisi" allowtransparency="true" scrolling="no"></iframe></div>'; }).join("");
+    /* Son gönderiler: açıklamalardan kısa özet + gönderiye bağlantı (ağır gömme yerine) */
+    var L = [["reel/DbgaE-RN5Ue", "Lüks Home", "Kişiye özel proje, premium kumaş, kusursuz pile, profesyonel uygulama"], ["reel/DbKflrNNcGF", "Aynı ailenin evine yeniden", "Soft gold, katmanlı tüller, bohem sıcaklık"], ["p/DbIN8YpjZXO", "Kumluca · cam balkon plicell", "Dört mevsim kullanılan yayla evi balkonu"], ["reel/DbTo-pCt9Ih", "Keten tül + özel fon", "Gün ışığını yumuşatan doğal doku"], ["reel/Dc1flo_NAFV", "Atölyeden evinize", "Kadife fonlar ve rustik detaylar"], ["reel/DelhvFYtclS", "Halı serisi", "Modern çizgiler, sade şıklık"], ["p/DcWI8otNKRK", "Özel tasarım yatak örtüsü", "Ölçüye ve odanın karakterine göre"], ["reel/DeomNb5Npcw", "Koyu Antrasit Silüet", "Tek hareketle ışık kontrolü"]];
+    var liste = h("div", { class: "nv-ig-liste", html: L.map(function (x) { return '<a href="https://www.instagram.com/' + x[0] + '/" target="_blank" rel="noopener"><b>' + x[1] + "</b><span>" + x[2] + "</span></a>"; }).join("") });
+    el.parentNode.insertBefore(liste, el.nextSibling);
   }
 
   /* ---------- 11. Ürün kataloğu (WhatsApp'tan sor) ---------- */
   function katalog(el) {
-    el.classList.add("nv-kat");
-    el.innerHTML = Object.keys(URUN).map(function (k) { var u = URUN[k]; return '<article><img src="' + IMG + u.img + '.jpg" alt="' + u.ad + '" loading="lazy"><div><b>' + u.ad + "</b><span>" + u.not + "</span><em>" + (u.birim === "m" ? "metresi " : "m²'si ") + tl(u.fiyat[0]) + "'den</em></div><a class=\"nv-btn nv-ince\" target=\"_blank\" rel=\"noopener\" href=\"" + wa(u.ad + " hakkında bilgi ve numune istiyorum.") + "\">Sor</a></article>"; }).join("") +
-      '<article><img src="' + IMG + 'hali.jpg" alt="Halı" loading="lazy"><div><b>Halı ve kilim</b><span>Perdeyle uyumlu seçim</span><em>Mağazada</em></div><a class="nv-btn nv-ince" target="_blank" rel="noopener" href="' + wa("Halı modelleri hakkında bilgi istiyorum.") + '">Sor</a></article>' +
-      '<article><img src="' + IMG + 'kirlent.jpg" alt="Kırlent" loading="lazy"><div><b>Kırlent ve ev tekstili</b><span>Kendi üretimimiz</span><em>Online mağazada</em></div><a class="nv-btn nv-ince" href="https://www.nvlhome.com" target="_blank" rel="noopener">Mağaza</a></article>';
+    /* Kategoriler ve seri adları NVL Home'un kendi sitelerinden (nvlhome.com.tr katalog, nvlhome.com mağaza) */
+    var GRUP = { hepsi: "Hepsi", perde: "Tül ve fon", sistem: "Stor · zebra · jaluzi · plicell", ev: "Halı ve ev tekstili" };
+    var K = Object.keys(URUN).map(function (k) { var u = URUN[k]; return { g: u.grup, img: u.img, ad: u.ad, not: u.not, seri: u.seri, em: (u.birim === "m" ? "metresi " : "m²'si ") + tl(u.fiyat[0]) + "'den (örnek)", a: wa(u.ad + " hakkında bilgi ve numune istiyorum."), d: "Sor" }; });
+    K.splice(2, 0, { g: "perde", img: "fon", ad: "Blackout perde", not: "Tam karartma · otel ve yatak odası", seri: "Ultra BLC, Night BLC, Duo Velvet, Linen blackout, Nord Dark", em: "Fiyat için sorun", a: wa("Blackout perde hakkında bilgi istiyorum."), d: "Sor" });
+    K.push({ g: "ev", img: "hali", ad: "Halı ve kilim", not: "Salon, çocuk odası, mutfak, banyo, yolluk; dokuma kilim", seri: "Sisal 1822-1826, Ambiance serisi", em: "Mağazada", a: wa("Halı modelleri hakkında bilgi istiyorum."), d: "Sor" },
+      { g: "ev", img: "kirlent", ad: "Yastık kılıfı ve lastikli çarşaf", not: "Kendi üretimimiz · ücretsiz kargo", seri: "Turkuaz Rüya, Kum Tanesi, Zarif Nağme, Nehir Esintisi; 14 renk lastikli çarşaf", em: "nvlhome.com'da 90 TL'den", a: "https://www.nvlhome.com", d: "Mağaza", dis: 1 },
+      { g: "ev", img: "kendi-oda-parfumu", ad: "NVL Home oda parfümü", not: "Kendi markamız", seri: "Aqua Marine", em: "nvlhome.com'da 400 TL", a: "https://www.nvlhome.com/oda-kokusu", d: "Mağaza", dis: 1 },
+      { g: "ev", img: "ceyiz", ad: "Çeyiz ve dantel dönüşümü", not: "Anne yadigârı dantel ve kanaviçe, kullanışlı ürüne", seri: "Nevresim, pike, uyku seti, yorgan, kırlent", em: "Kişiye özel", a: wa("Çeyiz hazırlığı ve dantel dönüşümü hakkında bilgi istiyorum."), d: "Sor" });
+    el.classList.add("nv-katk");
+    el.innerHTML = '<div class="nv-kat-ust"><div class="nv-filtre">' + Object.keys(GRUP).map(function (g, i) { return '<button type="button" data-g="' + g + '"' + (i ? "" : ' class="on"') + ">" + GRUP[g] + "</button>"; }).join("") + '</div><input type="search" class="nv-kat-ara" placeholder="Model ara: Gana, Leafy, Sisal…" aria-label="Katalogda ara"></div><div class="nv-kat">' +
+      K.map(function (u) { return '<article data-g="' + u.g + '" data-ara="' + (u.ad + " " + u.not + " " + u.seri).toLocaleLowerCase("tr") + '"><img src="' + IMG + u.img + '.jpg" alt="' + u.ad + '" loading="lazy"><div><b>' + u.ad + "</b><span>" + u.not + '</span><small class="nv-seri">' + u.seri + "</small><em>" + u.em + '</em></div><a class="nv-btn nv-ince" target="_blank" rel="noopener" href="' + u.a + '">' + u.d + "</a></article>"; }).join("") + '</div><p class="nv-kat-yok" hidden>Bu aramayla eşleşen model yok. WhatsApp\'tan sorun, kataloğumuzda 500\'den fazla model var.</p>';
+    var aktif = "hepsi", ara = $(".nv-kat-ara", el);
+    function suz() { var q = ara.value.trim().toLocaleLowerCase("tr"), n = 0; $$("article", el).forEach(function (a) { var ok = (aktif === "hepsi" || a.getAttribute("data-g") === aktif) && (!q || a.getAttribute("data-ara").indexOf(q) > -1); a.style.display = ok ? "" : "none"; if (ok) n++; }); $(".nv-kat-yok", el).hidden = n > 0; }
+    $$(".nv-filtre button", el).forEach(function (b) { b.onclick = function () { aktif = b.getAttribute("data-g"); $$(".nv-filtre button", el).forEach(function (x) { x.classList.toggle("on", x === b); }); suz(); }; });
+    ara.addEventListener("input", suz);
   }
 
-  var MOTOR = { olcu: olcuSihirbazi, stil: stilTesti, onceSonra: onceSonra, galeri: galeri, numune: numune, takip: takip, proje: projeTeklif, asistan: asistan, yorum: yorumlar, instagram: instagram, katalog: katalog };
+  /* ---------- 12. Kampanya bandı (NVL Home'un kendi sitelerindeki kampanyalar) ---------- */
+  function kampanya(el) {
+    var M = ["Online mağazada ilk üyelikte %20 indirim kuponu", "Katalog perdelerinde %30 indirim", "Kemer ve köylerine ücretsiz keşif", "Fotoğraf gönderin, ücretsiz ön değerlendirme", "nvlhome.com'da ücretsiz kargo"];
+    el.classList.add("nv-kamp");
+    el.innerHTML = '<div class="nv-kamp-ic"><span>' + M.concat(M).join("</span><span>") + "</span></div>";
+    el.setAttribute("aria-label", "Kampanyalar: " + M.join(", "));
+  }
+
+  /* ---------- 13. Sık sorulanlar (bilgiler NVL Home sitesi ve Instagram açıklamalarından) ---------- */
+  var SSS = [
+    ["Ölçüye gelir misiniz, ücretli mi?", "Kemer ve köylerinde keşif ve ölçü ücretsiz. Evinize gelip ölçüyü alıyor, kumaşları yerinde birlikte seçiyoruz."],
+    ["Gelmeden fikir alabilir miyim?", "Evet. Pencerenin ya da odanın fotoğrafını WhatsApp'tan gönderin; size uygun perde için ücretsiz ön değerlendirme yapalım."],
+    ["Cam balkon ve çatı katı için ne önerirsiniz?", "Plicell (pilsel) sistemi: güneşi ve ısıyı önemli ölçüde azaltır, istediğiniz bölümü açıp kapatırsınız, kumaşı yıkanabilir ve çabuk deforme olmaz. Manzaradan ödün vermeden mahremiyet sağlar."],
+    ["Hangi kumaş markalarıyla çalışıyorsunuz?", "Rome Plus, Quba, Ahsen, Magia Fabrics, Ercan Tekstil, Norr, Arline ve Premier; halıda Apex. Kataloğumuzda tül, fon, blackout, stor, zebra ve plicell olmak üzere 500'den fazla model var."],
+    ["Tülde pile oranını nasıl seçeceğim?", "Tam, orta ve az pile seçenekleri var. Pile sıklığından yere düşüşüne kadar her detayı mekânın bütünlüğüne göre birlikte belirliyoruz."],
+    ["Annemin dantellerini ne yapabilirsiniz?", "Anne yadigârı dantel ve kanaviçeleri bugünün modasına uygun, kullanışlı ürünlere dönüştürüyoruz. Çeyiz hazırlığında da nevresimden perdeye yanınızdayız."],
+    ["Online alışveriş yapabilir miyim?", "Yastık kılıfı, lastikli çarşaf ve oda kokusu nvlhome.com'da satışta: iyzico ya da havale ile ödeme, mağazadan teslim ya da kargo. NVL Home'u Trendyol, Hepsiburada ve n11'de de bulabilirsiniz."]
+  ];
+  function sss(el) {
+    el.classList.add("nv-sss");
+    el.innerHTML = SSS.map(function (s, i) { return "<details" + (i ? "" : " open") + "><summary>" + s[0] + "</summary><p>" + s[1] + "</p></details>"; }).join("") + '<a class="nv-btn nv-ince" target="_blank" rel="noopener" href="' + wa("Sitede cevabını bulamadığım bir sorum var:") + '">Başka sorunuz mu var? WhatsApp</a>';
+  }
+
+  var MOTOR = { kampanya: kampanya, sss: sss, olcu: olcuSihirbazi, stil: stilTesti, onceSonra: onceSonra, galeri: galeri, numune: numune, takip: takip, proje: projeTeklif, asistan: asistan, yorum: yorumlar, instagram: instagram, katalog: katalog };
   function baslat() { $$("[data-nv]").forEach(function (el) { var f = MOTOR[el.getAttribute("data-nv")]; if (f && !el.__nv) { el.__nv = 1; try { f(el); } catch (e) { console.error(e); } } }); $$("[data-wa]").forEach(function (a) { a.href = wa(a.getAttribute("data-wa")); a.target = "_blank"; a.rel = "noopener"; }); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", baslat); else baslat();
 })();

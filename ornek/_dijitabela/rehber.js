@@ -25,6 +25,8 @@
   var cv = kok.querySelector("canvas"), bal = kok.querySelector(".djr-bal"), yazi = kok.querySelector(".djr-yazi"), alt = kok.querySelector(".djr-alt");
   var AZ = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ses = new Audio(); ses.preload = "auto";
+  // Ayşe kaydı olan satır var mı (otomatik tabelada kaydı olmayan satır tts:true işaretli). Yoksa "Sesli dinle" düğmesi hiç çıkmaz.
+  var sesVar = C.ses !== false && Object.keys(C.satirlar).some(function (k) { return !C.satirlar[k].tts; });
   var sesAcik = false, konusuyor = false, yaziyor = false, kirp = 0, aktif = null, sonAnlatilan = null, bekleyen = null, zaman;
 
   // 22x13 nokta yüz (ana sayfadaki tabelayla aynı): ^ ^ gözler, konuşurken ağız açılıp kapanır
@@ -48,10 +50,10 @@
 
   function dugmeler(s) {
     alt.innerHTML = "";
-    if (!sesAcik) { var d = document.createElement("button"); d.className = "djr-ses"; d.textContent = "🔊 Sesli dinle"; d.onclick = function () { sesAcik = true; anlat(aktif || "giris", true); }; alt.appendChild(d); }
+    if (!sesAcik && sesVar) { var d = document.createElement("button"); d.className = "djr-ses"; d.textContent = "🔊 Sesli dinle"; d.onclick = function () { sesAcik = true; anlat(aktif || "giris", true); }; alt.appendChild(d); }
     if (s && s.dugme) { var g = document.createElement("a"); g.className = "djr-git"; g.textContent = s.dugme[0]; g.href = s.dugme[1]; alt.appendChild(g); }
     var k = document.createElement("button"); k.className = "djr-kapa"; k.textContent = sesAcik ? "Sustur" : "Kapat";
-    k.onclick = function () { if (sesAcik) { sesAcik = false; ses.pause(); if (window.speechSynthesis) speechSynthesis.cancel(); konusuyor = false; dugmeler(s); } else bal.hidden = true; };
+    k.onclick = function () { if (sesAcik) { sesAcik = false; ses.pause(); konusuyor = false; dugmeler(s); } else bal.hidden = true; };
     alt.appendChild(k);
   }
   // Anlatım bitince balon kendiliğinden kapanır (telefonda içeriği kapatmasın); tabelaya dokununca yeniden açılır
@@ -63,29 +65,19 @@
     zaman = setInterval(function () { i += 2; yazi.textContent = metin.slice(0, i); if (i >= metin.length) { clearInterval(zaman); yaziyor = false; gizleKur(); } }, 26);
   }
   ses.addEventListener("ended", function () { konusuyor = false; sonraki(); });
-  // 11 Eki (Patron: "tabela daima Cartesia kaydı, cihaz sesi yalnız yedek"): mp3 açılamazsa cihaz sesine düş
-  ses.addEventListener("error", function () { konusuyor = false; if (C.tts && sesAcik && sonAnlatilan) cihazSesi(C.satirlar[sonAnlatilan].metin); });
-  function cihazSesi(metin) {
-    if (!window.speechSynthesis) return;
-    var u = new SpeechSynthesisUtterance(metin); u.lang = "tr-TR"; u.rate = 1.02;
-    var v = speechSynthesis.getVoices().filter(function (x) { return /^tr/i.test(x.lang); })[0]; if (v) u.voice = v;
-    u.onend = u.onerror = function () { konusuyor = false; sonraki(); };
-    speechSynthesis.cancel(); konusuyor = true; speechSynthesis.speak(u);
-  }
+  // 30 Eki KALICI (Patron): tabela YALNIZ Ayşe kaydı çalar; cihaz sesi (speechSynthesis) yok. mp3 açılmazsa sessiz geçer.
+  ses.addEventListener("error", function () { konusuyor = false; sonraki(); });
   function anlat(id, zorla) {
     var s = C.satirlar[id]; if (!s) return;
     if (konusuyor && !zorla) { bekleyen = id; return; }
     sonAnlatilan = id; soyle(s.metin); dugmeler(s);
-    if (sesAcik && (C.ses === false || s.tts) && C.tts) {
-      // Kayıtlı ses yoksa (henüz üretilmemiş otomatik tabela) cihazın Türkçe sesi
-      cihazSesi(s.metin);
-    } else if (sesAcik && C.ses !== false) {
+    if (sesAcik && sesVar && !s.tts) {
       ses.pause(); ses.src = (C.ses || "ses/") + (s.dosya || id) + ".mp3"; konusuyor = true;
       var p = ses.play(); if (p && p.catch) p.catch(function () { konusuyor = false; sesAcik = false; dugmeler(s); });
     }
   }
   function sonraki() { if (bekleyen && bekleyen !== sonAnlatilan) { var b = bekleyen; bekleyen = null; anlat(b); } else if (aktif && aktif !== sonAnlatilan) anlat(aktif); }
-  kok.querySelector(".djr-tab").onclick = function () { bal.hidden = false; if (!sesAcik) { sesAcik = true; } anlat(aktif || "giris", true); };
+  kok.querySelector(".djr-tab").onclick = function () { bal.hidden = false; if (!sesAcik && sesVar) { sesAcik = true; } anlat(aktif || "giris", true); };
 
   // Görünen bölüm: ekranın ortasına en yakın data-anlat
   var bolumler = [].slice.call(document.querySelectorAll("[data-anlat]"));
