@@ -59,7 +59,7 @@ function dugme(ic, ad, sinif) {
   return '<a class="dg' + (sinif ? " " + sinif : "") + '" href="' + esc(url(d.hedef)) + '">' + T(d.etiket) + "</a>";
 }
 function logo(ic, sinif) {
-  var m = ic.marka || {}, src = url(m.logo || "assets/wordmark.png");
+  var m = ic.marka || {}, src = url(m.logo || "assets/bensay-kelime.png");
   if (m.logoMaske !== false) return '<span class="mark' + (sinif ? " " + sinif : "") + '" role="img" aria-label="' + esc(m.ad || "") + '" style="-webkit-mask-image:url(\'' + esc(src) + '\');mask-image:url(\'' + esc(src) + '\')"></span>';
   return '<img class="mark-img' + (sinif ? " " + sinif : "") + '" src="' + esc(src) + '" alt="' + esc(m.ad || "") + '">';
 }
