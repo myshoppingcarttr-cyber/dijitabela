@@ -657,7 +657,7 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
     }
     cek(); setInterval(cek, 20000); setInterval(uygula, 3000);
   }
-  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
+  var A = window.AJANS, sb = window.__sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey);
   sb.auth.getSession().then(function (r) {
     if (!r.data.session) { $("gir").hidden = false; return; }
     try { soruRozeti(sb); } catch (e) {}
@@ -670,4 +670,5 @@ body.gece .vardiya{background:rgba(22,28,52,.92);color:#ffe39a;box-shadow:0 0 18
   });
 })();
 </script>
+<script src="assets/gorev-bandi.js"></script>
 </body></html>

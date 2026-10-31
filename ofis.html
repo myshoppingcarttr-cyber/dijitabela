@@ -67,7 +67,7 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 (function () {
-  var A = window.AJANS, sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
+  var A = window.AJANS, sb = window.__sb = supabase.createClient(A.supabaseUrl, A.supabaseAnonKey), $ = function (i) { return document.getElementById(i); };
   var RENK = { gm: "#16181D", selin: "#D2558A", murat: "#2F6FEB", kerem: "#E07A1F", deniz: "#7A4FD6", can: "#14918A", ece: "#B8860B", arda: "#C2412D", zeynep: "#1E9E5A", elif: "#8E44AD", mustafa: "#0E7490", yonetici: "#B45309", defne: "#9D174D", ozan: "#1D4ED8", ceren: "#059669", burcu: "#DB2777", furkan: "#4B5563", nehir: "#0891B2", emre: "#EA580C", bora: "#6D28D9", tuna: "#65A30D" };
   var BIRIM = { selin: "mesaj gönderdi", murat: "cevap verdi", kerem: "işletme buldu", deniz: "tur attı", can: "tur attı", ece: "kontrol yaptı", arda: "tur attı", zeynep: "tur attı", elif: "proje", mustafa: "tur attı", yonetici: "iş dağıttı", ceren: "denetledi", burcu: "müşteri", furkan: "teklif", nehir: "tur attı", emre: "kreatif", bora: "akış", tuna: "", gm: "" };
   var DURUM = { calisiyor: "● Çalışıyor", bosta: "Masasında · sıradaki işi bekliyor", hata: "⚠ Son işte hata", kapali: "Kapalı (görev devre dışı)" };
@@ -76,7 +76,7 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
   var son10 = function (t) { return String(t || "").replace(/\D/g, "").slice(-10); };
   function masa(p, buyuk) {
     var g = (p.detay && p.detay.gorevler) || [];
-    return '<div class="' + (buyuk ? "oda " : "masa ") + esc(p.durum) + '"><div class="ust"><div class="av" style="background:' + (RENK[p.kod] || "#555") + '">' + esc(p.ad[0]) + '</div><div><div class="ad">' + esc(p.ad) + " · " + esc(p.rol.split(" · ")[0]) + '</div><div class="rol">' + esc(p.rol.split(" · ").slice(1).join(" · ")) + "</div></div></div>" +
+    return '<div class="' + (buyuk ? "oda " : "masa ") + esc(p.durum) + '" data-kod="' + esc(p.kod) + '"><div class="ust"><div class="av" style="background:' + (RENK[p.kod] || "#555") + '">' + esc(p.ad[0]) + '</div><div><div class="ad">' + esc(p.ad) + " · " + esc(p.rol.split(" · ")[0]) + '</div><div class="rol">' + esc(p.rol.split(" · ").slice(1).join(" · ")) + "</div></div></div>" +
       (buyuk ? "" : '<span class="chip">' + DURUM[p.durum] + "</span>") +
       '<div class="balon">' + esc(p.faaliyet || "") + '</div><div class="ekran"><span></span></div>' +
       '<div class="dip"><span>Son iş: <b>' + saat(p.son) + "</b></span>" + (p.sonraki ? "<span>Sıradaki: <b>" + saat(p.sonraki) + "</b></span>" : "") + (BIRIM[p.kod] ? "<span>Bugün: <b>" + p.bugun + "</b> " + BIRIM[p.kod] + "</span>" : "") + "</div>" +
@@ -134,5 +134,6 @@ header a{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--yazi);bac
   document.addEventListener("visibilitychange", function () { if (!document.hidden && !$("uyg").hidden) yukle(); });
 })();
 </script>
+<script src="assets/gorev-bandi.js"></script>
 </body>
 </html>
