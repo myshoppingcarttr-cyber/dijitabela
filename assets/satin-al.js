@@ -154,19 +154,36 @@
   });
   document.getElementById("saKapat").onclick = kapat; document.getElementById("saVazgec").onclick = kapat;
   D.addEventListener("click", function (e) { if (e.target === D) kapat(); });
-  F.querySelectorAll('input[name="yontem"]').forEach(function (r) { r.onchange = function () { F.querySelectorAll(".sa-yontem label").forEach(function (l) { l.classList.toggle("secili", l.contains(F.querySelector('input[name="yontem"]:checked'))); }); }; });
+  F.querySelectorAll('input[name="yontem"], input[name="alici"]').forEach(function (r) { r.onchange = function () {
+    var grup = this.closest(".sa-yontem"), ad = this.name;
+    grup.querySelectorAll("label").forEach(function (l) { l.classList.toggle("secili", l.contains(grup.querySelector('input[name="' + ad + '"]:checked'))); });
+    if (ad === "alici") { var tk = this.value === "tuketici"; document.getElementById("fIfaK").hidden = !tk; document.getElementById("fFatura").hidden = tk; }
+  }; });
+  // 31 Eki 2026: hizmete özel sözleşme metni (genel + ek [+ tüketici eki]) — assets/sozlesme.js
+  var aliciTuru = function () { return (F.querySelector('input[name="alici"]:checked') || {}).value === "tuketici" ? "tuketici" : "isletme"; };
+  var sozKodlar = function () { return window.Sozlesme ? Sozlesme.kodlar({ urun: secili && secili.kod }, aliciTuru()) : []; };
+  document.getElementById("fSozOku").onclick = function () {
+    if (!window.Sozlesme || !secili) { window.open("sozlesme.html", "_blank"); return; }
+    var ek0 = '<div class="soz-ek0"><h2>EK-0 — SİPARİŞ ÖZETİ</h2><p><b>' + esc(secili.ad) + "</b></p>" + document.getElementById("saOzet").innerHTML +
+      "<ul>" + secili.madde.map(function (m) { return "<li>" + esc(m) + "</li>"; }).join("") + "</ul><p>Kalan ödeme (varsa) teslim bildiriminden itibaren 7 gün içinde. Ödeme Google, Meta gibi üçüncü tarafların onayına bağlı değildir.</p></div>";
+    Sozlesme.oku("Hizmet sözleşmesi · " + secili.ad, ek0 + Sozlesme.belgeHtml(sozKodlar()));
+  };
 
   F.onsubmit = function (e) {
     e.preventDefault(); hata("");
     var v = function (id) { return document.getElementById(id).value.trim(); };
     var d = { urun: secili && secili.kod, ad: v("fAd"), isletme: v("fIs"), tel: v("fTel"), eposta: v("fEp"), not: v("fNot"),
-      yontem: (F.querySelector('input[name="yontem"]:checked') || {}).value || "havale", kvkk: document.getElementById("fKvkk").checked, sozlesme: document.getElementById("fSoz").checked };
+      yontem: (F.querySelector('input[name="yontem"]:checked') || {}).value || "havale", kvkk: document.getElementById("fKvkk").checked, sozlesme: document.getElementById("fSoz").checked,
+      alici_turu: aliciTuru(), ifa_onayi: aliciTuru() === "tuketici" && document.getElementById("fIfa").checked,
+      unvan: aliciTuru() === "isletme" ? v("fUnvan") : "", vergi_no: aliciTuru() === "isletme" ? v("fVkn") : "",
+      belgeler: window.Sozlesme ? Sozlesme.ozetler(sozKodlar()) : [] };
     if (d.ad.length < 2) return hata("Adınızı yazın.");
     if (!d.isletme) return hata("İşletme adını yazın.");
     if (d.tel.replace(/\D/g, "").length < 10) return hata("Telefon numaranızı yazın.");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.eposta)) return hata("Geçerli bir e-posta adresi yazın.");
     if (!d.kvkk) return hata("Devam etmek için KVKK aydınlatma metnini onaylayın.");
-    if (!d.sozlesme) return hata("Devam etmek için mesafeli satış sözleşmesini onaylayın.");
+    if (!d.sozlesme) return hata("Devam etmek için hizmet sözleşmesini okuyup onaylayın.");
+    if (d.alici_turu === "tuketici" && !d.ifa_onayi) return hata("Hizmetin hemen başlaması için cayma onayını işaretleyin ya da işletme olarak devam edin.");
     G.disabled = true; G.textContent = "Sipariş oluşturuluyor…";
     fetch(A.supabaseUrl + "/functions/v1/siparis-olustur", { method: "POST", headers: { "Content-Type": "application/json", apikey: A.supabaseAnonKey, Authorization: "Bearer " + A.supabaseAnonKey }, body: JSON.stringify(d) })
       .then(function (r) { return r.json(); })
@@ -175,6 +192,6 @@
         if (window.dtOlay) try { window.dtOlay("InitiateCheckout", { content_name: secili.ad, value: secili.tek, currency: "TRY" }); } catch (x) {}
         location.href = "teklif.html?t=" + encodeURIComponent(r.token) + "&siparis=1" + (d.yontem === "kart" ? "&yontem=kart" : "") + "#pay";
       })
-      .catch(function (x) { G.disabled = false; G.textContent = "Siparişi oluştur"; hata(x.message + " · Sorun sürerse 0501 945 21 84'ü arayın."); });
+      .catch(function (x) { G.disabled = false; G.textContent = "Sözleşmeyi onayla, siparişi oluştur"; hata(x.message + " · Sorun sürerse 0501 945 21 84'ü arayın."); });
   };
 })();

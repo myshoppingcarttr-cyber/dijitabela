@@ -170,9 +170,17 @@ dialog.sa-gal::backdrop{background:rgba(14,15,18,.88)}
       <label><input type="radio" name="yontem" value="kart"><span><b>Kredi / banka kartı</b><br><span class="mute">Güvenli PayTR ödeme ekranı. Taksit seçenekleri kartınıza göre gösterilir.</span></span></label>
     </div>
     <label class="sa-onay"><input type="checkbox" id="fKvkk"><span><a href="kvkk.html" target="_blank">KVKK aydınlatma metnini</a> okudum; bilgilerimin bu sipariş için işlenmesini kabul ediyorum.</span></label>
-    <label class="sa-onay"><input type="checkbox" id="fSoz"><span><a href="mesafeli-satis.html" target="_blank">Mesafeli satış sözleşmesini</a> ve <a href="iptal-iade.html" target="_blank">iptal/iade koşullarını</a> okudum, kabul ediyorum.</span></label>
+    <!-- 31 Eki 2026: hizmete özel Hizmet Sözleşmesi (assets/sozlesme.js). Kabul siparis-olustur'da IP/zaman/SHA-256 ile kaydedilir. -->
+    <div style="font-weight:600;font-size:.88rem;margin:12px 0 0">Kimin adına alıyorsunuz?</div>
+    <div class="sa-yontem" id="fTur">
+      <label class="secili"><input type="radio" name="alici" value="isletme" checked><span><b>İşletme adına</b><br><span class="mute">Fatura işletmenize kesilir.</span></span></label>
+      <label><input type="radio" name="alici" value="tuketici"><span><b>Kişisel kullanım (tüketici)</b></span></label>
+    </div>
+    <div id="fFatura"><label class="a" for="fUnvan">Fatura unvanı ve vergi no <span class="mute" style="font-weight:400">(isteğe bağlı)</span></label><div style="display:flex;gap:8px"><input type="text" id="fUnvan" maxlength="160" placeholder="Unvan" style="flex:2"><input type="text" id="fVkn" inputmode="numeric" maxlength="11" placeholder="VKN" style="flex:1"></div></div>
+    <label class="sa-onay"><input type="checkbox" id="fSoz"><span><button type="button" id="fSozOku" style="background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer">Hizmet sözleşmesini</button> (genel hükümler ve bu hizmetin eki) okudum, kabul ediyorum. Ödemenin Google, Meta gibi üçüncü tarafların onayına bağlı olmadığını ve istenen bilgi/belgeleri süresinde vermem gerektiğini biliyorum. <a href="iptal-iade.html" target="_blank">İptal ve iade</a></span></label>
+    <label class="sa-onay" id="fIfaK" hidden><input type="checkbox" id="fIfa"><span>Cayma süresi (14 gün) dolmadan işe <b>hemen başlanmasını</b> istiyorum; iş başlayınca cayma hakkımı kaybedeceğimi biliyorum.</span></label>
     <p class="err" id="saHata" hidden></p>
-    <div class="sa-dug"><button type="submit" class="btn btn-p" id="saGonder">Siparişi oluştur</button><button type="button" class="btn btn-o" id="saVazgec">Vazgeç</button></div>
+    <div class="sa-dug"><button type="submit" class="btn btn-p" id="saGonder">Sözleşmeyi onayla, siparişi oluştur</button><button type="button" class="btn btn-o" id="saVazgec">Vazgeç</button></div>
     <p class="small" style="margin-top:10px">Sipariş oluşunca ödeme sayfanız açılır. Sorunuz olursa: <a href="tel:+905019452184">0501 945 21 84</a></p>
   </form>
 </dialog>
@@ -192,6 +200,8 @@ dialog.sa-gal::backdrop{background:rgba(14,15,18,.88)}
 <script src="assets/config.js?v=mvve9zrz"></script>
 <script src="assets/asistan.js?v=mvve9zrz" defer></script>
 <script>document.querySelectorAll("[data-marka]").forEach(function(e){e.textContent=AJANS.marka})</script>
-<script src="assets/satin-al.js?v=3111b"></script>
+<script src="assets/sozlesme-metin.js?v=soz1"></script>
+<script src="assets/sozlesme.js?v=soz1"></script>
+<script src="assets/satin-al.js?v=soz1"></script>
 <script src="/ornek/_dijitabela/filigran.js" defer></script></body>
 </html>

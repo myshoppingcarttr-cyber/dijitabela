@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>if(location.protocol==="http:"&&/(^|.)dijitabela.com$/.test(location.hostname))location.replace("https:"+location.href.slice(5))</script>
+<title>Hizmet Sözleşmesi – Dijitabela</title>
+<meta name="description" content="Dijitabela hizmet sözleşmesi: genel hükümler, hizmete özel ekler ve online kabul.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#16181D">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css?v=soz1"><link rel="stylesheet" href="assets/teklif.css?v=soz1">
+<style>
+.soz-sayfa{max-width:860px;margin:0 auto;padding:32px 16px 60px}
+.soz-sayfa h1{font-size:1.6rem;margin:6px 0 4px}
+.soz-icindekiler{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.88rem;margin:12px 0}
+.soz-tam .soz-kutu{max-height:none;overflow:visible}
+@media print{.hdr,.ftr,.no-print,.wa-f{display:none!important}.soz-sayfa{padding:0}}
+</style>
+</head>
+<body>
+<header class="hdr no-print"><div class="wrap nav"><a class="logo" href="./"><span data-marka>Dijitabela</span></a><a class="btn btn-o" href="tel:+905019452184">0501 945 21 84</a></div></header>
+<main class="soz-sayfa" id="soz"><p class="mute">Yükleniyor…</p><noscript><p>Sözleşmeyi görmek için JavaScript gerekir. Yardım: 0501 945 21 84 · info@dijitabela.com</p></noscript></main>
+<footer class="ftr no-print"><div class="wrap"><div class="ftr-b"><span>© 2026 Dijitabela · Alim Hoşlar · Düden V.D. · VKN 4641290891 · Kepez / Antalya · info@dijitabela.com</span><span><a href="kvkk.html">KVKK</a> · <a href="iptal-iade.html">İptal ve iade</a></span></div></div></footer>
+<script src="assets/config.js?v=soz1"></script>
+<script>document.querySelectorAll("[data-marka]").forEach(function(e){e.textContent=AJANS.marka})</script>
+<script src="assets/sozlesme-metin.js?v=soz1"></script>
+<script src="assets/sozlesme.js?v=soz1"></script>
+<script>
+// Sözleşme sayfası (31 Eki 2026). ?t=<teklif token>: kişiye özel sözleşme + online kabul (WhatsApp/telefonla gelen işler); kabul sonrası ödeme.
+// Token yoksa: genel hükümler ve tüm ekler (herkese açık okuma).
+(function () {
+  var M = document.getElementById("soz"), tk = new URLSearchParams(location.search).get("t"), S = window.SOZLESME, Z = window.Sozlesme;
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var bas = '<span class="kicker">Hizmet sözleşmesi · sürüm ' + esc(S.surum) + "</span>";
+  if (!tk) {
+    var hepsi = ["genel", "ek-google", "ek-web", "ek-aylik", "ek-sosyal", "ek-beyanno", "ek-yazilim-yz", "ek-rapor", "tuketici"];
+    M.innerHTML = bas + "<h1>Dijitabela Hizmet Sözleşmesi</h1><p class=\"mute\">Her işe bu sözleşmeyle başlarız. Sipariş verdiğinizde ya da size özel bağlantıyı açtığınızda, aldığınız hizmetin eki ve Sipariş Özeti ile birlikte onayınıza sunulur.</p>" +
+      '<nav class="soz-icindekiler no-print">' + hepsi.map(function (k) { return '<a href="#soz-' + k + '">' + esc(S.belgeler[k].baslik.replace(/^EK PROTOKOL — /, "Ek: ")) + "</a>"; }).join("") + '</nav><p class="no-print"><button class="btn btn-o" onclick="window.print()">Yazdır / PDF</button></p>' +
+      '<div class="soz-tam"><div class="soz-kutu">' + Z.belgeHtml(hepsi) + "</div></div>";
+    return;
+  }
+  fetch(AJANS.supabaseUrl + "/functions/v1/sozlesme-kabul?t=" + encodeURIComponent(tk), { headers: { apikey: AJANS.supabaseAnonKey, Authorization: "Bearer " + AJANS.supabaseAnonKey } })
+    .then(function (r) { return r.json(); }).then(function (d) {
+      if (d.error) throw new Error(d.error);
+      var b = d.bilgi || {};
+      var ust = bas + "<h1>" + esc(b.isletme || "Hizmet sözleşmesi") + '</h1><p class="mute">' + (d.durum === "odendi" ? "Sipariş " : "Teklif ") + esc(d.no) + (b.ad ? " · " + esc(b.ad) : "") + "</p>";
+      if (d.kabul) {
+        var k = d.kabul, ks = (k.belgeler || []).map(function (x) { return x.kod; });
+        var farkli = (k.belgeler || []).some(function (x) { return !S.belgeler[x.kod] || S.belgeler[x.kod].sha256 !== x.sha256; });
+        M.innerHTML = ust + '<div class="note"><b>Bu sözleşme kabul edildi.</b> ' + esc(k.ad) + " · " + esc(k.zaman_tr) + " · " + (k.alici_turu === "tuketici" ? "tüketici" : "işletme adına") +
+          '<br><span class="small">Özet (SHA-256): <code style="word-break:break-all">' + esc(k.toplam_sha256) + "</code></span></div>" +
+          (farkli ? '<p class="note" style="border-color:#b3261e">Kabul ettiğiniz metin sürümü bu sayfadaki güncel sürümden farklı. Kabul ettiğiniz metnin kopyası e-postanızdadır; kayıtlarımızda da değiştirilemez biçimde saklanır.</p>' : "") +
+          '<p class="no-print" style="margin:12px 0"><button class="btn btn-o" onclick="window.print()">Yazdır / PDF</button> <a class="btn btn-p" href="teklif.html?t=' + encodeURIComponent(tk) + '#pay">Ödeme sayfası</a></p>' +
+          '<div class="soz-tam"><div class="soz-kutu"><div class="soz-ek0">' + Z.md(d.ozel) + "</div>" + (farkli ? "" : Z.belgeHtml(ks)) + "</div></div>";
+        return;
+      }
+      M.innerHTML = ust + '<p>Aşağıdaki sözleşmeyi okuyup onayladığınızda ödeme adımına geçersiniz. İşe kapora ödendikten sonra başlanır.</p><div class="paybox" id="szPanel"></div>';
+      Z.panel(document.getElementById("szPanel"), tk, { kaynak: "sozlesme", bitti: function () { location.href = "teklif.html?t=" + encodeURIComponent(tk) + "#pay"; } });
+    }).catch(function (x) { M.innerHTML = '<p class="err">' + esc(x.message) + '</p><p>Yardım: <a href="https://wa.me/905019452184">WhatsApp 0501 945 21 84</a></p>'; });
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

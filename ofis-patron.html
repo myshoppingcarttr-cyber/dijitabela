@@ -293,7 +293,7 @@ ol.adimlar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:
   async function yukle() {
     if (mesgul) return; mesgul = true;
     try {
-      var q = await sb.from("patron_isler").select("*").order("oncelik").order("son_tarih", { nullsFirst: false }).order("id");
+      var q = await sb.from("patron_isler").select("*").neq("durum", "arsiv").or("durum.eq.bekliyor,olusturma.gte." + new Date(Date.now() - 21 * 864e5).toISOString()).order("oncelik").order("son_tarih", { nullsFirst: false }).order("id");
       if (q.error) { hata("Liste okunamadı: " + q.error.message + (/permission|policy|denied/i.test(q.error.message) ? " (bu hesapla yetkiniz yok; alimhoslar16@gmail.com ile giriş yapın)" : "")); return; }
       hata(""); ISLER = q.data || []; ciz();
     } catch (e) { hata("Bağlantı hatası: " + e.message); } finally { mesgul = false; }

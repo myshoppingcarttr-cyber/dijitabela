@@ -32,13 +32,18 @@
       '<div class="g"><span>Genel toplam</span><span>' + TL(h.tek + h.kdv) + "</span></div>" +
       (h.ay ? '<div class="small"><span>' + e(h.ay_etiket || "Aylık hizmetler (isteğe bağlı)") + '</span><span>' + TL(h.ay) + " + KDV / ay</span></div>" : "") +
       "</div>" +
-      '<div class="note" style="margin-top:20px"><b>Ödeme planı:</b> ' + (oran === 1 ? "Tamamı peşin (" + TL(Math.round(h.tek + h.kdv)) + (h.kdv ? " KDV dahil" : "") + ")." : (sip ? "Siparişte" : "Onayda") + " %" + yuzde + " (" + TL(Math.round((h.tek + h.kdv) * oran)) + (h.kdv ? " KDV dahil" : "") + "), kalan %" + (100 - yuzde) + " teslimde.") + " Teslim sonrası mülkiyet işletmenize geçer. Koşullar: <a href=\"mesafeli-satis.html\">mesafeli satış sözleşmesi</a>, <a href=\"iptal-iade.html\">iptal ve iade</a>.</div>" +
+      '<div class="note" style="margin-top:20px"><b>Ödeme planı:</b> ' + (oran === 1 ? "Tamamı peşin (" + TL(Math.round(h.tek + h.kdv)) + (h.kdv ? " KDV dahil" : "") + ")." : (sip ? "Siparişte" : "Onayda") + " %" + yuzde + " (" + TL(Math.round((h.tek + h.kdv) * oran)) + (h.kdv ? " KDV dahil" : "") + "), kalan %" + (100 - yuzde) + ", teslim bildiriminden itibaren 7 gün içinde.") + " Ödeme Google, Meta gibi üçüncü tarafların onayına bağlı değildir. Bedelin tamamı ödenince teslim edilenlerin kullanım hakkı işletmenize geçer. Koşullar: <a href=\"sozlesme.html?t=" + encodeURIComponent(t.token) + "\">hizmet sözleşmesi</a>, <a href=\"iptal-iade.html\">iptal ve iade</a>.</div>" +
       '<div class="paybox" id="pay"></div>' +
       '<div class="cta no-print" style="margin-top:18px"><button class="btn btn-o" onclick="window.print()">PDF / Yazdır</button>' +
       (A.whatsapp ? '<a class="btn btn-w" href="https://wa.me/' + A.whatsapp + "?text=" + waMsg + '" rel="nofollow">WhatsApp\'tan soru sor</a>' : "") + "</div>";
 
     var P = document.getElementById("pay"), kaporaKdvli = Math.round((h.tek + h.kdv) * oran);
-    if (t.durum === "gonderildi") {
+    // 31 Eki 2026: SÖZLEŞME KABULÜ OLMADAN ÖDEME YOK. Canlıda (migration sonrası teklifte sozlesme_kabul sütunu var) kabul paneli gösterilir;
+    // onay sozlesme-kabul edge function'ında kayıtla birlikte yapılır. Sütun yoksa (migration öncesi) ya da demo modunda eski akış.
+    var kabulGerek = API.mode !== "demo" && window.Sozlesme && ("sozlesme_kabul" in t) && !t.sozlesme_kabul && (t.durum === "gonderildi" || t.durum === "onaylandi");
+    if (kabulGerek) {
+      Sozlesme.panel(P, tk, { kaynak: "teklif", bitti: function () { API.teklifGetir(tk).then(ciz); } });
+    } else if (t.durum === "gonderildi") {
       P.innerHTML = "<h3>Teklifi onaylayın</h3><p class=\"mute\" style=\"margin:6px 0 16px\">Onayladığınızda ödeme adımına geçersiniz. Çalışmaya ilk ödemeden sonra başlanır.</p>" +
         '<label class="chk" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:14px"><input type="checkbox" id="sozl" style="width:18px;height:18px;margin-top:3px"> <span><a href="mesafeli-satis.html" target="_blank">Mesafeli satış sözleşmesini</a> ve <a href="iptal-iade.html" target="_blank">iptal/iade koşullarını</a> okudum, kabul ediyorum.</span></label>' +
         '<button class="btn btn-p btn-lg" id="onay">Teklifi onayla</button><p class="err" id="er" hidden></p>';
@@ -49,7 +54,8 @@
     } else if (t.durum === "onaylandi") {
       var kartKutu = A.kartOdeme ? '<div class="box"><b>Kredi / banka kartı</b><p class="small" style="margin:6px 0 12px">Güvenli ödeme ekranı (PayTR). 12 aya varan taksit seçenekleri kartınıza göre gösterilir. Kart bilgileriniz bizde saklanmaz.</p><button class="btn ' + (sip ? "btn-o" : "btn-p") + '" id="kart">Kartla öde</button></div>' : "";
       var havaleKutu = '<div class="box"><b>Havale / EFT' + (sip ? ' <small style="font-weight:600;color:var(--ok)">· önerilen</small>' : "") + '</b><p class="small" style="margin:6px 0 12px">' + (sip ? "Tutar: <b>" + TL(kaporaKdvli) + "</b><br>" : "") + 'Alıcı: ' + e(A.yasalAd || A.unvan) + (A.yasalAd ? " (" + e(A.unvan) + ")" : "") + (iban ? '<br>IBAN: <b id="ibanY" style="white-space:nowrap">' + e(iban) + '</b> <button type="button" class="btn btn-o" id="ibanK" style="min-height:0;padding:4px 10px;font-size:12px;margin-left:4px">Kopyala</button>' : "<br>IBAN bilgisi size WhatsApp’tan iletilecek: <a href=\"https://wa.me/" + e(A.whatsapp || "") + "\">bize yazın</a>") + (banka ? "<br>" + e(banka) : "") + "<br>Açıklama: <b>" + e(t.no) + '</b>' + (sip ? '<br><span class="mute">Açıklamaya sipariş kodunu yazın; ödeme kontrol edilince çalışmaya başlarız.</span>' : "") + '</p><button class="btn ' + (sip ? "btn-p" : "btn-o") + '" id="havale"' + (havaleBildirildi ? " disabled" : "") + ">" + (havaleBildirildi ? "Bildirildi, kontrol ediliyor" : "Ödemeyi yaptım") + "</button></div>";
-      P.innerHTML = "<h3>Ödeme</h3><p class=\"mute\" style=\"margin-top:6px\">" + (oran === 1 ? "Ödenecek tutar" : "İlk ödeme (%" + yuzde) + (h.kdv ? (oran === 1 ? " (KDV dahil)" : ", KDV dahil)") : (oran === 1 ? "" : ")")) + ": <b>" + TL(kaporaKdvli) + "</b></p>" +
+      P.innerHTML = (t.sozlesme_kabul ? '<p class="small" style="margin-bottom:10px">✓ Hizmet sözleşmesi kabul edildi (' + new Date(t.sozlesme_kabul).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }) + ') · <a href="sozlesme.html?t=' + encodeURIComponent(tk) + '" target="_blank" rel="noopener">görüntüle</a></p>' : "") +
+        "<h3>Ödeme</h3><p class=\"mute\" style=\"margin-top:6px\">" + (oran === 1 ? "Ödenecek tutar" : "İlk ödeme (%" + yuzde) + (h.kdv ? (oran === 1 ? " (KDV dahil)" : ", KDV dahil)") : (oran === 1 ? "" : ")")) + ": <b>" + TL(kaporaKdvli) + "</b></p>" +
         '<div class="pay-opts">' + (sip ? havaleKutu + kartKutu : kartKutu + havaleKutu) + "</div>";
       var ik = document.getElementById("ibanK"); if (ik) ik.onclick = function () {
         var b = this, v = iban.replace(/\s/g, ""), bitti = function () { b.textContent = "Kopyalandı"; setTimeout(function () { b.textContent = "Kopyala"; }, 2000); };
