@@ -120,7 +120,13 @@ ol.adimlar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:
     <div><h1>Benim işlerim</h1><span class="alt-b" id="alt">yalnız size özel</span></div>
     <a class="geri" href="ofis-arama.html">📞 Arama</a><a class="geri" href="ofis-yonetim.html" style="margin-left:6px">🧭 Yönetim</a><a class="geri" href="ofis-yonetim.html#s-sohbet" style="margin-left:6px">💬 Sohbet</a><a class="geri" href="ofis-canli.html" style="margin-left:6px">🏢 Canlı ofis</a>
   </header>
-  <div class="bilgi">Onay yalnız <b>kararı kaydeder</b>. Mesajı ya da işi göndermek/uygulamak Genel Müdür'ün işidir; siz düğmeye bastığınızda hiçbir şey kendiliğinden gitmez.</div>
+  <div class="bilgi">Bastığınız karar <b>en geç 5 dakika içinde otomatik uygulanır</b>; sonucu kartın altında “Yapıldı: …” olarak görürsünüz. Yeni bir iş için aşağıdaki kutuya yazmanız yeterli.</div>
+  <form class="kart o2" id="yeni-f" style="margin-bottom:12px">
+    <h2 style="margin:0 0 8px">➕ Yeni iş ver</h2>
+    <div class="not ac" style="margin:0"><textarea id="yeni-m" maxlength="2000" placeholder="Ne yapılsın? Örn: Hanzade için sözleşmeyi hazırla, yarın 10:00'a kadar" aria-label="Yeni iş"></textarea>
+    <div class="satir"><select id="yeni-o" aria-label="Öncelik" style="font:inherit;padding:8px;border-radius:10px;border:1px solid var(--cizgi)"><option value="1">Acil</option><option value="2" selected>Normal</option><option value="3">Zamanı gelince</option></select><button class="dug on" id="yeni-g" type="submit">Gönder</button></div></div>
+    <div id="talimatlar" style="margin-top:10px"></div>
+  </form>
   <div class="uyari" id="uyari" hidden></div>
   <nav class="sekmeler" id="sekmeler" aria-label="İş türleri">
     <button class="sek ac" data-s="onay" type="button"><b id="n-onay">0</b>Onay bekleyen</button>
@@ -257,7 +263,6 @@ ol.adimlar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:
     var A = adimlarOf(r);
     if (r.neden || r.sure) h += '<div class="neden">' + (r.sure ? '<span class="sure">⏱ ' + esc(r.sure) + "</span>" : "") + (r.neden ? "<b>Neden?</b> " + esc(r.neden) : "&nbsp;") + "</div>";
     if (A) h += adimHtml(r, A);
-    if (r.kaynak) h += '<div class="kaynak">Kaynak: ' + esc(r.kaynak) + "</div>";
     h += ekHtml(r.ekler);
     if (r.icerik) h += '<details class="tam"' + (bekl && !A && r.icerik.length < 900 ? " open" : "") + '><summary>Tam içeriği göster</summary><div class="icerik">' + md(r.icerik) + "</div></details>";
     if (bekl) {
@@ -269,7 +274,8 @@ ol.adimlar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:
       h += '</div><div class="not"><textarea maxlength="2000" placeholder="Notunuz (düzeltme için ne değişsin?)" aria-label="Notunuz"></textarea><div class="satir"><button class="dug on" data-e="gonder" type="button">Kaydet</button><button class="dug ge" data-e="vazgec" type="button">Vazgeç</button></div></div>';
     } else {
       if (r.patron_notu) h += '<div class="kararnot"><b>Notunuz:</b> ' + esc(r.patron_notu) + "</div>";
-      h += '<div class="karar-ust">' + esc(zaman(r.karar_zamani)) + (r.islenme_zamani ? " · GM işledi (" + esc(r.isleyen || "GM") + ")" : " · GM henüz işlemedi") + '</div><div class="eylem"><button class="dug ge" data-e="geri" type="button">↩︎ Geri al</button></div>';
+      h += r.islenme_zamani ? '<div class="kararnot" style="background:#E6F6EC"><b>✅ Yapıldı:</b> ' + esc(r.sonuc || "Kararınız uygulandı.") + "</div>" : '<div class="kararnot"><b>⏳ İşleniyor</b> · en geç 5 dakika içinde uygulanır</div>';
+      h += '<div class="karar-ust">' + esc(zaman(r.karar_zamani)) + '</div><div class="eylem"><button class="dug ge" data-e="geri" type="button">↩︎ Geri al</button></div>';
     }
     return h + "</article>";
   }
@@ -296,9 +302,25 @@ ol.adimlar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:
       var q = await sb.from("patron_isler").select("*").neq("durum", "arsiv").or("durum.eq.bekliyor,olusturma.gte." + new Date(Date.now() - 21 * 864e5).toISOString()).order("oncelik").order("son_tarih", { nullsFirst: false }).order("id");
       if (q.error) { hata("Liste okunamadı: " + q.error.message + (/permission|policy|denied/i.test(q.error.message) ? " (bu hesapla yetkiniz yok; alimhoslar16@gmail.com ile giriş yapın)" : "")); return; }
       hata(""); ISLER = q.data || []; ciz();
+      var t = await sb.from("patron_talimat").select("id,olusturma,metin,oncelik,durum,yanit").order("id", { ascending: false }).limit(5);
+      if (!t.error) talimatCiz(t.data || []);
     } catch (e) { hata("Bağlantı hatası: " + e.message); } finally { mesgul = false; }
   }
 
+  var TDURUM = { yeni: "⏳ Alınıyor", alindi: "⏳ Alındı, işleniyor", planlandi: "📅 Planlandı", tamamlandi: "✅ Yapıldı", iptal: "✖ Yapılmayacak" };
+  function talimatCiz(T) {
+    $("talimatlar").innerHTML = T.length ? '<div class="kaynak" style="margin-bottom:4px">Son verdiğiniz işler</div>' + T.map(function (x) {
+      return '<div class="kararnot" style="margin-top:6px"><b>' + (TDURUM[x.durum] || esc(x.durum)) + '</b> · ' + esc(zaman(x.olusturma)) + '<br>' + esc(x.metin) + (x.yanit ? '<br><span style="color:#1E6B3A">↳ ' + esc(x.yanit) + "</span>" : "") + "</div>";
+    }).join("") : "";
+  }
+  $("yeni-f").addEventListener("submit", async function (ev) {
+    ev.preventDefault(); var m = $("yeni-m").value.trim(); if (m.length < 3) { toast("İşi biraz daha açık yazın."); return; }
+    $("yeni-g").disabled = true;
+    var r = await sb.from("patron_talimat").insert({ metin: m, oncelik: +$("yeni-o").value, yazan: "Patron (Benim İşlerim)" }).select("id");
+    $("yeni-g").disabled = false;
+    if (r.error) { toast("Kaydedilemedi: " + r.error.message); return; }
+    $("yeni-m").value = ""; toast("İş alındı (#" + r.data[0].id + "). En geç 5 dakika içinde cevabı burada görünür."); yukle();
+  });
   function kopyala(t) {
     var bitti = function () { toast("Kopyalandı. Şimdi yapıştırabilirsiniz."); };
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(bitti, eski); else eski();
@@ -318,7 +340,7 @@ ol.adimlar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:
     var up = { durum: durum }; if (not != null) up.patron_notu = not;
     var r = await sb.from("patron_isler").update(up).eq("id", id).select("id,durum");
     if (r.error || !r.data || !r.data.length) { dugme.disabled = false; toast("Kaydedilemedi: " + (r.error ? r.error.message : "yetki yok")); return; }
-    toast("Kaydedildi: " + DURUM[durum] + ". Gönderimi/uygulamayı Genel Müdür yapar.");
+    toast("Kaydedildi: " + DURUM[durum] + ". En geç 5 dakika içinde uygulanır, sonucu kartta görürsünüz.");
     await yukle();
   }
 
