@@ -52,15 +52,15 @@ nav.main a:hover{color:var(--rose)}
 .badge:empty,.badge[data-n="0"]{display:none}
 .burger{display:none}
 
-/* hero - full width banner */
-.hero{position:relative;height:clamp(420px,58vh,560px);overflow:hidden;background:var(--bg-3)}
-.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;z-index:0}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.72) 38%,rgba(255,255,255,.1) 70%,transparent 100%)}
-.hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center}
-.hero .inner{max-width:480px}
-.hero .eyebrow{font-size:.76rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rose-ink);font-weight:600}
-.hero h1{font-size:clamp(2.3rem,5vw,3.7rem);margin:14px 0 0;font-weight:600;letter-spacing:.01em}
-.hero p{max-width:38ch;color:var(--ink-soft);margin:16px 0 26px;font-size:1.02rem}
+/* hero - split (Jubilee) */
+.hero{position:relative;background:var(--bg-2);overflow:hidden}
+.hero .wrap{position:relative;z-index:2;min-height:clamp(440px,56vh,560px);display:flex;flex-direction:column;justify-content:center}
+.hero .inner{max-width:470px}
+.hero .eyebrow{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);margin:16px 0 0;font-weight:600;letter-spacing:.005em;line-height:1.12}
+.hero p{max-width:34ch;color:var(--ink-soft);margin:16px 0 28px;font-size:1.02rem}
+.hero-img{position:absolute;top:0;right:0;bottom:0;width:52%;z-index:1}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 34px;border-radius:2px;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:transform .15s,background .2s,color .2s}
 .btn-p{background:var(--rose);color:#fff}
 .btn-p:hover{background:var(--rose-d);transform:translateY(-2px)}
@@ -83,14 +83,18 @@ section{padding:66px 0}
 .sec-head p{color:var(--ink-soft);max-width:54ch;margin:12px auto 0}
 .rule{width:70px;height:2px;background:var(--rose);margin:16px auto 0}
 
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.cat{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:3/4;background:var(--bg-3)}
-.cat img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.cat:hover img{transform:scale(1.07)}
-.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 44%,rgba(34,34,34,.74))}
-.cat .lab{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:22px;color:#fff;text-align:center}
-.cat .lab b{font-size:1.4rem;font-weight:600;display:block;letter-spacing:.02em}
-.cat .lab span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;display:inline-block;margin-top:8px;border-bottom:1px solid var(--rose);padding-bottom:3px}
+.showcase .wrap{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:22px}
+.sh{background:var(--bg-2);border-radius:3px;overflow:hidden;display:flex;align-items:center;min-height:210px}
+.sh.big{grid-row:1 / span 2}
+.sh .im{align-self:stretch;flex:1;background-position:center;background-size:cover}
+.sh .ct{flex:1;padding:26px}
+.sh.big .ct{flex:0 0 48%}
+.sh .lbl{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-ink);font-weight:700}
+.sh h3{font-size:1.4rem;margin:9px 0 13px;font-weight:600;line-height:1.2}
+.sh.big h3{font-size:1.85rem}
+.sh .more{display:inline-block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:4px;transition:color .2s,border-color .2s}
+.sh .more:hover{color:var(--rose);border-color:var(--rose)}
+.disc{position:absolute;top:12px;left:12px;width:48px;height:48px;border-radius:50%;background:var(--rose);color:#fff;display:grid;place-items:center;font-size:.74rem;font-weight:600;z-index:3}
 
 .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
 .chip{padding:9px 22px;border:1px solid var(--line);border-radius:2px;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;background:#fff;transition:all .2s}
@@ -185,8 +189,10 @@ footer ul a:hover{color:var(--rose)}
 @media(max-width:940px){
   nav.main{display:none}.burger{display:grid}
   .util .l{display:none}.util .r{margin:0 auto}
-  .hero::after{background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,.9))}
-  .hero .wrap{justify-content:flex-end;padding-bottom:40px}.hero .inner{max-width:none;text-align:center}.hero p{margin-left:auto;margin-right:auto}.hbtns{justify-content:center}
+  .hero .wrap{display:flex;flex-direction:column;min-height:0;padding-top:28px;padding-bottom:38px}
+  .hero-img{position:static;width:100%;height:240px;order:-1;margin-bottom:24px;border-radius:3px;overflow:hidden}
+  .hero .inner{max-width:none;text-align:center}.hero p{margin-left:auto;margin-right:auto}
+  .showcase .wrap{grid-template-columns:1fr;grid-template-rows:none}.sh.big{grid-row:auto}.sh{min-height:170px}
   .cats,.grid{grid-template-columns:repeat(2,1fr)}
   .trust .wrap{grid-template-columns:repeat(2,1fr)}
   .trust .t:nth-child(2){border-right:0}.trust .t:nth-child(-n+2){border-bottom:1px solid var(--line)}
@@ -241,18 +247,15 @@ footer ul a:hover{color:var(--rose)}
   <a href="#erkek">Erkek</a><a href="#promo">Fırsatlar</a>
 </div>
 
-<section class="hero">
-  <img class="bg" src="img/p4.jpg" alt="Gümüş kalpli çiçek kolye">
-  <div class="wrap"><div class="inner">
-    <span class="eyebrow">Yeni Sezon · 925 Ayar</span>
-    <h1>Zarafetin gümüş hâli</h1>
-    <p>Kadın kolyeleri, el yapımı erkek yüzükleri ve çift alyanslarıyla her ana zarafet.</p>
-    <div class="hbtns">
-      <a class="btn btn-p" href="#urunler">Alışverişe Başla</a>
-      <a class="btn btn-o" href="#erkek">Erkek Koleksiyonu</a>
-    </div>
-  </div></div>
-</section>
+<section class="hero"><div class="wrap">
+  <div class="inner">
+    <span class="eyebrow">Bu Haftanın Öne Çıkanları</span>
+    <h1>Gümüşün Zarif Dünyası</h1>
+    <p>Günlük şıklık için el yapımı gümüş kolye, yüzük ve alyans koleksiyonları.</p>
+    <a class="btn btn-p" href="#urunler">Alışverişe Başla</a>
+  </div>
+  <div class="hero-img"><img src="img/p4.jpg" alt="Gümüş kolye"></div>
+</div></section>
 
 <div class="trust"><div class="wrap">
   <div class="t"><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><div><b>Ücretsiz Kargo</b><span>2.000 ₺ üzeri</span></div></div>
@@ -261,13 +264,18 @@ footer ul a:hover{color:var(--rose)}
   <div class="t"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v3M7 10V7a5 5 0 0 1 5-5"/><rect x="5" y="10" width="14" height="10" rx="2"/></svg><div><b>7/24 Destek</b><span>Kapıda & taksit</span></div></div>
 </div></div>
 
-<section><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Keşfedin</span><h2>Kategoriler</h2><div class="rule"></div></div>
-  <div class="cats">
-    <a class="cat" href="#urunler"><img src="img/p5.jpg" alt="Kadın kolye"><div class="lab"><b>Kadın Kolye</b><span>Keşfet</span></div></a>
-    <a class="cat" href="#erkek"><img src="img/p10.jpg" alt="Erkek yüzük"><div class="lab"><b>Erkek Yüzük</b><span>Keşfet</span></div></a>
-    <a class="cat" href="#promo"><img src="img/p1.jpg" alt="Alyans"><div class="lab"><b>Alyans & Çift</b><span>Keşfet</span></div></a>
-    <a class="cat" href="#urunler"><img src="img/p3.jpg" alt="Özel tasarım"><div class="lab"><b>Özel Tasarım</b><span>Keşfet</span></div></a>
+<section class="showcase"><div class="wrap">
+  <div class="sh big">
+    <div class="im" style="background-image:url(img/p7.jpg)"></div>
+    <div class="ct"><div class="lbl">Kadın Kolye</div><h3>Beyaz Zirkon Taşlı Kolyeler</h3><a class="more" href="#urunler">İncele →</a></div>
+  </div>
+  <div class="sh">
+    <div class="im" style="background-image:url(img/p10.jpg)"></div>
+    <div class="ct"><div class="lbl">Erkek Yüzük</div><h3>Firuze Taşlı Erkek Yüzük</h3><a class="more" href="#erkek">İncele →</a></div>
+  </div>
+  <div class="sh" style="flex-direction:row-reverse">
+    <div class="im" style="background-image:url(img/p1.jpg)"></div>
+    <div class="ct"><div class="lbl">Alyans</div><h3>Çift Alyans Setleri</h3><a class="more" href="#promo">İncele →</a></div>
   </div>
 </div></section>
 
@@ -351,10 +359,11 @@ const TL=n=>n.toLocaleString('tr-TR')+' ₺';
 const star=r=>'★★★★★'.slice(0,r)+'☆☆☆☆☆'.slice(0,5-r);
 let cart=0, favs=0;
 function card(p){
-  const badge=p.badge?`<span class="tagp ${p.cls}">${p.badge}</span>`:'';
+  const disc=p.old?`<span class="disc">-%${Math.round((1-p.price/p.old)*100)}</span>`:'';
+  const badge=(p.badge&&!p.old)?`<span class="tagp ${p.cls}">${p.badge}</span>`:'';
   const price=p.old?`<span class="price sale"><s>${TL(p.old)}</s>${TL(p.price)}</span>`:`<span class="price">${TL(p.price)}</span>`;
   return `<article class="card" data-f="${p.tag}">
-    <div class="ph">${badge}
+    <div class="ph">${disc}${badge}
       <button class="fav" aria-pressed="false" aria-label="Favori" data-fav><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
       <img class="main" src="img/${p.img}.jpg" alt="${p.name}" loading="lazy">${p.alt?`<img class="alt" src="img/${p.img}b.jpg" alt="" loading="lazy">`:''}
       <button class="qadd" data-add="${p.name}"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Sepete Ekle</button>
