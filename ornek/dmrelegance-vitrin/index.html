@@ -100,8 +100,10 @@ section{padding:66px 0}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
 .card{background:#fff;transition:transform .25s;display:flex;flex-direction:column}
 .ph{position:relative;aspect-ratio:1/1;background:var(--bg-2);overflow:hidden;border:1px solid var(--line)}
-.ph img{width:100%;height:100%;object-fit:cover;transition:opacity .4s,transform .5s}
-.card:hover .ph img{transform:scale(1.04)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .6s}
+.ph .alt{opacity:0}
+.ph:hover .alt{opacity:1}
+.ph:hover img{transform:scale(1.05)}
 .tagp{position:absolute;top:12px;left:12px;background:var(--teal);color:#fff;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:5px 9px;border-radius:2px;z-index:2}
 .tagp.sale{background:var(--pink)}
 .tagp.hot{background:var(--pink)}
@@ -329,20 +331,20 @@ footer ul a:hover{color:var(--rose)}
 
 <script>
 const PRODUCTS=[
-  {img:'p3',cat:'Kolye',name:'100 Dilde "Seni Seviyorum" Kolye',price:749,old:990,tag:'cok',badge:'İndirim',cls:'sale',r:5},
-  {img:'p7',cat:'Kolye',name:'Lotus Beyaz Zirkon Kolye',price:899,old:0,tag:'yeni',badge:'Yeni',cls:'',r:5},
-  {img:'p4',cat:'Kolye',name:'Kalpli Çiçek Projeksiyon Kolye',price:699,old:0,tag:'cok',badge:'Çok Satan',cls:'',r:5},
-  {img:'p5',cat:'Kolye',name:'Kar Tanesi Gümüş Kolye',price:649,old:849,tag:'indirim',badge:'%24',cls:'sale',r:4},
-  {img:'p6',cat:'Kolye',name:'Kutup Yıldızı Kadın Kolye',price:679,old:0,tag:'yeni',badge:'Yeni',cls:'',r:5},
+  {img:'p3',cat:'Kolye',name:'100 Dilde "Seni Seviyorum" Kolye',price:749,old:990,tag:'cok',badge:'İndirim',cls:'sale',alt:1,r:5},
+  {img:'p7',cat:'Kolye',name:'Lotus Beyaz Zirkon Kolye',price:899,old:0,tag:'yeni',badge:'Yeni',cls:'',alt:1,r:5},
+  {img:'p4',cat:'Kolye',name:'Kalpli Çiçek Projeksiyon Kolye',price:699,old:0,tag:'cok',badge:'Çok Satan',cls:'',alt:1,r:5},
+  {img:'p5',cat:'Kolye',name:'Kar Tanesi Gümüş Kolye',price:649,old:849,tag:'indirim',badge:'%24',cls:'sale',alt:1,r:4},
+  {img:'p6',cat:'Kolye',name:'Kutup Yıldızı Kadın Kolye',price:679,old:0,tag:'yeni',badge:'Yeni',cls:'',alt:1,r:5},
   {img:'p1',cat:'Alyans',name:'Bombeli Gold Gümüş Alyans',price:1190,old:0,tag:'cok',badge:'',cls:'',r:5},
   {img:'p2',cat:'Alyans',name:'2mm Düz Bombeli Gümüş Alyans',price:990,old:1250,tag:'indirim',badge:'%21',cls:'sale',r:5},
   {img:'p8',cat:'Erkek',name:'Oniks Taşlı Tuğra Erkek Yüzük',price:1490,old:0,tag:'cok',badge:'Çok Satan',cls:'',r:5},
 ];
 const MEN=[
-  {img:'p10',name:'Firuze Taşlı Erkek Yüzük',price:1390},
+  {img:'p10',name:'Firuze Taşlı Erkek Yüzük',price:1390,alt:1},
   {img:'p9',name:'Çerkez Desenli Erkek Yüzük',price:1290},
-  {img:'p11',name:'Kırmızı Fasetli Taş Yüzük',price:1450},
-  {img:'p12',name:'Mavi Fasetli Taş Yüzük',price:1450},
+  {img:'p11',name:'Kırmızı Fasetli Taş Yüzük',price:1450,alt:1},
+  {img:'p12',name:'Mavi Fasetli Taş Yüzük',price:1450,alt:1},
   {img:'p8',name:'Oniks Tuğra Erkek Yüzük',price:1490},
 ];
 const TL=n=>n.toLocaleString('tr-TR')+' ₺';
@@ -354,7 +356,7 @@ function card(p){
   return `<article class="card" data-f="${p.tag}">
     <div class="ph">${badge}
       <button class="fav" aria-pressed="false" aria-label="Favori" data-fav><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
-      <img src="img/${p.img}.jpg" alt="${p.name}" loading="lazy">
+      <img class="main" src="img/${p.img}.jpg" alt="${p.name}" loading="lazy">${p.alt?`<img class="alt" src="img/${p.img}b.jpg" alt="" loading="lazy">`:''}
       <button class="qadd" data-add="${p.name}"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Sepete Ekle</button>
     </div>
     <div class="cbody"><div class="cat-lbl">${p.cat}</div><h3>${p.name}</h3>
@@ -363,7 +365,7 @@ function card(p){
 }
 document.getElementById('grid').innerHTML=PRODUCTS.map(card).join('');
 document.getElementById('menGrid').innerHTML=MEN.map(p=>`
-  <article class="mcard"><div class="ph"><img src="img/${p.img}.jpg" alt="${p.name}" loading="lazy"></div>
+  <article class="mcard"><div class="ph"><img class="main" src="img/${p.img}.jpg" alt="${p.name}" loading="lazy">${p.alt?`<img class="alt" src="img/${p.img}b.jpg" alt="" loading="lazy">`:''}</div>
   <div class="mb"><h3>${p.name}</h3><div class="price">${TL(p.price)}</div></div></article>`).join('');
 const toast=document.getElementById('toast'),tmsg=document.getElementById('toastMsg');
 let tt;function showToast(m){tmsg.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1900);}
