@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Dijital Ajans Sitesi · 3 Tasarım Seçeneği · Dijitabela demo</title>
+<style>
+:root{--bg:#0a0b0e;--ln:rgba(255,255,255,.1);--mu:#9aa1b2}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:radial-gradient(800px 420px at 85% -10%,rgba(224,138,51,.12),transparent),var(--bg);color:#eceef3;font:400 16px/1.65 "Segoe UI",system-ui,Arial,sans-serif;overflow-x:hidden}
+.k{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}a{color:inherit;text-decoration:none}
+.top{padding:22px 0;border-bottom:1px solid var(--ln)}.top .k{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.top b{letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}.top span{color:var(--mu);font-size:.85rem}
+header.h{padding:clamp(48px,8vw,100px) 0 36px}.eb{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:#e08a33;font-weight:700}
+h1{font-size:clamp(2.1rem,5.4vw,4rem);line-height:1.06;letter-spacing:-.02em;margin:14px 0 16px;max-width:860px}h1 em{font-style:normal;color:#e08a33}
+header p{color:var(--mu);max-width:680px;font-size:1.08rem}
+.gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:12px 0 44px}@media(max-width:900px){.gr{grid-template-columns:minmax(0,1fr)}}
+.c{display:flex;flex-direction:column;border:1px solid var(--ln);background:#11141a;transition:.25s;overflow:hidden}.c:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.3)}
+.pv{height:210px;position:relative;overflow:hidden;border-bottom:1px solid var(--ln)}
+.pv.a{background:linear-gradient(160deg,#151b27,#090b10)}.pv.b{background:#0d0d0f}.pv.c3{background:#0c0f0e;display:grid;place-items:center}
+.pv i{position:absolute;display:block}
+.a i:nth-child(1){left:8%;top:14%;width:44%;height:12px;background:#e8ebf2;opacity:.9}.a i:nth-child(2){left:8%;top:30%;width:34%;height:12px;background:#e08a33}.a i:nth-child(3){left:8%;top:50%;width:36%;height:30px;background:#e08a33}
+.a i:nth-child(4){right:8%;top:14%;width:34%;height:70%;border:1px solid rgba(255,255,255,.15);background:repeating-linear-gradient(90deg,#e08a33 0 8px,transparent 8px 16px);opacity:.5;-webkit-mask:linear-gradient(0deg,#000,transparent);mask:linear-gradient(0deg,#000,transparent)}
+.a i:nth-child(5){left:0;right:0;bottom:0;height:34px;background:rgba(255,255,255,.04);border-top:1px solid var(--ln)}
+.b i:nth-child(1){left:10%;right:10%;top:8%;height:2px;background:#ece6d8}.b i:nth-child(2){left:10%;top:16%;font:0;width:55%;height:34px;background:#ece6d8}.b i:nth-child(3){left:10%;top:56%;width:38%;height:38%;border:1px solid rgba(236,230,216,.4)}.b i:nth-child(4){left:16%;top:62%;width:26%;height:26%;border-radius:50%;background:#d4472b}.b i:nth-child(5){left:56%;top:56%;width:34%;height:6px;background:rgba(236,230,216,.5);box-shadow:0 14px 0 rgba(236,230,216,.3),0 28px 0 rgba(236,230,216,.3)}
+.ph{width:106px;height:178px;border-radius:18px;border:2px solid #2a332f;background:#141917;position:relative;padding:12px 10px}.ph i{position:static;display:block;border-radius:6px;margin-bottom:7px;height:20px;background:#1b221f}.ph i:first-child{height:50px;background:linear-gradient(150deg,#b8f060,#4fd1a5);opacity:.9}.ph:after{content:"";position:absolute;left:8px;right:8px;bottom:8px;height:16px;border-radius:6px;background:#1b221f;border-top:2px solid #b8f060}
+.bd{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}.bd .n{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mu)}.bd h2{font-size:1.5rem;line-height:1.2}.bd p{color:var(--mu);font-size:.95rem;flex:1}.bd ul{list-style:none;font-size:.86rem;color:#c3c8d6;margin:6px 0}.bd li:before{content:"→ ";color:#e08a33}
+.bt{display:inline-flex;justify-content:center;align-items:center;min-height:46px;border:1px solid rgba(255,255,255,.3);font-weight:700;margin-top:8px;transition:.2s}.c:hover .bt{background:#e8ebf2;color:#0a0b0e}
+.inf{border:1px solid var(--ln);background:#11141a;padding:clamp(20px,4vw,34px);margin-bottom:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}@media(max-width:800px){.inf{grid-template-columns:1fr}}
+.inf h3{font-size:1rem;margin-bottom:4px}.inf p{color:var(--mu);font-size:.92rem}
+footer{border-top:1px solid var(--ln);padding:28px 0 40px;color:var(--mu);font-size:.84rem}
+</style></head><body>
+<div class="top"><div class="k"><b>Dijitabela</b><span>TheFreelancer için hazırlanan ön çalışma</span></div></div>
+<header class="h k"><span class="eb">Dijital ajans web sitesi · WordPress</span>
+<h1>Ajansınız için <em>üç ayrı yerleşim</em> hazırladık</h1>
+<p>Üçü de koyu temalı, kurumsal ciddiyette ve çalışır durumda: Google Ads, Meta Ads, TikTok Ads, SEO paketleri ve web hizmetleri; hesaplayıcı, paket seçimi ve teklif akışıyla. Sadece renk değil, kurgu da farklıdır. Marka adı belirtilmediği için her yerde nötr "Markanız" kullanılmıştır.</p></header>
+<main class="k"><div class="gr">
+<a class="c" href="v1/"><div class="pv a"><i></i><i></i><i></i><i></i><i></i></div><div class="bd"><span class="n">Seçenek 1</span><h2>Vitrin</h2><p>Büyük açılış alanı, hizmet ızgarası ve sekmeli paket paneliyle klasik kurumsal akış; sağda canlı teklif kutusu.</p><ul><li>Canlı hizmet arama</li><li>Sekmeli paket + teklif kutusu</li><li>Bütçe / dönüşüm hesaplayıcı</li></ul><span class="bt">Vitrin'i aç</span></div></a>
+<a class="c" href="v2/"><div class="pv b"><i></i><i></i><i></i><i></i><i></i></div><div class="bd"><span class="n">Seçenek 2</span><h2>Dergi</h2><p>Serif başlıklar, numaralı bölümler ve çerçeveli görsel alanlarıyla editoryal, güven veren bir anlatım.</p><ul><li>Filtreli hizmet dizini</li><li>Hızlı SEO denetim puanı</li><li>Adım adım teklif sihirbazı</li></ul><span class="bt">Dergi'yi aç</span></div></a>
+<a class="c" href="v3/"><div class="pv c3"><div class="ph"><i></i><i></i><i></i><i></i></div></div><div class="bd"><span class="n">Seçenek 3</span><h2>Uygulama</h2><p>Kart açılışı, alt sabit menü ve alttan açılan paneller; telefonda uygulama gibi akan mobil öncelikli yerleşim.</p><ul><li>Dokunmatik hizmet ve teklif sepeti</li><li>Bütçe hesabı</li><li>Gün / saat seçerek görüşme randevusu</li></ul><span class="bt">Uygulama'yı aç</span></div></a>
+</div>
+<div class="inf"><div><h3>Hostinginize kurulum</h3><p>Seçilen tasarım WordPress olarak sizin hosting hesabınıza kurulur; erişimler size teslim edilir.</p></div><div><h3>Ödeme demo sonrası</h3><p>Önce çalışan demoyu inceleyin. Beğenmezseniz ödeme yok.</p></div><div><h3>İçerik sizin</h3><p>Paket adları, fiyatlar ve metinler örnektir; yayın öncesi sizin bilgilerinizle değiştirilir.</p></div></div></main>
+<footer><div class="k">Bu bir ön çalışma demosudur · dijitabela.com</div></footer>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body></html>
