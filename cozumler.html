@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Çözümler · Dijitabela</title>
+<meta name="description" content="Dijitabela çözümleri: mali müşavirler için mükellef asistanı, belge okuma ve imza kontrolü; işletmeler için Google vitrini, ücretsiz kontrol araçları ve sektör siteleri. Her çözüm sorun, çalışan ekran ve fiyatla.">
+<link rel="canonical" href="https://dijitabela.com/cozumler">
+<style>
+@font-face{font-family:Archivo;src:url(anahtar-teslim/font/archivo.ttf);font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(anahtar-teslim/font/plusjakartasans-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(anahtar-teslim/font/plusjakartasans-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Space Mono";src:url(anahtar-teslim/font/spacemono-bold.ttf);font-weight:700;font-display:swap}
+:root{--gece:#0E0F12;--panel:#16181D;--sonuk:#2C3038;--amber:#FFB000;--amber-yazi:#8A5A00;--gun:#ECEEEA;--mur:#15171A;--soluk:#535960;--soluk-k:#A0A6AD;--iyi:#17803F;--kotu:#C62E25;--pad:clamp(16px,4vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 "Plus Jakarta Sans",system-ui,sans-serif;color:var(--mur);background:var(--gun);overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.w{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+.et{font:700 13px/1.3 "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+h1,h2{font-family:Archivo,Impact,sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.95;overflow-wrap:anywhere}
+h1{font-size:clamp(40px,9vw,104px)}
+h2{font-size:clamp(30px,4.6vw,56px);margin:10px 0 18px}
+h3{font-weight:700;font-size:18px;margin-bottom:4px}
+p{max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border:2px solid var(--mur);background:var(--amber);color:var(--mur);font:700 14px "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.btn.iki{background:transparent}
+.btn:focus-visible,.f:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+header{background:var(--gece);color:var(--gun);padding:28px 0 56px}
+header nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px}
+header nav a{text-decoration:none;font:700 15px "Space Mono",monospace}
+header .et{color:var(--amber)}
+header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
+/* LED nokta şeridi (imza öğe) */
+.led{display:flex;gap:6px;margin-top:34px}
+.led i{width:10px;height:10px;border-radius:50%;background:var(--sonuk)}
+.led i.y{background:var(--amber);box-shadow:0 0 8px rgba(255,176,0,.6)}
+/* Süzgeç */
+.suzgec{position:sticky;top:0;z-index:5;background:var(--gun);border-bottom:2px solid var(--mur)}
+.suzgec .w{display:flex;flex-wrap:wrap;gap:8px 28px;padding-top:12px;padding-bottom:12px;align-items:center}
+.grup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.grup .et{color:var(--soluk);margin-right:4px}
+.f{min-height:44px;padding:0 14px;border:2px solid var(--mur);background:transparent;color:var(--mur);font:700 13px "Space Mono",monospace;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.f[aria-pressed=true]{background:var(--mur);color:var(--amber)}
+.sayi{margin-left:auto;font:700 13px "Space Mono",monospace;color:var(--soluk)}
+/* Durum açıklaması */
+.durum-not{border-bottom:2px solid var(--mur);padding:22px 0}
+.durum-not .w{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px 32px}
+.durum-not p{font-size:15px;color:var(--soluk)}
+.rozet{display:inline-block;padding:3px 10px;font:700 12px "Space Mono",monospace;letter-spacing:.1em;text-transform:uppercase;border:2px solid currentColor}
+.rozet.hazir{color:var(--iyi)}
+.rozet.pilot{color:var(--amber-yazi)}
+.rozet.prototip{color:var(--soluk)}
+/* Ürün bölümü */
+.u{padding:64px 0;border-bottom:2px solid var(--mur)}
+.u.k{background:var(--gece);color:var(--gun)}
+.u.k .rozet.hazir{color:#4BD07F}.u.k .rozet.pilot{color:var(--amber)}.u.k .rozet.prototip{color:var(--soluk-k)}
+.u-bas{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.u-bas .no{font:700 13px "Space Mono",monospace;color:var(--soluk)}
+.u.k .u-bas .no{color:var(--soluk-k)}
+.u.k .et.kat{color:var(--amber)}
+.u-govde{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:start}
+.akis{display:grid;gap:22px}
+.akis .blok{border-top:2px solid currentColor;padding-top:10px}
+.akis .blok .et{display:block;margin-bottom:4px;color:var(--soluk)}
+.u.k .akis .blok .et{color:var(--amber)}
+.akis ul{margin:8px 0 0 20px;max-width:58ch}
+.akis li{margin-bottom:4px}
+.dur{border-left:4px solid var(--amber);padding:6px 0 6px 14px;font-size:15px;color:var(--soluk)}
+.u.k .dur{color:#C9CDD2}
+.dur b{color:var(--mur)}.u.k .dur b{color:var(--gun)}
+/* Ekran çerçeveleri: ekran görüntüsü gerçek, çerçeve yalnız çizim */
+.ekran{display:grid;gap:14px}
+.pen{border:2px solid var(--mur);background:#fff;box-shadow:0 18px 40px -22px rgba(0,0,0,.5)}
+.u.k .pen{border-color:#3a3f48}
+.pen .bar{display:flex;gap:6px;padding:8px 10px;background:var(--panel);border-bottom:2px solid var(--mur)}
+.pen .bar i{width:9px;height:9px;border-radius:50%;background:var(--sonuk)}
+.pen .bar i:first-child{background:var(--amber)}
+.pen img{width:100%;height:auto}
+.ikili{display:grid;grid-template-columns:1fr 128px;gap:14px;align-items:end}
+.tel{border:2px solid var(--mur);border-radius:18px;overflow:hidden;background:#fff}
+.u.k .tel{border-color:#3a3f48}
+.cap{font:700 12px "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk)}
+.u.k .cap{color:var(--soluk-k)}
+/* Fiyat + eylem şeridi */
+.alt{margin-top:34px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 32px;align-items:end;border-top:2px solid currentColor;padding-top:18px}
+.fiyat{font:900 clamp(30px,4vw,48px)/1 Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase}
+.fiyat small{display:block;font:700 12px "Space Mono",monospace;letter-spacing:.08em;margin-top:8px;color:var(--soluk)}
+.u.k .fiyat small{color:var(--soluk-k)}
+.u.k .btn.iki{color:var(--gun);border-color:var(--gun)}
+.eylem{display:flex;flex-wrap:wrap;gap:10px}
+/* Tablo (prototip çıktısı) */
+.tab{width:100%;border-collapse:collapse;font:13px/1.45 "Space Mono",monospace;background:#fff;color:var(--mur)}
+.tab th,.tab td{border:1px solid var(--mur);padding:5px 8px;text-align:left;white-space:nowrap}
+.tab th{background:var(--panel);color:var(--amber)}
+.tab td.s{text-align:right}
+.kay{overflow-x:auto;border:2px solid var(--mur)}
+/* Alt bölüm */
+.son{background:var(--gece);color:var(--gun);padding:64px 0}
+.son h2{color:var(--amber)}
+.son p{color:#C9CDD2}
+.not{font-size:14px;color:var(--soluk)}
+.son .not{color:var(--soluk-k)}
+.bos{display:none;padding:48px 0;font:700 15px "Space Mono",monospace}
+@media(max-width:860px){.suzgec{position:static}.u-govde{grid-template-columns:1fr;gap:28px}.alt{grid-template-columns:1fr}.sayi{margin-left:0;width:100%}.u{padding:48px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+ <div class="w">
+  <nav><a href="/">DİJİTABELA</a><a href="tel:+905019452184">0501 945 21 84</a></nav>
+  <span class="et">Çözümler</span>
+  <h1>Her derdin bir çalışan çözümü olsun.</h1>
+  <p>Mükellefine cevap yetiştiremeyen mali müşavirden, Google'da görünmeyen esnafa kadar: gördüğümüz sorunu önce çözüp çalıştırıyoruz, sonra satıyoruz. Aşağıdaki her çözümün yanında ne durumda olduğu yazıyor. Hazır olanı hazır, yarım olanı yarım diyoruz.</p>
+  <div class="led" aria-hidden="true"><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i></i><i></i><i></i><i></i></div>
+ </div>
+</header>
+
+<div class="suzgec" role="region" aria-label="Çözümleri süz">
+ <div class="w">
+  <div class="grup" id="g-kat"><span class="et">Kimin için</span>
+   <button class="f" type="button" data-kat="hepsi" aria-pressed="true">Tümü</button>
+   <button class="f" type="button" data-kat="musavir" aria-pressed="false">Mali müşavirler</button>
+   <button class="f" type="button" data-kat="google" aria-pressed="false">Google ve görünürlük</button>
+   <button class="f" type="button" data-kat="web" aria-pressed="false">Web sitesi</button>
+   <button class="f" type="button" data-kat="yz" aria-pressed="false">Yapay zekâ</button>
+  </div>
+  <div class="grup" id="g-durum"><span class="et">Durum</span>
+   <button class="f" type="button" data-durum="hepsi" aria-pressed="true">Hepsi</button>
+   <button class="f" type="button" data-durum="hazir" aria-pressed="false">Hazır</button>
+   <button class="f" type="button" data-durum="deneme" aria-pressed="false">Deneme açık</button>
+   <button class="f" type="button" data-durum="prototip" aria-pressed="false">Prototip</button>
+   <button class="f" type="button" data-durum="teklif" aria-pressed="false">Teklifle</button>
+  </div>
+  <span class="sayi" id="sayi" aria-live="polite"></span>
+ </div>
+</div>
+
+<section class="durum-not">
+ <div class="w">
+  <div><span class="rozet hazir">Hazır</span><p style="margin-top:8px">Canlıda çalışıyor, fiyatı yazılı, sipariş verebilirsiniz.</p></div>
+  <div><span class="rozet pilot">Deneme açık</span><p style="margin-top:8px">Çalışıyor; 1 hafta ücretsiz deneyebilirsiniz. Eksik olanı her çözümde "Şu an" satırında yazıyoruz.</p></div>
+  <div><span class="rozet prototip">Prototip</span><p style="margin-top:8px">Örnek veriyle çalıştığını gösterdik; henüz satışta değil. İlgilenirseniz gerçek örnekle sınarız.</p></div>
+ </div>
+</section>
+
+<main id="liste">
+
+<!-- 01 BEYANNO WHATSAPP -->
+<article class="u k" id="mukellef-asistani" data-kat="musavir yz" data-durum="deneme">
+ <div class="w">
+  <div class="u-bas"><span class="no">01</span><span class="et kat">Mali müşavirler</span><span class="rozet pilot">1 hafta ücretsiz</span></div>
+  <h2>Mükellef gece yazar. Cevap hazır olsun.</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>“KDV'm ne kadar?”, “Beyannamem verildi mi?”, “Son gün ne zaman?” Aynı sorular gün boyu, hatta gece gelir. Müşavir hem işini yapar hem telefona cevap yetiştirir.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>Beyanno, mükelleflerin sorularını sizin WhatsApp numaranızdan, Luca'daki kayıtlara bakarak cevaplar. Luca'ya yalnız okuma yetkisiyle bağlanır; kayıt değiştirmez. Bilmediğini uydurmaz, “müşavirinize ilettim” der ve size görev açar. Cevap modunu siz seçersiniz: otomatik ya da önce onayınıza.</p>
+     <ul><li>Mükellef yeni numara öğrenmez, sizin numaranıza yazar</li><li>Gönderilecek her mesaj önizlenebilir</li><li>Mevzuat sorularında “kesin görüş için müşaviriniz” notu</li></ul></div>
+    <p class="dur"><b>Şu an:</b> Canlıda; kayıt olunca 7 gün ücretsiz deneme başlar. Şu an yalnız Luca Mali Müşavir Paketi ile çalışır; başka program için sıraya alıyoruz. Tahakkuk ve borç bilgisi için Luca'dan tahakkuk ve borç bilgisi GİB anahtarı gerektiriyor. Meslek odaları ve birlikler için toplu kurulum görüşmeye açık.</p>
+   </div>
+   <div class="ekran">
+    <div class="ikili">
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/bw-whatsapp.webp" width="1000" height="618" alt="WhatsApp bağlantı ekranı: kendi numaranızı QR koduyla bağlarsınız" loading="lazy"></div>
+     <div class="tel"><img src="cozumler/bw-pano-mob.webp" width="390" height="843" alt="Telefon ekranı: bugün onay bekleyen mesajlar ve yaklaşan beyanname günleri" loading="lazy"></div>
+    </div>
+    <span class="cap">Gerçek uygulama ekranı · demo verisi, gerçek mükellef yok</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">300 TL / ay<small>KDV hariç · 100 mükellefe kadar · yıllık peşin 2.988 TL</small></div>
+   <div class="eylem"><a class="btn" href="https://beyanno.com/app/">1 hafta ücretsiz dene</a><a class="btn iki" href="https://beyanno.com/app/?demo=1">Demoyu dene</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 02 BEYANNO BELGE -->
+<article class="u" id="belge-okuma" data-kat="musavir yz" data-durum="deneme">
+ <div class="w">
+  <div class="u-bas"><span class="no">02</span><span class="et kat">Mali müşavirler</span><span class="rozet pilot">1 hafta ücretsiz</span></div>
+  <h2>Fiş, fatura, PDF: elle girmeden okunsun.</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Mükellef fişi fotoğraf çeker, WhatsApp'tan atar. Ay sonunda yüzlerce görüntü, tek tek tarih, tutar, KDV girişi.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>Fotoğraf, PDF ve e-fatura XML'i okunur: tarih, belge no, satıcı, KDV'ye göre matrah, toplam. Her belgeye kurallara göre bir kontrol sonucu düşer (fatura mükellef adına mı, toplam tutuyor mu, KDV oranı geçerli mi). Kuralları siz belirlersiniz; şüpheli olan “bakılsın” diye ayrılır, onayınızla Luca, Zirve, Mikro, Logo biçiminde aktarılır.</p></div>
+    <p class="dur"><b>Şu an:</b> Okuma ve kural kontrolü çalışıyor, ekranda görüleni demo verisidir. Programa doğrudan gönderim yok; aktarım Excel dosyasıyla yapılır.</p>
+   </div>
+   <div class="ekran">
+    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/bw-belgeler.webp" width="1000" height="625" alt="Gelen belgeler tablosu: tür, tarih, toplam, kontrol sonucu uygun, uygun değil ya da bakılmalı" loading="lazy"></div>
+    <span class="cap">Gerçek uygulama ekranı · demo verisi</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">590 TL / ay<small>KDV hariç · 150 mükellefe kadar · yıllık peşin 5.388 TL</small></div>
+   <div class="eylem"><a class="btn" href="https://beyanno.com/app/">1 hafta ücretsiz dene</a><a class="btn iki" href="https://beyanno.com/app/?demo=1">Demoyu dene</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 03 İMZA AYIRICI -->
+<article class="u k" id="imza-kontrol" data-kat="musavir yz" data-durum="deneme">
+ <div class="w">
+  <div class="u-bas"><span class="no">03</span><span class="et kat">Mali müşavirler</span><span class="rozet pilot">1 hafta ücretsiz · gerçek belge için KVKK onayı</span></div>
+  <h2>24 sayfalık taranmış PDF. Eksik imza hangisinde?</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Tek PDF'te yüzlerce taranmış sayfa: fiş, reçete, fatura iç içe. Her faturada kaşe ve imza, her fişte iki imza olmalı. Eksiği bulmak için sayfa sayfa gezmek gerekir.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>PDF sayfalarına ayrılır, belge türüne göre üçlü setler kurulur, her sayfada kaşe ve imza var mı bakılır. Sonuç tek liste: hangi sayfada ne eksik, hangi sette belge numaraları tutmuyor. Liste Excel'e aktarılır.</p>
+     <ul><li>İmzayı doğrulamaz, yalnız var ya da yok der; kimin imzası olduğuna karar vermez</li><li>Emin olamadığı sayfayı size sorar</li></ul></div>
+    <p class="dur"><b>Şu an:</b> Örnek dosyayla uçtan uca çalışıyor (ekran görüntüsü, kurgu belgelerle). Gerçek müşteri belgesi taramak, sayfa görüntülerinin yapay zekâ sağlayıcısına gitmesi nedeniyle KVKK metni ve ofisin açık onayı gelmeden açılmıyor. Siyah mürekkepli imza baskıdan ayrılamayabilir; bu durumda “elle bakın” der.</p>
+   </div>
+   <div class="ekran">
+    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/bw-imza-set2.webp" width="1000" height="747" alt="İmza taraması sonucu: set başına üç sayfa, eksik imza ve kaşe kırmızı çerçeveyle işaretli" loading="lazy"></div>
+    <span class="cap">Gerçek uygulama ekranı · kurgu örnek belge</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">Tam pakette<small>Beyanno Tam 890 TL / ay içinde (KDV hariç, 250 mükellefe kadar)</small></div>
+   <div class="eylem"><a class="btn" href="https://beyanno.com/app/">1 hafta ücretsiz dene</a><a class="btn iki" href="https://beyanno.com/app/?demo=1#/imza-tarama">Örnek taramayı gör</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 04 EKSTRE ÇEVİRMEN -->
+<article class="u" id="ekstre-cevirmen" data-kat="musavir" data-durum="prototip">
+ <div class="w">
+  <div class="u-bas"><span class="no">04</span><span class="et kat">Mali müşavirler</span><span class="rozet prototip">Prototip</span></div>
+  <h2>Banka ekstresi PDF'i, muhasebe fişi olsun.</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Müşterinin banka ekstresi PDF gelir; her satırı fişe çevirmek, doğru hesap koduna atmak saatler alır.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>Ekstre okunur, her hareket hesap koduna eşlenir (POS, vergi, SGK, kira, masraf…), Luca ve Zirve'ye aktarılacak fiş Excel'i çıkar. Bakiye zinciri tutmazsa uyarır. Eşleştiremediğini tahmin etmez, “kontrol” diye işaretler.</p></div>
+    <p class="dur"><b>Şu an:</b> Kurgu ekstrelerle çalışıyor (2 banka, 9 test geçti). Gerçek bankaların biçimiyle henüz doğrulanmadı, taranmış PDF için okuma yok. Satışta değil; gerçek, adı silinmiş bir örnek ekstre gelirse sınarız.</p>
+   </div>
+   <div class="ekran">
+    <div class="kay"><table class="tab" aria-label="Prototipin ürettiği örnek fiş satırları">
+     <tr><th>Fiş</th><th>Tarih</th><th>Hesap</th><th>Açıklama</th><th>Borç</th><th>Alacak</th></tr>
+     <tr><td>1</td><td>02.10.2026</td><td>102.01</td><td>FAST GELEN … FATURA 2026/118</td><td class="s">12.500,00</td><td class="s">0</td></tr>
+     <tr><td>1</td><td>02.10.2026</td><td>120</td><td>FAST GELEN … FATURA 2026/118</td><td class="s">0</td><td class="s">12.500,00</td></tr>
+     <tr><td>2</td><td>03.10.2026</td><td>102.01</td><td>POS HESABA GEÇEN TUTAR</td><td class="s">3.480,50</td><td class="s">0</td></tr>
+     <tr><td>2</td><td>03.10.2026</td><td>108</td><td>POS HESABA GEÇEN TUTAR</td><td class="s">0</td><td class="s">3.480,50</td></tr>
+     <tr><td>4</td><td>07.10.2026</td><td>360</td><td>MUHTASAR VE PRİM HİZMET BEY.</td><td class="s">6.820,40</td><td class="s">0</td></tr>
+     <tr><td>4</td><td>07.10.2026</td><td>102.01</td><td>MUHTASAR VE PRİM HİZMET BEY.</td><td class="s">0</td><td class="s">6.820,40</td></tr>
+    </table></div>
+    <span class="cap">Prototipin gerçek çıktısı · kurgu ekstre, 9 işlem 18 fiş satırı</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">Fiyat yok<small>Henüz satışta değil · gerçek örnekle görüşelim</small></div>
+   <div class="eylem"><a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20ekstre%20%C3%A7evirme%20prototipini%20denemek%20istiyorum.">Denemeye katıl</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 05 GOOGLE VİTRİN -->
+<article class="u k" id="google-vitrin" data-kat="google" data-durum="hazir">
+ <div class="w">
+  <div class="u-bas"><span class="no">05</span><span class="et kat">Google ve görünürlük</span><span class="rozet hazir">Hazır</span></div>
+  <h2>Müşteri sizi Google'da arıyor. Ne görüyor?</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Eksik fotoğraf, cevapsız yorum, yanlış saat, boş açıklama. Müşteri haritada sizi görüp yan dükkâna gidiyor.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>İşletme profilinizi 48 saatte düzenleyip vitrine çeviriyoruz: kategori, açıklama, fotoğraflar, ürünler, tüm yorumlara cevap ve masa için QR yorum kartı. Yorum bağlantısı herkese aynı gider; yalnız memnun müşteriden yorum istemek Google'ın kuralına aykırıdır, yapmayız.</p></div>
+    <p class="dur"><b>Not:</b> Google'da belirli bir sıra garanti etmeyiz; kimse dürüstçe edemez. Garanti ettiğimiz şey eksiksiz, güncel bir profil.</p>
+   </div>
+   <div class="ekran">
+    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/gv-vitrin.webp" width="1000" height="625" alt="Google Vitrin paketi sayfası: 48 saatte teslim, 2.490 TL" loading="lazy"></div>
+    <span class="cap">Canlı sayfa · dijitabela.com/google-vitrin</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">2.490 TL<small>Tek sefer · KDV hariç · isteğe bağlı bakım 990 TL / ay</small></div>
+   <div class="eylem"><a class="btn" href="/google-vitrin">Paketi gör</a><a class="btn iki" href="https://wa.me/905019452184?text=Merhaba%2C%20Google%20Vitrin%20i%C3%A7in%20%C3%BCcretsiz%20kontrol%20istiyorum.%20%C4%B0%C5%9Fletmemin%20ad%C4%B1%3A%20">Ücretsiz kontrol iste</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 06 KAPALI MI -->
+<article class="u" id="google-kapali-mi" data-kat="google" data-durum="hazir">
+ <div class="w">
+  <div class="u-bas"><span class="no">06</span><span class="et kat">Google ve görünürlük</span><span class="rozet hazir">Hazır · ücretsiz</span></div>
+  <h2>Google'da kapalı mı görünüyorum?</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Profilde “kalıcı olarak kapandı” yazması, yanlış saat ya da eksik telefon müşteriyi sessizce kaçırır; işletme sahibi çoğu zaman bilmez.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>Bir dakikalık ücretsiz kontrol: işletmenizin adını yazın, Google'da açılan profile bakıp 9 soruyu cevaplayın. Puanınızı ve düzeltme listenizi anında görün.</p></div>
+   </div>
+   <div class="ekran">
+    <div class="ikili">
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/gk-kontrol.webp" width="1000" height="625" alt="Google'da kapalı mı görünüyorum kontrol aracı: işletme adı ve ilçe alanları" loading="lazy"></div>
+     <div class="tel"><img src="cozumler/gk-kontrol-mob.webp" width="390" height="843" alt="Aynı araç telefon ekranında" loading="lazy"></div>
+    </div>
+    <span class="cap">Canlı araç · dijitabela.com/google-kontrol</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">Ücretsiz<small>Kontrol sonrası düzeltmeyi biz yapabiliriz, zorunlu değil</small></div>
+   <div class="eylem"><a class="btn" href="/google-kontrol">Kontrol et</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 07 EKSPERTİZ -->
+<article class="u k" id="dijital-ekspertiz" data-kat="google web" data-durum="hazir">
+ <div class="w">
+  <div class="u-bas"><span class="no">07</span><span class="et kat">Google · Web sitesi</span><span class="rozet hazir">Hazır</span></div>
+  <h2>İşletmeniz dijitalde kaç puan alıyor?</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Site, Google profili, rakipler: neyin eksik olduğunu görmeden hangi işe para vereceğinizi bilemezsiniz.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>Ücretsiz dijital ekspertiz: Google'da bulunma, web sitesi, çevrenizdeki rakipler ve kaçan müşteriler. Bir dakikada puanınız ve her eksiğin çözümü. Ayrıntılı, işletmeye özel PDF rapor isterseniz ayrı paket olarak hazırlıyoruz.</p></div>
+   </div>
+   <div class="ekran">
+    <div class="ikili">
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/ek-ekspertiz.webp" width="1000" height="625" alt="Ücretsiz dijital ekspertiz sayfası" loading="lazy"></div>
+     <div class="tel"><img src="cozumler/ek-ekspertiz-mob.webp" width="390" height="843" alt="Ekspertiz sayfası telefon ekranında" loading="lazy"></div>
+    </div>
+    <span class="cap">Canlı araç · dijitabela.com/ekspertiz</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">Ücretsiz<small>Ayrıntılı ekspertiz raporu 1.900 TL · KDV hariç</small></div>
+   <div class="eylem"><a class="btn" href="/ekspertiz">Ekspertizi başlat</a><a class="btn iki" href="/satin-al">Ayrıntılı raporu al</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 08 SEKTÖR SİTELERİ -->
+<article class="u" id="sektor-siteleri" data-kat="web" data-durum="hazir">
+ <div class="w">
+  <div class="u-bas"><span class="no">08</span><span class="et kat">Web sitesi</span><span class="rozet hazir">Hazır</span></div>
+  <h2>Sektörünüzün dilinde hazır site.</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Genel şablon siteler işletmeyi anlatmaz. Oto servis, diş kliniği, emlak, güzellik merkezi aynı cümleleri kurmaz.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>Her sektör için çalışan bir örnek site yaptık: oto servis, diş kliniği, emlak, güzellik, oto galeri, oto yıkama, halı yıkama, çilingir, saç ekimi. Örneği gezin, beğendiğinizi kendi işletmenize uyarlayalım.</p>
+     <ul><li>Tek sayfalık site 3.900 TL, 2 iş günü</li><li>Kurumsal site (giriş paketi) 9.900 TL, yaklaşık 1 hafta</li></ul></div>
+   </div>
+   <div class="ekran">
+    <div class="ikili">
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/sv-oto.webp" width="1000" height="625" alt="Oto servis sektör örnek sitesi" loading="lazy"></div>
+     <div class="tel"><img src="cozumler/sv-oto-mob.webp" width="390" height="843" alt="Oto servis örnek sitesi telefon ekranında" loading="lazy"></div>
+    </div>
+    <span class="cap">Canlı örnek · dijitabela.com/sektor-oto-servis</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">3.900 TL'den<small>Tek sefer · KDV hariç · yarısı başta, yarısı teslimde</small></div>
+   <div class="eylem"><a class="btn" href="/sektor-oto-servis">Örnek siteyi gez</a><a class="btn iki" href="/satin-al">Sipariş ver</a></div>
+  </div>
+ </div>
+</article>
+
+<!-- 09 AYŞE -->
+<article class="u k" id="ayse-cagri-merkezi" data-kat="yz" data-durum="teklif">
+ <div class="w">
+  <div class="u-bas"><span class="no">09</span><span class="et kat">Yapay zekâ</span><span class="rozet pilot">Teklifle</span></div>
+  <h2>Telefon çalıyor. Elleriniz dolu.</h2>
+  <div class="u-govde">
+   <div class="akis">
+    <div class="blok"><span class="et">Sorun</span><p>Otel resepsiyonu, klinik, servis: yoğunken, gece ya da mesai dışında açılmayan her arama kaçan bir müşteri.</p></div>
+    <div class="blok"><span class="et">Çözüm</span><p>Ayşe, işletmenin yapay zekâ telefon asistanı. Aramayı açar, kendini yapay zekâ olarak tanıtır, işletmenin bilgi bankasından cevap verir, rezervasyon ya da randevu talebini alır, her görüşmeyi özetleyip size iletir. Bilmediğini uydurmaz, acil ve şikâyette insana aktarır. Sektöre özel paketleri var (otel, klinik, servis).</p></div>
+    <p class="dur"><b>Şu an:</b> Örnek görüşme senaryoları ve ses demosu hazır, maliyet ölçümü kurgu aramalarla yapıldı. İlk işletmelerle kurulum görüşüyoruz; fiyat işletmeye göre teklifle verilir.</p>
+   </div>
+   <div class="ekran">
+    <div class="pen" style="background:#fff;padding:22px;color:var(--mur)">
+     <span class="et" style="color:var(--soluk)">Örnek görüşme · otel</span>
+     <p style="margin:12px 0 8px"><b>Arayan:</b> İyi akşamlar. Kasımın yedisinden dokuzuna iki kişilik oda var mı acaba?</p>
+     <p style="margin:0 0 8px"><b>Ayşe:</b> İyi akşamlar, ben otelin yapay zekâ asistanı Ayşe. Bahçe manzaralı çift kişilik odamız müsait görünüyor, kahvaltı dahil.</p>
+     <p style="margin:0 0 8px"><b>Arayan:</b> Peki erken giriş olur mu? Sabah on gibi varırız.</p>
+     <p style="margin:0 0 8px"><b>Ayşe:</b> Erken giriş o günkü doluluğa bağlı; notunuza ekliyorum, resepsiyon sabah teyit eder. Eşyalarınızı her durumda bırakabilirsiniz.</p>
+     <p style="margin:0;color:var(--soluk);font-size:14px">Görüşme sonunda otele özet ve etiket gider: “rezervasyon talebi”.</p>
+    </div>
+    <span class="cap">Kurgu demo senaryosu · gerçek arama değil, gerçek otel değil</span>
+   </div>
+  </div>
+  <div class="alt">
+   <div class="fiyat">Teklifle<small>Hat ve kullanıma göre; görüşmede net rakam veririz</small></div>
+   <div class="eylem"><a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20Ay%C5%9Fe%20telefon%20asistan%C4%B1%20hakk%C4%B1nda%20teklif%20almak%20istiyorum.">Teklif iste</a></div>
+  </div>
+ </div>
+</article>
+
+<p class="bos w" id="bos">Bu süzgece uyan çözüm yok. Süzgeci genişletin.</p>
+</main>
+
+<section class="son">
+ <div class="w">
+  <span class="et" style="color:var(--amber)">Sizin dertiniz listede yok mu?</span>
+  <h2>Önce derdi dinleriz.</h2>
+  <p>Tekrar eden bir iş sizi yoruyorsa, bunu çözüp çalıştırıyoruz; önce çalışan bir örneğini gösteriyoruz. Derdi bir cümleyle yazın.</p>
+  <p style="margin-top:20px"><a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20%C5%9Fu%20konuda%20bir%20%C3%A7%C3%B6z%C3%BCm%20ar%C4%B1yorum%3A%20">WhatsApp'tan yazın</a> <a class="btn iki" style="color:var(--gun);border-color:var(--gun)" href="/teklif-al">Teklif formu</a></p>
+  <p class="not" style="margin-top:28px">Fiyatlara KDV dahil değildir. Deneme açık ve prototip olarak işaretli çözümlerde özellikler değişebilir. Ekran görüntüleri gerçek uygulamadan alınmıştır; içindeki kişi, firma ve rakamlar kurgudur.</p>
+  <p style="margin-top:20px;font-size:14px">Dijitabela · Antalya · 0501 945 21 84 · dijitabela.com</p>
+ </div>
+</section>
+
+<script>
+(function(){
+  var kat="hepsi",durum="hepsi";
+  var ogeler=[].slice.call(document.querySelectorAll("#liste .u"));
+  function uygula(){
+    var n=0;
+    ogeler.forEach(function(e){
+      var k=kat==="hepsi"||(" "+e.getAttribute("data-kat")+" ").indexOf(" "+kat+" ")>-1;
+      var d=durum==="hepsi"||e.getAttribute("data-durum")===durum;
+      e.hidden=!(k&&d); if(k&&d)n++;
+    });
+    document.getElementById("sayi").textContent=n+" / "+ogeler.length+" çözüm";
+    document.getElementById("bos").style.display=n?"none":"block";
+  }
+  function bagla(id,alan,set){
+    var dugmeler=[].slice.call(document.querySelectorAll("#"+id+" .f"));
+    dugmeler.forEach(function(b){b.addEventListener("click",function(){
+      dugmeler.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+      set(b.getAttribute(alan)); uygula();
+    });});
+  }
+  bagla("g-kat","data-kat",function(v){kat=v});
+  bagla("g-durum","data-durum",function(v){durum=v});
+  uygula();
+})();
+</script>
+</body>
+</html>
