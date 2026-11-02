@@ -110,6 +110,99 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 .bos{display:none;padding:48px 0;font:700 15px "Space Mono",monospace}
 @media(max-width:860px){.ikili{grid-template-columns:1fr}.tel{margin:0 auto;width:min(260px,70vw)}.pen .kaydir img{min-width:680px}.ipucu{display:block;font:700 12px 'Space Mono',monospace;color:var(--soluk);margin-top:6px}.suzgec{position:static}.alt{grid-template-columns:1fr}.sayi{margin-left:0;width:100%}.u{padding:48px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ===== v3 sahneler: HTML ile çizilmiş örnek ekranlar ===== */
+.u-govde{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:48px;align-items:center}
+.u.ters .u-govde{grid-template-columns:minmax(0,440px) minmax(0,1fr)}
+.u.ters .ekran{order:-1}
+.akis{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.sahne{position:relative;display:flex;justify-content:center;padding:34px 18px 30px;border:2px solid var(--mur)}
+.s-amber{background:var(--amber)}
+.s-gece{background:var(--panel);border-color:#3a3f48}
+.s-gun{background:#dfe2dc}
+.s-beyaz{background:#fff}
+.s-led{background-image:radial-gradient(#2C3038 1.6px,transparent 1.7px);background-size:14px 14px;background-color:var(--panel);border-color:#3a3f48}
+.ph{width:min(310px,100%);background:#0b0c0e;border-radius:36px;padding:9px;box-shadow:0 22px 44px -22px rgba(0,0,0,.65);position:relative}
+.ph::before{content:"";position:absolute;top:15px;left:50%;width:74px;height:5px;margin-left:-37px;border-radius:3px;background:#24272d;z-index:2}
+.ek{background:#fff;color:var(--mur);border-radius:28px;overflow:hidden;font:400 13.5px/1.45 "Plus Jakarta Sans",system-ui,sans-serif;min-height:540px;display:flex;flex-direction:column}
+.ek .ust{padding:26px 14px 10px;background:var(--panel);color:var(--gun);display:flex;gap:10px;align-items:center}
+.ek .ust b{display:block;font-size:14px;line-height:1.2}
+.ek .ust small{display:block;font-size:11px;color:var(--soluk-k)}
+.av{width:32px;height:32px;border-radius:50%;background:var(--amber);color:var(--mur);display:grid;place-items:center;font:700 14px "Space Mono",monospace;flex:none}
+.ek .ic{padding:12px;display:flex;flex-direction:column;gap:9px;flex:1}
+.zam{font:700 10.5px "Space Mono",monospace;color:var(--soluk);text-align:center;letter-spacing:.06em}
+.bal{max-width:86%;padding:8px 11px;border-radius:14px;border:1px solid #d5d8d2;background:#fff}
+.bal.g{align-self:flex-start;border-top-left-radius:4px}
+.bal.c{align-self:flex-end;background:#FFF1C9;border-color:#f1d78a;border-top-right-radius:4px}
+.bal b{font-weight:700}
+.bal .dos{display:inline-block;margin-top:6px;padding:2px 8px;border:1px solid var(--mur);font:700 10.5px "Space Mono",monospace;background:#fff}
+.chip{display:inline-block;padding:2px 8px;font:700 10.5px "Space Mono",monospace;letter-spacing:.03em;border:1.5px solid currentColor;border-radius:2px;white-space:nowrap}
+.chip.iyi{color:var(--iyi)}.chip.kotu{color:var(--kotu)}.chip.dik{color:var(--amber-yazi)}.chip.gri{color:var(--soluk)}
+.sat{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid #e3e5e0}
+.sat:last-child{border:0}
+.sat span:first-child{color:var(--soluk)}
+.alt-dugme{margin:auto 12px 14px;padding:11px;text-align:center;background:var(--amber);border:2px solid var(--mur);font:700 12px "Space Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+.alt-dugme.ik{background:#fff}
+.fis{background:#fbfaf6;border:1px dashed #b8bbb3;padding:10px 12px;font:11.5px/1.5 "Space Mono",monospace;color:#3a3d42;transform:rotate(-1.2deg)}
+.fis .sag{display:flex;justify-content:space-between}
+.set{border-top:1px solid #e3e5e0;padding-top:8px}
+.set .bas{font:700 11px "Space Mono",monospace;margin-bottom:6px;display:flex;justify-content:space-between;gap:6px}
+.sayfalar{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.say{border:2.5px solid var(--iyi);padding:5px 4px 4px;background:#fff}
+.say.k{border-color:var(--kotu)}
+.say i{display:block;height:3px;background:#cfd2cc;margin-bottom:3px}
+.say i.kisa{width:60%}
+.say .im{height:15px;margin-top:5px;border-bottom:2px solid #3b5bdb;border-radius:0 0 40% 40%;width:60%}
+.say .im.yok{border:0}
+.say em{display:block;font:700 9px "Space Mono",monospace;font-style:normal;margin-top:4px;color:var(--soluk)}
+.say.k em{color:var(--kotu)}
+.not2{font-size:11.5px;color:var(--kotu);margin-top:4px;line-height:1.3}
+.uyari2{background:#fff0d1;border:1px solid #efc66c;padding:6px 8px;font-size:11.5px;margin-top:6px}
+.hesap{font:700 11px "Space Mono",monospace;padding:1px 6px;background:var(--mur);color:var(--amber)}
+.ok{color:var(--iyi);font-weight:700}
+.kart{border:1px solid #d5d8d2;margin:0 0 8px;overflow:hidden}
+.kart .kap{height:62px}
+.kart .gv{padding:8px 10px}
+.kart h4{font-size:14.5px;line-height:1.2;margin-bottom:1px}
+.etk{display:inline-block;padding:2px 9px;font:700 10.5px "Space Mono",monospace;letter-spacing:.1em;margin-bottom:6px}
+.etk.o{background:#e3e5e0;color:var(--soluk)}.etk.s{background:var(--amber);color:var(--mur)}
+.yildiz{color:#C98600;letter-spacing:1px}
+.foto{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px}
+.foto i{height:30px;background:linear-gradient(135deg,#c9c3b6,#e8e2d2)}
+.foto i:nth-child(2){background:linear-gradient(135deg,#9db8c9,#d7e5ee)}.foto i:nth-child(3){background:linear-gradient(135deg,#d6b48f,#f0dcc2)}.foto i:nth-child(4){background:linear-gradient(135deg,#a9c4a6,#dcebd8)}
+.halka{width:118px;height:118px;border-radius:50%;margin:8px auto;display:grid;place-items:center;background:conic-gradient(var(--amber) calc(var(--p)*1%),#e3e5e0 0)}
+.halka div{width:92px;height:92px;border-radius:50%;background:#fff;display:grid;place-items:center;font:900 30px/1 Archivo,Impact,sans-serif;font-stretch:62%}
+.halka small{display:block;font:700 10px "Space Mono",monospace;color:var(--soluk);margin-top:-14px;text-align:center}
+.cubuk{display:grid;grid-template-columns:96px 1fr 34px;gap:8px;align-items:center;margin:6px 0;font-size:12px}
+.cubuk b{display:block;height:9px;background:#e3e5e0;position:relative}
+.cubuk b i{position:absolute;left:0;top:0;bottom:0;background:var(--amber)}
+.cubuk b i.k{background:var(--kotu)}.cubuk b i.y{background:var(--iyi)}
+.mini{background:#fff;border:1px solid #d5d8d2;margin:0 12px 10px}
+.mini.s2{border-top:4px solid var(--mur)}
+.site-sek{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:14px 0 0}
+.site-sek button{min-height:40px;padding:0 12px;border:2px solid var(--mur);background:#fff;font:700 12px "Space Mono",monospace;cursor:pointer}
+.site-sek button[aria-pressed=true]{background:var(--mur);color:var(--amber)}
+.msite{display:none;flex-direction:column;flex:1}
+.msite.ac{display:flex}
+.msite .ust2{padding:26px 14px 10px;display:flex;justify-content:space-between;align-items:center;font:700 14px Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase;border-bottom:2px solid var(--mur)}
+.msite .kahr{padding:16px 14px 12px;background:var(--ak)}
+.msite .kahr h4{font:900 27px/.95 Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase;margin-bottom:8px}
+.msite .kahr p{font-size:12.5px;margin-bottom:10px}
+.msite .dgm{display:inline-block;padding:9px 14px;background:var(--mur);color:var(--gun);font:700 11.5px "Space Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+.msite ul{list-style:none;padding:8px 14px;margin:0}
+.msite li{padding:7px 0;border-bottom:1px solid #e3e5e0;display:flex;justify-content:space-between;gap:8px;font-size:12.5px}
+.msite .form{margin:auto 12px 14px;border:2px solid var(--mur);padding:9px;font-size:12px}
+.msite .form span{display:block;border-bottom:1px solid #cfd2cc;padding:4px 0;color:var(--soluk)}
+.ses{display:flex;gap:2px;align-items:center;height:22px}
+.ses i{width:3px;background:var(--amber);display:block}
+.ces{font:700 10.5px "Space Mono",monospace;color:var(--soluk-k);text-align:center}
+.etiket{display:block;margin-top:12px;font:700 12px "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk)}
+.u.k .etiket{color:var(--soluk-k)}
+@media(max-width:860px){
+ .u-govde,.u.ters .u-govde{grid-template-columns:minmax(0,1fr);gap:30px}
+ .u.ters .ekran{order:0}
+ .sahne{padding:26px 10px 24px}
+}
 </style>
 </head>
 <body>
@@ -163,15 +256,18 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Sorun</span><p>“KDV'm ne kadar?”, “Beyannamem verildi mi?”, “Son gün ne zaman?” Aynı sorular gün boyu, hatta gece gelir. Müşavir hem işini yapar hem telefona cevap yetiştirir.</p></div>
     <div class="blok"><span class="et">Çözüm</span><p>Beyanno, mükelleflerin sorularını sizin WhatsApp numaranızdan, Luca'daki kayıtlara bakarak cevaplar. Luca'ya yalnız okuma yetkisiyle bağlanır; kayıt değiştirmez. Bilmediğini uydurmaz, “müşavirinize ilettim” der ve size görev açar. Cevap modunu siz seçersiniz: otomatik ya da önce onayınıza.</p>
      <ul><li>Mükellef yeni numara öğrenmez, sizin numaranıza yazar</li><li>Gönderilecek her mesaj önizlenebilir</li><li>Mevzuat sorularında “kesin görüş için müşaviriniz” notu</li></ul></div>
-    <p class="dur"><b>Şu an:</b> Canlıda; kayıt olunca 7 gün ücretsiz deneme başlar. Deneme 25 mükellefle sınırlıdır. Şu an yalnız Luca Mali Müşavir Paketi ile çalışır; başka program için sıraya alıyoruz. Tahakkuk ve borç bilgisi Luca'dan okunurken GİB anahtarı gerekiyor. Meslek odaları ve birlikler için toplu kurulum görüşmeye açık.</p>
+    <p class="dur"><b>Şu an:</b> Canlıda; kayıt olunca 7 gün ücretsiz deneme başlar. Denemede mükellef sayısı sınırı uygulanır. Şu an yalnız Luca Mali Müşavir Paketi ile çalışır; başka program için sıraya alıyoruz. Tahakkuk ve borç bilgisi Luca'dan okunurken GİB anahtarı gerekiyor. Meslek odaları ve birlikler için toplu kurulum görüşmeye açık.</p>
    </div>
-   <div class="ekran">
-    <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/bw-whatsapp.webp" width="1740" height="1320" alt="WhatsApp bağlantı ekranı: kendi numaranızı QR koduyla bağlarsınız" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
-     <div class="tel"><img src="cozumler/bw-pano-mob.webp" width="780" height="1688" alt="Telefon ekranı: bugün onay bekleyen mesajlar ve yaklaşan beyanname günleri" loading="lazy"></div>
-    </div>
-    <span class="cap">Gerçek uygulama ekranı · demo verisi, gerçek mükellef yok</span>
-   </div>
+   <div class="ekran"><div class="sahne s-amber"><div class="ph"><div class="ek">
+<div class="ust"><div class="av">M</div><div><b>Mali müşavir ofisi</b><small>mükellef sohbeti · örnek</small></div></div>
+<div class="ic">
+ <div class="zam">DÜN 23:04</div>
+ <div class="bal g">KDV'm ne kadar?</div>
+ <div class="bal c">Ekim 2026 KDV beyannameniz <b>18.420,00 TL</b>. Son ödeme günü <b>26 Kasım</b>. Beyannameniz verildi, tahakkuk fişi ektedir.<br><span class="dos">tahakkuk.pdf</span></div>
+ <div class="bal g">Geçen yılki iade başvurum ne oldu?</div>
+ <div class="bal c">Bu konuyu kayıtlarda bulamadım. Müşavirinize ilettim, size dönecek.</div>
+ <div class="zam" style="text-align:left;color:var(--amber-yazi)">Müşavir ofisine görev açıldı</div>
+</div></div></div></div><span class="etiket">Örnek sohbet · kurgu mükellef ve tutarlar</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">300 TL / ay<small>KDV hariç · 100 mükellefe kadar · yıllık peşin 2.988 TL</small></div>
@@ -181,7 +277,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 </article>
 
 <!-- 02 BEYANNO BELGE -->
-<article class="u" id="belge-okuma" data-kat="musavir yz" data-durum="deneme">
+<article class="u ters" id="belge-okuma" data-kat="musavir yz" data-durum="deneme">
  <div class="w">
   <div class="u-bas"><span class="no">02</span><span class="et kat">Mali müşavirler</span><span class="rozet pilot">1 hafta ücretsiz</span></div>
   <h2>Fiş, fatura, PDF: elle girmeden okunsun.</h2>
@@ -191,10 +287,17 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Çözüm</span><p>Fotoğraf, PDF ve e-fatura XML'i okunur: tarih, belge no, satıcı, KDV'ye göre matrah, toplam. Her belgeye kurallara göre bir kontrol sonucu düşer (fatura mükellef adına mı, toplam tutuyor mu, KDV oranı geçerli mi). Kuralları siz belirlersiniz; şüpheli olan “bakılsın” diye ayrılır, onayınızla Luca, Zirve, Mikro, Logo biçiminde aktarılır.</p></div>
     <p class="dur"><b>Şu an:</b> Okuma ve kural kontrolü çalışıyor, ekranda görüleni demo verisidir. Programa doğrudan gönderim yok; aktarım Excel dosyasıyla yapılır.</p>
    </div>
-   <div class="ekran">
-    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/bw-belgeler.webp" width="1740" height="1320" alt="Gelen belgeler tablosu: tür, tarih, toplam, kontrol sonucu uygun, uygun değil ya da bakılmalı" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
-    <span class="cap">Gerçek uygulama ekranı · demo verisi</span>
-   </div>
+   <div class="ekran"><div class="sahne s-gece"><div class="ph"><div class="ek">
+<div class="ust"><div class="av">B</div><div><b>Gelen belge</b><small>fiş fotoğrafı okundu · örnek</small></div></div>
+<div class="ic">
+ <div class="fis"><div class="sag"><b>ÖRNEK AKARYAKIT A.Ş.</b><span>14.10.2026</span></div>Fiş no 0042<br>Matrah <span style="float:right">1.250,00</span><br>KDV %20 <span style="float:right">250,00</span><br><b>TOPLAM <span style="float:right">1.500,00</span></b></div>
+ <div class="sat"><span>Satıcı</span><b>Örnek Akaryakıt A.Ş.</b></div>
+ <div class="sat"><span>Tarih · yön</span><b>14.10.2026 · alış</b></div>
+ <div class="sat"><span>Matrah + KDV</span><b>1.250 + 250</b></div>
+ <div class="set" style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip iyi">KDV oranı geçerli</span><span class="chip iyi">Toplam tutuyor</span><span class="chip iyi">Mükellef adına</span></div>
+ <div class="sat" style="margin-top:2px"><span>Başka fiş</span><span class="chip kotu">Toplam tutmuyor</span></div>
+</div>
+<div class="alt-dugme">Onayla ve aktar</div></div></div></div><span class="etiket">Örnek ekran · kurgu belge</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">590 TL / ay<small>KDV hariç · 150 mükellefe kadar · yıllık peşin 5.388 TL</small></div>
@@ -215,10 +318,15 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
      <ul><li>İmzayı doğrulamaz, yalnız var ya da yok der; kimin imzası olduğuna karar vermez</li><li>Emin olamadığı sayfayı size sorar</li></ul></div>
     <p class="dur"><b>Şu an:</b> Denemede yalnız kurgu örnek belgeyle çalışır (ekran görüntüsü de kurgu belgelerdir). Gerçek müşteri belgesi taranamaz: avukat onaylı KVKK metni henüz yok ve sayfa görüntüleri yapay zekâ sağlayıcısına gideceği için ofisin açık onayı gerekir. Siyah mürekkepli imza baskıdan ayrılamayabilir; bu durumda “elle bakın” der.</p>
    </div>
-   <div class="ekran">
-    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir uzun"><img src="cozumler/bw-imza-set2.webp" width="1740" height="2800" alt="İmza taraması sonucu: set başına üç sayfa, eksik imza ve kaşe kırmızı çerçeveyle işaretli" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
-    <span class="cap">Gerçek uygulama ekranı · kurgu örnek belge</span>
-   </div>
+   <div class="ekran"><div class="sahne s-gun"><div class="ph"><div class="ek">
+<div class="ust"><div class="av">İ</div><div><b>Tarama sonucu</b><small>ornek-imza.pdf · kurgu belge</small></div></div>
+<div class="ic">
+ <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip gri">9 sayfa</span><span class="chip gri">3 set</span><span class="chip kotu">5 eksik</span></div>
+ <div class="set"><div class="bas"><span>SET 1</span><span class="chip iyi">tam</span></div><div class="sayfalar"><div class="say"><i></i><i class="kisa"></i><i></i><div class="im"></div><em>Fiş</em></div><div class="say"><i></i><i class="kisa"></i><i></i><div class="im"></div><em>Reçete</em></div><div class="say"><i></i><i class="kisa"></i><i></i><div class="im"></div><em>Fatura</em></div></div></div>
+ <div class="set"><div class="bas"><span>SET 2</span><span class="chip kotu">3 eksik</span></div><div class="sayfalar"><div class="say k"><i></i><i class="kisa"></i><i></i><div class="im yok"></div><em>Fiş</em></div><div class="say k"><i></i><i class="kisa"></i><i></i><div class="im"></div><em>Reçete</em></div><div class="say k"><i></i><i class="kisa"></i><i></i><div class="im"></div><em>Fatura</em></div></div><div class="not2">Fiş: düzenleyen imzası yok · Reçete: ikinci imza yok · Fatura: kaşe yok</div></div>
+ <div class="set"><div class="bas"><span>SET 3</span><span class="chip kotu">2 eksik</span></div><div class="sayfalar"><div class="say"><i></i><i class="kisa"></i><i></i><div class="im"></div><em>Fiş</em></div><div class="say k"><i></i><i class="kisa"></i><i></i><div class="im yok"></div><em>Reçete</em></div><div class="say k"><i></i><i class="kisa"></i><i></i><div class="im yok"></div><em>Fatura</em></div></div><div class="uyari2">Dayanak no fatura no ile aynı değil</div></div>
+</div>
+<div class="alt-dugme">Eksik listesi (Excel)</div></div></div></div><span class="etiket">Örnek tarama sonucu · kurgu belge, imzayı doğrulamaz</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">Tam pakette<small>Beyanno Tam 890 TL / ay içinde (KDV hariç, 250 mükellefe kadar)</small></div>
@@ -228,7 +336,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 </article>
 
 <!-- 04 EKSTRE ÇEVİRMEN -->
-<article class="u" id="ekstre-cevirmen" data-kat="musavir" data-durum="prototip">
+<article class="u ters" id="ekstre-cevirmen" data-kat="musavir" data-durum="prototip">
  <div class="w">
   <div class="u-bas"><span class="no">04</span><span class="et kat">Mali müşavirler</span><span class="rozet prototip">Prototip</span></div>
   <h2>Banka ekstresi PDF'i, muhasebe fişi olsun.</h2>
@@ -238,18 +346,17 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Çözüm</span><p>Ekstre okunur, her hareket hesap koduna eşlenir (POS, vergi, SGK, kira, masraf…), Luca ve Zirve'ye aktarılacak fiş Excel'i çıkar. Bakiye zinciri tutmazsa uyarır. Eşleştiremediğini tahmin etmez, “kontrol” diye işaretler.</p></div>
     <p class="dur"><b>Şu an:</b> Kurgu ekstrelerle çalışıyor (2 banka, 9 test geçti). Gerçek bankaların biçimiyle henüz doğrulanmadı, taranmış PDF için okuma yok. Satışta değil; gerçek, adı silinmiş bir örnek ekstre gelirse sınarız.</p>
    </div>
-   <div class="ekran">
-    <div class="kay"><table class="tab" aria-label="Prototipin ürettiği örnek fiş satırları">
-     <tr><th>Fiş</th><th>Tarih</th><th>Hesap</th><th>Açıklama</th><th>Borç</th><th>Alacak</th></tr>
-     <tr><td>1</td><td>02.10.2026</td><td>102.01</td><td>FAST GELEN … FATURA 2026/118</td><td class="s">12.500,00</td><td class="s">0</td></tr>
-     <tr><td>1</td><td>02.10.2026</td><td>120</td><td>FAST GELEN … FATURA 2026/118</td><td class="s">0</td><td class="s">12.500,00</td></tr>
-     <tr><td>2</td><td>03.10.2026</td><td>102.01</td><td>POS HESABA GEÇEN TUTAR</td><td class="s">3.480,50</td><td class="s">0</td></tr>
-     <tr><td>2</td><td>03.10.2026</td><td>108</td><td>POS HESABA GEÇEN TUTAR</td><td class="s">0</td><td class="s">3.480,50</td></tr>
-     <tr><td>4</td><td>07.10.2026</td><td>360</td><td>MUHTASAR VE PRİM HİZMET BEY.</td><td class="s">6.820,40</td><td class="s">0</td></tr>
-     <tr><td>4</td><td>07.10.2026</td><td>102.01</td><td>MUHTASAR VE PRİM HİZMET BEY.</td><td class="s">0</td><td class="s">6.820,40</td></tr>
-    </table></div>
-    <span class="cap">Prototipin gerçek çıktısı · kurgu ekstre, 9 işlem 18 fiş satırı</span>
-   </div>
+   <div class="ekran"><div class="sahne s-gun"><div class="ph"><div class="ek">
+<div class="ust"><div class="av">E</div><div><b>Ekstre → fiş</b><small>ornek-ekstre.pdf · 9 işlem · prototip</small></div></div>
+<div class="ic" style="gap:0">
+ <div class="sat"><span>FAST gelen · fatura<br><small>02.10</small></span><span style="text-align:right"><b>12.500,00</b><br><span class="hesap">102.01 → 120</span></span></div>
+ <div class="sat"><span>POS hesaba geçen<br><small>03.10</small></span><span style="text-align:right"><b>3.480,50</b><br><span class="hesap">102.01 → 108</span></span></div>
+ <div class="sat"><span>Muhtasar ve prim<br><small>07.10</small></span><span style="text-align:right"><b>6.820,40</b><br><span class="hesap">360 → 102.01</span></span></div>
+ <div class="sat"><span>SGK prim ödemesi<br><small>08.10</small></span><span style="text-align:right"><b>9.450,75</b><br><span class="hesap">361 → 102.01</span></span></div>
+ <div class="sat"><span>Tanınmayan açıklama<br><small>12.10</small></span><span style="text-align:right"><b>2.100,00</b><br><span class="chip dik">kontrol et</span></span></div>
+ <div class="sat" style="margin-top:6px"><span>Bakiye zinciri</span><span class="ok">tutuyor ✓</span></div>
+</div>
+<div class="alt-dugme">Luca / Zirve Excel'i indir</div></div></div></div><span class="etiket">Prototip çıktısı biçimi · kurgu ekstre</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">Fiyat yok<small>Henüz satışta değil · gerçek örnekle görüşelim</small></div>
@@ -269,10 +376,14 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Çözüm</span><p>İşletme profilinizi 48 saatte düzenleyip vitrine çeviriyoruz: kategori, açıklama, fotoğraflar, ürünler, tüm yorumlara cevap ve masa için QR yorum kartı. Yorum bağlantısı herkese aynı gider; yalnız memnun müşteriden yorum istemek Google'ın kuralına aykırıdır, yapmayız.</p></div>
     <p class="dur"><b>Not:</b> Google'da belirli bir sıra garanti etmeyiz; kimse dürüstçe edemez. Garanti ettiğimiz şey eksiksiz, güncel bir profil.</p>
    </div>
-   <div class="ekran">
-    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/gv-vitrin.webp" width="2200" height="1400" alt="Google Vitrin paketi sayfası: 48 saatte teslim, 2.490 TL" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
-    <span class="cap">Canlı sayfa · dijitabela.com/google-vitrin</span>
-   </div>
+   <div class="ekran"><div class="sahne s-amber"><div class="ph"><div class="ek">
+<div class="ust"><div class="av">G</div><div><b>Profil: önce / sonra</b><small>kurgu işletme · örnek</small></div></div>
+<div class="ic" style="gap:0;padding-top:10px">
+ <div class="kart"><div class="kap" style="background:#d9dbd5"></div><div class="gv"><span class="etk o">ÖNCE</span><h4>Örnek Oto Servis</h4><div class="yildiz">★★★★☆ <small style="color:var(--soluk)">4,2</small></div>
+ <div class="sat" style="font-size:12px"><span>Çalışma saatleri</span><span class="chip kotu">eksik</span></div><div class="sat" style="font-size:12px"><span>Fotoğraf</span><span class="chip kotu">yok</span></div><div class="sat" style="font-size:12px"><span>Yorum cevapları</span><span class="chip kotu">5 cevapsız</span></div></div></div>
+ <div class="kart" style="border:2px solid var(--mur)"><div class="foto" style="margin:0"><i style="height:62px"></i><i style="height:62px"></i><i style="height:62px"></i><i style="height:62px"></i></div><div class="gv"><span class="etk s">SONRA</span><h4>Örnek Oto Servis</h4><div class="yildiz">★★★★☆ <small style="color:var(--soluk)">4,2</small></div>
+ <div class="sat" style="font-size:12px"><span>Çalışma saatleri</span><span class="chip iyi">tam</span></div><div class="sat" style="font-size:12px"><span>Fotoğraf</span><span class="chip iyi">eklendi</span></div><div class="sat" style="font-size:12px"><span>Yorum cevapları</span><span class="chip iyi">hepsi cevaplı</span></div></div></div>
+</div></div></div></div><span class="etiket">Örnek profil · kurgu işletme. Puan değişmez, değişen: eksiksiz bilgi</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">2.490 TL<small>Tek sefer · KDV hariç · isteğe bağlı bakım 990 TL / ay</small></div>
@@ -282,7 +393,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 </article>
 
 <!-- 06 KAPALI MI -->
-<article class="u" id="google-kapali-mi" data-kat="google" data-durum="hazir">
+<article class="u ters" id="google-kapali-mi" data-kat="google" data-durum="hazir">
  <div class="w">
   <div class="u-bas"><span class="no">06</span><span class="et kat">Google ve görünürlük</span><span class="rozet hazir">Hazır · ücretsiz</span></div>
   <h2>Google'da kapalı mı görünüyorum?</h2>
@@ -291,13 +402,17 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Sorun</span><p>Profilde “kalıcı olarak kapandı” yazması, yanlış saat ya da eksik telefon müşteriyi sessizce kaçırır; işletme sahibi çoğu zaman bilmez.</p></div>
     <div class="blok"><span class="et">Çözüm</span><p>Bir dakikalık ücretsiz kontrol: işletmenizin adını yazın, Google'da açılan profile bakıp 9 soruyu cevaplayın. Puanınızı ve düzeltme listenizi anında görün.</p></div>
    </div>
-   <div class="ekran">
-    <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/gk-kontrol.webp" width="2200" height="1400" alt="Google'da kapalı mı görünüyorum kontrol aracı: işletme adı ve ilçe alanları" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
-     <div class="tel"><img src="cozumler/gk-kontrol-mob.webp" width="780" height="1688" alt="Aynı araç telefon ekranında" loading="lazy"></div>
-    </div>
-    <span class="cap">Canlı araç · dijitabela.com/google-kontrol</span>
-   </div>
+   <div class="ekran"><div class="sahne s-gece"><div class="ph"><div class="ek">
+<div class="ust"><div class="av">K</div><div><b>Kontrol sonucu</b><small>9 sorudan · örnek</small></div></div>
+<div class="ic">
+ <div class="halka" style="--p:56"><div>5/9</div></div>
+ <div class="sat"><span>Aramada profil çıkıyor</span><span class="chip iyi">evet</span></div>
+ <div class="sat"><span>“Kalıcı olarak kapandı”</span><span class="chip kotu">yazıyor</span></div>
+ <div class="sat"><span>Çalışma saatleri</span><span class="chip dik">eksik</span></div>
+ <div class="sat"><span>Telefon ve web</span><span class="chip iyi">var</span></div>
+ <div class="sat"><span>Son yorumlara cevap</span><span class="chip kotu">yok</span></div>
+ <div class="uyari2" style="margin-top:6px"><b>Düzeltme listeniz:</b> 1) kapandı işaretini kaldır 2) saatleri ekle 3) yorumlara cevap ver</div>
+</div></div></div></div><span class="etiket">Örnek sonuç · kurgu işletme</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">Ücretsiz<small>Kontrol sonrası düzeltmeyi biz yapabiliriz, zorunlu değil</small></div>
@@ -316,13 +431,16 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Sorun</span><p>Site, Google profili, rakipler: neyin eksik olduğunu görmeden hangi işe para vereceğinizi bilemezsiniz.</p></div>
     <div class="blok"><span class="et">Çözüm</span><p>Ücretsiz dijital ekspertiz: Google'da bulunma, web sitesi, çevrenizdeki rakipler ve kaçan müşteriler. Bir dakikada puanınız ve her eksiğin çözümü. Ayrıntılı, işletmeye özel PDF rapor isterseniz ayrı paket olarak hazırlıyoruz.</p></div>
    </div>
-   <div class="ekran">
-    <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/ek-ekspertiz.webp" width="2200" height="1400" alt="Ücretsiz dijital ekspertiz sayfası" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
-     <div class="tel"><img src="cozumler/ek-ekspertiz-mob.webp" width="780" height="1688" alt="Ekspertiz sayfası telefon ekranında" loading="lazy"></div>
-    </div>
-    <span class="cap">Canlı araç · dijitabela.com/ekspertiz</span>
-   </div>
+   <div class="ekran"><div class="sahne s-led"><div class="ph"><div class="ek">
+<div class="ust"><div class="av">D</div><div><b>Dijital ekspertiz</b><small>özet sayfa · örnek rapor</small></div></div>
+<div class="ic">
+ <div class="halka" style="--p:58"><div>58</div></div><small class="ces" style="color:var(--soluk)">100 ÜZERİNDEN</small>
+ <div class="cubuk"><span>Google profili</span><b><i style="width:72%"></i></b><span>72</span></div>
+ <div class="cubuk"><span>Web sitesi</span><b><i class="k" style="width:35%"></i></b><span>35</span></div>
+ <div class="cubuk"><span>Rakiplere göre</span><b><i style="width:55%"></i></b><span>55</span></div>
+ <div class="cubuk"><span>Kaçan müşteri</span><b><i class="k" style="width:40%"></i></b><span>40</span></div>
+ <div class="set"><div class="bas"><span>İLK 3 ADIM</span></div>1. Mobil hızı düzelt<br>2. Saatleri ve fotoğrafları tamamla<br>3. Cevapsız aramayı mesajla karşıla</div>
+</div></div></div></div><span class="etiket">Örnek rapor özeti · kurgu işletme ve puanlar</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">Ücretsiz<small>Ayrıntılı ekspertiz raporu 1.900 TL · KDV hariç</small></div>
@@ -332,7 +450,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 </article>
 
 <!-- 08 SEKTÖR SİTELERİ -->
-<article class="u" id="sektor-siteleri" data-kat="web" data-durum="hazir">
+<article class="u ters" id="sektor-siteleri" data-kat="web" data-durum="hazir">
  <div class="w">
   <div class="u-bas"><span class="no">08</span><span class="et kat">Web sitesi</span><span class="rozet hazir">Hazır</span></div>
   <h2>Sektörünüzün dilinde hazır site.</h2>
@@ -342,13 +460,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Çözüm</span><p>Her sektör için çalışan bir örnek site yaptık: oto servis, diş kliniği, emlak, güzellik, oto galeri, oto yıkama, halı yıkama, çilingir, saç ekimi. Örneği gezin, beğendiğinizi kendi işletmenize uyarlayalım.</p>
      <ul><li>Tek sayfalık site 3.900 TL, 2 iş günü</li><li>Kurumsal site (giriş paketi) 9.900 TL, yaklaşık 1 hafta</li></ul></div>
    </div>
-   <div class="ekran">
-    <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/sv-oto.webp" width="2200" height="1400" alt="Oto servis sektör örnek sitesi" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
-     <div class="tel"><img src="cozumler/sv-oto-mob.webp" width="780" height="1688" alt="Oto servis örnek sitesi telefon ekranında" loading="lazy"></div>
-    </div>
-    <span class="cap">Canlı örnek · dijitabela.com/sektor-oto-servis</span>
-   </div>
+   <div class="ekran"><div class="sahne s-gun" style="flex-direction:column;align-items:center"><div class="ph"><div class="ek"><div class="msite ac" style="--ak:#FFE29A"><div class="ust2"><span>Örnek Oto Servis</span><span>☰</span></div><div class="kahr"><h4>Bakım zamanınız gelince haber verelim</h4><p>Periyodik bakım, fren, klima. Randevunuzu telefonsuz alın.</p><span class="dgm">Randevu al</span></div><ul><li><span>Periyodik bakım</span><b>randevulu</b></li><li><span>Fren ve lastik</span><b>aynı gün</b></li><li><span>Klima bakımı</span><b>randevulu</b></li></ul><div class="form"><span>Ad soyad</span><span>Telefon</span><span>Periyodik bakım için tarih</span></div></div><div class="msite" style="--ak:#CDE6DC"><div class="ust2"><span>Örnek Diş Kliniği</span><span>☰</span></div><div class="kahr"><h4>Kontrol zamanı gelen hasta unutulmasın</h4><p>Randevu ve kontrol hatırlatması, sağlık reklam kurallarına uygun anlatım.</p><span class="dgm">Randevu al</span></div><ul><li><span>Kontrol muayenesi</span><b>randevulu</b></li><li><span>Diş taşı temizliği</span><b>randevulu</b></li><li><span>Dolgu</span><b>randevulu</b></li></ul><div class="form"><span>Ad soyad</span><span>Telefon</span><span>Kontrol muayenesi için tarih</span></div></div><div class="msite" style="--ak:#C9D7EA"><div class="ust2"><span>Örnek Emlak Ofisi</span><span>☰</span></div><div class="kahr"><h4>İlan eklenince müşteri ilk sizden duysun</h4><p>Portföy, ilan sayfaları ve talep kaydı tek yerde.</p><span class="dgm">Randevu al</span></div><ul><li><span>Satılık portföy</span><b>güncel</b></li><li><span>Kiralık portföy</span><b>güncel</b></li><li><span>Talep kaydı</span><b>form</b></li></ul><div class="form"><span>Ad soyad</span><span>Telefon</span><span>Satılık portföy için tarih</span></div></div></div></div><div class="site-sek" id="sek-dugme" role="group" aria-label="Sektör örneği seç"><button type="button" aria-pressed="true" data-i="0">Oto servis</button><button type="button" aria-pressed="false" data-i="1">Diş kliniği</button><button type="button" aria-pressed="false" data-i="2">Emlak</button></div></div><span class="etiket">Örnek site ekranı · sektöre göre değişir, kurgu işletmeler</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">3.900 TL'den<small>Tek sefer · KDV hariç · yarısı başta, yarısı teslimde</small></div>
@@ -368,17 +480,16 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Çözüm</span><p>Ayşe, işletmenin yapay zekâ telefon asistanı. Aramayı açar, kendini yapay zekâ olarak tanıtır, işletmenin bilgi bankasından cevap verir, rezervasyon ya da randevu talebini alır, her görüşmeyi özetleyip size iletir. Bilmediğini uydurmaz, acil ve şikâyette insana aktarır. Sektöre özel paketleri var (otel, klinik, servis).</p></div>
     <p class="dur"><b>Şu an:</b> Örnek görüşme senaryoları ve ses demosu hazır, maliyet ölçümü kurgu aramalarla yapıldı. İlk işletmelerle kurulum görüşüyoruz; fiyat işletmeye göre teklifle verilir.</p>
    </div>
-   <div class="ekran">
-    <div class="pen" style="background:#fff;padding:22px;color:var(--mur)">
-     <span class="et" style="color:var(--soluk)">Örnek görüşme · otel</span>
-     <p style="margin:12px 0 8px"><b>Arayan:</b> İyi akşamlar. Kasımın yedisinden dokuzuna iki kişilik oda var mı acaba?</p>
-     <p style="margin:0 0 8px"><b>Ayşe:</b> İyi akşamlar, ben otelin yapay zekâ asistanı Ayşe. Bahçe manzaralı çift kişilik odamız müsait görünüyor, kahvaltı dahil.</p>
-     <p style="margin:0 0 8px"><b>Arayan:</b> Peki erken giriş olur mu? Sabah on gibi varırız.</p>
-     <p style="margin:0 0 8px"><b>Ayşe:</b> Erken giriş o günkü doluluğa bağlı; notunuza ekliyorum, resepsiyon sabah teyit eder. Eşyalarınızı her durumda bırakabilirsiniz.</p>
-     <p style="margin:0;color:var(--soluk);font-size:14px">Görüşme sonunda otele özet ve etiket gider: “rezervasyon talebi”.</p>
-    </div>
-    <span class="cap">Kurgu demo senaryosu · gerçek arama değil, gerçek otel değil</span>
-   </div>
+   <div class="ekran"><div class="sahne s-led"><div class="ph"><div class="ek">
+<div class="ust" style="background:#000"><div class="av">A</div><div><b>Gelen arama · Ayşe yanıtlıyor</b><small>otel hattı · örnek görüşme</small></div></div>
+<div class="ic">
+ <div class="ses" aria-hidden="true"><i style="height:6px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:6px"></i></div>
+ <div class="bal g">Kasımın yedisinden dokuzuna iki kişilik oda var mı?</div>
+ <div class="bal c"><b>Ayşe:</b> Ben otelin yapay zekâ asistanı. Bahçe manzaralı çift kişilik oda müsait görünüyor, kahvaltı dahil.</div>
+ <div class="bal g">Erken giriş olur mu? Sabah on gibi varırız.</div>
+ <div class="bal c"><b>Ayşe:</b> Doluluğa bağlı; notunuza ekliyorum, resepsiyon sabah teyit eder.</div>
+ <div class="uyari2" style="margin-top:auto"><b>Özet → otele:</b> rezervasyon talebi · 7–9 Kasım · 2 kişi · erken giriş notu</div>
+</div></div></div></div><span class="etiket">Örnek görüşme · kurgu demo senaryosu, gerçek arama ve gerçek otel değil</span></div>
   </div>
   <div class="alt">
    <div class="fiyat">Teklifle<small>Hat ve kullanıma göre; görüşmede net rakam veririz</small></div>
@@ -426,6 +537,10 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
   bagla("g-durum","data-durum",function(v){durum=v});
   uygula();
 })();
+</script>
+<script>
+(function(){var g=document.getElementById("sek-dugme");if(!g)return;var b=[].slice.call(g.querySelectorAll("button")),m=[].slice.call(document.querySelectorAll(".msite"));
+b.forEach(function(x){x.addEventListener("click",function(){var i=+x.getAttribute("data-i");b.forEach(function(y){y.setAttribute("aria-pressed",y===x?"true":"false")});m.forEach(function(e,j){e.classList.toggle("ac",j===i)})})});})();
 </script>
 </body>
 </html>
