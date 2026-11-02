@@ -60,8 +60,8 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 .u-bas .no{font:700 13px "Space Mono",monospace;color:var(--soluk)}
 .u.k .u-bas .no{color:var(--soluk-k)}
 .u.k .et.kat{color:var(--amber)}
-.u-govde{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:start}
-.akis{display:grid;gap:22px}
+.u-govde{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-items:start}
+.akis{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px 36px;align-items:start}
 .akis .blok{border-top:2px solid currentColor;padding-top:10px}
 .akis .blok .et{display:block;margin-bottom:4px;color:var(--soluk)}
 .u.k .akis .blok .et{color:var(--amber)}
@@ -71,16 +71,21 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 .u.k .dur{color:#C9CDD2}
 .dur b{color:var(--mur)}.u.k .dur b{color:var(--gun)}
 /* Ekran çerçeveleri: ekran görüntüsü gerçek, çerçeve yalnız çizim */
-.ekran{display:grid;gap:14px}
+.ekran{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.ekran>*,.ikili>*{min-width:0}
 .pen{border:2px solid var(--mur);background:#fff;box-shadow:0 18px 40px -22px rgba(0,0,0,.5)}
 .u.k .pen{border-color:#3a3f48}
 .pen .bar{display:flex;gap:6px;padding:8px 10px;background:var(--panel);border-bottom:2px solid var(--mur)}
 .pen .bar i{width:9px;height:9px;border-radius:50%;background:var(--sonuk)}
 .pen .bar i:first-child{background:var(--amber)}
-.pen img{width:100%;height:auto}
-.ikili{display:grid;grid-template-columns:1fr 128px;gap:14px;align-items:end}
-.tel{border:2px solid var(--mur);border-radius:18px;overflow:hidden;background:#fff}
-.u.k .tel{border-color:#3a3f48}
+.ikili{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:18px;align-items:start}
+.tel{width:230px;padding:8px;background:var(--mur);border:2px solid var(--mur);border-radius:30px;box-shadow:0 18px 40px -22px rgba(0,0,0,.5)}
+.u.k .tel{background:#000;border-color:#3a3f48}
+.tel img{width:100%;height:auto;border-radius:22px}
+.pen .kaydir{overflow:auto;-webkit-overflow-scrolling:touch}
+.pen .kaydir.uzun{max-height:900px}
+.pen .kaydir img{width:100%;height:auto}
+.ipucu{display:none}
 .cap{font:700 12px "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk)}
 .u.k .cap{color:var(--soluk-k)}
 /* Fiyat + eylem şeridi */
@@ -103,7 +108,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
 .not{font-size:14px;color:var(--soluk)}
 .son .not{color:var(--soluk-k)}
 .bos{display:none;padding:48px 0;font:700 15px "Space Mono",monospace}
-@media(max-width:860px){.suzgec{position:static}.u-govde{grid-template-columns:1fr;gap:28px}.alt{grid-template-columns:1fr}.sayi{margin-left:0;width:100%}.u{padding:48px 0}}
+@media(max-width:860px){.ikili{grid-template-columns:1fr}.tel{margin:0 auto;width:min(260px,70vw)}.pen .kaydir img{min-width:680px}.ipucu{display:block;font:700 12px 'Space Mono',monospace;color:var(--soluk);margin-top:6px}.suzgec{position:static}.alt{grid-template-columns:1fr}.sayi{margin-left:0;width:100%}.u{padding:48px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -158,12 +163,12 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <div class="blok"><span class="et">Sorun</span><p>“KDV'm ne kadar?”, “Beyannamem verildi mi?”, “Son gün ne zaman?” Aynı sorular gün boyu, hatta gece gelir. Müşavir hem işini yapar hem telefona cevap yetiştirir.</p></div>
     <div class="blok"><span class="et">Çözüm</span><p>Beyanno, mükelleflerin sorularını sizin WhatsApp numaranızdan, Luca'daki kayıtlara bakarak cevaplar. Luca'ya yalnız okuma yetkisiyle bağlanır; kayıt değiştirmez. Bilmediğini uydurmaz, “müşavirinize ilettim” der ve size görev açar. Cevap modunu siz seçersiniz: otomatik ya da önce onayınıza.</p>
      <ul><li>Mükellef yeni numara öğrenmez, sizin numaranıza yazar</li><li>Gönderilecek her mesaj önizlenebilir</li><li>Mevzuat sorularında “kesin görüş için müşaviriniz” notu</li></ul></div>
-    <p class="dur"><b>Şu an:</b> Canlıda; kayıt olunca 7 gün ücretsiz deneme başlar. Deneme 25 mükellefle sınırlıdır. Şu an yalnız Luca Mali Müşavir Paketi ile çalışır; başka program için sıraya alıyoruz. Tahakkuk ve borç bilgisi için Luca'dan tahakkuk ve borç bilgisi GİB anahtarı gerektiriyor. Meslek odaları ve birlikler için toplu kurulum görüşmeye açık.</p>
+    <p class="dur"><b>Şu an:</b> Canlıda; kayıt olunca 7 gün ücretsiz deneme başlar. Deneme 25 mükellefle sınırlıdır. Şu an yalnız Luca Mali Müşavir Paketi ile çalışır; başka program için sıraya alıyoruz. Tahakkuk ve borç bilgisi Luca'dan okunurken GİB anahtarı gerekiyor. Meslek odaları ve birlikler için toplu kurulum görüşmeye açık.</p>
    </div>
    <div class="ekran">
     <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/bw-whatsapp.webp" width="1000" height="618" alt="WhatsApp bağlantı ekranı: kendi numaranızı QR koduyla bağlarsınız" loading="lazy"></div>
-     <div class="tel"><img src="cozumler/bw-pano-mob.webp" width="390" height="843" alt="Telefon ekranı: bugün onay bekleyen mesajlar ve yaklaşan beyanname günleri" loading="lazy"></div>
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/bw-whatsapp.webp" width="1740" height="1320" alt="WhatsApp bağlantı ekranı: kendi numaranızı QR koduyla bağlarsınız" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
+     <div class="tel"><img src="cozumler/bw-pano-mob.webp" width="780" height="1688" alt="Telefon ekranı: bugün onay bekleyen mesajlar ve yaklaşan beyanname günleri" loading="lazy"></div>
     </div>
     <span class="cap">Gerçek uygulama ekranı · demo verisi, gerçek mükellef yok</span>
    </div>
@@ -187,7 +192,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <p class="dur"><b>Şu an:</b> Okuma ve kural kontrolü çalışıyor, ekranda görüleni demo verisidir. Programa doğrudan gönderim yok; aktarım Excel dosyasıyla yapılır.</p>
    </div>
    <div class="ekran">
-    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/bw-belgeler.webp" width="1000" height="625" alt="Gelen belgeler tablosu: tür, tarih, toplam, kontrol sonucu uygun, uygun değil ya da bakılmalı" loading="lazy"></div>
+    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/bw-belgeler.webp" width="1740" height="1320" alt="Gelen belgeler tablosu: tür, tarih, toplam, kontrol sonucu uygun, uygun değil ya da bakılmalı" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
     <span class="cap">Gerçek uygulama ekranı · demo verisi</span>
    </div>
   </div>
@@ -211,7 +216,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <p class="dur"><b>Şu an:</b> Denemede yalnız kurgu örnek belgeyle çalışır (ekran görüntüsü de kurgu belgelerdir). Gerçek müşteri belgesi taranamaz: avukat onaylı KVKK metni henüz yok ve sayfa görüntüleri yapay zekâ sağlayıcısına gideceği için ofisin açık onayı gerekir. Siyah mürekkepli imza baskıdan ayrılamayabilir; bu durumda “elle bakın” der.</p>
    </div>
    <div class="ekran">
-    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/bw-imza-set2.webp" width="1000" height="747" alt="İmza taraması sonucu: set başına üç sayfa, eksik imza ve kaşe kırmızı çerçeveyle işaretli" loading="lazy"></div>
+    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir uzun"><img src="cozumler/bw-imza-set2.webp" width="1740" height="2800" alt="İmza taraması sonucu: set başına üç sayfa, eksik imza ve kaşe kırmızı çerçeveyle işaretli" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
     <span class="cap">Gerçek uygulama ekranı · kurgu örnek belge</span>
    </div>
   </div>
@@ -265,7 +270,7 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
     <p class="dur"><b>Not:</b> Google'da belirli bir sıra garanti etmeyiz; kimse dürüstçe edemez. Garanti ettiğimiz şey eksiksiz, güncel bir profil.</p>
    </div>
    <div class="ekran">
-    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/gv-vitrin.webp" width="1000" height="625" alt="Google Vitrin paketi sayfası: 48 saatte teslim, 2.490 TL" loading="lazy"></div>
+    <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/gv-vitrin.webp" width="2200" height="1400" alt="Google Vitrin paketi sayfası: 48 saatte teslim, 2.490 TL" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
     <span class="cap">Canlı sayfa · dijitabela.com/google-vitrin</span>
    </div>
   </div>
@@ -288,8 +293,8 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
    </div>
    <div class="ekran">
     <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/gk-kontrol.webp" width="1000" height="625" alt="Google'da kapalı mı görünüyorum kontrol aracı: işletme adı ve ilçe alanları" loading="lazy"></div>
-     <div class="tel"><img src="cozumler/gk-kontrol-mob.webp" width="390" height="843" alt="Aynı araç telefon ekranında" loading="lazy"></div>
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/gk-kontrol.webp" width="2200" height="1400" alt="Google'da kapalı mı görünüyorum kontrol aracı: işletme adı ve ilçe alanları" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
+     <div class="tel"><img src="cozumler/gk-kontrol-mob.webp" width="780" height="1688" alt="Aynı araç telefon ekranında" loading="lazy"></div>
     </div>
     <span class="cap">Canlı araç · dijitabela.com/google-kontrol</span>
    </div>
@@ -313,8 +318,8 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
    </div>
    <div class="ekran">
     <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/ek-ekspertiz.webp" width="1000" height="625" alt="Ücretsiz dijital ekspertiz sayfası" loading="lazy"></div>
-     <div class="tel"><img src="cozumler/ek-ekspertiz-mob.webp" width="390" height="843" alt="Ekspertiz sayfası telefon ekranında" loading="lazy"></div>
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/ek-ekspertiz.webp" width="2200" height="1400" alt="Ücretsiz dijital ekspertiz sayfası" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
+     <div class="tel"><img src="cozumler/ek-ekspertiz-mob.webp" width="780" height="1688" alt="Ekspertiz sayfası telefon ekranında" loading="lazy"></div>
     </div>
     <span class="cap">Canlı araç · dijitabela.com/ekspertiz</span>
    </div>
@@ -339,8 +344,8 @@ header p{color:#C9CDD2;font-size:19px;margin:22px 0 0}
    </div>
    <div class="ekran">
     <div class="ikili">
-     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><img src="cozumler/sv-oto.webp" width="1000" height="625" alt="Oto servis sektör örnek sitesi" loading="lazy"></div>
-     <div class="tel"><img src="cozumler/sv-oto-mob.webp" width="390" height="843" alt="Oto servis örnek sitesi telefon ekranında" loading="lazy"></div>
+     <div class="pen"><div class="bar"><i></i><i></i><i></i></div><div class="kaydir"><img src="cozumler/sv-oto.webp" width="2200" height="1400" alt="Oto servis sektör örnek sitesi" loading="lazy"></div><span class="ipucu" style="padding:0 10px 8px">Ekranı yana kaydırın →</span></div>
+     <div class="tel"><img src="cozumler/sv-oto-mob.webp" width="780" height="1688" alt="Oto servis örnek sitesi telefon ekranında" loading="lazy"></div>
     </div>
     <span class="cap">Canlı örnek · dijitabela.com/sektor-oto-servis</span>
    </div>
