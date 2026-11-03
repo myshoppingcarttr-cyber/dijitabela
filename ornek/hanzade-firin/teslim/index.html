@@ -48,7 +48,7 @@ footer a{color:inherit}
 <header><div class="kap">
   <small>HANZADE FIRIN &amp; CAFE</small>
   <h1>Hüseyin Bey, işler hazır.</h1>
-  <p>Web sitesi, katalog ve tasarımlar bu sayfada. Site henüz herkese açılmadı. Son bilgileri tamamlayınca yayına alacağız.</p>
+  <p>Web sitesi, katalog ve tasarımlar bu sayfada. Site henüz herkese açılmadı. Bakın, düzeltmek istediğiniz yeri bize yazın.</p>
 </div></header>
 
 <main class="kap">
@@ -81,48 +81,9 @@ footer a{color:inherit}
   <figure><img src="dis-cephe.jpg" alt="Hanzade Fırın dış cephe görsel çalışması" loading="lazy" width="1400" height="932"><figcaption>Dış cephe görsel çalışması</figcaption></figure>
   <figure><img src="yorum-karti.png" alt="Kasa için Google yorum kartı" loading="lazy"><figcaption>Kasa yorum kartı. Her müşteriye verilir. <a href="HANZADE-YORUM-KARTI-A6.pdf">Baskı PDF'i</a></figcaption></figure>
 </section>
-
-<section>
-  <h2>4. Sizden gerekenler</h2>
-  <p class="alt">Bildiklerinizi yazmanız yeterli, boş bırakabilirsiniz. Fotoğraf veya sesli mesaj da olur.</p>
-
-  <div class="teyit" data-ad="Sipariş WhatsApp 0532 612 95 90 doğru mu"><b>Sipariş WhatsApp'ı: 0532 612 95 90</b><span>Instagram'daki numaranız. Sitede de bu olsun mu?</span><div class="secim"><label><input type="radio" name="t1" value="Evet"> Evet</label><label><input type="radio" name="t1" value="Hayır"> Başka numara</label></div></div>
-  <div class="teyit" data-ad="Yemeksepeti sayfası bizim mi, Getir/Trendyol var mı"><b>Yemeksepeti: "Hanzade Unlu Mamulleri"</b><span>Bu sayfa sizin mi? Getir veya Trendyol Yemek sayfanız varsa bağlantısını yazın.</span><input type="text" placeholder="Örn. evet, Trendyol'da da varız"></div>
-
-  <div class="soru" data-ad="Fiyatı eksik ürünler"><b>Fiyatı eksik ürünler</b><span>Şarküteri, vitrin tatlıları, süt ürünleri, yağlar, pekmez, tahin, içecekler. ERP12'den fiyat listesi almak en kolayı.</span><textarea></textarea></div>
-  <div class="soru" data-ad="Sabah paketleri"><b>Sabah paketleri</b><span>Hangi paketler olsun, içinde neler var, fiyatları ne?</span><textarea></textarea></div>
-  <div class="soru" data-ad="Ofis ve aile kutusu"><b>Ofis ve aile kutusu</b><span>İçerik ve fiyat. Ofise teslim var mı, ücreti ve en az tutarı ne?</span><textarea></textarea></div>
-  <div class="soru" data-ad="Pasta siparişi"><b>Pasta siparişi</b><span>Kaç gün önceden alınıyor, kapora var mı? Yılbaşı pastasının fiyatı ve teslim şartı ne?</span><textarea></textarea></div>
-  <div class="soru" data-ad="Sıcak çıkış saatleri"><b>Sıcak ürün saatleri</b><span>Ekmek, simit, poğaça hangi saatlerde fırından çıkıyor?</span><input type="text"></div>
-  <div class="soru" data-ad="İndirimler"><b>İndirimler</b><span>Kasadaki %10 baklava ve börekte de geçerli mi? Instagram'daki Gel-Al %15 hâlâ var mı?</span><input type="text"></div>
-  <div class="soru" data-ad="Panel girişi e-postası"><b>Fiyat paneli için e-posta</b><span>Fiyatları kendiniz değiştirebileceğiniz panele bu adresle gireceksiniz.</span><input type="text" inputmode="email"></div>
-  <div class="soru" data-ad="Tabela yüksekliği"><b>Düz tabela yüksekliği</b><span>Metreyle bakma şansınız olursa: 15 cm mi, 20 cm mi sığıyor?</span><input type="text"></div>
-  <div class="soru" data-ad="Logo"><b>Logo</b><span>Dosyanız varsa WhatsApp'tan atın. Yoksa "yok" yazın.</span><input type="text"></div>
-  <div class="soru" data-ad="Site, katalog, tasarım düzeltmeleri"><b>Düzeltmek istediğiniz yerler</b><span>Sitede, katalogda veya tasarımlarda.</span><textarea></textarea></div>
-
-  <div class="gonder">
-    <button id="gonder" type="button">Cevapları WhatsApp'tan gönder</button>
-    <p class="not">Yazdıklarınız yalnız bu düğmeye basınca bize gelir.</p>
-  </div>
-</section>
 </main>
 
 <footer><div class="kap">Alim Hoşlar · Dijitabela · <a href="tel:+905019452184">0501 945 21 84</a> · dijitabela.com</div></footer>
 
-<script>
-(function(){
-  var KEY='hanzade-teslim-v1', kutular=[].slice.call(document.querySelectorAll('.soru,.teyit'));
-  function deger(k){var r=k.querySelector('input[type=radio]:checked');if(r)return r.value;var a=k.querySelector('textarea,input[type=text]');return a?a.value.trim():'';}
-  function yaz(){try{var o={};kutular.forEach(function(k){o[k.dataset.ad]=deger(k)});localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
-  try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');kutular.forEach(function(k){var v=s[k.dataset.ad];if(!v)return;var r=k.querySelector('input[type=radio][value="'+v+'"]');if(r){r.checked=true;return;}var a=k.querySelector('textarea,input[type=text]');if(a)a.value=v;});}catch(e){}
-  document.addEventListener('input',yaz);document.addEventListener('change',yaz);
-  document.getElementById('gonder').addEventListener('click',function(){
-    var satir=['Hanzade Fırın, Hüseyin Ayhan:'];
-    kutular.forEach(function(k){var v=deger(k);if(v)satir.push('• '+k.dataset.ad+': '+v);});
-    if(satir.length===1)satir.push('Sayfaya baktım.');
-    window.open('https://wa.me/905019452184?text='+encodeURIComponent(satir.join('\n')),'_blank','noopener');
-  });
-})();
-</script>
 </body>
 </html>
