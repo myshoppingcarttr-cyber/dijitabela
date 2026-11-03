@@ -44,6 +44,7 @@ select{width:100%}
 .hata{background:var(--sari);color:var(--sari-y);padding:9px 11px;border-radius:9px;font-size:14px;display:none;margin-bottom:10px}
 @media(max-width:940px){.duzen{grid-template-columns:minmax(0,1fr)}iframe{height:640px}}
 </style>
+<script>window.DJ_FILIGRAN = false; /* DJ_REHBER kapali: musteri takip sayfasi */</script>
 </head>
 <body>
 <header class="kap">
@@ -100,7 +101,7 @@ select{width:100%}
 (function(){
   var TEST='https://pasaport-test.vercel.app', VERI='https://pasaport-takip.vercel.app/gorevler.json';
   var yol='', dil='tr', site=document.getElementById('site'), yeni=document.getElementById('yeni');
-  var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/en/guides',hi:'/hi/guides'};
+  var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/en/guides',hi:'/en/guides'};
   function adres(){var q='?lang='+dil;if(yol==='kur')return TEST+'/esim/kurulum'+q+'&platform=ios&method=qr';if(yol==='hes')return TEST+'/account'+q;if(yol==='reh')return TEST+HUB[dil];return TEST+'/'+q;}
   function git(){var u=adres();site.src=u;yeni.href=u;}
   function olcek(){var k=document.getElementById('sahne');if(!k.classList.contains('masa')){site.style.transform='';k.style.height='';return;}var g=k.clientWidth-20,o=Math.min(1,g/1280);site.style.transform='scale('+o+')';k.style.height=(800*o+20)+'px';}
@@ -128,5 +129,5 @@ select{width:100%}
   yukle();setInterval(yukle,30000);
 })();
 </script>
-<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+<script src="/ornek/_dijitabela/izle.js" defer></script></body>
 </html>
