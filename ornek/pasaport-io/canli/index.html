@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pasaport.io · Canlı Takip</title>
+<meta name="theme-color" content="#073133">
+<style>
+:root{--bg:#f3f5f2;--kart:#fff;--yazi:#073133;--soluk:#5c7576;--cizgi:#dfe6e2;--vurgu:#0b7a6e;--acik:#dcf5ec;--wa:#128c4a;--sari:#fff3cf;--sari-y:#7a5a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#001719;--kart:#06282b;--yazi:#defbf0;--soluk:#8fb1ad;--cizgi:#1b3f42;--vurgu:#5fe0c5;--acik:#0c3d3c;--sari:#3b3210;--sari-y:#f1d98a}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--yazi);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.kap{max-width:1180px;margin:0 auto;padding:0 16px}
+header{padding:26px 0 14px}
+h1{font-size:clamp(26px,5vw,36px);line-height:1.1;margin:0 0 6px}
+.alt{color:var(--soluk);margin:0;max-width:44em}
+.duzen{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:18px;align-items:start;padding-bottom:36px}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:16px;margin-bottom:16px}
+h2{font-size:18px;margin:0 0 10px}
+.arac{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.arac button,.arac a,select{font:inherit;font-size:14px;min-height:40px;padding:7px 12px;border:1px solid var(--cizgi);background:var(--bg);color:var(--yazi);border-radius:9px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.arac button[aria-pressed=true]{background:var(--vurgu);border-color:var(--vurgu);color:var(--kart);font-weight:600}
+.sahne{background:var(--bg);border-radius:10px;padding:10px;display:flex;justify-content:center;overflow:hidden}
+iframe{border:1px solid var(--cizgi);border-radius:18px;background:#fff;width:390px;max-width:100%;height:760px}
+.masa iframe{width:100%;border-radius:8px;height:760px}
+.not{font-size:14px;color:var(--soluk);margin:10px 0 0}
+.yuzde{font-size:38px;font-weight:700;line-height:1}
+.cubuk{height:10px;background:var(--cizgi);border-radius:9px;overflow:hidden;margin:10px 0 4px}
+.cubuk i{display:block;height:100%;width:0;background:var(--vurgu);transition:width .4s}
+.grup{margin-top:14px}.grup b{display:block;font-size:14px;color:var(--soluk);margin-bottom:4px}
+ul{list-style:none;margin:0;padding:0}
+li{display:flex;gap:9px;padding:7px 0;border-top:1px solid var(--cizgi);font-size:15px;line-height:1.35}
+li:first-child{border-top:0}
+.ik{flex:0 0 22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;border:1.5px solid var(--cizgi);color:var(--soluk)}
+.bitti .ik{background:var(--vurgu);border-color:var(--vurgu);color:var(--kart)}
+.suruyor .ik{background:var(--sari);border-color:var(--sari-y);color:var(--sari-y)}
+.gn{display:block;font-size:13px;color:var(--soluk);margin-top:2px}
+label{display:block;font-size:14px;font-weight:600;margin:10px 0 4px}
+textarea{width:100%;min-height:110px;font:inherit;padding:10px;border:1px solid var(--cizgi);border-radius:9px;background:var(--bg);color:var(--yazi)}
+select{width:100%}
+.gonder{width:100%;border:0;background:var(--wa);color:#fff;font:700 16px system-ui,sans-serif;padding:14px;border-radius:10px;margin-top:10px;cursor:pointer}
+.hata{background:var(--sari);color:var(--sari-y);padding:9px 11px;border-radius:9px;font-size:14px;display:none;margin-bottom:10px}
+@media(max-width:940px){.duzen{grid-template-columns:minmax(0,1fr)}iframe,.masa iframe{height:640px}}
+</style>
+</head>
+<body>
+<header class="kap">
+  <h1>Pasaport.io canlı takip</h1>
+  <p class="alt">Yaptığımız her işi ve sitenin güncel hâlini buradan izleyin. Değiştirmek istediğiniz yeri yazın, güncelleyelim. <span id="guncel"></span></p>
+</header>
+<main class="kap duzen">
+  <section>
+    <div class="kart">
+      <h2>Sitenin güncel hâli</h2>
+      <div class="arac" role="group" aria-label="Görünüm">
+        <button type="button" data-g="tel" aria-pressed="true">Telefon</button>
+        <button type="button" data-g="masa" aria-pressed="false">Bilgisayar</button>
+      </div>
+      <div class="arac" role="group" aria-label="Sayfa">
+        <button type="button" data-s="" aria-pressed="true">Ana sayfa</button>
+        <button type="button" data-s="/kurulum" aria-pressed="false">Kurulum rehberi</button>
+        <button type="button" data-s="/account" aria-pressed="false">Hesabım</button>
+        <button type="button" data-s="/guides" aria-pressed="false">Rehberler</button>
+        <select id="dil" aria-label="Dil" style="width:auto"><option value="tr">Türkçe</option><option value="de">Deutsch</option><option value="en">English</option><option value="ar">العربية</option></select>
+        <a id="yeni" href="https://pasaport-test.vercel.app/tr" target="_blank" rel="noopener">Yeni sekmede aç</a>
+      </div>
+      <div class="sahne" id="sahne"><iframe id="site" title="Pasaport.io test sitesi" src="https://pasaport-test.vercel.app/tr"></iframe></div>
+      <p class="not">Bu test sitesidir, ödeme alınmaz. Pencere boş görünürse "Yeni sekmede aç" düğmesini kullanın. Açık/koyu tema telefonunuzun ayarına göre değişir.</p>
+    </div>
+  </section>
+  <aside>
+    <div class="kart">
+      <h2>Değişiklik isteği</h2>
+      <label for="bolum">Hangi bölüm?</label>
+      <select id="bolum"><option>Giriş (hero)</option><option>Popüler ülkeler</option><option>Bölgesel paketler</option><option>3 adımda eSIM</option><option>Telefon uyumluluğu</option><option>Yorumlar</option><option>Dijital asistan</option><option>Sık sorulanlar</option><option>Rehber / blog</option><option>Alt bilgi</option><option>Hesabım</option><option>Admin paneli</option><option>Diğer</option></select>
+      <label for="istek">Ne değişsin?</label>
+      <textarea id="istek" placeholder="Örn. başlık biraz daha büyük olsun"></textarea>
+      <button class="gonder" id="gonder" type="button">WhatsApp'tan gönder</button>
+    </div>
+    <div class="kart">
+      <h2>İlerleme</h2>
+      <div class="hata" id="hata">İş listesi şu an yenilenemedi, biraz sonra tekrar denenecek.</div>
+      <div class="yuzde" id="yuzde">…</div>
+      <div class="cubuk"><i id="cubuk"></i></div>
+      <div id="gruplar"></div>
+    </div>
+    <div class="kart" id="sizdenK" hidden>
+      <h2>Sizden beklediklerimiz</h2>
+      <ul id="sizden"></ul>
+    </div>
+    <div class="kart" id="akisK" hidden>
+      <h2>Son işler</h2>
+      <ul id="akis"></ul>
+    </div>
+  </aside>
+</main>
+<script>
+(function(){
+  var TEST='https://pasaport-test.vercel.app', VERI='https://pasaport-takip.vercel.app/gorevler.json';
+  var yol='', dil='tr', site=document.getElementById('site'), yeni=document.getElementById('yeni');
+  function adres(){return TEST+'/'+dil+yol;}
+  function git(){var u=adres();site.src=u;yeni.href=u;}
+  function bas(sel,el){document.querySelectorAll(sel).forEach(function(b){b.setAttribute('aria-pressed',b===el?'true':'false')});}
+  document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){bas('[data-g]',b);document.getElementById('sahne').classList.toggle('masa',b.dataset.g==='masa');});});
+  document.querySelectorAll('[data-s]').forEach(function(b){b.addEventListener('click',function(){bas('[data-s]',b);yol=b.dataset.s;git();});});
+  document.getElementById('dil').addEventListener('change',function(e){dil=e.target.value;git();});
+  document.getElementById('gonder').addEventListener('click',function(){
+    var t=document.getElementById('istek').value.trim(), b=document.getElementById('bolum').value;
+    if(!t){document.getElementById('istek').focus();return;}
+    window.open('https://wa.me/905019452184?text='+encodeURIComponent('Pasaport.io değişiklik isteği\nBölüm: '+b+'\n'+t),'_blank','noopener');
+  });
+  function li(g){var d=g.durum||'sirada',el=document.createElement('li');el.className=d;var i=document.createElement('span');i.className='ik';i.textContent=d==='bitti'?'✓':d==='suruyor'?'…':'';var s=document.createElement('span');s.textContent=g.ad;if(g.not){var n=document.createElement('span');n.className='gn';n.textContent=g.not;s.appendChild(n);}el.appendChild(i);el.appendChild(s);return el;}
+  function ciz(v){
+    var tum=[],kap=document.getElementById('gruplar');kap.textContent='';
+    (v.gruplar||[]).forEach(function(g){var w=document.createElement('div');w.className='grup';var b=document.createElement('b');b.textContent=g.ad;var u=document.createElement('ul');(g.gorevler||[]).forEach(function(x){tum.push(x);u.appendChild(li(x));});w.appendChild(b);w.appendChild(u);kap.appendChild(w);});
+    var bit=tum.filter(function(x){return x.durum==='bitti'}).length,y=tum.length?Math.round(bit/tum.length*100):0;
+    document.getElementById('yuzde').textContent='%'+y;document.getElementById('cubuk').style.width=y+'%';
+    var sz=(v.sizden||[]).filter(function(x){return x.durum!=='bitti'}),su=document.getElementById('sizden');su.textContent='';sz.forEach(function(x){su.appendChild(li(x));});document.getElementById('sizdenK').hidden=!sz.length;
+    var ak=(v.akis||[]).slice(-6).reverse(),au=document.getElementById('akis');au.textContent='';ak.forEach(function(a){var l=document.createElement('li');var s=document.createElement('span');s.textContent=a.metin;var n=document.createElement('span');n.className='gn';n.textContent=new Date(a.zaman).toLocaleString('tr-TR',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'});s.appendChild(n);l.appendChild(s);au.appendChild(l);});document.getElementById('akisK').hidden=!ak.length;
+    if(v.guncellendi)document.getElementById('guncel').textContent='Son güncelleme: '+new Date(v.guncellendi).toLocaleString('tr-TR',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'})+'.';
+  }
+  function yukle(){fetch(VERI,{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(v){document.getElementById('hata').style.display='none';ciz(v);}).catch(function(){document.getElementById('hata').style.display='block';});}
+  yukle();setInterval(yukle,30000);
+})();
+</script>
+</body>
+</html>
