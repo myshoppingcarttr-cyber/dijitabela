@@ -44,6 +44,7 @@ select{width:100%}
 .hata{background:var(--sari);color:var(--sari-y);padding:9px 11px;border-radius:9px;font-size:14px;display:none;margin-bottom:10px}
 @media(max-width:940px){.duzen{grid-template-columns:minmax(0,1fr)}iframe{height:640px}}
 </style>
+<script>window.DJ_FILIGRAN = false; /* DJ_REHBER kapali: musteri takip sayfasi */</script>
 </head>
 <body>
 <header class="kap">
@@ -63,7 +64,7 @@ select{width:100%}
         <button type="button" data-s="kur" aria-pressed="false">Kurulum rehberi</button>
         <button type="button" data-s="hes" aria-pressed="false">Hesabım</button>
         <button type="button" data-s="reh" aria-pressed="false">Rehberler</button>
-        <select id="dil" aria-label="Dil" style="width:auto"><option value="tr">Türkçe</option><option value="de">Deutsch</option><option value="en">English</option><option value="ar">العربية</option></select>
+        <select id="dil" aria-label="Dil" style="width:auto"><option value="tr">Türkçe</option><option value="de">Deutsch</option><option value="en">English</option><option value="ar">العربية</option><option value="hi">हिन्दी</option></select>
         <a id="yeni" href="https://pasaport-test.vercel.app/?lang=tr" target="_blank" rel="noopener">Yeni sekmede aç</a>
       </div>
       <div class="sahne" id="sahne"><iframe id="site" title="Pasaport.io test sitesi" src="https://pasaport-test.vercel.app/?lang=tr"></iframe></div>
@@ -100,7 +101,7 @@ select{width:100%}
 (function(){
   var TEST='https://pasaport-test.vercel.app', VERI='https://pasaport-takip.vercel.app/gorevler.json';
   var yol='', dil='tr', site=document.getElementById('site'), yeni=document.getElementById('yeni');
-  var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/en/guides'};
+  var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/en/guides',hi:'/en/guides'};
   function adres(){var q='?lang='+dil;if(yol==='kur')return TEST+'/esim/kurulum'+q+'&platform=ios&method=qr';if(yol==='hes')return TEST+'/account'+q;if(yol==='reh')return TEST+HUB[dil];return TEST+'/'+q;}
   function git(){var u=adres();site.src=u;yeni.href=u;}
   function olcek(){var k=document.getElementById('sahne');if(!k.classList.contains('masa')){site.style.transform='';k.style.height='';return;}var g=k.clientWidth-20,o=Math.min(1,g/1280);site.style.transform='scale('+o+')';k.style.height=(800*o+20)+'px';}
@@ -128,5 +129,5 @@ select{width:100%}
   yukle();setInterval(yukle,30000);
 })();
 </script>
-</body>
+<script src="/ornek/_dijitabela/izle.js" defer></script></body>
 </html>
