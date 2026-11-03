@@ -217,7 +217,7 @@
    "fiyat": 50,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-cicek-ekmek.webp",
    "satista": true
   },
   {
@@ -227,7 +227,7 @@
    "fiyat": 50,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-tava-ekmek.webp",
    "satista": true
   },
   {
@@ -237,7 +237,7 @@
    "fiyat": 20,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-tandir-ekmek.webp",
    "satista": true
   },
   {
@@ -257,7 +257,7 @@
    "fiyat": 30,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/tirnak-pide.webp",
    "satista": true
   },
   {
@@ -267,7 +267,7 @@
    "fiyat": 50,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-bufe-ekmek.webp",
    "satista": true
   },
   {
@@ -277,7 +277,7 @@
    "fiyat": 30,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-ciabatta.webp",
    "satista": true
   },
   {
@@ -297,7 +297,7 @@
    "fiyat": 200,
    "birim": "adet",
    "aciklama": "1 kg",
-   "gorsel": "",
+   "gorsel": "img/temsili-em-muhacir.webp",
    "satista": true
   },
   {
@@ -307,7 +307,7 @@
    "fiyat": 80,
    "birim": "adet",
    "aciklama": "400 g",
-   "gorsel": "",
+   "gorsel": "img/temsili-em-tam-bugday.webp",
    "satista": true
   },
   {
@@ -317,7 +317,7 @@
    "fiyat": 80,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-em-cavdar.webp",
    "satista": true
   },
   {
@@ -327,7 +327,7 @@
    "fiyat": 80,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-em-tam-tahil.webp",
    "satista": true
   },
   {
@@ -337,7 +337,7 @@
    "fiyat": 80,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-em-sari-bugday.webp",
    "satista": true
   },
   {
@@ -347,7 +347,7 @@
    "fiyat": 125,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-em-karakilcik.webp",
    "satista": true
   },
   {
@@ -357,7 +357,7 @@
    "fiyat": 80,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-em-kepekli.webp",
    "satista": true
   },
   {
@@ -377,7 +377,7 @@
    "fiyat": 25,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-sutlu-simit.webp",
    "satista": true
   },
   {
@@ -387,7 +387,7 @@
    "fiyat": 30,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-tereyagli-simit.webp",
    "satista": true
   },
   {
@@ -397,7 +397,7 @@
    "fiyat": 30,
    "birim": "adet",
    "aciklama": "Kaşarlı, peynirli, zeytinli, patatesli",
-   "gorsel": "",
+   "gorsel": "img/pogaca.webp",
    "satista": true
   },
   {
@@ -407,7 +407,7 @@
    "fiyat": 35,
    "birim": "adet",
    "aciklama": "Kaşarlı, peynirli, zeytinli, patatesli",
-   "gorsel": "",
+   "gorsel": "img/temsili-acma.webp",
    "satista": true
   },
   {
@@ -417,7 +417,7 @@
    "fiyat": 40,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-sosisli-acma.webp",
    "satista": true
   },
   {
@@ -427,7 +427,7 @@
    "fiyat": 700,
    "birim": "kg",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-su-boregi.webp",
    "satista": true
   },
   {
@@ -437,7 +437,7 @@
    "fiyat": 700,
    "birim": "kg",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/borek.webp",
    "satista": true
   },
   {
@@ -457,7 +457,7 @@
    "fiyat": 125,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-gul-boregi.webp",
    "satista": true
   },
   {
@@ -467,7 +467,7 @@
    "fiyat": 75,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-kesme-borek.webp",
    "satista": true
   },
   {
@@ -487,7 +487,7 @@
    "fiyat": 150,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-sandvic-kasar.webp",
    "satista": true
   },
   {
@@ -497,7 +497,7 @@
    "fiyat": 200,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-sandvic-sucuk.webp",
    "satista": true
   },
   {
@@ -507,7 +507,7 @@
    "fiyat": 200,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/sandvic-jambon.webp",
    "satista": true
   },
   {
@@ -547,7 +547,7 @@
    "fiyat": 900,
    "birim": "kg",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/cevizli-baklava.webp",
    "satista": true
   },
   {
@@ -557,7 +557,7 @@
    "fiyat": null,
    "birim": "adet",
    "aciklama": "4'lü kutu · meyve görünümlü (Cedric Grolet tarzı) pastalar",
-   "gorsel": "",
+   "gorsel": "img/meyve-pasta.webp",
    "satista": false
   },
   {
@@ -577,7 +577,7 @@
    "fiyat": null,
    "birim": "kg",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-beyaz-peynir.webp",
    "satista": true
   },
   {
@@ -587,7 +587,7 @@
    "fiyat": null,
    "birim": "kg",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-kasar.webp",
    "satista": true
   },
   {
@@ -597,7 +597,7 @@
    "fiyat": null,
    "birim": "kg",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-tulum.webp",
    "satista": true
   },
   {
@@ -617,7 +617,7 @@
    "fiyat": null,
    "birim": "",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-kaymak.webp",
    "satista": true
   },
   {
@@ -627,7 +627,7 @@
    "fiyat": null,
    "birim": "kg",
    "aciklama": "Yeşil, kırma, siyah",
-   "gorsel": "",
+   "gorsel": "img/sarkuteri-zeytin.webp",
    "satista": true
   },
   {
@@ -637,7 +637,7 @@
    "fiyat": null,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/sarkuteri-bal.webp",
    "satista": true
   },
   {
@@ -657,7 +657,7 @@
    "fiyat": null,
    "birim": "",
    "aciklama": "Şişe, damacana, teneke",
-   "gorsel": "",
+   "gorsel": "img/sarkuteri-zeytinyagi.webp",
    "satista": true
   },
   {
@@ -667,7 +667,7 @@
    "fiyat": null,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/sarkuteri-pekmez.webp",
    "satista": true
   },
   {
@@ -677,7 +677,7 @@
    "fiyat": null,
    "birim": "",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-tursu.webp",
    "satista": true
   },
   {
@@ -687,7 +687,7 @@
    "fiyat": null,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-dibek.webp",
    "satista": true
   },
   {
@@ -697,7 +697,7 @@
    "fiyat": null,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-galeta.webp",
    "satista": true
   },
   {
@@ -707,7 +707,7 @@
    "fiyat": null,
    "birim": "",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-s-lokum.webp",
    "satista": true
   },
   {
@@ -717,7 +717,7 @@
    "fiyat": null,
    "birim": "porsiyon",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-v-profiterol.webp",
    "satista": true
   },
   {
@@ -727,7 +727,7 @@
    "fiyat": null,
    "birim": "porsiyon",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-v-sutlac.webp",
    "satista": true
   },
   {
@@ -737,7 +737,7 @@
    "fiyat": null,
    "birim": "porsiyon",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-v-supangle.webp",
    "satista": true
   },
   {
@@ -747,7 +747,7 @@
    "fiyat": null,
    "birim": "adet",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-v-bardak-pasta.webp",
    "satista": true
   },
   {
@@ -777,7 +777,7 @@
    "fiyat": null,
    "birim": "dilim",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-v-cheesecake.webp",
    "satista": true
   },
   {
@@ -787,7 +787,7 @@
    "fiyat": null,
    "birim": "porsiyon",
    "aciklama": "",
-   "gorsel": "",
+   "gorsel": "img/temsili-v-islak-kek.webp",
    "satista": true
   },
   {

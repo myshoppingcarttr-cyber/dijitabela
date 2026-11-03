@@ -212,7 +212,9 @@ function sayfaBasi(etiket, baslik, metin, foto) {
   return '<section class="sayfa-basi' + (foto ? " fotolu" : "") + '">' + (foto ? '<div class="foto">' + gorsel(foto, "", { lazy: false }) + "</div>" : "") + '<div class="kap"><p class="mono">' + esc(etiket) + "</p><h1>" + esc(baslik) + "</h1>" + (metin ? "<p>" + esc(metin) + "</p>" : "") + "</div></section>";
 }
 function urunKart(u, katAd, bosYazi) {
-  return '<article class="urun">' + (u.gorsel ? '<div class="uf">' + gorsel(u.gorsel, u.ad) + "</div>" : fotosuz(u.ad, katAd)) +
+  // Dosya adı "temsili-" ile başlayan görsel işletmenin kendi çekimi değildir; kartta belirtilir.
+  var temsili = /(^|\/)temsili-[^\/]*$/.test(String(u.gorsel || ""));
+  return '<article class="urun">' + (u.gorsel ? '<div class="uf">' + gorsel(u.gorsel, u.ad) + (temsili ? '<span class="temsili">Temsili görsel</span>' : "") + "</div>" : fotosuz(u.ad, katAd)) +
     '<div class="urun-ic"><h3>' + esc(u.ad) + "</h3>" + (u.aciklama ? "<p>" + esc(u.aciklama) + "</p>" : "") + fiyatHTML(u.fiyat, u.birim, bosYazi) + "</div></article>";
 }
 function kurumsalUrunler(ic) {
