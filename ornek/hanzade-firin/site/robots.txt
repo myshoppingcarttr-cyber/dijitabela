@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://hanzadefirin.com/sitemap.xml

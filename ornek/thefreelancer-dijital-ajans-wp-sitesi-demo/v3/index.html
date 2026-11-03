@@ -125,4 +125,4 @@ $('#dy').onclick=e=>{const b=e.target.closest('button');if(b){dsel=+b.dataset.i;
 $('#rb').onclick=()=>{if(!ssel){toast('Bir saat seçin');return}if(!$('#rn').value.trim()){toast('Adınızı yazın');return}ap.push({g:key(ds[dsel]),s:ssel,n:$('#rn').value.trim(),t:$('#rt').value});localStorage.setItem('demoRandevu3',JSON.stringify(ap));ssel='';rr();toast('Görüşmeniz onaylandı (demo)')};rr();
 </script>
 <script src="/ornek/_dijitabela/filigran.js" defer></script>
-</body></html>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body></html>
