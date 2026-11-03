@@ -24,7 +24,7 @@ h2{font-size:18px;margin:0 0 10px}
 .arac button[aria-pressed=true]{background:var(--vurgu);border-color:var(--vurgu);color:var(--kart);font-weight:600}
 .sahne{background:var(--bg);border-radius:10px;padding:10px;display:flex;justify-content:center;overflow:hidden}
 iframe{border:1px solid var(--cizgi);border-radius:18px;background:#fff;width:390px;max-width:100%;height:760px}
-.masa iframe{width:100%;border-radius:8px;height:760px}
+.sahne.masa{display:block;padding:10px;height:auto}.masa iframe{width:1280px;max-width:none;height:800px;border-radius:8px;transform-origin:0 0}
 .not{font-size:14px;color:var(--soluk);margin:10px 0 0}
 .yuzde{font-size:38px;font-weight:700;line-height:1}
 .cubuk{height:10px;background:var(--cizgi);border-radius:9px;overflow:hidden;margin:10px 0 4px}
@@ -42,7 +42,7 @@ textarea{width:100%;min-height:110px;font:inherit;padding:10px;border:1px solid 
 select{width:100%}
 .gonder{width:100%;border:0;background:var(--wa);color:#fff;font:700 16px system-ui,sans-serif;padding:14px;border-radius:10px;margin-top:10px;cursor:pointer}
 .hata{background:var(--sari);color:var(--sari-y);padding:9px 11px;border-radius:9px;font-size:14px;display:none;margin-bottom:10px}
-@media(max-width:940px){.duzen{grid-template-columns:minmax(0,1fr)}iframe,.masa iframe{height:640px}}
+@media(max-width:940px){.duzen{grid-template-columns:minmax(0,1fr)}iframe{height:640px}}
 </style>
 </head>
 <body>
@@ -103,8 +103,10 @@ select{width:100%}
   var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/en/guides'};
   function adres(){var q='?lang='+dil;if(yol==='kur')return TEST+'/esim/kurulum'+q+'&platform=ios&method=qr';if(yol==='hes')return TEST+'/account'+q;if(yol==='reh')return TEST+HUB[dil];return TEST+'/'+q;}
   function git(){var u=adres();site.src=u;yeni.href=u;}
+  function olcek(){var k=document.getElementById('sahne');if(!k.classList.contains('masa')){site.style.transform='';k.style.height='';return;}var g=k.clientWidth-20,o=Math.min(1,g/1280);site.style.transform='scale('+o+')';k.style.height=(800*o+20)+'px';}
+  window.addEventListener('resize',olcek);
   function bas(sel,el){document.querySelectorAll(sel).forEach(function(b){b.setAttribute('aria-pressed',b===el?'true':'false')});}
-  document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){bas('[data-g]',b);document.getElementById('sahne').classList.toggle('masa',b.dataset.g==='masa');});});
+  document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){bas('[data-g]',b);document.getElementById('sahne').classList.toggle('masa',b.dataset.g==='masa');olcek();});});
   document.querySelectorAll('[data-s]').forEach(function(b){b.addEventListener('click',function(){bas('[data-s]',b);yol=b.dataset.s;git();});});
   document.getElementById('dil').addEventListener('change',function(e){dil=e.target.value;git();});
   document.getElementById('gonder').addEventListener('click',function(){
