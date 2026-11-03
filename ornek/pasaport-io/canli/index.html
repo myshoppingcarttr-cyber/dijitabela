@@ -60,13 +60,13 @@ select{width:100%}
       </div>
       <div class="arac" role="group" aria-label="Sayfa">
         <button type="button" data-s="" aria-pressed="true">Ana sayfa</button>
-        <button type="button" data-s="/kurulum" aria-pressed="false">Kurulum rehberi</button>
-        <button type="button" data-s="/account" aria-pressed="false">Hesabım</button>
-        <button type="button" data-s="/guides" aria-pressed="false">Rehberler</button>
+        <button type="button" data-s="kur" aria-pressed="false">Kurulum rehberi</button>
+        <button type="button" data-s="hes" aria-pressed="false">Hesabım</button>
+        <button type="button" data-s="reh" aria-pressed="false">Rehberler</button>
         <select id="dil" aria-label="Dil" style="width:auto"><option value="tr">Türkçe</option><option value="de">Deutsch</option><option value="en">English</option><option value="ar">العربية</option></select>
-        <a id="yeni" href="https://pasaport-test.vercel.app/tr" target="_blank" rel="noopener">Yeni sekmede aç</a>
+        <a id="yeni" href="https://pasaport-test.vercel.app/?lang=tr" target="_blank" rel="noopener">Yeni sekmede aç</a>
       </div>
-      <div class="sahne" id="sahne"><iframe id="site" title="Pasaport.io test sitesi" src="https://pasaport-test.vercel.app/tr"></iframe></div>
+      <div class="sahne" id="sahne"><iframe id="site" title="Pasaport.io test sitesi" src="https://pasaport-test.vercel.app/?lang=tr"></iframe></div>
       <p class="not">Bu test sitesidir, ödeme alınmaz. Pencere boş görünürse "Yeni sekmede aç" düğmesini kullanın. Açık/koyu tema telefonunuzun ayarına göre değişir.</p>
     </div>
   </section>
@@ -100,7 +100,8 @@ select{width:100%}
 (function(){
   var TEST='https://pasaport-test.vercel.app', VERI='https://pasaport-takip.vercel.app/gorevler.json';
   var yol='', dil='tr', site=document.getElementById('site'), yeni=document.getElementById('yeni');
-  function adres(){return TEST+'/'+dil+yol;}
+  var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/en/guides'};
+  function adres(){var q='?lang='+dil;if(yol==='kur')return TEST+'/esim/kurulum'+q+'&platform=ios&method=qr';if(yol==='hes')return TEST+'/account'+q;if(yol==='reh')return TEST+HUB[dil];return TEST+'/'+q;}
   function git(){var u=adres();site.src=u;yeni.href=u;}
   function bas(sel,el){document.querySelectorAll(sel).forEach(function(b){b.setAttribute('aria-pressed',b===el?'true':'false')});}
   document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){bas('[data-g]',b);document.getElementById('sahne').classList.toggle('masa',b.dataset.g==='masa');});});
