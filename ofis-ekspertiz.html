@@ -178,6 +178,5 @@ td a{color:var(--mavi);font-weight:700}
   sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
   sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
 })();
-</script>
-<script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</script></body>
 </html>

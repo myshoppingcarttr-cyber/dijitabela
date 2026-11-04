@@ -57,5 +57,4 @@ function ciz(v){const ay=v.ayar||{};if(ay.renk)document.documentElement.style.se
  requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll(".bar i").forEach(e=>e.style.width=e.dataset.w+"%"),60));}
 $("#ay").onchange=yukle;
 if(!/^[0-9a-f-]{36}$/.test(TOKEN)){$("#gecersiz").hidden=false;$("#baslik").textContent="Şube ligi";}else{yukle();setInterval(yukle,TV?60000:300000);}
-</script>
-<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
+</script></body></html>

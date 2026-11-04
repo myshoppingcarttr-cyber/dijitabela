@@ -8,6 +8,8 @@
      data-renk  : desen rengi (varsayılan: açık zeminde koyu, koyu zeminde açık; otomatik)
    Satılan müşteri sitelerinde desen kaldırılır, yalnız altbilgi bağlantısı kalır (window.DJ_FILIGRAN = false). */
 (function () {
+  /* 4 Kas 2026 Patron: dijitabela.com'un kendi sayfalarında filigran YOK. Yalnız /ornek/ prototipleri ve /teklif kişiye özel teklif sayfası korunur. */
+  if (/^(www\.)?dijitabela\.com(\.tr)?$/i.test(location.hostname) && !/^\/(ornek\/|teklif(\.html)?$)/i.test(location.pathname)) return;
   if (window.DJ_FILIGRAN === false || window.__djFiligran) return; window.__djFiligran = true;
   var s = document.currentScript || {}, ds = (s.dataset || {});
   var guc = parseFloat(ds.gucu || "0.045"), kredi = ds.kredi !== "0";

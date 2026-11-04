@@ -100,5 +100,4 @@ $("#hepsi").onclick=async()=>{const l=VERI.filter(o=>o.durum==="hazir");$("#heps
 (async()=>{if(!/^[0-9a-f-]{36}$/.test(TOKEN)){$("#gecersiz").hidden=false;$("#baslik").textContent="İçerik onayı";return;}
  try{const d=await rpc("onay_liste",{token:TOKEN});$("#baslik").textContent=d.ad;document.title=d.ad+" · İçerik Onayı";VERI=d.ogeler;$("#bilgi").hidden=false;ciz();}
  catch(e){$("#gecersiz").hidden=false;$("#baslik").textContent="İçerik onayı";}})();
-</script>
-<script src="/ornek/_dijitabela/filigran.js" defer></script></body></html>
+</script></body></html>
