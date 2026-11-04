@@ -274,9 +274,10 @@
 
   var SSS = [
     ["Satış nasıl gerçekleşiyor, ödeme sitede mi yapılıyor?", "Hayır. Site alıcı ile satıcıyı buluşturur; sepet ve ödeme yoktur. Alıcı stoğun tamamını ilan fiyatından satın alır ya da istediği miktar için teklif verir. Ödeme ve sevkiyat iki taraf arasında yapılır."],
-    ["Bireysel hesap gerçekten ücretsiz mi?", "Evet. Yılda 3 ilan hakkı vardır; teklif verebilir ve teklif alabilirsiniz. Her ilan 30 gün yayında kalır, 2 kez yenilenebilir (en fazla 90 gün). Daha fazlası için kurumsal üyeliğe geçilir."],
+    ["Bireysel hesap gerçekten ücretsiz mi?", "Evet. Yılda 3 ilan hakkı vardır; teklif verebilir, teklif alabilir ve alım talebi gönderebilirsiniz. Her ilan 30 gün yayında kalır, 2 kez yenilenebilir (en fazla 90 gün). Daha fazlası için kurumsal üyeliğe geçilir."],
     ["Kurumsal ilanların süresi nasıl işliyor?", "Her ilan 30 gün sonunda pasife alınır; isterseniz güncelleyip tekrar yayına alırsınız. Bir ilan en fazla 1 yıl yayında kalabilir, sonrasında yeni ilan girilir. Satılan ilan tekrar yayına alınamaz."],
-    ["Basic ve Gold arasındaki fark nedir?", "Basic'te 10 ilan hakkı, logo, üst banner ve 1 tanıtım resmi; Gold'da 25 ilan hakkı, logo, üst banner ve kayan slayt şeklinde 5 tanıtım resmi vardır."],
+    ["Basic ve Gold arasındaki fark nedir?", "Basic'te aynı anda 10 ilan yayında olabilir; logo, üst banner ve 1 tanıtım resmi vardır. Gold'da aynı anda 25 ilan yayında olabilir; logo, üst banner ve kayan slayt şeklinde 5 tanıtım resmi vardır."],
+    ["Kurumsal ilan hakkı yıllık mı?", "Hayır. 10 ve 25 ilan, aynı anda yayında tutabileceğiniz ilan sayısıdır. İlanı pasife aldığınızda, ilan satıldığında ya da 30 günü dolup pasife düştüğünde hakkınız geri açılır. Bireysel üyelikte ise yılda 3 ilan kuralı geçerlidir; bireysel ilanı kaldırmak hakkı geri açmaz."],
     ["Doğrulama neden gerekli?", "İlan verebilmek için telefon ve e-posta doğrulaması şarttır. Doğrulanan bilgiler profilinizde yeşil tik ile gösterilir; bu, alıcıların güvenini artırır."]
   ];
 

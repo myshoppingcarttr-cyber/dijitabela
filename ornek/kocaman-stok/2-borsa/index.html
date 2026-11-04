@@ -341,7 +341,7 @@ var seritEl=document.getElementById('serit'); if(!seritEl.innerHTML.trim()) seri
 
 function satir(p){
   var f=SP.firma(p.firma),k=SP.kategori(p.kat),sat=p.durum!=='aktif';
-  return '<div class="st'+(sat?' sat':'')+'"><div class="c-urun"><a class="st-urun" href="#/urun/'+p.id+'"><span class="st-img">'+SP.gorsel(p,'koyu')+(sat?'<span class="sp-satildi-bant">SATILDI</span>':'')+'</span><span style="min-width:0"><b>'+e(p.ad)+'</b><small>'+p.kod+' · '+p.barkod+'</small></span></a></div>'+
+  return '<div class="st'+(sat?' sat':'')+'"><div class="c-urun"><a class="st-urun" href="#/urun/'+p.id+'"><span class="st-img">'+SP.gorsel(p,'koyu')+(sat?'<span class="sp-satildi-bant">SATILDI</span>':'')+'</span><span style="min-width:0"><b>'+e(p.ad)+'</b><small>'+p.kod+' · '+(sat?p.barkod:'Stok '+SP.sayi(p.stok)+' '+e(p.birim))+'</small></span></a></div>'+
   '<div class="c-kat"><span class="kc"><i style="background:'+k.renk+'"></i>'+k.ad+'</span></div>'+
   '<div class="c-fir"><a class="fc" href="#/firma/'+f.id+'">'+SP.logo(f,22)+'<span>'+e(f.ad)+'</span>'+(SP.firmaOk(f)?SP.tikRozet(true):'')+'</a></div>'+
   '<div class="c-mik r num">'+SP.sayi(p.stok)+' <small>'+e(p.birim)+'</small></div>'+
