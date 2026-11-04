@@ -1,0 +1,15 @@
+{
+  "_not": "Ana sayfa 'Tabela konuşuyor' bölümü buradan beslenir. Yeni bölüm: yayında (YouTube/FB/IG) doğrulandıktan sonra listenin BAŞINA ekle, assets/yeni/video ve assets/yeni/img altına dosyaları koy. Yayınlanmamış bölüm eklenmez. İlk satırda video ve sure şart.",
+  "liste": [
+    { "no": 14, "ad": "Eksik belgeler", "kapak": "b14", "video": "bolum14.mp4", "sure": 28, "yayin": "2026-10-11", "youtube": "mqMQSnAbQ24" },
+    { "no": 13, "ad": "Beş ilan sitesi", "kapak": "b13", "yayin": "2026-10-10", "youtube": "tAgnngt6XNM" },
+    { "no": 12, "ad": "Kargom nerede?", "kapak": "b12", "yayin": "2026-10-10", "youtube": "qDpiFDPAu20" },
+    { "no": 11, "ad": "Gece teklif", "kapak": "b11", "yayin": "2026-10-10", "youtube": "e3_pMqgjG3U" },
+    { "no": 10, "ad": "Veresiye defteri", "kapak": "b10", "yayin": "2026-10-09", "youtube": "XywxPgIrXbg" },
+    { "no": 9, "ad": "Kapalı görünen lastikçi", "kapak": "b09", "youtube": "33FscuHJyys" },
+    { "no": 8, "ad": "Gece 2'de Almanca arama", "kapak": "b08", "youtube": "CS41pRQVVJU" },
+    { "no": 7, "ad": "Altı masa, tek garson", "kapak": "b07", "youtube": "-lqWsDi9Wc4" },
+    { "no": 6, "ad": "Kombici", "kapak": "b06", "youtube": "JjbjEPWV_2g" },
+    { "no": 5, "ad": "Nakliyat fiyatı", "kapak": "b05", "youtube": "Dzcm-7ENBYk" }
+  ]
+}

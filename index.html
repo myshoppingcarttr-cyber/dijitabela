@@ -864,14 +864,15 @@ dialog.film button{display:block;margin:0 0 8px auto;background:var(--amber);bor
       <h2>Esnafın gerçek dertleri, 30 saniyede.</h2>
       <p class="soluk">Her bölümde bir işletme sahibi, bir angarya ve duvardaki tabelanın çözümü. Bizi takip edin, yoruma yazın:</p>
       <div class="analiz">ANALİZ</div>
-      <button class="film-ac" id="film-ac" type="button"><i aria-hidden="true">▶</i>Son bölümü izleyin · 29 sn</button>
-      <p class="soluk" style="font-size:15px">İşletmenizin ücretsiz analizi DM'den gelir. Önce takip edin: takip etmeyen hesaplara DM ulaşmayabiliyor.</p>
+      <button class="film-ac" id="film-ac" type="button"><i aria-hidden="true">▶</i>Son bölümü izleyin · 28 sn</button>
+      <p class="soluk" id="film-ad" style="font-size:15px">Bölüm 14 · Eksik belgeler</p>
+      <p class="soluk" style="font-size:15px">Yorumunuzu görünce ücretsiz analizi size iletiriz. Önce hesabı takip edin: analiz takipçilere yapılır.</p>
     </div>
     <div class="sutunlar"><div class="sutun" id="sutun1"></div><div class="sutun" id="sutun2"></div></div>
   </div>
 </section>
 
-<dialog class="film" id="film" aria-label="Bölüm 12: Kargom nerede?"><button type="button" id="film-kapat">Kapat</button><video id="film-v" controls playsinline preload="none" poster="assets/yeni/img/b12.jpg" src="assets/yeni/video/bolum12.mp4"></video></dialog>
+<dialog class="film" id="film" aria-label="Bölüm 14: Eksik belgeler"><button type="button" id="film-kapat">Kapat</button><video id="film-v" controls playsinline preload="none" poster="assets/yeni/img/b14.jpg" src="assets/yeni/video/bolum14.mp4"></video></dialog>
 
 <span id="fiyatlar" class="capa"></span>
 <!-- 9 · Teklif -->
@@ -1217,8 +1218,17 @@ function puan(kul) {
 }
 
 /* ---------- 8 · Dizi ---------- */
-const BOLUM = [["b12", "Bölüm 12 · Kargom nerede?"], ["b11", "Bölüm 11 · Gece teklif"], ["b10", "Bölüm 10 · Veresiye defteri"], ["b09", "Bölüm 9 · Kapalı görünen lastikçi"], ["b08", "Bölüm 8 · Gece 2'de Almanca arama"], ["b07", "Bölüm 7 · Altı masa, tek garson"], ["b06", "Bölüm 6 · Kombici"], ["b05", "Bölüm 5 · Nakliyat fiyatı"], ["b04", "Bölüm 4 · Unutulan pilav"], ["b03", "Bölüm 3 · Boş koltuk"]];
-BOLUM.forEach(([b, a], i) => { const f = document.createElement("figure"); f.innerHTML = `<img src="assets/yeni/img/${b}.jpg" alt="${a} · Dijitabela" loading="lazy" width="360" height="640"><figcaption>${a}</figcaption>`; $(i % 2 ? "#sutun2" : "#sutun1").appendChild(f); });
+// Son bölüm tek kaynaktan: assets/yeni/bolumler.json (ilk satır = yayında doğrulanmış son bölüm). Aşağıdaki dizi yalnız JSON okunamazsa yedektir.
+const BOLUM = [["b14", "Bölüm 14 · Eksik belgeler"], ["b13", "Bölüm 13 · Beş ilan sitesi"], ["b12", "Bölüm 12 · Kargom nerede?"], ["b11", "Bölüm 11 · Gece teklif"], ["b10", "Bölüm 10 · Veresiye defteri"], ["b09", "Bölüm 9 · Kapalı görünen lastikçi"], ["b08", "Bölüm 8 · Gece 2'de Almanca arama"], ["b07", "Bölüm 7 · Altı masa, tek garson"], ["b06", "Bölüm 6 · Kombici"], ["b05", "Bölüm 5 · Nakliyat fiyatı"]];
+const bolumDiz = (liste) => { $("#sutun1").textContent = ""; $("#sutun2").textContent = ""; liste.forEach(([b, a], i) => { const f = document.createElement("figure"); f.innerHTML = `<img src="assets/yeni/img/${b}.jpg" alt="${a}" loading="lazy" width="360" height="640"><figcaption>${i ? "" : "Son bölüm · "}${a}</figcaption>`; $(i % 2 ? "#sutun2" : "#sutun1").appendChild(f); }); };
+bolumDiz(BOLUM);
+fetch("assets/yeni/bolumler.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).then((v) => {
+  const l = v && v.liste; if (!l || !l.length) return;
+  const s = l[0], d = $("#film"), fv = $("#film-v"), liste = l.slice(0, 10).map((x) => [x.kapak, `Bölüm ${x.no} · ${x.ad}`]);
+  if (JSON.stringify(liste) !== JSON.stringify(BOLUM)) bolumDiz(liste);
+  d.setAttribute("aria-label", `Bölüm ${s.no}: ${s.ad}`); $("#film-ad").textContent = liste[0][1]; $("#film-ac").lastChild.textContent = `Son bölümü izleyin · ${s.sure} sn`;
+  if (!fv.getAttribute("src").endsWith(s.video)) { fv.poster = `assets/yeni/img/${s.kapak}.jpg`; fv.src = `assets/yeni/video/${s.video}`; }
+}).catch(() => {});
 
 /* ---------- 9 · Teklif ---------- */
 const KALEM = [
