@@ -72,46 +72,145 @@
     var a = ' alt="' + esc(l(m.alt)) + '" width="' + m.w + '" height="' + m.h + '"' + (opt.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"') + (opt.cls ? ' class="' + opt.cls + '"' : '');
     if (m.data) return '<img src="' + m.data + '"' + a + '>';
     if (m.one) return '<img src="' + asset(ctx, 'img/' + m.base + '-420.webp') + '"' + a + '>';
-    return '<img src="' + asset(ctx, 'img/' + m.base + '-420.webp') + '" srcset="' + asset(ctx, 'img/' + m.base + '-420.webp') + ' 420w, ' + asset(ctx, 'img/' + m.base + '-760.webp') + ' 760w" sizes="' + (opt.sizes || '(max-width:640px) 60vw, 300px') + '"' + a + '>';
+    return '<img src="' + asset(ctx, 'img/' + m.base + '-420.webp') + '" srcset="' + asset(ctx, 'img/' + m.base + '-420.webp') + ' 420w, ' + asset(ctx, 'img/' + m.base + '-' + (m.big || 760) + '.webp') + ' ' + (m.big || 760) + 'w" sizes="' + (opt.sizes || '(max-width:640px) 60vw, 300px') + '"' + a + '>';
   }
 
-  /* ---------- Teknik çizim (SVG) ---------- */
-  var FILL = { white: '#ffffff', anth: '#3a3d44', wood: '#8d5a2b' }, GLASS = '#c5e3f3', INK = '#1d1430';
+  /* ---------- Teknik çizim (SVG): uygulamanın çizim kurallarıyla. Üçgenin tepesi menteşe tarafı, kol karşı tarafta. ---------- */
+  var FILL = { white: '#ffffff', anth: '#3b4045', wood: '#96683c' }, GLASS = '#bfe2f5', INK = 'var(--dw-ink,#20182f)', OPEN = 'var(--dw-open,#5a2a9c)', DIMF = ' font-family="Barlow Condensed,Arial Narrow,sans-serif"';
+  function line(a, b, c, d, st) { return '<line x1="' + a.toFixed(1) + '" y1="' + b.toFixed(1) + '" x2="' + c.toFixed(1) + '" y2="' + d.toFixed(1) + '"' + (st || ' stroke="' + INK + '"') + '/>'; }
+  function bar(x, y, w, h, t, fill) {
+    var r = '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="' + fill + '" stroke="' + INK + '" stroke-width="1.3"/>';
+    r += '<rect x="' + (x + t).toFixed(1) + '" y="' + (y + t).toFixed(1) + '" width="' + (w - 2 * t).toFixed(1) + '" height="' + (h - 2 * t).toFixed(1) + '" fill="none" stroke="' + INK + '" stroke-width=".9"/>';
+    var s = ' stroke="' + INK + '" stroke-width=".7"';
+    return r + line(x, y, x + t, y + t, s) + line(x + w, y, x + w - t, y + t, s) + line(x, y + h, x + t, y + h - t, s) + line(x + w, y + h, x + w - t, y + h - t, s);
+  }
+  function glass(x, y, w, h) { return '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + Math.max(0, w).toFixed(1) + '" height="' + Math.max(0, h).toFixed(1) + '" fill="' + GLASS + '" stroke="' + INK + '" stroke-width=".8"/>'; }
+  function sash(x, y, w, h, t, col, hinge, withHandle, door) {
+    var o = bar(x, y, w, h, t, col), ix = x + t, iy = y + t, iw = w - 2 * t, ih = h - 2 * t;
+    if (door) { var gh = ih * .54; o += glass(ix, iy, iw, gh) + '<rect x="' + ix.toFixed(1) + '" y="' + (iy + gh).toFixed(1) + '" width="' + iw.toFixed(1) + '" height="' + (ih - gh).toFixed(1) + '" fill="' + (col === FILL.white ? '#f1f2f3' : col) + '" stroke="' + INK + '" stroke-width=".8"/>'; for (var k = 1; k < 5; k++) o += line(ix + k * iw / 5, iy + gh, ix + k * iw / 5, iy + ih, ' stroke="' + INK + '" stroke-width=".4"'); }
+    else o += glass(ix, iy, iw, ih);
+    if (hinge) {
+      var apex = hinge === 'l' ? ix : ix + iw, far = hinge === 'l' ? ix + iw : ix, st = ' fill="none" stroke="' + OPEN + '" stroke-width="1" stroke-dasharray="5 3"';
+      o += '<path d="M' + far.toFixed(1) + ' ' + iy.toFixed(1) + ' L' + apex.toFixed(1) + ' ' + (iy + ih / 2).toFixed(1) + ' L' + far.toFixed(1) + ' ' + (iy + ih).toFixed(1) + '"' + st + '/>';
+      var hx = hinge === 'l' ? x + w - t * .72 : x + t * .28;
+      if (withHandle !== false) o += '<rect x="' + hx.toFixed(1) + '" y="' + (y + h / 2 - 15).toFixed(1) + '" width="' + (t * .44).toFixed(1) + '" height="30" rx="1.5" fill="#8d9499" stroke="' + INK + '" stroke-width=".6"/>';
+      var bx = hinge === 'l' ? x - 1.5 : x + w - 1.5; [.14, .86].forEach(function (f) { o += '<rect x="' + bx.toFixed(1) + '" y="' + (y + h * f - 7).toFixed(1) + '" width="3" height="14" fill="' + INK + '"/>'; });
+    }
+    return o;
+  }
+  function dimH(x1, x2, y, val, fs) {
+    var m = (x1 + x2) / 2, tw = String(val).length * fs * .52 + 8, st = ' stroke="' + INK + '" stroke-width=".9"';
+    return line(x1, y, m - tw / 2, y, st) + line(m + tw / 2, y, x2, y, st) + line(x1, y - 6, x1, y + 6, st) + line(x2, y - 6, x2, y + 6, st) + '<text x="' + m.toFixed(1) + '" y="' + (y + fs * .36).toFixed(1) + '" text-anchor="middle" font-size="' + fs + '" font-weight="600" fill="' + INK + '"' + DIMF + '>' + val + '</text>';
+  }
+  function dimV(y1, y2, x, val, fs) {
+    var m = (y1 + y2) / 2, tw = String(val).length * fs * .52 + 8, st = ' stroke="' + INK + '" stroke-width=".9"';
+    return line(x, y1, x, m - tw / 2, st) + line(x, m + tw / 2, x, y2, st) + line(x - 6, y1, x + 6, y1, st) + line(x - 6, y2, x + 6, y2, st) + '<text transform="translate(' + (x + fs * .36).toFixed(1) + ' ' + m.toFixed(1) + ') rotate(-90)" text-anchor="middle" font-size="' + fs + '" font-weight="600" fill="' + INK + '"' + DIMF + '>' + val + '</text>';
+  }
   R.win = function (c, opt) {
     opt = opt || {};
-    var t = c.type || 'cift', W = +c.w || 1500, H = +c.h || 1500, col = FILL[c.color] || FILL.white, m = opt.mono === false ? '' : ' font-family="JetBrains Mono,monospace"';
-    if (t === 'kesit') return '<svg viewBox="0 0 460 300" role="img" aria-hidden="true" class="draw"><rect x="60" y="30" width="46" height="240" fill="' + GLASS + '" stroke="' + INK + '" stroke-width="2"/><rect x="106" y="30" width="118" height="240" fill="#f6f4ef" stroke="' + INK + '" stroke-dasharray="4 5"/><rect x="224" y="30" width="46" height="240" fill="' + GLASS + '" stroke="' + INK + '" stroke-width="2"/><rect x="106" y="30" width="118" height="12" fill="' + INK + '"/><rect x="106" y="258" width="118" height="12" fill="' + INK + '"/><g fill="' + INK + '" font-size="13"' + m + '><text x="83" y="20" text-anchor="middle">4</text><text x="165" y="20" text-anchor="middle">16</text><text x="247" y="20" text-anchor="middle">4</text><text x="300" y="155">mm</text></g></svg>';
-    if (t === 'tablo') { var rows = '', i; for (i = 0; i < 6; i++) rows += '<line x1="40" x2="420" y1="' + (60 + i * 36) + '" y2="' + (60 + i * 36) + '" stroke="#b9b3a6"/><rect x="48" y="' + (70 + i * 36) + '" width="' + (150 - i * 12) + '" height="10" fill="' + INK + '"/><rect x="340" y="' + (70 + i * 36) + '" width="66" height="10" fill="#5a2a9c"/>'; return '<svg viewBox="0 0 460 300" role="img" aria-hidden="true" class="draw">' + rows + '<line x1="40" x2="420" y1="276" y2="276" stroke="' + INK + '" stroke-width="3"/></svg>'; }
-    var boxW = opt.small ? 300 : 340, boxH = opt.small ? 250 : 300, s = Math.min(boxW / W, boxH / H), w = W * s, h = H * s, x = 40 + (boxW - w) / 2, y = 56, f = Math.max(7, 11 * (opt.small ? .8 : 1)), o = '';
-    var vw = 40 + boxW + 76, vh = y + h + 20;
-    function sash(sx, sy, sw, sh, dir, door) {
-      var r = '<rect x="' + sx + '" y="' + sy + '" width="' + sw + '" height="' + sh + '" fill="' + col + '" stroke="' + INK + '" stroke-width="1.4"/>';
-      var i = f * .75, gh = door ? (sh - 2 * i) * .52 : sh - 2 * i;
-      r += '<rect x="' + (sx + i) + '" y="' + (sy + i) + '" width="' + (sw - 2 * i) + '" height="' + gh + '" fill="' + GLASS + '" stroke="' + INK + '"/>';
-      if (door) { var py = sy + i + gh + 5, ph = sh - 2 * i - gh - 5; r += '<rect x="' + (sx + i) + '" y="' + py + '" width="' + (sw - 2 * i) + '" height="' + ph + '" fill="#efece4" stroke="' + INK + '"/>'; for (var k = 1; k < 5; k++) r += '<line x1="' + (sx + i + k * (sw - 2 * i) / 5) + '" x2="' + (sx + i + k * (sw - 2 * i) / 5) + '" y1="' + py + '" y2="' + (py + ph) + '" stroke="#b9b3a6"/>'; }
-      if (dir) { var ax = dir === 'l' ? sx + sw - i : sx + i, bx = dir === 'l' ? sx + i : sx + sw - i; r += '<path d="M' + bx + ' ' + (sy + i) + ' L' + ax + ' ' + (sy + (door ? i + gh / 2 + (sh - gh) / 2 - i : sh / 2)) + ' L' + bx + ' ' + (sy + sh - i) + '" fill="none" stroke="#5a2a9c" stroke-width="1.2"/>'; var hx = dir === 'l' ? sx + sw - i - 2 : sx + i - 2; r += '<rect x="' + (hx - 1) + '" y="' + (sy + sh / 2 - 14) + '" width="5" height="28" fill="' + INK + '"/>'; }
-      return r;
-    }
+    var t = c.type || 'cift', W = Math.max(+c.w || 1500, 300), H = Math.max(+c.h || 1500, 300), col = FILL[c.color] || FILL.white, boxW = opt.small ? 260 : 340, boxH = opt.small ? 200 : 290, s = Math.min(boxW / W, boxH / H), w = W * s, h = H * s, fs = opt.small ? 15 : 16, multi = t === 'cift' || t === 'surme', top = multi ? 56 : 32, x = 16 + (boxW - w) / 2, y = top + 2, ft = Math.max(5, 62 * s), st = Math.max(4, 74 * s), o = '';
     if (t === 'kemer') {
-      var rad = w / 2; o += '<path d="M' + x + ' ' + (y + h) + ' V' + (y + rad) + ' A' + rad + ' ' + rad + ' 0 0 1 ' + (x + w) + ' ' + (y + rad) + ' V' + (y + h) + ' Z" fill="' + col + '" stroke="' + INK + '" stroke-width="2"/>';
-      o += '<path d="M' + (x + f) + ' ' + (y + h - f) + ' V' + (y + rad) + ' A' + (rad - f) + ' ' + (rad - f) + ' 0 0 1 ' + (x + w - f) + ' ' + (y + rad) + ' V' + (y + h - f) + ' Z" fill="' + GLASS + '" stroke="' + INK + '"/>';
-      o += '<line x1="' + x + '" x2="' + (x + w) + '" y1="' + (y + rad) + '" y2="' + (y + rad) + '" stroke="' + INK + '" stroke-width="3"/>';
+      var rad = w / 2;
+      o += '<path d="M' + x + ' ' + (y + h) + ' V' + (y + rad) + ' A' + rad + ' ' + rad + ' 0 0 1 ' + (x + w) + ' ' + (y + rad) + ' V' + (y + h) + ' Z" fill="' + col + '" stroke="' + INK + '" stroke-width="1.4"/>';
+      o += '<path d="M' + (x + ft) + ' ' + (y + h - ft) + ' V' + (y + rad) + ' A' + (rad - ft) + ' ' + (rad - ft) + ' 0 0 1 ' + (x + w - ft) + ' ' + (y + rad) + ' V' + (y + h - ft) + ' Z" fill="' + GLASS + '" stroke="' + INK + '"/>' + line(x, y + rad, x + w, y + rad, ' stroke="' + INK + '" stroke-width="2.4"');
     } else {
-      o += '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + col + '" stroke="' + INK + '" stroke-width="2"/>';
-      var ix = x + f, iy = y + f, iw = w - 2 * f, ih = h - 2 * f;
-      if (t === 'sabit') o += '<rect x="' + ix + '" y="' + iy + '" width="' + iw + '" height="' + ih + '" fill="' + GLASS + '" stroke="' + INK + '"/>';
-      if (t === 'tek') o += sash(ix, iy, iw, ih, 'l');
-      if (t === 'kapi') o += sash(ix, iy, iw, ih, 'l', true);
-      if (t === 'cift') { o += sash(ix, iy, iw / 2 - 2, ih, 'r') + sash(ix + iw / 2 + 2, iy, iw / 2 - 2, ih, 'l'); }
+      o += bar(x, y, w, h, ft, col);
+      var ix = x + ft, iy = y + ft, iw = w - 2 * ft, ih = h - 2 * ft;
+      if (t === 'sabit') o += glass(ix, iy, iw, ih);
+      if (t === 'tek') o += sash(ix, iy, iw, ih, st, col, 'l');
+      if (t === 'kapi') o += sash(ix, iy, iw, ih, st, col, 'l', true, true);
+      if (t === 'cift') {
+        var mt = Math.max(4, 60 * s), sw = (iw - mt) / 2;
+        o += sash(ix, iy, sw, ih, st, col, 'l', false) + sash(ix + sw + mt, iy, sw, ih, st, col, 'r') + '<rect x="' + (ix + sw).toFixed(1) + '" y="' + iy.toFixed(1) + '" width="' + mt.toFixed(1) + '" height="' + ih.toFixed(1) + '" fill="' + col + '" stroke="' + INK + '" stroke-width=".9"/>';
+      }
       if (t === 'surme') {
-        o += sash(ix, iy, iw / 2 + 5, ih) + sash(ix + iw / 2 - 5, iy, iw / 2 + 5, ih);
-        var ay = iy + ih / 2; o += '<path d="M' + (ix + iw * .15) + ' ' + ay + ' h' + (iw * .2) + ' m-9 -6 l9 6 l-9 6" fill="none" stroke="#5a2a9c" stroke-width="1.6"/><path d="M' + (ix + iw * .85) + ' ' + ay + ' h-' + (iw * .2) + ' m9 -6 l-9 6 l9 6" fill="none" stroke="#5a2a9c" stroke-width="1.6"/>';
+        var ov = Math.max(4, 40 * s), sl = (iw + ov) / 2;
+        o += sash(ix, iy, sl, ih, st, col) + sash(ix + sl - ov, iy, sl, ih, st, col);
+        var ay = iy + ih / 2, as = ' fill="none" stroke="' + OPEN + '" stroke-width="1.4"';
+        o += '<path d="M' + (ix + iw * .14) + ' ' + ay + ' h' + (iw * .2) + ' m-8 -5 l8 5 l-8 5"' + as + '/><path d="M' + (ix + iw * .86) + ' ' + ay + ' h-' + (iw * .2) + ' m8 -5 l-8 5 l8 5"' + as + '/>';
       }
     }
-    var dx = x + w + 18, tk = 'stroke="' + INK + '" stroke-width="1"';
-    o += '<g ' + tk + '><line x1="' + x + '" x2="' + (x + w) + '" y1="24" y2="24"/><line x1="' + x + '" x2="' + x + '" y1="18" y2="30"/><line x1="' + (x + w) + '" x2="' + (x + w) + '" y1="18" y2="30"/><line x1="' + dx + '" x2="' + dx + '" y1="' + y + '" y2="' + (y + h) + '"/><line x1="' + (dx - 6) + '" x2="' + (dx + 6) + '" y1="' + y + '" y2="' + y + '"/><line x1="' + (dx - 6) + '" x2="' + (dx + 6) + '" y1="' + (y + h) + '" y2="' + (y + h) + '"/></g>';
-    o += '<g fill="' + INK + '" font-size="13"' + m + '><rect x="' + (x + w / 2 - 24) + '" y="14" width="48" height="20" fill="var(--dw-bg,#fff)" stroke="none"/><text x="' + (x + w / 2) + '" y="29" text-anchor="middle">' + W + '</text><text x="' + (dx + 11) + '" y="' + (y + h / 2 + 4) + '">' + H + '</text></g>';
-    return '<svg viewBox="0 0 ' + vw + ' ' + vh + '" class="draw" role="img" aria-label="' + esc(opt.label || (W + ' x ' + H + ' mm')) + '">' + o + '</svg>';
+    if (multi) o += dimH(x, x + w / 2, top - 16, Math.round(W / 2), fs - 1) + dimH(x + w / 2, x + w, top - 16, W - Math.round(W / 2), fs - 1) + dimH(x, x + w, top - 38, W, fs);
+    else o += dimH(x, x + w, top - 16, W, fs);
+    o += dimV(y, y + h, x + w + 18, H, fs);
+    return '<svg viewBox="0 0 ' + (boxW + 52) + ' ' + (y + h + 8).toFixed(1) + '" class="draw" role="img" aria-label="' + esc(opt.label || (W + ' x ' + H + ' mm')) + '">' + o + '</svg>';
+  };
+  /* Blog görselleri: her yazıya kendi konusunda ayrı teknik çizim */
+  function txt(x, y, s, o) { o = o || {}; return '<text x="' + x + '" y="' + y + '" font-size="' + (o.fs || 16) + '" font-weight="' + (o.w || 500) + '" text-anchor="' + (o.a || 'middle') + '" fill="' + (o.c || INK) + '"' + DIMF + '>' + esc(s) + '</text>'; }
+  function svg640(inner, label, h) { return '<svg viewBox="0 0 640 ' + (h || 340) + '" class="draw fig" role="img" aria-label="' + esc(label || '') + '">' + inner + '</svg>'; }
+  function inner(s) { return s.replace(/^<svg[^>]*>|<\/svg>$/g, ''); }
+  R.fig = function (kind, label) {
+    var o = '', T = function (t, e, d) { return l({ tr: t, en: e, de: d }); }, i;
+    if (kind === 'kesit') {
+      [[60, 3, 40], [70, 5, 225], [80, 6, 430]].forEach(function (a) {
+        var d = a[0], ch = a[1], x = a[2], w = d * 2, y = 70, hh = 190, cw = w / ch;
+        o += '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + hh + '" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/>';
+        for (var n = 1; n < ch; n++) o += line(x + cw * n, y + (n % 2 ? 0 : 26), x + cw * n, y + hh, ' stroke="' + INK + '" stroke-width="1.5"');
+        o += line(x, y + 26, x + w, y + 26, ' stroke="' + INK + '" stroke-width="1.5"') + '<rect x="' + (x + w * .28) + '" y="' + (y - 34) + '" width="' + (w * .44) + '" height="34" fill="' + GLASS + '" stroke="' + INK + '"/>';
+        o += dimH(x, x + w, y + hh + 26, d + ' mm', 16) + txt(x + w / 2, y + hh + 58, T('Örnek ', 'e.g. ', 'z. B. ') + ch + ' ' + T('odacık', 'chambers', 'Kammern'), { fs: 15 });
+      });
+      return svg640(o, label);
+    }
+    if (kind === 'alu') {
+      var prof = function (x, br) {
+        var y = 70, h = 190, w = 210, a = '';
+        if (br) { a += '<rect x="' + x + '" y="' + y + '" width="86" height="' + h + '" fill="#d7dbde" stroke="' + INK + '" stroke-width="2"/><rect x="' + (x + 124) + '" y="' + y + '" width="86" height="' + h + '" fill="#d7dbde" stroke="' + INK + '" stroke-width="2"/>'; [40, 130].forEach(function (d) { a += '<rect x="' + (x + 86) + '" y="' + (y + d) + '" width="38" height="20" fill="#5a2a9c" stroke="' + INK + '"/>'; }); a += line(x + 105, y - 22, x + 105, y + 40, ' stroke="#5a2a9c" stroke-dasharray="4 3"') + txt(x + 105, y - 30, T('Poliamid', 'Polyamide', 'Polyamid'), { c: '#5a2a9c', w: 600 }); }
+        else { a += '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="#d7dbde" stroke="' + INK + '" stroke-width="2"/>' + line(x + 70, y, x + 70, y + h) + line(x + 140, y, x + 140, y + h); }
+        return a + txt(x + 105, y + h + 34, br ? T('Isı yalıtımlı', 'Thermally broken', 'Thermisch getrennt') : T('Yalıtımsız', 'Non-insulated', 'Ungedämmt'), { fs: 19, w: 600 });
+      };
+      return svg640(prof(60, false) + prof(370, true), label);
+    }
+    if (kind === 'acilim') {
+      [['sabit', T('Sabit', 'Fixed', 'Fest')], ['ac', T('Açılır', 'Turn', 'Dreh')], ['vas', T('Vasistas', 'Tilt', 'Kipp')], ['sur', T('Sürme', 'Sliding', 'Schiebe')]].forEach(function (a, n) {
+        var x = 22 + n * 152, y = 50, w = 130, h = 200, st = ' fill="none" stroke="' + OPEN + '" stroke-width="1.6" stroke-dasharray="6 4"';
+        o += bar(x, y, w, h, 9, '#fff') + glass(x + 9, y + 9, w - 18, h - 18);
+        if (a[0] === 'ac') o += '<path d="M' + (x + w - 9) + ' ' + (y + 9) + ' L' + (x + 9) + ' ' + (y + h / 2) + ' L' + (x + w - 9) + ' ' + (y + h - 9) + '"' + st + '/>';
+        if (a[0] === 'vas') o += '<path d="M' + (x + 9) + ' ' + (y + 9) + ' L' + (x + w / 2) + ' ' + (y + h - 9) + ' L' + (x + w - 9) + ' ' + (y + 9) + '"' + st + '/>';
+        if (a[0] === 'sur') o += '<path d="M' + (x + 30) + ' ' + (y + h / 2) + ' h70 m-10 -7 l10 7 l-10 7" fill="none" stroke="' + OPEN + '" stroke-width="2"/>';
+        o += txt(x + w / 2, y + h + 34, a[1], { fs: 19, w: 600 });
+      });
+      return svg640(o, label);
+    }
+    if (kind === 'metraj') {
+      var rows = [[T('Kasa', 'Frame', 'Rahmen'), '2 × (1,5 + 1,5)', '6,00 m'], [T('Kanat', 'Sash', 'Flügel'), '2 × 2 × (0,75 + 1,5)', '9,00 m'], [T('Orta kayıt', 'Mullion', 'Pfosten'), '1,5 − 0,12', '1,38 m'], [T('Çift cam', 'Double glass', 'Doppelglas'), '2 × 0,60 × 1,35', '1,62 m²'], [T('Çift açılım', 'Double opening', 'Doppelöffnung'), '', '1']];
+      o += '<g transform="translate(0 16) scale(.82)">' + inner(R.win({ type: 'cift', w: 1500, h: 1500 }, {})) + '</g>';
+      rows.forEach(function (r, n) { var y = 70 + n * 46; o += line(345, y + 14, 630, y + 14, ' stroke="' + INK + '" stroke-width=".6"') + txt(345, y, r[0], { a: 'start', fs: 18, w: 600 }) + txt(630, y, r[2], { a: 'end', fs: 18, w: 600 }) + (r[1] ? txt(510, y, r[1], { fs: 14 }) : ''); });
+      return svg640(o, label);
+    }
+    if (kind === 'marj') {
+      var X = 40, sc = .42, Y = 50;
+      o += '<rect x="' + X + '" y="' + Y + '" width="' + 1000 * sc + '" height="48" fill="#d9d4e6" stroke="' + INK + '"/><rect x="' + (X + 1000 * sc) + '" y="' + Y + '" width="' + 200 * sc + '" height="48" fill="#5a2a9c" stroke="' + INK + '"/>';
+      o += txt(X + 500 * sc, Y + 31, T('Maliyet 1.000', 'Cost 1,000', 'Kosten 1.000'), { fs: 20, w: 600 }) + txt(X + 1100 * sc, Y + 31, '200', { fs: 20, w: 600, c: '#fff' });
+      o += dimH(X, X + 1200 * sc, Y + 74, T('Satış 1.200', 'Sale 1,200', 'Verkauf 1.200'), 17);
+      o += txt(X, Y + 130, T('Kâr oranı', 'Markup', 'Aufschlag') + ': 200 / 1.000 = %20', { a: 'start', fs: 20, w: 600 }) + txt(X, Y + 164, T('Kâr marjı', 'Margin', 'Marge') + ': 200 / 1.200 = %16,7', { a: 'start', fs: 20, w: 600 }) + txt(X, Y + 198, T('%10 indirim = 120. Kalan kâr 80.', '10% discount = 120. Profit left: 80.', '10 % Rabatt = 120. Es bleiben 80 Gewinn.'), { a: 'start', fs: 20, w: 600, c: '#a32121' });
+      return svg640(o, label, 270);
+    }
+    if (kind === 'yazilim') {
+      o += '<rect x="70" y="30" width="130" height="250" rx="16" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/><rect x="82" y="46" width="106" height="22" fill="#5a2a9c"/><g transform="translate(82 76) scale(.27)">' + inner(R.win({ type: 'cift', w: 1500, h: 1500 }, {})) + '</g>';
+      for (i = 0; i < 4; i++) o += line(84, 208 + i * 14, 186, 208 + i * 14, ' stroke="' + INK + '" stroke-width=".8"');
+      o += txt(135, 312, T('Sahada çizim ve teklif', 'Drawing and quote on site', 'Zeichnung und Angebot vor Ort'), { fs: 17, w: 600 });
+      o += '<rect x="300" y="42" width="300" height="186" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/>' + line(450, 228, 450, 262, ' stroke="' + INK + '" stroke-width="3"') + line(400, 262, 500, 262, ' stroke="' + INK + '" stroke-width="3"');
+      [[.72, .22], [.5, .44], [.86, .1], [.62, .3]].forEach(function (b, n) { var y = 62 + n * 38; o += '<rect x="318" y="' + y + '" width="' + 264 * b[0] + '" height="24" fill="#d7dbde" stroke="' + INK + '"/><rect x="' + (318 + 264 * b[0]) + '" y="' + y + '" width="' + 264 * b[1] + '" height="24" fill="#bfa8e2" stroke="' + INK + '"/>'; });
+      o += txt(450, 312, T('Atölyede kesim ve üretim planı', 'Cutting and production planning', 'Zuschnitt und Produktionsplanung'), { fs: 17, w: 600 });
+      return svg640(o, label);
+    }
+    if (kind === 'olcu') {
+      var dx = 170, dy = 60, dw = 300, dh = 230, g = ' stroke="#5a2a9c" stroke-width="1.6"';
+      o += '<path d="M' + (dx - 70) + ' ' + (dy - 40) + ' h' + (dw + 140) + ' v' + (dh + 74) + ' h-' + (dw + 140) + ' Z" fill="#e6e6e3"/><rect x="' + dx + '" y="' + dy + '" width="' + dw + '" height="' + dh + '" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/>';
+      [.12, .5, .88].forEach(function (f, n) { var y = dy + dh * f; o += line(dx, y, dx + dw, y, g) + txt(dx + 20, y - 5, T('G', 'W', 'B') + (n + 1), { fs: 16, w: 600, c: '#5a2a9c' }); });
+      [.12, .5, .88].forEach(function (f, n) { var x = dx + dw * f; o += line(x, dy, x, dy + dh, ' stroke="#17603a" stroke-width="1.6"') + txt(x + 14, dy + 18, T('Y', 'H', 'H') + (n + 1), { fs: 16, w: 600, c: '#17603a' }); });
+      o += line(dx, dy, dx + dw, dy + dh, ' stroke="' + INK + '" stroke-dasharray="7 5"') + line(dx + dw, dy, dx, dy + dh, ' stroke="' + INK + '" stroke-dasharray="7 5"');
+      o += txt(630, 120, T('En küçük', 'Smallest', 'Kleinster'), { a: 'end', fs: 16, w: 600 }) + txt(630, 142, T('ölçü esas', 'value counts', 'Wert zählt'), { a: 'end', fs: 16, w: 600 }) + txt(10, 200, T('Köşegen', 'Diagonal', 'Diagonal-'), { a: 'start', fs: 16, w: 600 }) + txt(10, 222, T('farkı', 'difference', 'differenz'), { a: 'start', fs: 16, w: 600 });
+      return svg640(o, label);
+    }
+    return '';
+  };
+  var TOOLI = {
+    sabit: '<rect x="4" y="3" width="24" height="26" fill="none" stroke="currentColor" stroke-width="2"/>',
+    tek: '<rect x="4" y="3" width="24" height="26" fill="none" stroke="currentColor" stroke-width="2"/><path d="M28 3 L4 16 L28 29" fill="none" stroke="currentColor" stroke-width="1.4"/>',
+    cift: '<rect x="2" y="3" width="28" height="26" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 3v26" stroke="currentColor" stroke-width="2"/><path d="M16 3 L2 16 L16 29M16 3 L30 16 L16 29" fill="none" stroke="currentColor" stroke-width="1.2"/>',
+    surme: '<rect x="2" y="6" width="28" height="20" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 16h9m-3-3l3 3-3 3M26 16h-9m3-3l-3 3 3 3" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+    kapi: '<rect x="8" y="2" width="16" height="28" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 17h16" stroke="currentColor" stroke-width="1.4"/><path d="M20 12v4" stroke="currentColor" stroke-width="2.4"/>'
   };
 
   /* ---------- Hesap ---------- */
@@ -129,38 +228,57 @@
     add('lGlass', Math.max(0, gl) / 1e6, 'm²', +p.glass);
     var pct = c.color === 'anth' ? +p.anth : c.color === 'wood' ? +p.wood : 0;
     if (pct) { var prof = it.filter(function (x) { return x.unit === 'm'; }).reduce(function (a, x) { return a + x.price; }, 0); it.push({ k: 'lColour', qty: pct, unit: '%', price: prof * pct / 100 }); }
-    var net = it.reduce(function (a, x) { return a + x.price; }, 0) * q;
+    it.forEach(function (x) { if (x.unit !== '%') x.qty *= q; x.price *= q; });
+    var net = it.reduce(function (a, x) { return a + x.price; }, 0);
     var profit = net * (+p.profit || 0) / 100, sale = net + profit, tax = sale * (+p.vat || 0) / 100;
     return { items: it, net: net, profit: profit, sale: sale, tax: tax, gross: sale + tax, margin: sale ? profit / sale : 0, qty: q };
   };
+  /* Birden çok poz: aynı kalemler toplanır */
+  R.calcAll = function (list, p) {
+    var map = {}, order = [];
+    list.forEach(function (c) { R.calc(c, p).items.forEach(function (i) { if (i.unit === '%') { if (!map.lColour) { map.lColour = { k: 'lColour', qty: 0, unit: 'tut', price: 0 }; order.push('lColour'); } map.lColour.price += i.price; return; } if (!map[i.k]) { map[i.k] = { k: i.k, qty: 0, unit: i.unit, price: 0 }; order.push(i.k); } map[i.k].qty += i.qty; map[i.k].price += i.price; }); });
+    var it = order.map(function (k) { return map[k]; }), net = it.reduce(function (a, x) { return a + x.price; }, 0), profit = net * (+p.profit || 0) / 100, sale = net + profit, tax = sale * (+p.vat || 0) / 100;
+    return { items: it, net: net, profit: profit, sale: sale, tax: tax, gross: sale + tax, qty: 1 };
+  };
+  R.dateL = function (d) { try { return new Date(d + 'T12:00:00').toLocaleDateString(cur.lang === 'de' ? 'de-DE' : cur.lang === 'tr' ? 'tr-TR' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return d; } };
   var num = R.num = function (n, d) { try { return Number(n).toLocaleString(cur.lang === 'de' ? 'de-DE' : cur.lang === 'tr' ? 'tr-TR' : 'en-GB', { minimumFractionDigits: d == null ? 2 : d, maximumFractionDigits: d == null ? 2 : d }); } catch (e) { return Number(n).toFixed(d == null ? 2 : d); } };
   R.money = function (n, c) { return num(n) + ' ' + c; };
   R.setLang = function (c) { cur.lang = c; };
-  R.qtable = function (S, c, p) {
-    var r = R.calc(c, p), u = S.ui, h = '<table class="tbl qt"><thead><tr><th>' + l(u.lItem) + '</th><th class="r">' + l(u.lQty) + '</th><th class="r">' + l(u.lUnit) + '</th><th class="r">' + l(u.lPrice) + '</th></tr></thead><tbody>';
-    r.items.forEach(function (i) { h += '<tr><td>' + l(u[i.k]) + '</td><td class="r m">' + num(i.qty, i.unit === 'pcs' || i.unit === '%' ? 0 : 2) + '</td><td class="r m">' + (i.unit === 'pcs' ? l(u.pcs) : i.unit) + '</td><td class="r m">' + num(i.price) + '</td></tr>'; });
-    h += '</tbody><tfoot><tr><th colspan="3">' + l(u.net) + (r.qty > 1 ? ' × ' + r.qty : '') + '</th><td class="r m">' + R.money(r.net, p.cur) + '</td></tr><tr><th colspan="3">' + l(u.profit) + ' (%' + num(p.profit, 0) + ')</th><td class="r m">' + R.money(r.profit, p.cur) + '</td></tr><tr><th colspan="3">' + l(u.salePrice) + '</th><td class="r m">' + R.money(r.sale, p.cur) + '</td></tr><tr><th colspan="3">' + l(u.tax) + ' (%' + num(p.vat, 0) + ')</th><td class="r m">' + R.money(r.tax, p.cur) + '</td></tr><tr class="grand"><th colspan="3">' + l(u.gross) + '</th><td class="r m" data-gross>' + R.money(r.gross, p.cur) + '</td></tr><tr><th colspan="3">' + l(u.margin) + '</th><td class="r m">%' + num(r.margin * 100, 1) + '</td></tr></tfoot></table>';
-    return h;
+  R.qtable = function (S, list, p, hide) {
+    list = Array.isArray(list) ? list : [list];
+    var r = R.calcAll(list, p), u = S.ui, h = '<table class="tbl qt"><thead><tr><th>' + l(u.lItem) + '</th><th class="r">' + l(u.lQty) + '</th><th class="r">' + l(u.lUnit) + '</th>' + (hide ? '' : '<th class="r">' + l(u.lPrice) + '</th>') + '</tr></thead><tbody>';
+    r.items.forEach(function (i) { h += '<tr><td>' + l(u[i.k]) + '</td><td class="r m">' + (i.unit === 'tut' ? '' : num(i.qty, i.unit === 'pcs' ? 0 : 2)) + '</td><td class="r m">' + (i.unit === 'pcs' ? l(u.pcs) : i.unit === 'tut' ? '' : i.unit) + '</td>' + (hide ? '' : '<td class="r m">' + num(i.price) + '</td>') + '</tr>'; });
+    h += '</tbody>';
+    if (!hide) h += '<tfoot><tr><th colspan="3">' + l(u.net) + '</th><td class="r m">' + R.money(r.net, p.cur) + '</td></tr><tr><th colspan="3">' + l(u.profit) + ' (%' + num(p.profit, 0) + ')</th><td class="r m">' + R.money(r.profit, p.cur) + '</td></tr><tr><th colspan="3">' + l(u.salePrice) + '</th><td class="r m">' + R.money(r.sale, p.cur) + '</td></tr><tr><th colspan="3">' + l(u.tax) + ' (%' + num(p.vat, 0) + ')</th><td class="r m">' + R.money(r.tax, p.cur) + '</td></tr><tr class="grand"><th colspan="3">' + l(u.gross) + '</th><td class="r m" data-gross>' + R.money(r.gross, p.cur) + '</td></tr></tfoot>';
+    return h + '</table>';
   };
   var TYPES = [['sabit', 'tSabit'], ['tek', 'tTek'], ['cift', 'tCift'], ['surme', 'tSurme'], ['kapi', 'tKapi']], COLORS = [['white', 'cWhite'], ['anth', 'cAnth'], ['wood', 'cWood']];
   function field(lbl, inner, cls) { return '<label class="fld ' + (cls || '') + '"><span>' + esc(lbl) + '</span>' + inner + '</label>'; }
+  var rid = 0;
   function quoteControls(S, cfg) {
-    var u = S.ui, seg = '<fieldset class="seg"><legend>' + l(u.opening) + '</legend>' + TYPES.map(function (t) { return '<label><input type="radio" name="q-type" value="' + t[0] + '"' + (cfg.type === t[0] ? ' checked' : '') + ' data-q="type"><span>' + l(u[t[1]]) + '</span></label>'; }).join('') + '</fieldset>';
+    var u = S.ui, nm = 'q-type-' + (++rid);
+    var seg = '<fieldset class="tools-b"><legend class="sr">' + l(u.opening) + '</legend>' + TYPES.map(function (t) { return '<label><input type="radio" name="' + nm + '" value="' + t[0] + '"' + (cfg.type === t[0] ? ' checked' : '') + ' data-q="type"><span><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">' + TOOLI[t[0]] + '</svg><em>' + l(u[t[1]]) + '</em></span></label>'; }).join('') + '</fieldset>';
     return seg + '<div class="grid3">' + field(l(u.width), '<input type="number" inputmode="numeric" min="300" max="6000" step="10" value="' + cfg.w + '" data-q="w">') + field(l(u.height), '<input type="number" inputmode="numeric" min="300" max="4000" step="10" value="' + cfg.h + '" data-q="h">') +
       field(l(u.colour), '<select data-q="color">' + COLORS.map(function (t) { return '<option value="' + t[0] + '"' + (cfg.color === t[0] ? ' selected' : '') + '>' + l(u[t[1]]) + '</option>'; }).join('') + '</select>') + '</div>';
   }
+  var APPBAR = '<div class="ab" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2"/></svg><b>1</b><i></i><svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke="currentColor" stroke-width="2"/></svg><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 7L4 12l5 5M4 12h11a5 5 0 015 5" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 7l5 5-5 5M20 12H9a5 5 0 00-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>';
+  function qdata(cfg, p, src, extra) { return ' data-w="quote" data-src="' + esc(src) + '" data-cfg=\'' + esc(JSON.stringify(cfg)) + '\' data-prices=\'' + esc(JSON.stringify(p)) + '\'' + (extra || ''); }
+  function sumRow(S, r, p) { var u = S.ui; return '<div class="qc-sum"><div><span>' + l(u.net) + '</span><b class="m" data-q-net>' + R.money(r.net, p.cur) + '</b></div><div><span>' + l(u.salePrice) + '</span><b class="m" data-q-sale>' + R.money(r.sale, p.cur) + '</b></div><div class="qc-g"><span>' + l(u.gross) + '</span><b class="m" data-q-gross>' + R.money(r.gross, p.cur) + '</b></div></div>'; }
   function compactQuote(S, ctx, src, pv) {
     var cfg = { type: 'cift', w: 1500, h: 1500, color: 'white', qty: 1 }, p = Object.assign({}, S.prices, pv || {}), r = R.calc(cfg, p), u = S.ui;
-    return '<div class="qc" data-w="quote" data-src="' + esc(src) + '" data-cfg=\'' + esc(JSON.stringify(cfg)) + '\' data-prices=\'' + esc(JSON.stringify(p)) + '\'><div class="qc-head"><span class="mono">' + l(u.liveTool) + '</span><a href="' + href(S, ctx, 'quote') + '" class="link">' + l(u.openQuote) + '</a></div>' +
-      '<div class="qc-draw" data-q-draw>' + R.win(cfg, { small: true }) + '</div>' + quoteControls(S, cfg) +
-      '<div class="qc-sum"><div><span>' + l(u.net) + '</span><b class="m" data-q-net>' + R.money(r.net, p.cur) + '</b></div><div><span>' + l(u.salePrice) + '</span><b class="m" data-q-sale>' + R.money(r.sale, p.cur) + '</b></div><div class="qc-g"><span>' + l(u.gross) + '</span><b class="m" data-q-gross>' + R.money(r.gross, p.cur) + '</b></div></div><p class="tiny">' + l(u.sampleQuote) + '</p></div>';
+    return '<div class="qc"' + qdata(cfg, p, src) + '>' + APPBAR + '<div class="qc-in"><div class="qc-draw" data-q-draw>' + R.win(cfg, { small: true }) + '</div>' + quoteControls(S, cfg) + sumRow(S, r, p) + '<p class="tiny">' + l(u.sampleQuote) + ' <a href="' + href(S, ctx, 'quote') + '" class="link" data-funnel="tool" data-src="' + esc(src) + '">' + l(u.openQuote) + '</a></p></div></div>';
+  }
+  /* Tasarım 3 girişi: müşteriye giden teklif kâğıdı */
+  function paperQuote(S, ctx, src) {
+    var cfg = { type: 'surme', w: 2400, h: 2200, color: 'anth', qty: 1 }, p = Object.assign({}, S.prices), u = S.ui;
+    return '<div class="paper"' + qdata(cfg, p, src) + '><header class="paper-h"><b>' + l(u.quoteDoc) + ' 108</b><span>' + l(S.home.v3.client) + '</span></header><div class="paper-g"><div class="qc-draw" data-q-draw>' + R.win(cfg, { small: true }) + '</div><div data-q-table class="paper-t">' + R.qtable(S, cfg, p) + '</div></div><div class="paper-c">' + quoteControls(S, cfg) + '<label class="chk sw"><input type="checkbox" data-q="hide"><span>' + l(u.hidePrice) + '</span></label><p class="tiny">' + l(u.sampleQuote) + '</p></div></div>';
   }
   function fullQuote(S, ctx, src, pv) {
     var cfg = { type: 'cift', w: 1500, h: 1500, color: 'white', qty: 1 }, p = Object.assign({}, S.prices, pv || {}), u = S.ui;
     var pf = [['frame', 'pFrame'], ['mullion', 'pMullion'], ['sash', 'pSash'], ['open1', 'pOpen1'], ['open2', 'pOpen2'], ['glass', 'pGlass'], ['slide', 'pSlide'], ['door', 'pDoor'], ['anth', 'cAnth', ' %'], ['wood', 'cWood', ' %'], ['profit', 'pProfit'], ['vat', 'pVat']];
-    return '<div class="qf" data-w="quote" data-full="1" data-src="' + esc(src) + '" data-cfg=\'' + esc(JSON.stringify(cfg)) + '\' data-prices=\'' + esc(JSON.stringify(p)) + '\'><form class="qf-in" onsubmit="return false">' + quoteControls(S, cfg) + field(l(u.qty), '<input type="number" min="1" max="500" value="1" data-q="qty">', 'short') +
-      '<details class="pl" open><summary>' + l(u.priceList) + '</summary><div class="grid3">' + field(l(u.currency), '<input type="text" maxlength="4" value="' + esc(p.cur) + '" data-p="cur">') + pf.map(function (x) { return field(l(u[x[1]]) + (x[2] || ''), '<input type="number" min="0" step="0.5" value="' + p[x[0]] + '" data-p="' + x[0] + '">'); }).join('') + '</div></details></form>' +
-      '<div class="sheet" id="quote-sheet"><header class="sheet-h"><b>' + l(u.quoteDoc) + '</b><span class="mono">DoorWin Pro · ' + l(u.sampleContent) + '</span></header><div data-q-draw>' + R.win(cfg) + '</div><div data-q-table>' + R.qtable(S, cfg, p) + '</div><p class="tiny">' + l(u.sampleQuote) + ' ' + l(u.scale) + '.</p></div>' +
+    return '<div class="qf"' + qdata(cfg, p, src, ' data-full="1"') + '><form class="qf-in" onsubmit="return false"><div class="grid2">' + field(l(u.customer), '<input type="text" maxlength="60" data-m="cust" autocomplete="off">') + field(l(u.project), '<input type="text" maxlength="60" data-m="proj" autocomplete="off">') + '</div><div class="poz" data-q-poz></div>' + quoteControls(S, cfg) + field(l(u.qty), '<input type="number" min="1" max="500" value="1" data-q="qty">', 'short') +
+      '<details class="pl"><summary>' + l(u.priceList) + '</summary><div class="grid3">' + field(l(u.currency), '<input type="text" maxlength="4" value="' + esc(p.cur) + '" data-p="cur">') + pf.map(function (x) { return field(l(u[x[1]]) + (x[2] || ''), '<input type="number" min="0" step="0.5" value="' + p[x[0]] + '" data-p="' + x[0] + '">'); }).join('') + '</div></details><label class="chk sw"><input type="checkbox" data-q="hide"><span>' + l(u.hidePrice) + '</span></label></form>' +
+      '<div class="sheet" id="quote-sheet"><header class="sheet-h"><div><b>' + l(u.quoteDoc) + '</b><span data-q-meta></span></div><time class="m" data-q-date></time></header><div class="sheet-d" data-q-draw>' + R.win(cfg) + '</div><div data-q-table>' + R.qtable(S, cfg, p) + '</div><p class="tiny">' + l(u.sampleQuote) + ' ' + l(u.scale) + '.</p></div>' +
       '<div class="qf-act"><button type="button" class="btn btn-pri" data-q-print>' + l(u.savePdf) + '</button>' + storeBtn(S, 'pro', 'ios', src, 'btn-line') + '</div></div>';
   }
 
@@ -210,15 +328,17 @@
   };
 
   /* ---------- SSS ---------- */
-  function qa(item) { return '<details class="qa" name="sss"><summary><h3>' + esc(l(item.q)) + '</h3></summary><div class="qa-a"><p>' + esc(l(item.a)) + '</p></div></details>'; }
+  R.slug = function (t) { return String(t).toLocaleLowerCase('tr').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/ä/g, 'ae').replace(/ß/g, 'ss').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70); };
+  function qa(item) { var id = R.slug(l(item.q)); return '<details class="qa" id="' + id + '"><summary><h3>' + esc(l(item.q)) + '</h3></summary><div class="qa-a"><p>' + esc(l(item.a)) + '</p><a class="qa-l" href="#' + id + '">#' + id + '</a></div></details>'; }
 
   /* ---------- Blog ---------- */
   function postCard(S, ctx, p, big) {
     var i = p.i18n[ctx.lang], c = S.blogCats.filter(function (x) { return x.id === p.cat; })[0];
-    return '<article class="pc' + (big ? ' big' : '') + '" data-tags="' + esc((p.tags || []).join('|')) + '"><a class="pc-fig" href="' + href(S, ctx, 'post', ctx.lang, p.id) + '" tabindex="-1" aria-hidden="true">' + postFig(S, ctx, p) + '</a><div class="pc-b"><a class="mono kicker" href="' + href(S, ctx, 'blogcat', ctx.lang, p.cat) + '">' + esc(l(c ? c.n : '')) + '</a><h3><a href="' + href(S, ctx, 'post', ctx.lang, p.id) + '">' + esc(i.title) + '</a></h3><p>' + esc(i.excerpt) + '</p><time class="tiny m" datetime="' + esc(p.date) + '">' + esc(p.date) + '</time></div></article>';
+    return '<article class="pc' + (big ? ' big' : '') + '" data-tags="' + esc((p.tags || []).join('|')) + '"><a class="pc-fig" href="' + href(S, ctx, 'post', ctx.lang, p.id) + '" tabindex="-1" aria-hidden="true">' + postFig(S, ctx, p) + '</a><div class="pc-b"><a class="mono kicker" href="' + href(S, ctx, 'blogcat', ctx.lang, p.cat) + '">' + esc(l(c ? c.n : '')) + '</a><h3><a href="' + href(S, ctx, 'post', ctx.lang, p.id) + '">' + esc(i.title) + '</a></h3><p>' + esc(i.excerpt) + '</p><time class="tiny m" datetime="' + esc(p.date) + '">' + esc(R.dateL(p.date)) + '</time></div></article>';
   }
   function postFig(S, ctx, p) {
     if (p.image && mediaById(S, p.image)) return img(S, ctx, p.image, { sizes: '(max-width:640px) 90vw, 360px' });
+    if (p.fig) return R.fig(p.fig, p.i18n[ctx.lang] ? p.i18n[ctx.lang].title : '');
     return R.win(p.draw || { type: 'cift', w: 1500, h: 1500 }, { small: true, label: p.i18n[ctx.lang] ? p.i18n[ctx.lang].title : '' });
   }
   function livePosts(S, lang) { return S.posts.filter(function (p) { return R.isLive(p, lang); }).sort(function (a, b) { return a.date < b.date ? 1 : -1; }); }
@@ -242,7 +362,7 @@
   function header(S, ctx, alts) {
     var u = S.ui, n = [['compare', u.navCompare], ['quote', u.navQuote], ['roi', u.navRoi], ['blog', u.navBlog], ['faq', u.navFaq], ['dealer', u.navDealer]];
     var links = n.map(function (x) { return '<a href="' + href(S, ctx, x[0]) + '"' + (ctx.page === x[0] ? ' aria-current="page"' : '') + '>' + l(x[1]) + '</a>'; }).join('');
-    var lg = '<details class="lang"><summary aria-label="' + l(u.lang) + '"><span class="m">' + ctx.lang.toUpperCase() + '</span></summary><ul>' + alts.map(function (a) { return '<li><a hreflang="' + a.hreflang + '" lang="' + a.code + '" data-lang-link="' + a.code + '" href="' + up(ctx) + a.path + '"' + (a.code === ctx.lang ? ' aria-current="true"' : '') + '>' + esc(a.name) + '</a></li>'; }).join('') + '</ul></details>';
+    var lg = '<details class="lang"><summary aria-label="' + l(u.lang) + '"><span>' + ctx.lang.toUpperCase() + '</span></summary><ul>' + alts.map(function (a) { return '<li><a hreflang="' + a.hreflang + '" lang="' + a.code + '" data-lang-link="' + a.code + '" href="' + up(ctx) + a.path + '"' + (a.code === ctx.lang ? ' aria-current="true"' : '') + '>' + esc(a.name) + '</a></li>'; }).join('') + '</ul></details>';
     return '<a class="skip" href="#main">' + l(u.skip) + '</a><p class="ribbon">' + l(u.preview) + '</p><header class="top"><div class="wrap top-i"><a class="brand" href="' + href(S, ctx, 'home') + '">' + logo(ctx) + '<span>DoorWin <b>Pro</b></span></a><nav class="nav" aria-label="' + l(u.menu) + '">' + links + '</nav>' + lg + '<a class="btn btn-pri btn-s hide-s" data-store="ios" data-app="pro" data-src="header" href="' + esc(R.storeUrl(S, S.links.proIos, 'header')) + '" target="_blank" rel="noopener">' + l(u.getPro) + '</a><details class="mnav"><summary aria-label="' + l(u.menu) + '"><span class="burger"></span></summary><div class="mnav-p">' + links + storeBtn(S, 'pro', 'ios', 'menu', 'btn-pri') + '</div></details></div></header>';
   }
   function footer(S, ctx) {
@@ -257,75 +377,78 @@
   };
 
   /* ---------- Ana sayfa bölümleri ---------- */
-  var LABEL = { features: 'navFeatures', quote: 'navQuote', uses: 'uses', shots: 'scr', video: 'video', compare: 'navCompare', roi: 'navRoi', reviews: 'lblReviews', faq: 'navFaq', blog: 'navBlog', cta: 'getPro' };
-  function sh(n, title, sub, id) { return '<div class="sh"><span class="sh-n m">' + (n < 10 ? '0' : '') + n + '</span><h2' + (id ? ' id="' + id + '"' : '') + '>' + esc(title) + '</h2>' + (sub ? '<p>' + esc(sub) + '</p>' : '') + '</div>'; }
+  var LABEL = { features: 'navFeatures', adv: 'advShort', tools: 'toolsShort', uses: 'uses', shots: 'scr', video: 'video', compare: 'navCompare', reviews: 'lblReviews', faq: 'navFaq', blog: 'navBlog', cta: 'getPro' };
+  function sh(n, title, sub, id) { return '<div class="sh"><h2' + (id ? ' id="' + id + '"' : '') + '>' + esc(title) + '</h2>' + (sub ? '<p>' + esc(sub) + '</p>' : '') + '</div>'; }
   function phone(S, ctx, id, opt) { return '<figure class="ph">' + img(S, ctx, id, opt) + '</figure>'; }
+  function vv(S, lay, k) { var v = lay > 1 && S.home['v' + lay]; return v && v[k] ? v[k] : S.home[k]; }
+  function specs(S) { return '<ul class="specs">' + S.home.facts.map(function (f) { return '<li><span>' + esc(l(f.k)) + '</span> ' + esc(l(f.v)) + '</li>'; }).join('') + '</ul>'; }
   var SEC = {
     hero: function (S, ctx, lay) {
-      var h = S.home, facts = '<dl class="facts">' + h.facts.map(function (f) { return '<div><dt>' + esc(l(f.k)) + '</dt><dd class="m">' + esc(f.v) + '</dd></div>'; }).join('') + '</dl>';
-      var cta = storeRow(S, 'hero') + '<p class="hero-2"><a class="link" href="' + href(S, ctx, 'quote') + '">' + esc(l(h.cta2)) + '</a></p>';
+      var eb = l(vv(S, lay, 'eyebrow')), h1 = l(vv(S, lay, 'h1')), lead = l(vv(S, lay, 'lead'));
+      var cta = '<div class="stores">' + storeBtn(S, 'pro', 'ios', 'hero', 'btn-pri') + (S.links.proPlay ? storeBtn(S, 'pro', 'play', 'hero', 'btn-pri') : storeBtn(S, 'lite', 'play', 'hero', 'btn-line')) + '</div><p class="hero-2"><a class="link" href="' + href(S, ctx, 'quote') + '" data-funnel="tool" data-src="hero">' + esc(l(S.home.cta2)) + '</a></p>';
       if (lay === 2) {
-        var ids = S.screens.slice(0, 3);
-        return '<section class="hero h2-poster"><div class="wrap"><p class="mono eb">' + esc(l(h.eyebrow)) + '</p><h1>' + esc(l(h.h1)) + '</h1><div class="h2-g"><div><p class="lead">' + esc(l(h.lead)) + '</p>' + cta + facts + '</div><div class="h2-ph">' + phone(S, ctx, ids[1], { sizes: '220px' }) + phone(S, ctx, S.heroImage, { eager: true, sizes: '(max-width:640px) 56vw, 280px' }) + phone(S, ctx, ids[2], { sizes: '220px' }) + '</div></div></div></section>';
+        var ids = ['pro-drawing', 'pro-estimate', 'pro-projects', 'pro-sensor'];
+        return '<section class="hero h2"><div class="wrap"><div class="h2-t"><div><p class="eb">' + esc(eb) + '</p><h1>' + esc(h1) + '</h1></div><div><p class="lead">' + esc(lead) + '</p>' + cta + '</div></div></div><div class="wrap door-w"><div class="door" data-door style="--o:1"><div class="door-dim d-w" aria-hidden="true"><span class="big">3600</span><span class="sm">1800</span></div><div class="door-dim d-h" aria-hidden="true"><span>2000</span></div><div class="door-f"><div class="door-room">' + ids.map(function (id, n) { return phone(S, ctx, id, { eager: n < 2, sizes: '(max-width:640px) 40vw, 240px' }); }).join('') + '</div><div class="sash s1"></div><div class="sash s2"><i></i></div></div></div><label class="door-r"><span>' + l(S.ui.slideDoor) + '</span><input type="range" min="0" max="100" value="100" data-door-r></label></div><div class="wrap">' + specs(S) + '</div></section>';
       }
-      if (lay === 3) {
-        return '<section class="hero h3-ledger"><div class="h3-g"><div><p class="mono eb">' + esc(l(h.eyebrow)) + '</p><h1>' + esc(l(h.h1)) + '</h1><p class="lead">' + esc(l(h.lead)) + '</p>' + cta + facts + '</div><div class="h3-c"><p class="mono">' + l(S.ui.leakShort) + '</p>' + roiWidget(S, ctx, true) + '</div></div></section>';
-      }
-      return '<section class="hero h1-sheet"><div class="wrap h1-g"><div class="h1-t"><p class="mono eb">' + esc(l(h.eyebrow)) + '</p><h1>' + esc(l(h.h1)) + '</h1><p class="lead">' + esc(l(h.lead)) + '</p>' + cta + facts + '</div>' + compactQuote(S, ctx, 'hero') + '</div></section>';
+      if (lay === 3) return '<section class="hero h3"><div class="wrap h3-g"><div class="h3-t"><p class="eb">' + esc(eb) + '</p><h1>' + esc(h1) + '</h1><p class="lead">' + esc(lead) + '</p>' + cta + specs(S) + '</div>' + paperQuote(S, ctx, 'hero') + '</div></section>';
+      return '<section class="hero h1"><div class="wrap h1-g"><div class="h1-t"><p class="eb">' + esc(eb) + '</p><h1>' + esc(h1) + '</h1><p class="lead">' + esc(lead) + '</p>' + cta + specs(S) + '</div>' + compactQuote(S, ctx, 'hero') + '</div></section>';
     },
-    features: function (S, ctx, lay, n) {
+    features: function (S, ctx, lay) {
       var h = S.home, x = h.features;
-      if (lay === 2) return sect('features', sh(n, l(h.featuresTitle)) + '<div class="f2">' + x.map(function (f, i) { return '<article class="f2-r' + (i % 2 ? ' f2-rv' : '') + '"><div class="f2-p">' + phone(S, ctx, f.img, { sizes: '(max-width:640px) 56vw, 260px' }) + '</div><div><span class="m f2-n">' + (i + 1 < 10 ? '0' : '') + (i + 1) + '</span><h3>' + esc(l(f.t)) + '</h3><p>' + esc(l(f.d)) + '</p></div></article>'; }).join('') + '</div>', 'lilac');
-      if (lay === 3) return sect('features', sh(n, l(h.featuresTitle)) + '<div class="tscroll"><table class="tbl ft"><thead><tr><th>' + l(S.ui.tableFeature) + '</th><th>' + l(S.ui.tableWhat) + '</th></tr></thead><tbody>' + x.map(function (f) { return '<tr><th scope="row"><h3>' + esc(l(f.t)) + '</h3></th><td>' + esc(l(f.d)) + '</td></tr>'; }).join('') + '</tbody></table></div>');
-      return sect('features', sh(n, l(h.featuresTitle)) + '<ol class="f1 thumb">' + x.map(function (f, i) { return '<li><span class="m f1-n">' + (i + 1 < 10 ? '0' : '') + (i + 1) + '</span><div class="f1-t"><h3>' + esc(l(f.t)) + '</h3><p>' + esc(l(f.d)) + '</p></div><div class="f1-i">' + img(S, ctx, f.img, { sizes: '150px' }) + '</div></li>'; }).join('') + '</ol>');
+      if (lay === 2) return sect('features', sh(0, l(h.featuresTitle)) + '<div class="f2">' + x.map(function (f, i) { return '<article class="f2-r' + (i % 2 ? ' rv' : '') + '"><div class="f2-p">' + phone(S, ctx, f.img, { sizes: '(max-width:640px) 56vw, 280px' }) + '</div><div class="f2-c"><h3>' + esc(l(f.t)) + '</h3><p>' + esc(l(f.d)) + '</p></div></article>'; }).join('') + '</div>');
+      if (lay === 3) return sect('features', sh(0, l(h.featuresTitle)) + '<div class="f3" data-f3><div class="f3-l" role="tablist">' + x.map(function (f, i) { return '<button type="button" role="tab" aria-selected="' + (i === 0) + '" data-f3-i="' + i + '"' + (i ? '' : ' class="on"') + '><b>' + esc(l(f.t)) + '</b><span>' + esc(l(f.d)) + '</span></button>'; }).join('') + '</div><div class="f3-p">' + x.map(function (f, i) { return '<div data-f3-p="' + i + '"' + (i ? ' hidden' : '') + '>' + phone(S, ctx, f.img, { sizes: '(max-width:640px) 62vw, 320px' }) + '</div>'; }).join('') + '</div></div>');
+      return sect('features', sh(0, l(h.featuresTitle), l(h.featuresSub)) + '<ol class="f1">' + x.map(function (f) { return '<li><i class="tick" aria-hidden="true"></i>' + phone(S, ctx, f.img, { sizes: '(max-width:640px) 40vw, 230px' }) + '<div><h3>' + esc(l(f.t)) + '</h3><p>' + esc(l(f.d)) + '</p></div></li>'; }).join('') + '</ol>');
     },
-    quote: function (S, ctx, lay, n) {
-      var h = S.home, st = '<ol class="steps">' + h.steps.map(function (s, i) { return '<li><span class="m">' + (i + 1) + '</span><div><h3>' + esc(l(s.t)) + '</h3><p>' + esc(l(s.d)) + '</p></div></li>'; }).join('') + '</ol>';
-      if (lay === 1) return sect('quote', sh(n, l(h.stepsTitle)) + st + '<p><a class="btn btn-line" href="' + href(S, ctx, 'quote') + '">' + l(S.ui.openQuote) + '</a></p>');
-      return sect('quote', sh(n, l(h.stepsTitle)) + '<div class="q-split">' + st + compactQuote(S, ctx, 'home-quote') + '</div>');
-    },
-    uses: function (S, ctx, lay, n) {
+    adv: function (S, ctx, lay) {
       var h = S.home;
-      return sect('uses', sh(n, l(h.usesTitle)) + '<div class="uses">' + h.uses.map(function (u) { return '<article class="use"><div class="use-d">' + R.win(u.draw, { small: true, label: l(u.t) }) + '</div><h3>' + esc(l(u.t)) + '</h3><p>' + esc(l(u.d)) + '</p></article>'; }).join('') + '</div>');
+      return sect('adv', sh(0, l(h.advTitle)) + '<dl class="adv">' + h.adv.map(function (a) { return '<div><dt>' + esc(l(a.t)) + '</dt><dd>' + esc(l(a.d)) + '</dd></div>'; }).join('') + '</dl><div class="stores adv-s">' + storeBtn(S, 'pro', 'ios', 'advantages', 'btn-pri') + '</div>');
     },
-    shots: function (S, ctx, lay, n) {
+    tools: function (S, ctx, lay) {
       var h = S.home;
-      return sect('shots', sh(n, l(h.shotsTitle), l(h.shotsNote)) + '<ul class="shots" tabindex="0" aria-label="' + l(S.ui.scrollHint) + '">' + S.screens.map(function (id) { var m = mediaById(S, id); return m ? '<li><figure class="ph">' + img(S, ctx, id, { sizes: '(max-width:640px) 58vw, 250px' }) + '<figcaption class="m">' + esc(l(m.cap)) + '</figcaption></figure></li>' : ''; }).join('') + '</ul>', lay === 2 ? 'dark' : '');
+      return sect('tools', sh(0, l(h.toolsTitle)) + '<ul class="tl">' + h.tools.map(function (t) { return '<li><a href="' + href(S, ctx, t.page) + '" data-funnel="tool" data-src="home-tools"><b>' + esc(l(t.t)) + '</b><span>' + esc(l(t.d)) + '</span></a></li>'; }).join('') + '</ul>');
     },
-    video: function (S, ctx, lay, n) {
+    uses: function (S, ctx, lay) {
+      var h = S.home;
+      return sect('uses', sh(0, l(h.usesTitle)) + '<div class="uses">' + h.uses.map(function (u) { return '<article class="use"><div class="use-d">' + R.win(u.draw, { small: true, label: l(u.t) }) + '</div><div><h3>' + esc(l(u.t)) + '</h3><p>' + esc(l(u.d)) + '</p></div></article>'; }).join('') + '</div>');
+    },
+    shots: function (S, ctx, lay) {
+      var h = S.home, all = S.screens.concat(S.liteScreens || []);
+      return sect('shots', sh(0, l(h.shotsTitle), l(h.shotsNote)) + '<ul class="shots" tabindex="0" aria-label="' + l(S.ui.scrollHint) + '">' + all.map(function (id) { var m = mediaById(S, id); return m ? '<li' + (m.lite ? ' class="lt"' : '') + '><figure class="ph">' + img(S, ctx, id, { sizes: '(max-width:640px) 52vw, 240px' }) + '<figcaption>' + esc(l(m.cap)) + '</figcaption></figure></li>' : ''; }).join('') + '</ul>');
+    },
+    video: function (S, ctx, lay) {
       var h = S.home, src = S.links.video, isFile = /\.(webm|mp4)(\?|$)/i.test(src), u = isFile && !/^https?:/.test(src) ? up(ctx) + src : src, media = '';
       if (src) media = isFile ? '<video controls preload="none" playsinline width="1280" height="720" poster="' + asset(ctx, 'img/demo-poster.webp') + '" aria-label="' + esc(l(h.videoTitle)) + '" data-track-video><source src="' + esc(u) + '"><track kind="captions"><a href="' + esc(u) + '">' + l(S.ui.videoFallback) + '</a></video>' : '<button class="vfacade" type="button" data-video-src="' + esc(src) + '" aria-label="' + l(S.ui.playVideo) + '"><img src="' + asset(ctx, 'img/demo-poster.webp') + '" width="1280" height="720" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>';
-      return sect('video', '<div class="v-g"><div>' + sh(n, l(h.videoTitle), l(h.videoText)) + '</div><div class="vbox">' + media + '</div></div>');
+      return sect('video', '<div class="v-g"><div>' + sh(0, l(h.videoTitle), l(h.videoText)) + '</div><div class="vbox">' + media + '</div></div>');
     },
-    compare: function (S, ctx, lay, n) {
+    compare: function (S, ctx, lay) {
       var h = S.home;
-      return sect('compare', sh(n, l(h.compareTitle), l(h.compareText)) + cmpTable(S) + '<p><a class="btn btn-line" href="' + href(S, ctx, 'compare') + '">' + l(S.ui.seeCompare) + '</a></p>');
+      return sect('compare', sh(0, l(h.compareTitle), l(h.compareText)) + cmpDuo(S, ctx) + cmpTable(S) + '<p class="cmp-more"><a class="btn btn-line" href="' + href(S, ctx, 'compare') + '" data-funnel="tool" data-src="home-compare">' + l(S.ui.seeCompare) + '</a></p>');
     },
-    roi: function (S, ctx, lay, n) { return sect('roi', sh(n, l(S.pages.roi.h1), l(S.pages.roi.lead)) + roiWidget(S, ctx, true)); },
-    reviews: function (S, ctx, lay, n) {
-      var h = S.home;
-      return sect('reviews', sh(n, l(h.reviewsTitle), l(h.reviewsNote)) + '<div class="revs">' + h.reviews.map(function (r) { return '<figure class="rev"><span class="stub m">' + l(S.ui.reviewStub) + '</span><blockquote>' + esc(l(r.q)) + '</blockquote><figcaption><b>' + esc(l(r.n)) + '</b><span>' + esc(l(r.r)) + '</span></figcaption></figure>'; }).join('') + '</div><p class="tiny">' + esc(l(h.storeRating)) + '</p>');
+    reviews: function (S, ctx, lay) {
+      var h = S.home, rs = h.reviews || [];
+      return sect('reviews', sh(0, l(h.reviewsTitle)) + (rs.length ? '<div class="revs">' + rs.map(function (r) { return '<figure class="rev"><blockquote>' + esc(l(r.q)) + '</blockquote><figcaption><b>' + esc(l(r.n)) + '</b><span>' + esc(l(r.r)) + '</span></figcaption></figure>'; }).join('') + '</div>' : '') + '<div class="rev-g"><div><p>' + esc(l(rs.length ? h.reviewsNoteFull : h.reviewsNote)) + '</p><p class="tiny">' + esc(l(h.storeRating)) + '</p></div>' + reviewForm(S) + '</div>');
     },
-    faq: function (S, ctx, lay, n) {
-      return sect('faq', sh(n, l(S.pages.faq.h1)) + '<div class="qas">' + S.faq.filter(function (f) { return f.home; }).map(qa).join('') + '</div><p><a class="link" href="' + href(S, ctx, 'faq') + '">' + l(S.ui.seeAll) + '</a></p>');
+    faq: function (S, ctx, lay) {
+      return sect('faq', sh(0, l(S.pages.faq.h1)) + '<div class="qas">' + S.faq.filter(function (f) { return f.home; }).map(qa).join('') + '</div><p class="more"><a class="link" href="' + href(S, ctx, 'faq') + '">' + l(S.ui.seeAll) + '</a></p>');
     },
-    blog: function (S, ctx, lay, n) {
-      return sect('blog', sh(n, l(S.pages.blog.h1)) + '<div class="pcs">' + livePosts(S, ctx.lang).slice(0, 3).map(function (p) { return postCard(S, ctx, p); }).join('') + '</div><p><a class="link" href="' + href(S, ctx, 'blog') + '">' + l(S.ui.seeAll) + '</a></p>');
+    blog: function (S, ctx, lay) {
+      return sect('blog', sh(0, l(S.pages.blog.h1)) + '<div class="pcs">' + livePosts(S, ctx.lang).slice(0, 3).map(function (p) { return postCard(S, ctx, p); }).join('') + '</div><p class="more"><a class="link" href="' + href(S, ctx, 'blog') + '">' + l(S.ui.seeAll) + '</a></p>');
     },
     cta: function (S, ctx) {
       var h = S.home;
-      return '<section class="cta" id="cta"><div class="wrap"><h2>' + esc(l(h.ctaTitle)) + '</h2><p>' + esc(l(h.ctaText)) + '</p>' + storeRow(S, 'cta') + '<p class="tiny">' + esc(l(h.note)) + '</p></div></section>';
+      return '<section class="cta" id="cta"><div class="wrap cta-g"><div><h2>' + esc(l(h.ctaTitle)) + '</h2><p>' + esc(l(h.ctaText)) + '</p>' + storeRow(S, 'cta') + '<p class="tiny">' + esc(l(h.note)) + '</p></div><div class="cta-d" aria-hidden="true">' + R.win({ type: 'surme', w: 2400, h: 2200, color: 'white' }, { label: ' ' }) + '</div></div></section>';
     }
   };
-  function sect(id, inner, cls) { return '<section class="sec ' + (cls || '') + '" id="' + id + '"><div class="wrap">' + inner + '</div></section>'; }
+  function reviewForm(S) {
+    var u = S.ui;
+    return '<form class="rev-f" data-w="review" novalidate><h3>' + l(u.revTitle) + '</h3><div class="grid2">' + field(l(u.revName), '<input name="name" required maxlength="50" autocomplete="name"><small class="err" hidden></small>') + field(l(u.revCompany), '<input name="company" maxlength="60" autocomplete="organization">') + '</div>' + field(l(u.revText), '<textarea name="text" rows="3" required maxlength="400"></textarea><small class="err" hidden></small>') + '<label class="hp" aria-hidden="true">' + l(u.fExtra) + '<input name="website" tabindex="-1" autocomplete="off"></label><button class="btn btn-line" type="submit">' + l(u.revSend) + '</button><p class="form-msg" role="status" aria-live="polite"></p></form>';
+  }
+  function sect(id, inner, cls) { return '<section class="sec s-' + id + ' ' + (cls || '') + '" id="' + id + '"><div class="wrap">' + inner + '</div></section>'; }
   function homeOrder(S, lay) { return (S.layouts[lay] || S.layouts[1]).filter(function (k) { return !S.hidden[k]; }); }
-  function pageHome(S, ctx, lay) {
-    var n = 0, order = homeOrder(S, lay), html = order.map(function (k) { if (k !== 'hero' && k !== 'cta') n++; return SEC[k] ? SEC[k](S, ctx, lay, n) : ''; }).join('');
-    if (lay === 3) {
-      var hero = order[0] === 'hero' ? SEC.hero(S, ctx, 3) : '', idx = order.filter(function (k) { return k !== 'hero'; }), rest = 0, body = idx.map(function (k) { if (k !== 'cta') rest++; return SEC[k] ? SEC[k](S, ctx, 3, rest) : ''; }).join('');
-      return '<div class="wrap">' + hero + '</div><div class="wrap l3"><aside class="l3-i" aria-label="' + l(S.ui.index) + '"><p class="mono">' + l(S.ui.index) + '</p><ol>' + idx.map(function (k) { return '<li><a href="#' + k + '">' + l(S.ui[LABEL[k]]) + '</a></li>'; }).join('') + '</ol></aside><div class="l3-b">' + body + '</div></div>';
-    }
-    return html;
+  function pageHome(S, ctx, lay) { return homeOrder(S, lay).map(function (k) { return SEC[k] ? SEC[k](S, ctx, lay) : ''; }).join(''); }
+  function cmpDuo(S, ctx) {
+    var c = S.compare;
+    return '<div class="duo"><figure>' + phone(S, ctx, 'lite-estimate', { sizes: '200px' }) + '<figcaption><b>' + esc(l(c.nameLite)) + '</b><span>' + esc(l(S.pricing.liteModel)) + '</span></figcaption></figure><figure>' + phone(S, ctx, 'pro-estimate', { sizes: '200px' }) + '<figcaption><b>' + esc(l(c.namePro)) + '</b><span>' + esc(l(S.pricing.proFree)) + '</span></figcaption></figure></div>';
   }
 
   /* ---------- Alt sayfalar ---------- */
@@ -335,7 +458,7 @@
     return '<div class="ph-h"><div class="wrap">' + crumbs(S, ctx, [{ n: l(S.ui.home), href: href(S, ctx, 'home') }].concat(trail)) + '<h1>' + esc(t) + '</h1><p class="lead">' + esc(d) + '</p></div></div>';
   }
   var PAGES = {
-    compare: function (S, ctx) { return pageHead(S, ctx, 'compare', [{ n: l(S.ui.navCompare) }]) + '<section class="sec"><div class="wrap">' + cmpTable(S) + '<div class="stores cmp-b">' + storeBtn(S, 'pro', 'ios', 'compare', 'btn-pri') + storeBtn(S, 'lite', 'ios', 'compare', 'btn-line') + storeBtn(S, 'lite', 'play', 'compare', 'btn-line') + '</div></div></section><section class="sec lilac"><div class="wrap">' + wizard(S, ctx) + '</div></section>'; },
+    compare: function (S, ctx) { return pageHead(S, ctx, 'compare', [{ n: l(S.ui.navCompare) }]) + '<section class="sec"><div class="wrap">' + cmpDuo(S, ctx) + cmpTable(S) + '<div class="stores cmp-b">' + storeBtn(S, 'pro', 'ios', 'compare', 'btn-pri') + storeBtn(S, 'lite', 'ios', 'compare', 'btn-line') + storeBtn(S, 'lite', 'play', 'compare', 'btn-line') + '</div></div></section><section class="sec lilac"><div class="wrap">' + wizard(S, ctx) + '</div></section>'; },
     quote: function (S, ctx) { return pageHead(S, ctx, 'quote', [{ n: l(S.ui.navQuote) }]) + '<section class="sec"><div class="wrap">' + fullQuote(S, ctx, 'quote-page') + '</div></section>'; },
     roi: function (S, ctx) { return pageHead(S, ctx, 'roi', [{ n: l(S.ui.navRoi) }]) + '<section class="sec"><div class="wrap">' + roiWidget(S, ctx, false) + '</div></section>'; },
     dealer: function (S, ctx) { return pageHead(S, ctx, 'dealer', [{ n: l(S.ui.navDealer) }]) + '<section class="sec"><div class="wrap narrow">' + leadForm(S, ctx) + '</div></section>'; },
@@ -354,18 +477,18 @@
       if (!p || !R.isLive(p, ctx.lang)) return '<div class="ph-h"><div class="wrap"><h1>404</h1><p class="lead">' + l(S.ui.noPost) + '</p><a class="btn btn-line" href="' + href(S, ctx, 'blog') + '">' + l(S.ui.navBlog) + '</a></div></div>';
       var i = p.i18n[ctx.lang], c = S.blogCats.filter(function (x) { return x.id === p.cat; })[0], a = S.authors.filter(function (x) { return x.id === p.author; })[0], src = 'blog:' + p.id;
       var video = p.video ? '<div class="vbox"><video controls preload="none" src="' + esc(p.video) + '"></video></div>' : '';
-      return '<article class="post" data-post="' + p.id + '"><div class="ph-h"><div class="wrap narrow">' + crumbs(S, ctx, [{ n: l(S.ui.home), href: href(S, ctx, 'home') }, { n: l(S.ui.navBlog), href: href(S, ctx, 'blog') }, { n: l(c.n), href: href(S, ctx, 'blogcat', ctx.lang, p.cat) }, { n: i.title }]) + '<p class="mono eb">' + esc(l(c.n)) + ' · ' + l(S.ui.sampleContent) + '</p><h1>' + esc(i.title) + '</h1><p class="lead">' + esc(i.excerpt) + '</p><p class="tiny"><span>' + l(S.ui.author) + ': ' + esc(a ? l(a.n) : '') + '</span> · <time datetime="' + esc(p.date) + '" class="m">' + l(S.ui.published) + ': ' + esc(p.date) + '</time></p></div></div><div class="wrap narrow post-b"><figure class="post-f">' + postFig(S, ctx, p) + '</figure>' + video + '<div class="prose">' + bodyHtml(S, ctx, i.html) + '</div>' + (i.qa && i.qa.length ? '<section class="post-q"><h2>' + l(S.ui.questions) + '</h2><div class="qas">' + i.qa.map(function (q) { return '<details class="qa" open><summary><h3>' + esc(q.q) + '</h3></summary><div class="qa-a"><p>' + esc(q.a) + '</p></div></details>'; }).join('') + '</div></section>' : '') + '<aside class="post-cta"><h2>' + l(S.ui.ctaInPost) + '</h2>' + '<a class="btn btn-line" href="' + href(S, ctx, 'quote') + '" data-funnel="blog-to-quote" data-src="' + src + '">' + l(S.ui.openQuote) + '</a>' + storeRow(S, src) + '</aside>' + ((p.tags || []).length ? '<p class="tags">' + p.tags.map(function (t) { return '<a class="tag" href="' + href(S, ctx, 'blog') + '#tag=' + encodeURIComponent(t) + '">#' + esc(t) + '</a>'; }).join('') + '</p>' : '') + '</div><section class="sec"><div class="wrap"><h2>' + l(S.ui.related) + '</h2><div class="pcs">' + related(S, p, ctx.lang).map(function (x) { return postCard(S, ctx, x); }).join('') + '</div></div></section></article>';
+      return '<article class="post" data-post="' + p.id + '"><div class="ph-h"><div class="wrap narrow">' + crumbs(S, ctx, [{ n: l(S.ui.home), href: href(S, ctx, 'home') }, { n: l(S.ui.navBlog), href: href(S, ctx, 'blog') }, { n: l(c.n), href: href(S, ctx, 'blogcat', ctx.lang, p.cat) }, { n: i.title }]) + '<p class="eb">' + esc(l(c.n)) + ' · ' + l(S.ui.sampleContent) + '</p><h1>' + esc(i.title) + '</h1><p class="lead">' + esc(i.excerpt) + '</p><p class="tiny"><span>' + l(S.ui.author) + ': ' + esc(a ? l(a.n) : '') + '</span> · <time datetime="' + esc(p.date) + '" class="m">' + l(S.ui.published) + ': ' + esc(R.dateL(p.date)) + '</time></p></div></div><div class="wrap narrow post-b"><figure class="post-f">' + postFig(S, ctx, p) + '</figure>' + video + '<div class="prose">' + bodyHtml(S, ctx, i.html) + '</div>' + (i.qa && i.qa.length ? '<section class="post-q"><h2>' + l(S.ui.questions) + '</h2><div class="qas">' + i.qa.map(function (q) { return '<details class="qa" open><summary><h3>' + esc(q.q) + '</h3></summary><div class="qa-a"><p>' + esc(q.a) + '</p></div></details>'; }).join('') + '</div></section>' : '') + '<aside class="post-cta"><h2>' + l(S.ui.ctaInPost) + '</h2>' + '<a class="btn btn-line" href="' + href(S, ctx, 'quote') + '" data-funnel="blog-to-quote" data-src="' + src + '">' + l(S.ui.openQuote) + '</a>' + storeRow(S, src) + '</aside>' + ((p.tags || []).length ? '<p class="tags">' + p.tags.map(function (t) { return '<a class="tag" href="' + href(S, ctx, 'blog') + '#tag=' + encodeURIComponent(t) + '">#' + esc(t) + '</a>'; }).join('') + '</p>' : '') + '</div><section class="sec"><div class="wrap"><h2>' + l(S.ui.related) + '</h2><div class="pcs">' + related(S, p, ctx.lang).map(function (x) { return postCard(S, ctx, x); }).join('') + '</div></div></section></article>';
     },
     country: function (S, ctx) {
       var k = S.countries.filter(function (x) { return x.id === ctx.id; })[0], v = { loc: l(k.loc), cur: k.cur, vat: k.vat, lang: l(k.lang) }, src = 'country:' + k.id;
-      return pageHead(S, ctx, 'country', [{ n: l(S.ui.countries) }, { n: l(k.n) }], v) + '<section class="sec"><div class="wrap h1-g">' + '<div>' + storeRow(S, src) + '<ol class="f1">' + S.home.features.slice(0, 3).map(function (f, i) { return '<li><span class="m f1-n">0' + (i + 1) + '</span><div class="f1-t"><h3>' + esc(l(f.t)) + '</h3><p>' + esc(l(f.d)) + '</p></div></li>'; }).join('') + '</ol></div>' + compactQuote(S, ctx, src, { cur: k.cur, vat: k.vat }) + '</div></section>' + '<section class="sec lilac"><div class="wrap narrow">' + leadForm(S, ctx, k) + '</div></section>';
+      return pageHead(S, ctx, 'country', [{ n: l(S.ui.countries) }, { n: l(k.n) }], v) + '<section class="sec"><div class="wrap h1-g">' + '<div>' + storeRow(S, src) + (k.local ? '<p class="c-local">' + esc(l(k.local)) + '</p>' : '') + '<dl class="adv one">' + S.home.features.slice(0, 3).map(function (f) { return '<div><dt>' + esc(l(f.t)) + '</dt><dd>' + esc(l(f.d)) + '</dd></div>'; }).join('') + '</dl></div>' + compactQuote(S, ctx, src, { cur: k.cur, vat: k.vat }) + '</div></section>' + '<section class="sec band"><div class="wrap narrow">' + leadForm(S, ctx, k) + '</div></section>';
     }
   };
   PAGES.blogcat = PAGES.blog;
   function leadForm(S, ctx, country) {
     var u = S.ui, a = 3, b = 4;
-    var ft = [['dealer', 'fDealer'], ['manufacturer', 'fMan'], ['installer', 'fIns'], ['other', 'fOther']];
-    return '<form class="lead" data-w="lead" novalidate data-country="' + (country ? country.id : '') + '"><h2>' + l(u.navDealer) + '</h2><div class="grid2">' + field(l(u.fCompany), '<input name="company" required autocomplete="organization"><small class="err" hidden></small>') + field(l(u.fType), '<select name="type">' + ft.map(function (x) { return '<option value="' + x[0] + '">' + l(u[x[1]]) + '</option>'; }).join('') + '</select>') + field(l(u.fCountry), '<input name="country" required autocomplete="country-name" value="' + (country ? esc(l(country.n)) : '') + '"><small class="err" hidden></small>') + field(l(u.fEmail), '<input type="email" name="email" required autocomplete="email"><small class="err" hidden></small>') + field(l(u.fTeam), '<input type="number" min="1" name="team" value="3">') + field(l(u.fQuotes), '<input type="number" min="0" name="quotes" value="30">') + '</div>' + field(l(u.fMsg), '<textarea name="msg" rows="4" maxlength="800"></textarea>') + '<label class="hp" aria-hidden="true">' + l(u.fExtra) + '<input name="website" tabindex="-1" autocomplete="off"></label><p class="note" data-from-roi hidden>' + l(u.fromRoi) + '</p>' + field(l(u.fCaptcha).replace('{a}', a).replace('{b}', b), '<input name="cap" inputmode="numeric" required data-a="' + a + '" data-b="' + b + '"><small class="err" hidden></small>', 'short') + '<label class="chk"><input type="checkbox" name="ok" required><span>' + l(u.fConsent) + '</span></label><small class="err" data-err-ok hidden></small><button class="btn btn-pri" type="submit">' + l(u.fSend) + '</button><p class="form-msg" role="status" aria-live="polite"></p></form>';
+    var tp = [['general', 'tGeneral'], ['quote', 'tQuoteReq'], ['dealer', 'tDealer']], ft = [['dealer', 'fDealer'], ['manufacturer', 'fMan'], ['installer', 'fIns'], ['other', 'fOther']];
+    return '<form class="lead" data-w="lead" novalidate data-country="' + (country ? country.id : '') + '"><h2>' + l(u.formTitle) + '</h2><div class="grid2">' + field(l(u.fTopic), '<select name="topic">' + tp.map(function (x) { return '<option value="' + x[0] + '">' + l(u[x[1]]) + '</option>'; }).join('') + '</select>') + field(l(u.fCompany), '<input name="company" required autocomplete="organization"><small class="err" hidden></small>') + field(l(u.fType), '<select name="type">' + ft.map(function (x) { return '<option value="' + x[0] + '">' + l(u[x[1]]) + '</option>'; }).join('') + '</select>') + field(l(u.fCountry), '<input name="country" required autocomplete="country-name" value="' + (country ? esc(l(country.n)) : '') + '"><small class="err" hidden></small>') + field(l(u.fEmail), '<input type="email" name="email" required autocomplete="email"><small class="err" hidden></small>') + field(l(u.fTeam), '<input type="number" min="1" name="team" value="3">') + field(l(u.fQuotes), '<input type="number" min="0" name="quotes" value="30">') + '</div>' + field(l(u.fMsg), '<textarea name="msg" rows="4" maxlength="800"></textarea>') + '<label class="hp" aria-hidden="true">' + l(u.fExtra) + '<input name="website" tabindex="-1" autocomplete="off"></label><p class="note" data-from-roi hidden>' + l(u.fromRoi) + '</p>' + field(l(u.fCaptcha).replace('{a}', a).replace('{b}', b), '<input name="cap" inputmode="numeric" required data-a="' + a + '" data-b="' + b + '"><small class="err" hidden></small>', 'short') + '<label class="chk"><input type="checkbox" name="ok" required><span>' + l(u.fConsent) + '</span></label><small class="err" data-err-ok hidden></small><button class="btn btn-pri" type="submit">' + l(u.fSend) + '</button><p class="form-msg" role="status" aria-live="polite"></p></form>';
   }
 
   /* ---------- Ana işleyici ---------- */

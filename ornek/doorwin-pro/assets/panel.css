@@ -1,11 +1,11 @@
-.pn{background:#f1efe9;font-size:15px}
-.pn h1{font-size:2rem;font-stretch:75%}.pn h2{font-size:1.45rem;font-stretch:75%}.pn h3{font-size:1.1rem;font-stretch:85%}
-.lg{min-height:100vh;display:grid;place-items:center;padding:16px;background:var(--paper);background-image:linear-gradient(#e7e3d8 1px,transparent 1px),linear-gradient(90deg,#e7e3d8 1px,transparent 1px);background-size:32px 32px}
-.lg-c{width:min(420px,100%);background:var(--card);border:2px solid var(--ink);padding:24px;display:grid;gap:12px}
-.lg-b{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-stretch:75%;font-size:1.4rem;font-weight:700}.lg-b img{width:44px;height:44px}
+.pn{background:#f3f1f7;font-size:15px}
+.pn h1{font-size:2rem;}.pn h2{font-size:1.45rem;}.pn h3{font-size:1.1rem;}
+.lg{min-height:100vh;display:grid;place-items:center;padding:16px;background:var(--paper)}
+.lg-c{width:min(420px,100%);background:var(--card);border:1px solid var(--line);padding:24px;display:grid;gap:12px}
+.lg-b{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:1.4rem;font-weight:700}.lg-b img{width:44px;height:44px}
 .app{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100vh}
 .side{background:var(--ink);color:#f6f4ef;position:sticky;top:0;height:100vh;overflow:auto;display:flex;flex-direction:column;padding-bottom:10px}
-.side-b{display:flex;align-items:center;gap:10px;padding:14px;font-family:var(--disp);font-stretch:75%;font-size:1.2rem;font-weight:700;border-bottom:1px solid #4a3f5e;color:#fff;text-decoration:none}.side-b img{width:32px;height:32px}
+.side-b{display:flex;align-items:center;gap:10px;padding:14px;font-family:var(--disp);font-size:1.2rem;font-weight:700;border-bottom:1px solid #4a3f5e;color:#fff;text-decoration:none}.side-b img{width:32px;height:32px}
 .side nav{display:grid;padding:6px 0}
 .side h2{font:600 .68rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#d7b56d;padding:12px 14px 4px;margin:0}
 .side a.it{color:#f6f4ef;text-decoration:none;padding:8px 14px;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;min-height:38px;border-inline-start:3px solid transparent}

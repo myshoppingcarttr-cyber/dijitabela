@@ -25,10 +25,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://doorwin.app/de/verlustrechner/"/>
   </url>
   <url>
-    <loc>https://doorwin.app/de/haendler/</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://doorwin.app/tr/bayi-toptan/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://doorwin.app/en/dealers/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://doorwin.app/de/haendler/"/>
+    <loc>https://doorwin.app/de/kontakt/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://doorwin.app/tr/iletisim/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doorwin.app/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://doorwin.app/de/kontakt/"/>
   </url>
   <url>
     <loc>https://doorwin.app/de/faq/</loc>

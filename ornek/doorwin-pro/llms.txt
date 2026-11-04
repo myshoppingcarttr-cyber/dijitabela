@@ -27,16 +27,20 @@ DoorWin Pro, PVC/uPVC ve alüminyum pencere ve kapı üreticileri için çizim, 
 - Ücreti ne kadar? İndirmesi ücretsizdir; uygulama içi Premium ABD App Store’unda aylık 7,99 $, yıllık 79,99 $ olarak listeleniyor. Fiyat ülkeye göre değişebilir.
 - Abonelik istemiyorum, seçeneğim var mı? Tek seferlik ödemeli DoorWin uygulaması aylık veya yıllık abonelik istemez. Karşılaştırma sayfasında iki uygulamayı satır satır görebilirsiniz.
 - Memnun kalmazsam iade alabilir miyim? Mevcut sitede, 14 gün içinde indirdiğiniz mağaza üzerinden iptal veya iade isteyebileceğiniz belirtiliyor. Süreç mağazanın kurallarına bağlıdır.
+- Hangi pencere ve kapı tiplerini çizebilirim? Araç çubuğunda kayıt, sabit, açılır, sürme ve özel biçimli parçalar var. Mağaza görsellerinde otomatik sensörlü sürme kapı da yer alıyor.
+- Para birimini ve vergiyi değiştirebilir miyim? Evet. Para birimi, vergi oranı ve kâr marjı sizin ayarınızdır. Yurt dışı işte kendi para biriminizle teklif çıkarırsınız.
+- Yedeğim otomatik olarak bir yere yüklenir mi? Hayır. Uygulama ekranına göre yedek cihazınızda veya seçtiğiniz konumda kalır, otomatik yüklenmez. Dosyayı paylaşıp yeni cihazda içe aktarırsınız.
+- Android’de DoorWin Pro var mı? Google Play’de doğrulanan bağlantı tek seferlik DoorWin uygulamasına ait. Pro’nun Android bağlantısı netleşince panelden eklenir ve düğme kendiliğinden değişir.
 
 ### Articles
-- [DoorWin Pro’da ilk proje: müşteriden teklife](https://doorwin.app/tr/blog/doorwin-pro-ilk-proje/): Müşteri açın, ölçülü pozisyon ekleyin, fiyatı kontrol edin, PDF veya PNG paylaşın.
-- [Şantiyede pencere ölçüsü alırken 6 kontrol](https://doorwin.app/tr/blog/santiyede-pencere-olcusu-kontrolleri/): Yanlış ölçünün bedeli yeniden üretimdir. Boşluğu üç noktadan ölçmek bu riski düşürür.
-- [Pencere çizim programı seçerken sorulacak 5 soru](https://doorwin.app/tr/blog/pencere-cizim-programi-secimi/): Masaüstü üretim yazılımı mı, mobil teklif aracı mı? Karar ihtiyacınıza göre değişir.
-- [Kâr oranı ile kâr marjı aynı şey değil](https://doorwin.app/tr/blog/kar-orani-ile-kar-marji-farki/): Maliyete %20 eklemek, satıştan %20 kazanmak demek değildir. Doğramacının sık yaptığı hesap hatası.
-- [PVC pencere fiyatı nasıl hesaplanır? Adım adım metraj](https://doorwin.app/tr/blog/pvc-pencere-fiyati-nasil-hesaplanir/): 1500×1500 mm çift kanatlı pencerede kasa, kanat, kayıt ve cam kalemlerini tek tek çıkarıyoruz.
-- [Pencere açılım tipleri: sabit, açılır, vasistas ve sürme](https://doorwin.app/tr/blog/pencere-acilim-tipleri/): Açılım tipi hem kullanım hem maliyet kararıdır. Her açılan kanat için ayrı aksesuar satırı oluşur.
-- [Isı yalıtımlı ve yalıtımsız alüminyum doğrama farkı](https://doorwin.app/tr/blog/isi-yalitimli-ve-yalitimsiz-aluminyum/): Yalıtımlı sistemde iç ve dış profil, poliamid bir köprüyle ayrılır. Teklifte bu fark ayrı fiyat satırıdır.
-- [PVC profilde 60, 70 ve 80 mm serileri nasıl okunur?](https://doorwin.app/tr/blog/pvc-profil-60-70-80-mm-serileri/): Profil serisi, kanat ve kasanın derinliğini anlatır. Fiyat listesini seriye göre ayırmak hatalı teklifi önler.
+- [DoorWin Pro’da ilk proje: müşteriden teklife](https://doorwin.app/tr/blog/doorwin-pro-ilk-proje/): Fiyat ayarından PDF’e, ilk gerçek işinizi açarken izlenecek sıra. Önce fiyat, sonra çizim.
+- [Şantiyede pencere ölçüsü alırken 6 kontrol](https://doorwin.app/tr/blog/santiyede-pencere-olcusu-kontrolleri/): Duvar düz değildir. Üç genişlik, üç yükseklik, iki köşegen: üretime gitmeden önce alınacak ölçüler.
+- [Pencere çizim programı seçerken sorulacak 5 soru](https://doorwin.app/tr/blog/pencere-cizim-programi-secimi/): Kesim optimizasyonu mu lazım, müşterinin yanında teklif mi? Program seçimi önce bu soruyla başlar, sonra dört soru daha.
+- [Kâr oranı ile kâr marjı aynı şey değil](https://doorwin.app/tr/blog/kar-orani-ile-kar-marji-farki/): %20 ekleyen, %20 kazanmaz. Üstelik %10 indirim, 200 birimlik kârın 120’sini götürür. Hesabı bir kez görün.
+- [PVC pencere fiyatı nasıl hesaplanır? Adım adım metraj](https://doorwin.app/tr/blog/pvc-pencere-fiyati-nasil-hesaplanir/): 1500×1500 çift kanatlı pencerenin hesabı satır satır: 6 metre kasadan 425,03 toplama. Örnek fiyatları kendi listenizle değiştirin.
+- [Pencere açılım tipleri: sabit, açılır, vasistas ve sürme](https://doorwin.app/tr/blog/pencere-acilim-tipleri/): Çizimdeki üçgen okunmayı bekler: tepe menteşe tarafıdır. Dört tip, her birinin maliyete ve kullanıma etkisi.
+- [Isı yalıtımlı ve yalıtımsız alüminyum doğrama farkı](https://doorwin.app/tr/blog/isi-yalitimli-ve-yalitimsiz-aluminyum/): İki profil arasındaki poliamid şerit ısı köprüsünü keser. Fiyat farkı metre fiyatında, teklif farkı müşterinin faturasında görünür.
+- [PVC profilde 60, 70 ve 80 mm serileri nasıl okunur?](https://doorwin.app/tr/blog/pvc-profil-60-70-80-mm-serileri/): Rakam profilin derinliğidir, kalitesi değil. Teklif hatası da çoğunlukla burada başlar: 70 fiyatıyla 80 satmak.
 
 ## English
 
@@ -60,16 +64,20 @@ DoorWin Pro is a drawing, take-off and pricing app for PVC/uPVC and aluminium wi
 - How much does it cost? The download is free; in-app Premium is listed at $7.99 monthly or $79.99 yearly on the US App Store. Prices may vary by country.
 - I don’t want a subscription. Is there an option? The DoorWin app with a one-time payment has no monthly or yearly subscription. The comparison page shows both apps line by line.
 - Can I get a refund if I’m not satisfied? The current site states you can cancel or request a refund within 14 days through the store you downloaded from. The process follows that store’s rules.
+- Which window and door types can I draw? The toolbar has mullions, fixed, opening and sliding parts plus special shapes. The store screenshots also show an automatic sensor sliding door.
+- Can I change the currency and tax? Yes. Currency, tax rate and profit margin are your settings, so you can quote abroad in the right currency.
+- Is my backup uploaded automatically? No. According to the app, the backup stays on your device or the location you choose and is not uploaded automatically. Share the file and import it on the new device.
+- Is DoorWin Pro available on Android? The verified Google Play link belongs to the one-time DoorWin app. Once Pro’s Android link is confirmed, it is added in the panel and the button updates.
 
 ### Articles
-- [Your first project in DoorWin Pro: from customer to quote](https://doorwin.app/en/blog/doorwin-pro-first-project/): Create a customer, add measured positions, check the price, share PDF or PNG.
-- [6 checks when measuring windows on site](https://doorwin.app/en/blog/measuring-windows-on-site-checks/): A wrong measure costs a remake. Measuring the opening at three points lowers that risk.
-- [5 questions when choosing window drawing software](https://doorwin.app/en/blog/choosing-window-drawing-software/): Desktop production software or a mobile quoting tool? The answer depends on your need.
-- [Markup and profit margin are not the same thing](https://doorwin.app/en/blog/markup-vs-profit-margin/): Adding 20% to cost is not earning 20% of the sale. A common calculation mistake in fabrication.
-- [How to calculate a PVC window price, step by step](https://doorwin.app/en/blog/how-to-calculate-pvc-window-price/): We list frame, sash, mullion and glass lines for a 1500×1500 mm double-sash window.
-- [Window opening types: fixed, casement, tilt and sliding](https://doorwin.app/en/blog/window-opening-types/): The opening type is a usage and a cost decision. Each opening sash adds its own hardware line.
-- [Thermally broken versus non-insulated aluminium](https://doorwin.app/en/blog/thermally-broken-vs-non-insulated-aluminium/): In a thermally broken system a polyamide bridge separates inner and outer profiles. On the quote it is its own price line.
-- [How to read 60, 70 and 80 mm PVC profile series](https://doorwin.app/en/blog/pvc-profile-60-70-80-mm-series/): The series tells you the depth of frame and sash. Splitting your price list by series prevents wrong quotes.
+- [Your first project in DoorWin Pro: from customer to quote](https://doorwin.app/en/blog/doorwin-pro-first-project/): From price settings to PDF: the order to follow on your first real job. Prices first, then the drawing.
+- [6 checks when measuring windows on site](https://doorwin.app/en/blog/measuring-windows-on-site-checks/): Walls aren’t straight. Three widths, three heights, two diagonals: what to measure before anything goes to production.
+- [5 questions when choosing window drawing software](https://doorwin.app/en/blog/choosing-window-drawing-software/): Do you need cutting optimisation, or a quote at the customer’s side? Choosing software starts there, then four more questions.
+- [Markup and profit margin are not the same thing](https://doorwin.app/en/blog/markup-vs-profit-margin/): Adding 20% doesn’t mean earning 20%. And a 10% discount takes 120 out of a 200 profit. See it once.
+- [How to calculate a PVC window price, step by step](https://doorwin.app/en/blog/how-to-calculate-pvc-window-price/): A 1500×1500 double sash, line by line: from 6 metres of frame to a total of 425.03. Swap the sample prices for your own.
+- [Window opening types: fixed, casement, tilt and sliding](https://doorwin.app/en/blog/window-opening-types/): The triangle on the drawing is there to be read: its tip marks the hinge side. Four types and what each does to the price.
+- [Thermally broken versus non-insulated aluminium](https://doorwin.app/en/blog/thermally-broken-vs-non-insulated-aluminium/): A polyamide strip between two profiles breaks the thermal bridge. You see the difference in the metre price; the customer sees it on the energy bill.
+- [How to read 60, 70 and 80 mm PVC profile series](https://doorwin.app/en/blog/pvc-profile-60-70-80-mm-series/): The number is the profile’s depth, not its quality. Quoting errors often start here: selling 80 series at the 70 series price.
 
 ## Deutsch
 
@@ -93,13 +101,17 @@ DoorWin Pro ist eine Zeichen-, Auszugs- und Preis-App für PVC/uPVC- und Alumini
 - Was kostet es? Der Download ist kostenlos; In-App-Premium kostet im US-App-Store 7,99 $ monatlich oder 79,99 $ jährlich. Preise können je nach Land abweichen.
 - Ich möchte kein Abo. Gibt es eine Alternative? Die DoorWin-App mit Einmalzahlung kommt ohne Monats- oder Jahresabo aus. Die Vergleichsseite zeigt beide Apps Zeile für Zeile.
 - Bekomme ich bei Unzufriedenheit mein Geld zurück? Laut aktueller Website können Sie innerhalb von 14 Tagen über den jeweiligen Store stornieren oder eine Erstattung beantragen. Es gelten dessen Regeln.
+- Welche Fenster- und Türtypen kann ich zeichnen? Die Werkzeugleiste bietet Pfosten, feste, öffnende und Schiebeteile sowie Sonderformen. Die Store-Bilder zeigen auch eine automatische Sensor-Schiebetür.
+- Kann ich Währung und Steuer ändern? Ja. Währung, Steuersatz und Marge legen Sie selbst fest, auch für Auslandsaufträge.
+- Wird meine Sicherung automatisch hochgeladen? Nein. Laut App bleibt die Sicherung auf Ihrem Gerät oder am gewählten Ort und wird nicht automatisch hochgeladen. Datei teilen und am neuen Gerät importieren.
+- Gibt es DoorWin Pro für Android? Der geprüfte Google-Play-Link gehört zur Einmalkauf-App DoorWin. Sobald der Android-Link für Pro feststeht, wird er im Panel eingetragen und die Schaltfläche ändert sich.
 
 ### Articles
-- [Ihr erstes Projekt in DoorWin Pro: vom Kunden zum Angebot](https://doorwin.app/de/blog/doorwin-pro-erstes-projekt/): Kunde anlegen, Positionen mit Maßen ergänzen, Preis prüfen, PDF oder PNG teilen.
-- [6 Prüfungen beim Fensteraufmaß auf der Baustelle](https://doorwin.app/de/blog/fensteraufmass-baustelle-pruefungen/): Ein falsches Maß kostet eine Neuanfertigung. Drei Messpunkte senken das Risiko.
-- [5 Fragen zur Wahl eines Fenster-Zeichenprogramms](https://doorwin.app/de/blog/fenster-zeichenprogramm-auswahl/): Desktop-Produktionssoftware oder mobiles Angebotstool? Das hängt vom Bedarf ab.
-- [Aufschlag und Gewinnmarge sind nicht dasselbe](https://doorwin.app/de/blog/aufschlag-und-gewinnmarge/): 20 % auf die Kosten sind nicht 20 % vom Verkauf. Ein häufiger Rechenfehler im Fensterbau.
-- [PVC-Fensterpreis berechnen: Auszug Schritt für Schritt](https://doorwin.app/de/blog/pvc-fensterpreis-berechnen/): Rahmen-, Flügel-, Pfosten- und Glaszeilen für ein zweiflügeliges Fenster mit 1500×1500 mm.
-- [Fensteröffnungsarten: fest, Dreh, Kipp und Schiebe](https://doorwin.app/de/blog/fensteroeffnungsarten/): Die Öffnungsart ist eine Nutzungs- und Kostenentscheidung. Jeder Flügel bringt eine eigene Beschlagzeile.
-- [Thermisch getrenntes und ungedämmtes Aluminium im Vergleich](https://doorwin.app/de/blog/thermisch-getrenntes-und-ungedaemmtes-aluminium/): Bei thermischer Trennung liegt ein Polyamidsteg zwischen Innen- und Außenprofil. Im Angebot ist das eine eigene Preiszeile.
-- [So lesen Sie PVC-Profilserien mit 60, 70 und 80 mm](https://doorwin.app/de/blog/pvc-profilserien-60-70-80-mm/): Die Serie nennt die Bautiefe von Rahmen und Flügel. Eine nach Serien getrennte Preisliste verhindert falsche Angebote.
+- [Ihr erstes Projekt in DoorWin Pro: vom Kunden zum Angebot](https://doorwin.app/de/blog/doorwin-pro-erstes-projekt/): Von den Preiseinstellungen bis zum PDF: die Reihenfolge für Ihren ersten echten Auftrag. Erst die Preise, dann die Zeichnung.
+- [6 Prüfungen beim Fensteraufmaß auf der Baustelle](https://doorwin.app/de/blog/fensteraufmass-baustelle-pruefungen/): Wände sind nicht gerade. Drei Breiten, drei Höhen, zwei Diagonalen: was vor der Produktion gemessen werden muss.
+- [5 Fragen zur Wahl eines Fenster-Zeichenprogramms](https://doorwin.app/de/blog/fenster-zeichenprogramm-auswahl/): Brauchen Sie Zuschnittoptimierung oder ein Angebot direkt beim Kunden? Die Softwarewahl beginnt dort, dann folgen vier weitere Fragen.
+- [Aufschlag und Gewinnmarge sind nicht dasselbe](https://doorwin.app/de/blog/aufschlag-und-gewinnmarge/): Wer 20 % aufschlägt, verdient keine 20 %. Und 10 % Rabatt nehmen 120 von 200 Gewinn. Einmal durchgerechnet.
+- [PVC-Fensterpreis berechnen: Auszug Schritt für Schritt](https://doorwin.app/de/blog/pvc-fensterpreis-berechnen/): Zweiflügler 1500×1500, Zeile für Zeile: von 6 Metern Rahmen bis zur Summe 425,03. Tauschen Sie die Beispielpreise gegen Ihre eigenen.
+- [Fensteröffnungsarten: fest, Dreh, Kipp und Schiebe](https://doorwin.app/de/blog/fensteroeffnungsarten/): Das Dreieck in der Zeichnung will gelesen werden: Die Spitze zeigt zur Bandseite. Vier Typen und was jeder für den Preis bedeutet.
+- [Thermisch getrenntes und ungedämmtes Aluminium im Vergleich](https://doorwin.app/de/blog/thermisch-getrenntes-und-ungedaemmtes-aluminium/): Ein Polyamidsteg zwischen zwei Profilen unterbricht die Wärmebrücke. Der Unterschied steht im Meterpreis und später auf der Heizkostenabrechnung.
+- [So lesen Sie PVC-Profilserien mit 60, 70 und 80 mm](https://doorwin.app/de/blog/pvc-profilserien-60-70-80-mm/): Die Zahl nennt die Bautiefe, nicht die Qualität. Viele Kalkulationsfehler beginnen hier: 80er-Serie zum 70er-Preis.
