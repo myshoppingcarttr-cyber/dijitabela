@@ -146,11 +146,18 @@
     return base + ((10 - s % 10) % 10);
   }
   var kOn = {}; KATEGORI.forEach(function (k) { kOn[k.id] = k.on; });
-  var fNo = {}; FIRMA.forEach(function (f) { fNo[f.id] = f.no; });
+  var BIREYSEL = [{ id: "selin", ad: "Selin Arıkan", kat: ["gida", "ambalaj"], il: "Antalya", ilce: "Kepez", yil: 2026, paket: "bireysel", yetkili: "Selin Arıkan", unvan: "Bireysel üye", uzman: "", katildi: 22, telOk: true, epostaOk: true, no: 77, adres: "Kepez / Antalya", tel: "0533 412 ** 18", eposta: "selin.arikan@eposta.ornek", tarihce: "Bireysel üye. Elinde kalan ürünleri ilan ediyor, faaliyet alanındaki ilanları takip ediyor." }];
+  var fNo = {}; FIRMA.concat(BIREYSEL).forEach(function (f) { fNo[f.id] = f.no; });
+  /* Müşterinin düzeltme dosyasındaki 140 TL'lik çuval örneği ve bireysel üyenin örnek ilanları */
+  U = U.concat([
+    ["p57", "Mısır kırığı 25 kg çuval", "gida", "ilgaz", "çuval", 140, 200, 1, 5, "a", 0.1, "cuval", "Yeni", "Örnek senaryo ilanı: liste fiyatı 140 TL. Yem ve hayvancılık işletmeleri için çuvallı ürün, parti hâlinde teslim.", 0],
+    ["b1", "Kullanılmamış elektronik tartı 150 kg", "makina", "selin", "adet", 4200, 1, 1, 0, "a", 27, "pres", "Kullanılmamış", "Bireysel üye ilanı (örnek). Kutusunda, kullanılmamış endüstriyel tartı.", 0],
+    ["b2", "Fazla kalan kraft koli 500 adet", "ambalaj", "selin", "adet", 9, 500, 1, 0, "a", 85, "koli", "Yeni", "Bireysel üye ilanı (örnek). Taşınma sonrası elde kalan kullanılmamış koliler.", 0]
+  ]);
   var URUN = U.map(function (r, i) {
     var n = i + 1;
     return {
-      id: r[0], ad: r[1], kat: r[2], firma: r[3], birim: r[4], fiyat: r[5], stok: r[6], min: r[7], hemenAl: r[8],
+      id: r[0], ad: r[1], kat: r[2], firma: r[3], birim: r[4], fiyat: r[5], stok: r[6], hemenAl: r[8], hemenUst: r[0] === "p57" ? 10 : r[8] > 0 ? 5 : 0,
       durum: r[9] === "a" ? "aktif" : r[9] === "s" ? "satildi" : "arsiv", gun: r[10], ikon: r[11], kondisyon: r[12], aciklama: r[13],
       satisSaat: r[14] || 0,
       kod: kOn[r[2]] + "-" + (24000 + n * 137),
@@ -210,18 +217,22 @@
     bireysel: [
       { id: "b1", kim: "sedirpak", konu: "Koli ilanı hakkında", dk: 240, okunmadi: true, akis: [["o", "Merhaba Selin Hanım, faaliyet alanınızda yeni koli ilanımız var. 2.000 adet üstü siparişte 17 TL yapabiliyoruz. Kurumsal hesapla teklif verebilirsiniz."]] },
       { id: "b2", kim: "camlibel", konu: "Tip 550 un ilanı", dk: 2600, okunmadi: false, akis: [["o", "Merhaba, takip ettiğiniz Gıda kategorisine yeni un ilanı girdik. Fiyat ve teslim için ilan sayfasına bakabilirsiniz."]] },
-      { id: "b3", kim: "egedamla", konu: "Zeytinyağı stoğu", dk: 5000, okunmadi: false, akis: [["o", "Yeni sezon zeytinyağımız 240 teneke olarak yayında. Hemen Al eşiği %8, uygun teklifler anında onaylanıyor."]] },
+      { id: "b3", kim: "egedamla", konu: "Zeytinyağı stoğu", dk: 5000, okunmadi: false, akis: [["o", "Yeni sezon zeytinyağımız 240 teneke olarak yayında. Uygun teklifleri hızlıca değerlendiriyoruz."]] },
       { id: "b4", kim: "zeytindali", konu: "Kraft torba ilanınız", dk: 7200, okunmadi: false, akis: [["o", "Merhaba Selin Hanım, kraft koli ilanınızı gördük. Baskılı kâğıt torba ihtiyacınız olursa 2.000 adet üstünde 6,20 TL'ye yapabiliyoruz."]] },
       { id: "b5", kim: "selimiye", konu: "Beyaz peynir: kategori duyurusu", dk: 9800, okunmadi: false, akis: [["o", "Gıda kategorisini takip eden üyelerimize: 17 kg teneke tam yağlı beyaz peynir 60 teneke olarak yayında. Son tüketim Mart 2027, soğuk zincirle teslim."]] }
     ]
   };
 
   var KISI = {
-    bireysel: { ad: "Selin Arıkan", kisa: "SA", il: "Antalya / Kepez", eposta: "selin.arikan@eposta.ornek", tel: "0533 412 ** 18", kat: ["gida", "ambalaj"], ilan: [
-      { ad: "Kullanılmamış elektronik tartı 150 kg", kat: "makina", fiyat: 4200, birim: "adet", stok: 1, ikon: "pres" },
-      { ad: "Fazla kalan kraft koli 500 adet", kat: "ambalaj", fiyat: 9, birim: "adet", stok: 500, ikon: "koli" }
-    ] },
-    kurumsal: { firma: "toroslu", ad: "Murat Toroslu", kisa: "MT", kat: ["mobilya", "tekstil", "ambalaj"] }
+    selin: { kat: ["gida", "ambalaj"] },
+    toroslu: { kat: ["mobilya", "tekstil", "ambalaj"] },
+    gokdere: { kat: ["gida"] }
+  };
+  /* Müşterinin üyelikte onaylatılmasını istediği bilgilendirme metni (site düzeltmeler.docx, aynen) */
+  var BILGI = {
+    giris: ["Web sitemiz sadece alıcı ile satıcıyı buluşturan bir platformdur. Bu nedenle satıcı ve alıcı arasındaki para trafiği ve malları alma ve satmayla ilgili hiçbir sorumluluğu bulunmamaktadır. Herkes kendi mal alım ve satımından kendisi sorumludur.", "İnsanları dolandırmaya yönelik eylemlerden kaçınmak için para göndermeden önce mutlaka aşağıdaki adımları izleyin."],
+    adim: ["Satıcının elindeki malın deposunda olduğunu gidip görün yada görüntülü arama ile size ürünleri göstermesini isteyin.", "Sadece satan kişinin kendi hesabına yada firmanın resmi hesabına ödemeyi gönderin. Satıcı başka bir hesaba ödemeyi göndermenizi isterse ödemeyi göndermeyin.", "Mal faturasını size kesmesini isteyin ve fatura karşılığında mal bedelini firmanın resmi hesabına gönderin.", "Güvenmediğiniz kişilerden alışveriş yapmayın. Bu nedenle kapora göndermeden önce mutlaka ilgili kişi ile telefonla yada yüz yüze görüşün.", "Şüpheli bir şey sezdiğinizde mutlaka durumu bize iletmenizi rica ederiz."],
+    son: "Dolandırmaya yönelik işlem yapanlar polise ihbar edilecektir ve bu kişiler web sitemizdeki kara listeye eklenecek ve Türkiye’deki bütün ticaret odalarına bu bilgi gönderilecektir. Ağır cezalar ve yaptırımlara maruz kalmamak için bu tarz yollara tevessül etmemenizi önemle hatırlatırız."
   };
 
   var BLOG = [
@@ -229,17 +240,17 @@
       "Türkiye'de üretici ve toptancıların büyük kısmı yıl sonunda depo sayımında aynı tabloyla karşılaşır: iptal edilen bir siparişten kalan parti, sezonu kaçmış ürünler, etiketi değişen ambalajlar. Bu stok hem depo alanı hem de bağlı sermaye demektir.",
       "1. Önce stoğu sınıflandırın. Yeni ve kusursuz ürün, ambalajı hasarlı ürün, ikinci kalite ve son tüketim tarihi yaklaşan ürün ayrı fiyatlanmalı. Alıcı neyi neden ucuza aldığını bildiğinde pazarlık kısalır.",
       "2. Ürün kodu ve barkodu eksiksiz yazın. Kurumsal alıcılar satın alma sistemine kodla girer; kodsuz ilan ikinci plana düşer.",
-      "3. Hemen Al eşiği belirleyin. Örneğin %8 eşik, liste fiyatının %92'si ve üstündeki teklifleri siz uyurken bile satışa çevirir.",
+      "3. Stoğun tamamını tek alıcıya satmaya hazır olun. Doğru fiyatlı ilan, alıcının 'Satın al' ile hepsini almasını kolaylaştırır; parça alım isteyenler de teklif verir.",
       "4. Kategorinizdeki üyelere duyurun. StokPazarı kurumsal hesabında, ilanınızı o kategoriyi takip eden bireysel ve kurumsal üyelere e-postayla tek tıkla bildirebilirsiniz.",
       "5. Satılanları gizlemeyin. Firma sayfanızdaki 'satıldı' ilanları, yeni alıcılar için en güçlü referanstır.",
       "6. Reddettiğiniz teklifi kaybetmeyin. Teklif verene 'şu fiyattan verebilirim' diye yazmak, satışı çoğu zaman aynı gün kapatır.",
       "7. Satıldıktan sonra ilanı pasife alın. Güncel olmayan ilan alıcıyı yorar; sistem 3 gün içinde pasife alınmayan satılmış ilanları zaten otomatik kaldırır."
     ] },
-    { id: "hemen-al-esigi", baslik: "Hemen Al eşiği nasıl belirlenir: %5 mi, %10 mu?", ozet: "Eşik çok düşükse kâr kaçar, çok yüksekse teklif gelmez. Kategoriye göre makul aralıkları ve basit bir hesap yöntemini anlatıyoruz.", kat: "Rehber", tarih: "21 Ekim 2026", dk: 5, ikon: "disli", renk: "#2C5C8F", metin: [
-      "Hemen Al eşiği, liste fiyatından ne kadar aşağıdaki tekliflerin otomatik kabul edileceğini belirler. 100 TL'lik bir ürüne %10 eşik koyduğunuzda 90 TL ve üstündeki her teklif anında satışa döner; 88 TL'lik teklif ise onayınıza gelir.",
-      "Doğru eşiği bulmak için önce ürünün size maliyetine ve elde tutma maliyetine bakın. Depoda bir ay daha beklemenin size maliyeti ürün değerinin %3'üyse, %5'lik bir eşik çoğu zaman beklemekten kârlıdır.",
-      "Hızlı tüketilen ve son kullanma tarihi olan ürünlerde (gıda, kozmetik) %8–10 eşik yaygındır. Makina ve yedek parça gibi yüksek değerli ürünlerde %3–5 eşik, pazarlık payını korurken ciddi alıcıyı hızlandırır.",
-      "Eşik ürün bazında değiştirilebilir. Satıcı panelindeki kaydırıcıyla her ilan için ayrı oran belirleyebilir, eşik fiyatını anında görebilirsiniz."
+    { id: "teklif-verirken", baslik: "Teklif verirken nelere dikkat edilmeli?", ozet: "Satın almadan önce depoyu görmekten doğru miktarı yazmaya kadar, teklifinizin ciddiye alınmasını sağlayan kısa bir kontrol listesi.", kat: "Rehber", tarih: "21 Ekim 2026", dk: 5, ikon: "disli", renk: "#2C5C8F", metin: [
+      "Bir üründe iki yolunuz var: stoğun tamamını ilan fiyatından satın almak ya da istediğiniz miktar için teklif vermek. Teklifte fiyat ve miktarı siz yazarsınız.",
+      "Teklifiniz kabul edilirse satış kesinleşir, iki tarafa da bilgilendirme gider. Kabul edilmezse satıcı size kendi fiyatını yazabilir; pazarlık buradan devam eder.",
+      "Para göndermeden önce malın depoda olduğunu görün ya da görüntülü aramayla gösterilmesini isteyin. Ödemeyi yalnız satıcının kendi hesabına ya da firmanın resmi hesabına yapın.",
+      "Faturayı isteyin ve fatura karşılığında ödeyin. Şüpheli bir durum sezdiğinizde bize iletin."
     ] },
     { id: "satildi-etiketi", baslik: "'Satıldı' etiketi neden ilanınızda kalmalı?", ozet: "Satılan ürünü hemen silmek alışkanlıktır; ama satıldı ilanları hem güven verir hem de alım talebiyle yeni satışlar getirir.", kat: "Platform", tarih: "14 Ekim 2026", dk: 4, ikon: "komodin", renk: "#8A5A36", metin: [
       "Bir alıcı firmanızı ilk kez gördüğünde 'bu firma gerçekten satış yapıyor mu?' diye sorar. Firma sayfanızın altındaki satıldı işaretli ilanlar bu sorunun cevabıdır.",
@@ -249,9 +260,9 @@
     ] },
     { id: "kurumsal-teklif", baslik: "Kurumsal hesapla teklif almak: pazarlığı kaybetmeden satış", ozet: "Teklif, kabul, ret ve karşı teklif mesajı: kurumsal hesabın satış akışını adım adım gösteriyoruz.", kat: "Rehber", tarih: "7 Ekim 2026", dk: 5, ikon: "koltuk", renk: "#6A4BA3", metin: [
       "Kurumsal hesapta ilanlarınıza gelen her teklif satıcı panelinize düşer: teklif veren firma, birim fiyat, adet ve toplam tutar tek satırda.",
-      "Eşiğin altındaki bir teklifi reddettiğinizde sistem size bir mesaj kutusu açar. 'Sen 88 TL verdin ama 90 TL'den sana satabilirim' gibi kısa bir mesaj, satışı devam ettirir.",
+      "Bir teklifi reddettiğinizde sistem size bir mesaj kutusu açar. 'Sen 88 TL verdin ama 90 TL'den sana satabilirim' gibi kısa bir mesaj, satışı devam ettirir.",
       "Satış gerçekleştiğinde hem alıcıya hem size otomatik e-posta gider; ürün SATILDI olarak işaretlenir ve 3 günlük pasife alma süresi başlar.",
-      "Bireysel üyeler mesajlarınızı alabilir ama mesaj gönderemez; teklif ve alım talebi için hesaplarını yükseltmeleri gerekir."
+      "Bireysel üyeler de teklif verir ve teklif alır; mesajlarınızı alabilir ama serbest mesaj gönderemez."
     ] },
     { id: "skt-yaklasan-gida", baslik: "Son tüketim tarihi yaklaşan gıdada doğru ilan nasıl yazılır?", ozet: "SKT'si yaklaşan ürünü saklamadan, açıkça belirterek satmak hem güven verir hem de doğru alıcıyı bulur.", kat: "Sektör", tarih: "30 Eylül 2026", dk: 4, ikon: "teneke", renk: "#D9691F", metin: [
       "Gıda stoklarında en büyük risk zamanla yarışmaktır. Son tüketim tarihine 3–6 ay kalan ürün için toplu yemek, catering ve otel mutfakları en doğru alıcıdır.",
@@ -262,12 +273,12 @@
   ];
 
   var SSS = [
-    ["Satış nasıl gerçekleşiyor, ödeme sitede mi yapılıyor?", "Hayır. StokPazarı bir e-ticaret sitesi değildir; sepet ve ödeme yoktur. Alıcı teklif verir, satıcı kabul eder ya da Hemen Al eşiği içindeki teklif otomatik kabul edilir. Ödeme ve sevkiyat iki firma arasında, faturalı olarak yapılır."],
-    ["Bireysel hesap gerçekten ücretsiz mi?", "Evet, süresiz ücretsizdir. 3 ilan verebilir, faaliyet alanınızdaki ürün ve firmaları görür, yeni ürün e-postası alırsınız. Teklif vermek ve alım talebi göndermek kurumsal paketlerde açıktır."],
-    ["İlanlarımın süresi var mı?", "Hayır. İlan, ürün satılana ya da siz pasife alana kadar yayında kalır. Satıldıktan sonra 3 gün içinde pasife alınmayan ilanlar otomatik olarak yayından kaldırılır."],
-    ["Hemen Al eşiği zorunlu mu?", "Hayır, isteğe bağlıdır. Eşik tanımlamazsanız bütün teklifler onayınıza gelir."],
+    ["Satış nasıl gerçekleşiyor, ödeme sitede mi yapılıyor?", "Hayır. Site alıcı ile satıcıyı buluşturur; sepet ve ödeme yoktur. Alıcı stoğun tamamını ilan fiyatından satın alır ya da istediği miktar için teklif verir. Ödeme ve sevkiyat iki taraf arasında yapılır."],
+    ["Bireysel hesap gerçekten ücretsiz mi?", "Evet. Yılda 3 ilan hakkı vardır; teklif verebilir ve teklif alabilirsiniz. Her ilan 30 gün yayında kalır, 2 kez yenilenebilir (en fazla 90 gün). Daha fazlası için kurumsal üyeliğe geçilir."],
+    ["Kurumsal ilanların süresi nasıl işliyor?", "Her ilan 30 gün sonunda pasife alınır; isterseniz güncelleyip tekrar yayına alırsınız. Bir ilan en fazla 1 yıl yayında kalabilir, sonrasında yeni ilan girilir. Satılan ilan tekrar yayına alınamaz."],
+    ["Basic ve Gold arasındaki fark nedir?", "Basic'te 10 ilan hakkı, logo, üst banner ve 1 tanıtım resmi; Gold'da 25 ilan hakkı, logo, üst banner ve kayan slayt şeklinde 5 tanıtım resmi vardır."],
     ["Doğrulama neden gerekli?", "İlan verebilmek için telefon ve e-posta doğrulaması şarttır. Doğrulanan bilgiler profilinizde yeşil tik ile gösterilir; bu, alıcıların güvenini artırır."]
   ];
 
-  window.SP_VERI = { KATEGORI: KATEGORI, FIRMA: FIRMA, URUN: URUN, TEKLIF: TEKLIF, VERILEN: VERILEN, TALEP: TALEP, MESAJ: MESAJ, KISI: KISI, BLOG: BLOG, SSS: SSS };
+  window.SP_VERI = { BILGI: BILGI, BIREYSEL: BIREYSEL, KATEGORI: KATEGORI, FIRMA: FIRMA, URUN: URUN, TEKLIF: TEKLIF, VERILEN: VERILEN, TALEP: TALEP, MESAJ: MESAJ, KISI: KISI, BLOG: BLOG, SSS: SSS };
 })();
