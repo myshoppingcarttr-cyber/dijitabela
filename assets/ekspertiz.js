@@ -1,5 +1,6 @@
 // ===== Ücretsiz dijital ekspertiz v2: SORU YOK. Sunucu web sitesini, Google İşletme Profilini ve bölgedeki rakipleri inceler →
 // alan puanları, her eksik için somut tespit + nokta atışı çözüm, rakip karşılaştırması ve öncelik sırası.
+// 5 Kas 2026: skor yalnız ölçülen alanlardan; okunamayan alan ekranda "okunamadı" yazar, kapsam ve puan yöntemi rapordadır.
 (function () {
   "use strict";
   var A = window.AJANS || {}, F = window.FIYAT, $ = function (id) { return document.getElementById(id); }, e = window.esc, TL = F.TL;
@@ -20,6 +21,13 @@
     girdi = { url: web, maps: HARITA.test(harita) ? harita : "", isletme: HARITA.test(harita) ? "" : harita, sehir: f.sehir.value.trim() };
     if (HARITA.test(web) && !girdi.maps) { girdi.maps = web; girdi.url = ""; }
     if (!girdi.url && !girdi.maps && !girdi.isletme) return yaz($("e-durum"), "Google Haritalar bağlantınızı ya da işletmenizin adını yazın.", "kotu");
+    // İsteğe bağlı telefon: boşsa hiçbir şey gönderilmez. Doluysa geçerli olmalı ve rıza kutusu işaretlenmiş olmalı (kutu kendiliğinden işaretlenmez).
+    var telYazi = f.tel ? f.tel.value.trim() : "", telSade = telYazi.replace(/\D/g, "");
+    if (telYazi) {
+      if (!/^(90)?0?[2-5]\d{9}$/.test(telSade)) return yaz($("e-durum"), "Telefon numarasını kontrol edin ya da alanı boş bırakın.", "kotu");
+      if (!f.riza.checked) return yaz($("e-durum"), "Numaranızı bırakmak için rıza kutusunu işaretleyin ya da telefon alanını boş bırakın.", "kotu");
+      girdi.iletisim = { tel: telYazi, riza: true };
+    }
     // 30 Eki: sonuç kaydedilir (işletme bilgisi + hangi sayfadan geldiği; IP/kişisel veri yok — sayfadaki aydınlatma notu)
     var q = new URLSearchParams(location.search), utm = {};
     ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (k) { if (q.get(k)) utm[k] = q.get(k).slice(0, 100); });
@@ -44,13 +52,56 @@
   });
 
   var renk = function (p) { return p >= 75 ? "iyi" : p >= 50 ? "orta" : "kotu"; };
+  var SIRA_ALAN = ["google", "itibar", "arama", "site", "iletisim"];
+  var AD_VARSAYILAN = { google: "Google profili", itibar: "İtibar ve yorumlar", arama: "Arama görünürlüğü", site: "Web sitesi", iletisim: "İletişim ve otomasyon" };
+  var AG_VARSAYILAN = { google: 20, itibar: 25, arama: 15, site: 20, iletisim: 20 };
+  var DURUM_YAZI = { okunamadi: "okunamadı", bulunamadi: "bulunamadı", yok: "ölçülmedi" };
+  var KONTROLLER = {
+    google: "Açık görünme, çalışma saatleri, profilde site ve telefon, fotoğraflar, tanıtım yazısı.",
+    itibar: "Google yorum sayısı ve rakip karşılaştırması, Google puanı, yorum tazeliği, son yorumlardaki şikâyet.",
+    arama: "Sitenizden okunur: sayfa başlığı, arama sonucu açıklaması, ana başlık (H1), yapısal işletme verisi, site haritası, robots.txt.",
+    site: "HTTPS ve yönlendirme, içerik, mobil uyum, hız, paylaşım önizlemesi, sekme simgesi, güncellik, görsel açıklamaları, ziyaretçi ölçümü.",
+    iletisim: "Sitenizden okunur: tek dokunuşla arama, WhatsApp, harita ve yol tarifi, Google yorum bağlantısı, form, online randevu, sohbet asistanı, sosyal medya bağlantıları."
+  };
+  // Önbellekte kalmış eski sunucu yanıtı (kapsam yok, Google okunamamış): Google/İtibar sayısı site verisinden çıktığı için gösterilmez
+  function uyumla(d) {
+    if (d.kapsam) return d;
+    d.alanAd = d.alanAd || {};
+    if (d.google === "bulundu") return d;
+    var a = d.alanlar || {}, kalan = {}, top = 0, ag = 0;
+    ["site", "iletisim"].forEach(function (k) { if (typeof a[k] === "number") { kalan[k] = a[k]; top += a[k]; ag++; } });
+    d.alanlar = kalan; d.skor = ag ? Math.round(top / ag) : null;
+    var neden = "Google profili bu analizde okunamadı.";
+    d.kapsam = { etiket: ag ? "Yalnız site analizi" : "Ölçülemedi", olculmeyen: [{ alan: "google", durum: "okunamadi", neden: neden }, { alan: "itibar", durum: "okunamadi", neden: neden }], kismi: [], hiz: null };
+    return d;
+  }
+  function yontemHtml(d, K, olcm) {
+    var AG = (d.yontem && d.yontem.agirlik) || AG_VARSAYILAN, AD = d.alanAd || {}, top = 0;
+    Object.keys(d.alanlar || {}).forEach(function (a) { top += AG[a] || 0; });
+    var satir = SIRA_ALAN.map(function (a) {
+      var o = olcm[a], olculdu = typeof (d.alanlar || {})[a] === "number";
+      return "<tr><td><b>" + e(AD[a] || AD_VARSAYILAN[a]) + "</b><small>" + e(KONTROLLER[a]) + '</small></td><td class="say">%' + (AG[a] || 0) + '</td><td class="say">' + (olculdu && top ? "%" + Math.round(AG[a] / top * 100) : e(o ? DURUM_YAZI[o.durum] || "ölçülmedi" : "ölçülmedi")) + "</td></tr>";
+    }).join("");
+    var hz = K && K.hiz, hizYazi = !hz ? "Bu analizde hız ölçülemedi." : hz.puan != null ? hz.kaynak + ": bu analizde " + hz.puan + "/100" + (hz.lcp ? ", ana içerik " + String(hz.lcp).replace(".", ",") + " sn" : "") + ". 70 ve üzeri tamam, 45–69 uyarı, 45 altı eksik." : hz.kaynak + ": Google ölçümü alınamadı. 1,8 saniyenin altı tamam, 3,5 saniyenin altı uyarı, üzeri eksik.";
+    var zaman = ""; try { if (d.zaman) zaman = " Ölçüm zamanı: " + new Date(d.zaman).toLocaleString("tr-TR", { dateStyle: "short", timeStyle: "short" }) + "."; } catch (x) {}
+    return '<details class="eks-yontem" id="eks-yontem" open><summary>Puan nasıl hesaplanır</summary><div>' +
+      '<p class="uyari-not">Bu puan <b>Google\'ın resmî puanı değildir; sıralama ya da satış sonucu göstermez.</b> Dışarıdan okunabilen verilerle yapılmış bir kontrol listesidir.</p>' +
+      '<table class="eks-yontem-tablo"><thead><tr><th>Başlık ve kontrol listesi</th><th class="say">Ağırlık</th><th class="say">Bu analizde</th></tr></thead><tbody>' + satir + "</tbody></table>" +
+      "<p><b>Toplam puan:</b> yalnız ölçülen başlıkların ağırlıklı ortalamasıdır. Okunamayan başlık sıfır sayılmaz, hesaba hiç girmez; kalan ağırlıklar 100'e tamamlanır (“Bu analizde” sütunu).</p>" +
+      '<ul class="eks-lejant"><li><b>✓ Tamam:</b> kontrolün ağırlığının tamamını alır.</li><li><b>! Uyarı:</b> ağırlığının yarısını alır.</li><li><b>✗ Eksik:</b> puan almaz.</li></ul>' +
+      "<p><b>Hız kaynağı:</b> " + e(hizYazi) + "</p>" +
+      "<p><b>Diğer kaynaklar:</b> Google profili ve yorumlar Google Places API'den, diğer kontroller sitenizin herkese açık sayfasından okunur." + e(zaman) + "</p>" +
+      "</div></details>";
+  }
   function goster(d) {
+    d = uyumla(d);
     $("eks-ilerleme").hidden = true;
     var B = d.bulgular || [], eksik = B.filter(function (b) { return b.durum !== "ok"; }), iyi = B.filter(function (b) { return b.durum === "ok"; });
     var ciddi = eksik.filter(function (b) { return b.durum === "eksik"; });
-    var ist = d.isletme, rk = d.rakip, skor = d.skor;
-    // Yüksek puan da "rahatla" demez: dışarıdan görünen temel sağlam olsa bile asıl kayıp görünmeyen alanlarda
-    var yorum = skor >= 75 ? "Dışarıdan görünen temeliniz sağlam. Ama bu, müşteri kaybetmediğiniz anlamına gelmiyor: asıl kayıp, aşağıdaki dışarıdan görünmeyen alanlarda yaşanıyor." : skor >= 50 ? "Müşterilerin bir kısmı sizi bulamıyor, size ulaşamıyor ya da rakibi seçiyor." : "İnternette ciddi müşteri kaybediyorsunuz. Eksiklerin çoğu birkaç haftada giderilebilir.";
+    var ist = d.isletme, rk = d.rakip, skor = d.skor, skorVar = typeof skor === "number", K = d.kapsam || null;
+    var olcm = {}; ((K && K.olculmeyen) || []).forEach(function (o) { olcm[o.alan] = o; });
+    // Puan satış sonucu ölçmez: yorum yalnız ölçülen eksiklerden söz eder
+    var yorum = !skorVar ? "Bu analizde puan verecek kadar veri okunamadı." : skor >= 75 ? "Ölçülen alanlarda temeliniz sağlam. Dışarıdan ölçülemeyen alanları aşağıda kendiniz kontrol edebilirsiniz." : skor >= 50 ? "Ölçülen alanlarda giderilmesi gereken eksikler var." : "Ölçülen alanlarda önemli eksikler var. Çoğu birkaç haftada giderilebilir.";
     // Çözüm kalemleri → fiyat motoru
     var kalemler = [];
     ciddi.concat(eksik.filter(function (x) { return x.agirlik >= 6; })).forEach(function (x) { if (x.kalem && x.kalem !== "bakim" && F.KALEMLER[x.kalem] && kalemler.indexOf(x.kalem) < 0) kalemler.push(x.kalem); });
@@ -73,31 +124,40 @@
     GIZLI.forEach(function (g) { if (F.KALEMLER[g.k] && oneri.indexOf(g.k) < 0) oneri.push(g.k); });
     oneri.sort(function (a, b) { return sira.indexOf(a) - sira.indexOf(b); });
     var adSoyle = ist && ist.ad ? ist.ad : (girdi.isletme || (girdi.url || "").replace(/^https?:\/\//, "") || "işletmem");
-    var waLink = A.whatsapp ? "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ücretsiz ekspertiz yaptım (" + skor + "/100). Eksikleri ve çözüm planını konuşmak istiyorum.") : "";
-    var dugmeler = '<div class="v-dugmeler eks-dugmeler">' + (waLink ? '<a class="v-btn ana" href="' + waLink + '" target="_blank" rel="noopener">WhatsApp\'tan hemen yazın →</a>' : "") + (A.whatsapp2 ? '<a class="v-btn" href="https://wa.me/' + A.whatsapp2 + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ekspertiz yaptım (" + skor + "/100). Ücretsiz taslak istiyorum.") + '" target="_blank" rel="noopener">7/24 asistan · ' + e(A.telefon2) + "</a>" : "") + '<a class="v-btn" href="#eks-rapor">Beni arayın</a>' + (A.telefon ?'<a class="v-btn" href="tel:+90' + A.telefon.replace(/\D/g, "").replace(/^0/, "") + '">☎ ' + e(A.telefon) + "</a>" : "") + "</div>";
+    var waLink = A.whatsapp ? "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ücretsiz ekspertiz yaptım" + (skorVar ? " (" + skor + "/100)" : "") + ". Eksikleri ve çözüm planını konuşmak istiyorum.") : "";
+    var dugmeler = '<div class="v-dugmeler eks-dugmeler">' + (waLink ? '<a class="v-btn ana" href="' + waLink + '" target="_blank" rel="noopener">WhatsApp\'tan hemen yazın →</a>' : "") + (A.whatsapp2 ? '<a class="v-btn" href="https://wa.me/' + A.whatsapp2 + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ekspertiz yaptım" + (skorVar ? " (" + skor + "/100)" : "") + ". Ücretsiz taslak istiyorum.") + '" target="_blank" rel="noopener">7/24 asistan · ' + e(A.telefon2) + "</a>" : "") + '<a class="v-btn" href="#eks-rapor">Beni arayın</a>' + (A.telefon ?'<a class="v-btn" href="tel:+90' + A.telefon.replace(/\D/g, "").replace(/^0/, "") + '">☎ ' + e(A.telefon) + "</a>" : "") + "</div>";
     var ALAN = Object.keys(d.alanlar || {});
+    d.alanAd = d.alanAd || {}; SIRA_ALAN.forEach(function (a) { d.alanAd[a] = d.alanAd[a] || AD_VARSAYILAN[a]; });
+    // Kartlarda ölçülen ve ölçülemeyen başlıklar birlikte görünür (eski yanıttaki bilinmeyen başlıklar sona)
+    var TUM = SIRA_ALAN.filter(function (a) { return ALAN.indexOf(a) >= 0 || olcm[a]; }).concat(ALAN.filter(function (a) { return SIRA_ALAN.indexOf(a) < 0; }));
     var ilk3 = ciddi.slice(0, 3);
-    var googleNot = d.google === "kapali" || d.google === "hata" ? '<p class="eks-not">Google profil karşılaştırması bu analizde yapılamadı; arayıp profilinizi birlikte kontrol edelim.</p>'
+    var googleNot = d.google === "kapali" || d.google === "hata" || d.google === "bilgi-yok" ? '<p class="eks-not"><b>Google profili bu analizde okunamadı.</b> İtibar ve profil başlıkları puana katılmadı; bu, profilinizde sorun olduğu anlamına gelmez. Biraz sonra tekrar deneyebilir ya da profilinizi birlikte kontrol etmemiz için bize yazabilirsiniz.</p>'
       : d.google === "bulunamadi" ? '<p class="eks-not kotu"><b>İşletmeniz Google Haritalar\'da bulunamadı.</b> Ya profiliniz yok ya da adınız farklı kayıtlı. Haritada görünmeyen işletmeyi “yakınımdaki …” diye arayan müşteri hiç görmez.</p>' : "";
 
     var s = $("eks-sonuc");
     s.innerHTML = '<p class="v-etiket">Ekspertiz sonucu' + (ist ? " · " + e(ist.ad) : girdi.url ? " · " + e(girdi.url.replace(/^https?:\/\//, "")) : "") + "</p>" +
       (ist ? '<p class="eks-kimlik">' + e([ist.tur, ist.adres].filter(Boolean).join(" · ")) + (ist.puan != null ? " · ★ " + String(ist.puan).replace(".", ",") + " (" + ist.yorum + " yorum)" : "") + (ist.eminDegil ? ' <em>· Doğru işletme değilse Google Haritalar bağlantınızla tekrar deneyin.</em>' : "") + "</p>" : "") +
-      '<div class="eks-skor ' + renk(skor) + '"><b>' + skor + '</b><span>/100</span></div><div class="eks-bar"><i style="width:' + skor + '%"></i></div>' +
-      '<p class="v-alt" style="margin:18px 0 26px">' + e(yorum) + " <b>" + ciddi.length + " önemli eksik</b> bulundu.</p>" + googleNot +
-      '<dl class="eks-alanlar">' + ALAN.map(function (a) { var p = d.alanlar[a]; return '<div class="' + renk(p) + '"><dt>' + e(d.alanAd[a]) + "</dt><dd><b>" + p + '</b>/100</dd><span class="eks-mini"><i style="width:' + p + '%"></i></span></div>'; }).join("") + "</dl>" +
+      (skorVar ? '<div class="eks-skor ' + renk(skor) + '"><b>' + skor + '</b><span>/100</span></div><div class="eks-bar"><i style="width:' + skor + '%"></i></div>' : '<div class="eks-skor yok"><b>Puan hesaplanamadı</b></div>') +
+      (K ? '<div class="eks-kapsam"><b>Kapsam: ' + e(K.etiket) + ".</b>" + (K.kismi && K.kismi.length ? "<ul>" + K.kismi.map(function (n) { return "<li>" + e(n) + "</li>"; }).join("") + "</ul>" : "") + "</div>" : "") +
+      '<p class="v-alt" style="margin:18px 0 12px">' + e(yorum) + (ciddi.length ? " <b>" + ciddi.length + " önemli eksik</b> bulundu." : "") + "</p>" + googleNot +
+      '<dl class="eks-alanlar">' + TUM.map(function (a) {
+        var p = d.alanlar[a], o = olcm[a];
+        if (typeof p !== "number") return '<div class="olculmedi"><dt>' + e(d.alanAd[a] || a) + "</dt><dd><b>" + e(o ? DURUM_YAZI[o.durum] || "ölçülmedi" : "ölçülmedi") + "</b></dd><small>" + e(o ? o.neden : "") + "</small></div>";
+        return '<div class="' + renk(p) + '"><dt>' + e(d.alanAd[a] || a) + "</dt><dd><b>" + p + '</b>/100</dd><span class="eks-mini"><i style="width:' + p + '%"></i></span></div>';
+      }).join("") + "</dl>" +
+      (K ? '<a class="eks-yontem-link" href="#eks-yontem">Puan nasıl hesaplanır? Google\'ın resmî puanı değildir.</a>' : "") +
       (rk ? '<h3 class="eks-h">Çevrenizdeki rakipler · ' + rk.sayi + " işletme (" + (rk.yaricap >= 1000 ? String(rk.yaricap / 1000).replace(".", ",") + " km" : rk.yaricap + " m") + ")</h3>" +
         '<table class="eks-rakip"><thead><tr><th>İşletme</th><th>Puan</th><th>Yorum</th></tr></thead><tbody>' +
         (ist ? '<tr class="biz"><td>' + e(ist.ad) + " (siz)</td><td>" + (ist.puan != null ? String(ist.puan).replace(".", ",") : "—") + "</td><td>" + ist.yorum + "</td></tr>" : "") +
         rk.ilk.map(function (r) { return "<tr><td>" + e(r.ad) + ' <small>' + (r.m >= 1000 ? (r.m / 1000).toFixed(1).replace(".", ",") + " km" : r.m + " m") + "</small></td><td>" + (r.puan != null ? String(r.puan).replace(".", ",") : "—") + "</td><td>" + r.yorum + "</td></tr>"; }).join("") + "</tbody></table>" : "") +
       (ilk3.length ? '<div class="eks-oncelik"><p class="v-etiket">Önce bunları yapın</p><ol>' + ilk3.map(function (x) { return "<li><b>" + e(x.ad) + "</b> " + e(x.cozum) + "</li>"; }).join("") + "</ol><p class=\"eks-oncelik-alt\">Bunları sizin için biz yapıyoruz. 10 dakikalık ücretsiz görüşmede planı anlatalım.</p>" + dugmeler + "</div>" : "") +
-      ALAN.map(function (a) {
+      TUM.map(function (a) {
         var liste = eksik.filter(function (x) { return x.alan === a; });
         if (!liste.length) return "";
         return '<h3 class="eks-h">' + e(d.alanAd[a]) + " · " + liste.length + ' eksik</h3><ol class="eks-liste">' + liste.map(function (x) {
           return '<li class="' + (x.durum === "uyari" ? "uyari" : "eksik") + '"><span>' + (x.durum === "uyari" ? "!" : "✗") + "</span><div><b>" + e(x.ad) + "</b><p>" + e(x.tespit) + "</p>" + (x.cozum ? '<p class="eks-cozum"><b>Ne yapılmalı:</b> ' + e(x.cozum) + "</p>" : "") + "</div></li>";
         }).join("") + "</ol>";
-      }).join("") +
+      }).join("") + (K ? yontemHtml(d, K, olcm) : "") +
       '<div class="eks-gizli"><p class="v-etiket">Dışarıdan görünmeyen kayıplar</p><h3>İnternetten ölçemediğimiz ama hemen her işletmede müşteri kaçıran ' + GIZLI.length + ' alan</h3>' +
       '<p class="v-alt">Bunları sitenizden ya da Google\'dan göremeyiz; kendinize sorun: <b>sizde var mı?</b> Yoksa, müşteri kaybı tam burada yaşanıyor.</p><ol>' +
       GIZLI.map(function (g) { return "<li><b>" + e(g.ad) + "</b><p>" + e(g.s) + "</p></li>"; }).join("") + "</ol></div>" +
@@ -114,12 +174,13 @@
 
     var rf = $("eks-rapor"), rd = rf.querySelector(".durum");
     if (ist && ist.ad) rf.isletme.value = ist.ad; else if (girdi.isletme) rf.isletme.value = girdi.isletme;
+    if (girdi.iletisim) rf.tel.value = girdi.iletisim.tel;
     rf.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (!rf.isletme.value.trim()) return yaz(rd, "İşletmenizin adını yazın.", "kotu");
       if (rf.tel.value.replace(/\D/g, "").length < 10) return yaz(rd, "Telefon numaranızı yazın.", "kotu");
       if (!rf.kvkk.checked) return yaz(rd, "KVKK onay kutusunu işaretleyin.", "kotu");
-      var not = "Ekspertiz v2 puanı " + skor + "/100 (" + ALAN.map(function (a) { return d.alanAd[a] + " " + d.alanlar[a]; }).join(", ") + ")" +
+      var not = "Ekspertiz puanı " + (skorVar ? skor + "/100" : "hesaplanamadı") + (K ? ", kapsam: " + K.etiket : "") + " (" + ALAN.map(function (a) { return d.alanAd[a] + " " + d.alanlar[a]; }).join(", ") + ")" +
         (ist ? ". Google: " + ist.ad + ", ★" + (ist.puan ?? "—") + " / " + ist.yorum + " yorum, durum " + ist.durum : "") +
         (rk ? ". Rakip ortancası: " + rk.ilk.map(function (r) { return r.yorum; }).join("/") + " yorum" : "") +
         ". Öneri: " + h.satirlar.map(function (r) { return r.ad; }).join(" + ") + " = " + TL(h.tek) + (h.ay ? " + " + TL(h.ay) + "/ay" : "") +
