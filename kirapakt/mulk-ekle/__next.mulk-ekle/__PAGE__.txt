@@ -1,0 +1,31 @@
+2:"$Sreact.fragment"
+3:"/kirapakt/_next/static/chunks/3qfy96eoyh-ek.js"
+4:"/kirapakt/_next/static/chunks/15ipkz9s5fl71.js"
+5:I[39756,["$3","$4"],"default"]
+6:I[37457,["$3","$4"],"default"]
+b:"/kirapakt/_next/static/chunks/0qvu689zjwczx.js"
+c:"/kirapakt/_next/static/chunks/1i92kvytfqy9g.js"
+d:"/kirapakt/_next/static/chunks/1vmchln-myz-5.js"
+e:"/kirapakt/_next/static/chunks/11q2nsy6_2wje.js"
+f:I[51112,["$3","$4","$b","$c","$d","$e"],"PropertyForm"]
+10:I[97367,["$3","$4"],"OutletBoundary"]
+11:"$Sreact.suspense"
+14:"ViewportBoundary"
+15:I[97367,["$3","$4"],"$14"]
+16:"MetadataBoundary"
+17:I[97367,["$3","$4"],"$16"]
+18:I[27201,["$3","$4"],"IconMark"]
+8:X
+8:C
+9:X
+a:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-4 py-10 md:py-14","children":[["$","h1",null,{"className":"text-3xl font-bold tracking-tight","children":"Mülkünüzü ekleyin, kiranızı garantiye alın"}],["$","p",null,{"className":"mt-3 max-w-2xl text-muted-foreground","children":"Daire bilgilerinizi girin, hizmet sözleşmesini inceleyin. Ekibimiz onayladıktan sonra ilanınız yayına alınır."}],["$","div",null,{"className":"mt-8","children":["$","$Lf",null,{}]}]]}],[["$","script","script-0",{"src":"/kirapakt/_next/static/chunks/0qvu689zjwczx.js","async":true}],["$","script","script-1",{"src":"/kirapakt/_next/static/chunks/1i92kvytfqy9g.js","async":true}],["$","script","script-2",{"src":"/kirapakt/_next/static/chunks/1vmchln-myz-5.js","async":true}],["$","script","script-3",{"src":"/kirapakt/_next/static/chunks/11q2nsy6_2wje.js","async":true}]],["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":"$@13","v":null,"s":"$9"}}]]
+1:[["children",{"s":"mulk-ekle","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$11",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Mülk Ekle | KİRAPAKT"}],["$","meta","1",{"name":"description","content":"Ev sahipleri kirasını her ayın 1'inde garantili alır, kiracılar nakit depozito ödemeden taşınır."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","link","3",{"rel":"icon","href":"/kirapakt/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L18","4",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@19","v":null,"s":"$9"}},"a":"$@1a","u":"$@1b","b":"TelbAb8_vGhcExM3Xc934"}
+12:null
+1b:true
+9:300
+9:C
+1a:0
+7:"$undefined"
+19:"$undefined"
+13:"$undefined"

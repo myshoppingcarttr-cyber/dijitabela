@@ -1,0 +1,6 @@
+:HL["/kirapakt/_next/static/chunks/3y7pvezelqual.css","style"]
+:HL["/kirapakt/_next/static/media/48eea41d8317494f-s.p.0wiir8udbzjvx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/kirapakt/_next/static/media/c1b11b726b36a5e5-s.p.2rixgazldzomk.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"basvuru","h":64,"c":"$Q2"}]]
+0:{"b":"TelbAb8_vGhcExM3Xc934","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
