@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Hanzade Fiyat Listesi</title>
+<link rel="icon" href="../site/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,600;62..125,800&display=swap" rel="stylesheet">
+<style>
+:root{--kagit:#f6f0e6;--yuzey:#fffaf2;--murekkep:#22170f;--soluk:#6b5b49;--cizgi:#dccdb6;--vurgu:#8c2f1b;--vurgu2:#6e2414;--yesil:#2f7a3d;--hata:#b3261e}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kagit);color:var(--murekkep);font:16px/1.5 Archivo,system-ui,-apple-system,"Segoe UI",sans-serif}
+.kap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 18px}
+h1,h2{font-variation-settings:"wdth" 68;font-weight:800;line-height:1;margin:0}
+h1{font-size:clamp(2.2rem,8vw,3.2rem)}
+h2{font-size:1.65rem}
+.giris{margin:12px 0 0;color:var(--soluk);max-width:56ch}
+.durum{position:sticky;top:0;z-index:5;background:var(--yuzey);border-bottom:1px solid var(--cizgi)}
+.durum .kap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.cubuk{flex:1;height:8px;background:var(--cizgi);border-radius:4px;overflow:hidden}
+.cubuk i{display:block;height:100%;width:0;background:var(--vurgu);transition:width .2s}
+.sayi{font-weight:700;font-size:.92rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.kayit{font-size:.82rem;color:var(--soluk);min-width:74px;text-align:right}
+.kayit.h{color:var(--hata);font-weight:700}
+section{margin:26px 0}
+.bnot{margin:6px 0 0;font-size:.92rem;color:var(--soluk)}
+.liste{margin-top:12px;background:var(--yuzey);border:1px solid var(--cizgi);border-radius:8px}
+.u{display:grid;grid-template-columns:56px 1fr;gap:6px 12px;padding:12px;border-top:1px solid var(--cizgi)}
+.u:first-child{border-top:0}
+.u img,.u .bosg{width:56px;height:56px;object-fit:cover;border-radius:6px;background:var(--cizgi);grid-row:span 2}
+.ad{font-weight:700;line-height:1.25}
+.alt{font-size:.84rem;color:var(--soluk);line-height:1.35;margin-top:2px}
+.gir{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.fiyat{display:flex;align-items:center;border:1px solid var(--soluk);border-radius:6px;background:#fff;height:46px}
+.fiyat:focus-within{outline:3px solid var(--vurgu);outline-offset:1px}
+.fiyat input{width:92px;height:100%;border:0;background:none;font:700 1.08rem Archivo,sans-serif;padding:0 4px 0 10px;text-align:right;color:inherit;outline:0}
+.fiyat span{padding-right:10px;color:var(--soluk);font-size:.9rem}
+.u.dolu .fiyat{border-color:var(--yesil)}
+.u.hata .fiyat{border-color:var(--hata)}
+select{height:46px;border:1px solid var(--cizgi);border-radius:6px;background:#fff;font:inherit;padding:0 6px;color:inherit}
+.sat{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;color:var(--soluk);min-height:44px;cursor:pointer}
+.sat input{width:18px;height:18px;accent-color:var(--vurgu)}
+.u.yok .ad{text-decoration:line-through;color:var(--soluk)}
+.u.yok .fiyat,.u.yok select{opacity:.4}
+.notu{grid-column:2;width:100%;border:1px solid var(--cizgi);border-radius:6px;padding:8px 10px;font:inherit;font-size:.9rem;background:#fff;color:inherit}
+.uyari{grid-column:2;color:var(--hata);font-size:.84rem;font-weight:600}
+details{margin:26px 0}
+summary{cursor:pointer;font-weight:800;font-size:1.25rem;font-variation-settings:"wdth" 75;padding:12px 0}
+details h3{margin:20px 0 0;font-size:1.05rem}
+textarea{width:100%;min-height:96px;border:1px solid var(--soluk);border-radius:8px;padding:10px 12px;font:inherit;background:#fff;color:inherit;margin-top:10px}
+.bitir{display:block;width:100%;min-height:54px;margin:18px 0 8px;border:0;border-radius:8px;background:var(--vurgu);color:#fff;font:800 1.1rem Archivo,sans-serif;cursor:pointer}
+.bitir:hover{background:var(--vurgu2)}
+.son{min-height:24px;font-weight:600;color:var(--yesil)}
+.son.h{color:var(--hata)}
+footer{padding:20px 0 36px;font-size:.86rem;color:var(--soluk)}
+footer a{color:var(--vurgu);font-weight:700}
+.kapali{padding:60px 16px;text-align:center}
+@media (max-width:420px){.fiyat input{width:80px}.kayit{display:none}}
+</style>
+</head>
+<body>
+<div id="uyg" hidden>
+<div class="durum"><div class="kap"><span class="sayi" id="sayi"></span><div class="cubuk"><i id="bar"></i></div><span class="kayit" id="kayit" role="status" aria-live="polite"></span></div></div>
+<div class="kap">
+<header>
+<h1>Hanzade fiyat listesi</h1>
+<p class="giris">Hüseyin Bey, aşağıdaki ürünlerin fiyatı kataloğumuzda boş. Fiyatları siz belirleyin, kutuya yazın. Yazdığınız an kaydolur, ayrıca bir yere basmanız gerekmez. Yarım bırakıp daha sonra aynı linkten devam edebilirsiniz.</p>
+</header>
+<main id="ana"></main>
+<section>
+<h2>Listede olmayan ürünler</h2>
+<p class="bnot">İçecekler ve süt ürünleri gibi eklemek istediklerinizi fiyatıyla yazın. Ör. “Ayran 25 TL”.</p>
+<label class="alt" for="ek" style="position:absolute;left:-9999px">Listede olmayan ürünler</label>
+<textarea id="ek" maxlength="300"></textarea>
+<button class="bitir" id="bitir" type="button">Fiyatları tamamladım</button>
+<p class="son" id="son" role="status" aria-live="polite"></p>
+</section>
+<footer>Fotoğrafların bir kısmı temsilidir. Sorun olursa: Alim Hoşlar, <a href="tel:+905019452184">0501 945 21 84</a></footer>
+</div>
+</div>
+<div class="kapali" id="kapali" hidden><p>Bu sayfa yalnız size gönderilen linkle açılır. Linki yeniden isteyin: <a href="tel:+905019452184">0501 945 21 84</a></p></div>
+<script>window.DJ_FILIGRAN = false; /* DJ_REHBER: bu sayfaya konuşan tabela eklenmez */</script>
+<script>
+(function () {
+"use strict";
+var VERI = {"eksik":[{"ad":"Sabah paketleri","not":"Paket içeriği değiştiyse her satırın altındaki not alanına yazabilirsiniz.","u":[{"id":"simit-sabahi","ad":"Simit Sabahı","alt":"Simit · Poğaça · Küçük peynir ve zeytin · Çay ya da ayran","fiyat":null,"birim":"paket","gorsel":"img/simit-sabahi.webp"},{"id":"calisan-paketi","ad":"Çalışan Paketi","alt":"Dilim börek · Açma · Domates ve salatalık · Çay","fiyat":null,"birim":"paket","gorsel":"img/borek.webp"},{"id":"zengin-kahvalti","ad":"Zengin Kahvaltı","alt":"Börek · Poğaça · Simit · Peynir, zeytin · Bal ya da reçel · 2 çay","fiyat":null,"birim":"paket","gorsel":"img/gozleme.webp"},{"id":"ofis-kutusu","ad":"Ofis / Aile Kutusu","alt":"4–6 kişilik · Simit, poğaça, açma, börek · Peynir, zeytin, domates, salatalık · Bal ya da reçel","fiyat":null,"birim":"paket","gorsel":"img/cay.webp"}]},{"ad":"Kurumsal","not":"Kişi başı fiyat veriyorsanız birimi “kişi” seçin.","u":[{"id":"ofis-sabah-tepsisi","ad":"Ofis Sabah Tepsisi","alt":"Kişi sayısına göre · Simit, poğaça, açma, dilim börek; isterseniz peynir, zeytin ve çay.","fiyat":null,"birim":"paket","gorsel":"img/ekmek-rafi.webp"},{"id":"ofis-toplanti-kutusu","ad":"Ofis Toplantı Kutusu","alt":"10–15 kişilik · Mini poğaça, mini ekler, tuzlu kurabiye, dilim börek.","fiyat":null,"birim":"paket","gorsel":"img/kurabiye.webp"}]},{"ad":"Kahvaltılık ve şarküteri","not":"Şişe ve kavanozlarda boyu not alanına yazın (ör. 1 lt, 850 g).","u":[{"id":"s-beyaz-peynir","ad":"Beyaz peynir","alt":"","fiyat":null,"birim":"kg","gorsel":"img/temsili-s-beyaz-peynir.webp"},{"id":"s-kasar","ad":"Kaşar peyniri","alt":"","fiyat":null,"birim":"kg","gorsel":"img/temsili-s-kasar.webp"},{"id":"s-tulum","ad":"Tulum peyniri","alt":"","fiyat":null,"birim":"kg","gorsel":"img/temsili-s-tulum.webp"},{"id":"s-yogurt","ad":"Köy yoğurdu","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-dolap.webp"},{"id":"s-kaymak","ad":"Kaymak","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-s-kaymak.webp"},{"id":"s-tereyagi","ad":"Tereyağı","alt":"","fiyat":null,"birim":"kg","gorsel":"img/temsili-s-kaymak.webp"},{"id":"s-zeytin-yesil","ad":"Yeşil zeytin","alt":"","fiyat":null,"birim":"kg","gorsel":"img/sarkuteri-zeytin.webp"},{"id":"s-zeytin-kirma","ad":"Kırma zeytin","alt":"","fiyat":null,"birim":"kg","gorsel":"img/sarkuteri-zeytin.webp"},{"id":"s-zeytin-siyah","ad":"Siyah zeytin","alt":"","fiyat":null,"birim":"kg","gorsel":"img/sarkuteri-zeytin.webp"},{"id":"s-bal","ad":"Kavanoz bal","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-bal.webp"},{"id":"s-petek-bal","ad":"Petek bal","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-bal.webp"},{"id":"s-recel","ad":"Reçel çeşitleri","alt":"Cam kavanozda, onlarca çeşit","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-raf.webp"},{"id":"s-zy-sise","ad":"Zeytinyağı, cam şişe","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-zeytinyagi.webp"},{"id":"s-zy-damacana","ad":"Zeytinyağı, damacana","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-zeytinyagi.webp"},{"id":"s-zy-teneke","ad":"Zeytinyağı, teneke","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-zeytinyagi.webp"},{"id":"s-pekmez","ad":"Pekmez","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-pekmez.webp"},{"id":"s-nar-eksisi","ad":"Nar ekşisi","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-pekmez.webp"},{"id":"s-sirke","ad":"Sirke","alt":"","fiyat":null,"birim":"adet","gorsel":"img/sarkuteri-pekmez.webp"},{"id":"s-kozbiber","ad":"Közlenmiş biber","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-s-tursu.webp"},{"id":"s-tursu","ad":"Turşu","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-s-tursu.webp"},{"id":"s-dibek","ad":"Dibek kahvesi","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-s-dibek.webp"},{"id":"s-galeta","ad":"Galeta","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-s-galeta.webp"},{"id":"s-peksimet","ad":"Peksimet","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-s-galeta.webp"},{"id":"s-lokum","ad":"Lokum","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-s-lokum.webp"},{"id":"s-kuruyemis","ad":"Kuruyemiş","alt":"","fiyat":null,"birim":"kg","gorsel":"img/temsili-s-lokum.webp"}]},{"ad":"Vitrin tatlıları","not":"","u":[{"id":"v-profiterol","ad":"Profiterol","alt":"","fiyat":null,"birim":"porsiyon","gorsel":"img/temsili-v-profiterol.webp"},{"id":"v-sutlac","ad":"Sütlaç","alt":"","fiyat":null,"birim":"porsiyon","gorsel":"img/temsili-v-sutlac.webp"},{"id":"v-supangle","ad":"Supangle","alt":"","fiyat":null,"birim":"porsiyon","gorsel":"img/temsili-v-supangle.webp"},{"id":"v-bardak-pasta","ad":"Bardak pasta","alt":"","fiyat":null,"birim":"adet","gorsel":"img/temsili-v-bardak-pasta.webp"},{"id":"v-adet-pasta","ad":"Dilim ve adet pastalar","alt":"","fiyat":null,"birim":"adet","gorsel":"img/adet-pasta.webp"},{"id":"v-mono","ad":"Çikolatalı mono tatlılar","alt":"","fiyat":null,"birim":"adet","gorsel":"img/mono-tatli.webp"},{"id":"v-cheesecake","ad":"Cheesecake","alt":"","fiyat":null,"birim":"dilim","gorsel":"img/temsili-v-cheesecake.webp"},{"id":"v-islak-kek","ad":"Islak kek","alt":"","fiyat":null,"birim":"porsiyon","gorsel":"img/temsili-v-islak-kek.webp"},{"id":"v-tulumba","ad":"Tulumba","alt":"","fiyat":null,"birim":"kg","gorsel":"img/tulumba.webp"},{"id":"v-kadayif","ad":"Burma kadayıf","alt":"","fiyat":null,"birim":"kg","gorsel":"img/kadayif.webp"},{"id":"v-kurabiye","ad":"Kurabiye çeşitleri","alt":"","fiyat":null,"birim":"kg","gorsel":"img/kurabiye.webp"}]}],"bilinen":[{"ad":"Ekmekler","u":[{"id":"tas-ekmek","ad":"Normal taş ekmek","alt":"","fiyat":20,"birim":"adet","gorsel":"img/somun.webp"},{"id":"cicek-ekmek","ad":"Çiçek ekmek","alt":"","fiyat":50,"birim":"adet","gorsel":"img/temsili-cicek-ekmek.webp"},{"id":"tava-ekmek","ad":"Tava ekmek","alt":"","fiyat":50,"birim":"adet","gorsel":"img/temsili-tava-ekmek.webp"},{"id":"tandir-ekmek","ad":"Tandır ekmek","alt":"","fiyat":20,"birim":"adet","gorsel":"img/temsili-tandir-ekmek.webp"},{"id":"ramazan-pidesi","ad":"Ramazan pidesi","alt":"","fiyat":30,"birim":"adet","gorsel":"img/pide.webp"},{"id":"ince-tirnak-pide","ad":"İnce tırnak pide","alt":"","fiyat":30,"birim":"adet","gorsel":"img/tirnak-pide.webp"},{"id":"bufe-ekmek","ad":"Büfe ekmek","alt":"","fiyat":50,"birim":"adet","gorsel":"img/temsili-bufe-ekmek.webp"},{"id":"ciabatta","ad":"Ciabatta (zeytinyağlı)","alt":"","fiyat":30,"birim":"adet","gorsel":"img/temsili-ciabatta.webp"}]},{"ad":"Ekşi Maya","u":[{"id":"em-koy","ad":"Ekşi maya köy ekmeği","alt":"1 kg","fiyat":200,"birim":"adet","gorsel":"img/eksimaya.webp"},{"id":"em-muhacir","ad":"Ekşi maya muhacir","alt":"1 kg","fiyat":200,"birim":"adet","gorsel":"img/temsili-em-muhacir.webp"},{"id":"em-tam-bugday","ad":"Ekşi maya tam buğday","alt":"400 g","fiyat":80,"birim":"adet","gorsel":"img/temsili-em-tam-bugday.webp"},{"id":"em-cavdar","ad":"Ekşi maya çavdar","alt":"","fiyat":80,"birim":"adet","gorsel":"img/temsili-em-cavdar.webp"},{"id":"em-tam-tahil","ad":"Ekşi maya tam tahıl","alt":"","fiyat":80,"birim":"adet","gorsel":"img/temsili-em-tam-tahil.webp"},{"id":"em-sari-bugday","ad":"Ekşi maya sarı buğday","alt":"","fiyat":80,"birim":"adet","gorsel":"img/temsili-em-sari-bugday.webp"},{"id":"em-karakilcik","ad":"Ekşi maya karakılçık","alt":"","fiyat":125,"birim":"adet","gorsel":"img/temsili-em-karakilcik.webp"},{"id":"em-kepekli","ad":"Ekşi maya kepekli","alt":"","fiyat":80,"birim":"adet","gorsel":"img/temsili-em-kepekli.webp"}]},{"ad":"Simit · Poğaça · Açma","u":[{"id":"ankara-simidi","ad":"Ankara simidi","alt":"","fiyat":20,"birim":"adet","gorsel":"img/simit.webp"},{"id":"sutlu-simit","ad":"Sütlü simit","alt":"","fiyat":25,"birim":"adet","gorsel":"img/temsili-sutlu-simit.webp"},{"id":"tereyagli-simit","ad":"Tereyağlı simit","alt":"","fiyat":30,"birim":"adet","gorsel":"img/temsili-tereyagli-simit.webp"},{"id":"pogaca","ad":"Poğaça","alt":"Kaşarlı, peynirli, zeytinli, patatesli","fiyat":30,"birim":"adet","gorsel":"img/pogaca.webp"},{"id":"acma","ad":"Açma","alt":"Kaşarlı, peynirli, zeytinli, patatesli","fiyat":35,"birim":"adet","gorsel":"img/temsili-acma.webp"},{"id":"sosisli-acma","ad":"Sosisli açma","alt":"","fiyat":40,"birim":"adet","gorsel":"img/temsili-sosisli-acma.webp"}]},{"ad":"Börek & Gözleme","u":[{"id":"su-boregi","ad":"Su böreği","alt":"","fiyat":700,"birim":"kg","gorsel":"img/temsili-su-boregi.webp"},{"id":"kol-boregi","ad":"Kol böreği","alt":"","fiyat":700,"birim":"kg","gorsel":"img/borek.webp"},{"id":"gozleme","ad":"Gözleme çeşitleri","alt":"","fiyat":150,"birim":"adet","gorsel":"img/gozleme.webp"},{"id":"gul-boregi","ad":"Gül böreği çeşitleri","alt":"","fiyat":125,"birim":"adet","gorsel":"img/temsili-gul-boregi.webp"},{"id":"kesme-borek","ad":"Kesme börekler","alt":"","fiyat":75,"birim":"adet","gorsel":"img/temsili-kesme-borek.webp"}]},{"ad":"Soğuk Sandviç","u":[{"id":"sandvic-beyaz","ad":"Beyaz peynirli sandviç","alt":"","fiyat":150,"birim":"adet","gorsel":"img/sandvic.webp"},{"id":"sandvic-kasar","ad":"Kaşar peynirli sandviç","alt":"","fiyat":150,"birim":"adet","gorsel":"img/temsili-sandvic-kasar.webp"},{"id":"sandvic-sucuk","ad":"Sucuklu sandviç","alt":"","fiyat":200,"birim":"adet","gorsel":"img/temsili-sandvic-sucuk.webp"},{"id":"sandvic-jambon","ad":"Jambonlu sandviç","alt":"","fiyat":200,"birim":"adet","gorsel":"img/sandvic-jambon.webp"}]},{"ad":"Kuru Pasta & Baklava","u":[{"id":"tatli-kuru-pasta","ad":"Tatlı kuru pasta","alt":"","fiyat":750,"birim":"kg","gorsel":"img/kurabiye-vitrin.webp"},{"id":"tuzlu-kuru-pasta","ad":"Tuzlu kuru pasta","alt":"","fiyat":750,"birim":"kg","gorsel":"img/kurupasta.webp"},{"id":"fistikli-baklava","ad":"Fıstıklı baklava","alt":"","fiyat":1450,"birim":"kg","gorsel":"img/baklava.webp"},{"id":"cevizli-baklava","ad":"Cevizli baklava","alt":"","fiyat":900,"birim":"kg","gorsel":"img/cevizli-baklava.webp"}]},{"ad":"Yaş pasta","u":[{"id":"pasta-0","ad":"0 No","alt":"4 kişilik","fiyat":750,"birim":"adet","gorsel":""},{"id":"pasta-1","ad":"1 No","alt":"6–8 kişilik","fiyat":1000,"birim":"adet","gorsel":""},{"id":"pasta-2","ad":"2 No","alt":"8–10 kişilik","fiyat":1250,"birim":"adet","gorsel":""}]}]};
+var SB = "https://ctlbhwbccqgwmtqbwtfs.supabase.co/rest/v1/rpc/", ANH = "sb_publishable_8MszpUT5gCp6cFhAKn-0VA_gW9_1hvy";
+var BIRIM = { adet: "adet", kg: "kg", porsiyon: "porsiyon", dilim: "dilim", paket: "paket", litre: "litre", kisi: "kişi" };
+var m = /[#&]k=([0-9a-f]{32})/.exec(location.hash), K = m && m[1];
+var $ = function (i) { return document.getElementById(i); };
+var eksikIdler = [], durum = {}, bekleyen = 0, zaman = {};
+function rpc(ad, govde) {
+  return fetch(SB + ad, { method: "POST", headers: { apikey: ANH, "Content-Type": "application/json" }, body: JSON.stringify(govde) }).then(function (r) {
+    if (!r.ok) return r.text().then(function (t) { var e = new Error(t); e.kod = r.status; throw e; });
+    return r.json();
+  });
+}
+function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+/* Türkçe yazım: 1.450 | 1450 | 1.450,50 | 62,5 */
+function sayiOku(s) {
+  s = String(s).replace(/\s|TL|₺/gi, "");
+  if (!s) return null;
+  if (/^\d{1,3}(\.\d{3})+(,\d{1,2})?$/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
+  else if (/^\d+,\d{1,2}$/.test(s)) s = s.replace(",", ".");
+  else if (!/^\d+(\.\d{1,2})?$/.test(s)) return NaN;
+  var n = Number(s);
+  return n > 0 && n <= 1000000 ? n : NaN;
+}
+function yaz(n) { return n == null ? "" : Number(n).toLocaleString("tr-TR", { maximumFractionDigits: 2 }); }
+function satirHTML(u) {
+  var sec = Object.keys(BIRIM).map(function (b) { return '<option value="' + b + '"' + (b === u.birim ? " selected" : "") + ">" + BIRIM[b] + "</option>"; }).join("");
+  var gor = u.gorsel ? '<img src="../site/' + esc(u.gorsel) + '" alt="" loading="lazy" width="56" height="56">' : '<div class="bosg"></div>';
+  return '<div class="u" data-id="' + esc(u.id) + '">' + gor + '<div><div class="ad">' + esc(u.ad) + "</div>" + (u.alt ? '<div class="alt">' + esc(u.alt) + "</div>" : "") + "</div>" +
+    '<div class="gir"><label class="fiyat"><input inputmode="decimal" autocomplete="off" aria-label="' + esc(u.ad) + ' fiyatı" value="' + yaz(u.fiyat) + '"><span>TL</span></label>' +
+    '<select aria-label="' + esc(u.ad) + ' birimi">' + sec + "</select>" +
+    '<label class="sat"><input type="checkbox"> Satmıyoruz</label></div>' +
+    '<input class="notu" maxlength="300" placeholder="Not (isteğe bağlı): boy, içerik" aria-label="' + esc(u.ad) + ' notu"><div class="uyari" hidden></div></div>';
+}
+function ciz() {
+  var h = "";
+  VERI.eksik.forEach(function (b) {
+    h += "<section><h2>" + esc(b.ad) + "</h2>" + (b.not ? '<p class="bnot">' + esc(b.not) + "</p>" : "") + '<div class="liste">' + b.u.map(function (u) { eksikIdler.push(u.id); return satirHTML(u); }).join("") + "</div></section>";
+  });
+  var top = VERI.bilinen.reduce(function (t, b) { return t + b.u.length; }, 0);
+  h += "<details><summary>Fiyatını bildiğimiz " + top + " ürün</summary><p class=\"bnot\">Sizden aldığımız fiyatlar. Değişen varsa üstüne yazın, değişmeyene dokunmayın.</p>";
+  VERI.bilinen.forEach(function (b) { h += "<h3>" + esc(b.ad) + '</h3><div class="liste">' + b.u.map(satirHTML).join("") + "</div>"; });
+  $("ana").innerHTML = h + "</details>";
+}
+function say() {
+  var n = eksikIdler.filter(function (id) { var d = durum[id]; return d && (d.satilmiyor || d.fiyat != null); }).length, t = eksikIdler.length;
+  $("sayi").textContent = n + " / " + t + " ürün";
+  $("bar").style.width = (t ? (100 * n / t) : 0) + "%";
+}
+function kayitYaz(metin, hata) { var k = $("kayit"); k.textContent = metin; k.className = "kayit" + (hata ? " h" : ""); }
+function gonder(urun, v) {
+  bekleyen++; kayitYaz("Kaydediliyor");
+  return rpc("hanzade_fiyat_kaydet", { k: K, p_urun: urun, p_fiyat: v.fiyat == null ? null : v.fiyat, p_birim: v.birim || "", p_satilmiyor: !!v.satilmiyor, p_notu: v.notu || "" }).then(function () {
+    bekleyen--; delete zaman["t" + urun]; if (!bekleyen) kayitYaz("Kaydedildi"); return true;
+  }).catch(function (e) {
+    bekleyen--; kayitYaz("Kaydedilemedi", true);
+    if (e.kod && e.kod < 500) return false;
+    /* bağlantı koptu: 5 sn sonra aynı değeri yeniden dener */
+    clearTimeout(zaman["t" + urun]); zaman["t" + urun] = setTimeout(function () { gonder(urun, durum[urun] || v); }, 5000);
+    return false;
+  });
+}
+function satirDegisti(sat, hemen) {
+  var id = sat.getAttribute("data-id"), inp = sat.querySelector(".fiyat input"), uy = sat.querySelector(".uyari");
+  var yok = sat.querySelector(".sat input").checked, n = sayiOku(inp.value);
+  sat.classList.toggle("yok", yok); inp.disabled = yok;
+  if (n !== n && !yok) { sat.classList.add("hata"); sat.classList.remove("dolu"); uy.hidden = false; uy.textContent = "Yalnız rakam yazın. Ör. 150 ya da 1.450"; return; }
+  sat.classList.remove("hata"); uy.hidden = true;
+  var v = { fiyat: yok || n !== n ? (durum[id] && durum[id].fiyat) || null : n, birim: sat.querySelector("select").value, satilmiyor: yok, notu: sat.querySelector(".notu").value };
+  sat.classList.toggle("dolu", v.fiyat != null && !yok);
+  durum[id] = v; say();
+  clearTimeout(zaman[id]);
+  zaman[id] = setTimeout(function () { gonder(id, durum[id]); }, hemen ? 0 : 600);
+}
+function uygula(satirlar) {
+  satirlar.forEach(function (r) {
+    if (r.urun === "_ek") { $("ek").value = r.notu || ""; return; }
+    if (r.urun === "_bitti") return;
+    var sat = document.querySelector('.u[data-id="' + r.urun + '"]'); if (!sat) return;
+    durum[r.urun] = { fiyat: r.fiyat == null ? null : Number(r.fiyat), birim: r.birim, satilmiyor: r.satilmiyor, notu: r.notu || "" };
+    sat.querySelector(".fiyat input").value = yaz(r.fiyat);
+    if (r.birim) sat.querySelector("select").value = r.birim;
+    sat.querySelector(".sat input").checked = r.satilmiyor;
+    sat.querySelector(".notu").value = r.notu || "";
+    sat.classList.toggle("yok", r.satilmiyor); sat.querySelector(".fiyat input").disabled = r.satilmiyor;
+    sat.classList.toggle("dolu", r.fiyat != null && !r.satilmiyor);
+  });
+}
+function kapali() { $("kapali").hidden = false; }
+if (!K) return kapali();
+rpc("hanzade_fiyat_oku", { k: K }).then(function (satirlar) {
+  ciz(); uygula(satirlar); say();
+  $("uyg").hidden = false;
+  $("ana").addEventListener("input", function (e) { var s = e.target.closest(".u"); if (s) satirDegisti(s); });
+  $("ana").addEventListener("change", function (e) { var s = e.target.closest(".u"); if (s && (e.target.tagName === "SELECT" || e.target.type === "checkbox")) satirDegisti(s, true); });
+  var ekZ;
+  $("ek").addEventListener("input", function () { clearTimeout(ekZ); var d = this.value; ekZ = setTimeout(function () { gonder("_ek", { notu: d }); }, 600); });
+  $("bitir").addEventListener("click", function () {
+    var n = eksikIdler.filter(function (id) { var d = durum[id]; return !d || (!d.satilmiyor && d.fiyat == null); }).length;
+    gonder("_bitti", { notu: new Date().toISOString() + " boş: " + n }).then(function (ok) {
+      var s = $("son"); s.className = "son" + (ok ? "" : " h");
+      s.textContent = !ok ? "Kaydedilemedi, bağlantınızı kontrol edip yeniden basın." : n ? "Teşekkürler. " + n + " ürün boş kaldı, istediğiniz zaman aynı linkten tamamlayabilirsiniz." : "Teşekkürler, tüm fiyatlar elimize ulaştı.";
+    });
+  });
+}).catch(kapali);
+})();
+</script>
+</body>
+</html>
