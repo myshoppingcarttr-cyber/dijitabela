@@ -1,5 +1,5 @@
 // Uygulama kabuğunu önbellekler; hiçbir müşteri verisi burada tutulmaz (veri IndexedDB'de, istekler Supabase'e doğrudan gider).
-const SURUM = "e53de8ec6c", ON = "crm-" + SURUM, DOSYA = ["/crm/","/crm/app-H4BDPSTS.js","/crm/app-A65TRAA7.css","/crm/manifest.webmanifest","/crm/ikon-180.png","/crm/ikon-192.png","/crm/ikon-512.png"];
+const SURUM = "3eddd8cfb2", ON = "crm-" + SURUM, DOSYA = ["/crm/","/crm/app-DVHJWLQ7.js","/crm/app-QZMZSDOV.css","/crm/manifest.webmanifest","/crm/ikon-180.png","/crm/ikon-192.png","/crm/ikon-512.png"];
 self.addEventListener("install", (e) => e.waitUntil(caches.open(ON).then((c) => c.addAll(DOSYA)).then(() => self.skipWaiting())));
 self.addEventListener("activate", (e) => e.waitUntil(caches.keys().then((k) => Promise.all(k.filter((x) => x.startsWith("crm-") && x !== ON).map((x) => caches.delete(x)))).then(() => self.clients.claim())));
 self.addEventListener("fetch", (e) => {
