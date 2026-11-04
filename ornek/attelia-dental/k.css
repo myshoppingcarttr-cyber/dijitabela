@@ -85,7 +85,7 @@ html[dir=rtl] .sb-o span{transform:scaleX(-1)}
  .l2 .gv{grid-template-columns:minmax(0,1fr)}.l2 .ray{position:sticky;top:0;z-index:15;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:8px 14px;border-inline-end:0;border-bottom:1px solid var(--c);gap:6px}.l2 .ray nav{display:flex;gap:12px;overflow-x:auto;width:100%;order:3;padding-bottom:2px;scrollbar-width:none}.l2 .ray nav a{white-space:nowrap;flex:none;font-size:13px;padding:5px 0}.l2 .ray .srt{display:none}
  .l2 .kpk{padding:32px 18px}.l2 .bol-s{grid-template-columns:minmax(0,1fr);gap:16px;padding:32px 18px;scroll-margin-top:110px}.l2 .bol-s .no{font-size:2.3rem}
  .uy{display:block;padding:0}.uy-c{position:static;height:auto;min-height:0;border:0;border-radius:0;box-shadow:none;overflow:visible}.uy-g{overflow:visible;padding:14px 14px 86px}.uy-a{position:fixed;left:0;right:0;bottom:0;z-index:30}.uy-a .uy-pan{display:flex}
- .js .kln.sekme{display:none}.js .kln.sekme.ak{display:block;padding:14px 14px 86px}
+ .js .kln.sekme{display:none}.js .kln.sekme.ak{display:block;padding:14px 14px 86px}.kl-ak .uy-g{display:none}
  .sy{grid-template-columns:repeat(2,1fr)}.l1 .bol-s{padding:40px 0}.ac-bol{padding:30px 0}.ac-tam .ic{padding:54px 0}.ac-mrk{padding:40px 0 20px}.ac-kart{padding:30px 0}
  .kp{padding:0 16px}.sv iframe{height:260px}.alt{padding-bottom:110px}
 }

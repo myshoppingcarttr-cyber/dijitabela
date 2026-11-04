@@ -19,7 +19,7 @@
       ["Örnek Hasta E", "+966 50 000 0105", "Mesaj", g(3), "ar", "Aranacak", "Arapça dönüş istiyor. Refakatçiyle gelecek."],
       ["Örnek Hasta F", "+90 533 000 0106", "Kaçan çağrı", g(4), "tr", "Tamamlandı", "Geri arandı, randevuya yönlendirildi."],
       ["Örnek Hasta G", "+31 6 0000 0107", "Yurt dışı talep", g(1), "en", "Aranacak", "Hollanda. Önceki tedavi bilgisini gönderecek."],
-      ["Örnek Hasta H", "+90 541 000 0108", "Randevu formu", g(2), "tr", "Yeni", "Akşam saatini soruyor."]
+      ["Örnek Hasta H", "+90 541 000 0108", "Randevu formu", g(2), "tr", "Yeni", "Akşam saatini soruyor."],["Örnek Hasta I", "+44 7700 900 109", "Mesaj", g(3), "en", "Yeni", "Instagram üzerinden geldi. Bahar için bilgi istiyor."],["Örnek Hasta J", "+49 151 000 0110", "Yurt dışı talep", g(4), "de", "Onaylandı", "Almanca görüşme yapıldı. Tarih netleşti."],["Örnek Hasta K", "+7 900 000 0111", "Kaçan çağrı", g(0), "ru", "Aranacak", "Hat meşgulken aradı. Rusça dönüş istiyor."],["Örnek Hasta L", "+966 50 000 0112", "Yurt dışı talep", g(5), "ar", "Yeni", "Arapça bilgi istiyor. Refakatçisi var."]
     ];
     if (K.yerel) o = o.filter(function (x) { return x[4] === "tr" || x[4] === "en"; });
     return o.map(function (x, i) { return { id: "o" + i, zaman: "Örnek", ad: x[0], tel: x[1], kaynak: x[2], konu: x[3], dil: x[4], durum: x[5], not: x[6], ornek: true }; });
@@ -34,7 +34,7 @@
     return '<select id="' + id + '" class="g">' + K.hizmet.map(function (s) { return '<option value="' + s + '"' + (s === secili ? " selected" : "") + ">" + esc(t(s)) + "</option>"; }).join("") + "</select>";
   }
   function telGecerli(v) { return String(v).replace(/\D/g, "").length >= 10; }
-  var seciliKonu = K.hizmet[0];
+  var seciliKonu = K.hizmet[0]; window.KLM = { ekle: function (r) { ekle(r); }, kayitlar: function () { return kayitlar(); }, durum: function (id, d) { var l = kayitlar(); l.forEach(function (x) { if (x.id === id) x.durum = d; }); yaz(ANAH, JSON.stringify(l)); cizAd("panel"); } };
 
   /* ---------- Modüller ---------- */
   var M = {};
@@ -215,7 +215,7 @@
 
   /* ---------- Kliniğe özel ---------- */
   var ZON = [["c_uk", 0], ["c_de", 1], ["c_nl", 1], ["c_ru", 3], ["c_sa", 3]]; // kış saati farkı, Antalya UTC+3
-  var Z = { u: 0, s: "18:00" };
+  var Z = { u: 0, s: "14:00" };
   M.saat = function (el) {
     var sa = []; for (var i = 7; i <= 22; i++) sa.push(("0" + i).slice(-2) + ":00");
     var h = parseInt(Z.s, 10) + (3 - ZON[Z.u][1]), a = ((h % 24) + 24) % 24, uygun = a >= 9 && a < 19;
@@ -278,15 +278,16 @@
     lang = d; document.documentElement.lang = d; document.documentElement.dir = d === "ar" ? "rtl" : "ltr";
     [].forEach.call(document.querySelectorAll("[data-t]"), function (e) { e.textContent = t(e.getAttribute("data-t")); });
     [].forEach.call(document.querySelectorAll("[data-dil]"), function (b) { var on = b.getAttribute("data-dil") === d; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
-    yaz("kl-" + K.slug + "-dil", d); cizHepsi();
+    yaz("kl-" + K.slug + "-dil", d); cizHepsi(); document.dispatchEvent(new Event("kl-dil"));
   }
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-dil]"); if (b) { dilUygula(b.getAttribute("data-dil")); return; }
     var s = e.target.closest("[data-sekme]"); if (s) { sekme(s.getAttribute("data-sekme")); e.preventDefault(); }
   });
   function sekme(id) {
-    [].forEach.call(document.querySelectorAll(".sekme"), function (x) { x.classList.toggle("ak", x.id === id); });
+    [].forEach.call(document.querySelectorAll(".sekme"), function (x) { x.classList.toggle("ak", x.id === id || (x.id === "s-e" && innerWidth > 980)); });
     [].forEach.call(document.querySelectorAll("[data-sekme]"), function (x) { var on = x.getAttribute("data-sekme") === id; x.classList.toggle("on", on); });
+    document.body.classList.toggle("kl-ak", id === "s-e");
     var g = document.querySelector(".uy-g"); if (g) g.scrollTop = 0;
     window.scrollTo(0, 0);
   }
