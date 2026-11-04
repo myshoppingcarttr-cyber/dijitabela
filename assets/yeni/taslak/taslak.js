@@ -38,13 +38,15 @@ function profil(sek) {
     var ilk = p.hizmet.slice(0, 3).map(function (h) { return trk(h[0]); }).join(", ");
     p.ozet = ilkB(ilk) + (p.hizmet.length > 3 ? " ve diğer işlerimiz. " : ". ") + p.ozet;
     p.not = p.not.replace("{liste}", ilk);
+    var mt = kay && TV.M && TV.M[kay.ad];
+    if (mt) { p.slogan = mt.s; p.ozet = mt.o; p.surec = mt.u; p.sonBaslik = mt.k; }
   }
   p.fotoKod = (kay && kay.foto) || p.foto || p.katKod; if (!TV.FOTO[p.fotoKod]) p.fotoKod = TV.FOTO[p.katKod] ? p.katKod : "ofis";
   p.saatD = saatYap(p.saat);
   return p;
 }
 function fotolar(kod, n, kay) { var a = TV.FOTO[kod] || [], c = [], s = {}; for (var i = 0; i < Math.min(n, a.length); i++) c.push(a[(i + (kay || 0)) % a.length]); while (c.length && c.length < n) c.push(c[c.length % a.length]); return c; }
-function img(f, cls, yukle) { if (!f) return ""; return '<img class="' + (cls || "") + '" src="foto/' + f.d + '" alt="' + e(f.a) + '" width="' + f.w + '" height="' + f.h + '"' + (yukle === "hemen" ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"') + ">"; }
+function img(f, cls, yukle, boy) { if (!f) return ""; return '<img class="' + (cls || "") + '" src="foto/' + f.d + '"' + (f.s ? ' srcset="foto/' + f.s + " 960w, foto/" + f.d + " " + f.w + 'w" sizes="' + (boy || "(max-width:700px) 100vw, 50vw") + '"' : "") + ' alt="' + e(f.a) + '" width="' + f.w + '" height="' + f.h + '"' + (f.o ? ' style="object-position:' + f.o + '"' : "") + (yukle === "hemen" ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"') + ">"; }
 
 /* ---------- Çalışma saati: Türkiye saatine göre canlı ---------- */
 function simdiTR() { try { var p = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Istanbul", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date()), o = {}; p.forEach(function (x) { o[x.type] = x.value; }); return new Date(+o.year, +o.month - 1, +o.day, +o.hour, +o.minute); } catch (x) { return new Date(); } }
@@ -175,19 +177,22 @@ function altB(C) { return '<footer class="alt"><div><b>' + e(C.ad) + "</b><span>
 function altCubuk(C, cls) { return '<nav class="alt-cub ' + cls + '" aria-label="Hızlı işlemler"><button type="button" data-act="ornek" data-t="tel">' + ik("tel", 18) + '<span>Ara</span></button><button type="button" data-act="ornek" data-t="wa">' + ik("sohbet", 18) + '<span>WhatsApp</span></button><a href="#fiyat" data-git="fiyat">' + ik("fiyat", 18) + "<span>" + e(C.p.fiyatYok ? "Ücret" : (C.p.fiyatNav || "Fiyat")) + '</span></a><a class="on" href="#randevu" data-git="randevu">' + ik("takvim", 18) + "<span>" + e(C.p.talep.nav || "Randevu") + "</span></a></nav>"; }
 var hrf = function (ad) { return ad.split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join("").toLocaleUpperCase("tr-TR"); };
 var fiyatYaz = function (p, h) { return p.fiyatYok ? "" : h[2] ? TL(h[2]) + (h[3] ? " / " + e(h[3]) : "'den") : (p.hizmet.some(function (x) { return x[2]; }) ? "fiyat sorun" : ""); };
+var vurgu = function (s) { var k = String(s).trim().split(/\s+/); if (k.length < 4) return e(s); var son = k.splice(-2).join(" "); return e(k.join(" ")) + " <em>" + e(son) + "</em>"; };
+function hizliSerit(C, cls) { var T = C.p.talep; return '<div class="serit-h ' + (cls || "") + '"><div class="sh-s"><label for="s-h">' + e(T.hizmetEtiket || "Hangi iş için?") + '</label><div class="sec-sar"><select id="s-h" data-act="thiz">' + secenekler(C).map(function (x, i) { return '<option value="' + i + '"' + (C.t.h === i ? " selected" : "") + ">" + e(x) + "</option>"; }).join("") + '</select></div></div><div class="sh-y"><small>' + e(T.yakin || "En yakın boş saat") + "</small><b>" + e(yakinSlot(C)) + '</b></div><a class="dg ana" href="#randevu" data-git="randevu">' + e(C.p.cta) + " " + ik("ok", 16) + "</a></div>"; }
 function kayan(hz) { return hz.map(function (h) { return "<span>" + e(h[0]) + "</span>"; }).join(""); }
 function yakinSlot(C) { var T = C.p.talep, gl = gunler(); for (var i = 0; i < gl.length; i++) { var d = gl[i], et = i === 0 ? "Bugün " : i === 1 ? "Yarın " : d.getDate() + " " + AY[d.getMonth()] + " "; if (T.gece) return et + "giriş müsait"; var s = slotlar(C, d).filter(function (x) { return !x.dolu; })[0]; if (s) return et + s.t; } return "Bu hafta"; }
 
 /* ---------- A · VİTRİN: tabela hissi, fotoğraf önde yazısız, koyu zemin, dar başlık ---------- */
 function vitrin(C) {
-  var p = C.p, F = fotolar(p.fotoKod, 5), ad = e(C.ad), d = durum(p), hz = p.hizmet;
+  var p = C.p, F = fotolar(p.fotoKod, 8), ad = e(C.ad), d = durum(p), hz = p.hizmet;
   C.kull = F;
   return '<header class="a-ust"><div class="a-ser"><span class="d-n' + (d.acik ? " ac" : "") + '">' + e(d.t) + "</span><span>" + e(p.adres) + '</span><span class="etik">Örnek taslak · bilgiler temsilîdir</span></div><nav class="a-nav" aria-label="Bölümler"><a class="a-mar" href="#ust" data-git="ust">' + ad + "</a><div>" + nv(p, ["hizmet", "fiyat", "galeri", "surec", "iletisim"]) + '</div><a class="dg ana" href="#randevu" data-git="randevu">' + e(p.cta) + "</a></nav></header>" +
-  '<main id="ust"><section class="a-hero"><figure>' + img(F[0], "a-hf", "hemen") + '</figure><div class="a-tabela"><span class="a-sek">' + e(buyuk(C.sek)) + " · ANTALYA</span><h1>" + ad + '</h1></div><div class="a-alt"><p class="a-slo">' + e(p.slogan) + "</p><div><p>" + e(p.ozet) + '</p><div class="dgler"><a class="dg ana" href="#randevu" data-git="randevu">' + ik("takvim", 16) + " " + e(p.cta) + '</a><button type="button" class="dg" data-act="ornek" data-t="tel">' + ik("tel", 16) + " Arayın</button></div></div></div></section>" +
+  '<main id="ust"><section class="a-hero" style="--n:' + Math.max(C.ad.length, 9) + '"><figure>' + img(F[0], "a-hf par", "hemen", "100vw") + '</figure><div class="a-perde"><span class="a-sek">' + e(buyuk(C.sek)) + " · ANTALYA</span><h1>" + ad + "</h1></div>" + hizliSerit(C, "a-sh") + '</section><section class="a-alt"><p class="a-slo">' + vurgu(p.slogan) + "</p><div><p>" + e(p.ozet) + '</p><div class="dgler"><a class="dg ana" href="#randevu" data-git="randevu">' + ik("takvim", 16) + " " + e(p.cta) + '</a><button type="button" class="dg" data-act="ornek" data-t="tel">' + ik("tel", 16) + " Arayın</button></div></div></section>" +
   '<div class="a-kayan" aria-hidden="true"><div>' + kayan(hz) + kayan(hz) + kayan(hz) + "</div></div>" +
   '<section class="a-bol" id="hizmet"><h2><small>' + e(p.hizmetBaslik || "Hizmetlerimiz") + "</small>" + e(p.hizmetUst || "Neler yapıyoruz") + '</h2><ol class="a-hz">' + hz.map(function (h, i) { return "<li><span>" + String(i + 1).padStart(2, "0") + "</span><div><h3>" + e(h[0]) + "</h3>" + (h[1] ? "<p>" + e(h[1]) + "</p>" : "") + "</div><b>" + fiyatYaz(p, h) + "</b></li>"; }).join("") + "</ol></section>" +
-  '<section class="a-gal" id="galeri" aria-label="Galeri"><div class="a-gal-b"><h2><small>Galeri</small>İşimizden kareler</h2><div class="a-oklar"><button type="button" data-act="kay" data-y="-1" aria-label="Geri">' + ik("ok", 18) + '</button><button type="button" data-act="kay" data-y="1" aria-label="İleri">' + ik("ok", 18) + '</button></div></div><div class="a-serit" id="serit" tabindex="0">' + F.slice(1).concat(F[0]).map(function (f) { return "<figure>" + img(f) + "<figcaption>" + e(f.a) + "</figcaption></figure>"; }).join("") + "</div></section>" +
+  '<section class="a-gal" id="galeri" aria-label="Galeri"><div class="a-gal-b"><h2><small>Galeri</small>İşimizden kareler</h2><div class="a-oklar"><button type="button" data-act="kay" data-y="-1" aria-label="Geri">' + ik("ok", 18) + '</button><button type="button" data-act="kay" data-y="1" aria-label="İleri">' + ik("ok", 18) + '</button></div></div><div class="a-serit" id="serit" tabindex="0">' + F.slice(1, 5).concat(F[6], F[7]).map(function (f) { return "<figure>" + img(f, "", "", "(max-width:700px) 82vw, 40vw") + "<figcaption>" + e(f.a) + "</figcaption></figure>"; }).join("") + "</div></section>" +
   fiyatB(C, "a-bol a-fiy") + randevuB(C, "a-bol a-ran") + modB(C, "a-bol a-mod") +
+  '<figure class="a-bant">' + img(F[5], "par", "", "100vw") + "</figure>" +
   '<section class="a-bol a-sur" id="surec"><h2><small>Süreç</small>Nasıl çalışırız</h2><ol>' + p.surec.map(function (s, i) { return "<li><i>" + (i + 1) + "</i><h3>" + e(s[0]) + "</h3><p>" + e(s[1]) + "</p></li>"; }).join("") + "</ol></section>" +
   '<section class="a-bol a-guv" id="guven"><h2><small>Güven</small>Söz verdiklerimiz</h2><ul>' + p.guven.map(function (s) { return "<li><h3>" + e(s[0]) + "</h3><p>" + e(s[1]) + "</p></li>"; }).join("") + yorumKart() + "</ul></section>" +
   '<section class="a-har" id="iletisim">' + harita(C) + '<div class="a-har-k"><h2><small>İletişim</small>Buradayız</h2><p class="d-n' + (d.acik ? " ac" : "") + '">' + e(d.t) + "</p>" + saatTablo(p) + "</div></section>" +
@@ -197,15 +202,15 @@ function vitrin(C) {
 
 /* ---------- B · MODERN: açık zemin, bento, uygulama hissi ---------- */
 function modern(C) {
-  var p = C.p, F = fotolar(p.fotoKod, 5, 1), d = durum(p), hz = p.hizmet, ad = e(C.ad);
+  var p = C.p, F = fotolar(p.fotoKod, 8, 1), d = durum(p), hz = p.hizmet, ad = e(C.ad);
   C.kull = F;
   return '<nav class="b-nav" aria-label="Bölümler"><a class="b-mar" href="#ust" data-git="ust"><i>' + e(hrf(C.ad)) + "</i><span>" + ad + "</span></a><div>" + nv(p, ["hizmet", "fiyat", "surec", "sss", "iletisim"]) + '</div><a class="dg ana" href="#randevu" data-git="randevu">' + e(p.cta) + '</a></nav><main id="ust">' +
-  '<section class="b-hero"><div class="b-h-sol"><span class="b-cip"><i class="d-n' + (d.acik ? " ac" : "") + '"></i>' + e(d.t) + "</span><h1>" + e(p.slogan) + "</h1><p>" + e(p.ozet) + '</p><div class="dgler"><a class="dg ana" href="#randevu" data-git="randevu">' + e(p.cta) + " " + ik("ok", 16) + '</a><a class="dg" href="#fiyat" data-git="fiyat">' + e(p.fiyatYok ? "Ücret bilgisi" : (p.fiyatNav || "Fiyat")) + '</a></div><small class="etik">' + e(C.sek) + " · Antalya · örnek taslak</small></div>" +
-  '<div class="b-h-sag">' + img(F[0], "b-hf", "hemen") + '<div class="b-kart"><small>' + e(p.talep.yakin || "En yakın boş saat") + "</small><b>" + e(yakinSlot(C)) + '</b><a href="#randevu" data-git="randevu">Yerinizi ayırın ' + ik("ok", 14) + "</a></div></div></section>" +
-  '<section class="b-bol" id="hizmet"><div class="b-bas"><h2>' + e(p.hizmetUst || "Neler yapıyoruz") + "</h2><p>" + e(p.hizmetBaslik || "Hizmetlerimiz") + '</p></div><div class="b-bento">' + hz.map(function (h, i) { var fo = i === 0 ? F[1] : i === 3 ? F[2] : null; return '<article class="' + (i === 0 ? "gen" : i === 3 ? "uzun" : "") + (fo ? " fotolu" : "") + '">' + (fo ? img(fo) : "") + "<div><span>" + String(i + 1).padStart(2, "0") + "</span><h3>" + e(h[0]) + "</h3>" + (h[1] ? "<p>" + e(h[1]) + "</p>" : "") + (fiyatYaz(p, h) ? "<b>" + fiyatYaz(p, h) + "</b>" : "") + "</div></article>"; }).join("") + "</div></section>" +
+  '<section class="b-hero"><div class="b-h-sol"><span class="b-cip"><i class="d-n' + (d.acik ? " ac" : "") + '"></i>' + e(d.t) + "</span><h1>" + vurgu(p.slogan) + "</h1><p>" + e(p.ozet) + '</p><div class="dgler"><a class="dg ana" href="#randevu" data-git="randevu">' + e(p.cta) + " " + ik("ok", 16) + '</a><a class="dg" href="#fiyat" data-git="fiyat">' + e(p.fiyatYok ? "Ücret bilgisi" : (p.fiyatNav || "Fiyat")) + '</a></div><small class="etik">' + e(C.sek) + " · Antalya · örnek taslak</small></div>" +
+  '<div class="b-h-sag">' + [0, 1, 2].map(function (i) { return "<figure>" + img(F[i], "b-hf par", i ? "" : "hemen", "(max-width:900px) 60vw, 22vw") + "</figure>"; }).join("") + '</div><div class="b-bilgi"><div><small>Bugün</small><b>' + e(d.t) + "</b></div><div><small>" + e(p.talep.yakin || "En yakın boş saat") + "</small><b>" + e(yakinSlot(C)) + '</b></div><div><small>Adres</small><b>' + e(p.adres) + '</b></div><a href="#randevu" data-git="randevu">' + e(p.talep.nav || "Randevu") + " " + ik("ok", 16) + "</a></div></section>" +
+  '<section class="b-bol" id="hizmet"><div class="b-bas"><h2>' + e(p.hizmetUst || "Neler yapıyoruz") + "</h2><p>" + e(p.hizmetBaslik || "Hizmetlerimiz") + '</p></div><div class="b-bento">' + hz.map(function (h, i) { var fo = i === 0 ? F[3] : i === 3 ? F[4] : null; return '<article class="' + (i === 0 ? "gen" : i === 3 ? "uzun" : "") + (fo ? " fotolu" : "") + '">' + (fo ? img(fo) : "") + "<div><span>" + String(i + 1).padStart(2, "0") + "</span><h3>" + e(h[0]) + "</h3>" + (h[1] ? "<p>" + e(h[1]) + "</p>" : "") + (fiyatYaz(p, h) ? "<b>" + fiyatYaz(p, h) + "</b>" : "") + "</div></article>"; }).join("") + "</div></section>" +
   fiyatB(C, "b-bol b-kutu") + randevuB(C, "b-bol b-ran") + modB(C, "b-bol b-mod") +
-  '<section class="b-bol b-sur" id="surec"><div class="b-sur-sol"><h2>Nasıl çalışırız</h2><p>İlk mesajdan işin bitişine kadar her adımı görürsünüz.</p>' + img(F[3], "b-sf") + "</div><ol>" + p.surec.map(function (s, i) { return "<li><i>" + (i + 1) + "</i><div><h3>" + e(s[0]) + "</h3><p>" + e(s[1]) + "</p></div></li>"; }).join("") + "</ol></section>" +
-  '<section class="b-bol" id="galeri"><div class="b-bas"><h2>Yerimizden kareler</h2><p>Gerçek sitede kendi fotoğraflarınız yer alır.</p></div><div class="b-gal">' + F.map(function (f) { return "<figure>" + img(f) + "<figcaption>" + e(f.a) + "</figcaption></figure>"; }).join("") + "</div></section>" +
+  '<section class="b-bol b-sur" id="surec"><div class="b-sur-sol"><h2>Nasıl çalışırız</h2><p>İlk mesajdan işin bitişine kadar her adımı görürsünüz.</p>' + img(F[5], "b-sf") + "</div><ol>" + p.surec.map(function (s, i) { return "<li><i>" + (i + 1) + "</i><div><h3>" + e(s[0]) + "</h3><p>" + e(s[1]) + "</p></div></li>"; }).join("") + "</ol></section>" +
+  '<section class="b-bol" id="galeri"><div class="b-bas"><h2>Yerimizden kareler</h2><p>Gerçek sitede kendi fotoğraflarınız yer alır.</p></div><div class="b-gal">' + F.slice(0, 1).concat(F.slice(6, 8), F.slice(1, 3)).map(function (f) { return "<figure>" + img(f) + "<figcaption>" + e(f.a) + "</figcaption></figure>"; }).join("") + "</div></section>" +
   '<section class="b-bol b-guv" id="guven"><div class="b-bas"><h2>Neden bize güvenebilirsiniz</h2></div><ul>' + p.guven.map(function (s) { return "<li><h3>" + e(s[0]) + "</h3><p>" + e(s[1]) + "</p></li>"; }).join("") + yorumKart() + "</ul></section>" +
   '<section class="b-bol b-sss" id="sss"><h2>Sık sorulanlar</h2><div>' + sssHTML(C) + "</div></section>" +
   '<section class="b-bol b-ilet" id="iletisim"><div class="b-il-k"><h2>İletişim</h2><p class="b-durum"><i class="d-n' + (d.acik ? " ac" : "") + '"></i>' + e(d.t) + "</p>" + saatTablo(p) + '<div class="dgler"><button type="button" class="dg ana" data-act="ornek" data-t="wa">' + ik("sohbet", 16) + ' WhatsApp</button><button type="button" class="dg" data-act="ornek" data-t="tel">' + ik("tel", 16) + " Ara</button></div></div>" + harita(C) + "</section></main>" + altB(C) + altCubuk(C, "b-cub");
@@ -213,12 +218,12 @@ function modern(C) {
 
 /* ---------- C · KLASİK: kâğıt, tırnaklı yazı, kitap düzeni ---------- */
 function klasik(C) {
-  var p = C.p, F = fotolar(p.fotoKod, 5, 2), d = durum(p), hz = p.hizmet, ad = e(C.ad), R = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+  var p = C.p, F = fotolar(p.fotoKod, 6, 2), d = durum(p), hz = p.hizmet, ad = e(C.ad), R = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
   C.kull = F;
-  return '<header class="c-bas"><p class="c-ust"><span>' + e(p.adres) + "</span><span>" + e(d.t) + '</span><span class="etik">Örnek taslak</span></p><div class="c-kunye"><span>' + e(C.sek) + "</span><h1>" + ad + '</h1><span>Antalya</span></div><nav aria-label="Bölümler">' + nv(p, ["hizmet", "fiyat", "randevu", "surec", "iletisim"]) + '</nav></header><main id="ust">' +
-  '<section class="c-acilis"><figure>' + img(F[0], "c-hf", "hemen") + "<figcaption>" + e(F[0] ? F[0].a : "") + '</figcaption></figure><article class="c-mek"><p class="c-slo">' + e(p.slogan) + '</p><p class="c-mt">' + e(p.not) + '</p><p class="c-imza">' + e(p.imzaAd || "İşletme sahibi") + '</p><a class="dg ana" href="#randevu" data-git="randevu">' + e(p.cta) + "</a></article></section>" +
+  return '<header class="c-bas"><p class="c-ust"><span>' + e(p.adres) + "</span><span>" + e(d.t) + '</span><span class="etik">Örnek taslak</span></p><div class="c-kunye" style="--n:' + Math.max(C.ad.length, 9) + '"><span>' + e(C.sek) + "</span><h1>" + ad + '</h1><span>Antalya</span></div><nav aria-label="Bölümler">' + nv(p, ["hizmet", "fiyat", "randevu", "surec", "iletisim"]) + '</nav></header><main id="ust">' +
+  '<section class="c-acilis"><figure>' + img(F[0], "c-hf par", "hemen", "100vw") + "<figcaption>" + e(F[0] ? F[0].a : "") + '</figcaption></figure><article class="c-mek"><p class="c-slo">' + vurgu(p.slogan) + '</p><div><p class="c-mt">' + e(p.not) + '</p><p class="c-imza">' + e(p.imzaAd || "İşletme sahibi") + '</p><a class="dg ana" href="#randevu" data-git="randevu">' + e(p.cta) + '</a></div></article><dl class="c-bilgi"><div><dt>Bugün</dt><dd>' + e(d.t) + "</dd></div><div><dt>" + e(p.talep.yakin || "En yakın boş saat") + "</dt><dd>" + e(yakinSlot(C)) + "</dd></div><div><dt>Adres</dt><dd>" + e(p.adres) + "</dd></div></dl></section>" +
   '<section class="c-bol" id="hizmet"><h2>' + e(p.hizmetBaslik || "Hizmetlerimiz") + '</h2><ol class="c-liste">' + hz.map(function (h, i) { var f = fiyatYaz(p, h); return "<li><span>" + R[i] + "</span><div><h3>" + e(h[0]) + "</h3>" + (h[1] ? "<p>" + e(h[1]) + "</p>" : "") + "</div>" + (f ? "<i></i><b>" + f + "</b>" : "") + "</li>"; }).join("") + "</ol></section>" +
-  '<section class="c-uc" id="galeri" aria-label="Galeri">' + F.slice(1, 4).map(function (f) { return "<figure>" + img(f) + "<figcaption>" + e(f.a) + "</figcaption></figure>"; }).join("") + "</section>" +
+  '<section class="c-uc" id="galeri" aria-label="Galeri">' + F.slice(1, 4).map(function (f) { return "<figure>" + img(f, "", "", "(max-width:640px) 100vw, 33vw") + "<figcaption>" + e(f.a) + "</figcaption></figure>"; }).join("") + "</section>" +
   '<section class="c-bol c-sur" id="surec"><h2>Nasıl çalışırız</h2><ol>' + p.surec.map(function (s, i) { return "<li><h3><span>" + (i + 1) + ".</span> " + e(s[0]) + "</h3><p>" + e(s[1]) + "</p></li>"; }).join("") + "</ol></section>" +
   fiyatB(C, "c-bol c-fiy") + randevuB(C, "c-bol c-ran") + modB(C, "c-bol c-mod") +
   '<section class="c-bol c-guv" id="guven"><h2>Söz verdiklerimiz</h2><ul>' + p.guven.map(function (s) { return "<li><h3>" + e(s[0]) + "</h3><p>" + e(s[1]) + "</p></li>"; }).join("") + yorumKart() + "</ul></section>" +
@@ -231,15 +236,29 @@ var C = null, tur = null, q = new URLSearchParams(location.search), yalnizMi = w
 function ciz(o) {
   o = Object.assign({ ad: "", sek: "Oto servis", tarz: "vitrin", renk: "#1F3A5F" }, o || {});
   var ayni = C && C.sek === o.sek, n = ctx(o);
+  if (!TV.M && !n.p.oncelik) metinYukle(function () { if (C && !C.p.oncelik) ciz({ ad: C.ad.indexOf("Örnek ") === 0 ? "" : C.ad, sek: C.sek, tarz: C.tarz, renk: C.renk }); });
   if (ayni) { n.t = C.t; n.m = C.m; n.h = C.h; n.hv = C.hv; }
   C = n; turDur();
   var kk = document.documentElement; kk.style.setProperty("--r", o.renk); kk.dataset.tarz = o.tarz;
   document.title = C.ad + " · canlı taslak";
   Kok.className = "s-" + o.tarz;
   Kok.innerHTML = (o.tarz === "modern" ? modern : o.tarz === "klasik" ? klasik : vitrin)(C) + '<div class="tost" id="tost" role="status" hidden></div>' + (yalnizMi ? tamUst(C) : "");
-  scrollTo(0, 0);
+  scrollTo(0, 0); belirle();
   if (yalnizMi) { try { var u = new URL(location.href); u.searchParams.set("sek", o.sek); u.searchParams.set("tarz", o.tarz); u.searchParams.set("renk", o.renk); if (o.ad) u.searchParams.set("ad", o.ad); else u.searchParams.delete("ad"); history.replaceState(null, "", u); } catch (x) {} }
 }
+/* Hareket: yalnız transform ve opaklık, azaltılmış harekette ve ?durgun=1 ile kapalı */
+var GOZ = null, DURGUN = AZ || q.get("durgun") === "1", BELIR = ".a-bol>h2,.a-hz li,.a-gal-b,.a-sur li,.a-guv li,.a-har-k,.a-alt>*,.b-bas,.b-bol>h2,.b-bento article,.b-sur li,.b-sur-sol,.b-gal figure,.b-guv li,.b-il-k,.c-bol>h2,.c-liste li,.c-uc figure,.c-sur li,.c-guv li,.c-mek>*,.c-bilgi>div";
+function belirle() {
+  if (GOZ) { GOZ.disconnect(); GOZ = null; } parGuncelle();
+  if (DURGUN || !("IntersectionObserver" in window)) { document.documentElement.classList.add("durgun"); return; }
+  GOZ = new IntersectionObserver(function (l) { l.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add("gor"); GOZ.unobserve(x.target); } }); }, { rootMargin: "0px 0px -7% 0px" });
+  var g = {}; Kok.querySelectorAll(BELIR).forEach(function (el) { var a = el.parentElement, n = g[a.dataset.gi || (a.dataset.gi = Math.random())] = (g[a.dataset.gi] || 0) + 1; el.classList.add("bel"); el.style.setProperty("--g", Math.min(n - 1, 4) * 70 + "ms"); GOZ.observe(el); });
+}
+var parBek = false;
+function parGuncelle() { if (DURGUN || innerWidth < 900) return; var y = scrollY, h = innerHeight; Kok.querySelectorAll("img.par").forEach(function (i) { var r = i.parentElement.getBoundingClientRect(); if (r.bottom < -80 || r.top > h + 80) return; i.style.transform = "translate3d(0," + ((r.top + r.height / 2 - h / 2) * -.07).toFixed(1) + "px,0)"; }); }
+addEventListener("scroll", function () { if (parBek) return; parBek = true; requestAnimationFrame(function () { parBek = false; parGuncelle(); }); }, { passive: true });
+var metinIs = null;
+function metinYukle(f) { if (metinIs) { metinIs.push(f); return; } metinIs = [f]; var sc = document.createElement("script"); sc.src = "metin.js?v=3"; sc.async = true; sc.onload = function () { metinIs.forEach(function (g) { g(); }); }; document.head.appendChild(sc); }
 function tamUst(C) { var wa = "https://wa.me/905019452184?text=" + encodeURIComponent("Merhaba, " + C.ad + " (" + C.sek + ") için " + C.tarz + " taslağının gerçeğini istiyorum."); return '<div class="tam-ust"><span>Dijitabela canlı taslak</span><a href="' + wa + '" target="_blank" rel="noopener">Bu taslağın gerçeğini isteyin</a></div>'; }
 function bol(id) { var el = document.getElementById(id); if (!el) return; turDur(); var y = id === "ust" ? 0 : el.getBoundingClientRect().top + scrollY - 76; scrollTo({ top: y, behavior: AZ ? "auto" : "smooth" }); }
 function tost(t) { var x = document.getElementById("tost"); if (!x) return; x.textContent = t; x.hidden = false; clearTimeout(tost.z); tost.z = setTimeout(function () { x.hidden = true; }, 4200); }
@@ -267,7 +286,7 @@ Kok.addEventListener("click", function (ev) {
   else if (a === "ms") { C.m.s = C.m.s || {}; C.m.s[d.v] = !C.m.s[d.v]; yenile("mod", modHTML); }
   else if (a === "mgit") { C.t.ek = d.v; C.t.bitti = false; talepYenile(); bol("randevu"); tost("Seçiminiz talebe eklendi."); }
 });
-Kok.addEventListener("change", function (ev) { var t = ev.target; if (t.dataset.act === "thiz") C.t.h = +t.value; });
+Kok.addEventListener("change", function (ev) { var t = ev.target; if (t.dataset.act !== "thiz") return; C.t.h = +t.value; if (t.id === "s-h") talepYenile(); else { var sh = document.getElementById("s-h"); if (sh) sh.value = t.value; } });
 Kok.addEventListener("input", function (ev) {
   var t = ev.target, a = t.dataset.act;
   if (a === "mm" || a === "may") { if (a === "mm") C.m.m = +t.value; else C.m.ay = +t.value; yenile("mod", modHTML); var n = document.querySelector('#mod input[data-act="' + a + '"]'); if (n) n.focus({ preventScroll: true }); }
@@ -281,6 +300,7 @@ function gez() { turDur(); if (AZ) return; var bas = performance.now(), son = Ma
 ["wheel", "touchstart", "pointerdown", "keydown"].forEach(function (x) { addEventListener(x, turDur, { passive: true }); });
 
 if (yalnizMi) document.documentElement.classList.add("tam");
+(function () { var kk = document.documentElement, ac = function () { kk.classList.add("hazir"); }, F = { vitrin: ['900 40px Archivo', '400 16px "Plus Jakarta Sans"', '400 12px "Space Mono"'], modern: ['800 40px Manrope', '500 16px Manrope', 'italic 500 40px Fraunces'], klasik: ['600 40px Fraunces', '400 17px Fraunces', 'italic 400 17px Fraunces'] }[q.get("tarz") || "vitrin"] || []; setTimeout(ac, 700); try { Promise.all(F.map(function (x) { return document.fonts.load(x, "ĞŞİğşı"); })).then(ac, ac); } catch (x) { ac(); } })();
 window.DTaslak = { ciz: ciz, gez: gez, dur: turDur, bilgi: function () { return C; } };
 ciz({ ad: q.get("ad") || "", sek: q.get("sek") || "Oto servis", tarz: q.get("tarz") || "vitrin", renk: q.get("renk") || "#1F3A5F" });
 try { if (!yalnizMi && window.parent.taslakHazir) window.parent.taslakHazir(); } catch (x) {}

@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..900&family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<script>(function(){var k=document.documentElement,a=function(){k.classList.remove("f-bek")};k.classList.add("f-bek");setTimeout(a,2000);try{Promise.all([document.fonts.load('800 40px Archivo',"ĞŞİ"),document.fonts.load('400 16px "Plus Jakarta Sans"',"ĞŞİ"),document.fonts.load('600 15px "Plus Jakarta Sans"',"ĞŞİ")]).then(a,a)}catch(x){a()}})();</script>
 <style>
 body{margin:0}
 /* Yerleşim: geceden sabaha bir çarşı yürüyüşü. Marka: LED panel koyusu #16181D, sönük nokta #2C3038, amber #FFB000.
@@ -76,6 +77,8 @@ a{color:inherit}
 /* 1 · LED duvarı */
 .duvar{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#050506}
 .duvar canvas{position:absolute;left:0;right:0;top:calc(var(--ust) + 4px);width:100%;height:calc(100% - var(--ust) - 4px);display:block}
+html.f-bek .on,html.f-bek .balon{visibility:hidden}
+#balon-yazi{min-height:4.4em}
 .on{position:absolute;left:0;right:0;bottom:0;padding-block:72px 32px;background:linear-gradient(transparent,rgba(5,5,6,.94) 30%)}
 .on .sar{display:grid;grid-template-columns:1.25fr .75fr;gap:24px 56px;align-items:end}
 .on h1{font-size:clamp(40px,5.4vw,78px)}
@@ -542,7 +545,7 @@ dialog.film button{display:block;margin:0 0 8px auto;background:var(--amber);bor
         <div class="cerceve-ust"><i></i><i></i><i></i><span id="o-adres-k"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><b id="o-adres">ornekisletme.com</b></span><button type="button" id="o-gez" class="o-gez">Taslağı gez</button><a id="o-tam" class="o-gez" href="assets/yeni/taslak/index.html" target="_blank" rel="noopener">Tam ekran</a></div>
         <div class="t-vp" id="t-vp"><iframe id="t-if" title="Canlı site taslağı"></iframe></div>
       </div>
-      <p class="onizle-not">Taslakta işletme, fiyat ve bilgiler örnektir; mesaj gönderilmez. Fotoğraflar açık lisanslı stok görsellerdir, kaynakları sayfa altında yazar.</p>
+      <p class="onizle-not">Taslakta işletme, fiyat ve bilgiler örnektir; mesaj gönderilmez. Fotoğraflar lisanslı stok görsellerdir, kaynakları sayfa altında yazar.</p>
     </div>
   </div>
 </section>
