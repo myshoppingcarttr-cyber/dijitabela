@@ -1,31 +1,43 @@
-2:"$Sreact.fragment"
-3:"/kirapakt/_next/static/chunks/3qfy96eoyh-ek.js"
-4:"/kirapakt/_next/static/chunks/15ipkz9s5fl71.js"
-5:I[39756,["$3","$4"],"default"]
-6:I[37457,["$3","$4"],"default"]
-b:"/kirapakt/_next/static/chunks/0ko51ds6rognt.js"
-c:"/kirapakt/_next/static/chunks/0qvu689zjwczx.js"
-d:"/kirapakt/_next/static/chunks/01q2bzhsefd0b.js"
-e:"/kirapakt/_next/static/chunks/11q2nsy6_2wje.js"
-f:I[75765,["$3","$4","$b","$c","$d","$e"],"AdminData"]
-10:I[97367,["$3","$4"],"OutletBoundary"]
-11:"$Sreact.suspense"
-14:"ViewportBoundary"
-15:I[97367,["$3","$4"],"$14"]
-16:"MetadataBoundary"
-17:I[97367,["$3","$4"],"$16"]
-18:I[27201,["$3","$4"],"IconMark"]
-8:X
-8:C
-9:X
-a:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-4 py-10","children":[["$","h1",null,{"className":"text-3xl font-bold tracking-tight","children":"Yönetici Paneli"}],["$","p",null,{"className":"mt-2 mb-8 text-muted-foreground","children":"Prototip paneli: kayıtlar örnektir ve yaptığınız değişiklikler yalnızca bu tarayıcıda kalır."}],["$","$Lf",null,{}]]}],[["$","script","script-0",{"src":"/kirapakt/_next/static/chunks/0ko51ds6rognt.js","async":true}],["$","script","script-1",{"src":"/kirapakt/_next/static/chunks/0qvu689zjwczx.js","async":true}],["$","script","script-2",{"src":"/kirapakt/_next/static/chunks/01q2bzhsefd0b.js","async":true}],["$","script","script-3",{"src":"/kirapakt/_next/static/chunks/11q2nsy6_2wje.js","async":true}]],["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":"$@13","v":null,"s":"$9"}}]]
-1:[["children",{"s":"admin","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
-0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$11",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Yönetici Paneli | KİRAPAKT"}],["$","meta","1",{"name":"description","content":"Ev sahipleri kirasını her ayın 1'inde garantili alır, kiracılar nakit depozito ödemeden taşınır."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","link","3",{"rel":"icon","href":"/kirapakt/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L18","4",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@19","v":null,"s":"$9"}},"a":"$@1a","u":"$@1b","b":"TelbAb8_vGhcExM3Xc934"}
-12:null
-1b:true
-9:300
-9:C
-1a:0
-7:"$undefined"
-19:"$undefined"
-13:"$undefined"
+1:"$Sreact.fragment"
+2:"/kirapakt/_next/static/chunks/3qfy96eoyh-ek.js"
+3:"/kirapakt/_next/static/chunks/0ba59d8rppgka.js"
+4:"/kirapakt/_next/static/chunks/0qvu689zjwczx.js"
+5:I[48303,["$2","$3","$4"],"SiteHeader"]
+6:I[39756,["$2","$3","$4"],"default"]
+7:"/kirapakt/_next/static/chunks/1o7x669fq_vso.js"
+8:I[8821,["$2","$3","$4","$7"],"default"]
+9:I[37457,["$2","$3","$4"],"default"]
+a:I[22016,["$2","$3","$4"],""]
+b:I[5014,["$2","$3","$4"],"default"]
+c:I[3484,["$2","$3","$4"],"Toaster"]
+16:"ViewportBoundary"
+17:I[97367,["$2","$3","$4"],"$16"]
+:HL["/kirapakt/_next/static/chunks/2a6ea43s_-i97.css","style"]
+e:X
+12:X
+12:C
+13:[["children",{"s":"__PAGE__","h":160,"d":{"r":"$L14","p":"$@15","v":null,"s":"$e"}}]]
+f:[["children",{"s":"admin","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":"$L10"}]]}],"p":"$@11","v":"$12","s":"$e"},"c":"$Q13"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/kirapakt/_next/static/chunks/2a6ea43s_-i97.css","precedence":"next"}],["$","script","script-0",{"src":"/kirapakt/_next/static/chunks/3qfy96eoyh-ek.js","async":true}],["$","script","script-1",{"src":"/kirapakt/_next/static/chunks/0ba59d8rppgka.js","async":true}],["$","script","script-2",{"src":"/kirapakt/_next/static/chunks/0qvu689zjwczx.js","async":true}]],["$","html",null,{"lang":"tr","className":"_8LfHXa_variable sf24VW_variable h-full antialiased","children":["$","body",null,{"className":"flex min-h-full flex-col","children":[["$","a",null,{"href":"#icerik","className":"sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-card focus:px-4 focus:py-2","children":"İçeriğe geç"}],["$","$L5",null,{}],["$","main",null,{"id":"icerik","className":"flex-1","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$8","errorStyles":[],"errorScripts":[["$","script","script-0",{"src":"/kirapakt/_next/static/chunks/1o7x669fq_vso.js","async":true}]],"template":["$","$L9",null,{}],"notFound":[["$","section",null,{"className":"mx-auto max-w-xl px-4 py-24 text-center","children":[["$","h1",null,{"className":"text-2xl font-semibold","children":"Sayfa bulunamadı"}],["$","p",null,{"className":"mt-3 text-muted-foreground","children":"Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir."}],["$","$La",null,{"href":"/","children":"Ana sayfaya dön","data-slot":"button","data-variant":"default","data-size":"default","className":"group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/80 gap-1.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 mt-6 h-11 px-5","ref":null}]]}],[]]}]}],["$","footer",null,{"className":"bg-ink text-white/75","children":["$","div",null,{"className":"mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-[2fr_1fr] lg:px-8","children":[["$","div",null,{"children":[["$","p",null,{"className":"flex items-center gap-2 text-lg font-bold tracking-wide text-white","children":[["$","$Lb",null,{"icon":{"name":"shield-check","size":24,"node":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]]},"className":"size-6","aria-hidden":true}]," KİRAPAKT"]}],["$","p",null,{"className":"mt-4 max-w-2xl text-sm leading-relaxed","children":"Prototip sürümü. Gerçek ödeme, kredi notu sorgusu veya belge yükleme yapılmaz. Rozetler, örnek tutarlar, kapsam bilgileri ve sözleşme metni gösterim amaçlıdır, hukuki danışmanlık yerine geçmez. Görseller temsilîdir; fotoğraflar yapay zekâ ile üretilmiş, sahne Blender ile oluşturulmuştur."}]]}],["$","nav",null,{"aria-label":"Alt menü","className":"grid gap-3 text-sm md:justify-end","children":[["$","$La",null,{"href":"/basvuru","className":"hover:text-white","children":"Kiracı başvurusu"}],["$","$La",null,{"href":"/mulk-ekle","className":"hover:text-white","children":"Mülk ekle"}],["$","$La",null,{"href":"/emlak-ofisi","className":"hover:text-white","children":"Emlak ofisleri"}],["$","$La",null,{"href":"/admin","className":"hover:text-white","children":"Yönetici paneli"}]]}]]}]}],["$","$Lc",null,{"theme":"light","position":"top-center","richColors":true}]]}]}]]}],"p":"$@d","v":null,"s":"$e"},"c":"$Qf"},"h":{"r":["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],"$L18"]}],"$L19","$L1a"]}],"p":"$@1b","v":null,"s":"$e"}},"a":"$@1c","u":"$@1d","b":"MXAWIMxxKAiJHt1LXtRXf"}
+1e:"/kirapakt/_next/static/chunks/0qxbo0p4mkq7l.js"
+1f:"/kirapakt/_next/static/chunks/1u633_67wugol.js"
+20:I[75765,["$2","$3","$4","$1e","$1f"],"AdminData"]
+21:I[97367,["$2","$3","$4"],"OutletBoundary"]
+22:"$Sreact.suspense"
+24:"MetadataBoundary"
+25:I[97367,["$2","$3","$4"],"$24"]
+26:I[27201,["$2","$3","$4"],"IconMark"]
+10:["$","$L9",null,{}]
+14:["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-4 py-10","children":[["$","h1",null,{"className":"text-3xl font-bold tracking-tight","children":"Yönetici Paneli"}],["$","p",null,{"className":"mt-2 mb-8 text-muted-foreground","children":"Prototip paneli: kayıtlar örnektir ve yaptığınız değişiklikler yalnızca bu tarayıcıda kalır."}],["$","$L20",null,{}]]}],[["$","script","script-0",{"src":"/kirapakt/_next/static/chunks/0qxbo0p4mkq7l.js","async":true}],["$","script","script-1",{"src":"/kirapakt/_next/static/chunks/1u633_67wugol.js","async":true}]],["$","$L21",null,{"children":["$","$22",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]]}]
+18:["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]
+19:["$","$L25",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$22",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Yönetici Paneli | KİRAPAKT"}],["$","meta","1",{"name":"description","content":"Ev sahipleri kirasını her ayın 1'inde garantili alır, kiracılar nakit depozito ödemeden taşınır, emlak ofisleri portföyünü güvenceyle kiralar."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","link","3",{"rel":"icon","href":"/kirapakt/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L26","4",{}]]}]}],null]}]
+1a:["$","meta",null,{"name":"next-size-adjust","content":""}]
+e:300
+23:null
+1d:true
+e:C
+1c:0
+11:"$undefined"
+d:"$undefined"
+1b:"$undefined"
+15:"$undefined"
