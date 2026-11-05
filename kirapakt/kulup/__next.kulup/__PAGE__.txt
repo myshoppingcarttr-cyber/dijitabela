@@ -1,0 +1,30 @@
+2:"$Sreact.fragment"
+3:"/kirapakt/_next/static/chunks/3apouaeb7wl-a.js"
+4:"/kirapakt/_next/static/chunks/1j4pmh3umlrns.js"
+5:"/kirapakt/_next/static/chunks/0qvu689zjwczx.js"
+6:I[39756,["$3","$4","$5"],"default"]
+7:I[37457,["$3","$4","$5"],"default"]
+c:"/kirapakt/_next/static/chunks/00djicpwf7zky.js"
+d:"/kirapakt/_next/static/chunks/0vwphu3i1ep97.js"
+e:I[43232,["$3","$4","$5","$c","$d"],"ClubPanel"]
+f:I[97367,["$3","$4","$5"],"OutletBoundary"]
+10:"$Sreact.suspense"
+13:"ViewportBoundary"
+14:I[97367,["$3","$4","$5"],"$13"]
+15:"MetadataBoundary"
+16:I[97367,["$3","$4","$5"],"$15"]
+17:I[27201,["$3","$4","$5"],"IconMark"]
+9:X
+9:C
+a:X
+b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[[["$","section",null,{"className":"bg-ink text-white","children":["$","div",null,{"className":"mx-auto max-w-7xl px-4 py-16 md:py-24 lg:px-8","children":[["$","p",null,{"className":"eyebrow text-brass-light","children":"KİRAPAKT CLUB"}],["$","h1",null,{"className":"mt-3 max-w-3xl text-4xl font-semibold leading-tight tracking-tight md:text-6xl","children":"Düzenli ödemenin karşılığını alın"}],["$","p",null,{"className":"mt-5 max-w-2xl text-lg leading-relaxed text-white/90","children":"Kirasını gününde ödeyen kiracılar için sadakat programı."}]]}]}],["$","div",null,{"className":"mx-auto max-w-7xl px-4 py-14 md:py-20 lg:px-8","children":[["$","$Le",null,{}],["$","p",null,{"className":"mt-10 border-t pt-5 text-sm leading-relaxed text-muted-foreground","children":["Ön izleme notu: ","YouTube ve Netflix adları yalnızca hedeflenen hediyeyi tanımlamak için kullanılmıştır; bu markalarla bir iş birliği yoktur. Aktivasyon kodu üretilmez."]}]]}]],[["$","script","script-0",{"src":"/kirapakt/_next/static/chunks/00djicpwf7zky.js","async":true}],["$","script","script-1",{"src":"/kirapakt/_next/static/chunks/0vwphu3i1ep97.js","async":true}]],["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]]}],"p":"$@12","v":null,"s":"$a"}}]]
+1:[["children",{"s":"kulup","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]]}],"p":"$@8","v":"$9","s":"$a"},"c":"$Qb"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L14",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#040711"}]]}],["$","$L16",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"KiraPakt Club | KİRAPAKT"}],["$","meta","1",{"name":"description","content":"Ev sahipleri kirasını her ayın 1'inde garantili alır, kiracılar nakit depozito ödemeden taşınır, emlak ofisleri portföyünü güvenceyle kiralar."}],["$","link","2",{"rel":"manifest","href":"/kirapakt/manifest.json"}],["$","meta","3",{"name":"robots","content":"noindex, nofollow"}],["$","meta","4",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","5",{"name":"apple-mobile-web-app-title","content":"KiraPakt"}],["$","meta","6",{"name":"apple-mobile-web-app-status-bar-style","content":"black"}],["$","link","7",{"rel":"icon","href":"/kirapakt/favicon.ico"}],["$","link","8",{"rel":"apple-touch-icon","href":"/kirapakt/icons/apple-touch-icon.png"}],["$","$L17","9",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@18","v":null,"s":"$a"}},"a":"$@19","u":"$@1a","b":"74AlatolfFaXeMSb4q0d9"}
+11:null
+1a:true
+a:300
+a:C
+19:0
+8:"$undefined"
+18:"$undefined"
+12:"$undefined"
