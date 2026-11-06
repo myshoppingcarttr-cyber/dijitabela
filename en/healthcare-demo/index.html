@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nirvaya Health (sample) – Healthcare website prototype by Dijitabela</title>
+<meta name="description" content="Working prototype of a healthcare brand website: find a specialist, see real-time slots, book in four steps, and ask an FAQ assistant. Sample brand by Dijitabela.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0F5E59">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F5E59'/%3E%3Cpath d='M13 8h6v5h5v6h-5v5h-6v-5H8v-6h5z' fill='%23F7F4EE'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F7F4EE; --surface:#FFFFFF; --ink:#16262B; --muted:#55666B; --line:#E2DDD3;
+  --accent:#0F5E59; --accent-ink:#FFFFFF; --accent-soft:#E3EFEC; --warn:#A4351F; --warn-soft:#FBEAE5;
+  --ok:#1E6B3A; --radius:14px; --radius-s:10px;
+  --head:"Fraunces", Georgia, "Times New Roman", serif; --body:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --shadow:0 1px 2px rgba(22,38,43,.06), 0 8px 24px rgba(22,38,43,.06);
+}
+body[data-layout="b"]{
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#0E1B33; --muted:#4C5A72; --line:#E1E6EF;
+  --accent:#1F4FD8; --accent-soft:#EAF0FD; --radius:10px; --radius-s:8px;
+  --head:"Inter", system-ui, sans-serif;
+}
+body[data-layout="c"]{
+  --bg:#F3F1EA; --surface:#FFFFFF; --ink:#10261F; --muted:#4F625B; --line:#DDE3DD;
+  --accent:#0B3B2E; --accent-soft:#E2ECE6; --radius:22px; --radius-s:16px;
+  --head:"Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:96px;scroll-padding-bottom:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+body.big-text{font-size:18px}
+img,svg{display:block;max-width:100%}
+a{color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #F0A500;outline-offset:2px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:8px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:100}
+.skip:focus{top:8px}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+body[data-layout="b"] h1,body[data-layout="b"] h2,body[data-layout="c"] h1,body[data-layout="c"] h2{letter-spacing:-.025em;font-weight:700}
+h1{font-size:clamp(2rem,5.4vw,3.4rem);font-weight:600}
+h2{font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:600}
+h3{font-size:1.1rem;font-family:var(--body);font-weight:600}
+p{margin:0 0 1em}
+.muted{color:var(--muted)}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.6em;display:block}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);vertical-align:middle}
+.tag.sample{background:#F3EBD8;color:#6B4E00}
+
+/* prototype ribbon */
+.proto{background:var(--ink);color:#EDEFEF;font-size:.8rem}
+.proto .wrap{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:7px;padding-bottom:7px}
+.proto a{color:#fff}
+.proto .lay{display:flex;gap:4px;align-items:center}
+.proto .lay button{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:6px;padding:3px 9px;cursor:pointer;font-size:.78rem;min-height:30px}
+.proto .lay button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+
+/* header */
+header.site{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.08rem;margin-right:auto}
+.brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:grid;place-items:center}
+.brand small{display:block;font-weight:500;font-size:.68rem;color:var(--muted);letter-spacing:.04em}
+nav.main ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+nav.main a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-weight:500;font-size:.95rem}
+nav.main a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;border-radius:var(--radius-s);padding:12px 18px;font-weight:600;text-decoration:none;cursor:pointer;min-height:46px;line-height:1.1;transition:background .15s,border-color .15s}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-sm{padding:8px 12px;min-height:38px;font-size:.9rem}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:44px;height:44px;cursor:pointer}
+.hdr-cta{display:flex;gap:8px}
+@media (max-width:900px){
+  nav.main{display:none;position:absolute;left:0;right:0;top:64px;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 16px}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column}
+  nav.main a{padding:12px}
+  .menu-btn{display:grid;place-items:center}
+  .hdr-cta .btn-ghost{display:none}
+}
+
+/* pages */
+main{min-height:60vh}
+section.page{display:none;padding:28px 0 72px}
+section.page.active{display:block}
+.page-head{padding:20px 0 12px}
+.page-head p{max-width:62ch}
+
+/* emergency strip */
+.urgent{background:var(--warn-soft);color:#5A1A0D;border-radius:var(--radius-s);padding:10px 14px;font-size:.9rem;display:flex;gap:10px;align-items:flex-start;margin:0 0 20px}
+.urgent strong{color:var(--warn)}
+.urgent a{color:var(--warn);font-weight:700}
+
+/* hero variants */
+.hero{display:none}
+body[data-layout="a"] .hero-a,body[data-layout="b"] .hero-b,body[data-layout="c"] .hero-c{display:block}
+.hero-a .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:24px 0 40px}
+.hero-a h1 em{font-style:italic;color:var(--accent)}
+.hero-a .lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 18px}
+.trust-row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.88rem;color:var(--muted);padding:0;margin:0;list-style:none}
+.trust-row li::before{content:"✓ ";color:var(--accent);font-weight:700}
+.live-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+.live-card header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2E9E5B;margin-right:6px}
+.live-list{list-style:none;margin:0;padding:0}
+.live-list li{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.live-list li:first-child{border-top:0}
+.live-list .who{font-weight:600;font-size:.95rem;line-height:1.25}
+.live-list .who span{display:block;font-weight:400;color:var(--muted);font-size:.82rem}
+.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.9rem;color:#fff;flex:none}
+.hero-b{padding:40px 0 34px;text-align:center}
+.hero-b h1{max-width:18ch;margin-left:auto;margin-right:auto}
+.hero-b .lead{color:var(--muted);font-size:1.1rem;max-width:56ch;margin:0 auto 24px}
+.searchbar{display:grid;grid-template-columns:1.4fr 1fr auto;gap:0;background:var(--surface);border:1.5px solid var(--ink);border-radius:12px;max-width:780px;margin:0 auto;text-align:left;overflow:hidden}
+.searchbar label{display:block;padding:10px 16px 12px;border-right:1px solid var(--line)}
+.searchbar label span{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.searchbar input,.searchbar select{border:0;background:transparent;width:100%;padding:2px 0;font-size:1rem;outline:none}
+.searchbar button{border-radius:0;margin:0;min-height:100%}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:.9rem;cursor:pointer;min-height:40px}
+.chip:hover,.chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.stats-b{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:.9rem}
+.stats-b b{color:var(--ink)}
+.hero-c{padding:12px 0 24px}
+.hero-c .panel{background:var(--accent);color:#F3F1EA;border-radius:var(--radius);padding:28px 22px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.hero-c h1{color:#fff}
+.hero-c .lead{color:#CFE0D8}
+.hero-c .btn-primary{background:#E8F26B;color:#0B3B2E}
+.hero-c .btn-ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-s);padding:14px;color:#fff;text-align:left;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none}
+.tile:hover{background:rgba(255,255,255,.14)}
+.tile b{font-size:1rem}
+.tile span{font-size:.82rem;color:#CFE0D8}
+@media (max-width:860px){
+  .hero-a .grid,.hero-c .panel{grid-template-columns:1fr;gap:24px}
+  .searchbar{grid-template-columns:1fr}
+  .searchbar label{border-right:0;border-bottom:1px solid var(--line)}
+  .searchbar button{min-height:52px}
+}
+
+/* sections */
+.block{padding:44px 0 8px}
+.block-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.block-head p{margin:0;max-width:56ch}
+
+/* triage */
+.triage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.triage .chips{justify-content:flex-start}
+.triage-out{background:var(--accent-soft);border-radius:var(--radius-s);padding:18px;min-height:150px}
+.triage-out.urgent-out{background:var(--warn-soft)}
+.triage-out h3{margin-bottom:.3em}
+@media (max-width:860px){.triage{grid-template-columns:1fr}}
+
+/* list rows (editorial numbered) */
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rows li{display:grid;grid-template-columns:56px 1.2fr 1.6fr auto;gap:16px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+.rows .n{font-family:var(--head);font-size:1.4rem;color:var(--accent)}
+.rows h3{margin:0 0 4px}
+.rows p{margin:0;color:var(--muted);font-size:.94rem}
+.rows .meta{font-size:.85rem;color:var(--muted);text-align:right;white-space:nowrap}
+.rows .meta b{display:block;color:var(--ink);font-size:.95rem}
+@media (max-width:760px){.rows li{grid-template-columns:40px 1fr}.rows li>p,.rows li>.meta{grid-column:2;text-align:left}}
+body[data-layout="c"] .rows{border:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+body[data-layout="c"] .rows li{grid-template-columns:1fr;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-s);padding:18px}
+body[data-layout="c"] .rows .meta{text-align:left}
+body[data-layout="b"] .rows .n{font-family:var(--body);font-weight:700;font-size:1rem;background:var(--accent-soft);border-radius:8px;width:38px;height:38px;display:grid;place-items:center}
+
+/* packages */
+.pkgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.pkg{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column}
+.pkg .price{font-size:1.6rem;font-weight:700;margin:6px 0 2px}
+.pkg ul{padding-left:18px;margin:10px 0 16px;color:var(--muted);font-size:.92rem}
+.pkg .btn{margin-top:auto}
+
+/* how it works */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+.steps3 div{border-top:2px solid var(--ink);padding-top:12px}
+.steps3 div::before{counter-increment:s;content:"0" counter(s);font-weight:700;color:var(--accent);display:block;margin-bottom:4px}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.review{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;font-size:.95rem}
+.review footer{color:var(--muted);font-size:.85rem;margin-top:8px}
+
+/* doctors */
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin-bottom:18px}
+.filters label{display:flex;flex-direction:column;font-size:.78rem;font-weight:600;color:var(--muted);gap:4px;flex:1 1 160px}
+.filters select,.filters input{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--surface);font-size:.95rem;min-height:44px}
+.filters .check{flex-direction:row;align-items:center;gap:8px;font-size:.9rem;color:var(--ink);flex:0 0 auto;min-height:44px}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+@media (max-width:380px){.doc-grid{grid-template-columns:1fr}}
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:12px}
+.doc-top{display:flex;gap:14px;align-items:flex-start}
+.doc-top .avatar{width:56px;height:56px;font-size:1.05rem}
+.doc h3{margin:0;font-size:1.05rem}
+.doc .q{color:var(--muted);font-size:.86rem;line-height:1.35}
+.doc dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:.88rem}
+.doc dt{color:var(--muted)}
+.doc dd{margin:0}
+.next{font-size:.88rem}
+.next b{color:var(--ok)}
+.quick{display:flex;flex-wrap:wrap;gap:6px}
+.slot{border:1px solid var(--accent);color:var(--accent);background:var(--surface);border-radius:8px;padding:7px 10px;font-weight:600;font-size:.88rem;cursor:pointer;min-height:40px;min-width:76px}
+.slot:hover{background:var(--accent-soft)}
+.slot[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.slot:disabled{border-color:var(--line);color:#A9B2B4;background:transparent;text-decoration:line-through;cursor:not-allowed}
+.empty{padding:28px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius)}
+
+/* booking */
+.book-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start}
+.book-grid>*,.contact-grid>*,.triage>*,.hero-a .grid>*,.hero-c .panel>*{min-width:0}
+@media (max-width:900px){.book-grid{grid-template-columns:minmax(0,1fr)}}
+.stepper{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;counter-reset:st}
+.stepper li{font-size:.8rem;font-weight:600;color:var(--muted);border-top:4px solid var(--line);padding-top:8px}
+.stepper li.done{border-color:var(--accent);color:var(--ink)}
+.stepper li.cur{border-color:var(--accent);color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+fieldset{border:0;margin:0 0 18px;padding:0;min-width:0}
+legend{font-weight:600;margin-bottom:8px;padding:0}
+.opt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:block;border:1px solid var(--line);border-radius:var(--radius-s);padding:12px;font-size:.92rem;min-height:48px;background:var(--surface)}
+.opt span small{display:block;color:var(--muted);font-size:.8rem}
+.opt input:checked+span{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--accent-soft)}
+.opt input:focus-visible+span{outline:3px solid #F0A500;outline-offset:2px}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.day{flex:0 0 74px;scroll-snap-align:start;border:1px solid var(--line);border-radius:var(--radius-s);padding:8px 4px;text-align:center;background:var(--surface);cursor:pointer;min-height:64px}
+.day b{display:block;font-size:1.15rem}
+.day small{display:block;color:var(--muted);font-size:.72rem}
+.day[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:var(--accent-ink)}
+.day[aria-pressed="true"] small{color:inherit}
+.day:disabled{opacity:.4;cursor:not-allowed}
+.slot-group{margin-top:14px}
+.slot-group h4{margin:0 0 8px;font-size:.85rem;color:var(--muted);font-weight:600}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-weight:600;font-size:.92rem}
+.field .hint{font-size:.8rem;color:var(--muted)}
+.field input,.field select,.field textarea{border:1px solid #B9C2C4;border-radius:8px;padding:11px 12px;background:var(--surface);font-size:1rem;min-height:46px;width:100%}
+.field textarea{min-height:90px;resize:vertical}
+.field[aria-invalid="true"] input,.field[aria-invalid="true"] select,.field[aria-invalid="true"] textarea{border-color:var(--warn);box-shadow:0 0 0 1px var(--warn)}
+.err{color:var(--warn);font-size:.84rem;font-weight:600;display:none}
+.field[aria-invalid="true"] .err{display:block}
+.phone{display:flex}
+.phone span{border:1px solid #B9C2C4;border-right:0;border-radius:8px 0 0 8px;padding:11px 10px;background:var(--bg);font-weight:600}
+.phone input{border-radius:0 8px 8px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.check-line{display:flex;gap:10px;align-items:flex-start;font-size:.9rem}
+.check-line input{width:20px;height:20px;margin-top:2px;flex:none}
+.actions{display:flex;justify-content:space-between;gap:10px;margin-top:8px}
+.summary{position:sticky;top:84px}
+.summary dl{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;margin:0 0 12px;font-size:.92rem}
+.summary dt{color:var(--muted)}
+.summary dd{margin:0;font-weight:600;text-align:right}
+.summary .total{border-top:1px solid var(--line);padding-top:10px;display:flex;justify-content:space-between;font-weight:700}
+.err-box{background:var(--warn-soft);color:#5A1A0D;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:.9rem}
+.confirm{text-align:left}
+.confirm .tick{width:56px;height:56px;border-radius:50%;background:var(--ok);display:grid;place-items:center;margin-bottom:14px}
+.ref{font-family:ui-monospace,Consolas,monospace;font-size:1.1rem;background:var(--bg);padding:4px 10px;border-radius:6px}
+.wa-preview{background:#E7F7EC;border-radius:12px;padding:12px 14px;font-size:.88rem;max-width:420px;margin:14px 0;border:1px solid #CDEBD6}
+.wa-preview b{display:block;font-size:.75rem;color:#1E6B3A;margin-bottom:4px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.hours{width:100%;border-collapse:collapse;font-size:.93rem}
+.hours th,.hours td{text-align:left;padding:8px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.today{font-weight:700;color:var(--accent)}
+.map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);margin-top:14px;background:#E9E6DD}
+.cta-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+
+/* footer */
+footer.site{border-top:1px solid var(--line);padding:32px 0 110px;font-size:.88rem;color:var(--muted)}
+footer.site .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin:4px 0}
+footer.site a{color:var(--ink)}
+@media (max-width:760px){footer.site .cols{grid-template-columns:1fr}}
+
+/* floating actions */
+.fab{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;gap:10px;align-items:center}
+.fab .ask{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 18px 12px 14px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.2);cursor:pointer;display:flex;gap:8px;align-items:center;min-height:50px}
+.fab .wa{width:50px;height:50px;border-radius:50%;background:#1F8F4E;border:0;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.2);cursor:pointer}
+.tabbar{display:none}
+@media (max-width:760px){
+  body[data-layout="c"] .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--surface);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.7rem;text-decoration:none;color:var(--muted);padding:4px;min-height:48px;justify-content:center}
+  .tabbar a[aria-current="page"]{color:var(--accent);font-weight:700}
+  body[data-layout="c"] .fab{bottom:84px}
+  body[data-layout="c"] nav.main,body[data-layout="c"] .menu-btn{display:none!important}
+}
+
+/* chat */
+.chat{position:fixed;right:16px;bottom:80px;width:min(390px,calc(100vw - 32px));max-height:min(620px,calc(100vh - 110px));background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);z-index:60;display:none;flex-direction:column;overflow:hidden}
+.chat.open{display:flex}
+.chat-h{background:var(--ink);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.chat-h b{display:block}
+.chat-h small{color:#C9D2D3;font-size:.75rem}
+.chat-h button{margin-left:auto;background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer;width:40px;height:40px}
+.chat-note{font-size:.75rem;background:#F3EBD8;color:#5B4300;padding:7px 12px}
+.chat-log{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.msg{max-width:88%;padding:10px 12px;border-radius:14px;font-size:.92rem;line-height:1.45}
+.msg.bot{background:var(--surface);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end;border-bottom-right-radius:4px}
+.msg.alert{background:var(--warn-soft);border-color:#F0C4B8}
+.msg .src{display:block;font-size:.72rem;color:var(--muted);margin-top:6px}
+.msg .act{margin-top:8px}
+.typing span{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--muted);margin-right:3px;animation:b 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes b{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.sugs{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;border-top:1px solid var(--line)}
+.sugs button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 10px;font-size:.8rem;cursor:pointer;min-height:34px}
+.chat form{display:flex;border-top:1px solid var(--line)}
+.chat input{flex:1;border:0;padding:14px;font-size:1rem;outline:none;min-width:0}
+.chat form button{border:0;background:var(--accent);color:var(--accent-ink);padding:0 16px;font-weight:600;cursor:pointer}
+
+dialog{border:0;border-radius:16px;padding:22px;max-width:420px;width:calc(100vw - 32px);box-shadow:0 20px 60px rgba(0,0,0,.3);color:var(--ink)}
+dialog::backdrop{background:rgba(10,20,22,.5)}
+.a11y-btn{background:none;border:1px solid var(--line);border-radius:8px;min-height:44px;padding:0 10px;cursor:pointer;font-weight:700}
+.btn{white-space:nowrap}
+a.slot{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.sugs{flex-wrap:nowrap;overflow-x:auto}
+.sugs button{flex:none}
+@media (max-width:560px){
+  .chat{bottom:12px;right:12px;width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}
+  .brand small{display:none}
+  .brand{font-size:1rem}
+  header.site .wrap{gap:8px}
+  .proto{font-size:.72rem}
+  .proto .long{display:none}
+  .proto .lay button{padding:2px 7px;font-size:.72rem}
+  .fab .ask{padding:0;width:50px;justify-content:center}
+  .fab .ask .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body data-layout="a">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="proto" role="note" aria-label="Prototype notice">
+  <div class="wrap">
+    <span><strong>Prototype</strong> · sample brand<span class="long"> &amp; fictional doctors · nothing you type is sent</span> · by <a href="https://dijitabela.com/" rel="noopener">Dijitabela</a></span>
+    <span class="lay" role="group" aria-label="Choose a layout">
+      <span aria-hidden="true">Layout:</span>
+      <button type="button" data-lay="a" aria-pressed="true">A · Editorial</button>
+      <button type="button" data-lay="b" aria-pressed="false">B · Search-first</button>
+      <button type="button" data-lay="c" aria-pressed="false">C · App-style</button>
+    </span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#/home" aria-label="Nirvaya Health, home">
+      <span class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M5.5 1h5v4.5H15v5h-4.5V15h-5v-4.5H1v-5h4.5z" fill="#fff"/></svg></span>
+      <span>Nirvaya Health <small>SAMPLE BRAND · MULTI-SPECIALITY CARE</small></span>
+    </a>
+    <nav class="main" id="mainnav" aria-label="Main">
+      <ul>
+        <li><a href="#/home" data-nav="home">Home</a></li>
+        <li><a href="#/services" data-nav="services">Specialities</a></li>
+        <li><a href="#/doctors" data-nav="doctors">Doctors</a></li>
+        <li><a href="#/book" data-nav="book">Book</a></li>
+        <li><a href="#/contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-cta">
+      <button class="a11y-btn" type="button" id="textSize" aria-pressed="false" title="Larger text">A<span aria-hidden="true">+</span><span class="sr-only"> Larger text</span></button>
+      <button class="btn btn-ghost btn-sm" type="button" data-demo="call">Call</button>
+      <a class="btn btn-primary btn-sm" href="#/book">Book a visit</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- HOME -->
+<section class="page" id="p-home" data-page="home" aria-labelledby="h-home">
+  <div class="wrap">
+    <p class="urgent" role="note"><span aria-hidden="true">⚠</span><span><strong>Medical emergency?</strong> Don't book online — call <a href="tel:112">112</a> (national emergency) or <a href="tel:108">108</a> (ambulance) now.</span></p>
+
+    <div class="hero hero-a">
+      <div class="grid">
+        <div>
+          <span class="eyebrow">Multi-speciality clinic · in-clinic &amp; video</span>
+          <h1 id="h-home">See the right doctor, <em>today</em> — not next week.</h1>
+          <p class="lead">Real-time slots for 8 specialities, transparent fees before you book, and a reminder on WhatsApp. No app, no account, no phone queue.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#/book">Book an appointment</a>
+            <a class="btn btn-ghost" href="#triage">Not sure who to see?</a>
+          </div>
+          <ul class="trust-row">
+            <li>Fees shown upfront</li><li>Doctors speak English, Hindi, Bengali +</li><li>Cashless with major insurers*</li>
+          </ul>
+        </div>
+        <div class="live-card" aria-labelledby="live-h">
+          <header><h2 id="live-h" style="font-size:1rem;margin:0;font-family:var(--body)"><span class="live-dot" aria-hidden="true"></span>Next available slots</h2><span class="tag sample">sample data</span></header>
+          <ul class="live-list" data-live></ul>
+          <a class="btn btn-ghost btn-sm" style="width:100%;margin-top:10px" href="#/doctors">See all doctors &amp; slots</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero hero-b">
+      <span class="eyebrow">Book in under a minute</span>
+      <h1>Find a doctor. See real slots. Book.</h1>
+      <p class="lead">Search 8 specialities and 8 doctors across in-clinic and video visits — with fees and languages before you choose.</p>
+      <form class="searchbar" id="heroSearch" role="search">
+        <label><span>Speciality, doctor or concern</span><input id="hs-q" type="search" placeholder="e.g. skin rash, Dr. Sen, cardiology" autocomplete="off"></label>
+        <label><span>Visit type</span><select id="hs-mode"><option value="">Any</option><option value="clinic">In-clinic</option><option value="video">Video consult</option></select></label>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+      <div class="chips" aria-label="Popular searches">
+        <button class="chip" type="button" data-q="gen">Fever &amp; cold</button>
+        <button class="chip" type="button" data-q="ped">Child health</button>
+        <button class="chip" type="button" data-q="derm">Skin &amp; hair</button>
+        <button class="chip" type="button" data-q="ment">Stress &amp; sleep</button>
+        <button class="chip" type="button" data-q="endo">Diabetes &amp; thyroid</button>
+      </div>
+      <div class="stats-b"><span><b data-count-today>–</b> slots open today</span><span><b>₹700</b> GP consult</span><span><b>15 min</b> avg. wait at clinic*</span></div>
+    </div>
+
+    <div class="hero hero-c">
+      <div class="panel">
+        <div>
+          <span class="eyebrow" style="color:#E8F26B">Good to see you</span>
+          <h1>Your health, sorted in a few taps.</h1>
+          <p class="lead">Book a doctor, upload reports, get a reminder on WhatsApp — like an app, without installing one.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#/book">Book now</a><button type="button" class="btn btn-ghost" data-open-chat>Ask a question</button></div>
+        </div>
+        <div class="tiles">
+          <a class="tile" href="#/book?mode=video"><b>Video consult</b><span>From ₹700 · slots today</span></a>
+          <a class="tile" href="#/services#checkups"><b>Health check-ups</b><span>Home sample collection</span></a>
+          <a class="tile" href="#triage"><b>Who should I see?</b><span>Guided in 2 taps</span></a>
+          <a class="tile" href="#/contact"><b>Find the clinic</b><span>Open today till 9 PM</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="triage">
+      <div class="block-head"><div><span class="eyebrow">Guided choice</span><h2>Not sure who to see?</h2></div><p class="muted">Pick what's bothering you. We suggest the right speciality — this is navigation help, not a diagnosis.</p></div>
+      <div class="triage">
+        <div>
+          <p style="font-weight:600;margin-bottom:10px" id="tri-l">What's it about?</p>
+          <div class="chips" role="group" aria-labelledby="tri-l" data-triage></div>
+        </div>
+        <div class="triage-out" aria-live="polite" data-triage-out>
+          <h3>Your suggestion appears here</h3>
+          <p class="muted" style="margin:0">Choose a concern on the left. If in doubt, start with General Medicine — our GPs refer you on the same day if needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><div><span class="eyebrow">Specialities</span><h2>Care for the whole family</h2></div><a href="#/services">All specialities →</a></div>
+      <ol class="rows" data-spec-rows="4"></ol>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><div><span class="eyebrow">How it works</span><h2>From search to seen, in three steps</h2></div></div>
+      <div class="steps3">
+        <div><h3>Choose a doctor and a real slot</h3><p class="muted">Availability is live from the clinic calendar — no "request a callback".</p></div>
+        <div><h3>Confirm with your mobile number</h3><p class="muted">No account or password. You get the details and a calendar invite instantly.</p></div>
+        <div><h3>Get reminded, then walk in or join video</h3><p class="muted">A WhatsApp reminder the day before, with a one-tap reschedule link.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><div><span class="eyebrow">Patient voices</span><h2>What patients say</h2></div><span class="tag sample">sample reviews — replaced by verified Google reviews</span></div>
+      <div class="reviews">
+        <blockquote class="review">"Booked a 6:30 PM slot on my lunch break and was seen by 6:40. The fee was exactly what the site said."<footer>— Sample review · General Medicine</footer></blockquote>
+        <blockquote class="review">"Video consult for my son's fever at night, prescription on WhatsApp in ten minutes."<footer>— Sample review · Paediatrics</footer></blockquote>
+        <blockquote class="review">"The doctor spoke Bengali with my mother, which made all the difference."<footer>— Sample review · Cardiology</footer></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="page" id="p-services" data-page="services" aria-labelledby="h-services">
+  <div class="wrap">
+    <div class="page-head"><span class="eyebrow">Specialities &amp; services</span><h1 id="h-services">Specialities</h1><p class="muted">Every speciality page shows who you'll see, what it costs and how soon you can be seen. Fees are sample figures for this prototype.</p></div>
+    <ol class="rows" data-spec-rows="all"></ol>
+    <div class="block" id="checkups">
+      <div class="block-head"><div><span class="eyebrow">Preventive care</span><h2>Health check-up packages</h2></div><span class="tag sample">sample prices</span></div>
+      <div class="pkgs">
+        <article class="pkg"><h3>Essential</h3><div class="price">₹1,499</div><span class="muted">32 tests · results in 24 h</span><ul><li>CBC, blood sugar (fasting), lipid profile</li><li>Liver &amp; kidney function</li><li>GP review of your report</li></ul><a class="btn btn-ghost" href="#/book?spec=gen">Book check-up</a></article>
+        <article class="pkg"><h3>Comprehensive</h3><div class="price">₹3,999</div><span class="muted">78 tests · home collection</span><ul><li>Everything in Essential</li><li>HbA1c, thyroid (TSH), vitamin D &amp; B12</li><li>ECG + physician consult</li></ul><a class="btn btn-primary" href="#/book?spec=gen">Book check-up</a></article>
+        <article class="pkg"><h3>Heart Care</h3><div class="price">₹4,999</div><span class="muted">For 40+ or family history</span><ul><li>ECG, 2D echo, TMT</li><li>Lipid profile, hs-CRP</li><li>Cardiologist consult</li></ul><a class="btn btn-ghost" href="#/book?spec=card">Book check-up</a></article>
+        <article class="pkg"><h3>Women's Wellness</h3><div class="price">₹3,499</div><span class="muted">Annual screening</span><ul><li>Pap smear, breast exam</li><li>Thyroid, iron, vitamin D</li><li>Gynaecologist consult</li></ul><a class="btn btn-ghost" href="#/book?spec=wom">Book check-up</a></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section class="page" id="p-doctors" data-page="doctors" aria-labelledby="h-doctors">
+  <div class="wrap">
+    <div class="page-head"><span class="eyebrow">Our doctors</span><h1 id="h-doctors">Find a doctor</h1><p class="muted">Filter by speciality, language and visit type. Tap a time to book it directly. <span class="tag sample">fictional sample profiles</span></p></div>
+    <form class="filters" id="docFilters" onsubmit="return false">
+      <label>Speciality<select id="f-spec"><option value="">All specialities</option></select></label>
+      <label>Language<select id="f-lang"><option value="">Any language</option></select></label>
+      <label>Visit type<select id="f-mode"><option value="">In-clinic or video</option><option value="clinic">In-clinic</option><option value="video">Video consult</option></select></label>
+      <label>Search<input id="f-q" type="search" placeholder="Name or concern"></label>
+      <label class="check"><input type="checkbox" id="f-today"> Available today</label>
+    </form>
+    <p class="muted" aria-live="polite" id="docCount" style="font-size:.9rem"></p>
+    <div class="doc-grid" id="docGrid"></div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="page" id="p-book" data-page="book" aria-labelledby="h-book">
+  <div class="wrap">
+    <div class="page-head"><span class="eyebrow">Appointment</span><h1 id="h-book">Book a visit</h1><p class="muted">Four short steps. No account needed. <strong>Demo:</strong> nothing is sent or stored.</p></div>
+    <div class="book-grid">
+      <div>
+        <ol class="stepper" aria-label="Booking progress">
+          <li data-st="1">1. Doctor</li><li data-st="2">2. Date &amp; time</li><li data-st="3">3. Your details</li><li data-st="4">4. Confirm</li>
+        </ol>
+        <div class="card" id="bookCard" aria-live="polite"></div>
+      </div>
+      <aside class="card summary" aria-labelledby="sum-h">
+        <h2 id="sum-h" style="font-size:1.1rem;font-family:var(--body)">Your visit</h2>
+        <dl id="sumList"></dl>
+        <div class="total"><span>Consultation fee</span><span id="sumFee">—</span></div>
+        <p class="muted" style="font-size:.8rem;margin:10px 0 0">Pay at the clinic or by UPI before a video call. Free rescheduling up to 2 hours before.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact" data-page="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="page-head"><span class="eyebrow">Contact</span><h1 id="h-contact">Visit or reach us</h1><p class="muted">Sample address and numbers — your real details go here.</p></div>
+    <div class="contact-grid">
+      <div>
+        <div class="card">
+          <h2 style="font-size:1.2rem;font-family:var(--body)">Nirvaya Health Clinic <span class="tag sample">sample</span></h2>
+          <p>Plot 00, Sample Road, Sector V<br>Salt Lake, Kolkata 700091</p>
+          <div class="cta-row">
+            <button class="btn btn-primary btn-sm" type="button" data-demo="call">Call front desk</button>
+            <button class="btn btn-ghost btn-sm" type="button" data-demo="wa">WhatsApp us</button>
+            <button class="btn btn-ghost btn-sm" type="button" data-demo="map">Directions</button>
+          </div>
+          <table class="hours" aria-label="Opening hours"><tbody id="hoursBody"></tbody></table>
+          <div class="map" aria-hidden="true">
+            <svg viewBox="0 0 400 180" width="100%" height="180" preserveAspectRatio="xMidYMid slice"><rect width="400" height="180" fill="#E9E6DD"/><path d="M0 120 L400 70" stroke="#fff" stroke-width="14"/><path d="M140 0 L190 180" stroke="#fff" stroke-width="10"/><path d="M0 40 L400 30" stroke="#fff" stroke-width="6"/><path d="M300 0 L330 180" stroke="#fff" stroke-width="6"/><rect x="40" y="135" width="70" height="35" fill="#D6E3D3"/><rect x="230" y="105" width="50" height="40" fill="#D6E3D3"/><circle cx="214" cy="88" r="11" fill="#0F5E59"/><circle cx="214" cy="88" r="4" fill="#fff"/></svg>
+          </div>
+          <p class="muted" style="font-size:.85rem;margin-top:10px">Parking for 20 cars · step-free entrance · wheelchair on request · 4 min from Sector V metro (sample)</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 style="font-size:1.2rem;font-family:var(--body)">Send an enquiry</h2>
+        <p class="muted" style="font-size:.9rem">For billing, records, corporate health plans or anything that isn't a booking. We reply within 2 working hours.</p>
+        <form id="enqForm" novalidate>
+          <div class="field" id="e-name-f"><label for="e-name">Full name</label><input id="e-name" autocomplete="name" aria-describedby="e-name-e"><span class="err" id="e-name-e">Please enter your name.</span></div>
+          <div class="field" id="e-phone-f"><label for="e-phone">Mobile number</label><div class="phone"><span>+91</span><input id="e-phone" inputmode="numeric" autocomplete="tel-national" maxlength="10" aria-describedby="e-phone-e"></div><span class="err" id="e-phone-e">Enter a 10-digit Indian mobile number starting 6–9.</span></div>
+          <div class="field" id="e-topic-f"><label for="e-topic">Topic</label><select id="e-topic" aria-describedby="e-topic-e"><option value="">Choose a topic</option><option>Billing &amp; insurance</option><option>Medical records &amp; reports</option><option>Corporate health plans</option><option>Feedback</option><option>Other</option></select><span class="err" id="e-topic-e">Please choose a topic.</span></div>
+          <div class="field" id="e-msg-f"><label for="e-msg">Message</label><textarea id="e-msg" maxlength="500" aria-describedby="e-msg-e e-msg-h"></textarea><span class="hint" id="e-msg-h">Please don't include detailed medical history here.</span><span class="err" id="e-msg-e">Please write at least 10 characters.</span></div>
+          <button class="btn btn-primary" type="submit">Send enquiry</button>
+          <div id="enqOut" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap cols">
+    <div>
+      <b style="color:var(--ink)">Nirvaya Health</b> <span class="tag sample">sample brand</span>
+      <p style="margin-top:8px">This is a working prototype of a healthcare brand website. Brand, doctors, prices, address and reviews are fictional placeholders. Forms and the assistant run in your browser only — no personal or medical data leaves this page.</p>
+      <p>* Insurer list, wait times and other figures marked with an asterisk are placeholders, replaced with the clinic's verified numbers before launch.</p>
+      <p>Prototype designed &amp; built by <a href="https://dijitabela.com/" rel="noopener">Dijitabela</a>.</p>
+    </div>
+    <div><b style="color:var(--ink)">Patients</b><ul><li><a href="#/book">Book a visit</a></li><li><a href="#/doctors">Find a doctor</a></li><li><a href="#/services#checkups">Health check-ups</a></li><li><button type="button" data-open-chat style="background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;cursor:pointer">Ask a question</button></li></ul></div>
+    <div><b style="color:var(--ink)">Clinic</b><ul><li><a href="#/contact">Contact &amp; hours</a></li><li><a href="#/services">Specialities</a></li><li>Privacy policy (placeholder)</li><li>Grievance officer (placeholder)</li></ul></div>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="App navigation">
+  <a href="#/home" data-nav="home"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2"/></svg>Home</a>
+  <a href="#/services" data-nav="services"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z" fill="none" stroke="currentColor" stroke-width="2"/></svg>Care</a>
+  <a href="#/doctors" data-nav="doctors"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>Doctors</a>
+  <a href="#/book" data-nav="book"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2"/></svg>Book</a>
+  <a href="#/contact" data-nav="contact"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>Visit</a>
+</nav>
+
+<div class="fab">
+  <button class="ask" type="button" data-open-chat aria-controls="chat" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><span class="lbl">Ask Nira</span></button>
+  <button class="wa" type="button" data-demo="wa" aria-label="WhatsApp the clinic (demo)"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M8.5 8.5c.3-.7.7-.7 1-.7l.6.1 1 2.1-.6.9c.5 1 1.3 1.8 2.4 2.4l.9-.6 2 1c.1.4 0 .9-.4 1.3-.6.6-1.6.7-2.8.2a8 8 0 0 1-4-4c-.4-1.1-.4-2.1-.1-2.7z" fill="#fff"/></svg></button>
+</div>
+
+<div class="chat" id="chat" role="dialog" aria-modal="false" aria-labelledby="chat-t">
+  <div class="chat-h">
+    <span class="avatar" style="background:#2E9E5B;width:36px;height:36px" aria-hidden="true">N</span>
+    <span><b id="chat-t">Nira · clinic assistant</b><small>Answers from the clinic's own FAQ</small></span>
+    <button type="button" id="chatClose" aria-label="Close assistant">×</button>
+  </div>
+  <div class="chat-note">Nira helps with timings, fees, booking and reports. It does <b>not</b> give medical advice or diagnoses. Emergency: call 112.</div>
+  <div class="chat-log" id="chatLog" aria-live="polite" aria-relevant="additions"></div>
+  <div class="sugs" id="chatSugs" aria-label="Suggested questions"></div>
+  <form id="chatForm" autocomplete="off"><label for="chatIn" class="sr-only">Type your question</label><input id="chatIn" placeholder="Ask about fees, timings, reports…" maxlength="200"><button type="submit">Send</button></form>
+</div>
+
+<dialog id="demoDlg" aria-labelledby="dlg-t">
+  <h2 id="dlg-t" style="font-size:1.2rem;font-family:var(--body)">Demo action</h2>
+  <p id="dlg-b"></p>
+  <form method="dialog"><button class="btn btn-primary" value="ok">Got it</button></form>
+</dialog>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function inr(n){return "₹"+n.toLocaleString("en-IN")}
+
+/* ---------- data (sample) ---------- */
+var SPECS=[
+ {id:"gen",name:"General Medicine",desc:"Fever, infections, BP, sugar, routine check-ups and referrals.",fee:[700,700],kw:"fever cold cough flu infection bp blood pressure checkup check-up gp general physician vomiting stomach headache"},
+ {id:"ped",name:"Paediatrics",desc:"Newborn to teens: vaccinations, growth checks, fever and allergies.",fee:[800,800],kw:"child kid baby son daughter vaccine vaccination newborn paediatric pediatric"},
+ {id:"wom",name:"Women's Health",desc:"Periods, PCOS, pregnancy care, menopause and screening.",fee:[1000,1000],kw:"period periods pcos pcod pregnancy pregnant gynae gynecology gynaecology menopause women"},
+ {id:"card",name:"Cardiology",desc:"Heart checks, BP control, ECG, echo and cholesterol.",fee:[1200,1200],kw:"heart cardiac ecg echo cholesterol palpitation cardiology"},
+ {id:"derm",name:"Dermatology",desc:"Acne, hair fall, eczema, pigmentation and skin allergies.",fee:[900,900],kw:"skin rash acne hair hairfall eczema itching pigmentation derma dermatology"},
+ {id:"orth",name:"Orthopaedics",desc:"Back and neck pain, joints, sports injuries and fractures.",fee:[1000,1000],kw:"bone joint knee back neck shoulder pain sprain fracture ortho orthopaedics sports injury"},
+ {id:"ment",name:"Mental Health",desc:"Stress, anxiety, low mood and sleep — private and judgement-free.",fee:[1100,1100],kw:"stress anxiety depression sleep insomnia mood mental therapy counselling psychiatry"},
+ {id:"endo",name:"Diabetes & Endocrinology",desc:"Diabetes, thyroid, weight and hormone conditions.",fee:[1100,1100],kw:"diabetes sugar thyroid weight hormone endocrinology hba1c"}
+];
+var COLORS=["#0F5E59","#7A4E2D","#3B4C8C","#8C3B4E","#2F6B3A","#5B4A8C","#8C6A1F","#2D6C7A"];
+var DOCS=[
+ {id:"sen",name:"Dr. Ananya Sen",spec:"gen",q:"MBBS, MD (Internal Medicine)",yrs:12,langs:["English","Hindi","Bengali"],modes:["clinic","video"],days:[0,1,2,3,4,5,6],ses:["am","pm"]},
+ {id:"mehta",name:"Dr. Rohan Mehta",spec:"card",q:"MBBS, MD, DM (Cardiology)",yrs:15,langs:["English","Hindi","Gujarati"],modes:["clinic"],days:[1,3,5],ses:["pm"]},
+ {id:"iyer",name:"Dr. Priya Iyer",spec:"wom",q:"MBBS, MS (Obstetrics & Gynaecology)",yrs:10,langs:["English","Hindi","Tamil"],modes:["clinic","video"],days:[1,2,4,6],ses:["am","pm"]},
+ {id:"bose",name:"Dr. Arjun Bose",spec:"ped",q:"MBBS, MD (Paediatrics)",yrs:9,langs:["English","Bengali","Hindi"],modes:["clinic","video"],days:[1,2,3,4,5,6],ses:["am","pm"]},
+ {id:"kapoor",name:"Dr. Meera Kapoor",spec:"derm",q:"MBBS, MD (Dermatology, Venereology & Leprosy)",yrs:8,langs:["English","Hindi","Punjabi"],modes:["clinic","video"],days:[2,4,6],ses:["am","pm"]},
+ {id:"rao",name:"Dr. Vikram Rao",spec:"orth",q:"MBBS, MS (Orthopaedics)",yrs:14,langs:["English","Hindi","Telugu"],modes:["clinic"],days:[1,2,3,5,6],ses:["am"]},
+ {id:"qureshi",name:"Dr. Sana Qureshi",spec:"ment",q:"MBBS, MD (Psychiatry)",yrs:7,langs:["English","Hindi","Urdu"],modes:["video","clinic"],days:[1,2,3,4,5],ses:["pm"]},
+ {id:"das",name:"Dr. Kunal Das",spec:"endo",q:"MBBS, MD, DM (Endocrinology)",yrs:11,langs:["English","Bengali","Hindi"],modes:["clinic","video"],days:[1,3,4,6],ses:["am","pm"]}
+];
+var specById={};SPECS.forEach(function(s,i){s.color=COLORS[i];specById[s.id]=s});
+var docById={};DOCS.forEach(function(d,i){d.color=COLORS[i];d.fee=specById[d.spec].fee[0];docById[d.id]=d});
+var AM=["09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30"],PM=["17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30"];
+var DAYN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function initials(n){return n.replace("Dr. ","").split(" ").map(function(p){return p[0]}).join("").slice(0,2)}
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function dayStart(offset){var d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+offset);return d}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function fromIso(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+function fmtTime(t){var h=+t.slice(0,2),m=t.slice(3);return ((h+11)%12+1)+":"+m+" "+(h<12?"AM":"PM")}
+function fmtDay(d){var t=dayStart(0),dd=Math.round((d-t)/864e5);return dd===0?"Today":dd===1?"Tomorrow":DAYN[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]}
+/* slot model: open=bookable, taken=already booked; past times hidden */
+function slotsFor(doc,date){
+  if(doc.days.indexOf(date.getDay())<0)return [];
+  var base=[];if(doc.ses.indexOf("am")>=0)base=base.concat(AM);if(doc.ses.indexOf("pm")>=0)base=base.concat(PM);
+  var now=new Date(),isToday=iso(date)===iso(now),out=[];
+  base.forEach(function(t){
+    if(isToday){var h=+t.slice(0,2),m=+t.slice(3);var dt=new Date(date);dt.setHours(h,m);if(dt-now<30*60000)return}
+    out.push({t:t,taken:hash(doc.id+iso(date)+t)%10<4});
+  });
+  return out;
+}
+function nextAvail(doc,maxDays){
+  for(var i=0;i<(maxDays||14);i++){var d=dayStart(i),s=slotsFor(doc,d).filter(function(x){return !x.taken});if(s.length)return {date:d,slots:s}}
+  return null;
+}
+
+/* ---------- layout switch ---------- */
+function setLayout(l){
+  if(["a","b","c"].indexOf(l)<0)l="a";
+  document.body.setAttribute("data-layout",l);
+  $$(".proto .lay button").forEach(function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-lay")===l))});
+  try{localStorage.setItem("nv-layout",l)}catch(e){}
+  var u=new URL(location.href);u.searchParams.set("layout",l);history.replaceState(null,"",u.pathname+u.search+u.hash);
+}
+$$(".proto .lay button").forEach(function(b){b.addEventListener("click",function(){setLayout(b.getAttribute("data-lay"))})});
+(function(){var q=new URLSearchParams(location.search).get("layout"),s=null;try{s=localStorage.getItem("nv-layout")}catch(e){}setLayout(q||s||"a")})();
+
+/* ---------- text size ---------- */
+$("#textSize").addEventListener("click",function(){var on=document.body.classList.toggle("big-text");this.setAttribute("aria-pressed",String(on))});
+
+/* ---------- demo dialog ---------- */
+var DEMO={
+  call:"In the live site this button dials your front desk (tap-to-call). In this prototype no call is placed.",
+  wa:"In the live site this opens a WhatsApp chat with your clinic number, pre-filled with “Hi, I'd like to book an appointment”. In this prototype nothing is sent.",
+  map:"In the live site this opens Google Maps directions to your clinic."
+};
+function demo(kind){var d=$("#demoDlg");$("#dlg-b").textContent=DEMO[kind]||kind;if(d.showModal)d.showModal();else alert(DEMO[kind])}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-demo]");if(b){e.preventDefault();demo(b.getAttribute("data-demo"))}});
+
+/* ---------- mobile menu ---------- */
+var menuBtn=$(".menu-btn"),nav=$("#mainnav");
+menuBtn.addEventListener("click",function(){var o=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(o));menuBtn.setAttribute("aria-label",o?"Close menu":"Open menu")});
+
+/* ---------- router ---------- */
+var PAGES={home:"Home",services:"Specialities",doctors:"Find a doctor",book:"Book a visit",contact:"Contact"};
+var firstRoute=true;
+function parseHash(){
+  var h=location.hash||"#/home";
+  if(h.indexOf("#/")!==0){return {page:null,anchor:h.slice(1)}}
+  var rest=h.slice(2),anchor=null,ai=rest.indexOf("#");if(ai>=0){anchor=rest.slice(ai+1);rest=rest.slice(0,ai)}
+  var qi=rest.indexOf("?"),page=qi>=0?rest.slice(0,qi):rest,params=new URLSearchParams(qi>=0?rest.slice(qi+1):"");
+  return {page:PAGES[page]?page:"home",params:params,anchor:anchor};
+}
+var current="home";
+function route(){
+  var r=parseHash();
+  if(r.page===null){ // in-page anchor like #triage
+    if(current!=="home"){show("home")}
+    var el=document.getElementById(r.anchor);if(el){el.scrollIntoView();var f=el.querySelector("h2");if(f){f.setAttribute("tabindex","-1");f.focus({preventScroll:true})}}
+    return;
+  }
+  if(r.page==="book"){bookFromParams(r.params)}
+  if(r.page==="doctors"){docsFromParams(r.params)}
+  show(r.page);
+  if(r.anchor){var a=document.getElementById(r.anchor);if(a)a.scrollIntoView()}
+  else if(!firstRoute){window.scrollTo(0,0)}
+  if(!firstRoute){var h1=$$("#p-"+r.page+" h1").filter(function(x){return x.offsetParent!==null})[0];if(h1){h1.setAttribute("tabindex","-1");h1.focus({preventScroll:true})}}
+  firstRoute=false;
+}
+function show(p){
+  current=p;
+  $$("section.page").forEach(function(s){s.classList.toggle("active",s.getAttribute("data-page")===p)});
+  $$("[data-nav]").forEach(function(a){if(a.getAttribute("data-nav")===p)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  document.title=PAGES[p]+" · Nirvaya Health (sample) – prototype by Dijitabela";
+  nav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");
+}
+window.addEventListener("hashchange",route);
+
+/* ---------- home: live card, counts, spec rows, triage ---------- */
+function renderLive(){
+  var items=DOCS.map(function(d){return {d:d,n:nextAvail(d,1)}}).filter(function(x){return x.n}).slice(0,4);
+  if(!items.length)items=DOCS.map(function(d){return {d:d,n:nextAvail(d,7)}}).filter(function(x){return x.n}).slice(0,4);
+  $("[data-live]").innerHTML=items.map(function(x){var s=x.n.slots[0];return '<li><span class="avatar" style="background:'+x.d.color+'" aria-hidden="true">'+initials(x.d.name)+'</span><span class="who">'+esc(x.d.name)+'<span>'+esc(specById[x.d.spec].name)+' · '+fmtDay(x.n.date)+'</span></span><a class="slot" href="#/book?doc='+x.d.id+'&date='+iso(x.n.date)+'&time='+s.t+'" aria-label="Book '+esc(x.d.name)+' at '+fmtTime(s.t)+', '+fmtDay(x.n.date)+'">'+fmtTime(s.t)+'</a></li>'}).join("");
+  var c=0;DOCS.forEach(function(d){c+=slotsFor(d,dayStart(0)).filter(function(x){return !x.taken}).length});
+  $("[data-count-today]").textContent=c;
+}
+function renderSpecRows(){
+  $$("[data-spec-rows]").forEach(function(ol){
+    var n=ol.getAttribute("data-spec-rows"),list=n==="all"?SPECS:SPECS.slice(0,+n);
+    ol.innerHTML=list.map(function(s,i){
+      var docs=DOCS.filter(function(d){return d.spec===s.id}),na=docs.map(function(d){return nextAvail(d)}).filter(Boolean)[0];
+      var modes=docs.some(function(d){return d.modes.indexOf("video")>=0})?"In-clinic & video":"In-clinic";
+      return '<li><span class="n">'+String(i+1).padStart(2,"0")+'</span><div><h3>'+esc(s.name)+'</h3><p>'+esc(docs.map(function(d){return d.name}).join(", "))+'</p></div><p>'+esc(s.desc)+'<br><span style="font-size:.85rem">'+modes+'</span></p><div class="meta"><b>'+inr(s.fee[0])+'</b>'+(na?'Next: '+fmtDay(na.date):'')+'<br><a href="#/book?spec='+s.id+'">Book →</a></div></li>';
+    }).join("");
+  });
+}
+var TRIAGE=[
+ {l:"Fever, cold or cough",s:"gen"},{l:"My child is unwell",s:"ped"},{l:"Skin, hair or nails",s:"derm"},
+ {l:"Joint, back or neck pain",s:"orth"},{l:"BP, heart or cholesterol",s:"card"},{l:"Periods, PCOS or pregnancy",s:"wom"},
+ {l:"Stress, anxiety or sleep",s:"ment"},{l:"Sugar, thyroid or weight",s:"endo"},
+ {l:"Chest pain or trouble breathing",s:"EMERGENCY"},{l:"Something else / not sure",s:"gen",other:true}
+];
+function renderTriage(){
+  var box=$("[data-triage]");
+  box.innerHTML=TRIAGE.map(function(t,i){return '<button type="button" class="chip" aria-pressed="false" data-ti="'+i+'">'+esc(t.l)+'</button>'}).join("");
+  box.addEventListener("click",function(e){
+    var b=e.target.closest("[data-ti]");if(!b)return;
+    $$("[data-ti]",box).forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});
+    var t=TRIAGE[+b.getAttribute("data-ti")],out=$("[data-triage-out]");
+    if(t.s==="EMERGENCY"){out.classList.add("urgent-out");out.innerHTML='<h3 style="color:var(--warn)">Please don\'t wait for an appointment</h3><p>Chest pain or difficulty breathing can be serious. Call <a href="tel:112"><b>112</b></a> or <a href="tel:108"><b>108</b></a> for an ambulance, or go to the nearest emergency department now.</p>';return}
+    out.classList.remove("urgent-out");
+    var s=specById[t.s],docs=DOCS.filter(function(d){return d.spec===s.id}),d=docs[0],na=nextAvail(d);
+    out.innerHTML='<span class="eyebrow">Suggested</span><h3>'+esc(s.name)+'</h3><p style="margin-bottom:8px">'+(t.other?"A GP is the best first stop when you're unsure — they examine you and refer you on the same day if needed. ":"")+esc(d.name)+' · '+d.yrs+' yrs · speaks '+esc(d.langs.join(", "))+'</p>'+(na?'<p class="next" style="margin-bottom:10px">Next available: <b>'+fmtDay(na.date)+', '+fmtTime(na.slots[0].t)+'</b> · '+inr(d.fee)+'</p>':'')+'<a class="btn btn-primary btn-sm" href="#/book?doc='+d.id+(na?'&date='+iso(na.date)+'&time='+na.slots[0].t:'')+'">Book this slot</a> <a class="btn btn-ghost btn-sm" href="#/doctors?spec='+s.id+'">See options</a><p class="muted" style="font-size:.78rem;margin:10px 0 0">Navigation help only — not a diagnosis.</p>';
+  });
+}
+
+/* hero B search */
+function matchSpec(q){q=q.toLowerCase().trim();if(!q)return null;var best=null,bs=0;SPECS.forEach(function(s){var sc=0;(s.name.toLowerCase()+" "+s.kw).split(/\s+/).forEach(function(w){if(w.length>2&&q.indexOf(w)>=0)sc+=w.length});if(sc>bs){bs=sc;best=s}});return best}
+$("#heroSearch").addEventListener("submit",function(e){e.preventDefault();var q=$("#hs-q").value,m=$("#hs-mode").value,s=matchSpec(q),p=new URLSearchParams();if(s)p.set("spec",s.id);else if(q)p.set("q",q);if(m)p.set("mode",m);location.hash="#/doctors?"+p.toString()});
+$$(".hero-b .chip").forEach(function(c){c.addEventListener("click",function(){location.hash="#/doctors?spec="+c.getAttribute("data-q")})});
+
+/* ---------- doctors ---------- */
+function fillFilters(){
+  $("#f-spec").insertAdjacentHTML("beforeend",SPECS.map(function(s){return '<option value="'+s.id+'">'+esc(s.name)+'</option>'}).join(""));
+  var langs={};DOCS.forEach(function(d){d.langs.forEach(function(l){langs[l]=1})});
+  $("#f-lang").insertAdjacentHTML("beforeend",Object.keys(langs).sort().map(function(l){return '<option>'+l+'</option>'}).join(""));
+  ["#f-spec","#f-lang","#f-mode","#f-today"].forEach(function(id){$(id).addEventListener("change",renderDocs)});
+  $("#f-q").addEventListener("input",renderDocs);
+}
+function docsFromParams(p){
+  $("#f-spec").value=p.get("spec")||"";$("#f-mode").value=p.get("mode")||"";$("#f-q").value=p.get("q")||"";
+  renderDocs();
+}
+function renderDocs(){
+  var sp=$("#f-spec").value,lg=$("#f-lang").value,md=$("#f-mode").value,q=$("#f-q").value.toLowerCase().trim(),td=$("#f-today").checked;
+  var list=DOCS.filter(function(d){
+    if(sp&&d.spec!==sp)return false;if(lg&&d.langs.indexOf(lg)<0)return false;if(md&&d.modes.indexOf(md)<0)return false;
+    if(q){var s=specById[d.spec];if((d.name+" "+s.name+" "+s.kw).toLowerCase().indexOf(q)<0&&!(matchSpec(q)&&matchSpec(q).id===d.spec))return false}
+    if(td&&!slotsFor(d,dayStart(0)).some(function(x){return !x.taken}))return false;
+    return true;
+  });
+  $("#docCount").textContent=list.length+(list.length===1?" doctor":" doctors")+" match your filters";
+  if(!list.length){$("#docGrid").innerHTML='<div class="empty">No doctor matches all filters. <button class="btn btn-ghost btn-sm" type="button" id="clearF">Clear filters</button></div>';$("#clearF").onclick=function(){$("#docFilters").reset();renderDocs()};return}
+  $("#docGrid").innerHTML=list.map(function(d){
+    var s=specById[d.spec],na=nextAvail(d),slots=na?na.slots.slice(0,4):[];
+    return '<article class="doc" aria-labelledby="dn-'+d.id+'"><div class="doc-top"><span class="avatar" style="background:'+d.color+'" aria-hidden="true">'+initials(d.name)+'</span><div><h3 id="dn-'+d.id+'">'+esc(d.name)+'</h3><div class="q">'+esc(s.name)+' · '+esc(d.q)+'</div></div></div>'+
+      '<dl><dt>Experience</dt><dd>'+d.yrs+' years</dd><dt>Speaks</dt><dd>'+esc(d.langs.join(", "))+'</dd><dt>Visits</dt><dd>'+d.modes.map(function(m){return m==="video"?"Video":"In-clinic"}).join(" · ")+'</dd><dt>Fee</dt><dd><b>'+inr(d.fee)+'</b></dd></dl>'+
+      (na?'<div class="next">Next available: <b>'+fmtDay(na.date)+'</b></div><div class="quick" role="group" aria-label="Quick slots for '+esc(d.name)+'">'+slots.map(function(x){return '<a class="slot" href="#/book?doc='+d.id+'&date='+iso(na.date)+'&time='+x.t+'" aria-label="Book '+fmtTime(x.t)+', '+fmtDay(na.date)+'">'+fmtTime(x.t)+'</a>'}).join("")+'</div>':'<div class="next">No slots in the next 14 days</div>')+
+      '<a class="btn btn-ghost btn-sm" href="#/book?doc='+d.id+'">More dates &amp; times</a></article>';
+  }).join("");
+}
+
+/* ---------- booking ---------- */
+var B={step:1,spec:"",doc:"",mode:"clinic",date:"",time:"",name:"",phone:"",email:"",who:"self",age:"",reason:"",consent:false,ref:""};
+function bookFromParams(p){
+  if(!p.toString()){if(B.step===5){B.step=1;B.doc="";B.spec="";B.date="";B.time="";B.consent=false}renderBook();return}
+  if(B.step===5)B={step:1,spec:"",doc:"",mode:"clinic",date:"",time:"",name:B.name,phone:B.phone,email:B.email,who:"self",age:"",reason:"",consent:false,ref:""};
+  var doc=p.get("doc"),spec=p.get("spec"),mode=p.get("mode");
+  if(doc&&docById[doc]){B.doc=doc;B.spec=docById[doc].spec;if(docById[doc].modes.indexOf(B.mode)<0)B.mode=docById[doc].modes[0]}
+  else if(spec&&specById[spec]){B.spec=spec;B.doc="";}
+  if(mode==="video"||mode==="clinic")B.mode=mode;
+  var date=p.get("date"),time=p.get("time");
+  if(B.doc&&date&&time){var ok=slotsFor(docById[B.doc],fromIso(date)).some(function(x){return x.t===time&&!x.taken});if(ok){B.date=date;B.time=time;B.step=3}else{B.date=date;B.time="";B.step=2}}
+  else if(B.doc){B.step=2;B.date="";B.time=""}
+  else B.step=1;
+  renderBook();
+}
+function curDoc(){return docById[B.doc]||null}
+function renderSummary(){
+  var d=curDoc(),rows=[["Speciality",B.spec?specById[B.spec].name:"—"],["Doctor",d?d.name:"—"],["Visit",B.mode==="video"?"Video consult":"In-clinic"],["Date",B.date?fmtDay(fromIso(B.date)):"—"],["Time",B.time?fmtTime(B.time):"—"]];
+  if(B.name)rows.push(["Patient",B.name+(B.who==="other"&&B.age?" ("+B.age+")":"")]);
+  $("#sumList").innerHTML=rows.map(function(r){return "<dt>"+r[0]+"</dt><dd>"+esc(r[1])+"</dd>"}).join("");
+  $("#sumFee").textContent=d?inr(d.fee):(B.spec?inr(specById[B.spec].fee[0]):"—");
+}
+function stepper(){$$(".stepper li").forEach(function(li){var n=+li.getAttribute("data-st");li.className=n<B.step?"done":n===B.step?"cur":"";if(n===B.step)li.setAttribute("aria-current","step");else li.removeAttribute("aria-current")})}
+function renderBook(){
+  stepper();renderSummary();var c=$("#bookCard");
+  if(B.step===1){
+    var docs=DOCS.filter(function(d){return !B.spec||d.spec===B.spec});
+    c.innerHTML='<h2 style="font-size:1.25rem;font-family:var(--body)">Who would you like to see?</h2>'+
+     '<fieldset><legend>Visit type</legend><div class="opt-grid"><label class="opt"><input type="radio" name="mode" value="clinic" '+(B.mode==="clinic"?"checked":"")+'><span>In-clinic visit<small>Salt Lake clinic</small></span></label><label class="opt"><input type="radio" name="mode" value="video" '+(B.mode==="video"?"checked":"")+'><span>Video consult<small>Join from your phone</small></span></label></div></fieldset>'+
+     '<div class="field"><label for="b-spec">Speciality</label><select id="b-spec"><option value="">All specialities</option>'+SPECS.map(function(s){return '<option value="'+s.id+'"'+(s.id===B.spec?" selected":"")+'>'+esc(s.name)+'</option>'}).join("")+'</select></div>'+
+     '<fieldset id="docSet"><legend>Doctor</legend><div class="opt-grid">'+docs.map(function(d){var ok=d.modes.indexOf(B.mode)>=0,na=ok?nextAvail(d):null;return '<label class="opt"><input type="radio" name="doc" value="'+d.id+'" '+(B.doc===d.id?"checked":"")+(ok?"":" disabled")+'><span><b>'+esc(d.name)+'</b><small>'+esc(specById[d.spec].name)+' · '+inr(d.fee)+'</small><small>'+(ok?(na?"Next: "+fmtDay(na.date)+", "+fmtTime(na.slots[0].t):"No slots soon"):"In-clinic only")+'</small></span></label>'}).join("")+'</div></fieldset>'+
+     '<div id="s1err" class="err-box" hidden>Please choose a doctor to continue.</div>'+
+     '<div class="actions"><span></span><button class="btn btn-primary" type="button" id="s1next">Continue</button></div>';
+    $$('input[name=mode]',c).forEach(function(r){r.onchange=function(){B.mode=r.value;var d=curDoc();if(d&&d.modes.indexOf(B.mode)<0)B.doc="";renderBook()}});
+    $("#b-spec").onchange=function(){B.spec=this.value;if(curDoc()&&B.spec&&curDoc().spec!==B.spec)B.doc="";renderBook();$("#b-spec").focus()};
+    $$('input[name=doc]',c).forEach(function(r){r.onchange=function(){B.doc=r.value;B.spec=docById[r.value].spec;B.date="";B.time="";renderSummary()}});
+    $("#s1next").onclick=function(){if(!B.doc){var e=$("#s1err");e.hidden=false;e.setAttribute("tabindex","-1");e.focus();return}B.step=2;renderBook();focusCard()};
+  }
+  else if(B.step===2){
+    var d=curDoc(),days=[];for(var i=0;i<14;i++){var dt=dayStart(i);days.push({d:dt,open:slotsFor(d,dt).some(function(x){return !x.taken})})}
+    if(!B.date){var f=days.filter(function(x){return x.open})[0];if(f)B.date=iso(f.d)}
+    var sl=B.date?slotsFor(d,fromIso(B.date)):[];
+    var am=sl.filter(function(x){return +x.t.slice(0,2)<13}),pm=sl.filter(function(x){return +x.t.slice(0,2)>=13});
+    function grp(n,a){if(!a.length)return "";return '<div class="slot-group"><h4>'+n+'</h4><div class="quick">'+a.map(function(x){return '<button type="button" class="slot" data-t="'+x.t+'" aria-pressed="'+(B.time===x.t)+'"'+(x.taken?' disabled aria-label="'+fmtTime(x.t)+' already booked"':'')+'>'+fmtTime(x.t)+'</button>'}).join("")+'</div></div>'}
+    c.innerHTML='<h2 style="font-size:1.25rem;font-family:var(--body)">Pick a date and time</h2><p class="muted" style="font-size:.9rem">'+esc(d.name)+' · '+(B.mode==="video"?"Video consult":"In-clinic")+' · times in IST</p>'+
+     '<div class="days" role="group" aria-label="Dates">'+days.map(function(x){var v=iso(x.d);return '<button type="button" class="day" data-d="'+v+'" aria-pressed="'+(B.date===v)+'"'+(x.open?'':' disabled')+' aria-label="'+fmtDay(x.d)+(x.open?'':' – no slots')+'"><small>'+(fmtDay(x.d).length<9?fmtDay(x.d):DAYN[x.d.getDay()])+'</small><b>'+x.d.getDate()+'</b><small>'+MON[x.d.getMonth()]+'</small></button>'}).join("")+'</div>'+
+     (sl.length?grp("Morning",am)+grp("Evening",pm):'<p class="empty" style="margin-top:14px">No slots on this day.</p>')+
+     '<div id="s2err" class="err-box" hidden style="margin-top:14px">Please choose a time.</div>'+
+     '<div class="actions" style="margin-top:18px"><button class="btn btn-ghost" type="button" id="s2back">Back</button><button class="btn btn-primary" type="button" id="s2next">Continue</button></div>';
+    $$(".day",c).forEach(function(b){b.onclick=function(){B.date=b.getAttribute("data-d");B.time="";renderBook();var nb=$('.day[data-d="'+B.date+'"]');if(nb)nb.focus()}});
+    $$(".slot[data-t]",c).forEach(function(b){b.onclick=function(){B.time=b.getAttribute("data-t");$$(".slot[data-t]",c).forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});$("#s2err").hidden=true;renderSummary()}});
+    $("#s2back").onclick=function(){B.step=1;renderBook();focusCard()};
+    $("#s2next").onclick=function(){if(!B.time){var e=$("#s2err");e.hidden=false;e.setAttribute("tabindex","-1");e.focus();return}B.step=3;renderBook();focusCard()};
+  }
+  else if(B.step===3){
+    c.innerHTML='<h2 style="font-size:1.25rem;font-family:var(--body)">Your details</h2><p class="muted" style="font-size:.9rem">We only ask what the clinic needs to confirm your visit.</p>'+
+     '<form id="detForm" novalidate>'+
+     '<fieldset><legend>This appointment is for</legend><div class="opt-grid"><label class="opt"><input type="radio" name="who" value="self" '+(B.who==="self"?"checked":"")+'><span>Myself</span></label><label class="opt"><input type="radio" name="who" value="other" '+(B.who==="other"?"checked":"")+'><span>A family member</span></label></div></fieldset>'+
+     '<div class="two"><div class="field" id="f-name"><label for="d-name">Patient\'s full name</label><input id="d-name" autocomplete="name" value="'+esc(B.name)+'" aria-describedby="d-name-e"><span class="err" id="d-name-e">Please enter the patient\'s full name.</span></div>'+
+     '<div class="field" id="f-age"'+(B.who==="other"?"":" hidden")+'><label for="d-age">Patient\'s age</label><input id="d-age" inputmode="numeric" maxlength="3" value="'+esc(B.age)+'" aria-describedby="d-age-e"><span class="err" id="d-age-e">Enter an age between 0 and 120.</span></div></div>'+
+     '<div class="field" id="f-phone"><label for="d-phone">Mobile number</label><div class="phone"><span>+91</span><input id="d-phone" inputmode="numeric" autocomplete="tel-national" maxlength="10" value="'+esc(B.phone)+'" aria-describedby="d-phone-h d-phone-e"></div><span class="hint" id="d-phone-h">Confirmation and reminder go to this number on WhatsApp/SMS.</span><span class="err" id="d-phone-e">Enter a 10-digit Indian mobile number starting 6–9.</span></div>'+
+     '<div class="field" id="f-email"><label for="d-email">Email <span class="muted">(optional)</span></label><input id="d-email" type="email" autocomplete="email" value="'+esc(B.email)+'" aria-describedby="d-email-e"><span class="err" id="d-email-e">This email doesn\'t look right.</span></div>'+
+     '<div class="field"><label for="d-reason">Reason for visit <span class="muted">(optional)</span></label><input id="d-reason" maxlength="120" value="'+esc(B.reason)+'" placeholder="e.g. follow-up, fever for 3 days"></div>'+
+     '<div class="field" id="f-consent"><label class="check-line"><input type="checkbox" id="d-consent" '+(B.consent?"checked":"")+' aria-describedby="d-consent-e"> I agree that the clinic may contact me about this appointment (as per the privacy policy).</label><span class="err" id="d-consent-e">Please tick to continue.</span></div>'+
+     '<div class="actions"><button class="btn btn-ghost" type="button" id="s3back">Back</button><button class="btn btn-primary" type="submit">Review booking</button></div></form>';
+    $$('input[name=who]',c).forEach(function(r){r.onchange=function(){B.who=r.value;$("#f-age").hidden=B.who!=="other"}});
+    $("#d-phone").addEventListener("input",function(){this.value=this.value.replace(/\D/g,"").slice(0,10)});
+    $("#s3back").onclick=function(){saveDet();B.step=2;renderBook();focusCard()};
+    $("#detForm").onsubmit=function(e){e.preventDefault();saveDet();var bad=validateDet();if(bad){var f=$("#"+bad+" input");if(f)f.focus();return}B.step=4;renderBook();focusCard()};
+  }
+  else if(B.step===4){
+    var d=curDoc();
+    c.innerHTML='<h2 style="font-size:1.25rem;font-family:var(--body)">Check and confirm</h2>'+
+     '<dl style="display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.95rem;margin:0">'+
+     [["Doctor",d.name+" · "+specById[d.spec].name],["When",fmtDay(fromIso(B.date))+", "+fmtTime(B.time)+" IST"],["Visit",B.mode==="video"?"Video consult (link sent on WhatsApp)":"In-clinic · Salt Lake, Sector V"],["Patient",B.name+(B.who==="other"?" (family member, "+B.age+")":"")],["Mobile","+91 "+B.phone],["Fee",inr(d.fee)+" · pay at clinic or UPI"]].map(function(r){return "<dt class='muted'>"+r[0]+"</dt><dd style='margin:0;font-weight:600'>"+esc(r[1])+"</dd>"}).join("")+'</dl>'+
+     '<p class="muted" style="font-size:.85rem;margin-top:14px">Demo: pressing confirm does not book a real appointment and sends nothing.</p>'+
+     '<div class="actions"><button class="btn btn-ghost" type="button" id="s4back">Edit details</button><button class="btn btn-primary" type="button" id="s4ok">Confirm appointment</button></div>';
+    $("#s4back").onclick=function(){B.step=3;renderBook();focusCard()};
+    $("#s4ok").onclick=function(){
+      // re-check slot is still free (real system would lock it server-side)
+      var still=slotsFor(d,fromIso(B.date)).some(function(x){return x.t===B.time&&!x.taken});
+      if(!still){B.step=2;B.time="";renderBook();var e=$("#s2err");e.textContent="Sorry, that time was just taken. Please choose another.";e.hidden=false;e.focus();return}
+      var ch="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",r="";for(var i=0;i<6;i++)r+=ch[Math.floor(Math.random()*ch.length)];B.ref="NV-"+r;B.step=5;renderBook();focusCard();
+    };
+  }
+  else if(B.step===5){
+    var d=curDoc(),when=fmtDay(fromIso(B.date))+", "+fmtTime(B.time);
+    $$(".stepper li").forEach(function(li){li.className="done"});
+    c.innerHTML='<div class="confirm"><div class="tick" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3"/></svg></div>'+
+     '<h2 style="font-size:1.4rem;font-family:var(--body)">You\'re booked (demo)</h2><p>'+esc(B.name)+' with '+esc(d.name)+' · <b>'+when+'</b> · '+(B.mode==="video"?"Video consult":"In-clinic")+'</p><p>Reference <span class="ref">'+B.ref+'</span></p>'+
+     '<div class="wa-preview"><b>Preview of the WhatsApp confirmation</b>Hi '+esc(B.name.split(" ")[0])+', your appointment with '+esc(d.name)+' is confirmed for '+when+'. Ref '+B.ref+'. '+(B.mode==="video"?"Your video link will arrive 15 min before.":"Please arrive 10 min early with any old reports.")+' Reply R to reschedule.</div>'+
+     '<div class="cta-row"><a class="btn btn-primary btn-sm" id="icsLink" download="nirvaya-appointment.ics" href="#">Add to calendar</a><a class="btn btn-ghost btn-sm" href="#/book?doc='+d.id+'">Book another</a><a class="btn btn-ghost btn-sm" href="#/home">Back to home</a></div>'+
+     '<h3 style="margin-top:18px">Before your visit</h3><ul class="muted" style="font-size:.92rem;padding-left:18px"><li>Bring previous prescriptions and reports, or upload them from the link in WhatsApp.</li><li>'+(B.mode==="video"?"Find a quiet spot with good light; test your camera.":"Parking is free for 2 hours; the entrance is step-free.")+'</li><li>Need to change? Rescheduling is free up to 2 hours before.</li></ul></div>';
+    var st=fromIso(B.date);st.setHours(+B.time.slice(0,2),+B.time.slice(3));var en=new Date(st.getTime()+15*60000);
+    function z(x){return x.getUTCFullYear()+String(x.getUTCMonth()+1).padStart(2,"0")+String(x.getUTCDate()).padStart(2,"0")+"T"+String(x.getUTCHours()).padStart(2,"0")+String(x.getUTCMinutes()).padStart(2,"0")+"00Z"}
+    var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Nirvaya Health sample//EN","BEGIN:VEVENT","UID:"+B.ref+"@sample","DTSTAMP:"+z(new Date()),"DTSTART:"+z(st),"DTEND:"+z(en),"SUMMARY:Appointment with "+d.name+" (sample)","LOCATION:"+(B.mode==="video"?"Video consult":"Nirvaya Health (sample), Salt Lake, Kolkata"),"DESCRIPTION:Reference "+B.ref+" - prototype booking","END:VEVENT","END:VCALENDAR"].join("\r\n");
+    $("#icsLink").href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));
+  }
+}
+function focusCard(){var h=$("#bookCard h2");if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true});var top=$("#bookCard").getBoundingClientRect().top;if(top<70||top>window.innerHeight*.6)window.scrollTo({top:window.scrollY+top-90})}}
+function saveDet(){B.name=$("#d-name").value.trim();B.phone=$("#d-phone").value.trim();B.email=$("#d-email").value.trim();B.age=$("#d-age").value.trim();B.reason=$("#d-reason").value.trim();B.consent=$("#d-consent").checked}
+function setInv(id,bad){$("#"+id).setAttribute("aria-invalid",String(!!bad));var i=$("#"+id+" input");if(i)i.setAttribute("aria-invalid",String(!!bad))}
+function validateDet(){
+  var first=null;function chk(id,bad){setInv(id,bad);if(bad&&!first)first=id}
+  chk("f-name",B.name.length<3||!/[a-z]/i.test(B.name));
+  if(B.who==="other")chk("f-age",!/^\d{1,3}$/.test(B.age)||+B.age>120);else setInv("f-age",false);
+  chk("f-phone",!/^[6-9]\d{9}$/.test(B.phone));
+  chk("f-email",B.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(B.email));
+  chk("f-consent",!B.consent);
+  return first;
+}
+
+/* ---------- contact ---------- */
+function renderHours(){
+  var H=[["Monday","8:30 AM – 9:00 PM"],["Tuesday","8:30 AM – 9:00 PM"],["Wednesday","8:30 AM – 9:00 PM"],["Thursday","8:30 AM – 9:00 PM"],["Friday","8:30 AM – 9:00 PM"],["Saturday","8:30 AM – 9:00 PM"],["Sunday","9:00 AM – 1:00 PM (GP only)"]];
+  var td=(new Date().getDay()+6)%7;
+  $("#hoursBody").innerHTML=H.map(function(h,i){return '<tr'+(i===td?' class="today"':'')+'><th scope="row">'+h[0]+(i===td?' <span class="sr-only">(today)</span>':'')+'</th><td>'+h[1]+'</td></tr>'}).join("");
+}
+$("#enqForm").addEventListener("submit",function(e){
+  e.preventDefault();var first=null;
+  function chk(id,bad){var f=$("#"+id);f.setAttribute("aria-invalid",String(!!bad));if(bad&&!first)first=f}
+  var ph=$("#e-phone");ph.value=ph.value.replace(/\D/g,"");
+  chk("e-name-f",$("#e-name").value.trim().length<2);chk("e-phone-f",!/^[6-9]\d{9}$/.test(ph.value));chk("e-topic-f",!$("#e-topic").value);chk("e-msg-f",$("#e-msg").value.trim().length<10);
+  if(first){first.querySelector("input,select,textarea").focus();$("#enqOut").innerHTML="";return}
+  $("#enqOut").innerHTML='<div class="wa-preview" style="margin-top:14px"><b>Demo — not sent</b>Thanks, '+esc($("#e-name").value.trim().split(" ")[0])+'. In the live site this enquiry lands in the front-desk inbox and you get a WhatsApp acknowledgement with a ticket number.</div>';
+  this.reset();
+});
+
+/* ---------- assistant (fixed FAQ, deterministic) ---------- */
+var FAQ=[
+ {k:["timing","time","open","hours","close","sunday","holiday"],a:"The clinic is open Monday–Saturday, 8:30 AM – 9:00 PM, and Sunday 9:00 AM – 1:00 PM (GP only). Video consults follow each doctor's schedule.",act:'<a class="btn btn-ghost btn-sm" href="#/contact">See hours &amp; map</a>'},
+ {k:["fee","fees","cost","charge","price","how much","consultation"],a:"Consultation fees (sample): General Medicine ₹700, Paediatrics ₹800, Dermatology ₹900, Women's Health and Orthopaedics ₹1,000, Mental Health and Endocrinology ₹1,100, Cardiology ₹1,200. The exact fee is shown before you confirm.",act:'<a class="btn btn-ghost btn-sm" href="#/services">All specialities</a>'},
+ {k:["book","appointment","slot","schedule","available"],a:"You can book online in four steps: choose a doctor, pick a live slot, add your mobile number, and confirm. No account needed.",act:'<a class="btn btn-primary btn-sm" href="#/book">Start booking</a>'},
+ {k:["cancel","reschedule","change","postpone","refund"],a:"Rescheduling and cancellation are free up to 2 hours before your slot — reply R to the WhatsApp confirmation or use the link in it. Prepaid video consults are refunded to the original UPI/card in 5–7 working days."},
+ {k:["insurance","cashless","mediclaim","tpa","reimburse","claim"],a:"Cashless OPD is available with selected insurers and TPAs (the list goes here). For others we give an itemised bill and prescription for reimbursement. Bring your policy card and a photo ID."},
+ {k:["video","online","teleconsult","tele","virtual"],a:"Video consults run in the browser — no app. You get a link on WhatsApp 15 minutes before; the prescription arrives as a PDF after the call. Doctors decide if an in-person visit is needed."},
+ {k:["report","result","lab","test","blood","sample","home collection"],a:"Lab reports are usually ready within 24 hours and sent to your WhatsApp and email. Home sample collection is available in a 10 km radius for check-up packages.",act:'<a class="btn btn-ghost btn-sm" href="#/services#checkups">Check-up packages</a>'},
+ {k:["pay","payment","upi","card","cash","gpay","paytm"],a:"We accept UPI, debit/credit cards and cash at the clinic. Video consults are paid by UPI before the call."},
+ {k:["language","hindi","bengali","bangla","tamil","telugu","urdu","gujarati","punjabi"],a:"Our doctors speak English plus Hindi, Bengali, Tamil, Telugu, Urdu, Gujarati or Punjabi. Use the language filter on the Doctors page.",act:'<a class="btn btn-ghost btn-sm" href="#/doctors">Filter doctors by language</a>'},
+ {k:["where","address","location","parking","direction","metro","reach"],a:"We're in Salt Lake, Sector V, Kolkata (sample address), 4 minutes from the metro, with free parking and a step-free entrance.",act:'<a class="btn btn-ghost btn-sm" href="#/contact">Directions</a>'},
+ {k:["bring","document","carry","prepare","id"],a:"Please bring a photo ID, previous prescriptions and reports, and your insurance card if you plan to claim. Arrive 10 minutes early for an in-clinic visit."},
+ {k:["privacy","data","record","confidential","secure"],a:"Your records are kept confidential and are only shared with your treating doctors. You can request a copy of your records from the front desk or via the enquiry form."},
+ {k:["vaccin","vaccine","jab","immunis","immuniz"],a:"Child and adult vaccinations are given at the clinic by appointment with Paediatrics or General Medicine. Bring the vaccination card.",act:'<a class="btn btn-ghost btn-sm" href="#/book?spec=ped">Book Paediatrics</a>'},
+ {k:["second opinion","opinion"],a:"Yes — book the relevant specialist and bring or upload your existing reports. Mention 'second opinion' in the reason field so the doctor can review them beforehand."}
+];
+var EMERG=/chest pain|can'?t breathe|cannot breathe|breathing difficult|difficulty breathing|unconscious|faint(ed|ing)|stroke|severe bleeding|heart attack|suicid|kill myself|overdose|seizure|fits/i;
+var MED=/\b(should i take|dose|dosage|mg\b|tablet|medicine for|which medicine|antibiotic|is it serious|do i have|diagnos|cure|treat my|paracetamol|ibuprofen|side effect)/i;
+var log=$("#chatLog"),chat=$("#chat"),greeted=false;
+function addMsg(html,who,cls){var d=document.createElement("div");d.className="msg "+who+(cls?" "+cls:"");d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function answer(q){
+  if(EMERG.test(q))return {h:'<b>This sounds urgent.</b> Please call <a href="tel:112">112</a> or <a href="tel:108">108</a> (ambulance) now, or go to the nearest emergency department. Don\'t wait for an online appointment.'+(/suicid|kill myself/i.test(q)?' If you are thinking about harming yourself, you can also call the Tele-MANAS helpline <a href="tel:14416">14416</a> (24×7, free).':''),cls:"alert"};
+  if(MED.test(q))return {h:"I can't give medical advice, dosages or diagnoses — a doctor needs to assess you. The quickest option is a General Medicine video consult, often available today.",act:'<div class="act"><a class="btn btn-primary btn-sm" href="#/book?spec=gen&mode=video">Book a video consult</a></div>'};
+  var ql=q.toLowerCase(),best=null,bs=0;
+  FAQ.forEach(function(f){var s=0;f.k.forEach(function(k){if(ql.indexOf(k)>=0)s+=k.length});if(s>bs){bs=s;best=f}});
+  var sp=matchSpec(q);
+  if(best&&bs>=3)return {h:esc(best.a)+'<span class="src">Source: clinic FAQ</span>',act:best.act?'<div class="act">'+best.act+'</div>':""};
+  if(sp)return {h:"For that, the right team is <b>"+esc(sp.name)+"</b>. I can't advise on symptoms, but you can see a doctor soon.",act:'<div class="act"><a class="btn btn-primary btn-sm" href="#/doctors?spec='+sp.id+'">See '+esc(sp.name)+' doctors</a></div>'};
+  return {h:"I don't have a confirmed answer for that, so I won't guess. Our front desk can help on WhatsApp or by phone.",act:'<div class="act"><button class="btn btn-ghost btn-sm" type="button" data-demo="wa">WhatsApp the front desk</button></div>'};
+}
+function ask(q){
+  q=q.trim();if(!q)return;addMsg(esc(q),"me");
+  var t=addMsg('<span class="typing" aria-label="Nira is typing"><span></span><span></span><span></span></span>',"bot");
+  var r=answer(q);setTimeout(function(){t.remove();addMsg(r.h+(r.act||""),"bot",r.cls)},matchMedia("(prefers-reduced-motion: reduce)").matches?0:550);
+}
+var SUGS=["What are your timings?","How much is a consultation?","Do you accept insurance?","How do video consults work?","When will my reports be ready?"];
+$("#chatSugs").innerHTML=SUGS.map(function(s){return '<button type="button">'+esc(s)+'</button>'}).join("");
+$("#chatSugs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)ask(b.textContent)});
+$("#chatForm").addEventListener("submit",function(e){e.preventDefault();var i=$("#chatIn");ask(i.value);i.value=""});
+var lastFocus=null;
+function openChat(){lastFocus=document.activeElement;chat.classList.add("open");$$("[data-open-chat]").forEach(function(b){b.setAttribute("aria-expanded","true")});if(!greeted){addMsg("Hi, I'm Nira. I can help with timings, fees, booking, insurance and reports. What would you like to know?","bot");greeted=true}$("#chatIn").focus()}
+function closeChat(){chat.classList.remove("open");$$("[data-open-chat]").forEach(function(b){b.setAttribute("aria-expanded","false")});if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+document.addEventListener("click",function(e){if(e.target.closest("[data-open-chat]")){e.preventDefault();chat.classList.contains("open")?closeChat():openChat()}});
+$("#chatClose").addEventListener("click",closeChat);
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&chat.classList.contains("open"))closeChat()});
+log.addEventListener("click",function(e){if(e.target.closest("a[href^='#/']"))closeChat()});
+
+/* ---------- init ---------- */
+renderLive();renderSpecRows();renderTriage();fillFilters();renderDocs();renderHours();renderBook();
+route();
+})();
+</script>
+</body>
+</html>
