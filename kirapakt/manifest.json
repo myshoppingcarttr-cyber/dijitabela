@@ -10,9 +10,116 @@
   "theme_color": "#040711",
   "background_color": "#040711",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "description": "Kiracılar nakit depozito ödemeden taşınır, ev sahipleri kirasını gününde alır. Kira güvence platformu (ön izleme).",
+  "categories": [
+    "finance",
+    "lifestyle",
+    "business"
+  ],
+  "orientation": "portrait",
+  "shortcuts": [
+    {
+      "name": "Kiracı başvurusu",
+      "short_name": "Başvur",
+      "url": "basvuru/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Mülk ekle",
+      "short_name": "Mülk ekle",
+      "url": "mulk-ekle/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Kira güvencesini hesapla",
+      "short_name": "Hesapla",
+      "url": "./#hesapla",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Kira rehberi",
+      "short_name": "Rehber",
+      "url": "blog/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "ekran/ana-sayfa.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "KiraPakt nedir ve nasıl çalışır"
+    },
+    {
+      "src": "ekran/hesapla.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Kira güvencesi ve erken nakit hesabı"
+    },
+    {
+      "src": "ekran/rehber.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Kira rehberi"
+    },
+    {
+      "src": "ekran/masaustu.png",
+      "sizes": "1440x900",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "KiraPakt ana sayfası"
+    }
   ]
 }
