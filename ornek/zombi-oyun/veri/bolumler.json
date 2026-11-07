@@ -15,7 +15,7 @@
       "muzik": "gece",
       "uzunluk": 9400,
       "baslangic_silahlar": ["tabanca"],
-      "yildiz_puan": [6000, 11000, 15500],
+      "yildiz_puan": [7000, 13000, 17500],
       "giris_kartlari": [
         { "sahne": "mahalle", "kamera": 0.05, "kim": "anlatici", "metin": "Salgının ilk gecesi. Yelkovan Mahallesi'nde elektrikler saat 23.00'te kesildi. Sirenler bir saattir susmuyor." },
         { "sahne": "mahalle", "kamera": 0.12, "kim": "aras", "metin": "Vardiyamın bitmesine on dakika vardı. Ambulans köprü girişinde devrildi. Bir tek telsiz sağlam kaldı." },
@@ -119,7 +119,7 @@
       "muzik": "safak",
       "uzunluk": 9300,
       "baslangic_silahlar": ["tabanca", "pompali"],
-      "yildiz_puan": [8000, 14000, 20000],
+      "yildiz_puan": [9000, 16000, 22000],
       "giris_kartlari": [
         { "sahne": "liman", "kamera": 0.05, "kim": "anlatici", "metin": "05.20. Şafak sökerken sis limanı yuttu. Sığınaktakiler arka yoldan iskeleye ilerliyor." },
         { "sahne": "liman", "kamera": 0.5, "kim": "selin", "metin": "Aras, iskele kapısı kilitli. Jeneratörü çalıştırıp kapıyı açman ve biz gelene kadar tutman lazım." },

@@ -91,7 +91,7 @@
       if (s.gk !== gk) {
         s.gk = gk; this.gorevG.clear();
         if (G) {
-          this.gorevAd.setText(G.ad.toUpperCase()); this.gorevYazi.setText(G.metin);
+          this.gorevAd.setText(G.ad.toLocaleUpperCase("tr-TR")); this.gorevYazi.setText(G.metin);
           if (G.ilerleme !== null) { const bw = 260, x = this.gorevAd.x - bw / 2; this.gorevG.fillStyle(0x000000, 0.55); this.gorevG.fillRoundedRect(x - 2, this.gorevBarY - 2, bw + 4, 12, 5); this.gorevG.fillStyle(G.ilerlemeAd === "KAPI" ? (G.ilerleme < 0.3 ? 0xe5484d : 0x9ec5ff) : RENK.vurgu, 1); this.gorevG.fillRoundedRect(x, this.gorevBarY, bw * G.ilerleme, 8, 4); }
           this.gorevSayac.setText(G.sayac !== null ? "0:" + String(Math.ceil(G.sayac)).padStart(2, "0") + (G.ilerlemeAd ? "   KAPI %" + Math.round(G.ilerleme * 100) : "") : "");
         } else { this.gorevAd.setText(D.ilerle ? "SIRADAKİ HEDEF" : ""); this.gorevYazi.setText(D.ilerle ? "İlerle →" : ""); this.gorevSayac.setText(""); }
@@ -103,10 +103,10 @@
       // boss
       const bg = this.bossG; bg.clear();
       if (D.boss) {
-        const bw = Math.min(560, SV.Y.W - 120), bx = SV.Y.W / 2 - bw / 2, by = SV.Y.dikey ? SV.Y.dunyaY + 24 : 118;
+        const bw = Math.min(560, SV.Y.W - 120), bx = SV.Y.W / 2 - bw / 2, by = SV.Y.dikey ? SV.Y.dunyaY + 24 : 640;
         bg.fillStyle(0x000000, 0.6); bg.fillRoundedRect(bx - 4, by - 4, bw + 8, 22, 6); bg.fillStyle(0x3a0c0e, 1); bg.fillRect(bx, by, bw, 14);
         bg.fillStyle(0xd23a2e, 1); bg.fillRect(bx, by, bw * (D.boss.can / D.boss.max), 14); bg.fillStyle(0xffffff, 0.2); bg.fillRect(bx, by, bw * (D.boss.can / D.boss.max), 4);
-        this.bossAd.setVisible(true).setText(D.boss.ad).setY(by + 34);
+        this.bossAd.setVisible(true).setText(D.boss.ad).setY(SV.Y.dikey ? by + 34 : by - 20);
       } else this.bossAd.setVisible(false);
     }
 
@@ -176,7 +176,7 @@
       k.setAlpha(0).setScale(1, 0.4);
       this.tweens.add({ targets: k, alpha: 1, scaleY: 1, duration: 220, ease: "Back.out", hold: 1600, yoyo: true, onComplete: () => k.destroy() });
     }
-    gorevAfis(ad, gorev) { this.afis(ad.toUpperCase(), "Görev: " + gorev); }
+    gorevAfis(ad, gorev) { this.afis(ad.toLocaleUpperCase("tr-TR"), "Görev: " + gorev); }
     bossAfis(ad, unvan) {
       const Y = SV.Y, W = Y.W, k = this.add.container(0, 0).setDepth(31);
       const ust = this.add.rectangle(0, Y.dunyaY, W, 0, 0x000000).setOrigin(0, 0), alt = this.add.rectangle(0, Y.dunyaY + 720, W, 0, 0x000000).setOrigin(0, 1);
@@ -201,7 +201,7 @@
       k.add(g);
       let mx = 16;
       if (C.portre) { const p = this.add.image(14 + 34, h / 2, C.portre).setDisplaySize(68, 68); const m = this.add.graphics(); m.lineStyle(2, 0xffffff, 0.3); m.strokeRect(14, h / 2 - 34, 68, 68); k.add([p, m]); mx = 96; if (C.telsiz) { const tl = SV.UI.yazi(this, 48, h - 8, "TELSİZ", 11, "#7fd1c7"); k.add(tl); SV.Ses.cal("telsiz"); } }
-      k.add(SV.UI.yazi(this, mx, 16, C.ad.toUpperCase(), 17, C.renk, { ox: 0, harf: 1 }));
+      k.add(SV.UI.yazi(this, mx, 16, C.ad.toLocaleUpperCase("tr-TR"), 17, C.renk, { ox: 0, harf: 1 }));
       const metin = SV.UI.yazi(this, mx, 40, "", dik ? 21 : 19, "#efe9dc", { ox: 0, oy: 0, govde: true, sar: w - mx - 16 });
       k.add(metin);
       k.setAlpha(0); this.tweens.add({ targets: k, alpha: 1, x: { from: x - 20, to: x }, duration: 200 });

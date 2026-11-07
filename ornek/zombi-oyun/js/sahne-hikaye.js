@@ -16,7 +16,7 @@
       const bar = Y.dikey ? Math.round(H * 0.12) : 64;
       this.ustBar = this.add.rectangle(0, 0, W, bar, 0x000000).setOrigin(0, 0).setDepth(60);
       this.altBar = this.add.rectangle(0, H, W, bar, 0x000000).setOrigin(0, 1).setDepth(60);
-      this.baslik = SV.UI.yazi(this, 28, bar / 2, "BÖLÜM " + (SV.VERI.bolumler.bolumler.indexOf(B) + 1) + "  ·  " + B.ad.toUpperCase() + (d.tur === "cikis" ? "  ·  SONRASI" : ""), 20, "#f2c14e", { ox: 0, harf: 3 }).setDepth(61);
+      this.baslik = SV.UI.yazi(this, 28, bar / 2, "BÖLÜM " + (SV.VERI.bolumler.bolumler.indexOf(B) + 1) + "  ·  " + B.ad.toLocaleUpperCase("tr-TR") + (d.tur === "cikis" ? "  ·  SONRASI" : ""), 20, "#f2c14e", { ox: 0, harf: 3 }).setDepth(61);
       this.altBaslik = SV.UI.yazi(this, 28, bar / 2 + 24, d.tur === "giris" ? B.alt_baslik : "", 15, "#9a9488", { ox: 0, govde: true }).setDepth(61);
       if (Y.dikey) { this.baslik.setY(bar / 2 - 10); this.altBaslik.setY(bar / 2 + 18); }
       const atla = SV.UI.dugme(this, W - 90, bar / 2, 130, 44, "ATLA  ⏭", () => this.bitir(), { boyut: 18 }).setDepth(62);
@@ -32,7 +32,7 @@
       this.metin = SV.UI.yazi(this, 0, -kh / 2 + 58, "", Y.dikey ? 27 : 25, "#efe9dc", { ox: 0, oy: 0, govde: true, sar: kw - 220, satir: 6 });
       this.devamIpucu = SV.UI.yazi(this, kw / 2 - 24, kh / 2 - 22, "dokun / boşluk ▶", 14, "#9a9488", { ox: 1, govde: true });
       this.tweens.add({ targets: this.devamIpucu, alpha: 0.3, duration: 700, yoyo: true, repeat: -1 });
-      this.sayac = SV.UI.yazi(this, -kw / 2 + 24, kh / 2 - 22, "", 13, "#6f6a60", { ox: 0 });
+      this.sayac = SV.UI.yazi(this, kw / 2 - 24, -kh / 2 + 28, "", 13, "#6f6a60", { ox: 1 });
       this.kutu.add([g, this.portreCerceve, this.portre, this.tarama, this.telsizEt, this.ad, this.metin, this.devamIpucu, this.sayac]);
       this.kw = kw; this.kh = kh;
       this.input.on("pointerdown", (p) => { if (p.y > this.ustBar.height + 4 || p.x < W - 170) this.ilerle(); });
@@ -85,7 +85,7 @@
         if (C.telsiz) { this.tarama.fillStyle(0x7fd1c7, 0.1); for (let y = -70; y < 70; y += 4) this.tarama.fillRect(this.portre.x - 70, this.portre.y + y, 140, 1.5); SV.Ses.cal("telsiz"); }
         this.portre.setAlpha(0); this.tweens.add({ targets: this.portre, alpha: 1, duration: 250 });
       }
-      this.ad.setPosition(mx, -kh / 2 + 30).setText(C.ad ? C.ad.toUpperCase() : "").setColor(C.renk);
+      this.ad.setPosition(mx, -kh / 2 + 30).setText(C.ad ? C.ad.toLocaleUpperCase("tr-TR") : "").setColor(C.renk);
       this.metin.setPosition(mx, C.ad ? -kh / 2 + 58 : -kh / 2 + 34).setWordWrapWidth(kw / 2 - 24 - mx, true).setFontStyle(C.ad ? "500" : "italic 500");
       this.sayac.setText(this.i + 1 + " / " + this.kartlar.length);
       this.tam = kart.metin; this.harf = 0; this.yaziyor = true;

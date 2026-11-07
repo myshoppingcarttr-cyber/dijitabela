@@ -55,7 +55,7 @@
         ["NASIL OYNANIR", () => this.nasilAc(), {}]
       ];
       this.dugmeler = D.map(([e, cb, o], i) => { const d = SV.UI.dugme(this, bx, by0 + i * ara, bw, bh, e, cb, o).setDepth(50); d.setAlpha(0); this.tweens.add({ targets: d, alpha: 1, y: { from: d.y + 20, to: d.y }, delay: 250 + i * 90, duration: 420, ease: "Cubic.out" }); return d; });
-      if (devamId !== "b1") this.dugmeler[0].etiket("DEVAM ET · " + SV.bolumBul(devamId).ad.toUpperCase());
+      if (devamId !== "b1") this.dugmeler[0].etiket("DEVAM ET · " + SV.bolumBul(devamId).ad.toLocaleUpperCase("tr-TR"));
 
       this.sesDugme = SV.UI.ikonDugme(this, W - 44, 44, 26, SV.Kayit.ayar.sesAcik ? "ikon_ses" : "ikon_sessiz", () => {
         SV.Kayit.ayar.sesAcik = !SV.Kayit.ayar.sesAcik; SV.Kayit.kaydet(); SV.Ses.seviyeleriUygula();
@@ -135,7 +135,7 @@
         const maske = this.make.graphics(); maske.fillStyle(0xffffff); maske.fillRect(px, py, pw2, ph2); const m = maske.createGeometryMask(); [gok, orta, kat].forEach((o) => o.setMask(m));
         kap.add([gok, orta, kat, g]); kap.once("destroy", () => maske.destroy());
         kap.add(SV.UI.yazi(this, cx - cw / 2 + 22, cy - ch / 2 + 140, "BÖLÜM " + (i + 1), 18, "#f2c14e", { ox: 0 }));
-        kap.add(SV.UI.yazi(this, cx - cw / 2 + 20, cy - ch / 2 + 205, b.ad.toUpperCase(), 34, "#efe9dc", { ox: 0 }));
+        kap.add(SV.UI.yazi(this, cx - cw / 2 + 20, cy - ch / 2 + 205, b.ad.toLocaleUpperCase("tr-TR"), 34, "#efe9dc", { ox: 0 }));
         kap.add(SV.UI.yazi(this, cx - cw / 2 + 20, cy - ch / 2 + 240, b.alt_baslik, 18, "#9a9488", { ox: 0, govde: true }));
         for (let s = 0; s < 3; s++) kap.add(this.add.image(cx + cw / 2 - 40 - (2 - s) * 40, cy - ch / 2 + 208, s < yildiz ? "yildiz_dolu" : "yildiz_bos").setScale(0.5));
         kap.add(SV.UI.yazi(this, cx + cw / 2 - 20, cy - ch / 2 + 240, enIyi ? "EN İYİ " + enIyi.toLocaleString("tr-TR") : "", 16, "#9a9488", { ox: 1 }));

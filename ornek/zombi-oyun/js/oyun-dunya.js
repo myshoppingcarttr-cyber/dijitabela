@@ -5,7 +5,7 @@
 
   const KATMAN = {
     gece: [
-      { ad: "gece_uzak", y: 180, f: 0.06, d: -90 }, { ad: "gece_orta", y: 128, f: 0.22, d: -85 }, { ad: "gece_yakin", y: 246, f: 0.6, d: -80 }
+      { ad: "gece_uzak", y: 180, f: 0.06, d: -90 }, { ad: "gece_orta", y: 128, f: 0.22, d: -85, renk: 0xa9b0c4 }, { ad: "gece_yakin", y: 246, f: 0.6, d: -80, renk: 0xa2a9bf }
     ],
     safak: [
       { ad: "safak_uzak", y: 356, f: 0.03, d: -90 }, { ad: "safak_orta", y: 150, f: 0.2, d: -85 }, { ad: "safak_yakin", y: 216, f: 0.6, d: -80 }
@@ -17,7 +17,7 @@
     katmanlar(scene, tema, w, h, oy = 0, olcek = 1) {
       const L = [], ekle = (o) => { o.setScrollFactor(0); L.push(o); return o; };
       const gok = ekle(scene.add.image(0, 0, tema + "_gok").setOrigin(0, 0).setDepth(-100));
-      const katmanlar = KATMAN[tema].map((k) => ({ k, o: ekle(scene.add.tileSprite(0, oy + k.y * olcek, w, scene.textures.get(k.ad).getSourceImage().height, k.ad).setOrigin(0, 0).setDepth(k.d).setTileScale(1, 1).setScale(1, olcek)) }));
+      const katmanlar = KATMAN[tema].map((k) => ({ k, o: ekle(scene.add.tileSprite(0, oy + k.y * olcek, w, scene.textures.get(k.ad).getSourceImage().height, k.ad).setOrigin(0, 0).setDepth(k.d).setTileScale(1, 1).setScale(1, olcek).setTint(k.renk || 0xffffff)) }));
       const zH = 150, zemin = ekle(scene.add.tileSprite(0, oy + (ZEMIN() - 30) * olcek, w, zH, tema + "_zemin").setOrigin(0, 0).setDepth(-20).setScale(1, olcek));
       let su = null; if (tema === "safak") su = ekle(scene.add.tileSprite(0, oy + (ZEMIN() + 44) * olcek, w, 80, "safak_su").setOrigin(0, 0).setDepth(-19).setScale(1, olcek));
       const alt = ekle(scene.add.rectangle(0, oy + (ZEMIN() + 120) * olcek, w, 2000, tema === "gece" ? 0x0e1016 : 0x18182c).setOrigin(0, 0).setDepth(-21));

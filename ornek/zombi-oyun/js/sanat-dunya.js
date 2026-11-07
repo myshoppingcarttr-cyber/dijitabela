@@ -314,7 +314,7 @@
   function siginak(x, w, h) {
     x.fillStyle = dik(x, 0, 0, 0, h, [[0, "#120e0c"], [0.5, "#2a1c14"], [1, "#0d0a08"]]); x.fillRect(0, 0, w, h);
     x.fillStyle = "#3a2c22"; for (let yy = 80; yy < h * 0.7; yy += 36) for (let xx = (yy / 36) % 2 ? 0 : 30; xx < w; xx += 60) { x.fillStyle = "rgba(210,190,160," + (0.06 + Math.random() * 0.05) + ")"; x.fillRect(xx, yy, 56, 32); }
-    x.fillStyle = "#c62828"; rr(x, w * 0.42, 110, 220, 54, 8); x.fill(); x.fillStyle = "#f4efe6"; x.font = FONT(700, 36); x.fillText("YELKOVAN", w * 0.42 + 26, 150);
+    x.fillStyle = "#c62828"; rr(x, w * 0.42, 110, 220, 54, 8); x.fill(); x.fillStyle = "#f4efe6"; x.font = FONT(700, 36); x.textAlign = "center"; x.fillText("YELKOVAN", w * 0.42 + 110, 150); x.textAlign = "left";
     x.fillStyle = "#0b0908"; x.fillRect(0, h * 0.7, w, h * 0.3); x.fillStyle = "#1a1410"; x.fillRect(0, h * 0.7, w, 14);
     [[w * 0.18, 0.9], [w * 0.5, 1.2], [w * 0.8, 1]].forEach(([lx, s]) => { const g = x.createRadialGradient(lx, h * 0.62, 4, lx, h * 0.62, 300 * s); g.addColorStop(0, "rgba(255,180,90,.55)"); g.addColorStop(1, "rgba(255,150,70,0)"); x.fillStyle = g; x.fillRect(0, 0, w, h); x.fillStyle = "#ffd28a"; x.fillRect(lx - 6, h * 0.62 - 12, 12, 16); x.fillStyle = "#2a1c12"; x.fillRect(lx - 8, h * 0.62 + 4, 16, 6); });
     const r = A.rng(99);

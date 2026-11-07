@@ -84,7 +84,7 @@
         this.efekt.yazi(e.x, this.Z - 150, "MERMİ", "#f2c14e");
       } else {
         const yeni = H.silahVer(e.tur); H.silahDegistir(e.tur);
-        if (yeni) this.ui.afis && this.ui.afis(SV.VERI.silahlar[e.tur].ad.toUpperCase() + " ALINDI", "Silah değiştir: " + (SV.Y.dikey || this.ui.dokunmatik ? "SİLAH düğmesi" : "Q / E ya da 1-2-3"));
+        if (yeni) this.ui.afis && this.ui.afis(SV.VERI.silahlar[e.tur].ad.toLocaleUpperCase("tr-TR") + " ALINDI", "Silah değiştir: " + (SV.Y.dikey || this.ui.dokunmatik ? "SİLAH düğmesi" : "Q / E ya da 1-2-3"));
         SV.Ses.cal("silahAl"); return true;
       }
       SV.Ses.cal("topla"); return true;
@@ -99,7 +99,7 @@
       if (W.ekran_sarsinti) this.cameras.main.shake(70, W.ekran_sarsinti);
       if (H.aktif !== "pompali") this.efekt.kovan(n.x - yon * 34, n.y + 2, yon, H.aktif);
       else this.time.delayedCall(420, () => this.efekt.kovan(H.x + yon * 40, n.y + 4, yon, "pompali"));
-      const adaylar = this.zombiler.filter((z) => z.yasiyor && (z.x - n.x) * yon > -z.genislik * 0.5 && Math.abs(z.x - n.x) <= W.menzil + z.genislik && n.y >= z.ust - 6 && n.y <= z.y + 4).sort((a, b) => Math.abs(a.x - n.x) - Math.abs(b.x - n.x));
+      const adaylar = this.zombiler.filter((z) => z.yasiyor && (z.x - H.x) * yon > -12 && Math.abs(z.x - n.x) <= W.menzil + z.genislik && n.y >= z.ust - 6 && n.y <= z.y + 4).sort((a, b) => Math.abs(a.x - n.x) - Math.abs(b.x - n.x));
       let isabetVar = false, delinen = 0;
       const hedefSayi = {};
       for (let p = 0; p < W.sacma; p++) {
@@ -112,7 +112,7 @@
         let delme = W.delme;
         for (const z of adaylar) {
           if (!z.yasiyor || delme <= 0) continue;
-          const mes = Math.abs(z.x - n.x), hy = n.y + sapma * mes;
+          const mes = Math.max(0, (z.x - n.x) * yon), hy = n.y + sapma * mes;
           if (hy < z.ust - 10 || hy > z.y) continue;
           const dusus = W.sacma > 1 ? Math.max(0.35, 1 - (mes / W.menzil) * 0.65) : 1;
           const kafa = !z.boss && Math.random() < W.kafa_sans;

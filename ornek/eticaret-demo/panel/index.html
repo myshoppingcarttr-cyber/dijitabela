@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Yönetim paneli · Kiler Toros e-ticaret demosu · Dijitabela</title>
+<link rel="icon" href="https://dijitabela.com/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,700..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../stil.css">
+<style>
+body{background:#efeadf}
+.pn{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 32px)}
+.yan{background:var(--murekkep);color:#e9e3d4;padding:22px 0;display:flex;flex-direction:column}
+.yan .logo{padding:0 22px 22px;color:#fff}
+.yan .logo span{color:#a9a294}
+.yan a.m{display:flex;justify-content:space-between;padding:11px 22px;text-decoration:none;color:#cfc8b8;font-size:15px;border-left:3px solid transparent}
+.yan a.m.ak{background:#2a2925;color:#fff;border-color:#f1c58f}
+.yan a.m i{font-style:normal;font:700 12px "JetBrains Mono",monospace;background:#8a3b1f;color:#fff;padding:1px 7px}
+.yan .alt{margin-top:auto;padding:16px 22px;font-size:13px;color:#a9a294}
+.yan .alt a{color:#f1c58f}
+.ic{padding:26px 30px 60px;min-width:0}
+.ic h1{font-family:"Archivo",sans-serif;font-stretch:72%;font-weight:800;text-transform:uppercase;font-size:40px;margin:0 0 4px;line-height:1}
+.ic .alt-b{color:var(--soluk);margin:0 0 22px;font-size:14.5px}
+.sayilar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--cizgi);background:var(--beyaz);margin-bottom:24px}
+.sayilar div{padding:18px;border-right:1px solid var(--cizgi)}
+.sayilar div:last-child{border-right:0}
+.sayilar b{display:block;font:800 30px "Archivo",sans-serif;font-stretch:72%}
+.sayilar span{font:600 11px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk)}
+.tablo{width:100%;border-collapse:collapse;background:var(--beyaz);border:1px solid var(--cizgi);font-size:14.5px}
+.tablo th{text-align:left;font:600 11px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk);padding:11px 12px;border-bottom:1px solid var(--cizgi);background:#faf7f0}
+.tablo td{padding:11px 12px;border-bottom:1px solid #ebe5d8;vertical-align:middle}
+.tablo tr.tik{cursor:pointer}.tablo tr.tik:hover td{background:#faf6ec}
+.dz{display:inline-block;font:600 11.5px "JetBrains Mono",monospace;padding:3px 8px;border:1px solid}
+.dz.Yeni{color:#8a3b1f;border-color:#8a3b1f;background:#fbefe6}
+.dz.Hazırlanıyor{color:#7a5a00;border-color:#c79a1b;background:#fdf6df}
+.dz.Kargoda{color:#1f4f7a;border-color:#4d7fae;background:#eaf2fa}
+.dz.Teslim{color:#3f5a2a;border-color:#6d8b55;background:#eef4e6}
+.sekmeler{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.sekmeler button{border:1px solid var(--cizgi);background:var(--beyaz);padding:8px 12px;cursor:pointer;font-size:14px}
+.sekmeler button.ak{background:var(--murekkep);color:var(--kagit);border-color:var(--murekkep)}
+.cekmece{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--beyaz);border-left:1px solid var(--murekkep);z-index:50;overflow:auto;padding:24px;box-shadow:-20px 0 40px rgba(0,0,0,.12)}
+.cekmece h2{margin:0 0 4px;font-size:24px}
+.kucuk{width:76px;border:1px solid var(--cizgi);padding:6px 8px;background:var(--kagit)}
+.giris-kutu{max-width:380px;margin:9vh auto;background:var(--beyaz);border:1px solid var(--murekkep);padding:30px}
+.uyari-satir td{background:#fdf1ea}
+.iki-kolon{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+@media (max-width:900px){.pn{grid-template-columns:1fr}.yan{flex-direction:row;flex-wrap:wrap;padding:10px 0}.yan .logo{padding:6px 16px;width:100%}.yan a.m{padding:8px 14px;border-left:0;border-bottom:3px solid transparent}.yan a.m.ak{border-color:#f1c58f}.yan .alt{display:none}.ic{padding:18px 14px 50px}.sayilar{grid-template-columns:1fr 1fr}.sayilar div:nth-child(2){border-right:0}.sayilar div:nth-child(-n+2){border-bottom:1px solid var(--cizgi)}.iki-kolon{grid-template-columns:1fr}.tablo{font-size:13.5px}.gizle-m{display:none}}
+</style>
+</head>
+<body>
+<div class="demo-serit">YÖNETİM PANELİ DEMOSU · veriler kurgudur ve yalnız bu tarayıcıda tutulur · <a href="../">Mağazaya dön</a> · <a href="https://dijitabela.com" target="_blank" rel="noopener">dijitabela.com</a></div>
+<div id="kok"></div>
+<script src="../veri.js" data-kok="../"></script>
+<script src="panel.js"></script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>
