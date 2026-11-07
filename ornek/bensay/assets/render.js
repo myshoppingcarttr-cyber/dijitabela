@@ -23,12 +23,44 @@ var METINLER = {
   tumProjeler: ["Tüm projeler", "All projects", "Projeler · “Tüm projeler” düğmesi"],
   filtreTumu: ["Tümü", "All", "Projeler · filtre “Tümü” düğmesi"],
   filtreBos: ["Bu kategoride henüz proje yok.", "No projects in this category yet.", "Projeler · filtrede proje yoksa"],
+  projeBilgiYok: ["Bilgiler hazırlanıyor", "Details in preparation", "Projeler · konum/yıl girilmemiş proje kartındaki not"],
+  projeGorselYok: ["Proje görseli yakında", "Project image coming soon", "Projeler · görseli olmayan projede görünen yazı"],
   tumYazilar: ["Tüm yazılar", "All articles", "Blog · “Tüm yazılar” düğmesi"],
   blogBos: ["Yazılarımız hazırlanıyor; çok yakında burada.", "Our articles are being prepared and will appear here soon.", "Blog · yazı yokken görünen not"],
+  blogGorselYok: ["Görsel yakında", "Image coming soon", "Blog · kapak görseli olmayan yazı kartındaki yazı"],
+  blogaDon: ["Blog", "Blog", "Blog · yazı sayfasındaki “← Blog” geri bağlantısı"],
+  yaziHazirlaniyor: ["Bu yazı hazırlanıyor.", "This article is being prepared.", "Blog · metni boş yazıda görünen not"],
+  yaziYok: ["Yazı bulunamadı", "Article not found", "Blog · yazı bulunamazsa başlık"],
+  yaziYokDon: ["Bloga dön", "Back to blog", "Blog · yazı bulunamazsa geri bağlantısı"],
   oncekiProje: ["Önceki proje", "Previous project", "Proje detay · “Önceki proje” düğmesi"],
   sonrakiProje: ["Sonraki proje", "Next project", "Proje detay · “Sonraki proje” düğmesi"],
   projelereDon: ["Projeler", "Projects", "Proje detay · geri dönüş bağlantısı"],
+  dtProje: ["Proje", "Project", "Proje detay · kategorisi seçilmemiş projede üst etiket"],
+  dtAciklamaYok: ["Bu projenin açıklaması, görselleri ve künyesi ofisimizden gelince burada yer alacak.", "The description, images and credits will appear here once provided.", "Proje detay · açıklaması boş projede görünen not"],
+  dtKategori: ["Kategori", "Category", "Proje detay · künye “Kategori”"],
+  dtKonum: ["Konum", "Location", "Proje detay · künye “Konum”"],
+  dtYil: ["Yıl", "Year", "Proje detay · künye “Yıl”"],
+  dtAlan: ["Alan", "Area", "Proje detay · künye “Alan”"],
   maliyetNotEt: ["Yaklaşık / ön teklif:", "Approximate / preliminary quote:", "Maliyet · alt not başlığı"],
+  mhAlanTipi: ["Alan tipi", "Space type", "Maliyet · 1. adım başlığı"],
+  mhAltTip: ["Alt tip", "Subtype", "Maliyet · alt tip listesi başlığı (tipe özel başlık yoksa)"],
+  mhSecin: ["Seçin (isteğe bağlı)", "Choose (optional)", "Maliyet · alt tip seçim kutusunun ilk satırı"],
+  mhBuyukluk: ["Büyüklük", "Size", "Maliyet · 2. adım başlığı"],
+  mhMetrekare: ["Metrekare", "Area", "Maliyet · metrekare etiketi"],
+  mhKalite: ["Malzeme kalitesi", "Material quality", "Maliyet · 3. adım başlığı"],
+  mhMarkaLink: ["Hangi markaları kullanıyoruz? →", "Which brands do we use? →", "Maliyet · markalar bağlantısı"],
+  mhSonuc: ["Yaklaşık ön teklif", "Approximate preliminary quote", "Maliyet · sonuç kutusu başlığı"],
+  mhOrnek: ["örnek katsayılar", "sample rates", "Maliyet · “örnek katsayılar” etiketi"],
+  mhAlanSatir: ["Alan", "Area", "Maliyet · döküm tablosunda “Alan” satırı"],
+  mhKatsayi: ["Alan tipi katsayısı", "Space type factor", "Maliyet · döküm tablosunda katsayı satırı"],
+  mhOrta: ["Orta değer", "Midpoint", "Maliyet · döküm tablosunda “Orta değer”"],
+  mhWaDugme: ["Ön teklifi WhatsApp'tan gönder", "Send on WhatsApp", "Maliyet · WhatsApp düğmesi"],
+  mhKesifDugme: ["Kesin fiyat için keşif iste", "Request a site visit", "Maliyet · keşif düğmesi"],
+  mhWaGiris: ["Merhaba, sitenizdeki maliyet hesaplayıcıyı kullandım.", "Hello, I used the cost estimator on your website.", "Maliyet · WhatsApp mesajının ilk satırı"],
+  mhWaSon: ["Keşif için görüşebilir miyiz?", "Can we arrange a site visit?", "Maliyet · WhatsApp mesajının son satırı"],
+  mhYakinda: ["Hesaplayıcı yakında.", "Estimator coming soon.", "Maliyet · fiyat girilmemişken görünen not"],
+  mkMalzeme: ["Malzeme", "Material", "Maliyet · marka tablosu ilk sütun başlığı"],
+  mkMarka: ["Marka", "Brand", "Maliyet · marka tablosu hücre etiketi"],
   bilgiAdres: ["Adres", "Address", "İletişim bölümü · “Adres” satırı"],
   bilgiSehir: ["Şehir", "City", "İletişim bölümü · “Şehir” satırı"],
   bilgiTel: ["Telefon", "Phone", "İletişim bölümü ve alt bilgi · “Telefon”"],
@@ -45,6 +77,8 @@ var METINLER = {
   formKonum: ["Konum (ilçe)", "Location (district)", "Keşif formu · “Konum (ilçe)”"],
   formGun: ["Tercih ettiğiniz gün", "Preferred day", "Keşif formu · “Tercih ettiğiniz gün”"],
   formNotEt: ["Kısa not (isteğe bağlı)", "Short note (optional)", "Keşif formu · “Kısa not”"],
+  formKonumOrnek: ["Çankaya, Ankara", "e.g. Çankaya, Ankara", "Keşif formu · “Konum” kutusundaki gri örnek yazı"],
+  formWaGiris: ["Merhaba, web sitenizden keşif talep ediyorum.", "Hello, I'd like to request a site visit via your website.", "Keşif formu · WhatsApp mesajının ilk satırı"],
   formGonder: ["WhatsApp'tan gönder", "Send on WhatsApp", "Keşif formu · gönder düğmesi"],
   formAra: ["Ara", "Call", "Keşif formu · “Ara” düğmesi"],
   formKvkk: ["Bilgileriniz yalnızca size dönüş yapmak için kullanılır.", "Your details are used only to get back to you.", "Keşif formu · alt not"],
@@ -57,6 +91,10 @@ var METINLER = {
   altAraclar: ["Araçlar", "Tools", "Alt bilgi · “Araçlar” bağlantısı"],
   altTakip: ["Proje takip", "Client portal", "Alt bilgi · “Proje takip” bağlantısı"],
   eklenecek: ["eklenecek", "to be added", "Boş bilgilerin yerinde görünen yazı"],
+  atla: ["İçeriğe geç", "Skip to content", "Genel · klavyeyle gezenler için “İçeriğe geç” bağlantısı"],
+  anaHizmetRozet: ["Ana hizmet", "Core service", "Hizmetler · öne çıkan hizmet kartındaki rozet"],
+  tadilatGorselYok: ["Tadilat görseli yakında", "Renovation image coming soon", "Hizmetler · öne çıkan hizmette görsel yokken görünen yazı"],
+  ekipUyesi: ["Ekip üyesi", "Team member", "Hizmetler · ekip kartında adı girilmemiş kişi"],
   aracPlanBaslik: ["Proje süre planlayıcı", "Project timeline planner", "Araçlar · süre planlayıcı başlığı"],
   aracPlanMetin: ["Projenizin türünü ve büyüklüğünü seçin; tahmini takviminiz aşama aşama çıksın.", "Choose your project type and size to see an estimated, phase-by-phase timeline.", "Araçlar · süre planlayıcı açıklaması"],
   aracOsBaslik: ["Önce / sonra cephe", "Facade before / after", "Araçlar · önce/sonra başlığı"],
@@ -65,6 +103,24 @@ var METINLER = {
   aracRuhsatMetin: ["Elinizde olanları işaretleyin; eksikleri tek tıkla bize sorun. Belediyeye göre farklılık gösterebilir.", "Tick what you already have and ask us about the rest.", "Araçlar · ruhsat listesi açıklaması"],
   aracStilBaslik: ["İç mimari stil seçici", "Interior style picker", "Araçlar · stil seçici başlığı"],
   aracStilMetin: ["Bir stil seçin; renk paleti ve önerilen malzemeler çıksın.", "Pick a style to see its colour palette and suggested materials.", "Araçlar · stil seçici açıklaması"],
+  aracMenuPlan: ["Süre planlayıcı", "Timeline planner", "Araçlar · üst kısayol “Süre planlayıcı”"],
+  aracMenuOs: ["Önce / sonra", "Before / after", "Araçlar · üst kısayol “Önce / sonra”"],
+  aracMenuRuhsat: ["Ruhsat listesi", "Permit checklist", "Araçlar · üst kısayol “Ruhsat listesi”"],
+  aracMenuStil: ["Stil seçici", "Style picker", "Araçlar · üst kısayol “Stil seçici”"],
+  aracMenuMaliyet: ["Maliyet hesaplayıcı", "Cost estimator", "Araçlar · üst kısayol “Maliyet hesaplayıcı”"],
+  aracTur: ["Proje türü", "Project type", "Araçlar · süre planlayıcı “Proje türü”"],
+  aracAlan: ["Yaklaşık alan (m²)", "Approx. area (m²)", "Araçlar · süre planlayıcı “Yaklaşık alan”"],
+  aracKat: ["Kat sayısı", "Number of floors", "Araçlar · süre planlayıcı “Kat sayısı”"],
+  aracHizmetler: ["İstediğiniz hizmetler", "Services required", "Araçlar · süre planlayıcı “İstediğiniz hizmetler”"],
+  aracTakvim: ["Tahmini takvim", "Estimated timeline", "Araçlar · süre planlayıcı sonuç başlığı"],
+  aracTahminNot: ["Tahminidir; arsa, belediye ve onay süreçlerine göre değişir.", "Estimate only; varies with the site and approval processes.", "Araçlar · süre planlayıcı alt notu"],
+  aracPlanDugme: ["Bu planı WhatsApp'tan gönder", "Send this plan on WhatsApp", "Araçlar · süre planlayıcı düğmesi"],
+  aracOnce: ["ÖNCE", "BEFORE", "Araçlar · önce/sonra “ÖNCE” etiketi"],
+  aracSonra: ["SONRA", "AFTER", "Araçlar · önce/sonra “SONRA” etiketi"],
+  aracOrnek: ["örnek görsel", "sample image", "Araçlar · “örnek görsel” etiketi"],
+  aracHazirlik: ["Hazırlık durumu", "Readiness", "Araçlar · ruhsat listesi sonuç başlığı"],
+  aracRuhsatDugme: ["Eksiklerimi sor", "Ask about missing items", "Araçlar · ruhsat listesi düğmesi"],
+  aracStilDugme: ["Bu stili konuşalım", "Let's discuss this style", "Araçlar · stil seçici düğmesi"],
   cerezMetin: ["Sitemizde deneyiminizi iyileştirmek ve ziyaretleri ölçmek için çerezler kullanılır.", "We use cookies to improve your experience and measure visits.", "Çerez bandı · varsayılan metin"],
   cerezKabul: ["Kabul et", "Accept", "Çerez bandı · kabul düğmesi"],
   cerezRed: ["Reddet", "Decline", "Çerez bandı · ret düğmesi"],
@@ -198,7 +254,9 @@ function alt(ic) {
 /* ---------- bölümler ---------- */
 var EV_SVG = '<svg class="cizgi-ev" viewBox="0 0 400 300" aria-hidden="true"><path d="M10 290h380M40 290V150L200 40l160 110v140M120 290V200h60v90M240 170h70v50h-70zM200 40V10M90 120h220"/><path d="M40 150h320" stroke-dasharray="4 6"/></svg>';
 var KUCUK_EV = '<svg viewBox="0 0 120 90" aria-hidden="true"><path d="M8 82h104M18 82V40l42-30 42 30v42M42 82V56h20v26M74 48h16v14H74z"/><path d="M60 10v-6"/></svg>';
-function yakinda(tr_, en_) { return '<div class="yakinda">' + KUCUK_EV + "<span>" + T2(tr_ || "Görsel yakında", en_ || "Image coming soon") + "</span></div>"; }
+function yakinda(k) { return '<div class="yakinda">' + KUCUK_EV + "<span>" + M(k || "blogGorselYok") + "</span></div>"; }
+/* 8 Kas: panelde değiştirilmiş sabit yazıyı veri özniteliği olarak ver (değişmemişse hiçbir şey eklenmez, HTML aynen kalır) */
+function ozelAttr(k, ad) { var d = METINLER[k], x = Mx(k); return x[0] === d[0] && x[1] === d[1] ? "" : " data-" + ad + '="' + esc(x[0]) + '" data-' + ad + '-en="' + esc(x[1]) + '"'; }
 function bas(b) {
   return (bos(b.etiket) ? "" : '<div class="etiket">' + T(b.etiket) + "</div>") + (bos(b.baslik) ? "" : "<h2>" + T(b.baslik) + "</h2>") +
     (bos(b.metin) ? "" : '<p class="acik">' + T(b.metin) + "</p>");
@@ -207,14 +265,14 @@ function no(i) { return (i < 9 ? "0" : "") + (i + 1); }
 function katAd(ic, id) { var k = (ic.projeKategorileri || []).filter(function (x) { return x.id === id; })[0]; return k ? k.ad : null; }
 function projeKart(ic, p, i) {
   var g = (p.gorseller || [])[0], ad = bos(p.ad) ? { tr: "Proje " + no(i), en: "Project " + no(i) } : p.ad, k = katAd(ic, p.kategori);
-  var alt_ = [k ? T(k) : "", esc(p.konum || ""), esc(p.yil || "")].filter(Boolean).join(" · ") || T2("Bilgiler hazırlanıyor", "Details in preparation");
+  var alt_ = [k ? T(k) : "", esc(p.konum || ""), esc(p.yil || "")].filter(Boolean).join(" · ") || M("projeBilgiYok");
   return '<a class="pk" href="proje.html?p=' + esc(p.id) + '" data-kat="' + esc(p.kategori || "") + '"><div class="g">' +
-    (g ? '<img src="' + esc(url(g)) + '" alt="' + esc(tr(ad)) + '" loading="lazy" width="800" height="600">' : yakinda("Proje görseli yakında", "Project image coming soon")) +
+    (g ? '<img src="' + esc(url(g)) + '" alt="' + esc(tr(ad)) + '" loading="lazy" width="800" height="600">' : yakinda("projeGorselYok")) +
     '</div><div class="m"><b>' + T(ad) + "</b><small>" + alt_ + "</small></div></a>";
 }
 function hizmetKart(h, i) {
   return '<article class="kart' + (h.oneCikan ? " one" : "") + '">' + (h.gorsel ? '<img class="kg" src="' + esc(url(h.gorsel)) + '" alt="' + esc(tr(h.baslik)) + '" loading="lazy">' : "") +
-    '<div class="no">' + no(i) + (h.oneCikan ? ' · ' + T2("Ana hizmet", "Core service") : "") + "</div><h3>" + T(h.baslik) + '</h3><p class="acik" style="font-size:.97rem">' + T(h.ozet) + "</p>" +
+    '<div class="no">' + no(i) + (h.oneCikan ? ' · ' + M("anaHizmetRozet") : "") + "</div><h3>" + T(h.baslik) + '</h3><p class="acik" style="font-size:.97rem">' + T(h.ozet) + "</p>" +
     ((h.maddeler || []).length ? "<ul>" + h.maddeler.map(function (x) { return "<li>" + T(x) + "</li>"; }).join("") + "</ul>" : "") + "</article>";
 }
 function blogKart(y) {
@@ -224,7 +282,7 @@ function blogKart(y) {
 function markaHucre(mk) {
   mk = mk || {};
   var ic = mk.logo ? '<img src="' + esc(url(mk.logo)) + '" alt="' + esc(mk.ad || "Marka") + '" loading="lazy">' + (mk.ad ? "<b>" + esc(mk.ad) + "</b>" : "") : mk.ad ? "<b>" + esc(mk.ad) + "</b>" : bek();
-  return '<td><small class="mk-et">' + T2("Marka", "Brand") + '</small><span class="mk">' + ic + "</span></td>";
+  return '<td><small class="mk-et">' + M("mkMarka") + '</small><span class="mk">' + ic + "</span></td>";
 }
 function tl(n) { return Math.round(Number(n) || 0).toLocaleString("tr-TR"); }
 
@@ -238,7 +296,7 @@ var BOLUM = {
     var st = function (c, kutu) { var k = kutu ? ";background:rgba(244,242,238,.9);padding:6px 12px;border-radius:2px" : ""; return c || gol || k ? ' style="' + (c ? "color:" + c : "") + (kutu ? "" : gol) + k + '"' : ""; };
     var ortu = b.gorsel && Number(b.ortu) > 0 ? '<div class="kah-ortu" style="position:absolute;inset:0;z-index:1;background:' + (b.ortuRenk === "yesil" ? "var(--yesil)" : "#000") + ";opacity:" + Math.min(80, Number(b.ortu)) / 100 + '"></div>' : "";
     return '<section class="kah' + (b.gorsel ? " gorselli" : "") + '" id="' + esc(b.id) + '">' + (b.gorsel ? '<img class="kah-g" src="' + esc(url(b.gorsel)) + '" alt="" fetchpriority="high">' : "") + ortu +
-      '<div class="kap">' + (b.gorsel ? "" : EV_SVG) + (bos(b.etiket) ? "" : '<div class="etiket"' + st(cE, b.etiketKutu) + ">" + T(b.etiket) + "</div>") + "<h1" + st(cB) + ">" + T(b.baslik) + "</h1>" + (bos(b.metin) ? "" : "<p" + st(cM) + ">" + T(b.metin) + "</p>") +
+      '<div class="kap">' + (b.gorsel || b.evGizle ? "" : EV_SVG) + (bos(b.etiket) ? "" : '<div class="etiket"' + st(cE, b.etiketKutu) + ">" + T(b.etiket) + "</div>") + "<h1" + st(cB) + ">" + T(b.baslik) + "</h1>" + (bos(b.metin) ? "" : "<p" + st(cM) + ">" + T(b.metin) + "</p>") +
       '<div class="dgs">' + dugme(ic, "kesif") + dugme(ic, "planla", "i") + "</div></div></section>";
   },
   sayfaBasi: function (ic, b) {
@@ -251,7 +309,7 @@ var BOLUM = {
     return '<section class="bol ana-h" id="' + esc(b.id) + '"><div class="kap ah"><div>' + (bos(b.etiket) ? "" : '<div class="etiket">' + T(b.etiket) + "</div>") +
       "<h2>" + T(h.baslik) + '</h2><p class="acik">' + T(h.ozet) + "</p>" + ((h.maddeler || []).length ? '<ol class="ah-l">' + h.maddeler.map(function (x) { return "<li>" + T(x) + "</li>"; }).join("") + "</ol>" : "") +
       '<div class="dgs">' + dugme(ic, "planla") + dugme(ic, "kesif", "i") + "</div></div>" +
-      '<div class="ah-g">' + (g ? '<img src="' + esc(url(g)) + '" alt="' + esc(tr(h.baslik)) + '" loading="lazy">' : yakinda("Tadilat görseli yakında", "Renovation image coming soon")) + "</div></div></section>";
+      '<div class="ah-g">' + (g ? '<img src="' + esc(url(g)) + '" alt="' + esc(tr(h.baslik)) + '" loading="lazy">' : yakinda("tadilatGorselYok")) + "</div></div></section>";
   },
   hizmetler: function (ic, b) {
     var L = (ic.hizmetler || []).slice();
@@ -277,8 +335,8 @@ var BOLUM = {
       '<p class="not mh-not"><b>' + M("maliyetNotEt") + "</b> " + T((ic.maliyet || {}).not) + "</p></div></section>";
   },
   markalar: function (ic, b) {
-    var M = ic.maliyet || {}, K = M.kaliteler || [];
-    return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + '<div class="kk-tablo"><table><thead><tr><th scope="col">' + T2("Malzeme", "Material") + "</th>" +
+    var M_ = T2.apply(null, Mx("mkMalzeme")), M = ic.maliyet || {}, K = M.kaliteler || [];
+    return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + '<div class="kk-tablo"><table><thead><tr><th scope="col">' + M_ + "</th>" +
       K.map(function (k) { return '<th scope="col"><button type="button" class="kk-sec" data-kalite="' + esc(k.id) + '"><b>' + T(k.ad) + "</b><small>" + T(k.aciklama) + "</small></button></th>"; }).join("") + "</tr></thead><tbody>" +
       (M.malzemeler || []).map(function (m) { return '<tr><th scope="row">' + T(m.ad) + "</th>" + K.map(function (k) { return markaHucre((m.markalar || {})[k.id]); }).join("") + "</tr>"; }).join("") +
       "</tbody></table></div></div></section>";
@@ -293,7 +351,7 @@ var BOLUM = {
     return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + '<div class="ekip">' + (ic.ekip || []).map(function (k) {
       var bas_ = (k.ad || "").split(/\s+/).map(function (x) { return x.charAt(0); }).join("").slice(0, 2);
       return '<article class="kart" style="padding:0">' + (k.foto ? '<img class="foto" src="' + esc(url(k.foto)) + '" alt="' + esc(k.ad) + '" loading="lazy">' : '<div class="foto" aria-hidden="true">' + esc(bas_ || "+") + "</div>") +
-        '<div style="padding:18px"><b>' + (k.ad ? esc(k.ad) : T2("Ekip üyesi", "Team member")) + "</b><br><small>" + (bos(k.unvan) ? bek() : T(k.unvan)) + "</small></div></article>";
+        '<div style="padding:18px"><b>' + (k.ad ? esc(k.ad) : M("ekipUyesi")) + "</b><br><small>" + (bos(k.unvan) ? bek() : T(k.unvan)) + "</small></div></article>";
     }).join("") + "</div></div></section>";
   },
   blog: function (ic, b) {
@@ -335,12 +393,12 @@ var BOLUM = {
     var il = ic.iletisim || {};
     var turler = (ic.maliyet && ic.maliyet.tipler || []).map(function (t) { return "<option>" + esc(tr(t.ad)) + (en(t.ad) !== tr(t.ad) ? " / " + esc(en(t.ad)) : "") + "</option>"; }).join("");
     var hizm = (ic.hizmetler || []).map(function (h) { return "<option>" + esc(tr(h.baslik)) + "</option>"; }).join("");
-    return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + '<div class="arac"><form class="form" id="randevuForm" novalidate>' +
+    return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + '<div class="arac"><form class="form" id="randevuForm"' + ozelAttr("formWaGiris", "giris") + ' novalidate>' +
       '<label for="rAd">' + M("formAd") + '</label><input id="rAd" autocomplete="name" required>' +
       '<label for="rTel">' + M("formTel") + '</label><input id="rTel" type="tel" autocomplete="tel" inputmode="tel">' +
       '<label for="rKonu">' + M("formAlan") + '</label><select id="rKonu">' + turler + "</select>" +
       '<label for="rHiz">' + M("formHizmet") + '</label><select id="rHiz">' + hizm + "</select>" +
-      '<label for="rKonum">' + M("formKonum") + '</label><input id="rKonum" placeholder="Çankaya, Ankara" data-ph-en="e.g. Çankaya, Ankara">' +
+      '<label for="rKonum">' + M("formKonum") + '</label><input id="rKonum" placeholder="' + esc(Mx("formKonumOrnek")[0]) + '" data-ph-en="' + esc(Mx("formKonumOrnek")[1]) + '">' +
       '<label for="rGun">' + M("formGun") + '</label><input id="rGun" type="date">' +
       '<label for="rNot">' + M("formNotEt") + '</label><textarea id="rNot"></textarea>' +
       '<div class="dgs"><a class="dg wa" id="rGonder" href="#" target="_blank" rel="noopener">' + M("formGonder") + "</a>" +
@@ -353,46 +411,47 @@ var BOLUM = {
     var ad = bos(p.ad) ? { tr: "Proje " + no(i), en: "Project " + no(i) } : p.ad, k = katAd(ic, p.kategori);
     var G = (p.gorseller || []).length ? p.gorseller : [0, 0, 0], o = P[(i - 1 + P.length) % P.length] || {}, s = P[(i + 1) % P.length] || {};
     return '<section class="sayfa-bas" id="projeDetay"><div class="kap"><a href="projelerimiz.html" style="font-size:.9rem;color:var(--soluk)">← ' + M("projelereDon") + "</a>" +
-      '<div class="dt-ust" style="margin-top:18px"><div><div class="etiket">' + (k ? T(k) : T2("Proje", "Project")) + "</div><h1>" + T(ad) + '</h1><div class="acik" style="margin-top:14px">' +
-      (bos(p.ozet) ? "<p>" + T2("Bu projenin açıklaması, görselleri ve künyesi ofisimizden gelince burada yer alacak.", "The description, images and credits will appear here once provided.") + "</p>" : P(p.ozet)) + "</div></div>" +
-      '<div class="kunye"><div><small>' + T2("Kategori", "Category") + "</small><span>" + (k ? T(k) : bek()) + "</span></div><div><small>" + T2("Konum", "Location") + "</small><span>" + (p.konum ? esc(p.konum) : bek()) +
-      "</span></div><div><small>" + T2("Yıl", "Year") + "</small><span>" + (p.yil ? esc(p.yil) : bek()) + "</span></div><div><small>" + T2("Alan", "Area") + "</small><span>" + (p.alan ? esc(p.alan) : bek()) + "</span></div></div></div>" +
-      '<div class="galeri">' + G.map(function (g) { return g ? '<img src="' + esc(url(g)) + '" alt="' + esc(tr(ad)) + '" loading="lazy">' : yakinda("Proje görseli yakında", "Project image coming soon"); }).join("") + "</div>" +
+      '<div class="dt-ust" style="margin-top:18px"><div><div class="etiket">' + (k ? T(k) : M("dtProje")) + "</div><h1>" + T(ad) + '</h1><div class="acik" style="margin-top:14px">' +
+      (bos(p.ozet) ? "<p>" + M("dtAciklamaYok") + "</p>" : P(p.ozet)) + "</div></div>" +
+      '<div class="kunye"><div><small>' + M("dtKategori") + "</small><span>" + (k ? T(k) : bek()) + "</span></div><div><small>" + M("dtKonum") + "</small><span>" + (p.konum ? esc(p.konum) : bek()) +
+      "</span></div><div><small>" + M("dtYil") + "</small><span>" + (p.yil ? esc(p.yil) : bek()) + "</span></div><div><small>" + M("dtAlan") + "</small><span>" + (p.alan ? esc(p.alan) : bek()) + "</span></div></div></div>" +
+      '<div class="galeri">' + G.map(function (g) { return g ? '<img src="' + esc(url(g)) + '" alt="' + esc(tr(ad)) + '" loading="lazy">' : yakinda("projeGorselYok"); }).join("") + "</div>" +
       '<div class="gezin"><a class="dg i" href="proje.html?p=' + esc(o.id || "") + '">← ' + M("oncekiProje") + '</a><a class="dg i" href="proje.html?p=' + esc(s.id || "") + '">' + M("sonrakiProje") + " →</a></div></div></section>";
   },
   blogDetay: function (ic, b, ctx) {
     var Y = (ic.blog || []).filter(function (y) { return y.yayinda || (ctx && ctx.onizleme); }), y = Y.filter(function (x) { return x.id === (ctx && ctx.y); })[0] || Y[0];
-    if (!y) return '<section class="sayfa-bas"><div class="kap"><h1>' + T2("Yazı bulunamadı", "Article not found") + '</h1><p class="acik"><a href="blog.html">' + T2("Bloga dön", "Back to blog") + "</a></p></div></section>";
-    return '<article class="sayfa-bas yazi"><div class="kap dar"><a href="blog.html" style="font-size:.9rem;color:var(--soluk)">← Blog</a>' + (y.tarih ? '<div class="etiket" style="margin-top:18px">' + esc(y.tarih) + "</div>" : "") +
+    if (!y) return '<section class="sayfa-bas"><div class="kap"><h1>' + M("yaziYok") + '</h1><p class="acik"><a href="blog.html">' + M("yaziYokDon") + "</a></p></div></section>";
+    return '<article class="sayfa-bas yazi"><div class="kap dar"><a href="blog.html" style="font-size:.9rem;color:var(--soluk)">← ' + M("blogaDon") + '</a>' + (y.tarih ? '<div class="etiket" style="margin-top:18px">' + esc(y.tarih) + "</div>" : "") +
       "<h1>" + T(y.baslik) + "</h1>" + (bos(y.ozet) ? "" : '<p class="acik" style="margin-top:14px">' + T(y.ozet) + "</p>") +
-      (y.gorsel ? '<img class="yazi-g" src="' + esc(url(y.gorsel)) + '" alt="' + esc(tr(y.baslik)) + '">' : "") + '<div class="govde">' + (bos(y.govde) ? "<p>" + T2("Bu yazı hazırlanıyor.", "This article is being prepared.") + "</p>" : P(y.govde)) + "</div></div></article>";
+      (y.gorsel ? '<img class="yazi-g" src="' + esc(url(y.gorsel)) + '" alt="' + esc(tr(y.baslik)) + '">' : "") + '<div class="govde">' + (bos(y.govde) ? "<p>" + M("yaziHazirlaniyor") + "</p>" : P(y.govde)) + "</div></div></article>";
   },
   takip: function () {
     return '<section class="bol ilk" style="padding-top:0"><div class="kap arac" style="margin-top:0"><div class="form"><label for="kod">' + M("takipKod") +
       '</label><input id="kod" placeholder="DEMO-2481" autocomplete="off"><button class="dg" id="kodBak" type="button" style="margin-top:14px">' + M("takipDugme") +
       '</button></div><div class="panelk portal" id="portal" aria-live="polite"><p class="acik">' + M("takipBos") + "</p></div></div></section>";
   },
-  araclar: function () {
+  araclar: function (ic, b) {
+    b = b || {}; var gOnce = url(b.onceGorsel) || "img/once.jpg", gSonra = url(b.sonraGorsel) || "img/sonra.jpg";
     function cb(v, a, c, x) { return '<label><input type="checkbox" value="' + v + '"' + (x ? " checked" : "") + ">" + T2(a, c) + "</label>"; }
     var BELGE = [["Tapu fotokopisi", "Copy of title deed"], ["İmar durumu belgesi", "Zoning status certificate"], ["Aplikasyon krokisi", "Plot application sketch"], ["Zemin etüdü raporu", "Geotechnical survey report"],
       ["Malik kimlik / vekâletname", "Owner ID / power of attorney"], ["Varsa eski ruhsat ve projeler", "Previous permits and drawings, if any"], ["Hisseli parselde muvafakatname", "Co-owner consent (shared plots)"], ["Yapı denetim sözleşmesi", "Building inspection contract"]];
-    return '<div class="kap"><div class="arac-menu"><a href="#planlayici">' + T2("Süre planlayıcı", "Timeline planner") + '</a><a href="#once-sonra">' + T2("Önce / sonra", "Before / after") + '</a><a href="#ruhsat">' + T2("Ruhsat listesi", "Permit checklist") +
-      '</a><a href="#stil">' + T2("Stil seçici", "Style picker") + '</a><a href="maliyet.html">' + T2("Maliyet hesaplayıcı", "Cost estimator") + "</a></div></div>" +
+    return '<div class="kap"><div class="arac-menu"><a href="#planlayici">' + M("aracMenuPlan") + '</a><a href="#once-sonra">' + M("aracMenuOs") + '</a><a href="#ruhsat">' + M("aracMenuRuhsat") +
+      '</a><a href="#stil">' + M("aracMenuStil") + '</a><a href="maliyet.html">' + M("aracMenuMaliyet") + "</a></div></div>" +
       '<section class="bol" id="planlayici" style="margin-top:40px"><div class="kap"><div class="etiket">01</div><h2>' + M("aracPlanBaslik") + '</h2><p class="acik">' + M("aracPlanMetin") +
-      '</p><div class="arac"><div class="form"><label for="tur">' + T2("Proje türü", "Project type") + '</label><select id="tur"><option value="konut">Konut / Apartment</option><option value="villa">Villa / Detached house</option><option value="ticari">Ofis, ticari / Office, commercial</option><option value="ic">İç mimari, tadilat / Interior, renovation</option><option value="rest">Restorasyon, cephe / Restoration, facade</option></select>' +
-      '<label for="m2">' + T2("Yaklaşık alan (m²)", "Approx. area (m²)") + '</label><input id="m2" type="number" inputmode="numeric" value="250" min="30" step="10"><label for="kat">' + T2("Kat sayısı", "Number of floors") + '</label><input id="kat" type="number" inputmode="numeric" value="2" min="1" max="30">' +
-      '<fieldset style="border:0"><legend style="font-weight:700;font-size:.9rem;margin:16px 0 8px">' + T2("İstediğiniz hizmetler", "Services required") + '</legend><div class="secim" id="hizmetler">' + cb("avan", "Konsept + avan proje", "Concept + schematic design", 1) + cb("uyg", "Uygulama projesi", "Construction drawings", 1) + cb("ruh", "Ruhsat takibi", "Permit follow-up", 1) + cb("ic", "İç mimari", "Interior design") + cb("den", "Uygulama denetimi", "Site supervision") + "</div></fieldset></div>" +
-      '<div class="panelk" aria-live="polite"><div class="etiket">' + T2("Tahmini takvim", "Estimated timeline") + '</div><div class="top" id="top">—</div><div id="asamalar"></div><p class="not">' + T2("Tahminidir; arsa, belediye ve onay süreçlerine göre değişir.", "Estimate only; varies with the site and approval processes.") +
-      '</p><a class="dg wa" id="planGonder" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + T2("Bu planı WhatsApp'tan gönder", "Send this plan on WhatsApp") + "</a></div></div></div></section>" +
+      '</p><div class="arac"><div class="form"><label for="tur">' + M("aracTur") + '</label><select id="tur"><option value="konut">Konut / Apartment</option><option value="villa">Villa / Detached house</option><option value="ticari">Ofis, ticari / Office, commercial</option><option value="ic">İç mimari, tadilat / Interior, renovation</option><option value="rest">Restorasyon, cephe / Restoration, facade</option></select>' +
+      '<label for="m2">' + M("aracAlan") + '</label><input id="m2" type="number" inputmode="numeric" value="250" min="30" step="10"><label for="kat">' + M("aracKat") + '</label><input id="kat" type="number" inputmode="numeric" value="2" min="1" max="30">' +
+      '<fieldset style="border:0"><legend style="font-weight:700;font-size:.9rem;margin:16px 0 8px">' + M("aracHizmetler") + '</legend><div class="secim" id="hizmetler">' + cb("avan", "Konsept + avan proje", "Concept + schematic design", 1) + cb("uyg", "Uygulama projesi", "Construction drawings", 1) + cb("ruh", "Ruhsat takibi", "Permit follow-up", 1) + cb("ic", "İç mimari", "Interior design") + cb("den", "Uygulama denetimi", "Site supervision") + "</div></fieldset></div>" +
+      '<div class="panelk" aria-live="polite"><div class="etiket">' + M("aracTakvim") + '</div><div class="top" id="top">—</div><div id="asamalar"></div><p class="not">' + M("aracTahminNot") +
+      '</p><a class="dg wa" id="planGonder" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + M("aracPlanDugme") + "</a></div></div></div></section>" +
       '<section class="bol" id="once-sonra"><div class="kap"><div class="etiket">02</div><h2>' + M("aracOsBaslik") + '</h2><p class="acik">' + M("aracOsMetin") +
-      '</p><div class="os" id="os"><img src="img/once.jpg" alt="Yenileme öncesi cephe (örnek görsel)" width="1280" height="720" loading="lazy"><img class="sonra" src="img/sonra.jpg" alt="Yenileme sonrası cephe (örnek görsel)" width="1280" height="720" loading="lazy"><div class="cz"></div><span class="e e1">' + T2("ÖNCE", "BEFORE") + '</span><span class="e e2">' + T2("SONRA", "AFTER") + '</span><span class="ornek-et">' + T2("örnek görsel", "sample image") + "</span></div>" +
+      '</p><div class="os" id="os"><img src="' + esc(gOnce) + '" alt="Yenileme öncesi cephe' + (b.ornekGizle ? "" : " (örnek görsel)") + '" width="1280" height="720" loading="lazy"><img class="sonra" src="' + esc(gSonra) + '" alt="Yenileme sonrası cephe' + (b.ornekGizle ? "" : " (örnek görsel)") + '" width="1280" height="720" loading="lazy"><div class="cz"></div><span class="e e1">' + M("aracOnce") + '</span><span class="e e2">' + M("aracSonra") + "</span>" + (b.ornekGizle ? "" : '<span class="ornek-et">' + M("aracOrnek") + "</span>") + "</div>" +
       '<input class="os-ar" id="osAr" type="range" min="0" max="100" value="50" aria-label="Önce / sonra karşılaştırma" data-al-en="Before / after comparison"></div></section>' +
       '<section class="bol" id="ruhsat"><div class="kap"><div class="etiket">03</div><h2>' + M("aracRuhsatBaslik") + '</h2><p class="acik">' + M("aracRuhsatMetin") +
       '</p><div class="arac"><ul class="liste" id="belgeler">' + BELGE.map(function (x) { return '<li><label><input type="checkbox">' + T2(x[0], x[1]) + "</label></li>"; }).join("") +
-      '</ul><div class="panelk" aria-live="polite"><div class="etiket">' + T2("Hazırlık durumu", "Readiness") + '</div><div class="top" id="hazir">0 / 8</div><div class="ilerleme"><i id="hazirCubuk"></i></div><p class="acik" id="hazirNot"></p><a class="dg wa" id="belgeSor" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + T2("Eksiklerimi sor", "Ask about missing items") + "</a></div></div></div></section>" +
+      '</ul><div class="panelk" aria-live="polite"><div class="etiket">' + M("aracHazirlik") + '</div><div class="top" id="hazir">0 / 8</div><div class="ilerleme"><i id="hazirCubuk"></i></div><p class="acik" id="hazirNot"></p><a class="dg wa" id="belgeSor" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + M("aracRuhsatDugme") + "</a></div></div></div></section>" +
       '<section class="bol" id="stil"><div class="kap"><div class="etiket">04</div><h2>' + M("aracStilBaslik") + '</h2><p class="acik">' + M("aracStilMetin") +
       '</p><div class="arac"><div><div class="stiller" id="stiller" role="group" aria-label="Stil">' + [["Minimal", "Minimal"], ["Modern", "Modern"], ["Sıcak Doğal", "Warm Natural"], ["Klasik", "Classic"]].map(function (x) { return '<button type="button" aria-pressed="false">' + T2(x[0], x[1]) + "</button>"; }).join("") +
-      '</div><div class="palet" id="palet"></div><p id="malzeme" class="acik"></p><a class="dg i" id="stilGonder" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + T2("Bu stili konuşalım", "Let's discuss this style") + "</a></div>" +
+      '</div><div class="palet" id="palet"></div><p id="malzeme" class="acik"></p><a class="dg i" id="stilGonder" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + M("aracStilDugme") + "</a></div>" +
       '<figure style="position:relative"><img id="stilGorsel" src="img/stil0.jpg" alt="" width="1200" height="900" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover"><figcaption id="stilEtiket" class="ornek-et"></figcaption></figure></div></div></section>';
   }
 };
@@ -460,7 +519,7 @@ function belge(ic, sayfa, ops) {
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">\n' +
     '<link rel="stylesheet" href="assets/site.css?v=' + v + '">\n<style id="bn-renk">' + renkCSS(ic) + "</style>\n" + (sayfa === "index" || sayfa === "iletisim" ? schema(ic) + "\n" : "") +
     "<script>window.BENSAY=" + JSON.stringify({ wa: waLink(ic), site: "bensay", sb: ops.sb || null, guncelleme: (ic.meta || {}).guncelleme || "" }).replace(/</g, "\\u003c") + ";</script>\n</head>\n<body>\n" +
-    '<a class="atla" href="#icerik">' + T2("İçeriğe geç", "Skip to content") + "</a>\n" + '<div id="bn-ust">' + ust(ic, sayfa) + "</div>\n<main id=\"icerik\">\n" + ana(ic, sayfa, ops.ctx) + "\n</main>\n" + '<div id="bn-alt">' + alt(ic) + "</div>\n" +
+    '<a class="atla" href="#icerik">' + M("atla") + "</a>\n" + '<div id="bn-ust">' + ust(ic, sayfa) + "</div>\n<main id=\"icerik\">\n" + ana(ic, sayfa, ops.ctx) + "\n</main>\n" + '<div id="bn-alt">' + alt(ic) + "</div>\n" +
     '<script src="assets/render.js?v=' + v + '" defer></script><script src="assets/maliyet.js?v=' + v + '" defer></script>' + (sayfa === "araclar" ? '<script src="assets/araclar.js?v=' + v + '" defer></script>' : "") +
     '<script src="assets/site.js?v=' + v + '" defer></script>\n</body>\n</html>\n';
 }
@@ -475,6 +534,8 @@ function yenidenCiz(ic, sayfa, ctx) {
   if (window.BENSAY) window.BENSAY.wa = waLink(ic);
   try { basGuncelle(ic, sayfa); } catch (e) {}
 }
-var API = { SAYFALAR: SAYFALAR, BOLUM_TIPLERI: BOLUM_TIPLERI, METINLER: METINLER, SOSYAL: SOSYAL, WA_MSJ: WA_MSJ, belge: belge, yenidenCiz: yenidenCiz, ana: ana, renkCSS: renkCSS, esc: esc, tr: tr, en: en, T: T, tl: tl, sayfaDosya: sayfaDosya };
+var API = { SAYFALAR: SAYFALAR, BOLUM_TIPLERI: BOLUM_TIPLERI, METINLER: METINLER, SOSYAL: SOSYAL, WA_MSJ: WA_MSJ, belge: belge, yenidenCiz: yenidenCiz, ana: ana, renkCSS: renkCSS, esc: esc, tr: tr, en: en, T: T, tl: tl, sayfaDosya: sayfaDosya,
+  /* 8 Kas: maliyet.js / site.js için panelden değişebilen sabit yazılar */
+  metin: function (ic, k) { IC_ = ic; return M(k); }, metinDuz: function (ic, k) { IC_ = ic; return Mx(k); } };
 if (typeof module !== "undefined" && module.exports) module.exports = API; else kok.BNRender = API;
 })(typeof window !== "undefined" ? window : globalThis);

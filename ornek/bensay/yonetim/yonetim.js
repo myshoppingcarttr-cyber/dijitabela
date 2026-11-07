@@ -189,7 +189,15 @@ function fListe(o, k, et, ops) {
 // 7 Kas: her bölüme "Görünüm" kutusu — arka plan rengi, arka plan görseli + karartma, yazı tonu (boş = bugünkü görünüm)
 function bolumForm(b, kap) {
   bolumIcerik(b, kap);
-  if (b.tip === "araclar") return;
+  if (b.tip === "araclar") {
+    // 8 Kas: araçlar sayfasındaki önce/sonra görselleri (boşsa bugünkü örnek görseller)
+    var ka = el("div", { class: "kutu" }, [el("b", { text: "Önce / sonra görselleri" })]);
+    ka.appendChild(fGorsel(b, "onceGorsel", "“Önce” görseli", "Boşsa bugünkü örnek cephe görseli. Yatay (16:9) fotoğraf önerilir; iki görsel aynı boyutta olmalı."));
+    ka.appendChild(fGorsel(b, "sonraGorsel", "“Sonra” görseli", "Boşsa bugünkü örnek görsel."));
+    ka.appendChild(fBool(b, "ornekGizle", "“örnek görsel” etiketini gizle", "Kendi projenizin fotoğraflarını yüklediyseniz işaretleyin."));
+    ka.appendChild(el("p", { class: "yard ac", text: "Bu sayfadaki başlık, açıklama ve düğme yazıları “Sabit yazılar” sekmesindeki Araçlar kutusundan değiştirilir." }));
+    kap.appendChild(ka); return;
+  }
   var kt = el("div", { class: "kutu" }, [el("b", { text: "Görünüm (arka plan)" })]);
   kt.appendChild(fRenkBos(b, "zeminRenk", "Arka plan rengi", b.tip === "kahraman" ? "Arka plan görseli yokken kullanılır. Boşsa kurumsal yeşil." : "Boşsa bölüm bugünkü renginde kalır."));
   if (b.tip !== "kahraman") {
@@ -201,7 +209,7 @@ function bolumForm(b, kap) {
 }
 function bolumIcerik(b, kap) {
   var t = b.tip, ortak = ["kahraman", "sayfaBasi", "hizmetler", "sektorler", "projeler", "maliyet", "markalar", "surec", "sss", "ekip", "blog", "metin", "iletisim", "kesifForm", "referanslar"];
-  if (/^(projeDetay|blogDetay|araclar|takip)$/.test(t)) { kap.appendChild(el("p", { class: "ac", text: "Bu bölüm sitenin işlevsel bir parçasıdır; içeriği ilgili sekmeden (Projeler / Blog) gelir. Yalnız sırası ve görünürlüğü değiştirilebilir." })); return; }
+  if (/^(projeDetay|blogDetay|araclar|takip)$/.test(t)) { kap.appendChild(el("p", { class: "ac", text: "Bu bölüm sitenin işlevsel bir parçasıdır; içeriği ilgili sekmeden (Projeler / Blog) gelir. Sırası ve görünürlüğü buradan, kalıp yazıları “Sabit yazılar” sekmesinden değiştirilir." })); return; }
   if (t === "anaHizmet") {
     kap.appendChild(fCift(b, "etiket", "Üst etiket"));
     kap.appendChild(fSecim(b, "hizmet", "Öne çıkan hizmet", (ic.hizmetler || []).map(function (h) { return [h.id, trAd(h.baslik)]; }), "Başlık, açıklama ve maddeler Hizmetler sekmesinden gelir."));
@@ -226,6 +234,8 @@ function bolumIcerik(b, kap) {
     kap.appendChild(fMetin(b, "ortu", "Görsel üzerine karartma (0-80)", { tip: "number", min: 0, adim: 5, yard: "Arka plan görseli açıksa yazılar okunmuyorsa artırın. 0 = yok." }));
     kap.appendChild(fSecim(b, "ortuRenk", "Karartma rengi", [["", "Siyah"], ["yesil", "Kurumsal yeşil"]]));
     kap.appendChild(fBool(b, "golge", "Yazılara hafif gölge ekle", "Açık renkli görsellerde okunurluğu artırır."));
+    // 8 Kas: görsel yokken görünen çizgi ev çizimi
+    kap.appendChild(fBool(b, "evGizle", "Çizgi ev çizimini gizle", "Arka plan görseli yokken sağda görünen ince çizgili ev çizimini kaldırır. Görsel varken zaten görünmez."));
   }
   if (t === "metin") { kap.appendChild(fGorsel(b, "gorsel", "Görsel (isteğe bağlı)")); kap.appendChild(fSecim(b, "dugme", "Düğme", [["", "Düğme yok"], ["kesif", "Keşif"], ["planla", "Proje planla"]])); }
   if (t === "hizmetler") kap.appendChild(fBool(b, "sadeceDiger", "Öne çıkan hizmeti bu listede gösterme", "Ana sayfada öne çıkan hizmet ayrı bölümde gösterildiği için."));

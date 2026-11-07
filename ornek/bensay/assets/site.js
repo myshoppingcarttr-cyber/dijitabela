@@ -80,7 +80,7 @@ function davranislar(){
  var rf=$("#randevuForm");
  if(rf){var msj=function(){var v=function(id){var e=$("#"+id);return e?e.value.trim():""};var tr=!bnEn();var s=function(id){var e=$("#"+id);return e&&e.selectedOptions[0]?e.selectedOptions[0].textContent:"-"};
    var g=v("rGun")?v("rGun").split("-").reverse().join("."):"";
-   return(tr?"Merhaba, web sitenizden keşif talep ediyorum.":"Hello, I'd like to request a site visit via your website.")+
+   return(tr?(rf.getAttribute("data-giris")||"Merhaba, web sitenizden keşif talep ediyorum."):(rf.getAttribute("data-giris-en")||"Hello, I'd like to request a site visit via your website."))+
    "\n"+(tr?"Ad soyad: ":"Name: ")+(v("rAd")||"-")+"\n"+(tr?"Telefon: ":"Phone: ")+(v("rTel")||"-")+"\n"+(tr?"Alan tipi: ":"Space type: ")+s("rKonu")+"\n"+(tr?"Hizmet: ":"Service: ")+s("rHiz")+
    "\n"+(tr?"Konum: ":"Location: ")+(v("rKonum")||"-")+"\n"+(tr?"Tercih edilen gün: ":"Preferred day: ")+(g||"-")+(v("rNot")?"\n"+(tr?"Not: ":"Note: ")+v("rNot"):"")+(function(){var o=window.BN_MALIYET_OZET;try{o=o||sessionStorage.getItem("bn_maliyet_ozet")}catch(e){}return o?"\n"+o:""})()};
   var guncel=function(){$("#rMesaj").textContent=msj();$("#rGonder").href=bnWa(msj())};
