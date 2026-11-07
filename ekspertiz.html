@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..900&family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<script src="assets/piksel.js?v=mw6i141b" defer></script>
+<script src="assets/piksel.js?v=mw6jp5lu" defer></script>
 <style>
 body{margin:0}
 /* Yerleşim: geceden sabaha bir çarşı yürüyüşü. Marka: LED panel koyusu #16181D, sönük nokta #2C3038, amber #FFB000.
@@ -389,6 +389,8 @@ footer a{color:var(--gece-soluk)}
 .siz{display:block;color:#666;font-size:13px;margin-bottom:4px}
 .gizli{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:600px){.rehber-tabela canvas{width:96px;height:60px}.balon{bottom:82px}}
+/* 7 Kas: telefonda balon, JS izin verene kadar (ilk ekran düğmeleri ve çerez bandı) görünmez */
+@media (max-width:768px){.rehber:not(.balon-serbest) .balon{display:none}}
 
 /* Sektör seçimi (çarşı altı) */
 .sektor-sec{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-bottom:48px}
@@ -722,10 +724,10 @@ html{scroll-behavior:smooth}
   </div>
   <div class="alt-alt"><nav aria-label="Yasal"><a href="gizlilik.html">Gizlilik</a><a href="kvkk.html">KVKK</a><a href="mesafeli-satis.html">Mesafeli satış</a><a href="iptal-iade.html">İptal ve iade</a><a href="teslimat-kosullari.html">Teslimat koşulları</a><a href="iletisim.html">İletişim</a></nav><span>© 2026 Dijitabela · Alim Hoşlar · Düden V.D. · VKN 4641290891 · Kepez / Antalya<br>Dizi görselleri yapay zekâ ile üretilmiştir; karakterler hayal ürünüdür.</span></div>
 </div></footer>
-<script src="assets/form-koruma.js?v=e3ae9817a7" defer></script>
-<script src="assets/config.js?v=mw6i141b"></script>
-<script src="assets/fiyat.js?v=mw6i141b"></script>
-<script src="assets/data.js?v=mw6i141b"></script>
+<script src="assets/form-koruma.js?v=e072f23a5b" defer></script>
+<script src="assets/config.js?v=mw6jp5lu"></script>
+<script src="assets/fiyat.js?v=mw6jp5lu"></script>
+<script src="assets/data.js?v=mw6jp5lu"></script>
 <script>
 const SES_VAR = ["duvar","nedir","alanlar","nasil","eks-baslat","taslak"];   // kayıt dosyası olanlar; olmayanlar cihaz sesiyle okunur (404 yok)
 // Ekspertiz sayfası motoru (14 Eki 2026, Elif · İ-1014-P11). LED motoru + yüz çizimi: yeni-ana-kaynak.html ile aynı.
@@ -966,7 +968,8 @@ function sonraki() {
 }
 function anlat(id) {
   sonAnlatilan = id; $("#siz").textContent = "";
-  soyle(REHBER[id]); sesCal(id);
+  if (!sesAcik && !otoBalonSerbest()) { clearInterval(yaziZaman); yaziyor = false; yazi.textContent = REHBER[id]; balonGoster(false); balonBekliyor = true; return; }
+  soyle(REHBER[id]); otoAcik = true; sesCal(id);
   yuzIfade(id === "alanlar" ? "sasir" : "mutlu", id === "alanlar" ? 2500 : 0);
 }
 function sesCal(id) {
@@ -978,7 +981,23 @@ function sesCal(id) {
   if (p && p.then) p.then(() => (degisiyor = false)).catch((x) => { degisiyor = false; if (x && x.name === "NotAllowedError") sesEngellendi(); else cihazSesi(yedekMetin); });
   else degisiyor = false;
 }
-function balonGoster(acik) { balonAcik = acik; balon.hidden = !acik; }
+function balonGoster(acik) { balonAcik = acik; balon.hidden = !acik; otoAcik = false; if (acik) rehber.classList.add("balon-serbest"); }
+// 7 Kas (iPhone 15 Pro Max testi): telefonda (<=768px) balon kendiliğinden açılınca ilk ekrandaki düğmelerin üstüne biniyordu.
+// Telefonda balon; çerez bandı açıkken ve ilk ekran düğmeleri (#duvar .dugmeler) balonun alanındayken KENDİLİĞİNDEN açılmaz.
+// Ziyaretçi düğmeleri yukarı kaydırınca açılır; tabelaya dokunan her an açar. Masaüstü değişmez.
+const telefon = () => innerWidth <= 768;
+function otoBalonSerbest() {
+  if (!telefon()) return true;
+  if (document.getElementById("dt-cerez")) return false;
+  const d = document.querySelector("#duvar .dugmeler"); if (!d) return true;
+  return d.getBoundingClientRect().bottom < innerHeight - 330;
+}
+let balonBekliyor = false, otoAcik = false;   // otoAcik: balonu ziyaretçi değil sayfa açtı (ilk ekrana dönünce geri kapanır)
+if (telefon()) { balonAcik = false; balon.hidden = true; }
+addEventListener("scroll", () => {
+  if (balonBekliyor && otoBalonSerbest()) { balonBekliyor = false; sonAnlatilan = ""; anlat(aktif || "duvar"); }
+  else if (otoAcik && balonAcik && !sesAcik && !otoBalonSerbest()) { balonGoster(false); balonBekliyor = true; }
+}, { passive: true });
 function yanaGit(sag) {
   rehber.classList.toggle("sag", sag);
   const hedef = sag ? innerWidth - govde.offsetWidth - 2 * parseFloat(getComputedStyle(govde).left) : 0;
@@ -1044,6 +1063,6 @@ if ("IntersectionObserver" in window && !AZ) {
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { duvar.olc(); evre = -1; evreSec(0); if (AZ) { duvar.kirli = true; duvar.ciz(); } }, 200); });
 
 </script>
-<script src="assets/ekspertiz.js?v=mw6i141b"></script>
+<script src="assets/ekspertiz.js?v=mw6jp5lu"></script>
 </body>
 </html>

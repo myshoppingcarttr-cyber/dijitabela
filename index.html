@@ -14,7 +14,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://dijitabela.com/#website","name":"Dijitabela","alternateName":["Dijital Tabela","Dijitabela Antalya"],"url":"https://dijitabela.com/","inLanguage":"tr-TR","publisher":{"@id":"https://dijitabela.com/#organizasyon"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","ProfessionalService"],"@id":"https://dijitabela.com/#organizasyon","name":"Dijitabela","alternateName":["Dijital Tabela","Dijitabela Antalya","Dijitabela Dijital Ajans","dijitabela.com","Dijitabela.com","DİJİTABELA"],"url":"https://dijitabela.com","logo":"https://dijitabela.com/marka/png/uygulama-simgesi-512.png","image":"https://dijitabela.com/marka/png/paylasim-gorseli-1200x630.png","telephone":"+905019452184","email":"info@dijitabela.com","areaServed":"TR","priceRange":"4.900 TL'den","address":{"@type":"PostalAddress","addressLocality":"Kepez","addressRegion":"Antalya","addressCountry":"TR"},"sameAs":["https://www.google.com/maps?cid=7388942871238581216","https://www.facebook.com/dijitabela","https://www.instagram.com/dijitabela/","https://www.youtube.com/@dijitabela","https://x.com/dijitabela","https://www.tiktok.com/@dijitabela","https://www.linkedin.com/company/dijitabela/","https://www.threads.com/@dijitabela","https://dijitabela.com/"],"description":"Dijitabela, Antalya merkezli bir dijital ajanstır: yerel işletmelere web sitesi, Google İşletme Profili, müşteri takip yazılımı ve yapay zekâ asistanı kurar.","slogan":"Yerel işletmeler için web, yazılım ve yapay zekâ"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aylık ücret ödemek zorunda mıyım?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Paketler tek seferliktir ve ücretsiz destek süresi içerir. Asistan, içerik ve yorum toplama gibi aylık hizmetler isteğe bağlıdır."}},{"@type":"Question","name":"Ödemeyi nasıl yapıyorum?","acceptedAnswer":{"@type":"Answer","text":"Teklifi onaylayınca %50'sini başta, kalanını teslimde ödersiniz. Kredi kartıyla taksitli ya da havale ile ödeyebilirsiniz."}},{"@type":"Question","name":"Yapay zekâ müşterime yanlış bir şey söylerse?","acceptedAnswer":{"@type":"Answer","text":"Asistan yalnızca sizin verdiğiniz bilgilerle cevap verir. Emin olmadığı soruyu size aktarır; her konuşmayı panelden görürsünüz."}},{"@type":"Question","name":"Google'da ilk sırayı garanti ediyor musunuz?","acceptedAnswer":{"@type":"Answer","text":"Hiçbir dürüst ajans sıra garantisi veremez; sıralamaya Google karar verir. Öne çıkmanızı sağlayan bütün adımları eksiksiz kurar ve düzenli raporlarız."}},{"@type":"Question","name":"Başka şehirdeyim, nasıl çalışacağız?","acceptedAnswer":{"@type":"Answer","text":"Fotoğraf ve videoları siz gönderirsiniz, kurulumu ve eğitimi biz uzaktan yaparız. Yerinde çekim ya da ziyaret gerekmez."}},{"@type":"Question","name":"Beğenmezsem ne olur?","acceptedAnswer":{"@type":"Answer","text":"Ön tasarımlar ücretsizdir; beğenmezseniz hiçbir şey ödemezsiniz."}},{"@type":"Question","name":"Dijitabela nedir, ne iş yapar?","acceptedAnswer":{"@type":"Answer","text":"Dijitabela (dijital tabela), Antalya merkezli bir dijital ajanstır. Esnafa web sitesi, Google İşletme Profili, WhatsApp ve telefon için yapay zekâ asistanı ve müşteri takip paneli kurar. Türkiye genelinde uzaktan çalışır."}},{"@type":"Question","name":"Web siteniz ne kadar sürede hazır olur?","acceptedAnswer":{"@type":"Answer","text":"Web sitesi yaklaşık 1 haftada teslim edilir. Önce 3 ücretsiz ön tasarım hazırlanır, beğendiğiniz tasarım üzerinden ilerlenir."}},{"@type":"Question","name":"Yapay zekâ asistanı hangi dillerde cevap verir?","acceptedAnswer":{"@type":"Answer","text":"Asistan Türkçe, İngilizce, Almanca ve Rusça olmak üzere 4 dilde yazılı ve sesli cevap verir. Randevu ve rezervasyonu yazar, bilmediği soruyu size aktarır."}},{"@type":"Question","name":"Hangi sektörlere hizmet veriyorsunuz?","acceptedAnswer":{"@type":"Answer","text":"400'ü aşkın sektöre hizmet veriyoruz. Her sektör için o işin angaryasına göre hazırlanmış şablonlar kullanılır."}}]}</script>
-<script src="assets/piksel.js?v=mw6i13vc" defer></script>
+<script src="assets/piksel.js?v=mw6jp5ei" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..900&family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
@@ -391,6 +391,8 @@ footer a{color:var(--gece-soluk)}
 .siz{display:block;color:#666;font-size:13px;margin-bottom:4px}
 .gizli{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:600px){.rehber-tabela canvas{width:96px;height:60px}.balon{bottom:82px}}
+/* 7 Kas: telefonda balon, JS izin verene kadar (ilk ekran düğmeleri ve çerez bandı) görünmez */
+@media (max-width:768px){.rehber:not(.balon-serbest) .balon{display:none}}
 
 /* Sektör seçimi (çarşı altı) */
 .sektor-sec{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-bottom:48px}
@@ -1307,7 +1309,8 @@ function sonraki() {
 }
 function anlat(id) {
   sonAnlatilan = id; $("#siz").textContent = "";
-  soyle(REHBER[id]); sesCal(id);
+  if (!sesAcik && !otoBalonSerbest()) { clearInterval(yaziZaman); yaziyor = false; yazi.textContent = REHBER[id]; balonGoster(false); balonBekliyor = true; return; }
+  soyle(REHBER[id]); otoAcik = true; sesCal(id);
   yuzIfade(id === "google" ? "sasir" : "mutlu", id === "google" ? 2500 : 0);
 }
 function git(h) { setTimeout(() => (window.__lenis ? window.__lenis.scrollTo(h) : $(h).scrollIntoView({ behavior: "smooth" })), 700); }
@@ -1318,7 +1321,23 @@ function sesCal(id) {
   if (p && p.then) p.then(() => (degisiyor = false)).catch(() => { degisiyor = false; sesEngellendi(); });
   else degisiyor = false;
 }
-function balonGoster(acik) { balonAcik = acik; balon.hidden = !acik; }
+function balonGoster(acik) { balonAcik = acik; balon.hidden = !acik; otoAcik = false; if (acik) rehber.classList.add("balon-serbest"); }
+// 7 Kas (iPhone 15 Pro Max testi): telefonda (<=768px) balon kendiliğinden açılınca ilk ekrandaki düğmelerin üstüne biniyordu.
+// Telefonda balon; çerez bandı açıkken ve ilk ekran düğmeleri (#duvar .dugmeler) balonun alanındayken KENDİLİĞİNDEN açılmaz.
+// Ziyaretçi düğmeleri yukarı kaydırınca açılır; tabelaya dokunan her an açar. Masaüstü değişmez.
+const telefon = () => innerWidth <= 768;
+function otoBalonSerbest() {
+  if (!telefon()) return true;
+  if (document.getElementById("dt-cerez")) return false;
+  const d = document.querySelector("#duvar .dugmeler"); if (!d) return true;
+  return d.getBoundingClientRect().bottom < innerHeight - 330;
+}
+let balonBekliyor = false, otoAcik = false;   // otoAcik: balonu ziyaretçi değil sayfa açtı (ilk ekrana dönünce geri kapanır)
+if (telefon()) { balonAcik = false; balon.hidden = true; }
+addEventListener("scroll", () => {
+  if (balonBekliyor && otoBalonSerbest()) { balonBekliyor = false; sonAnlatilan = ""; anlat(aktif || "duvar"); }
+  else if (otoAcik && balonAcik && !sesAcik && !otoBalonSerbest()) { balonGoster(false); balonBekliyor = true; }
+}, { passive: true });
 function yanaGit(sag) {
   rehber.classList.toggle("sag", sag);
   const hedef = sag ? innerWidth - govde.offsetWidth - 2 * parseFloat(getComputedStyle(govde).left) : 0;
@@ -1657,8 +1676,8 @@ function olcHepsi() { ledler.forEach((l) => l.olc()); }
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { olcHepsi(); evre = -1; evreSec(0); if (AZ) ledler.forEach((l) => { l.kirli = true; l.ciz(); }); }, 200); });
 </script>
 
-<script src="assets/form-koruma.js?v=e3ae9817a7" defer></script>
-<script src="assets/config.js?v=mw6i13vc"></script>
-<script src="assets/data.js?v=mw6i13vc"></script>
+<script src="assets/form-koruma.js?v=e072f23a5b" defer></script>
+<script src="assets/config.js?v=mw6jp5ei"></script>
+<script src="assets/data.js?v=mw6jp5ei"></script>
 </body>
 </html>

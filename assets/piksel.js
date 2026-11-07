@@ -23,6 +23,16 @@
     b.innerHTML = '<span style="flex:1 1 260px">Reklamlarımızın işe yarayıp yaramadığını ölçmek için Meta (Facebook/Instagram) çerezi kullanmak istiyoruz. Ayrıntılar: <a href="gizlilik.html#cerezler" style="color:#FFB000">gizlilik politikası</a>.</span>' +
       '<button type="button" data-s="hayir" style="background:transparent;color:#fff;border:1px solid #555;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit">Reddet</button>' +
       '<button type="button" data-s="evet" style="background:#FFB000;color:#16181D;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit;font-weight:700">Kabul et</button>';
+    // 7 Kas (iPhone 15 Pro Max testi): telefonda (<=768px) alttaki büyük bant ekranın ~1/4'ünü kaplıyor, ilk ekran düğmelerinin
+    // ve Safari'nin alt çubuğunun üstüne biniyordu. Telefonda kompakt bant ÜSTTE durur (düğmeler ilk ekranın altında kalır),
+    // çentik/ada için safe-area payı alır. Metin ve iki düğme aynen kalır. Masaüstü yukarıdaki gibi değişmez.
+    if (window.matchMedia && matchMedia("(max-width:768px)").matches) {
+      b.style.cssText = "position:fixed;left:8px;right:8px;top:calc(8px + env(safe-area-inset-top,0px));z-index:9999;background:#16181D;color:#fff;border:1px solid #2C3038;border-radius:10px;padding:8px 10px;font:12.5px/1.35 'Plus Jakarta Sans',system-ui,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.4);display:flex;gap:8px;align-items:center";
+      b.innerHTML = '<span style="flex:1 1 auto;min-width:0">Reklam ölçümü için Meta (Facebook/Instagram) çerezi kullanmak istiyoruz. <a href="gizlilik.html#cerezler" style="color:#FFB000">Gizlilik politikası</a>.</span>' +
+        '<span style="display:flex;flex-direction:column;gap:6px;flex:0 0 auto">' +
+        '<button type="button" data-s="evet" style="background:#FFB000;color:#16181D;border:0;border-radius:8px;padding:0 12px;min-height:34px;cursor:pointer;font:inherit;font-weight:700">Kabul et</button>' +
+        '<button type="button" data-s="hayir" style="background:transparent;color:#fff;border:1px solid #555;border-radius:8px;padding:0 12px;min-height:34px;cursor:pointer;font:inherit">Reddet</button></span>';
+    }
     b.addEventListener("click", function (e) { var s = e.target.getAttribute && e.target.getAttribute("data-s"); if (s) sec(s); });
     document.body.appendChild(b);
   });
