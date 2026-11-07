@@ -87,7 +87,7 @@
     }
     zombiGetir() {
       if (this.zombiler.length > 4) return;
-      const turler = ["aylak", "aylak2", "kosucu", "aylak"], tur = turler[(Math.random() * turler.length) | 0], K = SV.KARE[tur];
+      const turler = ["aylak", "aylak2", "aylak3", "aylak4", "kosucu"], tur = turler[(Math.random() * turler.length) | 0], K = SV.KARE[tur];
       const s = 0.62 + Math.random() * 0.12, y = this.zeminY - 34 + Math.random() * 8;
       const z = this.add.sprite(SV.Y.W + 80, y, tur).setOrigin(K.ox / K.w, K.oy / K.h).setScale(s).setFlipX(true).setScrollFactor(0).setDepth(-17).setTint(0x4a5068).setAlpha(0.95);
       z.setOrigin(1 - K.ox / K.w, K.oy / K.h).play(tur + "_yuru");

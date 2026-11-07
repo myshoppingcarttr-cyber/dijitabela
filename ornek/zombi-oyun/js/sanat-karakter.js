@@ -338,8 +338,8 @@
     const uzun = sil !== "tabanca";
     const yer = (bob) => (uzun ? { x: 15, y: 7 + bob } : { x: 33, y: 3 + bob });
     const res = {};
-    res.dur = [0, 1, 2, 3].map((i) => { const w = Math.sin((i / 4) * TAU); return { kalca: 63.5 - 0.7 * w, govde: 0.05 + 0.012 * w, bas: -0.03, ayakO: { x: 10, h: 0 }, ayakA: { x: -11, h: 0 }, silah: sil, silahAci: 0, silahYer: yer(0.4 * w) }; });
-    res.kos = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const p = i / 8, b = Math.abs(Math.cos(p * TAU)); return { kalca: 59.5 + 3.5 * b, govde: 0.17, bas: -0.12, ayakO: bacakFaz(p, 46, 19, 0.42), ayakA: bacakFaz(p + 0.5, 46, 19, 0.42), silah: sil, silahAci: -0.02, silahYer: yer(1.2 * Math.sin(p * TAU * 2)) }; });
+    res.dur = [0, 1, 2, 3, 4, 5].map((i) => { const w = Math.sin((i / 6) * TAU); return { kalca: 63.5 - 0.7 * w, govde: 0.05 + 0.012 * w, bas: -0.03, ayakO: { x: 10, h: 0 }, ayakA: { x: -11, h: 0 }, silah: sil, silahAci: 0, silahYer: yer(0.4 * w) }; });
+    res.kos = Array.from({ length: 12 }, (_, i) => i).map((i) => { const p = i / 12, b = Math.abs(Math.cos(p * TAU)); return { kalca: 59.5 + 3.5 * b, govde: 0.17, bas: -0.12, ayakO: bacakFaz(p, 46, 19, 0.42), ayakA: bacakFaz(p + 0.5, 46, 19, 0.42), silah: sil, silahAci: -0.02, silahYer: yer(1.2 * Math.sin(p * TAU * 2)) }; });
     res.zipla = [
       { kalca: 66, govde: 0.1, bas: -0.08, ayakO: { x: 13, h: 18 }, ayakA: { x: -15, h: 7 }, silah: sil, silahAci: -0.04, silahYer: yer(-1) },
       { kalca: 64, govde: 0.06, bas: -0.02, ayakO: { x: 9, h: 6 }, ayakA: { x: -7, h: 12 }, silah: sil, silahAci: 0.02, silahYer: yer(1) }
@@ -359,7 +359,7 @@
 
   function aylakPozlari() {
     const r = {};
-    r.yuru = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const p = i / 8, w = Math.sin(p * TAU); return { kalca: 61.5 - 1.6 * Math.abs(w), govde: 0.3 + 0.04 * w, bas: 0.24 + 0.08 * Math.sin(p * TAU + 1), ayakO: bacakFaz(p, 22, 8), ayakA: bacakFaz(p + 0.5, 20, 2.5), elO: { x: 30 + 3 * w, y: 9 + 3 * Math.cos(p * TAU) }, elA: { x: 27 - 3 * w, y: 15 }, agiz: 0.35 + 0.3 * Math.max(0, w) }; });
+    r.yuru = Array.from({ length: 12 }, (_, i) => i).map((i) => { const p = i / 12, w = Math.sin(p * TAU); return { kalca: 61.5 - 1.6 * Math.abs(w), govde: 0.3 + 0.04 * w, bas: 0.24 + 0.08 * Math.sin(p * TAU + 1), ayakO: bacakFaz(p, 22, 8), ayakA: bacakFaz(p + 0.5, 20, 2.5), elO: { x: 30 + 3 * w, y: 9 + 3 * Math.cos(p * TAU) }, elA: { x: 27 - 3 * w, y: 15 }, agiz: 0.35 + 0.3 * Math.max(0, w) }; });
     const sal = [[14, -16, 0.25, 0.6], [22, -22, 0.2, 1], [36, 0, 0.45, 1], [38, 14, 0.5, 0.8], [30, 12, 0.38, 0.5]];
     r.saldiri = sal.map(([x, y, g, a]) => ({ kalca: 61, govde: g, bas: 0.15, ayakO: { x: 14, h: 0 }, ayakA: { x: -12, h: 0 }, elO: { x, y }, elA: { x: x - 6, y: y + 4 }, agiz: a, gozParla: a }));
     r.hasar = [{ kalca: 61, govde: 0.05, bas: -0.3, ayakO: { x: 10, h: 0 }, ayakA: { x: -12, h: 0 }, elO: { x: 12, y: 26 }, elA: { x: 2, y: 28 }, agiz: 0.9 }, { kalca: 61.5, govde: 0.18, bas: -0.05, ayakO: { x: 10, h: 0 }, ayakA: { x: -12, h: 0 }, elO: { x: 22, y: 18 }, elA: { x: 14, y: 22 }, agiz: 0.6 }];
@@ -368,7 +368,7 @@
   }
   function kosucuPozlari() {
     const r = {};
-    r.yuru = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const p = i / 8, w = Math.sin(p * TAU), c = Math.cos(p * TAU); return { kalca: 57 + 4 * Math.abs(c), govde: 0.55, bas: -0.38, ayakO: bacakFaz(p, 54, 22, 0.38), ayakA: bacakFaz(p + 0.5, 54, 22, 0.38), elO: { x: 20 * c + 6, y: 16 - 8 * w }, elA: { x: -20 * c + 6, y: 16 + 8 * w }, agiz: 1, gozParla: 0.6 }; });
+    r.yuru = Array.from({ length: 12 }, (_, i) => i).map((i) => { const p = i / 12, w = Math.sin(p * TAU), c = Math.cos(p * TAU); return { kalca: 57 + 4 * Math.abs(c), govde: 0.55, bas: -0.38, ayakO: bacakFaz(p, 54, 22, 0.38), ayakA: bacakFaz(p + 0.5, 54, 22, 0.38), elO: { x: 20 * c + 6, y: 16 - 8 * w }, elA: { x: -20 * c + 6, y: 16 + 8 * w }, agiz: 1, gozParla: 0.6 }; });
     const sal = [[28, -8, 0.6], [40, -4, 0.72], [42, 2, 0.75], [36, 8, 0.66], [28, 12, 0.58]];
     r.saldiri = sal.map(([x, y, g], i) => ({ kalca: 56, govde: g, bas: -0.45, ayakO: { x: 24, h: 0 }, ayakA: { x: -28, h: 3 }, elO: { x, y }, elA: { x: x - 4, y: y - 6 }, agiz: 1, gozParla: 1 }));
     r.hasar = [{ kalca: 60, govde: 0.1, bas: -0.4, ayakO: { x: 12, h: 0 }, ayakA: { x: -12, h: 0 }, elO: { x: 0, y: 24 }, elA: { x: -8, y: 24 }, agiz: 1 }, { kalca: 59, govde: 0.35, bas: -0.3, ayakO: { x: 12, h: 0 }, ayakA: { x: -14, h: 0 }, elO: { x: 16, y: 18 }, elA: { x: 6, y: 20 }, agiz: 1 }];
@@ -377,7 +377,7 @@
   }
   function hantalPozlari() {
     const r = {};
-    r.yuru = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const p = i / 8, w = Math.sin(p * TAU); return { kalca: 61 - 2.2 * Math.abs(w), govde: 0.17 + 0.03 * w, bas: 0.12, ayakO: bacakFaz(p, 26, 7), ayakA: bacakFaz(p + 0.5, 26, 7), elO: { x: 10 + 7 * w, y: 37 }, elA: { x: -2 - 7 * w, y: 37 }, agiz: 0.3 + 0.2 * Math.abs(w) }; });
+    r.yuru = Array.from({ length: 12 }, (_, i) => i).map((i) => { const p = i / 12, w = Math.sin(p * TAU); return { kalca: 61 - 2.2 * Math.abs(w), govde: 0.17 + 0.03 * w, bas: 0.12, ayakO: bacakFaz(p, 26, 7), ayakA: bacakFaz(p + 0.5, 26, 7), elO: { x: 10 + 7 * w, y: 37 }, elA: { x: -2 - 7 * w, y: 37 }, agiz: 0.3 + 0.2 * Math.abs(w) }; });
     const sal = [[10, -30, 0.05, 0.6], [6, -38, -0.05, 1], [30, 10, 0.35, 1], [40, 38, 0.5, 0.8], [30, 32, 0.32, 0.4]];
     r.saldiri = sal.map(([x, y, g, a]) => ({ kalca: 60, govde: g, bas: 0.1, ayakO: { x: 16, h: 0 }, ayakA: { x: -14, h: 0 }, elO: { x, y }, elA: { x: x - 10, y }, agiz: a, gozParla: a }));
     r.hasar = [{ kalca: 61, govde: 0.02, bas: -0.25, ayakO: { x: 12, h: 0 }, ayakA: { x: -14, h: 0 }, elO: { x: 4, y: 36 }, elA: { x: -8, y: 36 }, agiz: 1 }, { kalca: 61, govde: 0.12, bas: 0, ayakO: { x: 12, h: 0 }, ayakA: { x: -14, h: 0 }, elO: { x: 10, y: 36 }, elA: { x: -2, y: 36 }, agiz: 0.5 }];
@@ -386,7 +386,7 @@
   }
   function kasapPozlari() {
     const r = {}, sat = { tasi: "satir" };
-    r.yuru = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const p = i / 8, w = Math.sin(p * TAU); return Object.assign({ kalca: 61 - 2.4 * Math.abs(w), govde: 0.2 + 0.03 * w, bas: 0.1, ayakO: bacakFaz(p, 28, 8), ayakA: bacakFaz(p + 0.5, 28, 8), elO: { x: 20 + 4 * w, y: 24 }, elA: { x: 2 - 6 * w, y: 34 }, agiz: 0.4, tasiAci: -0.9 }, sat); });
+    r.yuru = Array.from({ length: 12 }, (_, i) => i).map((i) => { const p = i / 12, w = Math.sin(p * TAU); return Object.assign({ kalca: 61 - 2.4 * Math.abs(w), govde: 0.2 + 0.03 * w, bas: 0.1, ayakO: bacakFaz(p, 28, 8), ayakA: bacakFaz(p + 0.5, 28, 8), elO: { x: 20 + 4 * w, y: 24 }, elA: { x: 2 - 6 * w, y: 34 }, agiz: 0.4, tasiAci: -0.9 }, sat); });
     const v = [[4, -36, 0, -1.6, 0.6], [-2, -42, -0.1, -2.2, 1], [20, -20, 0.2, -0.8, 1], [42, 22, 0.55, 0.3, 1], [40, 30, 0.55, 0.5, 0.8], [26, 26, 0.35, -0.2, 0.5]];
     r.vurus = v.map(([x, y, g, ta, a]) => Object.assign({ kalca: 60, govde: g, bas: 0.08, ayakO: { x: 18, h: 0 }, ayakA: { x: -16, h: 0 }, elO: { x, y }, elA: { x: 0, y: 32 }, agiz: a, gozParla: a, tasiAci: ta }, sat));
     r.hucum = [0, 1, 2, 3, 4].map((i) => { const p = i / 5; return Object.assign({ kalca: 50, govde: 0.95, bas: -0.75, ayakO: bacakFaz(p, 62, 20, 0.4), ayakA: bacakFaz(p + 0.5, 62, 20, 0.4), elO: { x: -14, y: 24 }, elA: { x: -22, y: 18 }, agiz: 1, gozParla: 1, tasiAci: 1.6 }, sat); });
@@ -397,7 +397,7 @@
   }
   function devPozlari() {
     const r = {};
-    r.yuru = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const p = i / 8, w = Math.sin(p * TAU); return { kalca: 60 - 2.5 * Math.abs(w), govde: 0.28 + 0.04 * w, bas: 0.25, ayakO: bacakFaz(p, 26, 7), ayakA: bacakFaz(p + 0.5, 26, 7), elO: { x: 24 + 6 * w, y: 46 }, elA: { x: 4 - 6 * w, y: 36 }, agiz: 0.5, gozParla: 0.4 }; });
+    r.yuru = Array.from({ length: 12 }, (_, i) => i).map((i) => { const p = i / 12, w = Math.sin(p * TAU); return { kalca: 60 - 2.5 * Math.abs(w), govde: 0.28 + 0.04 * w, bas: 0.25, ayakO: bacakFaz(p, 26, 7), ayakA: bacakFaz(p + 0.5, 26, 7), elO: { x: 24 + 6 * w, y: 46 }, elA: { x: 4 - 6 * w, y: 36 }, agiz: 0.5, gozParla: 0.4 }; });
     const v = [[12, -34, 0.05, 0.7], [8, -44, -0.08, 1], [26, -10, 0.25, 1], [40, 50, 0.6, 1], [38, 54, 0.62, 0.9], [28, 40, 0.42, 0.6]];
     r.vurus = v.map(([x, y, g, a]) => ({ kalca: 58, govde: g, bas: 0.1, ayakO: { x: 20, h: 0 }, ayakA: { x: -18, h: 0 }, elO: { x, y }, elA: { x: x - 14, y: y + 2 }, agiz: a, gozParla: a }));
     const f = [[-18, -32, -0.12, true], [-24, -38, -0.18, true], [-16, -40, -0.1, true], [40, -24, 0.3, false], [40, 10, 0.4, false]];
@@ -413,6 +413,8 @@
     kahraman: { s: 1, gen: 1, ten: "#c48b66", sac: "#1c1410", sacTip: "kisa", sakal: true, ust: "#22324a", alt: "#2e333b", ayakkabi: "#16171a", canta: "#9b2226", serit: true, seritRenk: "#cdd69c", kemer: "#121316", tohum: 3 },
     aylak: { s: 1, gen: 1, zombi: true, ten: "#8f9b7c", sac: "#2a2420", sacTip: "seyrek", ust: "#6c7d8c", alt: "#3b3631", ayakkabi: "#221d19", gozRenk: "#ffd54a", leke: 7, yirtikSay: 4, tohum: 11, kisaKol: false, agizKan: true },
     aylak2: { s: 1, gen: 0.95, zombi: true, ten: "#a1a891", sac: "#3c2a1f", sacTip: "uzun", ust: "#6b2a3a", alt: "#2c2b33", ayakkabi: "#1b1718", gozRenk: "#ffe082", leke: 6, yirtikSay: 3, tohum: 23, kisaKol: true },
+    aylak3: { s: 1, gen: 1.05, zombi: true, ten: "#8a9783", sac: "#191919", sacTip: "kisa", ust: "#2d3646", alt: "#262b35", ayakkabi: "#121212", gozRenk: "#ffd54a", leke: 8, yirtikSay: 3, tohum: 131, agizKan: true, yelek: "#1b2230", seritRenk: "#8a93a6" },
+    aylak4: { s: 1, gen: 0.92, zombi: true, ten: "#a7ae98", sac: "#6b5a48", sacTip: "seyrek", ust: "#a9c4bd", alt: "#a9c4bd", ayakkabi: "#c9c4b8", gozRenk: "#ffe7a0", leke: 10, yirtikSay: 5, tohum: 157, kisaKol: true },
     kosucu: { s: 1, gen: 0.86, kolKalin: 0.9, zombi: true, ten: "#a3ad93", sac: "#151313", sacTip: "kisa", ust: "#5b1c1f", alt: "#2f3b52", ayakkabi: "#d7d2c7", gozRenk: "#ff5a3c", leke: 5, yirtikSay: 4, tohum: 37, agizKan: true },
     hantal: { s: 1.35, gen: 1.5, kolKalin: 1.45, gobek: true, zombi: true, ten: "#7f8b6b", sacTip: "kel", ust: "#d9d2c3", yelek: "#c9561c", seritRenk: "#d9dd9e", alt: "#3e3b33", ayakkabi: "#2a2219", gozRenk: "#ffcc33", leke: 9, yirtikSay: 5, tohum: 51, kisaKol: true, cizgi: 2.0 },
     kasap: { s: 1.75, gen: 1.45, kolKalin: 1.4, gobek: true, zombi: true, ten: "#8a8f74", sacTip: "kel", dikis: true, ust: "#4f463f", onluk: "#d4cdbd", alt: "#2f2c29", ayakkabi: "#1d1a17", gozRenk: "#ff3b2f", leke: 12, yirtikSay: 3, tohum: 71, kisaKol: true, agizKan: true, cizgi: 1.8 },
@@ -421,15 +423,17 @@
 
   /* Sprite sheet tanımları: kare boyu, ayak noktası, animasyonlar (sıra = kare sırası) */
   A.KARAKTERLER = {
-    kahraman: { w: 240, h: 172, ox: 108, oy: 166, kolon: 8, anim: () => {
-      const L = []; ["tabanca", "pompali", "tufek"].forEach((sil) => { const p = kahramanPozlari(sil); [["dur", 6, -1], ["kos", 14, -1], ["zipla", 1, 0], ["hasar", 10, 0], ["doldur", 6, 0]].forEach(([ad, fps, tk]) => L.push({ ad: sil + "_" + ad, pozlar: p[ad], fps, tekrar: tk })); });
+    kahraman: { w: 240, h: 170, ox: 108, oy: 164, kolon: 8, anim: () => {
+      const L = []; ["tabanca", "pompali", "tufek"].forEach((sil) => { const p = kahramanPozlari(sil); [["dur", 7, -1], ["kos", 20, -1], ["zipla", 1, 0], ["hasar", 10, 0], ["doldur", 6, 0]].forEach(([ad, fps, tk]) => L.push({ ad: sil + "_" + ad, pozlar: p[ad], fps, tekrar: tk })); });
       L.push({ ad: "olum", pozlar: olumPozlari(8, (t) => ({ elO: { x: lerp(20, -4, t), y: lerp(10, -30, t) } })), fps: 12, tekrar: 0 }); return L; } },
-    aylak: { w: 200, h: 182, ox: 100, oy: 176, kolon: 8, anim: () => { const p = aylakPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 8, tekrar: -1 }, { ad: "saldiri", pozlar: p.saldiri, fps: 10, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 10, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 14, tekrar: 0 }]; } },
+    aylak: { w: 200, h: 182, ox: 100, oy: 176, kolon: 8, anim: () => { const p = aylakPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 12, tekrar: -1 }, { ad: "saldiri", pozlar: p.saldiri, fps: 10, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 10, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 14, tekrar: 0 }]; } },
     aylak2: { w: 200, h: 182, ox: 100, oy: 176, kolon: 8, stil: "aylak2", anim: () => A.KARAKTERLER.aylak.anim() },
-    kosucu: { w: 200, h: 182, ox: 100, oy: 176, kolon: 8, anim: () => { const p = kosucuPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 16, tekrar: -1 }, { ad: "saldiri", pozlar: p.saldiri, fps: 14, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 10, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 14, tekrar: 0 }]; } },
+    aylak3: { w: 200, h: 182, ox: 100, oy: 176, kolon: 8, stil: "aylak3", anim: () => A.KARAKTERLER.aylak.anim() },
+    aylak4: { w: 200, h: 182, ox: 100, oy: 176, kolon: 8, stil: "aylak4", anim: () => A.KARAKTERLER.aylak.anim() },
+    kosucu: { w: 200, h: 182, ox: 100, oy: 176, kolon: 8, anim: () => { const p = kosucuPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 24, tekrar: -1 }, { ad: "saldiri", pozlar: p.saldiri, fps: 14, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 10, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 14, tekrar: 0 }]; } },
     hantal: { w: 270, h: 244, ox: 135, oy: 236, kolon: 7, anim: () => { const p = hantalPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 7, tekrar: -1 }, { ad: "saldiri", pozlar: p.saldiri, fps: 8, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 8, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 11, tekrar: 0 }]; } },
-    kasap: { w: 340, h: 330, ox: 170, oy: 322, kolon: 6, anim: () => { const p = kasapPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 8, tekrar: -1 }, { ad: "vurus", pozlar: p.vurus, fps: 9, tekrar: 0 }, { ad: "hucum", pozlar: p.hucum, fps: 14, tekrar: -1 }, { ad: "kukre", pozlar: p.kukre, fps: 6, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 8, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 9, tekrar: 0 }]; } },
-    dev: { w: 340, h: 330, ox: 170, oy: 322, kolon: 6, anim: () => { const p = devPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 7, tekrar: -1 }, { ad: "vurus", pozlar: p.vurus, fps: 9, tekrar: 0 }, { ad: "firlat", pozlar: p.firlat, fps: 9, tekrar: 0 }, { ad: "kukre", pozlar: p.kukre, fps: 6, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 8, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 9, tekrar: 0 }]; } }
+    kasap: { w: 340, h: 330, ox: 170, oy: 322, kolon: 6, anim: () => { const p = kasapPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 12, tekrar: -1 }, { ad: "vurus", pozlar: p.vurus, fps: 9, tekrar: 0 }, { ad: "hucum", pozlar: p.hucum, fps: 14, tekrar: -1 }, { ad: "kukre", pozlar: p.kukre, fps: 6, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 8, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 9, tekrar: 0 }]; } },
+    dev: { w: 340, h: 330, ox: 170, oy: 322, kolon: 6, anim: () => { const p = devPozlari(); return [{ ad: "yuru", pozlar: p.yuru, fps: 10, tekrar: -1 }, { ad: "vurus", pozlar: p.vurus, fps: 9, tekrar: 0 }, { ad: "firlat", pozlar: p.firlat, fps: 9, tekrar: 0 }, { ad: "kukre", pozlar: p.kukre, fps: 6, tekrar: 0 }, { ad: "hasar", pozlar: p.hasar, fps: 8, tekrar: 0 }, { ad: "olum", pozlar: p.olum, fps: 9, tekrar: 0 }]; } }
   };
 
   SV.KARE = {};   // anahtar -> {w,h,ox,oy}

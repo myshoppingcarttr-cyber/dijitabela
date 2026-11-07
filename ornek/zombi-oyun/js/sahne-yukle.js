@@ -9,7 +9,10 @@
       this.load.on("progress", (v) => SV.yuklemeIlerle(0.1 + v * 0.1, "Görseller"));
     }
     async create() {
-      await SV.Sanat.uret(this, (o, m) => SV.yuklemeIlerle(0.2 + o * 0.8, m));
+      const sesP = SV.Ses.yukle();
+      await SV.Sanat.uret(this, (o, m) => SV.yuklemeIlerle(0.2 + o * 0.7, m));
+      SV.yuklemeIlerle(0.92, "Sesler");
+      await Promise.race([sesP, new Promise((r) => setTimeout(r, 8000))]);
       SV.yuklemeBitti();
       const hedef = SV.parametre("sahne");
       if (SV.GELISTIRICI && SV.Gelistirici) SV.Gelistirici.kur();

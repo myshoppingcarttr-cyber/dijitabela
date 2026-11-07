@@ -86,10 +86,10 @@
     const H = SV.CONFIG.hariciGorseller || {};
     const adimlar = [
       ["Efektler", () => efektler(scene)], ["Eşyalar", () => esyalar(scene)], ["Arayüz", () => ikonlar(scene)], ["Logo", () => logo(scene)],
-      ["Kahraman", () => karakter("kahraman")], ["Aylak", () => karakter("aylak")], ["Aylak 2", () => karakter("aylak2")], ["Koşucu", () => karakter("kosucu")],
+      ["Kahraman", () => karakter("kahraman")], ["Aylak", () => karakter("aylak")], ["Aylak 2", () => karakter("aylak2")], ["Aylak 3", () => karakter("aylak3")], ["Aylak 4", () => karakter("aylak4")], ["Koşucu", () => karakter("kosucu")],
       ["Hantal", () => karakter("hantal")], ["Kasap", () => karakter("kasap")], ["Liman Devi", () => karakter("dev")],
       ["Portreler", () => A.portreUret(scene)], ["Gece mahallesi", () => A.dunyaUret(scene, "gece")], ["Şafak limanı", () => A.dunyaUret(scene, "safak")],
-      ["Dekorlar", () => A.dekorUret(scene)], ["Atmosfer", () => A.ortakUret(scene)]
+      ["Dekorlar", () => A.dekorUret(scene)], ["Zemin ve atmosfer", () => A.ekUret(scene)], ["Atmosfer", () => A.ortakUret(scene)]
     ];
     function karakter(k) { if (H[k] && scene.textures.exists(k)) A.hariciAnimKur(k, H[k]); else A.karakterUret(scene, k); }
     for (let i = 0; i < adimlar.length; i++) {

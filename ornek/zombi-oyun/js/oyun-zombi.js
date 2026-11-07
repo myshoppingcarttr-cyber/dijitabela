@@ -10,7 +10,7 @@
       this.boss = !!boss;
       const def = boss ? boss : SV.VERI.denge.zombiler[tur];
       this.def = def;
-      this.doku = boss ? boss.tur : tur === "aylak" && Math.random() < 0.45 ? "aylak2" : tur;
+      this.doku = boss ? boss.tur : tur === "aylak" ? ["aylak", "aylak2", "aylak3", "aylak4"][(Math.random() * 4) | 0] : tur;
       const K = SV.KARE[this.doku]; this.K = K;
       this.hpMax = Math.round(def.can * zor.zombi_can * (boss ? 1 : 1)); this.hp = this.hpMax;
       this.hiz = (Array.isArray(def.hiz) ? R(def.hiz[0], def.hiz[1]) : def.hiz) * zor.zombi_hiz;
@@ -21,7 +21,8 @@
       this.atilmaBekle = R(0.5, 1.5); this.ozelBekle = boss ? 3 : 0; this.firlatBekle = boss ? 2.5 : 0; this.ofkeli = false;
       this.golge = sc.add.image(x, this.Z + 4 + this.serit, "golge").setDepth(5).setScale((K.w / 200) * 1.15, 1);
       this.spr = sc.add.sprite(x, this.y, this.doku).setDepth(10 + (this.serit + 10) / 100 + (boss ? 0.2 : 0));
-      this.spr.setTint(sc.tema.karakterRengi);
+      this.renk = boss ? sc.tema.karakterRengi : SV.renkCarp(sc.tema.karakterRengi, 0.86 + Math.random() * 0.14);
+      this.spr.setTint(this.renk);
       this.yonAyarla(-1);
       this.oynat("yuru");
       if (boss) { this.durum = "giris"; this.dokunulmaz = true; }
@@ -37,8 +38,9 @@
       if (!this.yasiyor) return false;
       if (this.dokunulmaz) { this.sc.efekt.kan(this.x - yon * 20, this.y - this.boy * 0.6, yon, 1); return false; }
       if (this.durum === "sersem") m *= 1.5;
+      if (this.sc.efekt.kivilcim && Math.random() < 0.5) this.sc.efekt.kivilcim(this.x - yon * this.genislik * 0.4, this.y - this.boy * (0.4 + Math.random() * 0.35), -yon, 3);
       this.hp -= m;
-      this.spr.setTintFill(0xffffff); this.sc.time.delayedCall(45, () => this.spr && this.spr.active && this.spr.setTint(this.ofkeli ? 0xff9a8a : this.sc.tema.karakterRengi));
+      this.spr.setTintFill(0xffffff); this.sc.time.delayedCall(45, () => this.spr && this.spr.active && this.spr.setTint(this.ofkeli ? 0xff9a8a : this.renk));
       const direnc = this.def.geri_itme_direnci ?? (this.boss ? 0.95 : 0);
       this.vx += yon * itme * (1 - direnc);
       this.sc.efekt.kan(this.x - yon * this.genislik * 0.3, kafa ? this.ust + 18 : this.y - this.boy * (0.45 + Math.random() * 0.3), yon, kafa ? 10 : 5, kafa ? 1.2 : 0.9);

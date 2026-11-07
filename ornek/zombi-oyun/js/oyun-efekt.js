@@ -13,6 +13,9 @@
       for (let i = 0; i < 28; i++) this.lekeler.push({ o: sc.add.image(0, 0, "kanLeke").setDepth(3).setVisible(false), aktif: false });
       for (let i = 0; i < 18; i++) this.tozlar.push({ o: sc.add.image(0, 0, "toz").setDepth(19).setVisible(false), aktif: false });
       for (let i = 0; i < 16; i++) { const t = SV.UI.yazi(sc, 0, 0, "", 26, "#fff", { kontur: 5 }).setDepth(36).setVisible(false); this.yazilar.push({ o: t, aktif: false }); }
+      this.kivilcimlar = [];
+      for (let i = 0; i < (this.dusuk ? 20 : 60); i++) this.kivilcimlar.push({ o: sc.add.image(0, 0, "kivilcim").setDepth(24).setBlendMode(ADD()).setVisible(false), aktif: false });
+      this.zeminIsik = sc.add.image(0, 0, "isik").setDepth(-18).setBlendMode(ADD()).setTint(0xffb050).setVisible(false);
       this.izG = sc.add.graphics().setDepth(22).setBlendMode(ADD());
       this.namlu = sc.add.image(0, 0, "namlu").setDepth(23).setBlendMode(ADD()).setVisible(false);
       this.namluIsik = sc.add.image(0, 0, "isik").setDepth(-28).setBlendMode(ADD()).setTint(0xffc070).setVisible(false);
@@ -46,7 +49,17 @@
       this.namlu.setVisible(true).setPosition(x, y).setFlipX(yon < 0).setOrigin(yon > 0 ? 0.06 : 0.94, 0.5).setScale(olcek * (0.8 + Math.random() * 0.4), olcek * (0.7 + Math.random() * 0.6)).setRotation((Math.random() - 0.5) * 0.15);
       this.namluIsik.setVisible(true).setPosition(x, y).setScale(3.2 * olcek).setAlpha(0.55);
       this.namluIsik2.setVisible(true).setPosition(x, y).setScale(0.7 * olcek).setAlpha(0.7);
+      this.zeminIsik.setVisible(true).setPosition(x, this.Z + 4).setScale(3.4 * olcek, 0.5 * olcek).setAlpha(0.55);
+      if (!this.dusuk) this.kivilcim(x, y, yon, 2);
       this.namluSure = 0.05;
+    }
+    kivilcim(x, y, yon, adet = 4) {
+      for (let i = 0; i < adet; i++) {
+        const p = this.al(this.kivilcimlar); if (!p) return;
+        const a = (yon > 0 ? 0 : Math.PI) + (Math.random() - 0.5) * 1.4, h = 250 + Math.random() * 450;
+        p.aktif = true; p.t = 0; p.x = x; p.y = y; p.vx = Math.cos(a) * h; p.vy = Math.sin(a) * h - 120; p.omur = 0.18 + Math.random() * 0.25;
+        p.o.setVisible(true).setPosition(x, y).setAlpha(1).setScale(0.6 + Math.random() * 0.8, 0.6);
+      }
     }
     yazi(x, y, metin, renk = "#ffffff", boyut = 26) {
       const p = this.al(this.yazilar) || this.yazilar[0];
@@ -87,9 +100,10 @@
         p.o.setScale(s).setY(p.y0 - p.t * 55).setAlpha(p.t > 0.7 ? Math.max(0, 1 - (p.t - 0.7) * 3) : 1);
         if (p.t > 1.05) { p.aktif = false; p.o.setVisible(false); }
       }
+      for (const p of this.kivilcimlar) { if (!p.aktif) continue; p.t += dt; p.vy += 1400 * dt; p.x += p.vx * dt; p.y += p.vy * dt; if (p.y > this.Z + 8) { p.y = this.Z + 8; p.vy *= -0.3; p.vx *= 0.5; } p.o.setPosition(p.x, p.y).setRotation(Math.atan2(p.vy, p.vx)).setAlpha(Math.max(0, 1 - p.t / p.omur)); if (p.t > p.omur) { p.aktif = false; p.o.setVisible(false); } }
       this.izG.clear();
       this.izler = this.izler.filter((z) => { z.t += dt; const a = 1 - z.t / 0.07; if (a <= 0) return false; this.izG.lineStyle(z.kalin, z.renk, a * 0.9); this.izG.lineBetween(z.x1, z.y1, z.x2, z.y2); this.izG.lineStyle(z.kalin * 3, z.renk, a * 0.15); this.izG.lineBetween(z.x1, z.y1, z.x2, z.y2); return true; });
-      if (this.namluSure > 0) { this.namluSure -= dt; if (this.namluSure <= 0) { this.namlu.setVisible(false); this.namluIsik.setVisible(false); this.namluIsik2.setVisible(false); } }
+      if (this.namluSure > 0) { this.namluSure -= dt; if (this.namluSure <= 0) { this.namlu.setVisible(false); this.namluIsik.setVisible(false); this.namluIsik2.setVisible(false); this.zeminIsik.setVisible(false); } }
     }
   };
 })();

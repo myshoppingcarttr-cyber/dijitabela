@@ -5,7 +5,7 @@
   const SV = (window.SV = window.SV || {});
 
   SV.CONFIG = {
-    surum: "2.0.0",
+    surum: "2.1.0",
     oyunAdi: "SON VARDİYA",
     altBaslik: "SALGININ İLK GECESİ",
     kayitAnahtari: "sv_zombi_kayit_v2",
@@ -66,6 +66,8 @@
     const dunyaY = Math.round(Math.max(118, Math.min(bos * 0.55, 330)));
     return { W, H, dikey: true, dunyaX: 0, dunyaY, dunyaW: W, dunyaH: E.dunyaYukseklik };
   };
+
+  SV.renkCarp = function (renk, k) { const r = Math.round(((renk >> 16) & 255) * k), g = Math.round(((renk >> 8) & 255) * k), b = Math.round((renk & 255) * k); return (r << 16) | (g << 8) | b; };
 
   SV.parametre = function (ad) {
     try { return new URLSearchParams(location.search).get(ad); } catch (e) { return null; }

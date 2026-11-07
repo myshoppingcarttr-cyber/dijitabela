@@ -18,19 +18,21 @@
       const L = [], ekle = (o) => { o.setScrollFactor(0); L.push(o); return o; };
       const gok = ekle(scene.add.image(0, 0, tema + "_gok").setOrigin(0, 0).setDepth(-100));
       const katmanlar = KATMAN[tema].map((k) => ({ k, o: ekle(scene.add.tileSprite(0, oy + k.y * olcek, w, scene.textures.get(k.ad).getSourceImage().height, k.ad).setOrigin(0, 0).setDepth(k.d).setTileScale(1, 1).setScale(1, olcek).setTint(k.renk || 0xffffff)) }));
+      const bulut = ekle(scene.add.tileSprite(0, oy + (tema === "gece" ? 40 : 120) * olcek, w, 260, tema + "_bulut").setOrigin(0, 0).setDepth(-95).setScale(1, olcek));
+      const onK = ekle(scene.add.tileSprite(0, oy + (720 - (tema === "gece" ? 240 : 200)) * olcek, w, tema === "gece" ? 240 : 200, tema + "_on").setOrigin(0, 0).setDepth(33).setScale(1, olcek).setAlpha(0.92));
       const zH = 150, zemin = ekle(scene.add.tileSprite(0, oy + (ZEMIN() - 30) * olcek, w, zH, tema + "_zemin").setOrigin(0, 0).setDepth(-20).setScale(1, olcek));
       let su = null; if (tema === "safak") su = ekle(scene.add.tileSprite(0, oy + (ZEMIN() + 44) * olcek, w, 80, "safak_su").setOrigin(0, 0).setDepth(-19).setScale(1, olcek));
       const alt = ekle(scene.add.rectangle(0, oy + (ZEMIN() + 120) * olcek, w, 2000, tema === "gece" ? 0x0e1016 : 0x18182c).setOrigin(0, 0).setDepth(-21));
       const nesne = {
-        L, gok, katmanlar, zemin, su,
+        L, gok, katmanlar, zemin, su, bulut, onK,
         boyutla(w2, h2) {
           w = w2; h = h2 || h;
           gok.setDisplaySize(w, Math.max(h, oy + 720 * olcek));
-          katmanlar.forEach(({ o }) => o.setSize(w, o.height)); zemin.setSize(w, zH); if (su) su.setSize(w, 80); alt.setSize(w, 2000);
+          katmanlar.forEach(({ o }) => o.setSize(w, o.height)); zemin.setSize(w, zH); bulut.setSize(w, 260); onK.setSize(w, onK.height); if (su) su.setSize(w, 80); alt.setSize(w, 2000);
         },
         guncelle(sx, t) {
           katmanlar.forEach(({ k, o }) => (o.tilePositionX = sx * k.f));
-          zemin.tilePositionX = sx; if (su) su.tilePositionX = sx + t * 0.018;
+          zemin.tilePositionX = sx; bulut.tilePositionX = sx * 0.03 + t * 0.006; onK.tilePositionX = sx * 1.3; if (su) su.tilePositionX = sx + t * 0.018;
         },
         yokEt() { L.forEach((o) => o.destroy()); }
       };
@@ -53,11 +55,19 @@
         A.damla = scene.add.particles(0, 0, "damla", { x: { min: 0, max: w2 }, y: { min: oy + (ZEMIN() - 20) * olcek, max: oy + (ZEMIN() + 110) * olcek }, lifespan: 260, scale: { start: 0.4, end: 1.4 }, alpha: { start: 0.7, end: 0 }, frequency: 30, quantity: 1 }).setScrollFactor(0).setDepth(-18);
       };
       if (T.yagmur && !dusuk) yagmurKur(w);
+      A.renk = scene.add.image(0, oy, "renk_" + tema).setOrigin(0, 0).setScrollFactor(0).setDepth(38).setDisplaySize(w, 720 * olcek);
+      const zerreKur = (w2) => {
+        if (A.zerre) A.zerre.destroy(); if (dusuk) return;
+        A.zerre = scene.add.particles(0, 0, "zerre", { x: { min: 0, max: w2 }, y: { min: oy + 160 * olcek, max: oy + 600 * olcek }, lifespan: 6000, speedX: { min: -12, max: 12 }, speedY: { min: -14, max: 4 }, scale: { start: 0.18, end: 0.05 }, alpha: { onEmit: () => 0, onUpdate: (p, k, t) => Math.sin(t * Math.PI) * 0.55 }, frequency: 220, blendMode: "ADD", tint: tema === "gece" ? 0xffd8a0 : 0xfff0d0 }).setScrollFactor(0).setDepth(31);
+      };
+      zerreKur(w);
       A.vinyet = scene.add.image(0, oy, "vinyet").setOrigin(0, 0).setScrollFactor(0).setDepth(40).setDisplaySize(w, 720 * olcek).setAlpha(tema === "gece" ? 0.95 : 0.6);
+      A.isinlar = [];
+      if (tema === "safak" && !dusuk) [0.12, 0.3, 0.52].forEach((fx, i) => { const r = scene.add.image(w * fx, oy - 40 * olcek, "lambaKoni").setOrigin(0.5, 0).setScrollFactor(0).setDepth(37).setBlendMode(Phaser.BlendModes.ADD).setTint(0xffc890).setAlpha(0.07 + i * 0.015).setRotation(-0.42).setScale(1.6 + i * 0.4, 2.2 * olcek); A.isinlar.push(r); scene.tweens.add({ targets: r, alpha: r.alpha * 0.45, duration: 3000 + i * 900, yoyo: true, repeat: -1, ease: "Sine.inOut" }); });
       if (tema === "safak") A.gunes = scene.add.image(w * 0.18, oy + 120 * olcek, "isik").setScrollFactor(0).setDepth(39).setBlendMode(Phaser.BlendModes.ADD).setTint(0xffb46a).setAlpha(0.28).setScale(6 * olcek, 3.2 * olcek);
-      A.boyutla = (w2) => { A.w = w2; A.sis.forEach(({ o }) => o.setSize(w2, 300)); if (A.yagmur) yagmurKur(w2); A.vinyet.setDisplaySize(w2, 720 * olcek); };
+      A.boyutla = (w2) => { A.w = w2; A.renk.setDisplaySize(w2, 720 * olcek); zerreKur(w2); A.sis.forEach(({ o }) => o.setSize(w2, 300)); if (A.yagmur) yagmurKur(w2); A.vinyet.setDisplaySize(w2, 720 * olcek); };
       A.guncelle = (sx, t) => { A.sis.forEach(({ o, s }) => (o.tilePositionX = sx * s.f + (t / 1000) * s.hz)); };
-      A.yokEt = () => { A.sis.forEach(({ o }) => o.destroy()); A.yagmur && A.yagmur.destroy(); A.damla && A.damla.destroy(); A.vinyet.destroy(); A.gunes && A.gunes.destroy(); };
+      A.yokEt = () => { A.renk.destroy(); A.isinlar.forEach((o) => o.destroy()); A.zerre && A.zerre.destroy(); A.sis.forEach(({ o }) => o.destroy()); A.yagmur && A.yagmur.destroy(); A.damla && A.damla.destroy(); A.vinyet.destroy(); A.gunes && A.gunes.destroy(); };
       return A;
     },
 
@@ -98,7 +108,7 @@
         const x = d.x;
         if (d.tur === "ambulans") { resim("ambulans", x + 150, Z - 6, -12); const l1 = isik(x + 70, Z - 170, 0xff8a1a, 0.6, 0.0, -11), l2 = isik(x + 110, Z - 170, 0x3a6bff, 0.6, 0, -11); sonuc.yanip.push({ o: [l1, l2], h: 2.2 }); sonuc.duman.push({ x: x + 330, y: Z - 90, renk: 0x333333 }); }
         if (d.tur === "polis") { resim("polis", x, Z - 6, -12); const l1 = isik(x - 5, Z - 128, 0xff2a2a, 0.9, 0, -11), l2 = isik(x + 30, Z - 128, 0x2a5bff, 0.9, 0, -11); sonuc.yanip.push({ o: [l1, l2], h: 3.4 }); isik(x, Z - 60, 0x4a6bff, 3.2, 0.12, -31, 0.5); }
-        if (d.tur === "otobus") { resim("otobus", x, Z - 6, -13); const a = isik(x, Z - 120, 0xff6a1a, 2.6, 0.45, -11, 0.5); sonuc.titreyen.push([a]); sonuc.duman.push({ x: x - 80, y: Z - 200, renk: 0x222222 }); sonuc.duman.push({ x: x + 120, y: Z - 200, renk: 0x2a2a2a }); }
+        if (d.tur === "otobus") { resim("otobus", x, Z - 6, -13); const a = isik(x, Z - 120, 0xff6a1a, 2.6, 0.45, -11, 0.5); sonuc.titreyen.push([a]); sonuc.duman.push({ x: x - 80, y: Z - 200, renk: 0x222222 }); if (SV.Kayit.ayar.grafik !== "dusuk") scene.add.particles(x, Z - 110, "kivilcim", { x: { min: -220, max: 220 }, lifespan: 2600, speedY: { min: -90, max: -40 }, speedX: { min: -30, max: 20 }, scale: { start: 0.7, end: 0.2 }, alpha: { start: 1, end: 0 }, rotate: { min: -90, max: -60 }, tint: [0xffb040, 0xff7020, 0xffe080], blendMode: "ADD", frequency: 90 }).setDepth(-11); sonuc.duman.push({ x: x + 120, y: Z - 200, renk: 0x2a2a2a }); }
         if (d.tur === "bariyer") { resim("bariyer", x, Z - 8, -11); resim("bariyer", x + 190, Z - 8, -11); }
         if (d.tur === "eczane") { resim("eczane", x, Z - 22, -45); const n = isik(x - 200, Z - 22 - 168, 0xff2a3a, 1.4, 0.5, -30); sonuc.titreyen.push([n]); isik(x + 80, Z - 60, 0x9affd8, 2.2, 0.16, -30, 0.6); }
         if (d.tur === "metro") { resim("metro", x, Z - 22, -45); isik(x, Z - 90, 0xffb050, 3.4, 0.4, -30, 0.6); }

@@ -1,27 +1,50 @@
-SON VARDİYA — Varlık ve lisans dökümü
-=====================================
+SON VARDİYA — Varlık ve lisans dökümü (v2.1, 7 Kasım 2026)
+==========================================================
 
-1) GÖRSELLER (karakterler, zombiler, bosslar, arka planlar, dekorlar, efektler, portreler, logo, ikonlar)
-   Tamamı bu proje için özgün olarak, kod ile (HTML5 Canvas) yordamsal çizilmiştir: js/sanat-karakter.js,
-   js/sanat-dunya.js, js/sanat-efekt.js. Dışarıdan hiçbir görsel dosya kullanılmamıştır.
-   Hak sahibi: Dijitabela (prototip). Müşteriye teslimde haklar sözleşmeye göre devredilir.
+1) GÖRSELLER
+   Karakterler, zombiler, bosslar, arka planlar, dekorlar, efektler, portreler, logo ve ikonlar bu proje için
+   özgün olarak kod ile (HTML5 Canvas) çizilir: js/sanat-karakter.js, js/sanat-dunya.js, js/sanat-efekt.js.
+   Dışarıdan görsel dosya kullanılmamıştır. Hak sahibi: Dijitabela (prototip).
 
-2) SESLER ve MÜZİK
-   Tamamı Web Audio API ile gerçek zamanlı sentezlenir (js/ses.js). Ses dosyası, örnek (sample)
-   ya da üçüncü taraf kayıt kullanılmamıştır. Hak sahibi: Dijitabela (prototip).
+2) SESLER — tümü CC0 1.0 (kamu malı adanmışlığı). Lisans her dosya için kaynak sayfasında doğrulandı (7 Kasım 2026).
+   Dosyalar assets/ses/ altında; her biri .ogg (birincil) + .mp3 (Safari yedeği). İşleme: ffmpeg ile kesme,
+   mono, 44,1 kHz, tepe -3 dBFS normalize + sınırlayıcı (gerçek tepe < -1 dBFS, kırpma 0); müzik -18 LUFS.
 
-3) YAZI TİPLERİ (Google Fonts üzerinden yüklenir, dosya olarak pakette yoktur)
-   - Oswald — SIL Open Font License 1.1 — https://fonts.google.com/specimen/Oswald
-   - Barlow — SIL Open Font License 1.1 — https://fonts.google.com/specimen/Barlow
-   OFL metni: https://openfontlicense.org/open-font-license-official-text/
+   Oyun dosyası                      Kaynak (CC0)
+   ------------------------------------------------------------------------------------------------
+   tabanca                            "Gunshots" — kurt — 22 Pistol.wav
+                                      https://opengameart.org/content/gunshots
+   tufek                              "Gunshots" — kurt — 22 Magnum.wav (aynı sayfa)
+   pompali, patlama                   "Gunshots" — kurt — Unkown.wav (aynı sayfa; pompalı için perde/EQ, patlama için yavaşlatma)
+   doldurTabanca                      "Handgun Reload Sound Effect" — zer0_sol — reload.wav
+                                      https://opengameart.org/content/handgun-reload-sound-effect
+   doldurTufek, pompa                 "Gun reload sounds" — SpringySpringo — assaultriflereload1.wav, shotguncock.wav
+                                      https://opengameart.org/content/gun-reload-sounds
+   inilti1, inilti2, inilti3, ciglik  "Zombie moans" — Darsycho — darsycho__zombie-moans.ogg (bölümlere ayrıldı)
+                                      https://opengameart.org/content/zombie-moans
+   kukreme (boss)                     "CC0 Deep Monster Roar" — trazzz123 — monster_roar.wav
+                                      https://opengameart.org/content/cc0-deep-monster-roar
+   isabet, isabet2, kafa, hasar,      Kenney "Impact Sounds" (impactPunch_*, impactSoft_*, footstep_concrete_*,
+   gumburtu, adim, adim2, kovan,      impactMetal_*, impactGeneric_light_000)
+   bos, kapi                          https://kenney.nl/assets/impact-sounds
+   tiklama, onay, topla, telsiz,      Kenney "Interface Sounds" (click_001, confirmation_001/002, switch_002, maximize_006)
+   yildiz                             https://kenney.nl/assets/interface-sounds
+   muzikOyun                          "Zombies' March" — yd — ZombiesAreComing.ogg (81,97 sn kesintisiz döngü)
+                                      https://opengameart.org/content/zombies-march
+   muzikMenu                          "Abandoned passages (horror ambience loop)" — congusbongus — freezer.ogg
+                                      https://opengameart.org/content/abandoned-passages-horror-ambience-loop
+   yagmur                             "Rain (loopable)" — Ylmir — Rain OGG 1.ogg (4,5 kHz alçak geçiren, -32 LUFS, çok kısık)
+                                      https://opengameart.org/content/rain-loopable
+
+   Not: OpenGameArt "Gunshot Sounds" (Tabasco) paketi kullanılmadı; sayfası CC0 dese de paket içindeki metin CC-BY 3.0 diyor.
+
+3) YAZI TİPLERİ (Google Fonts üzerinden yüklenir)
+   Oswald, Barlow — SIL Open Font License 1.1 — https://openfontlicense.org/open-font-license-official-text/
 
 4) OYUN MOTORU
-   - Phaser 3.80.1 — MIT Lisansı — https://github.com/phaserjs/phaser/blob/master/LICENSE.md
-     (cdn.jsdelivr.net üzerinden, yedek: cdnjs.cloudflare.com; SRI bütünlük özetiyle yüklenir)
+   Phaser 3.80.1 — MIT Lisansı — https://github.com/phaserjs/phaser/blob/master/LICENSE.md (SRI özetiyle yüklenir)
 
 5) MÜŞTERİ GÖRSELLERİ
-   assets/musteri/ klasörüne konacak sprite sheet'ler müşteriye aittir; README.md'deki
-   "Kendi tasarımlarınızı takmak" bölümüne göre bağlanır.
+   assets/musteri/ klasörüne konacak sprite sheet'ler müşteriye aittir (README.md).
 
-İsimler (Son Vardiya, Aras, Dr. Selin, Kaptan Yusuf, Yelkovan Mahallesi, Umut teknesi, Kasap, Liman Devi)
-ve hikâye bu prototip için özgün olarak yazılmıştır; mevcut bir oyunun kopyası değildir.
+İsimler ve hikâye bu prototip için özgün olarak yazılmıştır; mevcut bir oyunun kopyası değildir.

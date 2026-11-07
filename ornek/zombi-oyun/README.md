@@ -17,7 +17,7 @@ veri/
 js/
   config.js             ekran yerleşimi, renk temaları (gece/şafak), kontrol boyutu, ses seviyesi, MÜŞTERİ GÖRSELLERİ
   kayit.js              ilerleme + ayar kaydı
-  ses.js                sentezlenmiş ses efektleri + müzik (dosyasız)
+  ses.js                ses motoru: assets/ses/ CC0 dosyalarını çalar (müzik/efekt/ortam kanalları)
   sanat-karakter.js     iskelet tabanlı karakter çizimi ve tüm animasyon kareleri, portreler
   sanat-dunya.js        paralaks katmanlar, dekorlar, hikâye sahnesi
   sanat-efekt.js        efekt/ikon/logo dokuları + üretim sırası
@@ -28,7 +28,8 @@ js/
   sahne-*.js            Yükleme, Menü, Hikâye, Oyun, Arayüz (HUD + dokunmatik), Sonuç
   gelistirici.js        ?gelistirici=1 paneli
 assets/
-  LISANS.txt            varlık ve lisans dökümü
+  LISANS.txt            varlık ve lisans dökümü (her ses dosyasının CC0 kaynağı)
+  ses/                  CC0 sesler, .ogg + .mp3 yedek (~2,2 MB toplam)
   musteri/              müşterinin kendi sprite sheet'leri buraya
 ```
 
@@ -91,12 +92,12 @@ Arka planlar da aynı yolla değiştirilebilir: `gece_gok`, `gece_yakin`, `safak
 
 ## Performans
 
-- Toplam indirme: Phaser ~1.2 MB (CDN) + oyun kodu ~170 KB + yazı tipleri. Görsel ve ses dosyası yok.
+- Toplam indirme: Phaser ~1.2 MB (CDN) + oyun kodu ~180 KB + sesler ~1,1 MB (tarayıcı yalnız ogg ya da mp3'ü indirir) + yazı tipleri.
 - Tüm dokular yüklemede bir kez üretilir (orta segment Android'de ~1–2 sn), oyun sırasında çizim yapılmaz.
 - Kan, kovan, toz, yazı efektleri havuzludur (sürekli nesne oluşturulmaz). Ayarlar > Grafik: Düşük → yağmur ve ön sis kapanır.
 
 ## Bilinen sınırlar (prototip)
 
-- Ses efektleri sentezdir; yayın sürümünde stüdyo/CC0 ses paketleriyle değiştirilmesi önerilir (`js/ses.js` tek noktadan).
+- Sesler CC0 kaynaklıdır (assets/LISANS.txt). Ses değiştirmek: aynı adla assets/ses/ içine .ogg + .mp3 koymak yeterli; düzeyler js/ses.js > HARITA.
 - Android mağaza paketi için Capacitor/Cordova sarmalayıcısı ve yerel titreşim/reklam/IAP entegrasyonu bu prototipte yok.
 - Bölümler tek yönlü (soldan sağa); platform/merdiven gibi dikey hareket yok.

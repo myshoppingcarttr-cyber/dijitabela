@@ -27,6 +27,7 @@
       if (this.oyun && this.oyun.scene.isPaused()) this.duraklatGoster(true);
       if (this.oyun && this.oyun.bolgeNo === 0 && this.oyun.B.id === "b1" && !this.dokunmatik) this.time.delayedCall(600, () => this.klavyeIpucu());
       if (this.dokunmatik && this.oyun && this.oyun.bolgeNo === 0) this.time.delayedCall(600, () => this.dokunmaIpucu());
+      if (this.oyun && this.oyun.bolgeNo === 0 && !(this.oyun.veri && this.oyun.veri.kayit)) this.bolumKarti();
     }
     yeniden() { this.scene.restart({ oyun: this.oyun }); }
 
@@ -35,6 +36,11 @@
       const Y = SV.Y, W = Y.W, dik = Y.dikey;
       const ust = dik ? 26 : 18, sol = 22;
       this.hud = this.add.container(0, 0).setDepth(10);
+      const pl = this.add.graphics().setDepth(9), W2 = SV.Y.W;
+      const plaka = (x, y, w, h) => { pl.fillStyle(0x05070b, 0.5); pl.fillRoundedRect(x, y, w, h, 14); pl.lineStyle(1, 0xefe9dc, 0.12); pl.strokeRoundedRect(x, y, w, h, 14); pl.fillStyle(0xf2c14e, 0.85); pl.fillRect(x + 14, y, 46, 2); };
+      plaka(10, ust - 8, (dik ? 300 : 280) + 100, 104);
+      plaka(W2 - 250, ust - 8, 176, dik ? 104 : 104);
+      if (!dik) { pl.fillStyle(0x05070b, 0.42); pl.fillRoundedRect(W2 / 2 - 240, ust - 8, 480, 74, 14); pl.fillStyle(0xf2c14e, 0.85); pl.fillRect(W2 / 2 - 23, ust - 8, 46, 2); }
       // can
       this.add.image(sol + 16, ust + 16, "ikon_kalp").setDisplaySize(30, 30).setTint(0xe5484d).setDepth(10);
       this.canG = this.add.graphics().setDepth(10);
@@ -176,7 +182,20 @@
       k.setAlpha(0).setScale(1, 0.4);
       this.tweens.add({ targets: k, alpha: 1, scaleY: 1, duration: 220, ease: "Back.out", hold: 1600, yoyo: true, onComplete: () => k.destroy() });
     }
-    gorevAfis(ad, gorev) { this.afis(ad.toLocaleUpperCase("tr-TR"), "Görev: " + gorev); }
+    bolumKarti() {
+      const Y = SV.Y, B = this.oyun.B, W = Y.W, cy = Y.dunyaY + 300, k = this.add.container(0, 0).setDepth(60);
+      const no = SV.VERI.bolumler.bolumler.indexOf(B) + 1;
+      const perde = this.add.rectangle(0, Y.dunyaY, W, 720, 0x000000, 0.55).setOrigin(0, 0);
+      const ust = SV.UI.yazi(this, W / 2, cy - 70, "B Ö L Ü M   " + no, 22, "#f2c14e", { harf: 2 });
+      const ad = SV.UI.yazi(this, W / 2, cy, B.ad.toLocaleUpperCase("tr-TR"), Y.dikey ? 62 : 84, "#efe3c3", { kontur: 8 });
+      const cizgi = this.add.rectangle(W / 2, cy + 56, Math.min(520, W * 0.5), 3, 0xf2c14e).setScale(0.02, 1);
+      const alt = SV.UI.yazi(this, W / 2, cy + 88, B.alt_baslik, 22, "#c9c2b0", { govde: true });
+      k.add([perde, ust, ad, cizgi, alt]);
+      [ust, ad, alt].forEach((o, i) => { o.setAlpha(0); this.tweens.add({ targets: o, alpha: 1, y: { from: o.y + 18, to: o.y }, delay: 150 + i * 160, duration: 600, ease: "Cubic.out" }); });
+      this.tweens.add({ targets: cizgi, scaleX: 1, delay: 300, duration: 800, ease: "Cubic.out" }); this.kartAktif = true;
+      this.time.delayedCall(3000, () => this.tweens.add({ targets: [perde, ust, ad, cizgi, alt], alpha: 0, duration: 700 })); this.time.delayedCall(3750, () => { k.destroy(); this.kartAktif = false; const b = this.bekleyenAfis; this.bekleyenAfis = null; if (b) this.gorevAfis(b[0], b[1]); });
+    }
+    gorevAfis(ad, gorev) { if (this.kartAktif) { this.bekleyenAfis = [ad, gorev]; return; } this.afis(ad.toLocaleUpperCase("tr-TR"), "Görev: " + gorev); }
     bossAfis(ad, unvan) {
       const Y = SV.Y, W = Y.W, k = this.add.container(0, 0).setDepth(31);
       const ust = this.add.rectangle(0, Y.dunyaY, W, 0, 0x000000).setOrigin(0, 0), alt = this.add.rectangle(0, Y.dunyaY + 720, W, 0, 0x000000).setOrigin(0, 1);

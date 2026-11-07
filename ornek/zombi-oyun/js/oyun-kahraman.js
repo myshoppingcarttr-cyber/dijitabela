@@ -46,8 +46,8 @@
     doldur() {
       const m = this.mermi, W = this.W;
       if (this.doldurmaKalan > 0 || m.sarjor >= W.sarjor || m.yedek === 0) return;
-      this.doldurmaKalan = W.doldurma_suresi; SV.Ses.cal("sarjorCikar");
-      this.sc.time.delayedCall(W.doldurma_suresi * 650, () => this.doldurmaKalan > 0 && SV.Ses.cal("sarjorTak"));
+      this.doldurmaKalan = W.doldurma_suresi; SV.Ses.cal("doldur_" + this.aktif);
+      if (this.aktif === "pompali") this.sc.time.delayedCall(W.doldurma_suresi * 550, () => this.doldurmaKalan > 0 && SV.Ses.cal("doldur_pompali"));
     }
     namluNoktasi() { const n = SV.NAMLU[this.aktif] || { x: 60, y: 106 }; return { x: this.x + this.yon * (n.x - this.tepme), y: this.y - n.y }; }
 
