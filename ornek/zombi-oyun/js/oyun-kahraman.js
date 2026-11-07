@@ -55,7 +55,7 @@
       if (this.olu || this.dokunulmaz > 0 || SV.gelistirici.olumsuz) return false;
       this.can = Math.max(0, this.can - miktar); this.dokunulmaz = this.D.hasar_sonrasi_dokunulmazlik; this.hasarAnim = 0.28;
       this.vx = kaynakYon * this.D.geri_itme; if (this.yerde) { this.vy = -220; this.yerde = false; }
-      this.spr.setTintFill(0xff4040); this.sc.time.delayedCall(70, () => !this.olu && this.spr.setTint(this.tema.karakterRengi));
+      this.spr.setTintFill(0xff4040); this.sc.time.delayedCall(70, () => this.spr.active && this.spr.setTint(this.tema.karakterRengi));
       SV.Ses.cal("hasar"); if (SV.Kayit.ayar.titresim && navigator.vibrate) try { navigator.vibrate(40); } catch (e) {}
       this.sc.cameras.main.shake(140, 0.006);
       this.sc.efekt.kan(this.x, this.y - 100, -kaynakYon, 6);

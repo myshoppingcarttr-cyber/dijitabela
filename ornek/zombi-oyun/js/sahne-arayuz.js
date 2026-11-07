@@ -145,13 +145,13 @@
         if (p.wasTouch && !this.dokunmatik) { this.dokunmatik = true; this.kontrol.setVisible(true); }
         if (this.dokunmatik && p.wasTouch !== false) {
           const k = enYakin(p);
-          if (k) { const b = this.dugmeler[k]; b.id = p.id; b.basili = true; b.taban.setScale(b.taban.scaleX * 0.92); b.taban.setAlpha(1); if (k === "ates") SV.dokunma.ates = true; else SV.dokunma[k] = true; return; }
+          if (k) { const b = this.dugmeler[k]; b.id = p.id; b.basili = true; b.taban.setScale(b.taban.scaleX * 0.92); b.taban.setAlpha(1); if (k === "ates") { SV.dokunma.ates = true; SV.dokunma.atesTik = performance.now(); } else SV.dokunma[k] = true; return; }
           if (solYari(p) && this.joy.id === null) { this.joy.id = p.id; this.joy.x = p.x; this.joy.y = p.y; this.joyTaban.setPosition(p.x, p.y).setAlpha(0.85); this.joyTop.setPosition(p.x, p.y); return; }
           if (p.wasTouch) return;
         }
         // fare: ateş
         if (p.y < 80 && p.x > SV.Y.W - 90) return;
-        SV.fare.ates = true; this.fareX(p);
+        SV.fare.ates = true; SV.fare.tik = performance.now(); this.fareX(p);
       });
       this.input.on("pointermove", (p) => {
         if (this.joy.id === p.id) { const dx = p.x - this.joy.x, dy = p.y - this.joy.y, L = Math.hypot(dx, dy), m = Math.min(L, this.joy.r); this.joyTop.setPosition(this.joy.x + (dx / (L || 1)) * m, this.joy.y + (dy / (L || 1)) * m); SV.dokunma.x = Phaser.Math.Clamp(dx / (this.joy.r * 0.7), -1, 1); if (Math.abs(SV.dokunma.x) < 0.15) SV.dokunma.x = 0; if (dy < -this.joy.r * 0.75 && !this.joyZipla) { SV.dokunma.zipla = true; this.joyZipla = true; } if (dy > -this.joy.r * 0.4) this.joyZipla = false; }

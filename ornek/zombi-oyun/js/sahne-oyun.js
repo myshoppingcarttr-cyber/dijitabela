@@ -258,9 +258,9 @@
       const T = this.tus, Dk = SV.dokunma, F = SV.fare, J = Phaser.Input.Keyboard.JustDown;
       let x = (T.sag.isDown || T.sag2.isDown ? 1 : 0) - (T.sol.isDown || T.sol2.isDown ? 1 : 0);
       if (Math.abs(Dk.x) > Math.abs(x)) x = Dk.x;
-      const fareAtes = F.ates;
+      const simdi = performance.now(), fareAtes = F.ates || (F.tik && simdi - F.tik < 200);
       const G = {
-        x, ates: T.ates.isDown || T.ates2.isDown || Dk.ates || fareAtes,
+        x, ates: T.ates.isDown || T.ates2.isDown || Dk.ates || (Dk.atesTik && simdi - Dk.atesTik < 200) || fareAtes,
         nisanYon: fareAtes && F.dunyaX !== null ? (F.dunyaX >= this.kahraman.x ? 1 : -1) : null,
         zipla: J(T.z1) || J(T.z2) || J(T.z3) || Dk.zipla, doldur: J(T.doldur) || Dk.doldur, degis: J(T.degis) || J(T.degis2) || Dk.degis,
         silahNo: J(T.s1) ? 0 : J(T.s2) ? 1 : J(T.s3) ? 2 : null
