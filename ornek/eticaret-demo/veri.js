@@ -39,7 +39,7 @@
     sepetKaydet: function (x) { yaz(ANAHTAR.sepet, x); try { window.dispatchEvent(new Event("sepet")); } catch (e) {} },
     sifirla: function () { try { localStorage.removeItem(ANAHTAR.urun); localStorage.removeItem(ANAHTAR.sip); localStorage.removeItem(ANAHTAR.sepet); } catch (e) {} },
     tl: function (n) { return n.toLocaleString("tr-TR", { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + " TL"; },
-    gorsel: function (id) { return KOK + "img/" + id + ".jpg"; },
+    gorsel: function (id) { var u = V.urun(id); return KOK + "img/" + ((u && u.gorselId) || id) + ".jpg"; },
     toplam: function (kalem, kupon) {
       var ara = 0; kalem.forEach(function (k) { var u = V.urun(k[0]); if (u) ara += u.secenek[k[1]][1] * k[2]; });
       var ind = kupon === "DEMO10" ? Math.round(ara * 0.1) : 0;

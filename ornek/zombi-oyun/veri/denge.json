@@ -32,12 +32,12 @@
   },
   "zombiler": {
     "aylak": {
-      "ad": "Aylak", "can": 60, "hiz": [46, 70], "hasar": 10, "menzil": 72,
+      "ad": "Aylak", "can": 72, "hiz": [46, 70], "hasar": 10, "menzil": 72,
       "saldiri_aralik": 1.25, "saldiri_vurus_ani": 0.42, "sersemleme_esigi": 14, "geri_itme_direnci": 0.0,
       "puan": 100, "boy": 1.0, "isabet_genislik": 34, "isabet_yukseklik": 140
     },
     "kosucu": {
-      "ad": "Koşucu", "can": 45, "hiz": [205, 250], "hasar": 8, "menzil": 66,
+      "ad": "Koşucu", "can": 50, "hiz": [205, 250], "hasar": 8, "menzil": 66,
       "saldiri_aralik": 0.85, "saldiri_vurus_ani": 0.25, "sersemleme_esigi": 10, "geri_itme_direnci": 0.0,
       "atilma_mesafe": 290, "atilma_hiz": 600, "atilma_bekleme": 2.2,
       "puan": 150, "boy": 0.95, "isabet_genislik": 30, "isabet_yukseklik": 125

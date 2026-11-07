@@ -1,0 +1,27 @@
+SON VARDİYA — Varlık ve lisans dökümü
+=====================================
+
+1) GÖRSELLER (karakterler, zombiler, bosslar, arka planlar, dekorlar, efektler, portreler, logo, ikonlar)
+   Tamamı bu proje için özgün olarak, kod ile (HTML5 Canvas) yordamsal çizilmiştir: js/sanat-karakter.js,
+   js/sanat-dunya.js, js/sanat-efekt.js. Dışarıdan hiçbir görsel dosya kullanılmamıştır.
+   Hak sahibi: Dijitabela (prototip). Müşteriye teslimde haklar sözleşmeye göre devredilir.
+
+2) SESLER ve MÜZİK
+   Tamamı Web Audio API ile gerçek zamanlı sentezlenir (js/ses.js). Ses dosyası, örnek (sample)
+   ya da üçüncü taraf kayıt kullanılmamıştır. Hak sahibi: Dijitabela (prototip).
+
+3) YAZI TİPLERİ (Google Fonts üzerinden yüklenir, dosya olarak pakette yoktur)
+   - Oswald — SIL Open Font License 1.1 — https://fonts.google.com/specimen/Oswald
+   - Barlow — SIL Open Font License 1.1 — https://fonts.google.com/specimen/Barlow
+   OFL metni: https://openfontlicense.org/open-font-license-official-text/
+
+4) OYUN MOTORU
+   - Phaser 3.80.1 — MIT Lisansı — https://github.com/phaserjs/phaser/blob/master/LICENSE.md
+     (cdn.jsdelivr.net üzerinden, yedek: cdnjs.cloudflare.com; SRI bütünlük özetiyle yüklenir)
+
+5) MÜŞTERİ GÖRSELLERİ
+   assets/musteri/ klasörüne konacak sprite sheet'ler müşteriye aittir; README.md'deki
+   "Kendi tasarımlarınızı takmak" bölümüne göre bağlanır.
+
+İsimler (Son Vardiya, Aras, Dr. Selin, Kaptan Yusuf, Yelkovan Mahallesi, Umut teknesi, Kasap, Liman Devi)
+ve hikâye bu prototip için özgün olarak yazılmıştır; mevcut bir oyunun kopyası değildir.
