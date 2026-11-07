@@ -412,3 +412,17 @@ body{background:var(--kagit)}
 .hizmet .yasal-bas .v-dugmeler{margin-top:22px}
 .hizmet .b-ozet{max-width:68ch}
 @media(max-width:900px){.mg-g{grid-template-columns:1fr;gap:36px}.mg-tel{justify-self:center;width:240px}.mg-ekranlar{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.mg-ekranlar img{scroll-snap-align:start}}
+
+/* 7 Kas (tur 2, gerçek iPhone testi) · yalnız telefonda (≤768px) hizmet sayfaları (main.hizmet). Masaüstü değişmez.
+   1) Ana CTA'lar Safari alt çubuğu düşülmüş ilk ekranda tam görünsün: düğmeler giriş paragrafının ÜSTÜNE (yalnız görsel sıra).
+   2) Sağ alttaki yüzen düğmeler (✦ asistan + WhatsApp) metin satırlarını kapatmasın: düğmeler 48px'e iner, içerik sağdan
+      düğme şeridi kadar (10+48+6=64px) boşluk bırakır. */
+@media(max-width:768px){
+  .hizmet .b-bas{display:flex;flex-direction:column;padding-top:32px}
+  .hizmet .b-bas>.b-ozet{order:2}
+  .hizmet .yasal-bas .v-dugmeler{order:1;margin:4px 0 26px}
+  .hizmet .wrap,.hizmet .b-duzen,body:has(main.hizmet) .ftr .wrap{padding-right:64px}
+  .hizmet .b-duzen{grid-template-columns:minmax(0,1fr)}   /* geniş tablo (hangi-hizmet) sütunu taşırıp sayfayı 411px'e genişletiyordu */
+  body:has(main.hizmet) .wa-f{width:48px;height:48px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+  body:has(main.hizmet) .dja-d{width:48px;height:48px;right:10px;bottom:calc(66px + env(safe-area-inset-bottom,0px));font-size:21px}
+}
