@@ -263,5 +263,6 @@ tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--cizgi)}
   sb.auth.getSession().then(function (r) { if (r.data.session) { basladi = true; $("yuk").hidden = true; basla(); } else girisGoster(); }).catch(function (e) { girisGoster("Oturum okunamadı: " + e.message); });
   sb.auth.onAuthStateChange(function (e, ses) { if (ses && !basladi) { basladi = true; $("yuk").hidden = true; basla(); } });
 })();
-</script></body>
+</script>
+</body>
 </html>

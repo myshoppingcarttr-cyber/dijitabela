@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Son Sığınak · 2D Zombi Oyunu Prototipi</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#0d1110;--ink:#e9f1ea;--acc:#7cff6b;--red:#ff4d4d}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none}
+canvas{display:block;width:100vw;height:100vh}
+#hud{position:fixed;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;font-weight:700;font-size:15px;pointer-events:none;text-shadow:0 1px 3px #000}
+#bar{width:120px;height:10px;background:#333;border-radius:6px;overflow:hidden;margin-top:4px}
+#hp{height:100%;width:100%;background:var(--acc);transition:width .15s}
+#ekran{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(5,8,7,.86);text-align:center;padding:24px}
+#ekran h1{font-size:34px;letter-spacing:2px;color:var(--acc)}
+#ekran p{max-width:420px;opacity:.85;line-height:1.5}
+#ekran button{font:inherit;font-weight:800;font-size:18px;padding:14px 34px;border:0;border-radius:12px;background:var(--acc);color:#0d1110;cursor:pointer}
+#imza{position:fixed;bottom:8px;right:10px;font-size:11px;opacity:.45;pointer-events:none}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud"><div>Can<div id="bar"><div id="hp"></div></div></div><div id="dalga">Dalga 1</div><div id="skor">Skor 0</div></div>
+<div id="ekran">
+  <h1>SON SIĞINAK</h1>
+  <p>Zombiler sığınağa yürüyor. Telefonda sol başparmakla sürükleyerek hareket et, silah en yakın zombiye otomatik ateş eder. Bilgisayarda WASD / ok tuşları. Her dalgada zombiler hızlanır; yeşil kutular canı doldurur.</p>
+  <button id="basla">Oyna</button>
+</div>
+<div id="imza">Prototip · Dijitabela</div>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d');
+let W,H,dpr;function boyut(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}addEventListener('resize',boyut);boyut();
+const $=id=>document.getElementById(id);
+let oy,zombi,mermi,kutu,parca,skor,dalga,dalgaKalan,sonAtes,canli,zaman,sars;
+const tus={};addEventListener('keydown',e=>tus[e.key.toLowerCase()]=1);addEventListener('keyup',e=>tus[e.key.toLowerCase()]=0);
+let joy=null;
+c.addEventListener('pointerdown',e=>{joy={ox:e.clientX,oy:e.clientY,x:e.clientX,y:e.clientY,id:e.pointerId}});
+c.addEventListener('pointermove',e=>{if(joy&&e.pointerId===joy.id){joy.x=e.clientX;joy.y=e.clientY}});
+const birak=e=>{if(joy&&e.pointerId===joy.id)joy=null};c.addEventListener('pointerup',birak);c.addEventListener('pointercancel',birak);
+function sifirla(){oy={x:W/2,y:H/2,r:14,can:100,hiz:210,yon:0};zombi=[];mermi=[];kutu=[];parca=[];skor=0;dalga=0;sonAtes=0;zaman=0;sars=0;sonrakiDalga()}
+function sonrakiDalga(){dalga++;dalgaKalan=6+dalga*4;$('dalga').textContent='Dalga '+dalga}
+function zombiDogur(){const k=Math.random()*4|0,m=40;let zx,zy;if(k==0){zx=-m;zy=Math.random()*H}else if(k==1){zx=W+m;zy=Math.random()*H}else if(k==2){zx=Math.random()*W;zy=-m}else{zx=Math.random()*W;zy=H+m}
+ const iri=Math.random()<Math.min(.08+dalga*.03,.35);zombi.push({x:zx,y:zy,r:iri?22:15,can:iri?5:2,maks:iri?5:2,hiz:(iri?40:60)+dalga*6+Math.random()*25,salin:Math.random()*6})}
+function patla(px,py,renk,n){for(let i=0;i<n;i++){const a=Math.random()*6.28,h=60+Math.random()*180;parca.push({x:px,y:py,vx:Math.cos(a)*h,vy:Math.sin(a)*h,o:.5+Math.random()*.4,renk})}}
+let son=0,dogumSay=0;
+function dongu(t){const dt=Math.min((t-son)/1000,.05);son=t;if(canli){guncelle(dt)}ciz();requestAnimationFrame(dongu)}
+function guncelle(dt){zaman+=dt;
+ let dx=(tus.d||tus.arrowright?1:0)-(tus.a||tus.arrowleft?1:0),dy=(tus.s||tus.arrowdown?1:0)-(tus.w||tus.arrowup?1:0);
+ if(joy){const jx=joy.x-joy.ox,jy=joy.y-joy.oy,u=Math.hypot(jx,jy);if(u>8){dx=jx/Math.max(u,50);dy=jy/Math.max(u,50)}}
+ const u=Math.hypot(dx,dy);if(u>1){dx/=u;dy/=u}
+ oy.x=Math.max(oy.r,Math.min(W-oy.r,oy.x+dx*oy.hiz*dt));oy.y=Math.max(oy.r,Math.min(H-oy.r,oy.y+dy*oy.hiz*dt));
+ dogumSay-=dt;if(dalgaKalan>0&&dogumSay<=0){zombiDogur();dalgaKalan--;dogumSay=Math.max(.25,1.1-dalga*.08)}
+ if(dalgaKalan<=0&&zombi.length===0){sonrakiDalga();dogumSay=1.5;if(Math.random()<.9)kutu.push({x:60+Math.random()*(W-120),y:80+Math.random()*(H-160),t:0})}
+ let hedef=null,en=1e9;for(const z of zombi){const d=Math.hypot(z.x-oy.x,z.y-oy.y);if(d<en){en=d;hedef=z}}
+ if(hedef){oy.yon=Math.atan2(hedef.y-oy.y,hedef.x-oy.x);if(zaman-sonAtes>Math.max(.12,.28-dalga*.012)&&en<Math.max(W,H)*.6){sonAtes=zaman;mermi.push({x:oy.x+Math.cos(oy.yon)*18,y:oy.y+Math.sin(oy.yon)*18,vx:Math.cos(oy.yon)*620,vy:Math.sin(oy.yon)*620,o:1.2});patla(oy.x+Math.cos(oy.yon)*20,oy.y+Math.sin(oy.yon)*20,'#ffd36b',2)}}
+ for(const m of mermi){m.x+=m.vx*dt;m.y+=m.vy*dt;m.o-=dt}
+ for(const z of zombi){const a=Math.atan2(oy.y-z.y,oy.x-z.x);z.salin+=dt*6;z.x+=Math.cos(a)*z.hiz*dt+Math.cos(z.salin)*12*dt;z.y+=Math.sin(a)*z.hiz*dt;
+  if(Math.hypot(z.x-oy.x,z.y-oy.y)<z.r+oy.r){oy.can-=(z.r>18?28:16)*dt*2.2;sars=.25}
+  for(const m of mermi){if(m.o>0&&Math.hypot(m.x-z.x,m.y-z.y)<z.r+4){m.o=0;z.can--;z.x-=Math.cos(a)*8;z.y-=Math.sin(a)*8;patla(m.x,m.y,'#5fae4a',5)}}}
+ for(const z of zombi)if(z.can<=0){skor+=z.maks>2?30:10;patla(z.x,z.y,'#3f8a33',16);patla(z.x,z.y,'#8b1d1d',8)}
+ zombi=zombi.filter(z=>z.can>0);mermi=mermi.filter(m=>m.o>0&&m.x>-20&&m.x<W+20&&m.y>-20&&m.y<H+20);
+ for(const k of kutu){k.t+=dt;if(Math.hypot(k.x-oy.x,k.y-oy.y)<26){oy.can=Math.min(100,oy.can+35);k.al=1;patla(k.x,k.y,'#7cff6b',14)}}kutu=kutu.filter(k=>!k.al&&k.t<14);
+ for(const p of parca){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.9;p.vy*=.9;p.o-=dt}parca=parca.filter(p=>p.o>0);
+ sars=Math.max(0,sars-dt);$('hp').style.width=Math.max(0,oy.can)+'%';$('hp').style.background=oy.can<35?'var(--red)':'var(--acc)';$('skor').textContent='Skor '+skor;
+ if(oy.can<=0){canli=false;$('ekran').style.display='flex';$('ekran').querySelector('h1').textContent='SIĞINAK DÜŞTÜ';$('ekran').querySelector('p').textContent='Skor '+skor+' · Dalga '+dalga+'. Bu bir oynanabilir prototip: gerçek projede sizin tasarımlarınız, karakter animasyonları, ses, seviyeler ve Google Play yayını olur.';$('basla').textContent='Tekrar oyna'}}
+function ciz(){x.save();if(sars>0)x.translate((Math.random()-.5)*8*sars*4,(Math.random()-.5)*8*sars*4);
+ x.fillStyle='#141a17';x.fillRect(0,0,W,H);x.strokeStyle='rgba(255,255,255,.035)';x.lineWidth=1;for(let i=0;i<W;i+=48){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke()}for(let j=0;j<H;j+=48){x.beginPath();x.moveTo(0,j);x.lineTo(W,j);x.stroke()}
+ if(!oy){x.restore();return}
+ for(const k of kutu){x.fillStyle='#7cff6b';x.globalAlpha=.6+.4*Math.sin(k.t*6);x.fillRect(k.x-11,k.y-11,22,22);x.globalAlpha=1;x.fillStyle='#0d1110';x.fillRect(k.x-2,k.y-7,4,14);x.fillRect(k.x-7,k.y-2,14,4)}
+ for(const p of parca){x.globalAlpha=Math.max(0,p.o);x.fillStyle=p.renk;x.fillRect(p.x-2,p.y-2,4,4)}x.globalAlpha=1;
+ for(const z of zombi){x.fillStyle='rgba(0,0,0,.35)';x.beginPath();x.ellipse(z.x,z.y+z.r*.8,z.r,z.r*.4,0,0,6.28);x.fill();
+  x.fillStyle=z.r>18?'#4c6b3a':'#5f8f4a';x.beginPath();x.arc(z.x,z.y,z.r,0,6.28);x.fill();const a=Math.atan2(oy.y-z.y,oy.x-z.x);
+  x.strokeStyle=x.fillStyle;x.lineWidth=z.r*.45;x.lineCap='round';for(const s of[-.5,.5]){x.beginPath();x.moveTo(z.x+Math.cos(a+s)*z.r*.6,z.y+Math.sin(a+s)*z.r*.6);x.lineTo(z.x+Math.cos(a+s*.4)*z.r*1.6,z.y+Math.sin(a+s*.4)*z.r*1.6);x.stroke()}
+  x.fillStyle='#ff3b3b';for(const s of[-.35,.35]){x.beginPath();x.arc(z.x+Math.cos(a+s)*z.r*.55,z.y+Math.sin(a+s)*z.r*.55,z.r*.14,0,6.28);x.fill()}
+  if(z.maks>2){x.fillStyle='#222';x.fillRect(z.x-16,z.y-z.r-10,32,4);x.fillStyle='#ff4d4d';x.fillRect(z.x-16,z.y-z.r-10,32*z.can/z.maks,4)}}
+ x.fillStyle='#ffd36b';for(const m of mermi){x.fillRect(m.x-2,m.y-2,4,4)}
+ x.fillStyle='rgba(0,0,0,.35)';x.beginPath();x.ellipse(oy.x,oy.y+oy.r*.8,oy.r,oy.r*.4,0,0,6.28);x.fill();
+ x.save();x.translate(oy.x,oy.y);x.rotate(oy.yon);x.fillStyle='#2b2f2d';x.fillRect(6,-4,20,8);x.fillStyle='#d9c3a5';x.beginPath();x.arc(0,0,oy.r,0,6.28);x.fill();x.fillStyle='#3c5a8a';x.beginPath();x.arc(-3,0,oy.r*.7,0,6.28);x.fill();x.restore();
+ if(joy){x.globalAlpha=.25;x.strokeStyle='#fff';x.lineWidth=2;x.beginPath();x.arc(joy.ox,joy.oy,50,0,6.28);x.stroke();x.beginPath();x.arc(joy.ox+Math.max(-50,Math.min(50,joy.x-joy.ox)),joy.oy+Math.max(-50,Math.min(50,joy.y-joy.oy)),22,0,6.28);x.fillStyle='#fff';x.fill();x.globalAlpha=1}
+ const g=x.createRadialGradient(W/2,H/2,Math.min(W,H)*.35,W/2,H/2,Math.max(W,H)*.75);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.55)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ if(oy.can<35){x.fillStyle='rgba(255,0,0,'+(.08+.06*Math.sin(zaman*8))+')';x.fillRect(0,0,W,H)}x.restore()}
+$('basla').onclick=()=>{sifirla();canli=true;$('ekran').style.display='none';son=performance.now()};
+sifirla();requestAnimationFrame(dongu);
+</script>
+<script src="/ornek/_dijitabela/izle.js" defer></script><script src="/ornek/_dijitabela/wa-buton.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script><script src="/ornek/_dijitabela/filigran.js" defer></script></body>
+</html>

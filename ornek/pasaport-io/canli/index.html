@@ -101,7 +101,7 @@ select{width:100%}
 (function(){
   var TEST='https://pasaport-test.vercel.app', VERI='https://pasaport-takip.vercel.app/gorevler.json';
   var yol='', dil='tr', site=document.getElementById('site'), yeni=document.getElementById('yeni');
-  var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/en/guides',hi:'/en/guides'};
+  var HUB={tr:'/tr/rehber',de:'/de/ratgeber',en:'/en/guides',ar:'/ar/guides',hi:'/hi/guides'};
   function adres(){var q='?lang='+dil;if(yol==='kur')return TEST+'/esim/kurulum'+q+'&platform=ios&method=qr';if(yol==='hes')return TEST+'/account'+q;if(yol==='reh')return TEST+HUB[dil];return TEST+'/'+q;}
   function git(){var u=adres();site.src=u;yeni.href=u;}
   function olcek(){var k=document.getElementById('sahne');if(!k.classList.contains('masa')){site.style.transform='';k.style.height='';return;}var g=k.clientWidth-20,o=Math.min(1,g/1280);site.style.transform='scale('+o+')';k.style.height=(800*o+20)+'px';}

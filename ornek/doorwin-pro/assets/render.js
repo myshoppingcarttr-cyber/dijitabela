@@ -80,14 +80,14 @@
   function line(a, b, c, d, st) { return '<line x1="' + a.toFixed(1) + '" y1="' + b.toFixed(1) + '" x2="' + c.toFixed(1) + '" y2="' + d.toFixed(1) + '"' + (st || ' stroke="' + INK + '"') + '/>'; }
   function bar(x, y, w, h, t, fill) {
     var r = '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="' + fill + '" stroke="' + INK + '" stroke-width="1.3"/>';
-    r += '<rect x="' + (x + t).toFixed(1) + '" y="' + (y + t).toFixed(1) + '" width="' + (w - 2 * t).toFixed(1) + '" height="' + (h - 2 * t).toFixed(1) + '" fill="none" stroke="' + INK + '" stroke-width=".9"/>';
+    r += '<rect x="' + (x + t).toFixed(1) + '" y="' + (y + t).toFixed(1) + '" width="' + Math.max(0, w - 2 * t).toFixed(1) + '" height="' + Math.max(0, h - 2 * t).toFixed(1) + '" fill="none" stroke="' + INK + '" stroke-width=".9"/>';
     var s = ' stroke="' + INK + '" stroke-width=".7"';
     return r + line(x, y, x + t, y + t, s) + line(x + w, y, x + w - t, y + t, s) + line(x, y + h, x + t, y + h - t, s) + line(x + w, y + h, x + w - t, y + h - t, s);
   }
   function glass(x, y, w, h) { return '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + Math.max(0, w).toFixed(1) + '" height="' + Math.max(0, h).toFixed(1) + '" fill="' + GLASS + '" stroke="' + INK + '" stroke-width=".8"/>'; }
   function sash(x, y, w, h, t, col, hinge, withHandle, door) {
     var o = bar(x, y, w, h, t, col), ix = x + t, iy = y + t, iw = w - 2 * t, ih = h - 2 * t;
-    if (door) { var gh = ih * .54; o += glass(ix, iy, iw, gh) + '<rect x="' + ix.toFixed(1) + '" y="' + (iy + gh).toFixed(1) + '" width="' + iw.toFixed(1) + '" height="' + (ih - gh).toFixed(1) + '" fill="' + (col === FILL.white ? '#f1f2f3' : col) + '" stroke="' + INK + '" stroke-width=".8"/>'; for (var k = 1; k < 5; k++) o += line(ix + k * iw / 5, iy + gh, ix + k * iw / 5, iy + ih, ' stroke="' + INK + '" stroke-width=".4"'); }
+    if (door) { var gh = ih * .54; o += glass(ix, iy, iw, gh) + '<rect x="' + ix.toFixed(1) + '" y="' + (iy + gh).toFixed(1) + '" width="' + Math.max(0, iw).toFixed(1) + '" height="' + Math.max(0, ih - gh).toFixed(1) + '" fill="' + (col === FILL.white ? '#f1f2f3' : col) + '" stroke="' + INK + '" stroke-width=".8"/>'; for (var k = 1; k < 5; k++) o += line(ix + k * iw / 5, iy + gh, ix + k * iw / 5, iy + ih, ' stroke="' + INK + '" stroke-width=".4"'); }
     else o += glass(ix, iy, iw, ih);
     if (hinge) {
       var apex = hinge === 'l' ? ix : ix + iw, far = hinge === 'l' ? ix + iw : ix, st = ' fill="none" stroke="' + OPEN + '" stroke-width="1" stroke-dasharray="5 3"';

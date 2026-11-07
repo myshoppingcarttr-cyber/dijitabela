@@ -35,4 +35,5 @@ fetch(SB+"/rest/v1/rpc/qr_bar",{method:"POST",headers:{"Content-Type":"applicati
  document.getElementById("kartlar").innerHTML=s.map(g=>`<div class="sayfa">${g.map(m=>`<div class="kart"><img class="logo" src="${logo}" alt=""><div class="bas">Masadan sipariş</div><div class="qr" data-k="${m.kod}"></div><div class="masa">Masa ${esc(m.no)}</div><small>${esc(sube)} · Kamerayla okutun, menüden seçin,<br>sıra beklemeden siparişiniz masanıza gelsin ☕</small></div>`).join("")}</div>`).join("");
  document.querySelectorAll(".qr").forEach(e=>new QRCode(e,{text:KOK+"/siparis.html?m="+e.dataset.k,width:300,height:300,colorDark:"#2a1b14",colorLight:"#fffaf3",correctLevel:QRCode.CorrectLevel.M}));
 }).catch(()=>document.getElementById("baslik").textContent="Geçersiz link");
-</script></body></html>
+</script>
+</body></html>

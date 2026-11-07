@@ -2,22 +2,6 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<script>
-/* /kirapakt/ altında bulunamayan adreslerde KiraPakt'ın kendi 404 sayfası gösterilir; adres ve 404 durumu korunur. */
-(function () {
-  if (location.pathname.indexOf("/kirapakt/") !== 0) return;
-  var root = document.documentElement;
-  var show = function () { root.style.visibility = ""; };
-  root.style.visibility = "hidden";
-  setTimeout(show, 4000);
-  fetch("/kirapakt/404.html").then(function (r) {
-    if (!r.ok) throw new Error(r.status);
-    return r.text();
-  }).then(function (html) {
-    document.open(); document.write(html); document.close();
-  }).catch(show);
-})();
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sayfa bulunamadı · Dijitabela</title>
 <meta name="robots" content="noindex">
@@ -49,5 +33,6 @@
     <a href="https://dijitabela.com/ekspertiz.html">Ücretsiz dijital ekspertiz <span>→</span></a>
     <a href="https://dijitabela.com/blog.html">Blog <span>→</span></a>
   </nav>
-</main></body>
+</main>
+</body>
 </html>

@@ -71,4 +71,5 @@ $("#olBtn").onclick=async()=>{$("#olBtn").disabled=true;try{const r=await rpc("k
  if(KART){await goster();}else{$("#olustur").hidden=false;}
  setInterval(()=>{if(KART&&!document.hidden)goster();},8000);
  document.addEventListener("visibilitychange",()=>{if(KART&&!document.hidden)goster();});})();
-</script></body></html>
+</script>
+</body></html>

@@ -101,4 +101,5 @@ $("#tukBtn").onclick=()=>{$("#cekmece").hidden=false;tukCiz();};
 function tukCiz(){if($("#cekmece").hidden||!VERI)return;$("#tkListe").innerHTML=VERI.urunler.map(u=>`<div class="tk"><div>${esc(u.ad)}<small>${esc(u.kategori)}</small></div><button class="${u.tukendi?"yok":""}" data-u="${u.id}" data-v="${u.tukendi?0:1}">${u.tukendi?"Tükendi · aç":"Var · kapat"}</button></div>`).join("");
  $$("#tkListe button").forEach(b=>b.onclick=()=>{b.disabled=true;yukle({urun:b.dataset.u,tukendi:b.dataset.v==="1"});});}
 if(!/^[0-9a-f-]{36}$/.test(TOKEN))document.body.innerHTML='<div class="giris"><b>Geçersiz bar linki</b>Dijitabela: 0501 945 21 84</div>';
-</script></body></html>
+</script>
+</body></html>
