@@ -18,13 +18,71 @@ var BOLUM_TIPLERI = {
   blogDetay: "Yazı detayı (sabit)", araclar: "Araçlar (sabit)", takip: "Proje takip (sabit)"
 };
 
+/* 7 Kas: sitedeki sabit yazılar — panelden ("Sabit yazılar" sekmesi) değiştirilebilir; boşsa buradaki varsayılan görünür */
+var METINLER = {
+  tumProjeler: ["Tüm projeler", "All projects", "Projeler · “Tüm projeler” düğmesi"],
+  filtreTumu: ["Tümü", "All", "Projeler · filtre “Tümü” düğmesi"],
+  filtreBos: ["Bu kategoride henüz proje yok.", "No projects in this category yet.", "Projeler · filtrede proje yoksa"],
+  tumYazilar: ["Tüm yazılar", "All articles", "Blog · “Tüm yazılar” düğmesi"],
+  blogBos: ["Yazılarımız hazırlanıyor; çok yakında burada.", "Our articles are being prepared and will appear here soon.", "Blog · yazı yokken görünen not"],
+  oncekiProje: ["Önceki proje", "Previous project", "Proje detay · “Önceki proje” düğmesi"],
+  sonrakiProje: ["Sonraki proje", "Next project", "Proje detay · “Sonraki proje” düğmesi"],
+  projelereDon: ["Projeler", "Projects", "Proje detay · geri dönüş bağlantısı"],
+  maliyetNotEt: ["Yaklaşık / ön teklif:", "Approximate / preliminary quote:", "Maliyet · alt not başlığı"],
+  bilgiAdres: ["Adres", "Address", "İletişim bölümü · “Adres” satırı"],
+  bilgiSehir: ["Şehir", "City", "İletişim bölümü · “Şehir” satırı"],
+  bilgiTel: ["Telefon", "Phone", "İletişim bölümü ve alt bilgi · “Telefon”"],
+  bilgiWa: ["WhatsApp", "WhatsApp", "İletişim bölümü · “WhatsApp” satırı"],
+  bilgiEposta: ["E-posta", "Email", "İletişim bölümü · “E-posta” satırı"],
+  bilgiSaat: ["Çalışma saatleri", "Opening hours", "İletişim bölümü · “Çalışma saatleri” satırı"],
+  bilgiSosyal: ["Sosyal medya", "Social media", "İletişim bölümü · “Sosyal medya” satırı"],
+  iletisimWa: ["WhatsApp", "WhatsApp", "İletişim bölümü · WhatsApp düğmesi"],
+  haritaBos: ["Ofis adresi gelince harita burada yer alacak.", "A map will appear here once the office address is added.", "İletişim · harita yokken görünen not"],
+  formAd: ["Ad soyad", "Full name", "Keşif formu · “Ad soyad”"],
+  formTel: ["Telefonunuz", "Your phone", "Keşif formu · “Telefonunuz”"],
+  formAlan: ["Alan tipi", "Space type", "Keşif formu · “Alan tipi”"],
+  formHizmet: ["Hizmet", "Service", "Keşif formu · “Hizmet”"],
+  formKonum: ["Konum (ilçe)", "Location (district)", "Keşif formu · “Konum (ilçe)”"],
+  formGun: ["Tercih ettiğiniz gün", "Preferred day", "Keşif formu · “Tercih ettiğiniz gün”"],
+  formNotEt: ["Kısa not (isteğe bağlı)", "Short note (optional)", "Keşif formu · “Kısa not”"],
+  formGonder: ["WhatsApp'tan gönder", "Send on WhatsApp", "Keşif formu · gönder düğmesi"],
+  formAra: ["Ara", "Call", "Keşif formu · “Ara” düğmesi"],
+  formKvkk: ["Bilgileriniz yalnızca size dönüş yapmak için kullanılır.", "Your details are used only to get back to you.", "Keşif formu · alt not"],
+  formOnizleme: ["Gönderilecek mesaj", "Message preview", "Keşif formu · mesaj önizleme başlığı"],
+  takipKod: ["Proje kodu", "Project code", "Proje takip · “Proje kodu”"],
+  takipDugme: ["Durumu göster", "Show status", "Proje takip · düğme"],
+  takipBos: ["Kodunuzu girin.", "Enter your code.", "Proje takip · başlangıç notu"],
+  altSayfalar: ["Sayfalar", "Pages", "Alt bilgi · “Sayfalar” başlığı"],
+  altIletisim: ["İletişim", "Contact", "Alt bilgi · “İletişim” başlığı"],
+  altAraclar: ["Araçlar", "Tools", "Alt bilgi · “Araçlar” bağlantısı"],
+  altTakip: ["Proje takip", "Client portal", "Alt bilgi · “Proje takip” bağlantısı"],
+  eklenecek: ["eklenecek", "to be added", "Boş bilgilerin yerinde görünen yazı"],
+  aracPlanBaslik: ["Proje süre planlayıcı", "Project timeline planner", "Araçlar · süre planlayıcı başlığı"],
+  aracPlanMetin: ["Projenizin türünü ve büyüklüğünü seçin; tahmini takviminiz aşama aşama çıksın.", "Choose your project type and size to see an estimated, phase-by-phase timeline.", "Araçlar · süre planlayıcı açıklaması"],
+  aracOsBaslik: ["Önce / sonra cephe", "Facade before / after", "Araçlar · önce/sonra başlığı"],
+  aracOsMetin: ["Çizgiyi sürükleyin ya da kaydırıcıyı kullanın.", "Drag the line or use the slider.", "Araçlar · önce/sonra açıklaması"],
+  aracRuhsatBaslik: ["Ruhsat belge kontrol listesi", "Building permit checklist", "Araçlar · ruhsat listesi başlığı"],
+  aracRuhsatMetin: ["Elinizde olanları işaretleyin; eksikleri tek tıkla bize sorun. Belediyeye göre farklılık gösterebilir.", "Tick what you already have and ask us about the rest.", "Araçlar · ruhsat listesi açıklaması"],
+  aracStilBaslik: ["İç mimari stil seçici", "Interior style picker", "Araçlar · stil seçici başlığı"],
+  aracStilMetin: ["Bir stil seçin; renk paleti ve önerilen malzemeler çıksın.", "Pick a style to see its colour palette and suggested materials.", "Araçlar · stil seçici açıklaması"],
+  cerezMetin: ["Sitemizde deneyiminizi iyileştirmek ve ziyaretleri ölçmek için çerezler kullanılır.", "We use cookies to improve your experience and measure visits.", "Çerez bandı · varsayılan metin"],
+  cerezKabul: ["Kabul et", "Accept", "Çerez bandı · kabul düğmesi"],
+  cerezRed: ["Reddet", "Decline", "Çerez bandı · ret düğmesi"],
+  cerezLink: ["Çerez politikası", "Cookie policy", "Çerez bandı · politika bağlantısı yazısı"]
+};
+var SOSYAL = [["instagram", "Instagram"], ["linkedin", "LinkedIn"], ["facebook", "Facebook"], ["youtube", "YouTube"], ["x", "X"], ["tiktok", "TikTok"], ["pinterest", "Pinterest"]];
+var WA_MSJ = ["Merhaba, web sitenizden yazıyorum.", "Hello, I'm writing from your website."];
+
 function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
 function tr(o) { return o == null ? "" : typeof o === "string" ? o : (o.tr || ""); }
 function en(o) { return o == null ? "" : typeof o === "string" ? o : (o.en || o.tr || ""); }
 function bos(o) { return !tr(o) && !(o && o.en); }
 function T(o) { var a = tr(o), b = en(o); if (a === b) return esc(a); return '<span data-l="tr">' + esc(a) + '</span><span data-l="en" lang="en">' + esc(b) + "</span>"; }
 function T2(a, b) { return T({ tr: a, en: b }); }
-function bek() { return '<span class="bekliyor">' + T2("eklenecek", "to be added") + "</span>"; }
+var IC_ = null; /* çizim sırasında geçerli içerik (sabit yazılar için) */
+function Mx(k) { var d = METINLER[k], o = ((IC_ || {}).metinler || {})[k] || {}, a = String(tr(o) || "").trim() ? tr(o) : d[0], b = o && typeof o === "object" && String(o.en || "").trim() ? o.en : d[1]; return [a, b]; }
+function M(k) { var x = Mx(k); return T2(x[0], x[1]); }
+function bek() { return '<span class="bekliyor">' + M("eklenecek") + "</span>"; }
 /* uzun metin: boş satır = paragraf, "## " = ara başlık, "- " = madde */
 function paragraf(s) {
   var out = [], liste = [];
@@ -50,13 +108,25 @@ function guvenliRenk(h, yedek) { return /^#[0-9a-fA-F]{3,6}$/.test(h || "") ? h 
 function renkCSS(ic) {
   var r = (ic.marka && ic.marka.renkler) || {};
   var y = guvenliRenk(r.yesil, "#253925"), b = guvenliRenk(r.bej, "#C2B59B"), z = guvenliRenk(r.zemin, "#F4F2EE"), t = guvenliRenk(r.yazi, "#161816");
-  return ":root{--yesil:" + y + ";--yesil2:" + karart(y, .3) + ";--bej:" + b + ";--bej2:" + karart(b, .42) + ";--zemin:" + z + ";--yazi:" + t + "}";
+  return ":root{--yesil:" + y + ";--yesil2:" + karart(y, .3) + ";--bej:" + b + ";--bej2:" + karart(b, .42) + ";--zemin:" + z + ";--yazi:" + t + "}" + EK_CSS;
 }
 
+/* 7 Kas panel eklentileri: yalnız panelden açılan özellikler bu sınıfları kullanır (varsayılan görünümü etkilemez) */
+var KART_ = ":is(.kart,.pk,.panelk,.kk-tablo,.mh-form,.mh-sonuc,.form,.bos-kutu,.cipler,.ref-serit,.harita)";
+var EK_CSS = ".bn-acik{color:#efe9dc}.bn-acik :is(h1,h2,h3,summary,b):not(" + KART_ + " *){color:#fff}.bn-acik :is(.acik,p,small,li,span):not(" + KART_ + " *):not(.dg *){color:rgba(239,233,220,.86)}.bn-acik .etiket{color:var(--bej)!important}.bn-acik .dg.i{color:#fff;border-color:rgba(255,255,255,.7)}" +
+  ".bn-koyu{color:var(--yazi)}.bn-koyu :is(h1,h2,h3,summary,b):not(" + KART_ + " *){color:var(--yazi)!important}.bn-koyu :is(.acik,p,small,li):not(" + KART_ + " *){color:var(--soluk)!important}.bn-koyu .etiket{color:var(--bej2)!important}.bn-koyu .dg.i{color:var(--yazi);border-color:var(--yazi)}" +
+  ".bn-zg{background-size:cover;background-position:center}.dg[data-ozel]:hover{filter:brightness(.9)}.dg.i[data-ozel]:hover{background:transparent;filter:none;opacity:.75}" +
+  ".bn-duyuru{background:var(--yesil);color:#fff;text-align:center;font-size:.88rem;font-weight:600;padding:8px 16px;line-height:1.45}.bn-duyuru a{color:inherit;text-decoration:underline;text-underline-offset:3px}" +
+  ".yuzen.sol{right:auto;left:16px}.bn-cerez{position:fixed;left:16px;right:88px;bottom:16px;max-width:560px;z-index:60;background:#1d201c;color:#e9e3d6;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.3);font-size:.9rem}.bn-cerez[hidden]{display:none}.bn-cerez a{color:#fff}.bn-cerez .dgs{margin-top:12px;gap:8px}.bn-cerez .dg{min-height:40px;padding:8px 16px;font-size:.9rem;background:var(--bej);border-color:var(--bej);color:#1d1d1b}.bn-cerez .dg.i{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.yuzen.sol+.bn-cerez{left:88px;right:16px}";
+function cssUrl(u) { return String(u).replace(/['"()\\\s<>]/g, function (c) { return "%" + ("0" + c.charCodeAt(0).toString(16).toUpperCase()).slice(-2); }); }
 function sayfaDosya(id) { return (SAYFALAR[id] || {}).dosya || "index.html"; }
 function dugme(ic, ad, sinif) {
   var d = (ic.dugmeler || {})[ad]; if (!d || bos(d.etiket)) return "";
-  return '<a class="dg' + (sinif ? " " + sinif : "") + '" href="' + esc(url(d.hedef)) + '">' + T(d.etiket) + "</a>";
+  // 7 Kas: panelden dolgu/yazı/çerçeve rengi ve yeni sekmede açma (boşsa eski görünüm)
+  var st = "";
+  if (sinif === "i") { var c = guvenliRenk(d.cerceveRenk, ""); if (c) st = "color:" + c + ";border-color:" + c; }
+  else { var r = guvenliRenk(d.renk, ""), y = guvenliRenk(d.yaziRenk, ""); if (r) st = "background:" + r + ";border-color:" + r; if (y) st += (st ? ";" : "") + "color:" + y; }
+  return '<a class="dg' + (sinif ? " " + sinif : "") + '" href="' + esc(url(d.hedef)) + '"' + (st ? ' style="' + st + '" data-ozel=""' : "") + (d.yeniSekme ? ' target="_blank" rel="noopener"' : "") + ">" + T(d.etiket) + "</a>";
 }
 function logo(ic, sinif) {
   var m = ic.marka || {}, src = url(m.logo || "assets/bensay-kelime.png");
@@ -67,19 +137,37 @@ function waLink(ic) { return String((ic.iletisim || {}).wa || "").replace(/\D/g,
 
 /* ---------- üst / alt ---------- */
 function ust(ic, sayfa) {
-  var dosya = sayfaDosya(sayfa), m = ic.marka || {};
+  IC_ = ic; var dosya = sayfaDosya(sayfa), m = ic.marka || {};
   var alt = (m.altSatirlar || []).filter(function (x) { return !bos(x); }).map(function (x) { return "<span>" + T(x) + "</span>"; }).join("");
   var nav = (ic.menu || []).filter(function (x) { return x.gorunur !== false && !bos(x.ad); }).map(function (x) {
     var h = String(x.hedef || ""), akt = h.split("#")[0] === dosya && h.indexOf("#") < 0;
     return '<a href="' + esc(url(h)) + '"' + (akt ? ' aria-current="page"' : "") + ">" + T(x.ad) + "</a>";
   }).join("");
   var serit = (ic.site && ic.site.yayinda) ? "" : '<div class="onizleme" role="note">' + T2("Önizleme — yayın öncesi", "Preview — pre-launch") + "</div>";
-  return serit + '<header class="ust"><div class="kap">' +
+  return serit + duyuru(ic) + '<header class="ust"><div class="kap">' +
     '<a class="logo" href="index.html" aria-label="' + esc(m.unvan || m.ad || "") + '">' + logo(ic) + (alt ? '<span class="logo-alt">' + alt + "</span>" : "") + "</a>" +
     '<nav class="menu" id="menu" aria-label="Ana menü">' + nav + dugme(ic, "kesif") + "</nav>" +
     ((ic.site || {}).dil2 !== false ? '<button class="dil" id="dil" type="button" aria-label="Switch to English">EN</button>' : "") +
     '<button class="ac-kapa" id="menuDg" type="button" aria-controls="menu" aria-expanded="false" aria-label="Menü" data-al-en="Menu">☰</button>' +
     "</div></header>";
+}
+// 7 Kas: panelden duyuru şeridi (kapalıysa hiçbir şey çizilmez)
+function duyuru(ic) {
+  var d = ic.duyuru || {}; if (!d.ac || bos(d.metin)) return "";
+  if (d.bitis && /^\d{4}-\d{2}-\d{2}$/.test(d.bitis) && new Date().toISOString().slice(0, 10) > d.bitis) return "";
+  var z = guvenliRenk(d.zemin, ""), y = guvenliRenk(d.yazi, ""), st = (z ? "background:" + z : "") + (z && y ? ";" : "") + (y ? "color:" + y : "");
+  var ic_ = d.link ? '<a href="' + esc(url(d.link)) + '"' + (/^https?:/i.test(d.link) ? ' target="_blank" rel="noopener"' : "") + ">" + T(d.metin) + "</a>" : T(d.metin);
+  return '<div class="bn-duyuru" role="note"' + (st ? ' style="' + st + '"' : "") + ">" + ic_ + "</div>";
+}
+function sosyalListe(il) { return SOSYAL.filter(function (s) { return il[s[0]]; }).map(function (s) { return '<a href="' + esc(url(il[s[0]])) + '" target="_blank" rel="noopener">' + s[1] + "</a>"; }); }
+function waMesaj(ic) { var w = (ic.waDugme || {}).mesaj, a = String(tr(w) || "").trim() ? tr(w) : WA_MSJ[0], b = w && typeof w === "object" && String(w.en || "").trim() ? w.en : WA_MSJ[1]; return [a, b]; }
+function waAttr(ic) { var m = waMesaj(ic); return 'data-wa="' + esc(m[0]) + '" data-wa-en="' + esc(m[1]) + '"'; }
+function cerez(ic) {
+  var c = ic.cerez || {}; if (!c.ac) return "";
+  var t = bos(c.metin) ? M("cerezMetin") : T(c.metin);
+  return '<div class="bn-cerez" id="bnCerez" role="region" aria-label="Çerez bildirimi" data-al-en="Cookie notice" hidden><p>' + t +
+    (c.link ? ' <a href="' + esc(url(c.link)) + '">' + M("cerezLink") + "</a>" : "") + '</p><div class="dgs"><button class="dg" type="button" data-cerez="kabul">' + M("cerezKabul") + "</button>" +
+    (c.redDugme ? '<button class="dg i" type="button" data-cerez="red">' + M("cerezRed") + "</button>" : "") + "</div></div>";
 }
 // 7 Kas: telefonu "0542 384 06 76" biçiminde göster, bağlantı +90 ile; ikinci numara (tel2) desteği
 function telLink(n) {
@@ -93,19 +181,18 @@ function telLink(n) {
 }
 function telHepsi(il) { return [telLink(il.tel), telLink(il.tel2)].filter(Boolean).join("<br>"); }
 function alt(ic) {
-  var m = ic.marka || {}, il = ic.iletisim || {};
+  var m = ic.marka || {}, il = ic.iletisim || {}; IC_ = ic;
   var tel = telHepsi(il) || bek();
-  var sos = [il.instagram ? '<li><a href="' + esc(url(il.instagram)) + '" target="_blank" rel="noopener">Instagram</a></li>' : "",
-             il.linkedin ? '<li><a href="' + esc(url(il.linkedin)) + '" target="_blank" rel="noopener">LinkedIn</a></li>' : ""].join("");
+  var sos = sosyalListe(il).map(function (a) { return "<li>" + a + "</li>"; }).join("");
   var sayfalar = (ic.menu || []).filter(function (x) { return x.gorunur !== false && !bos(x.ad); }).slice(1).map(function (x) { return '<li><a href="' + esc(url(x.hedef)) + '">' + T(x.ad) + "</a></li>"; }).join("") +
-    '<li><a href="araclar.html">' + T2("Araçlar", "Tools") + '</a></li><li><a href="takip.html">' + T2("Proje takip", "Client portal") + "</a></li>";
+    '<li><a href="araclar.html">' + M("altAraclar") + '</a></li><li><a href="takip.html">' + M("altTakip") + "</a></li>";
   return '<footer><div class="kap"><div class="ust-alt">' +
     "<div>" + logo(ic) + '<p style="margin-top:12px;max-width:360px">' + T(m.altMetin) + "</p></div>" +
-    "<div><b>" + T2("Sayfalar", "Pages") + '</b><ul style="margin-top:8px">' + sayfalar + "</ul></div>" +
-    "<div><b>" + T2("İletişim", "Contact") + '</b><ul style="margin-top:8px"><li>' + T2("Telefon", "Phone") + ": " + tel + "</li>" +
+    "<div><b>" + M("altSayfalar") + '</b><ul style="margin-top:8px">' + sayfalar + "</ul></div>" +
+    "<div><b>" + M("altIletisim") + '</b><ul style="margin-top:8px"><li>' + M("bilgiTel") + ": " + tel + "</li>" +
     (il.eposta ? '<li><a href="mailto:' + esc(il.eposta) + '">' + esc(il.eposta) + "</a></li>" : "") + "<li>" + esc(il.sehir || "Ankara") + "</li>" + sos + "</ul></div>" +
     '</div><div class="son"><span>© ' + new Date().getFullYear() + " " + esc(m.unvan || m.ad || "") + "</span><span>" + T2("tasarım", "design") + ': <a href="https://dijitabela.com" target="_blank" rel="noopener">Dijitabela</a></span></div></div></footer>' +
-    '<div class="yuzen"><a href="#" data-wa="Merhaba, web sitenizden yazıyorum." data-wa-en="Hello, I\'m writing from your website." aria-label="WhatsApp ile yazın" data-al-en="Message us on WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></a></div>';
+    ((ic.waDugme || {}).gizle ? "" : '<div class="yuzen' + ((ic.waDugme || {}).konum === "sol" ? " sol" : "") + '"><a href="#" ' + waAttr(ic) + ' aria-label="WhatsApp ile yazın" data-al-en="Message us on WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></a></div>') + cerez(ic);
 }
 
 /* ---------- bölümler ---------- */
@@ -179,15 +266,15 @@ var BOLUM = {
   },
   projeler: function (ic, b) {
     var P = ic.projeler || [], lim = Number(b.limit) || P.length;
-    var fl = b.filtre ? '<div class="filtre" id="filtre" role="group" aria-label="Kategori"><button type="button" data-f="hepsi" aria-pressed="true">' + T2("Tümü", "All") + "</button>" +
+    var fl = b.filtre ? '<div class="filtre" id="filtre" role="group" aria-label="Kategori"><button type="button" data-f="hepsi" aria-pressed="true">' + M("filtreTumu") + "</button>" +
       (ic.projeKategorileri || []).map(function (k) { return '<button type="button" data-f="' + esc(k.id) + '" aria-pressed="false">' + T(k.ad) + "</button>"; }).join("") + "</div>" : "";
     return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + fl + '<div class="izg" id="projeIzg">' + P.slice(0, lim).map(function (p, i) { return projeKart(ic, p, i); }).join("") + "</div>" +
-      '<p class="acik bos-not" id="filtreBos" hidden>' + T2("Bu kategoride henüz proje yok.", "No projects in this category yet.") + "</p>" +
-      (lim < P.length || (b.limit && sayfaVar(ic, "projeler")) ? '<div class="dgs"><a class="dg i" href="projelerimiz.html">' + T2("Tüm projeler", "All projects") + " →</a></div>" : "") + "</div></section>";
+      '<p class="acik bos-not" id="filtreBos" hidden>' + M("filtreBos") + "</p>" +
+      (lim < P.length || (b.limit && sayfaVar(ic, "projeler")) ? '<div class="dgs"><a class="dg i" href="projelerimiz.html">' + M("tumProjeler") + " →</a></div>" : "") + "</div></section>";
   },
   maliyet: function (ic, b) {
     return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + '<div class="mh" id="maliyetHesap" data-bolum="' + esc(b.id) + '"><noscript><p class="acik">' + T2("Hesaplayıcı için JavaScript gerekir.", "The estimator requires JavaScript.") + "</p></noscript></div>" +
-      '<p class="not mh-not"><b>' + T2("Yaklaşık / ön teklif:", "Approximate / preliminary quote:") + "</b> " + T((ic.maliyet || {}).not) + "</p></div></section>";
+      '<p class="not mh-not"><b>' + M("maliyetNotEt") + "</b> " + T((ic.maliyet || {}).not) + "</p></div></section>";
   },
   markalar: function (ic, b) {
     var M = ic.maliyet || {}, K = M.kaliteler || [];
@@ -213,8 +300,8 @@ var BOLUM = {
     var Y = (ic.blog || []).filter(function (y) { return y.yayinda; }), lim = Number(b.limit) || Y.length;
     if (!Y.length && Number(b.limit)) return "";  /* özet bölümü: yayında yazı yoksa gizli */
     return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + (Y.length ? '<div class="izg">' + Y.slice(0, lim).map(blogKart).join("") + "</div>" +
-      (b.limit && Y.length > lim ? '<div class="dgs"><a class="dg i" href="blog.html">' + T2("Tüm yazılar", "All articles") + " →</a></div>" : "") :
-      '<div class="bos-kutu">' + T2("Yazılarımız hazırlanıyor; çok yakında burada.", "Our articles are being prepared and will appear here soon.") + "</div>") + "</div></section>";
+      (b.limit && Y.length > lim ? '<div class="dgs"><a class="dg i" href="blog.html">' + M("tumYazilar") + " →</a></div>" : "") :
+      '<div class="bos-kutu">' + M("blogBos") + "</div>") + "</div></section>";
   },
   metin: function (ic, b) {
     return '<section class="bol" id="' + esc(b.id) + '"><div class="kap ' + (b.gorsel ? "ah" : "iki") + '"><div>' + (bos(b.etiket) ? "" : '<div class="etiket">' + T(b.etiket) + "</div>") + (bos(b.baslik) ? "" : "<h2>" + T(b.baslik) + "</h2>") + "</div>" +
@@ -235,43 +322,43 @@ var BOLUM = {
   },
   iletisim: function (ic, b) {
     var il = ic.iletisim || {};
-    function s(a, c, v) { return "<li><span>" + T2(a, c) + "</span><span>" + (v || bek()) + "</span></li>"; }
-    var sos = [il.instagram ? '<a href="' + esc(url(il.instagram)) + '" target="_blank" rel="noopener">Instagram</a>' : "", il.linkedin ? '<a href="' + esc(url(il.linkedin)) + '" target="_blank" rel="noopener">LinkedIn</a>' : ""].filter(Boolean).join(" · ");
+    function s(k, v) { return "<li><span>" + M(k) + "</span><span>" + (v || bek()) + "</span></li>"; }
+    var sos = sosyalListe(il).join(" · ");
     var harita = /^https:\/\/(www\.)?google\.[a-z.]+\/maps\/embed/.test(il.harita || "") ? '<iframe class="harita" src="' + esc(il.harita) + '" loading="lazy" title="Harita" referrerpolicy="no-referrer-when-downgrade"></iframe>'
-      : '<div class="harita">' + T2("Ofis adresi gelince harita burada yer alacak.", "A map will appear here once the office address is added.") + "</div>";
-    return '<section class="bol ilk" id="' + esc(b.id) + '"><div class="kap iki"><div>' + bas(b) + '<ul class="bilgi">' + s("Adres", "Address", esc(il.adres)) + s("Şehir", "City", esc(il.sehir || "Ankara")) +
-      s("Telefon", "Phone", telHepsi(il)) + s("WhatsApp", "WhatsApp", esc(il.wa)) +
-      s("E-posta", "Email", il.eposta ? '<a href="mailto:' + esc(il.eposta) + '">' + esc(il.eposta) + "</a>" : "") + s("Çalışma saatleri", "Opening hours", bos(il.saatler) ? "" : T(il.saatler)) +
-      s("Sosyal medya", "Social media", sos) + '</ul><div class="dgs">' + dugme(ic, "kesif") + '<a class="dg i" href="#" data-wa="Merhaba, web sitenizden yazıyorum." data-wa-en="Hello, I\'m writing from your website.">WhatsApp</a></div></div>' + harita + "</div></section>";
+      : '<div class="harita">' + M("haritaBos") + "</div>";
+    return '<section class="bol ilk" id="' + esc(b.id) + '"><div class="kap iki"><div>' + bas(b) + '<ul class="bilgi">' + s("bilgiAdres", esc(il.adres)) + s("bilgiSehir", esc(il.sehir || "Ankara")) +
+      s("bilgiTel", telHepsi(il)) + s("bilgiWa", esc(il.wa)) +
+      s("bilgiEposta", il.eposta ? '<a href="mailto:' + esc(il.eposta) + '">' + esc(il.eposta) + "</a>" : "") + s("bilgiSaat", bos(il.saatler) ? "" : T(il.saatler)) +
+      s("bilgiSosyal", sos) + '</ul><div class="dgs">' + dugme(ic, "kesif") + '<a class="dg i" href="#" ' + waAttr(ic) + ">" + M("iletisimWa") + "</a></div></div>" + harita + "</div></section>";
   },
   kesifForm: function (ic, b) {
     var il = ic.iletisim || {};
     var turler = (ic.maliyet && ic.maliyet.tipler || []).map(function (t) { return "<option>" + esc(tr(t.ad)) + (en(t.ad) !== tr(t.ad) ? " / " + esc(en(t.ad)) : "") + "</option>"; }).join("");
     var hizm = (ic.hizmetler || []).map(function (h) { return "<option>" + esc(tr(h.baslik)) + "</option>"; }).join("");
     return '<section class="bol" id="' + esc(b.id) + '"><div class="kap">' + bas(b) + '<div class="arac"><form class="form" id="randevuForm" novalidate>' +
-      '<label for="rAd">' + T2("Ad soyad", "Full name") + '</label><input id="rAd" autocomplete="name" required>' +
-      '<label for="rTel">' + T2("Telefonunuz", "Your phone") + '</label><input id="rTel" type="tel" autocomplete="tel" inputmode="tel">' +
-      '<label for="rKonu">' + T2("Alan tipi", "Space type") + '</label><select id="rKonu">' + turler + "</select>" +
-      '<label for="rHiz">' + T2("Hizmet", "Service") + '</label><select id="rHiz">' + hizm + "</select>" +
-      '<label for="rKonum">' + T2("Konum (ilçe)", "Location (district)") + '</label><input id="rKonum" placeholder="Çankaya, Ankara" data-ph-en="e.g. Çankaya, Ankara">' +
-      '<label for="rGun">' + T2("Tercih ettiğiniz gün", "Preferred day") + '</label><input id="rGun" type="date">' +
-      '<label for="rNot">' + T2("Kısa not (isteğe bağlı)", "Short note (optional)") + '</label><textarea id="rNot"></textarea>' +
-      '<div class="dgs"><a class="dg wa" id="rGonder" href="#" target="_blank" rel="noopener">' + T2("WhatsApp'tan gönder", "Send on WhatsApp") + "</a>" +
-      (il.tel ? '<a class="dg i" href="tel:' + esc(il.tel.replace(/\s/g, "")) + '">' + T2("Ara", "Call") + "</a>" : "") + "</div>" +
-      '<p class="not">' + T2("Bilgileriniz yalnızca size dönüş yapmak için kullanılır.", "Your details are used only to get back to you.") + "</p></form>" +
-      '<div class="panelk"><div class="etiket">' + T2("Gönderilecek mesaj", "Message preview") + '</div><div class="mesaj" id="rMesaj" aria-live="polite"></div></div></div></div></section>';
+      '<label for="rAd">' + M("formAd") + '</label><input id="rAd" autocomplete="name" required>' +
+      '<label for="rTel">' + M("formTel") + '</label><input id="rTel" type="tel" autocomplete="tel" inputmode="tel">' +
+      '<label for="rKonu">' + M("formAlan") + '</label><select id="rKonu">' + turler + "</select>" +
+      '<label for="rHiz">' + M("formHizmet") + '</label><select id="rHiz">' + hizm + "</select>" +
+      '<label for="rKonum">' + M("formKonum") + '</label><input id="rKonum" placeholder="Çankaya, Ankara" data-ph-en="e.g. Çankaya, Ankara">' +
+      '<label for="rGun">' + M("formGun") + '</label><input id="rGun" type="date">' +
+      '<label for="rNot">' + M("formNotEt") + '</label><textarea id="rNot"></textarea>' +
+      '<div class="dgs"><a class="dg wa" id="rGonder" href="#" target="_blank" rel="noopener">' + M("formGonder") + "</a>" +
+      (il.tel ? '<a class="dg i" href="tel:' + esc(il.tel.replace(/\s/g, "")) + '">' + M("formAra") + "</a>" : "") + "</div>" +
+      '<p class="not">' + M("formKvkk") + "</p></form>" +
+      '<div class="panelk"><div class="etiket">' + M("formOnizleme") + '</div><div class="mesaj" id="rMesaj" aria-live="polite"></div></div></div></div></section>';
   },
   projeDetay: function (ic, b, ctx) {
     var P = ic.projeler || [], id = ctx && ctx.p, i = Math.max(0, P.map(function (x) { return x.id; }).indexOf(id)), p = P[i] || {};
     var ad = bos(p.ad) ? { tr: "Proje " + no(i), en: "Project " + no(i) } : p.ad, k = katAd(ic, p.kategori);
     var G = (p.gorseller || []).length ? p.gorseller : [0, 0, 0], o = P[(i - 1 + P.length) % P.length] || {}, s = P[(i + 1) % P.length] || {};
-    return '<section class="sayfa-bas" id="projeDetay"><div class="kap"><a href="projelerimiz.html" style="font-size:.9rem;color:var(--soluk)">← ' + T2("Projeler", "Projects") + "</a>" +
+    return '<section class="sayfa-bas" id="projeDetay"><div class="kap"><a href="projelerimiz.html" style="font-size:.9rem;color:var(--soluk)">← ' + M("projelereDon") + "</a>" +
       '<div class="dt-ust" style="margin-top:18px"><div><div class="etiket">' + (k ? T(k) : T2("Proje", "Project")) + "</div><h1>" + T(ad) + '</h1><div class="acik" style="margin-top:14px">' +
       (bos(p.ozet) ? "<p>" + T2("Bu projenin açıklaması, görselleri ve künyesi ofisimizden gelince burada yer alacak.", "The description, images and credits will appear here once provided.") + "</p>" : P(p.ozet)) + "</div></div>" +
       '<div class="kunye"><div><small>' + T2("Kategori", "Category") + "</small><span>" + (k ? T(k) : bek()) + "</span></div><div><small>" + T2("Konum", "Location") + "</small><span>" + (p.konum ? esc(p.konum) : bek()) +
       "</span></div><div><small>" + T2("Yıl", "Year") + "</small><span>" + (p.yil ? esc(p.yil) : bek()) + "</span></div><div><small>" + T2("Alan", "Area") + "</small><span>" + (p.alan ? esc(p.alan) : bek()) + "</span></div></div></div>" +
       '<div class="galeri">' + G.map(function (g) { return g ? '<img src="' + esc(url(g)) + '" alt="' + esc(tr(ad)) + '" loading="lazy">' : yakinda("Proje görseli yakında", "Project image coming soon"); }).join("") + "</div>" +
-      '<div class="gezin"><a class="dg i" href="proje.html?p=' + esc(o.id || "") + '">← ' + T2("Önceki proje", "Previous project") + '</a><a class="dg i" href="proje.html?p=' + esc(s.id || "") + '">' + T2("Sonraki proje", "Next project") + " →</a></div></div></section>";
+      '<div class="gezin"><a class="dg i" href="proje.html?p=' + esc(o.id || "") + '">← ' + M("oncekiProje") + '</a><a class="dg i" href="proje.html?p=' + esc(s.id || "") + '">' + M("sonrakiProje") + " →</a></div></div></section>";
   },
   blogDetay: function (ic, b, ctx) {
     var Y = (ic.blog || []).filter(function (y) { return y.yayinda || (ctx && ctx.onizleme); }), y = Y.filter(function (x) { return x.id === (ctx && ctx.y); })[0] || Y[0];
@@ -281,9 +368,9 @@ var BOLUM = {
       (y.gorsel ? '<img class="yazi-g" src="' + esc(url(y.gorsel)) + '" alt="' + esc(tr(y.baslik)) + '">' : "") + '<div class="govde">' + (bos(y.govde) ? "<p>" + T2("Bu yazı hazırlanıyor.", "This article is being prepared.") + "</p>" : P(y.govde)) + "</div></div></article>";
   },
   takip: function () {
-    return '<section class="bol ilk" style="padding-top:0"><div class="kap arac" style="margin-top:0"><div class="form"><label for="kod">' + T2("Proje kodu", "Project code") +
-      '</label><input id="kod" placeholder="DEMO-2481" autocomplete="off"><button class="dg" id="kodBak" type="button" style="margin-top:14px">' + T2("Durumu göster", "Show status") +
-      '</button></div><div class="panelk portal" id="portal" aria-live="polite"><p class="acik">' + T2("Kodunuzu girin.", "Enter your code.") + "</p></div></div></section>";
+    return '<section class="bol ilk" style="padding-top:0"><div class="kap arac" style="margin-top:0"><div class="form"><label for="kod">' + M("takipKod") +
+      '</label><input id="kod" placeholder="DEMO-2481" autocomplete="off"><button class="dg" id="kodBak" type="button" style="margin-top:14px">' + M("takipDugme") +
+      '</button></div><div class="panelk portal" id="portal" aria-live="polite"><p class="acik">' + M("takipBos") + "</p></div></div></section>";
   },
   araclar: function () {
     function cb(v, a, c, x) { return '<label><input type="checkbox" value="' + v + '"' + (x ? " checked" : "") + ">" + T2(a, c) + "</label>"; }
@@ -291,30 +378,44 @@ var BOLUM = {
       ["Malik kimlik / vekâletname", "Owner ID / power of attorney"], ["Varsa eski ruhsat ve projeler", "Previous permits and drawings, if any"], ["Hisseli parselde muvafakatname", "Co-owner consent (shared plots)"], ["Yapı denetim sözleşmesi", "Building inspection contract"]];
     return '<div class="kap"><div class="arac-menu"><a href="#planlayici">' + T2("Süre planlayıcı", "Timeline planner") + '</a><a href="#once-sonra">' + T2("Önce / sonra", "Before / after") + '</a><a href="#ruhsat">' + T2("Ruhsat listesi", "Permit checklist") +
       '</a><a href="#stil">' + T2("Stil seçici", "Style picker") + '</a><a href="maliyet.html">' + T2("Maliyet hesaplayıcı", "Cost estimator") + "</a></div></div>" +
-      '<section class="bol" id="planlayici" style="margin-top:40px"><div class="kap"><div class="etiket">01</div><h2>' + T2("Proje süre planlayıcı", "Project timeline planner") + '</h2><p class="acik">' + T2("Projenizin türünü ve büyüklüğünü seçin; tahmini takviminiz aşama aşama çıksın.", "Choose your project type and size to see an estimated, phase-by-phase timeline.") +
+      '<section class="bol" id="planlayici" style="margin-top:40px"><div class="kap"><div class="etiket">01</div><h2>' + M("aracPlanBaslik") + '</h2><p class="acik">' + M("aracPlanMetin") +
       '</p><div class="arac"><div class="form"><label for="tur">' + T2("Proje türü", "Project type") + '</label><select id="tur"><option value="konut">Konut / Apartment</option><option value="villa">Villa / Detached house</option><option value="ticari">Ofis, ticari / Office, commercial</option><option value="ic">İç mimari, tadilat / Interior, renovation</option><option value="rest">Restorasyon, cephe / Restoration, facade</option></select>' +
       '<label for="m2">' + T2("Yaklaşık alan (m²)", "Approx. area (m²)") + '</label><input id="m2" type="number" inputmode="numeric" value="250" min="30" step="10"><label for="kat">' + T2("Kat sayısı", "Number of floors") + '</label><input id="kat" type="number" inputmode="numeric" value="2" min="1" max="30">' +
       '<fieldset style="border:0"><legend style="font-weight:700;font-size:.9rem;margin:16px 0 8px">' + T2("İstediğiniz hizmetler", "Services required") + '</legend><div class="secim" id="hizmetler">' + cb("avan", "Konsept + avan proje", "Concept + schematic design", 1) + cb("uyg", "Uygulama projesi", "Construction drawings", 1) + cb("ruh", "Ruhsat takibi", "Permit follow-up", 1) + cb("ic", "İç mimari", "Interior design") + cb("den", "Uygulama denetimi", "Site supervision") + "</div></fieldset></div>" +
       '<div class="panelk" aria-live="polite"><div class="etiket">' + T2("Tahmini takvim", "Estimated timeline") + '</div><div class="top" id="top">—</div><div id="asamalar"></div><p class="not">' + T2("Tahminidir; arsa, belediye ve onay süreçlerine göre değişir.", "Estimate only; varies with the site and approval processes.") +
       '</p><a class="dg wa" id="planGonder" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + T2("Bu planı WhatsApp'tan gönder", "Send this plan on WhatsApp") + "</a></div></div></div></section>" +
-      '<section class="bol" id="once-sonra"><div class="kap"><div class="etiket">02</div><h2>' + T2("Önce / sonra cephe", "Facade before / after") + '</h2><p class="acik">' + T2("Çizgiyi sürükleyin ya da kaydırıcıyı kullanın.", "Drag the line or use the slider.") +
+      '<section class="bol" id="once-sonra"><div class="kap"><div class="etiket">02</div><h2>' + M("aracOsBaslik") + '</h2><p class="acik">' + M("aracOsMetin") +
       '</p><div class="os" id="os"><img src="img/once.jpg" alt="Yenileme öncesi cephe (örnek görsel)" width="1280" height="720" loading="lazy"><img class="sonra" src="img/sonra.jpg" alt="Yenileme sonrası cephe (örnek görsel)" width="1280" height="720" loading="lazy"><div class="cz"></div><span class="e e1">' + T2("ÖNCE", "BEFORE") + '</span><span class="e e2">' + T2("SONRA", "AFTER") + '</span><span class="ornek-et">' + T2("örnek görsel", "sample image") + "</span></div>" +
       '<input class="os-ar" id="osAr" type="range" min="0" max="100" value="50" aria-label="Önce / sonra karşılaştırma" data-al-en="Before / after comparison"></div></section>' +
-      '<section class="bol" id="ruhsat"><div class="kap"><div class="etiket">03</div><h2>' + T2("Ruhsat belge kontrol listesi", "Building permit checklist") + '</h2><p class="acik">' + T2("Elinizde olanları işaretleyin; eksikleri tek tıkla bize sorun. Belediyeye göre farklılık gösterebilir.", "Tick what you already have and ask us about the rest.") +
+      '<section class="bol" id="ruhsat"><div class="kap"><div class="etiket">03</div><h2>' + M("aracRuhsatBaslik") + '</h2><p class="acik">' + M("aracRuhsatMetin") +
       '</p><div class="arac"><ul class="liste" id="belgeler">' + BELGE.map(function (x) { return '<li><label><input type="checkbox">' + T2(x[0], x[1]) + "</label></li>"; }).join("") +
       '</ul><div class="panelk" aria-live="polite"><div class="etiket">' + T2("Hazırlık durumu", "Readiness") + '</div><div class="top" id="hazir">0 / 8</div><div class="ilerleme"><i id="hazirCubuk"></i></div><p class="acik" id="hazirNot"></p><a class="dg wa" id="belgeSor" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + T2("Eksiklerimi sor", "Ask about missing items") + "</a></div></div></div></section>" +
-      '<section class="bol" id="stil"><div class="kap"><div class="etiket">04</div><h2>' + T2("İç mimari stil seçici", "Interior style picker") + '</h2><p class="acik">' + T2("Bir stil seçin; renk paleti ve önerilen malzemeler çıksın.", "Pick a style to see its colour palette and suggested materials.") +
+      '<section class="bol" id="stil"><div class="kap"><div class="etiket">04</div><h2>' + M("aracStilBaslik") + '</h2><p class="acik">' + M("aracStilMetin") +
       '</p><div class="arac"><div><div class="stiller" id="stiller" role="group" aria-label="Stil">' + [["Minimal", "Minimal"], ["Modern", "Modern"], ["Sıcak Doğal", "Warm Natural"], ["Klasik", "Classic"]].map(function (x) { return '<button type="button" aria-pressed="false">' + T2(x[0], x[1]) + "</button>"; }).join("") +
       '</div><div class="palet" id="palet"></div><p id="malzeme" class="acik"></p><a class="dg i" id="stilGonder" href="#" target="_blank" rel="noopener" style="margin-top:14px">' + T2("Bu stili konuşalım", "Let's discuss this style") + "</a></div>" +
       '<figure style="position:relative"><img id="stilGorsel" src="img/stil0.jpg" alt="" width="1200" height="900" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover"><figcaption id="stilEtiket" class="ornek-et"></figcaption></figure></div></div></section>';
   }
 };
+// 7 Kas: her bölüm için panelden arka plan rengi, arka plan görseli (+karartma) ve yazı tonu; alanlar boşsa bölüm aynen kalır
+function bolumSar(b, h) {
+  var z = guvenliRenk(b.zeminRenk, ""), g = b.tip !== "kahraman" && b.zeminGorsel ? url(b.zeminGorsel) : "", ton = b.tip === "kahraman" ? "" : b.yaziTon;
+  var cls = ton === "acik" ? " bn-acik" : ton === "koyu" ? " bn-koyu" : "";
+  if (!z && !g && !cls) return h;
+  var st = [];
+  if (z) st.push("background-color:" + z);
+  if (g) { var o = Math.min(80, Math.max(0, Number(b.zeminOrtu) || 0)) / 100; st.push("background-image:" + (o ? "linear-gradient(rgba(0,0,0," + o + "),rgba(0,0,0," + o + ")),": "") + "url(" + cssUrl(g) + ")"); cls += " bn-zg"; }
+  return h.replace(/^(<(?:section|article)\b)([^>]*)>/, function (_, a, at) {
+    if (cls) at = /class="/.test(at) ? at.replace(/class="([^"]*)"/, function (_, c) { return 'class="' + c + cls + '"'; }) : at + ' class="' + cls.trim() + '"';
+    if (st.length) { var s = esc(st.join(";")); at = /style="/.test(at) ? at.replace(/style="([^"]*)"/, function (_, x) { return 'style="' + x + ";" + s + '"'; }) : at + ' style="' + s + '"'; }
+    return a + at + ">";
+  });
+}
 function sayfaVar(ic, id) { return !!(ic.sayfalar && ic.sayfalar[id]); }
 
 function ana(ic, sayfa, ctx) {
   var s = (ic.sayfalar || {})[sayfa] || { bolumler: [] };
   return (s.bolumler || []).filter(function (b) { return b && b.gorunur !== false && BOLUM[b.tip]; }).map(function (b) {
-    try { return BOLUM[b.tip](ic, b, ctx || {}); } catch (e) { return "<!-- bölüm hatası: " + esc(b.tip) + " -->"; }
+    try { IC_ = ic; return bolumSar(b, BOLUM[b.tip](ic, b, ctx || {})); } catch (e) { return "<!-- bölüm hatası: " + esc(b.tip) + " -->"; }
   }).join("\n");
 }
 function baslik(ic, sayfa) { var s = (ic.sayfalar || {})[sayfa] || {}; return s.baslik || { tr: (ic.marka || {}).unvan || "" }; }
@@ -322,8 +423,30 @@ function schema(ic) {
   var il = ic.iletisim || {}, m = ic.marka || {}, alan = (ic.site || {}).alan || "";
   var d = { "@context": "https://schema.org", "@type": "Architect", "@id": alan + "#ofis", name: m.unvan || m.ad, description: tr(m.altMetin), url: alan,
     areaServed: { "@type": "City", name: il.sehir || "Ankara" }, address: { "@type": "PostalAddress", streetAddress: il.adres || "", addressLocality: il.ilce || il.sehir || "Ankara", addressCountry: "TR" },
-    telephone: il.tel || "", email: il.eposta || "", sameAs: [il.instagram, il.linkedin].filter(Boolean) };
+    telephone: il.tel || "", email: il.eposta || "", sameAs: SOSYAL.map(function (s) { return il[s[0]]; }).filter(Boolean) };
   return '<script type="application/ld+json">' + JSON.stringify(d).replace(/</g, "\\u003c") + "</script>";
+}
+// 7 Kas: favicon (marka.favicon), sosyal paylaşım görseli (sayfa.gorsel → site.paylasimGorseli), Google Search Console doğrulama kodu
+function favAdres(ic) { return url((ic.marka || {}).favicon) || "assets/favicon.svg"; }
+function favTip(u) { return /\.svg(\?|#|$)/i.test(u) ? "image/svg+xml" : /\.png(\?|#|$)/i.test(u) ? "image/png" : /\.ico(\?|#|$)/i.test(u) ? "image/x-icon" : ""; }
+function favLink(ic) { var u = favAdres(ic), t = favTip(u); return '<link rel="icon" href="' + esc(u) + '"' + (t ? ' type="' + t + '"' : "") + ">"; }
+function ogAdres(ic, sayfa) { var s = (ic.sayfalar || {})[sayfa] || {}; return url(s.gorsel || (ic.site || {}).paylasimGorseli || ""); }
+function ogGorsel(ic, sayfa) { var u = ogAdres(ic, sayfa); return u ? '<meta property="og:image" content="' + esc(u) + '"><meta name="twitter:card" content="summary_large_image">\n' : ""; }
+function gscKod(ic) { var k = String((ic.site || {}).gsc || "").trim(); return /^[A-Za-z0-9_-]{10,100}$/.test(k) ? k : ""; }
+function gscMeta(ic) { var k = gscKod(ic); return k ? '<meta name="google-site-verification" content="' + k + '">\n' : ""; }
+function metaYaz(ad, ozellik, deger) {
+  var d = document, e = d.head.querySelector("meta[" + ozellik + '="' + ad + '"]');
+  if (!deger) { if (e && e.hasAttribute("data-bn")) e.remove(); return; }
+  if (!e) { e = d.createElement("meta"); e.setAttribute(ozellik, ad); e.setAttribute("data-bn", ""); d.head.appendChild(e); }
+  e.setAttribute("content", deger);
+}
+function basGuncelle(ic, sayfa) {
+  var d = document, b = baslik(ic, sayfa), ac = tr(((ic.sayfalar || {})[sayfa] || {}).aciklama);
+  metaYaz("description", "name", ac); metaYaz("og:title", "property", tr(b)); metaYaz("og:description", "property", ac);
+  var og = ogAdres(ic, sayfa); metaYaz("og:image", "property", og); metaYaz("twitter:card", "name", og ? "summary_large_image" : "");
+  metaYaz("google-site-verification", "name", gscKod(ic));
+  var f = d.head.querySelector('link[rel="icon"]'), u = favAdres(ic);
+  if (f && f.getAttribute("href") !== u) { f.setAttribute("href", u); var t = favTip(u); if (t) f.setAttribute("type", t); else f.removeAttribute("type"); }
 }
 /* tam belge (Node önceden üretim) */
 function belge(ic, sayfa, ops) {
@@ -333,7 +456,7 @@ function belge(ic, sayfa, ops) {
   return '<!doctype html>\n<html lang="tr" data-title-en="' + esc(en(b)) + '" data-sayfa="' + esc(sayfa) + '">\n<head>\n<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n' +
     (yay ? "" : '<meta name="robots" content="noindex, nofollow">\n') + "<title>" + esc(tr(b)) + '</title>\n<meta name="description" content="' + esc(ac) + '">\n<link rel="canonical" href="' + esc(can) + '">\n' +
     '<meta property="og:type" content="website"><meta property="og:title" content="' + esc(tr(b)) + '"><meta property="og:description" content="' + esc(ac) + '"><meta property="og:url" content="' + esc(can) + '"><meta property="og:locale" content="tr_TR">\n' +
-    '<meta name="theme-color" content="' + esc(guvenliRenk(((ic.marka || {}).renkler || {}).yesil, "#253925")) + '">\n<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n' +
+    '<meta name="theme-color" content="' + esc(guvenliRenk(((ic.marka || {}).renkler || {}).yesil, "#253925")) + '">\n' + favLink(ic) + "\n" + ogGorsel(ic, sayfa) + gscMeta(ic) +
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">\n' +
     '<link rel="stylesheet" href="assets/site.css?v=' + v + '">\n<style id="bn-renk">' + renkCSS(ic) + "</style>\n" + (sayfa === "index" || sayfa === "iletisim" ? schema(ic) + "\n" : "") +
     "<script>window.BENSAY=" + JSON.stringify({ wa: waLink(ic), site: "bensay", sb: ops.sb || null, guncelleme: (ic.meta || {}).guncelleme || "" }).replace(/</g, "\\u003c") + ";</script>\n</head>\n<body>\n" +
@@ -350,7 +473,8 @@ function yenidenCiz(ic, sayfa, ctx) {
   var a = d.getElementById("bn-alt"); if (a) a.innerHTML = alt(ic);
   d.documentElement.setAttribute("data-title-en", en(b)); d.documentElement.setAttribute("data-title-tr", tr(b)); d.title = d.documentElement.classList.contains("en") ? en(b) : tr(b);
   if (window.BENSAY) window.BENSAY.wa = waLink(ic);
+  try { basGuncelle(ic, sayfa); } catch (e) {}
 }
-var API = { SAYFALAR: SAYFALAR, BOLUM_TIPLERI: BOLUM_TIPLERI, belge: belge, yenidenCiz: yenidenCiz, ana: ana, renkCSS: renkCSS, esc: esc, tr: tr, en: en, T: T, tl: tl, sayfaDosya: sayfaDosya };
+var API = { SAYFALAR: SAYFALAR, BOLUM_TIPLERI: BOLUM_TIPLERI, METINLER: METINLER, SOSYAL: SOSYAL, WA_MSJ: WA_MSJ, belge: belge, yenidenCiz: yenidenCiz, ana: ana, renkCSS: renkCSS, esc: esc, tr: tr, en: en, T: T, tl: tl, sayfaDosya: sayfaDosya };
 if (typeof module !== "undefined" && module.exports) module.exports = API; else kok.BNRender = API;
 })(typeof window !== "undefined" ? window : globalThis);

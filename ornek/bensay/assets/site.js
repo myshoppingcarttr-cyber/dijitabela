@@ -42,6 +42,23 @@ function baglantilar(){
  var mb=$("#menuDg"),mn=$("#menu");if(mb&&mn)mb.onclick=function(){var a=mn.classList.toggle("ac");mb.setAttribute("aria-expanded",a)};
  if(mn)$$("a",mn).forEach(function(a){a.addEventListener("click",function(){mn.classList.remove("ac");mb&&mb.setAttribute("aria-expanded","false")})});
  $$("[data-wa]").forEach(function(a){a.href=bnWa(bnEn()&&a.dataset.waEn?a.dataset.waEn:a.dataset.wa);a.target="_blank";a.rel="noopener"});
+ cerezBagla();
+}
+/* ---------- 7 Kas: çerez bandı + ölçüm (GA4 / GTM / Meta piksel) — panelden; kapalı/boşsa hiçbir şey yüklenmez ---------- */
+var CEREZ_ANAHTAR="bensay_cerez";
+function cerezKarar(){try{return localStorage.getItem(CEREZ_ANAHTAR)}catch(e){return null}}
+function cerezBagla(){var c=$("#bnCerez");if(!c)return;
+ if(!CTX.onizleme&&cerezKarar())return;c.hidden=false;
+ $$("[data-cerez]",c).forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-cerez");if(!CTX.onizleme)try{localStorage.setItem(CEREZ_ANAHTAR,k)}catch(e){}c.hidden=true;if(k==="kabul")izleyiciler(window.BN_ICERIK)}})}
+var izYuklendi=false;
+function betik(src){var s=document.createElement("script");s.async=true;s.src=src;document.head.appendChild(s)}
+function izleyiciler(ic){
+ if(izYuklendi||!ic||CTX.onizleme)return;var st=ic.site||{};if(!st.yayinda)return;
+ if((ic.cerez||{}).ac&&cerezKarar()!=="kabul")return;
+ var ga=String(st.ga||"").trim(),gtm=String(st.gtm||"").trim(),px=String(st.metaPiksel||"").trim();
+ if(/^(G|AW)-[A-Z0-9]{4,20}$/i.test(ga)){izYuklendi=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ga);betik("https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(ga))}
+ if(/^GTM-[A-Z0-9]{4,12}$/i.test(gtm)){izYuklendi=true;window.dataLayer=window.dataLayer||[];dataLayer.push({"gtm.start":Date.now(),event:"gtm.js"});betik("https://www.googletagmanager.com/gtm.js?id="+encodeURIComponent(gtm))}
+ if(/^\d{6,20}$/.test(px)){izYuklendi=true;var n=window.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!window._fbq)window._fbq=n;n.push=n;n.loaded=true;n.version="2.0";n.queue=[];betik("https://connect.facebook.net/en_US/fbevents.js");fbq("init",px);fbq("track","PageView")}
 }
 document.addEventListener("bn:dil",function(){$$("[data-wa]").forEach(function(a){a.href=bnWa(bnEn()&&a.dataset.waEn?a.dataset.waEn:a.dataset.wa)})});
 
@@ -79,7 +96,7 @@ function basla(){
  dilBaslat();baglantilar();
  var dinamik=SAYFA==="proje"&&CTX.p||SAYFA==="yazi"&&CTX.y;
  icerikYukle().then(function(s){
-  if(s.ic){window.BN_ICERIK=s.ic;if(s.ciz||dinamik){ciz(s.ic);return}}
+  if(s.ic){window.BN_ICERIK=s.ic;izleyiciler(s.ic);if(s.ciz||dinamik){ciz(s.ic);return}}
   davranislar();
  }).catch(function(){davranislar()});
 }

@@ -46,7 +46,7 @@ function fCift(o, k, et, ops) {
   ops = ops || {}; if (!o[k] || typeof o[k] !== "object") o[k] = { tr: typeof o[k] === "string" ? o[k] : "", en: "" };
   var v = o[k];
   function g(d) {
-    var i = el(ops.uzun ? "textarea" : "input", { type: "text", lang: d, "aria-label": et + (d === "en" ? " (İngilizce)" : ""), placeholder: d === "en" ? "İngilizce (boşsa Türkçesi görünür)" : (ops.ph || ""),
+    var i = el(ops.uzun ? "textarea" : "input", { type: "text", lang: d, "aria-label": et + (d === "en" ? " (İngilizce)" : ""), placeholder: d === "en" ? (ops.phEn || "İngilizce (boşsa Türkçesi görünür)") : (ops.ph || ""),
       oninput: function () { v[d] = i.value; degisti(); } });
     i.value = v[d] || ""; return el("div", { class: "dil " + d }, [el("span", { text: d.toUpperCase() }), i]);
   }
@@ -67,6 +67,16 @@ function fRenk(o, k, et) {
   c.oninput = function () { t.value = c.value; o[k] = c.value; degisti(); };
   t.oninput = function () { if (/^#[0-9a-f]{6}$/i.test(t.value)) { c.value = t.value; o[k] = t.value; degisti(); } };
   return alan(et, el("div", { class: "renk" }, [c, t]));
+}
+// 7 Kas: boş bırakılabilen renk (boş = sitenin bugünkü varsayılan rengi); "Varsayılan" düğmesi alanı temizler
+function fRenkBos(o, k, et, yard) {
+  var t = el("input", { type: "text", maxlength: 7, placeholder: "varsayılan" }), c = el("input", { type: "color", "aria-label": et });
+  function goster() { t.value = o[k] || ""; c.value = /^#[0-9a-f]{6}$/i.test(o[k] || "") ? o[k] : "#888888"; c.style.opacity = o[k] ? 1 : .35; }
+  c.oninput = function () { o[k] = c.value; goster(); degisti(); };
+  t.oninput = function () { if (/^#[0-9a-f]{6}$/i.test(t.value)) { o[k] = t.value; c.value = t.value; c.style.opacity = 1; degisti(); } else if (!t.value) { delete o[k]; c.style.opacity = .35; degisti(); } };
+  var sil = el("button", { type: "button", class: "dg i kucuk", text: "Varsayılan", title: "Rengi kaldır, sitenin varsayılanına dön", onclick: function () { delete o[k]; goster(); degisti(); } });
+  goster();
+  return alan(et, el("div", { class: "renk" }, [c, t, sil]), yard);
 }
 var SAYFA_LINK = function () { return Object.keys(R.SAYFALAR).map(function (id) { return R.SAYFALAR[id].dosya; }).concat(["iletisim.html#kesif", "maliyet.html#hesap", "hizmetler.html#sektorler", "index.html#projeler"]); };
 function fLink(o, k, et) {
@@ -176,7 +186,20 @@ function fListe(o, k, et, ops) {
 }
 
 /* ---------- bölüm (section) alanları ---------- */
+// 7 Kas: her bölüme "Görünüm" kutusu — arka plan rengi, arka plan görseli + karartma, yazı tonu (boş = bugünkü görünüm)
 function bolumForm(b, kap) {
+  bolumIcerik(b, kap);
+  if (b.tip === "araclar") return;
+  var kt = el("div", { class: "kutu" }, [el("b", { text: "Görünüm (arka plan)" })]);
+  kt.appendChild(fRenkBos(b, "zeminRenk", "Arka plan rengi", b.tip === "kahraman" ? "Arka plan görseli yokken kullanılır. Boşsa kurumsal yeşil." : "Boşsa bölüm bugünkü renginde kalır."));
+  if (b.tip !== "kahraman") {
+    kt.appendChild(fGorsel(b, "zeminGorsel", "Arka plan görseli (isteğe bağlı)", "Bölümün arkasına tam genişlikte yerleşir."));
+    kt.appendChild(fMetin(b, "zeminOrtu", "Görsel üzerine karartma (0-80)", { tip: "number", min: 0, adim: 5, yard: "Yazılar görselin üstünde okunmuyorsa artırın. 0 = yok." }));
+    kt.appendChild(fSecim(b, "yaziTon", "Yazı rengi", [["", "Varsayılan"], ["acik", "Açık (koyu arka plan için)"], ["koyu", "Koyu (açık arka plan için)"]], "Koyu bir renk ya da görsel seçtiyseniz “Açık” yapın."));
+  }
+  kap.appendChild(kt);
+}
+function bolumIcerik(b, kap) {
   var t = b.tip, ortak = ["kahraman", "sayfaBasi", "hizmetler", "sektorler", "projeler", "maliyet", "markalar", "surec", "sss", "ekip", "blog", "metin", "iletisim", "kesifForm", "referanslar"];
   if (/^(projeDetay|blogDetay|araclar|takip)$/.test(t)) { kap.appendChild(el("p", { class: "ac", text: "Bu bölüm sitenin işlevsel bir parçasıdır; içeriği ilgili sekmeden (Projeler / Blog) gelir. Yalnız sırası ve görünürlüğü değiştirilebilir." })); return; }
   if (t === "anaHizmet") {
@@ -215,9 +238,10 @@ function bolumForm(b, kap) {
 var SEKMELER = [
   ["genel", "Marka ve renkler"], ["iletisim", "İletişim"], ["menu", "Menü ve düğmeler"], ["sayfalar", "Sayfalar ve bölümler"],
   ["hizmetler", "Hizmetler"], ["sektorler", "Sektörler"], ["projeler", "Projeler"], ["blog", "Blog"], ["referanslar", "Referanslar"],
-  ["maliyet", "Maliyet hesaplayıcı"], ["markalar", "Malzeme markaları"], ["diger", "Süreç, SSS, ekip"], ["yayin", "Yayın ve geçmiş"]
+  ["maliyet", "Maliyet hesaplayıcı"], ["markalar", "Malzeme markaları"], ["diger", "Süreç, SSS, ekip"],
+  ["eklenti", "Duyuru, çerez, ölçüm"], ["metinler", "Sabit yazılar"], ["yayin", "Yayın ve geçmiş"]
 ];
-var ONIZ_SAYFA = { projeler: "projeler", blog: "blog", maliyet: "maliyet", markalar: "maliyet", iletisim: "iletisim", referanslar: "index", hizmetler: "hizmetler", sektorler: "hizmetler", diger: "hizmetler" };
+var ONIZ_SAYFA = { eklenti: "index", metinler: "iletisim",projeler: "projeler", blog: "blog", maliyet: "maliyet", markalar: "maliyet", iletisim: "iletisim", referanslar: "index", hizmetler: "hizmetler", sektorler: "hizmetler", diger: "hizmetler" };
 function baslikYaz(f, b, a) { f.appendChild(el("h2", { text: b })); if (a) f.appendChild(el("p", { class: "ac", text: a })); }
 var CIZ = {
   genel: function (f) {
@@ -232,6 +256,10 @@ var CIZ = {
     f.appendChild(fRenk(m.renkler, "zemin", "Sayfa zemini")); f.appendChild(fRenk(m.renkler, "yazi", "Yazı rengi"));
     f.appendChild(fCift(m, "altMetin", "Alt bilgi tanıtım cümlesi", { uzun: true }));
     ic.site = ic.site || {}; f.appendChild(fBool(ic.site, "dil2", "İngilizce dil düğmesini göster"));
+    // 7 Kas: favicon ve varsayılan sosyal paylaşım görseli
+    f.appendChild(el("h3", { class: "alt-baslik", text: "Sekme simgesi ve paylaşım görseli" }));
+    f.appendChild(fGorsel(m, "favicon", "Sekme simgesi (favicon)", "Tarayıcı sekmesinde görünen küçük simge. Kare PNG (en az 512×512) ya da SVG önerilir. Boşsa bugünkü bensay simgesi kullanılır."));
+    f.appendChild(fGorsel(ic.site, "paylasimGorseli", "Paylaşım görseli (tüm sayfalar için varsayılan)", "Site linki WhatsApp, LinkedIn, Facebook'ta paylaşılınca çıkan görsel. 1200×630 önerilir. Sayfaya özel görsel Sayfalar sekmesinden verilebilir."));
   },
   iletisim: function (f) {
     var il = ic.iletisim = ic.iletisim || {};
@@ -241,7 +269,17 @@ var CIZ = {
     f.appendChild(fMetin(il, "eposta", "E-posta", { tip: "email" })); f.appendChild(fMetin(il, "adres", "Açık adres", { uzun: true }));
     f.appendChild(fMetin(il, "ilce", "İlçe")); f.appendChild(fMetin(il, "sehir", "Şehir")); f.appendChild(fCift(il, "saatler", "Çalışma saatleri", { ph: "Hafta içi 09:00–18:00" }));
     f.appendChild(fMetin(il, "harita", "Google Haritalar yerleştirme adresi", { tip: "url", yard: "Google Haritalar → Paylaş → Haritayı yerleştir → src içindeki https://www.google.com/maps/embed?… adresi." }));
-    f.appendChild(fMetin(il, "instagram", "Instagram adresi", { tip: "url" })); f.appendChild(fMetin(il, "linkedin", "LinkedIn adresi", { tip: "url" }));
+    // 7 Kas: tüm sosyal medya hesapları (dolu olanlar alt bilgide ve iletişim sayfasında görünür)
+    f.appendChild(el("h3", { class: "alt-baslik", text: "Sosyal medya" }));
+    R.SOSYAL.forEach(function (s) { f.appendChild(fMetin(il, s[0], s[1] + " adresi", { tip: "url", ph: "https://…" })); });
+    f.appendChild(el("p", { class: "yard ac", text: "Boş bırakılan hesap sitede görünmez." }));
+    // 7 Kas: sağ alttaki yüzen WhatsApp düğmesi
+    var w = ic.waDugme = ic.waDugme || {};
+    var kt = el("div", { class: "kutu" }, [el("b", { text: "WhatsApp düğmesi (sayfanın köşesindeki yeşil yuvarlak)" })]);
+    kt.appendChild(fBool(w, "gizle", "WhatsApp düğmesini gizle", "İşaretlenirse köşedeki düğme hiçbir sayfada görünmez. Numara yukarıdaki “WhatsApp numarası” alanından gelir."));
+    kt.appendChild(fSecim(w, "konum", "Düğmenin yeri", [["", "Sağ alt köşe"], ["sol", "Sol alt köşe"]]));
+    kt.appendChild(fCift(w, "mesaj", "Hazır mesaj (ziyaretçi tıklayınca yazılı gelir)", { ph: R.WA_MSJ[0], phEn: R.WA_MSJ[1], yard: "Boşsa: “" + R.WA_MSJ[0] + "”. İletişim sayfasındaki WhatsApp düğmesi de bu mesajı kullanır." }));
+    f.appendChild(kt);
   },
   menu: function (f) {
     baslikYaz(f, "Menü ve düğmeler", "Üst menü öğelerini sürükleyerek sıralayın, gözle gizleyin, yenisini ekleyin.");
@@ -250,7 +288,13 @@ var CIZ = {
     ic.dugmeler = ic.dugmeler || {};
     [["kesif", "“Keşif” düğmesi", "iletisim.html#kesif"], ["planla", "“Proje planla” düğmesi", "maliyet.html#hesap"]].forEach(function (d) {
       var o = ic.dugmeler[d[0]] = ic.dugmeler[d[0]] || { etiket: L(""), hedef: d[2] };
-      var kt = el("div", { class: "kutu" }, [el("b", { text: d[1] })]); kt.appendChild(fCift(o, "etiket", "Yazısı")); kt.appendChild(fLink(o, "hedef", "Gideceği yer")); f.appendChild(kt);
+      var kt = el("div", { class: "kutu" }, [el("b", { text: d[1] })]); kt.appendChild(fCift(o, "etiket", "Yazısı")); kt.appendChild(fLink(o, "hedef", "Gideceği yer"));
+      // 7 Kas: düğme renkleri ve yeni sekme (boş = bugünkü görünüm)
+      kt.appendChild(fRenkBos(o, "renk", "Dolgu rengi", "Düğmenin dolu (renkli) göründüğü yerlerde arka plan rengi."));
+      kt.appendChild(fRenkBos(o, "yaziRenk", "Yazı rengi", "Dolu düğmedeki yazının rengi."));
+      kt.appendChild(fRenkBos(o, "cerceveRenk", "Çerçeveli hâlinin rengi", "Düğme bazı yerlerde (ör. açılışta ikinci düğme) içi boş, çerçeveli görünür; o hâlin çerçeve ve yazı rengi."));
+      kt.appendChild(fBool(o, "yeniSekme", "Yeni sekmede aç", "Başka bir siteye (https://…) giden düğmeler için önerilir."));
+      f.appendChild(kt);
     });
   },
   sayfalar: function (f) {
@@ -260,7 +304,9 @@ var CIZ = {
     f.appendChild(alan("Sayfa", s));
     var sy = ic.sayfalar[sayfaSec];
     var kt = el("div", { class: "kutu" }, [el("b", { text: "Arama motoru bilgileri" })]);
-    kt.appendChild(fCift(sy, "baslik", "Sayfa başlığı (tarayıcı sekmesi / Google)")); kt.appendChild(fCift(sy, "aciklama", "Kısa açıklama (Google)", { uzun: true })); f.appendChild(kt);
+    kt.appendChild(fCift(sy, "baslik", "Sayfa başlığı (tarayıcı sekmesi / Google)", { yard: "Önerilen uzunluk 50-60 karakter." })); kt.appendChild(fCift(sy, "aciklama", "Kısa açıklama (Google)", { uzun: true, yard: "Google sonuçlarında başlığın altında görünür. Önerilen uzunluk 140-160 karakter." }));
+    kt.appendChild(fGorsel(sy, "gorsel", "Bu sayfanın paylaşım görseli (isteğe bağlı)", "Bu sayfanın linki paylaşılınca çıkan görsel (1200×630). Boşsa Marka ve renkler sekmesindeki varsayılan paylaşım görseli kullanılır."));
+    f.appendChild(kt);
     var tipler = Object.keys(R.BOLUM_TIPLERI).filter(function (t) { return !/^(projeDetay|blogDetay|araclar|takip)$/.test(t); }).map(function (t) { return [t, R.BOLUM_TIPLERI[t]]; });
     f.appendChild(fListe(sy, "bolumler", "Bölümler (yukarıdan aşağı sitedeki sıra)", { goz: "gorunur", ekleSecim: tipler,
       yeni: function (t) { return { id: yeniId(t), tip: t, gorunur: true, etiket: L(""), baslik: L(R.BOLUM_TIPLERI[t]), metin: L("") }; },
@@ -341,6 +387,47 @@ var CIZ = {
     f.appendChild(fListe(ic, "surec", "Süreç adımları", { yeni: function () { return { ad: L("Yeni adım"), metin: L("") }; }, ozet: function (s) { return trAd(s.ad); }, form: function (s, k) { k.appendChild(fCift(s, "ad", "Adım")); k.appendChild(fCift(s, "metin", "Açıklama", { uzun: true })); } }));
     f.appendChild(fListe(ic, "sss", "Sık sorulan sorular", { yeni: function () { return { soru: L("Yeni soru"), cevap: L("") }; }, ozet: function (s) { return trAd(s.soru); }, form: function (s, k) { k.appendChild(fCift(s, "soru", "Soru")); k.appendChild(fCift(s, "cevap", "Cevap", { uzun: true })); } }));
     f.appendChild(fListe(ic, "ekip", "Ekip", { yeni: function () { return { ad: "", unvan: L(""), foto: "" }; }, ozet: function (k) { return k.ad || "(isimsiz)"; }, form: function (e, k) { k.appendChild(fMetin(e, "ad", "Ad soyad")); k.appendChild(fCift(e, "unvan", "Unvan")); k.appendChild(fGorsel(e, "foto", "Fotoğraf")); } }));
+  },
+  // 7 Kas: duyuru şeridi, çerez bandı, Google Analytics / Tag Manager / Meta piksel, Search Console doğrulama
+  eklenti: function (f) {
+    baslikYaz(f, "Duyuru, çerez ve ölçüm", "Hepsi isteğe bağlıdır; kapalı ya da boş olanlar sitede hiçbir değişiklik yapmaz.");
+    var d = ic.duyuru = ic.duyuru || {};
+    var k1 = el("div", { class: "kutu" }, [el("b", { text: "Duyuru şeridi (sayfanın en üstünde ince bant)" })]);
+    k1.appendChild(fBool(d, "ac", "Duyuru şeridini göster"));
+    k1.appendChild(fCift(d, "metin", "Duyuru metni", { ph: "Ör. Kasım ayı keşif randevuları açıldı" }));
+    k1.appendChild(fLink(d, "link", "Tıklanınca gideceği yer (isteğe bağlı)"));
+    k1.appendChild(fMetin(d, "bitis", "Son gösterim günü (isteğe bağlı)", { tip: "date", yard: "Bu tarihten sonra şerit kendiliğinden kalkar. Boşsa siz kapatana kadar görünür." }));
+    k1.appendChild(fRenkBos(d, "zemin", "Şerit rengi", "Boşsa kurumsal yeşil.")); k1.appendChild(fRenkBos(d, "yazi", "Yazı rengi", "Boşsa beyaz."));
+    f.appendChild(k1);
+    var c = ic.cerez = ic.cerez || {};
+    var k2 = el("div", { class: "kutu" }, [el("b", { text: "Çerez bildirimi (sol alttaki küçük kutu)" })]);
+    k2.appendChild(fBool(c, "ac", "Çerez bildirimini göster", "Açıksa ziyaretçi bir kez “Kabul et” diyene kadar görünür. Açıkken aşağıdaki ölçüm kodları ancak “Kabul et”ten sonra çalışır (KVKK için önerilir)."));
+    k2.appendChild(fCift(c, "metin", "Bildirim metni", { uzun: true, ph: R.METINLER.cerezMetin[0], phEn: R.METINLER.cerezMetin[1], yard: "Boşsa gri yazıyla görünen varsayılan metin kullanılır. Düğme yazıları “Sabit yazılar” sekmesindedir." }));
+    k2.appendChild(fBool(c, "redDugme", "“Reddet” düğmesi de olsun"));
+    k2.appendChild(fLink(c, "link", "Çerez / gizlilik politikası sayfası (isteğe bağlı)"));
+    f.appendChild(k2);
+    var s = ic.site = ic.site || {};
+    var k3 = el("div", { class: "kutu" }, [el("b", { text: "Ziyaretçi ölçümü ve reklam kodları" })]);
+    k3.appendChild(fMetin(s, "ga", "Google Analytics 4 ölçüm kimliği", { ph: "G-XXXXXXXXXX", yard: "Analytics → Yönetici → Veri akışları → Ölçüm kimliği. Yalnız “G-” ile başlayan kimliği yazın, kod parçası değil." }));
+    k3.appendChild(fMetin(s, "gtm", "Google Etiket Yöneticisi (isteğe bağlı)", { ph: "GTM-XXXXXXX", yard: "Etiket Yöneticisi kullanıyorsanız. Analytics'i GTM içinden de kuruyorsanız yukarıdaki alanı boş bırakın (çift sayım olmasın)." }));
+    k3.appendChild(fMetin(s, "metaPiksel", "Meta (Facebook/Instagram) piksel kimliği", { ph: "123456789012345", yard: "Meta Olay Yöneticisi → Veri kaynakları → piksel kimliği (yalnız rakamlar)." }));
+    k3.appendChild(fMetin(s, "gsc", "Google Search Console doğrulama kodu", { ph: "ör. aBcD1234…", yard: "Search Console → HTML etiketi yöntemi → content=\"…\" içindeki kod. Yalnız kodu yapıştırın." }));
+    k3.appendChild(el("p", { class: "yard ac", text: "Kodlar yalnız yayındaki sitede çalışır; bu paneldeki önizlemede çalışmaz. Hatalı biçimdeki kod güvenlik için yok sayılır." }));
+    f.appendChild(k3);
+  },
+  // 7 Kas: sitede sabit duran yazılar (düğmeler, form etiketleri, alt bilgi başlıkları…)
+  metinler: function (f) {
+    baslikYaz(f, "Sabit yazılar", "Sitede kalıp olarak duran yazılar. Boş bırakılan alanda gri yazıyla görünen varsayılan kullanılır; değiştirmek için üzerine yazın, eski hâline dönmek için silin.");
+    var mt = ic.metinler = ic.metinler || {};
+    var grup = null, kt = null;
+    Object.keys(R.METINLER).forEach(function (k) {
+      var d = R.METINLER[k], g = d[2].split(" · ")[0];
+      if (g !== grup) { grup = g; kt = el("div", { class: "kutu" }, [el("b", { text: g })]); f.appendChild(kt); }
+      var o = { v: mt[k] && typeof mt[k] === "object" ? mt[k] : { tr: "", en: "" } };
+      var a = fCift(o, "v", d[2].split(" · ").slice(1).join(" · ") || d[2], { ph: d[0], phEn: d[1] });
+      a.addEventListener("input", function () { if (!o.v.tr && !o.v.en) delete mt[k]; else mt[k] = o.v; });
+      kt.appendChild(a);
+    });
   },
   yayin: function (f) {
     baslikYaz(f, "Yayın ve geçmiş", "“Kaydet ve yayınla” ile değişiklikler sitede hemen görünür. Her kayıttan önceki sürüm saklanır (son 30).");
