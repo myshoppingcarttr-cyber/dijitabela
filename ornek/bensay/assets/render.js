@@ -81,9 +81,20 @@ function ust(ic, sayfa) {
     '<button class="ac-kapa" id="menuDg" type="button" aria-controls="menu" aria-expanded="false" aria-label="Menü" data-al-en="Menu">☰</button>' +
     "</div></header>";
 }
+// 7 Kas: telefonu "0542 384 06 76" biçiminde göster, bağlantı +90 ile; ikinci numara (tel2) desteği
+function telLink(n) {
+  if (!n) return "";
+  var d = String(n).replace(/\D/g, ""), g = n;
+  if (d.length === 12 && d.indexOf("90") === 0) d = "0" + d.slice(2);
+  if (d.length === 10 && d.charAt(0) !== "0") d = "0" + d;
+  if (d.length === 11 && d.charAt(0) === "0") g = d.slice(0, 4) + " " + d.slice(4, 7) + " " + d.slice(7, 9) + " " + d.slice(9);
+  var h = d.length === 11 && d.charAt(0) === "0" ? "+90" + d.slice(1) : String(n).replace(/\s/g, "");
+  return '<a href="tel:' + esc(h) + '">' + esc(g) + "</a>";
+}
+function telHepsi(il) { return [telLink(il.tel), telLink(il.tel2)].filter(Boolean).join("<br>"); }
 function alt(ic) {
   var m = ic.marka || {}, il = ic.iletisim || {};
-  var tel = il.tel ? '<a href="tel:' + esc(il.tel.replace(/\s/g, "")) + '">' + esc(il.tel) + "</a>" : bek();
+  var tel = telHepsi(il) || bek();
   var sos = [il.instagram ? '<li><a href="' + esc(url(il.instagram)) + '" target="_blank" rel="noopener">Instagram</a></li>' : "",
              il.linkedin ? '<li><a href="' + esc(url(il.linkedin)) + '" target="_blank" rel="noopener">LinkedIn</a></li>' : ""].join("");
   var sayfalar = (ic.menu || []).filter(function (x) { return x.gorunur !== false && !bos(x.ad); }).slice(1).map(function (x) { return '<li><a href="' + esc(url(x.hedef)) + '">' + T(x.ad) + "</a></li>"; }).join("") +
@@ -229,7 +240,7 @@ var BOLUM = {
     var harita = /^https:\/\/(www\.)?google\.[a-z.]+\/maps\/embed/.test(il.harita || "") ? '<iframe class="harita" src="' + esc(il.harita) + '" loading="lazy" title="Harita" referrerpolicy="no-referrer-when-downgrade"></iframe>'
       : '<div class="harita">' + T2("Ofis adresi gelince harita burada yer alacak.", "A map will appear here once the office address is added.") + "</div>";
     return '<section class="bol ilk" id="' + esc(b.id) + '"><div class="kap iki"><div>' + bas(b) + '<ul class="bilgi">' + s("Adres", "Address", esc(il.adres)) + s("Şehir", "City", esc(il.sehir || "Ankara")) +
-      s("Telefon", "Phone", il.tel ? '<a href="tel:' + esc(il.tel.replace(/\s/g, "")) + '">' + esc(il.tel) + "</a>" : "") + s("WhatsApp", "WhatsApp", esc(il.wa)) +
+      s("Telefon", "Phone", telHepsi(il)) + s("WhatsApp", "WhatsApp", esc(il.wa)) +
       s("E-posta", "Email", il.eposta ? '<a href="mailto:' + esc(il.eposta) + '">' + esc(il.eposta) + "</a>" : "") + s("Çalışma saatleri", "Opening hours", bos(il.saatler) ? "" : T(il.saatler)) +
       s("Sosyal medya", "Social media", sos) + '</ul><div class="dgs">' + dugme(ic, "kesif") + '<a class="dg i" href="#" data-wa="Merhaba, web sitenizden yazıyorum." data-wa-en="Hello, I\'m writing from your website.">WhatsApp</a></div></div>' + harita + "</div></section>";
   },

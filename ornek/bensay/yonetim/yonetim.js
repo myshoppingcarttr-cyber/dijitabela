@@ -236,7 +236,8 @@ var CIZ = {
   iletisim: function (f) {
     var il = ic.iletisim = ic.iletisim || {};
     baslikYaz(f, "İletişim bilgileri", "Boş bırakılan alanlar sitede “eklenecek” olarak görünür.");
-    f.appendChild(fMetin(il, "tel", "Telefon", { ph: "0 312 …" })); f.appendChild(fMetin(il, "wa", "WhatsApp numarası", { ph: "90532…", yard: "Ülke koduyla, boşluksuz (ör. 905321234567). Sitedeki tüm WhatsApp düğmeleri buna gider." }));
+    f.appendChild(fMetin(il, "tel", "Telefon", { ph: "0542 384 06 76", yard: "+90 yazmanıza gerek yok; sitede 0542 384 06 76 biçiminde görünür." }));
+    f.appendChild(fMetin(il, "tel2", "İkinci telefon (isteğe bağlı)", { ph: "0312 …", yard: "Doluysa sitenin alt kısmında ve iletişim sayfasında ilk numaranın altında görünür." })); f.appendChild(fMetin(il, "wa", "WhatsApp numarası", { ph: "90532…", yard: "Ülke koduyla, boşluksuz (ör. 905321234567). Sitedeki tüm WhatsApp düğmeleri buna gider." }));
     f.appendChild(fMetin(il, "eposta", "E-posta", { tip: "email" })); f.appendChild(fMetin(il, "adres", "Açık adres", { uzun: true }));
     f.appendChild(fMetin(il, "ilce", "İlçe")); f.appendChild(fMetin(il, "sehir", "Şehir")); f.appendChild(fCift(il, "saatler", "Çalışma saatleri", { ph: "Hafta içi 09:00–18:00" }));
     f.appendChild(fMetin(il, "harita", "Google Haritalar yerleştirme adresi", { tip: "url", yard: "Google Haritalar → Paylaş → Haritayı yerleştir → src içindeki https://www.google.com/maps/embed?… adresi." }));
