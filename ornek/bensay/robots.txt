@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /yonetim/
+Sitemap: https://bensaymimarlik.com/sitemap.xml

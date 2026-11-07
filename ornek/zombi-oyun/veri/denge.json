@@ -1,0 +1,51 @@
+{
+  "_aciklama": "Oyun dengesi. Sayıları değiştirip sayfayı yenilemek yeterli. Süreler saniye, hızlar piksel/saniye.",
+  "oyuncu": {
+    "can": 100,
+    "hiz": 310,
+    "geri_yuruyus_carpani": 0.72,
+    "ziplama_gucu": 860,
+    "yercekimi": 2300,
+    "hasar_sonrasi_dokunulmazlik": 0.7,
+    "geri_itme": 240,
+    "baslangic_x": 220
+  },
+  "zorluk": {
+    "kolay":  { "ad": "Kolay",  "zombi_can": 0.75, "zombi_hasar": 0.6, "zombi_adet": 0.8,  "zombi_hiz": 0.9 },
+    "normal": { "ad": "Normal", "zombi_can": 1.0,  "zombi_hasar": 1.0, "zombi_adet": 1.0,  "zombi_hiz": 1.0 },
+    "zor":    { "ad": "Zor",    "zombi_can": 1.3,  "zombi_hasar": 1.45, "zombi_adet": 1.25, "zombi_hiz": 1.12 }
+  },
+  "kombo": { "sure": 2.6, "carpan_adim": 5, "carpan_artis": 0.5, "carpan_ust": 4 },
+  "puan": {
+    "kafa_bonus": 50,
+    "bolge_bonus": 250,
+    "kalan_can_carpani": 12,
+    "kapi_can_carpani": 1,
+    "varil_vurma": 75,
+    "zaman_bonus_ust": 3000,
+    "zaman_bonus_sure": 420
+  },
+  "dusurme": { "can_sans": 0.05, "mermi_sans": 0.09 },
+  "esyalar": {
+    "can": { "deger": 40 },
+    "mermi": { "pompali": 12, "tufek": 60 }
+  },
+  "zombiler": {
+    "aylak": {
+      "ad": "Aylak", "can": 60, "hiz": [46, 70], "hasar": 10, "menzil": 72,
+      "saldiri_aralik": 1.25, "saldiri_vurus_ani": 0.42, "sersemleme_esigi": 14, "geri_itme_direnci": 0.0,
+      "puan": 100, "boy": 1.0, "isabet_genislik": 34, "isabet_yukseklik": 140
+    },
+    "kosucu": {
+      "ad": "Koşucu", "can": 45, "hiz": [205, 250], "hasar": 8, "menzil": 66,
+      "saldiri_aralik": 0.85, "saldiri_vurus_ani": 0.25, "sersemleme_esigi": 10, "geri_itme_direnci": 0.0,
+      "atilma_mesafe": 290, "atilma_hiz": 600, "atilma_bekleme": 2.2,
+      "puan": 150, "boy": 0.95, "isabet_genislik": 30, "isabet_yukseklik": 125
+    },
+    "hantal": {
+      "ad": "Hantal", "can": 430, "hiz": [36, 46], "hasar": 24, "menzil": 110,
+      "saldiri_aralik": 1.9, "saldiri_vurus_ani": 0.55, "sersemleme_esigi": 90, "geri_itme_direnci": 0.8,
+      "puan": 400, "boy": 1.35, "isabet_genislik": 54, "isabet_yukseklik": 190
+    }
+  }
+}

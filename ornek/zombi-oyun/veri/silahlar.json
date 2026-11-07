@@ -1,0 +1,22 @@
+{
+  "_aciklama": "Silahlar. yedek: -1 = sınırsız. atis_aralik saniye. sacma = bir atışta çıkan saçma sayısı. delme = kaç zombiyi delip geçer.",
+  "sira": ["tabanca", "pompali", "tufek"],
+  "tabanca": {
+    "ad": "Tabanca", "kisa": "9MM",
+    "hasar": 24, "atis_aralik": 0.24, "sarjor": 12, "yedek_baslangic": -1, "yedek_ust": -1,
+    "doldurma_suresi": 1.0, "sacma": 1, "yayilim": 0, "menzil": 1150, "delme": 1,
+    "kafa_sans": 0.12, "geri_itme": 45, "ekran_sarsinti": 0.0015, "tepme": 5, "ses": "tabanca"
+  },
+  "pompali": {
+    "ad": "Pompalı Tüfek", "kisa": "12 KALİBRE",
+    "hasar": 15, "atis_aralik": 0.8, "sarjor": 6, "yedek_baslangic": 18, "yedek_ust": 48,
+    "doldurma_suresi": 1.9, "sacma": 8, "yayilim": 0.12, "menzil": 560, "delme": 1,
+    "kafa_sans": 0.05, "geri_itme": 210, "ekran_sarsinti": 0.006, "tepme": 14, "ses": "pompali"
+  },
+  "tufek": {
+    "ad": "Piyade Tüfeği", "kisa": "7.62",
+    "hasar": 30, "atis_aralik": 0.105, "sarjor": 30, "yedek_baslangic": 90, "yedek_ust": 240,
+    "doldurma_suresi": 1.7, "sacma": 1, "yayilim": 0.02, "menzil": 1500, "delme": 2,
+    "kafa_sans": 0.15, "geri_itme": 70, "ekran_sarsinti": 0.0022, "tepme": 6, "ses": "tufek"
+  }
+}

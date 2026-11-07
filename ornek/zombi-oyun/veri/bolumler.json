@@ -1,0 +1,223 @@
+{
+  "_aciklama": "Bölümler, bölgeler (görev adımları), dalgalar, boss değerleri ve tüm hikâye metinleri. Bölge tipleri: temizle | topla | savun | boss | ulas. Dalga: t = bölge başladıktan kaç sn sonra, tur = aylak|kosucu|hantal, adet, yon = sag|sol|iki, aralik = iki zombi arası sn.",
+  "karakterler": {
+    "aras":     { "ad": "Aras",          "portre": "portre_aras",  "telsiz": false, "renk": "#f2c14e" },
+    "selin":    { "ad": "Dr. Selin",     "portre": "portre_selin", "telsiz": true,  "renk": "#7fd1c7" },
+    "yusuf":    { "ad": "Kaptan Yusuf",  "portre": "portre_yusuf", "telsiz": true,  "renk": "#9ec5ff" },
+    "anlatici": { "ad": "",              "portre": null,           "telsiz": false, "renk": "#d9d4c7" }
+  },
+  "bolumler": [
+    {
+      "id": "b1",
+      "ad": "Karanlık Mahalle",
+      "alt_baslik": "Gece 02:40 · Yelkovan Mahallesi",
+      "tema": "gece",
+      "muzik": "gece",
+      "uzunluk": 9400,
+      "baslangic_silahlar": ["tabanca"],
+      "yildiz_puan": [6000, 11000, 15500],
+      "giris_kartlari": [
+        { "sahne": "mahalle", "kamera": 0.05, "kim": "anlatici", "metin": "Salgının ilk gecesi. Yelkovan Mahallesi'nde elektrikler saat 23.00'te kesildi. Sirenler bir saattir susmuyor." },
+        { "sahne": "mahalle", "kamera": 0.12, "kim": "aras", "metin": "Vardiyamın bitmesine on dakika vardı. Ambulans köprü girişinde devrildi. Bir tek telsiz sağlam kaldı." },
+        { "sahne": "siginak", "kamera": 0.5, "kim": "selin", "metin": "Aras, duyuyor musun? Eski metro istasyonundayız, otuz iki kişiyiz. Defne ateşler içinde yanıyor. Antibiyotik lazım, hemen." },
+        { "sahne": "mahalle", "kamera": 0.45, "kim": "aras", "metin": "Şifa Eczanesi dört sokak ötede. Oradan alıp metro girişinden size inerim. Kapıyı açık tutun." },
+        { "sahne": "mahalle", "kamera": 0.3, "kim": "selin", "metin": "Dikkat et. Onlar sese ve ışığa geliyor. Ve bazıları... koşuyor." }
+      ],
+      "cikis_kartlari": [
+        { "sahne": "siginak", "kamera": 0.5, "kim": "anlatici", "metin": "Defne'nin ateşi sabaha karşı düştü. Sığınakta ilk kez biri güldü." },
+        { "sahne": "siginak", "kamera": 0.6, "kim": "selin", "metin": "Telsize yeni bir çağrı düştü: 'Umut' teknesi sabah altıda Eski Liman'dan kalkıyor. Ondan sonrası yok." },
+        { "sahne": "liman", "kamera": 0.1, "kim": "aras", "metin": "O zaman şafaktan önce limanda olacağız. Hepimiz." }
+      ],
+      "dekor": [
+        { "tur": "ambulans", "x": 120 },
+        { "tur": "bariyer", "x": 1350 },
+        { "tur": "polis", "x": 2420 },
+        { "tur": "otobus", "x": 3150 },
+        { "tur": "eczane", "x": 4750 },
+        { "tur": "kopru", "x": 5950, "genislik": 1750 },
+        { "tur": "metro", "x": 9020 }
+      ],
+      "bolgeler": [
+        {
+          "ad": "Çınar Sokağı", "tip": "temizle", "gorev": "Sokağı temizle",
+          "tetik_x": 520, "sol": 0, "sag": 1950,
+          "esyalar": [ { "tur": "can", "x": 1650 } ],
+          "dalgalar": [
+            { "t": 0.5, "tur": "aylak", "adet": 3, "yon": "sag", "aralik": 1.4 },
+            { "t": 6, "tur": "aylak", "adet": 3, "yon": "iki", "aralik": 1.1 },
+            { "t": 13, "tur": "aylak", "adet": 4, "yon": "sag", "aralik": 0.9 }
+          ],
+          "diyalog_baslangic": [ { "kim": "aras", "metin": "Bay Cemal... Ayşe Hanım... Hepsi mi?" }, { "kim": "selin", "metin": "Onlar artık komşun değil Aras. Durma, ateş et." } ],
+          "diyalog_bitis": [ { "kim": "aras", "metin": "Sokak temiz. Pazar yerinden geçiyorum." } ]
+        },
+        {
+          "ad": "Pazar Yeri", "tip": "temizle", "gorev": "Pazar yerinden geç",
+          "tetik_x": 2250, "sol": 1950, "sag": 3850,
+          "esyalar": [ { "tur": "pompali", "x": 2470 }, { "tur": "mermi", "x": 3600 } ],
+          "dalgalar": [
+            { "t": 0.5, "tur": "aylak", "adet": 3, "yon": "sag", "aralik": 1.0 },
+            { "t": 4, "tur": "kosucu", "adet": 2, "yon": "sag", "aralik": 1.6 },
+            { "t": 11, "tur": "aylak", "adet": 3, "yon": "sol", "aralik": 0.9 },
+            { "t": 12, "tur": "kosucu", "adet": 2, "yon": "sag", "aralik": 1.2 },
+            { "t": 19, "tur": "aylak", "adet": 5, "yon": "iki", "aralik": 0.8 },
+            { "t": 24, "tur": "kosucu", "adet": 3, "yon": "iki", "aralik": 1.0 }
+          ],
+          "diyalog_baslangic": [ { "kim": "aras", "metin": "Devriye arabası boş... Ama pompalı yerinde duruyor." }, { "kim": "selin", "metin": "Hızlı olanlar geliyor! Sesin geldiği yere koşuyorlar!" } ],
+          "diyalog_bitis": [ { "kim": "aras", "metin": "Eczanenin tabelası görünüyor. Kırmızı E hâlâ yanıyor." } ]
+        },
+        {
+          "ad": "Şifa Eczanesi", "tip": "topla", "gorev": "Eczanede ilaçları ara", "sure": 14,
+          "hedef_x": 4750, "hedef_genislik": 230,
+          "tetik_x": 4250, "sol": 3850, "sag": 5650,
+          "esyalar": [ { "tur": "mermi", "x": 4100 } ],
+          "dalgalar": [
+            { "t": 1, "tur": "aylak", "adet": 3, "yon": "iki", "aralik": 0.9 },
+            { "t": 5, "tur": "kosucu", "adet": 2, "yon": "sag", "aralik": 1.0 },
+            { "t": 9, "tur": "hantal", "adet": 1, "yon": "sag", "aralik": 0 },
+            { "t": 12, "tur": "aylak", "adet": 4, "yon": "iki", "aralik": 0.7 },
+            { "t": 18, "tur": "kosucu", "adet": 3, "yon": "iki", "aralik": 0.8 },
+            { "t": 24, "tur": "aylak", "adet": 4, "yon": "iki", "aralik": 0.8 },
+            { "t": 30, "tur": "kosucu", "adet": 3, "yon": "iki", "aralik": 0.8 },
+            { "t": 36, "tur": "aylak", "adet": 5, "yon": "iki", "aralik": 0.7 }
+          ],
+          "diyalog_baslangic": [ { "kim": "aras", "metin": "Raflar boşaltılmış. Arka depoya bakmam lazım, birkaç saniye..." }, { "kim": "selin", "metin": "Kapının önünde kal Aras, sesler yaklaşıyor!" } ],
+          "diyalog_bitis": [ { "kim": "aras", "metin": "Buldum! İki kutu amoksisilin." }, { "kim": "selin", "metin": "Köprü tarafı kapandı. Alt geçitten metroya gel." } ]
+        },
+        {
+          "ad": "Köprü Altı", "tip": "boss", "gorev": "Kasap'ı durdur",
+          "tetik_x": 6250, "sol": 5900, "sag": 7700,
+          "esyalar": [ { "tur": "can", "x": 5980 }, { "tur": "mermi", "x": 6080 } ],
+          "boss": {
+            "tur": "kasap", "ad": "KASAP", "unvan": "Pazarın kasabı, artık hiç doymuyor",
+            "can": 2600, "hiz": 78, "hasar": 28, "menzil": 150, "saldiri_aralik": 1.6,
+            "hucum_hiz": 640, "hucum_hasar": 34, "hucum_aralik": 6.5, "hucum_mesafe": 950,
+            "ofke_esigi": 0.5, "ofke_hiz_carpani": 1.35, "ofke_cagri": { "tur": "aylak", "adet": 4 },
+            "puan": 5000
+          },
+          "dalgalar": [],
+          "diyalog_baslangic": [ { "kim": "aras", "metin": "Rıza Usta? Pazarın kasabı... Tanrım, ne olmuş sana?" }, { "kim": "selin", "metin": "Koştuğunda üstünden atla! Duvara çarparsa sersemler!" } ],
+          "diyalog_bitis": [ { "kim": "aras", "metin": "Bitti... Metro girişi hemen ileride." } ]
+        },
+        {
+          "ad": "Metro Girişi", "tip": "ulas", "gorev": "Metro girişine ulaş",
+          "hedef_x": 9020, "tetik_x": 7800, "sol": 7700, "sag": 9350,
+          "esyalar": [],
+          "dalgalar": [
+            { "t": 0.5, "tur": "kosucu", "adet": 3, "yon": "sol", "aralik": 0.8 },
+            { "t": 3, "tur": "aylak", "adet": 3, "yon": "sag", "aralik": 0.8 }
+          ],
+          "diyalog_baslangic": [ { "kim": "selin", "metin": "Seni görüyoruz! Kepengi kaldırıyoruz, koş!" } ],
+          "diyalog_bitis": []
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "ad": "Eski Liman",
+      "alt_baslik": "Şafak 05:20 · Eski Liman",
+      "tema": "safak",
+      "muzik": "safak",
+      "uzunluk": 9300,
+      "baslangic_silahlar": ["tabanca", "pompali"],
+      "yildiz_puan": [8000, 14000, 20000],
+      "giris_kartlari": [
+        { "sahne": "liman", "kamera": 0.05, "kim": "anlatici", "metin": "05.20. Şafak sökerken sis limanı yuttu. Sığınaktakiler arka yoldan iskeleye ilerliyor." },
+        { "sahne": "liman", "kamera": 0.5, "kim": "selin", "metin": "Aras, iskele kapısı kilitli. Jeneratörü çalıştırıp kapıyı açman ve biz gelene kadar tutman lazım." },
+        { "sahne": "liman", "kamera": 0.95, "kim": "yusuf", "metin": "Burası Umut. Altıda halatları çözüyorum, bir dakika bile beklemem. Kapıyı tutun, gerisini ben hallederim." },
+        { "sahne": "liman", "kamera": 0.3, "kim": "aras", "metin": "Kapıyı açarım. Siz sadece koşun." }
+      ],
+      "cikis_kartlari": [
+        { "sahne": "liman", "kamera": 0.97, "kim": "yusuf", "metin": "Herkes güvertede! Otuz iki kişi, bir de inatçı bir paramedik. Halatları çözün!" },
+        { "sahne": "liman", "kamera": 0.9, "kim": "anlatici", "metin": "Umut, saat 06.00'da sisin içinden açık denize süzüldü. Aras ilk kez arkasına bakmadı." },
+        { "sahne": "liman", "kamera": 0.85, "kim": "anlatici", "metin": "Son vardiya bitti. Ama hikâye daha yeni başlıyor..." }
+      ],
+      "dekor": [
+        { "tur": "kulube", "x": 640 },
+        { "tur": "forklift", "x": 1500 },
+        { "tur": "vinc", "x": 2900 },
+        { "tur": "jenerator", "x": 5200 },
+        { "tur": "kapi", "x": 5560 },
+        { "tur": "depo", "x": 6800 },
+        { "tur": "tekne", "x": 8950 }
+      ],
+      "bolgeler": [
+        {
+          "ad": "Konteyner Sahası", "tip": "temizle", "gorev": "Konteyner sahasını temizle",
+          "tetik_x": 520, "sol": 0, "sag": 2050,
+          "esyalar": [ { "tur": "tufek", "x": 700 }, { "tur": "can", "x": 1900 } ],
+          "dalgalar": [
+            { "t": 1, "tur": "aylak", "adet": 4, "yon": "sag", "aralik": 0.9 },
+            { "t": 6, "tur": "kosucu", "adet": 3, "yon": "sag", "aralik": 1.0 },
+            { "t": 13, "tur": "aylak", "adet": 4, "yon": "iki", "aralik": 0.7 },
+            { "t": 18, "tur": "kosucu", "adet": 4, "yon": "iki", "aralik": 0.8 }
+          ],
+          "diyalog_baslangic": [ { "kim": "aras", "metin": "Liman güvenlik kulübesi... İçeride bir piyade tüfeği var!" }, { "kim": "yusuf", "metin": "Sesini duyuyorum evlat. Mermini idareli kullan." } ],
+          "diyalog_bitis": [ { "kim": "aras", "metin": "Vinçlerin altından geçiyorum." } ]
+        },
+        {
+          "ad": "Vinç Altı", "tip": "temizle", "gorev": "Vinç sahasından geç",
+          "tetik_x": 2400, "sol": 2050, "sag": 4050,
+          "esyalar": [ { "tur": "mermi", "x": 2300 }, { "tur": "can", "x": 3900 } ],
+          "dalgalar": [
+            { "t": 0.5, "tur": "hantal", "adet": 1, "yon": "sag", "aralik": 0 },
+            { "t": 1.5, "tur": "aylak", "adet": 3, "yon": "sag", "aralik": 0.8 },
+            { "t": 8, "tur": "kosucu", "adet": 4, "yon": "iki", "aralik": 0.8 },
+            { "t": 15, "tur": "hantal", "adet": 1, "yon": "sol", "aralik": 0 },
+            { "t": 16, "tur": "kosucu", "adet": 3, "yon": "sag", "aralik": 0.9 },
+            { "t": 23, "tur": "aylak", "adet": 6, "yon": "iki", "aralik": 0.6 }
+          ],
+          "diyalog_baslangic": [ { "kim": "selin", "metin": "Büyükler var Aras! Mesafeni koru!" } ],
+          "diyalog_bitis": [ { "kim": "aras", "metin": "İskele kapısı ileride. Jeneratör yanında." } ]
+        },
+        {
+          "ad": "İskele Kapısı", "tip": "savun", "gorev": "Kapıyı aç ve koru", "sure": 70,
+          "kapi_x": 5560, "kapi_can": 1400,
+          "tetik_x": 4500, "sol": 4050, "sag": 5520,
+          "esyalar": [ { "tur": "mermi", "x": 4400 }, { "tur": "can", "x": 5300 } ],
+          "dalgalar": [
+            { "t": 1, "tur": "aylak", "adet": 4, "yon": "sol", "aralik": 0.9 },
+            { "t": 7, "tur": "kosucu", "adet": 3, "yon": "sol", "aralik": 0.8 },
+            { "t": 13, "tur": "aylak", "adet": 5, "yon": "sol", "aralik": 0.7 },
+            { "t": 19, "tur": "hantal", "adet": 1, "yon": "sol", "aralik": 0 },
+            { "t": 21, "tur": "kosucu", "adet": 4, "yon": "sol", "aralik": 0.7 },
+            { "t": 29, "tur": "aylak", "adet": 6, "yon": "sol", "aralik": 0.6 },
+            { "t": 36, "tur": "kosucu", "adet": 4, "yon": "sol", "aralik": 0.6 },
+            { "t": 42, "tur": "hantal", "adet": 2, "yon": "sol", "aralik": 3 },
+            { "t": 47, "tur": "aylak", "adet": 6, "yon": "sol", "aralik": 0.5 },
+            { "t": 54, "tur": "kosucu", "adet": 6, "yon": "sol", "aralik": 0.5 },
+            { "t": 61, "tur": "aylak", "adet": 6, "yon": "sol", "aralik": 0.5 }
+          ],
+          "diyalog_baslangic": [ { "kim": "aras", "metin": "Jeneratör çalıştı! Kapı açılıyor... ama çok yavaş." }, { "kim": "yusuf", "metin": "Kapı açılana kadar tut! O şeyler kapıya yüklenirse kilit kırılır!" } ],
+          "diyalog_ara": [ { "t": 35, "kim": "selin", "metin": "Seni görüyoruz! Az kaldı, dayan!" } ],
+          "diyalog_bitis": [ { "kim": "yusuf", "metin": "Kapı açık! Herkes iskeleye!" }, { "kim": "aras", "metin": "Rıhtımda bir şey kıpırdıyor... büyük bir şey." } ]
+        },
+        {
+          "ad": "Rıhtım", "tip": "boss", "gorev": "Liman Devi'ni yen",
+          "tetik_x": 6250, "sol": 5900, "sag": 7700,
+          "esyalar": [ { "tur": "can", "x": 5980 }, { "tur": "mermi", "x": 6060 } ],
+          "boss": {
+            "tur": "dev", "ad": "LİMAN DEVİ", "unvan": "Rıhtımın dehşeti",
+            "can": 4200, "hiz": 64, "hasar": 30, "menzil": 165, "saldiri_aralik": 1.8,
+            "sok_hiz": 520, "sok_hasar": 22, "sok_aralik": 5.5,
+            "firlat_aralik": 4.2, "varil_hasar": 26, "varil_yaricap": 130,
+            "ofke_esigi": 0.5, "ofke_hiz_carpani": 1.3, "ofke_cagri": { "tur": "kosucu", "adet": 4 },
+            "puan": 8000
+          },
+          "dalgalar": [],
+          "diyalog_baslangic": [ { "kim": "yusuf", "metin": "O ne öyle?! Halatları çözemiyorum, o şeyi tekneden uzak tut!" }, { "kim": "selin", "metin": "Yere vurunca zıpla! Fırlattığı varilleri havada vur!" } ],
+          "diyalog_bitis": [ { "kim": "yusuf", "metin": "Motor çalıştı! Koş evlat, koş!" } ]
+        },
+        {
+          "ad": "Umut'a Bin", "tip": "ulas", "gorev": "Tekneye koş",
+          "hedef_x": 8900, "tetik_x": 7800, "sol": 7700, "sag": 9250,
+          "esyalar": [],
+          "dalgalar": [
+            { "t": 0.3, "tur": "kosucu", "adet": 5, "yon": "sol", "aralik": 0.5 }
+          ],
+          "diyalog_baslangic": [ { "kim": "yusuf", "metin": "Arkanda koşucular var! Bakma, koş!" } ],
+          "diyalog_bitis": []
+        }
+      ]
+    }
+  ]
+}

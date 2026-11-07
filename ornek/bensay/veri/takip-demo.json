@@ -1,0 +1,81 @@
+{
+ "_not": {
+  "tr": "Bu bir deneme kaydıdır. Gerçek projelerde aşamaları ofisimiz yönetim panelinden günceller.",
+  "en": "This is a demo record. For real projects our office updates the stages from the admin panel."
+ },
+ "DEMO2481": {
+  "baslik": {
+   "tr": "Örnek proje · DEMO-2481",
+   "en": "Sample project · DEMO-2481"
+  },
+  "yuzde": 58,
+  "asamalar": [
+   {
+    "ad": {
+     "tr": "Keşif ve rölöve",
+     "en": "Site survey"
+    },
+    "d": "ok",
+    "not": {
+     "tr": "Tamamlandı",
+     "en": "Completed"
+    }
+   },
+   {
+    "ad": {
+     "tr": "Konsept ve 3B görseller",
+     "en": "Concept and 3D visuals"
+    },
+    "d": "ok",
+    "not": {
+     "tr": "Tamamlandı",
+     "en": "Completed"
+    }
+   },
+   {
+    "ad": {
+     "tr": "Avan proje onayı",
+     "en": "Schematic design approval"
+    },
+    "d": "ok",
+    "not": {
+     "tr": "Tamamlandı",
+     "en": "Completed"
+    }
+   },
+   {
+    "ad": {
+     "tr": "Uygulama projesi",
+     "en": "Construction drawings"
+    },
+    "d": "su",
+    "not": {
+     "tr": "Devam ediyor",
+     "en": "In progress"
+    }
+   },
+   {
+    "ad": {
+     "tr": "Ruhsat başvurusu",
+     "en": "Permit application"
+    },
+    "d": "",
+    "not": {
+     "tr": "Sırada",
+     "en": "Up next"
+    }
+   },
+   {
+    "ad": {
+     "tr": "Uygulama",
+     "en": "Construction"
+    },
+    "d": "",
+    "not": {
+     "tr": "Planlanıyor",
+     "en": "Being scheduled"
+    }
+   }
+  ]
+ }
+}
