@@ -132,8 +132,15 @@ function tl(n) { return Math.round(Number(n) || 0).toLocaleString("tr-TR"); }
 
 var BOLUM = {
   kahraman: function (ic, b) {
-    return '<section class="kah' + (b.gorsel ? " gorselli" : "") + '" id="' + esc(b.id) + '">' + (b.gorsel ? '<img class="kah-g" src="' + esc(url(b.gorsel)) + '" alt="" fetchpriority="high">' : "") +
-      '<div class="kap">' + (b.gorsel ? "" : EV_SVG) + (bos(b.etiket) ? "" : '<div class="etiket">' + T(b.etiket) + "</div>") + "<h1>" + T(b.baslik) + "</h1>" + (bos(b.metin) ? "" : "<p>" + T(b.metin) + "</p>") +
+    // 7 Kas: panelden yazı renkleri, görsel örtüsü ve yazı gölgesi (alanlar boşsa eski görünüm aynen kalır)
+    var KR = { beyaz: "#fff", yesil: "var(--yesil)", bej: "var(--bej)", koyu: "#161816" };
+    function kr(v, o) { return v === "ozel" ? guvenliRenk(o, "") : (KR[v] || ""); }
+    var cE = kr(b.renkEtiket, b.renkEtiketOzel), cB = kr(b.renkBaslik, b.renkBaslikOzel), cM = kr(b.renkMetin, b.renkMetinOzel);
+    var gol = b.golge ? ";text-shadow:0 1px 3px rgba(0,0,0,.35)" : "";
+    var st = function (c, kutu) { var k = kutu ? ";background:rgba(244,242,238,.9);padding:6px 12px;border-radius:2px" : ""; return c || gol || k ? ' style="' + (c ? "color:" + c : "") + (kutu ? "" : gol) + k + '"' : ""; };
+    var ortu = b.gorsel && Number(b.ortu) > 0 ? '<div class="kah-ortu" style="position:absolute;inset:0;z-index:1;background:' + (b.ortuRenk === "yesil" ? "var(--yesil)" : "#000") + ";opacity:" + Math.min(80, Number(b.ortu)) / 100 + '"></div>' : "";
+    return '<section class="kah' + (b.gorsel ? " gorselli" : "") + '" id="' + esc(b.id) + '">' + (b.gorsel ? '<img class="kah-g" src="' + esc(url(b.gorsel)) + '" alt="" fetchpriority="high">' : "") + ortu +
+      '<div class="kap">' + (b.gorsel ? "" : EV_SVG) + (bos(b.etiket) ? "" : '<div class="etiket"' + st(cE, b.etiketKutu) + ">" + T(b.etiket) + "</div>") + "<h1" + st(cB) + ">" + T(b.baslik) + "</h1>" + (bos(b.metin) ? "" : "<p" + st(cM) + ">" + T(b.metin) + "</p>") +
       '<div class="dgs">' + dugme(ic, "kesif") + dugme(ic, "planla", "i") + "</div></div></section>";
   },
   sayfaBasi: function (ic, b) {

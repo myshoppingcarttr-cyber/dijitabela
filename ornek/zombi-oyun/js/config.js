@@ -22,8 +22,8 @@
     },
 
     temalar: {
-      gece:  { karakterRengi: 0xb9c3d9, isikRengi: 0xffb35c, sisRengi: 0x6f86a8, sisAlfa: 0.30, yagmur: true,  fener: true  },
-      safak: { karakterRengi: 0xffe6da, isikRengi: 0xffc48a, sisRengi: 0xf1d2d6, sisAlfa: 0.34, yagmur: false, fener: false }
+      gece:  { karakterRengi: 0xd3daea, isikRengi: 0xffb35c, sisRengi: 0x6f86a8, sisAlfa: 0.17, yagmur: true,  fener: true  },
+      safak: { karakterRengi: 0xffe6da, isikRengi: 0xffc48a, sisRengi: 0xf1d2d6, sisAlfa: 0.26, yagmur: false, fener: false }
     },
 
     renkler: {

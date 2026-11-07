@@ -191,7 +191,19 @@ function bolumForm(b, kap) {
     kap.appendChild(fCift(b, "baslik", t === "kahraman" || t === "sayfaBasi" ? "Ana başlık" : "Başlık"));
     kap.appendChild(fCift(b, "metin", "Açıklama", { uzun: true, yard: t === "metin" ? "Boş satır = yeni paragraf · \"## \" ile başlayan satır = ara başlık · \"- \" = madde." : null }));
   }
-  if (t === "kahraman") kap.appendChild(fGorsel(b, "gorsel", "Arka plan görseli (isteğe bağlı)", "Boşsa kurumsal yeşil zemin ve çizgi ev çizimi görünür."));
+  if (t === "kahraman") {
+    kap.appendChild(fGorsel(b, "gorsel", "Arka plan görseli (isteğe bağlı)", "Boşsa kurumsal yeşil zemin ve çizgi ev çizimi görünür."));
+    // 7 Kas (Erkam Bey isteği): açılış yazılarının rengi, görsel örtüsü, yazı gölgesi
+    var RS = [["", "Varsayılan"], ["yesil", "Kurumsal yeşil"], ["beyaz", "Beyaz"], ["bej", "Bej"], ["koyu", "Koyu (siyah)"], ["ozel", "Özel renk"]];
+    var renkAlan = function (k, et) { var d = el("div"); d.appendChild(fSecim(b, k, et, RS)); if (b[k] === "ozel") d.appendChild(fRenk(b, k + "Ozel", et + " · özel renk")); d.querySelector("select").addEventListener("change", function () { d.innerHTML = ""; d.appendChild(renkAlan(k, et)); }); return d; };
+    kap.appendChild(renkAlan("renkEtiket", "Üst etiket (küçük yazı) rengi"));
+    kap.appendChild(fBool(b, "etiketKutu", "Üst etiketin arkasına açık renk zemin koy", "Koyu renkli yazı (ör. kurumsal yeşil) görselin üstünde okunmuyorsa açın."));
+    kap.appendChild(renkAlan("renkBaslik", "Ana başlık rengi"));
+    kap.appendChild(renkAlan("renkMetin", "Açıklama rengi"));
+    kap.appendChild(fMetin(b, "ortu", "Görsel üzerine karartma (0-80)", { tip: "number", min: 0, adim: 5, yard: "Arka plan görseli açıksa yazılar okunmuyorsa artırın. 0 = yok." }));
+    kap.appendChild(fSecim(b, "ortuRenk", "Karartma rengi", [["", "Siyah"], ["yesil", "Kurumsal yeşil"]]));
+    kap.appendChild(fBool(b, "golge", "Yazılara hafif gölge ekle", "Açık renkli görsellerde okunurluğu artırır."));
+  }
   if (t === "metin") { kap.appendChild(fGorsel(b, "gorsel", "Görsel (isteğe bağlı)")); kap.appendChild(fSecim(b, "dugme", "Düğme", [["", "Düğme yok"], ["kesif", "Keşif"], ["planla", "Proje planla"]])); }
   if (t === "hizmetler") kap.appendChild(fBool(b, "sadeceDiger", "Öne çıkan hizmeti bu listede gösterme", "Ana sayfada öne çıkan hizmet ayrı bölümde gösterildiği için."));
   if (t === "projeler") { kap.appendChild(fMetin(b, "limit", "Gösterilecek proje sayısı (0 = tümü)", { tip: "number", min: 0, adim: 1 })); kap.appendChild(fBool(b, "filtre", "Kategori filtre düğmelerini göster")); }
