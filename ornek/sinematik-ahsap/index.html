@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#1B1612">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Manrope:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Manrope:wght@400;600;700&display=optional">
 <style>
 :root{--zemin:#F4EEE6;--koyu:#1B1612;--yazi:#2A221C;--soluk:#6B5F55;--vurgu:#B5773A;--vurgu-a:#E2B887;--f-b:"Fraunces",Georgia,serif;--f-g:"Manrope","Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -53,13 +53,13 @@ h1 em,.acilis-yazi p.b em{color:var(--vurgu-a)}
 .acilis-yazi.acik{opacity:1;transform:none;pointer-events:auto}
 .acilis-yazi small{display:block;font:600 12px/1 var(--f-g);letter-spacing:.22em;text-transform:uppercase;color:var(--vurgu-a);margin-bottom:14px}
 .acilis-yazi p.b{font:500 clamp(36px,6vw,80px)/1 var(--f-b);color:#fff}
-.acilis-alt{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:14px max(20px,calc((100vw - 1200px)/2 + 20px))}
+.acilis-alt{position:absolute;z-index:3;left:0;right:0;bottom:72px;display:flex;align-items:center;gap:16px;padding:14px max(20px,calc((100vw - 1200px)/2 + 20px))}
 .acilis-ilerleme{flex:1;height:2px;background:rgba(255,255,255,.25)}
 .acilis-ilerleme i{display:block;height:100%;background:var(--vurgu-a);transform-origin:left;transform:scaleX(0)}
 .acilis-ipucu{font:600 12px/1 var(--f-g);letter-spacing:.18em;text-transform:uppercase;color:#F4EEE6;transition:opacity .3s}
 .acilis.kaydi .acilis-ipucu{opacity:0}
 .acilis-gec{font:600 13px/1 var(--f-g);color:#1B1612;background:#F4EEE6;padding:10px 14px;text-decoration:none;white-space:nowrap}
-@media(max-width:700px){.acilis{height:240vh}}
+@media(max-width:700px){.acilis{height:240vh}.hero-ort{padding-bottom:150px}.acilis-yazi{bottom:150px}}
 @media(prefers-reduced-motion:reduce){.acilis{height:auto}.acilis-sahne{position:relative;height:auto;min-height:86vh;display:flex;align-items:flex-end}.hero-ort{position:relative}.acilis canvas,.acilis-yazi,.acilis-alt{display:none}.acilis.kaydi .hero-ort{opacity:1;transform:none}}
 /* devam */
 .bol{padding:clamp(56px,9vw,110px) 0}
