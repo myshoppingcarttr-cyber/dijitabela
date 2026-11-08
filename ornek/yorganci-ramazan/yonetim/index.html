@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#121C33">
+<title>Yönetim · Yorgancı Ramazan</title>
+<link rel="icon" href="../img/marka/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/marka/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="yonetim.css?v=1">
+</head>
+<body>
+<!-- GİRİŞ -->
+<main id="giris" class="giris" hidden>
+  <div class="giris-k">
+    <img src="../img/marka/isaret.svg" alt="" width="64" height="64" onerror="this.remove()">
+    <h1>Yorgancı Ramazan<br><small>Site yönetimi</small></h1>
+    <form id="girisForm" novalidate>
+      <label for="gE">E-posta adresiniz</label>
+      <input id="gE" type="email" inputmode="email" autocomplete="username" required>
+      <label for="gS">Şifre</label>
+      <input id="gS" type="password" autocomplete="current-password">
+      <button class="dg ana" type="submit">Giriş yap</button>
+    </form>
+    <button class="dg" type="button" id="gLink">Şifresiz giriş bağlantısı gönder</button>
+    <button class="dg sade" type="button" id="gIlk">İlk kez mi giriyorsunuz?</button>
+    <p class="msj" id="gMsj" role="status" aria-live="polite"></p>
+  </div>
+</main>
+
+<!-- UYGULAMA -->
+<div id="uyg" class="uyg" hidden>
+  <header class="ust">
+    <b>Site yönetimi</b>
+    <a class="ust-link" href="../" target="_blank" rel="noopener">Siteyi gör ↗</a>
+    <button class="ust-link" type="button" id="cikis">Çıkış</button>
+  </header>
+  <div id="uyari" class="uyari" hidden></div>
+  <main id="ekran" class="ekran" tabindex="-1"></main>
+  <div class="kaydet-bar" id="kaydetBar">
+    <span id="durum" class="durum" role="status" aria-live="polite">Yükleniyor…</span>
+    <button class="dg ana" type="button" id="kaydet" disabled>Kaydet</button>
+  </div>
+  <nav class="alt-nav" aria-label="Bölümler">
+    <button type="button" data-sekme="fiyat"><span aria-hidden="true">₺</span>Fiyatlar</button>
+    <button type="button" data-sekme="urun"><span aria-hidden="true">▦</span>Ürünler</button>
+    <button type="button" data-sekme="dukkan"><span aria-hidden="true">⌂</span>Dükkân</button>
+    <button type="button" data-sekme="ana"><span aria-hidden="true">✎</span>Ana sayfa</button>
+    <button type="button" data-sekme="diger"><span aria-hidden="true">⋯</span>Diğer</button>
+  </nav>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+<script src="yonetim.js?v=1"></script>
+<!-- data-sv360: yönetim paneli, 360 bölümü eklenmez -->
+</body>
+</html>

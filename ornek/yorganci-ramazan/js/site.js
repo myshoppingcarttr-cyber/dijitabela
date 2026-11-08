@@ -44,9 +44,9 @@
   });
 
   // ---- ürün sayfası
-  var detay = $("[data-urun-detay]");
-  if (detay) {
-    var u = urun(detay.getAttribute("data-urun-detay")), sel = $$("select[data-secim]", detay), adetI = $("#adet", detay);
+  function detayKur(detay) {
+    var u = urun(detay.getAttribute("data-urun-detay")); if (!u) return;
+    var sel = $$("select[data-secim]", detay), adetI = $("#adet", detay);
     var guncelle = function () {
       var sec = sel.map(function (s) { return s.value; }), f = fiyatBul(u, sec);
       $("#fiyat-goster").textContent = f ? TL(f) : "Teklif ile";
@@ -55,9 +55,11 @@
     };
     sel.forEach(function (s) { s.addEventListener("change", guncelle); });
     $$("[data-adet]", detay).forEach(function (b) { b.addEventListener("click", function () { adetI.value = Math.max(1, Math.min(99, (+adetI.value || 1) + (+b.getAttribute("data-adet")))); }); });
-    $("#ekle-dugme").addEventListener("click", function () { ekle(u.id, sel.map(function (s) { return s.value; }), Math.max(1, +adetI.value || 1)); });
+    $("#ekle-dugme").addEventListener("click", function () { if (u.durum === "gizli") { bildir("Bu ürün şu an satışta değil."); return; } ekle(u.id, sel.map(function (s) { return s.value; }), Math.max(1, +adetI.value || 1)); });
+    detay._guncelle = guncelle;
     guncelle();
   }
+  var detay = $("[data-urun-detay]"); if (detay) detayKur(detay);
 
   // ---- katalog filtresi
   var katalog = $("[data-katalog]");
@@ -167,6 +169,7 @@
         $("#o-toplam").textContent = TL(ara + kargo);
         $("#adres-alan").hidden = teslim === "dukkan";
         $$("#adres-alan input, #adres-alan textarea").forEach(function (i) { i.required = teslim !== "dukkan" && i.hasAttribute("data-zorunlu"); });
+        var pos = $("#odeme-pos"); if (pos) { var dk = teslim === "dukkan"; pos.disabled = !dk; pos.closest(".secenek").classList.toggle("kapali", !dk); if (!dk && pos.checked) $("#odeme-wa").checked = true; }
         var kapi = $("#odeme-kapida"); if (kapi) { var uygun = teslim !== "kargo"; kapi.disabled = !uygun; kapi.closest(".secenek").classList.toggle("kapali", !uygun); if (!uygun && kapi.checked) $("#odeme-wa").checked = true; }
         $("#havale-bilgi").hidden = odeme !== "havale";
         $("#gonder").textContent = odeme === "kart" ? "Kartla öde" : "Siparişi WhatsApp ile tamamla";
@@ -179,7 +182,7 @@
         if (t.odeme === "kart") { if (!C.PAYTR_AKTIF) { bildir("Kartla ödeme henüz açık değil; WhatsApp ile tamamlayın."); return; } /* PayTR açılınca: iframe token sunucu fonksiyonundan alınacak (bkz. _kaynak/PAYTR-NOT.md) */ return; }
         var no = "YR-" + new Date().toISOString().slice(2, 10).replace(/-/g, "") + "-" + Math.floor(1000 + Math.random() * 9000);
         var tes = { kargo: "Kargo ile adrese", dukkan: "Dükkândan teslim alacağım (Korkuteli)", elden: "Korkuteli içi elden teslim" }[t.teslim];
-        var odm = { wa: "WhatsApp'ta konuşalım", havale: "Havale / EFT", kapida: "Kapıda / teslimde ödeme" }[t.odeme];
+        var odm = { wa: "WhatsApp'ta konuşalım", havale: "Havale / EFT", kapida: "Teslimde nakit ödeme", pos: "Dükkânda kartla ödeme (POS)" }[t.odeme];
         var m = ["Merhaba Ramazan usta, sitenizden SİPARİŞ veriyorum.", "Sipariş no: " + no, ""];
         satirlar.forEach(function (r) { m.push("• " + r.x.adet + " × " + r.u.ad + " (" + r.x.sec.join(", ") + ") — " + TL(r.tutar)); });
         m.push("", "Ara toplam: " + TL(t.ara), "Kargo: " + (t.teslim === "kargo" ? (t.kargo ? TL(t.kargo) : "ücretsiz") : "yok"), "TOPLAM: " + TL(t.toplam) + " (fiyatları usta teyit eder)", "", "Teslimat: " + tes, "Ödeme: " + odm, "", "Ad soyad: " + f.get("ad"), "Telefon: " + f.get("tel"));
@@ -207,7 +210,67 @@
     if ("IntersectionObserver" in window) { var io = new IntersectionObserver(function (g) { if (g[0].isIntersecting) { io.disconnect(); yukle(); } }); io.observe(pn); } else yukle();
   }
   // fiyat yazılarını tek kaynaktan tazele (fiyatlar.js değişip site yeniden üretilmediyse de doğru görünsün)
-  $$("[data-fiyat-id]").forEach(function (e) { var u = urun(e.getAttribute("data-fiyat-id")); if (!u) return; var v = Object.keys(u.fiyat).map(function (k) { return u.fiyat[k]; }).filter(function (x) { return x > 0; }); var c = e.closest(".kart"); if (c && v.length) c.dataset.fiyat = Math.min.apply(null, v); e.textContent = v.length ? (v.length > 1 ? Math.min.apply(null, v).toLocaleString("tr-TR") + " TL'den" : TL(v[0])) : "Teklif ile"; });
+  function fiyatTazele() { $$("[data-fiyat-id]").forEach(function (e) { var u = urun(e.getAttribute("data-fiyat-id")); if (!u) return; var v = Object.keys(u.fiyat).map(function (k) { return u.fiyat[k]; }).filter(function (x) { return x > 0; }); var c = e.closest(".kart"); if (c && v.length) c.dataset.fiyat = Math.min.apply(null, v); e.textContent = v.length ? (v.length > 1 ? Math.min.apply(null, v).toLocaleString("tr-TR") + " TL'den" : TL(v[0])) : "Teklif ile"; });
+  }
+  fiyatTazele();
   $$("[data-iban]").forEach(function (e) { e.textContent = C.iban + " · " + C.hesapAdi; });
+
+  // ---- YÖNETİM PANELİ VERİSİ (çalışma anında): panelde kaydedilen fiyat, stok durumu, ana sayfa yazıları ve yeni ürünler
+  // sayfa yeniden üretilmeden hemen görünür. Arama motorları için sayfalar ayrıca yayında yeniden üretilir.
+  function panelUygula(v) {
+    if (!v || !Array.isArray(v.urunler)) return;
+    var ay = v.ayar || {}, is = v.isletme || {}, as = v.anasayfa || {};
+    if (ay.kargoUcret != null) C.kargo = { ucret: +ay.kargoUcret || 0, esik: +ay.kargoEsik || 0 };
+    if (ay.iban) C.iban = ay.iban; if (ay.hesapAdi) C.hesapAdi = ay.hesapAdi;
+    if (is.wa) C.wa = String(is.wa).replace(/\D/g, "");
+    var yeni = [];
+    v.urunler.forEach(function (pu) {
+      var u = urun(pu.id);
+      if (!u) { if (pu.durum !== "gizli" && pu.ad) { u = { id: pu.id, ad: pu.ad, gorsel: pu.gorsel, secim: pu.secim || [], kat: pu.kat, dolgu: pu.dolgu, yeni: true }; U.push(u); yeni.push(pu); } else return; }
+      u.fiyat = pu.fiyat || {}; u.durum = pu.durum; u.ad = pu.ad || u.ad; if (pu.secim) u.secim = pu.secim; u.ham = pu;
+    });
+    // gizlenen ürünler listelerden düşer
+    $$(".kart[data-kat]").forEach(function (k) { var a = k.querySelector("[data-fiyat-id]"); var u = a && urun(a.getAttribute("data-fiyat-id")); if (u && u.durum === "gizli") k.hidden = true; });
+    // ana sayfa yazıları
+    $$("[data-yr]").forEach(function (e) { var yol = e.getAttribute("data-yr").split("."), x = v; yol.forEach(function (k) { x = x == null ? x : x[k]; }); if (typeof x === "string" && x) e.textContent = x; });
+    // katalogda yeni ürünler (sayfası bir sonraki yayında oluşur; o zamana kadar urun.html?id=… açılır)
+    var kat = $("[data-katalog]");
+    if (kat) yeni.forEach(function (pu) {
+      var a = document.createElement("article"); a.className = "kart"; a.dataset.kat = pu.kat; a.dataset.dolgu = pu.dolgu; a.dataset.sira = 999;
+      var src = /^https?:/.test(pu.gorsel || "") ? pu.gorsel : KOK + "img/" + (pu.gorsel || "dukkan-raf") + "-s.webp";
+      a.innerHTML = '<a class="kart-gorsel" href="urun.html?id=' + encodeURIComponent(pu.id) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(src) + '" alt="" loading="lazy" width="640" height="800"></a><div class="kart-ic"><p class="kart-ust">Yeni</p><h3><a href="urun.html?id=' + encodeURIComponent(pu.id) + '">' + esc(pu.ad) + '</a></h3><p class="kart-fiyat" data-fiyat-id="' + esc(pu.id) + '"></p><a class="kart-eylem" href="urun.html?id=' + encodeURIComponent(pu.id) + '">Seçenekleri gör</a></div>';
+      kat.appendChild(a);
+    });
+    // ürün sayfası: seçenekler ve fiyat
+    var d = $("[data-urun-detay]");
+    if (d && d._guncelle) {
+      var u = urun(d.getAttribute("data-urun-detay"));
+      if (u) {
+        $$("select[data-secim]", d).forEach(function (s, i) { var g = u.secim[i]; if (!g) return; var once = s.value; if (g.d.join("|") !== $$("option", s).map(function (o) { return o.value; }).join("|")) { s.innerHTML = g.d.map(function (x) { return "<option>" + esc(x) + "</option>"; }).join(""); if (g.d.indexOf(once) > -1) s.value = once; } });
+        if (u.durum === "gizli") { var e = $("#ekle-dugme"); if (e) { e.disabled = true; e.textContent = "Şu an satışta değil"; } }
+        d._guncelle();
+      }
+    }
+    var dn = $("[data-dinamik-urun]"); if (dn) dinamikUrun(dn);
+    fiyatTazele();
+  }
+  // panelde yeni eklenen ürünün geçici sayfası (urunler/urun.html?id=…), arama motorlarına kapalı
+  function dinamikUrun(kap) {
+    var id = new URLSearchParams(location.search).get("id"), u = urun(id);
+    if (!u || !u.ham) { kap.innerHTML = '<p class="durum">Ürün bulunamadı. <a href="./">Tüm ürünler</a></p>'; return; }
+    var pu = u.ham, src = /^https?:/.test(pu.gorsel || "") ? pu.gorsel : KOK + "img/" + (pu.gorsel || "dukkan-raf") + ".webp";
+    document.title = pu.ad + " | Yorgancı Ramazan";
+    var oz = pu.ozellik || {};
+    kap.innerHTML = '<div class="detay" data-urun-detay="' + esc(pu.id) + '"><figure class="cerceve" style="margin:0"><img src="' + esc(src) + '" alt="' + esc(pu.ad) + '" width="1400" height="1050"></figure><div><h1 style="font-size:clamp(30px,4.4vw,46px)">' + esc(pu.ad) + '</h1><p class="giris soluk">' + esc(pu.ozet || "") + '</p><p class="buyuk-fiyat" id="fiyat-goster"></p><p class="kucuk soluk" style="margin:0">KDV dahil · kesin fiyat ve stok siparişte ustayla teyit edilir</p><div class="secim">' +
+      (pu.secim || []).map(function (g, i) { return "<label>" + esc(g.ad) + '<select data-secim="' + i + '">' + g.d.map(function (x) { return "<option>" + esc(x) + "</option>"; }).join("") + "</select></label>"; }).join("") +
+      '<label>Adet<span class="adet-kutu"><button type="button" data-adet="-1" aria-label="Azalt">−</button><input id="adet" value="1" inputmode="numeric" aria-label="Adet"><button type="button" data-adet="1" aria-label="Arttır">+</button></span></label></div><div class="dugmeler"><button type="button" class="btn vurgu" id="ekle-dugme">Sepete ekle</button><a class="btn wa" id="wa-sor" href="#" rel="noopener">WhatsApp\'tan sor</a></div></div></div>' +
+      (Object.keys(oz).length ? '<h2 style="font-size:26px">Özellikler</h2><dl class="ozellikler">' + Object.keys(oz).map(function (k) { return "<dt>" + esc(k) + "</dt><dd>" + esc(oz[k]) + "</dd>"; }).join("") + "</dl>" : "");
+    detayKur($("[data-urun-detay]", kap));
+  }
+  if (C.sb && C.sbKey && window.fetch) {
+    fetch(C.sb + "/rest/v1/site_icerik?site=eq." + encodeURIComponent(C.site) + "&select=veri", { headers: { apikey: C.sbKey, Authorization: "Bearer " + C.sbKey } })
+      .then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j[0]) panelUygula(j[0].veri); else { var dn = $("[data-dinamik-urun]"); if (dn) dinamikUrun(dn); } })
+      .catch(function () { var dn = $("[data-dinamik-urun]"); if (dn) dinamikUrun(dn); });
+  }
   rozet();
 })();
