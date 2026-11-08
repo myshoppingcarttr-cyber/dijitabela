@@ -29,14 +29,61 @@
 </div></header>
 <main id="icerik">
 
-<section class="hero-tam"><img class="hero-arka" src="img/yorgan-yatak.webp" srcset="img/yorgan-yatak-s.webp 640w, img/yorgan-yatak.webp 1400w" sizes="100vw" alt="Loş ışıkta kabarık beyaz yorgan ve yastıklar" width="1400" height="933" fetchpriority="high"><div class="hero-ort"><div class="hero-yazi">
+<section class="acilis" id="acilis" data-kok="./" aria-label="Açılış: koyundan yorgana">
+<style>
+.acilis{position:relative;height:300vh;background:#0d1426;color:#fff}
+.acilis-sahne{position:sticky;top:77px;height:calc(100vh - 77px);height:calc(100svh - 77px);overflow:hidden}
+.acilis-poster,.acilis-poster img,.acilis canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.acilis canvas{opacity:0;transition:opacity .3s}
+.acilis.film canvas{opacity:1}
+.acilis-sahne::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(13,20,38,.45) 0%,rgba(13,20,38,.1) 30%,rgba(13,20,38,.25) 55%,rgba(13,20,38,.88) 100%)}
+.acilis .hero-ort{position:absolute;inset:auto 0 0 0;z-index:2;padding-bottom:max(96px,11vh);transition:opacity .45s,transform .6s}
+.acilis.kaydi .hero-ort{opacity:0;transform:translateY(-16px);pointer-events:none}
+.acilis .hero-yazi{max-width:660px}
+.acilis .ust-baslik{color:#F0D9AE}
+.acilis h1{color:#fff}.acilis h1 em{color:#E6C996}
+.acilis .giris{color:#E7E9F0}
+.acilis h1,.acilis .giris,.acilis-yazi{text-shadow:0 1px 18px rgba(8,12,24,.45)}
+.acilis .btn-pirinc{background:#B08D57;border-color:#B08D57;color:#0d1426}
+.acilis .btn-pirinc:hover{background:#C9A66B;border-color:#C9A66B}
+.acilis-yazi{position:absolute;z-index:2;left:max(20px,calc((100vw - 1280px)/2 + 48px));right:20px;bottom:clamp(96px,16vh,160px);max-width:620px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .7s cubic-bezier(.2,.7,.1,1);pointer-events:none}
+.acilis-yazi.acik{opacity:1;transform:none;pointer-events:auto}
+.acilis-yazi small{display:block;font:600 12px/1 var(--f-g);letter-spacing:.22em;text-transform:uppercase;color:#E6C996;margin-bottom:14px}
+.acilis-yazi p.b{font:500 clamp(36px,6vw,80px)/1 var(--f-b);color:#fff}
+.acilis-yazi p.b em{color:#E6C996}
+.acilis-yazi .dugmeler{margin-top:22px}
+.acilis-alt{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:14px max(20px,calc((100vw - 1280px)/2 + 48px))}
+.acilis-ilerleme{flex:1;height:2px;background:rgba(255,255,255,.25)}
+.acilis-ilerleme i{display:block;height:100%;background:#E6C996;transform-origin:left;transform:scaleX(0)}
+.acilis-ipucu{font:600 12px/1 var(--f-g);letter-spacing:.18em;text-transform:uppercase;color:#F3EDE1;transition:opacity .3s}
+.acilis.kaydi .acilis-ipucu{opacity:0}
+.acilis-gec{font:600 13px/1 var(--f-g);color:#0d1426;background:#F3EDE1;padding:10px 14px;text-decoration:none;white-space:nowrap}
+.acilis-gec:focus-visible{outline:2px solid #E6C996;outline-offset:3px}
+.acilis-alt{bottom:34px}.acilis .hero-ort{padding-bottom:max(120px,13vh)}
+@media(max-width:899px){.acilis-alt{bottom:92px}.acilis .hero-ort{padding-bottom:150px}.acilis-yazi{bottom:150px}}
+@media(max-width:700px){.acilis{height:240vh}.acilis .giris{font-size:15px}.acilis .kanit{display:none}}
+@media(prefers-reduced-motion:reduce){.acilis{height:auto}.acilis-sahne{position:relative;top:0;height:auto;min-height:min(86vh,800px);display:flex;align-items:flex-end}.acilis .hero-ort{position:relative}.acilis canvas,.acilis-yazi,.acilis-alt{display:none}.acilis.kaydi .hero-ort{opacity:1;transform:none}}
+</style>
+<noscript><style>.acilis{height:auto}.acilis-sahne{position:relative;top:0;height:auto;min-height:min(86vh,800px);display:flex;align-items:flex-end}.acilis .hero-ort{position:relative}.acilis canvas,.acilis-yazi,.acilis-alt{display:none}</style></noscript>
+<div class="acilis-sahne">
+<picture class="acilis-poster"><source media="(max-width: 700px) and (orientation: portrait)" srcset="img/acilis/poster-m.webp" width="480" height="720"><img src="img/acilis/poster-d.webp" alt="Çayırda yakından bakan beyaz bir kuzu: yorganın yünü buradan başlar" width="1440" height="810" fetchpriority="high" decoding="async"></picture>
+<canvas aria-hidden="true"></canvas>
+<div class="hero-ort"><div class="hero-yazi">
 <p class="ust-baslik" data-yr="anasayfa.ustBaslik">Çeyiz Yorgan Dikim Evi · Korkuteli</p>
 <h1><span data-yr="anasayfa.baslik">Babadan oğula,</span><br><em data-yr="anasayfa.baslikVurgu">iğne iğne.</em></h1>
 <p class="giris" data-yr="anasayfa.giris">Ramazan Hoşlar mesleği, küçüklüğünden beri yorgancılık yapan babasının yanında öğrendi. Bugün yorgan, yastık ve döşek Korkuteli'deki dükkânında yün, pamuk, silikon, boncuk silikon ya da elyaftan ölçünüze göre dikiliyor; anneden kalan yorgan yeniden kabarıyor.</p>
 <div class="dugmeler"><a class="btn btn-pirinc" href="urunler/">Koleksiyonu keşfet</a><a class="btn btn-cizgi-acik" href="ozel-uretim.html">Özel sipariş ver</a></div>
 <p class="kanit">“Biz de farklı desenler üreterek canlanması için çalışıyoruz.”<span>Ramazan Hoşlar · Günhaber / DHA, 30 Nisan 2015</span></p>
-</div></div></section>
-<section class="guven" aria-label="Neden Yorgancı Ramazan"><div class="sar guven-ic"><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4 6 19"/><path d="M17.5 6.6 18.6 5.5"/><path d="M15.5 6C9 2 3 6 4.5 11c1 3.4 6 3.6 8 6"/></svg><p><b>Elde dikilir</b><span>Yün ve pamuk yorgan dükkânda</span></p></div><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/></svg><p><b>Evden ücretsiz alım</b><span>Korkuteli içinde her adres</span></p></div><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 9.5h19"/><path d="M6 15h4"/></svg><p><b>Kartla ödeme</b><span>Dükkânda POS ile kredi / banka kartı</span></p></div><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h4l3 3.5v3.5h-7"/><circle cx="6.5" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/></svg><p><b>Türkiye'ye kargo</b><span>5.000 TL üzeri ücretsiz</span></p></div></div></section>
+</div></div>
+<div class="acilis-yazi" data-a="0.18" data-b="0.42" aria-hidden="true"><small>Doğal dolgu</small><p class="b">Yün, pamuk:<br><em>gerçek malzeme.</em></p></div>
+<div class="acilis-yazi" data-a="0.62" data-b="0.84" aria-hidden="true"><small>Korkuteli'deki dükkânda</small><p class="b">Usta elinde,<br><em>tek tek dikilir.</em></p></div>
+<div class="acilis-yazi" data-a="0.88" data-b="1.01" aria-hidden="true"><small>Ölçünüze göre</small><p class="b">Sizin yorganınız<br><em>burada dikilir.</em></p><div class="dugmeler"><a class="btn btn-pirinc" href="urunler/" tabindex="-1">Koleksiyonu keşfet</a><a class="btn btn-cizgi-acik" href="ozel-uretim.html" tabindex="-1">Özel sipariş ver</a></div></div>
+<div class="acilis-alt"><span class="acilis-ipucu">Kaydırın ↓</span><span class="acilis-ilerleme" aria-hidden="true"><i></i></span><a class="acilis-gec" href="#acilis-sonra">Filmi geç ↓</a></div>
+</div>
+<script src="js/acilis.js?v=1" defer></script>
+</section>
+<div id="acilis-sonra"></div>
+<section class="guven" aria-label="Neden Yorgancı Ramazan"><div class="sar guven-ic"><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4 6 19"/><path d="M17.5 6.6 18.6 5.5"/><path d="M15.5 6C9 2 3 6 4.5 11c1 3.4 6 3.6 8 6"/></svg><p><b>Elde dikilir</b><span>2002'den beri Korkuteli'de</span></p></div><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/></svg><p><b>Evden ücretsiz alım</b><span>Korkuteli içinde her adres</span></p></div><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 9.5h19"/><path d="M6 15h4"/></svg><p><b>Kartla ödeme</b><span>Dükkânda POS ile kredi / banka kartı</span></p></div><div><svg class="simge" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h4l3 3.5v3.5h-7"/><circle cx="6.5" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/></svg><p><b>Türkiye'ye kargo</b><span>5.000 TL üzeri ücretsiz</span></p></div></div></section>
 <section class="kabiliyet" aria-label="Dolgu seçenekleri"><div class="sar kabiliyet-ic"><p class="kabiliyet-baslik" data-yr="anasayfa.kabiliyet">Her ürünü yün, pamuk ve silikondan ölçünüze göre dikiyoruz</p><ul><li>Yün</li><li>Pamuk</li><li>Silikon</li><li>Boncuk silikon</li><li>Elyaf</li><li>Sünger</li></ul><a class="metin-link" href="ozel-uretim.html">Ölçünüzü yazın →</a></div></section>
 <section class="bol" aria-labelledby="b-kol"><div class="sar"><div class="bol-bas"><div><p class="ust-baslik">Koleksiyonlar</p><h2 id="b-kol">Dükkânda neler var?</h2></div><a class="metin-link" href="urunler/">Tüm ürünler →</a></div>
 <div class="koleksiyon"><a class="kol kol-0" href="urunler/?kat=yorgan"><img src="./img/dk-yorgan-usta-s.webp" alt="" width="640" height="800" loading="lazy" decoding="async"><span><b>Yorganlar</b><small>yün · pamuk · silikon · boncuk · elyaf</small></span></a><a class="kol kol-1" href="urunler/?kat=yastik"><img src="./img/dk-silikon-yastik-s.webp" alt="" width="640" height="800" loading="lazy" decoding="async"><span><b>Yastıklar</b><small>yün · pamuk · silikon · boncuk · elyaf</small></span></a><a class="kol kol-2" href="urunler/?kat=yatak"><img src="./img/dk-sunger-dosek-s.webp" alt="" width="640" height="800" loading="lazy" decoding="async"><span><b>Döşek & minder</b><small>yün · pamuk · silikon · sünger</small></span></a><a class="kol kol-3" href="urunler/?kat=ortu"><img src="./img/dk-balkon-perdesi-s.webp" alt="" width="640" height="800" loading="lazy" decoding="async"><span><b>Perde, örtü & battaniye</b><small>balkon perdesi · battaniye · nevresim</small></span></a><a class="kol kol-4" href="urunler/?kat=hizmet"><img src="./img/yun-cuval-s.webp" alt="" width="640" height="800" loading="lazy" decoding="async"><span><b>Tamir & yenileme</b><small>yenileme · kabartma · yün açma</small></span></a></div></div></section>
@@ -49,11 +96,11 @@
 <div class="kart-ic"><p class="kart-ust">Boncuk silikon</p><h3><a href="./urunler/boncuk-silikon-yastik.html">Boncuk silikon yastık</a></h3>
 <p class="kart-fiyat" data-fiyat-id="boncuk-silikon-yastik">350 TL</p>
 <button type="button" class="kart-eylem" data-hizli-ekle="boncuk-silikon-yastik">Sepete ekle</button></div></article><article class="kart" data-kat="yorgan" data-dolgu="pamuk" data-fiyat="2250" data-sira="2">
-<a class="kart-gorsel" href="./urunler/pamuk-yorgan.html" tabindex="-1" aria-hidden="true"><img src="./img/dk-basma-yorgan-s.webp" alt="Pamuk yorgan" width="640" height="800" loading="lazy" decoding="async"><span class="rozet el">Dükkânda dikilir</span></a>
+<a class="kart-gorsel" href="./urunler/pamuk-yorgan.html" tabindex="-1" aria-hidden="true"><img src="./img/dk-wa-yorgan-1-s.webp" alt="Pamuk yorgan" width="640" height="800" loading="lazy" decoding="async"><span class="rozet el">Hazır stokta</span></a>
 <div class="kart-ic"><p class="kart-ust">Pamuk</p><h3><a href="./urunler/pamuk-yorgan.html">Pamuk yorgan</a></h3>
 <p class="kart-fiyat" data-fiyat-id="pamuk-yorgan">2.250 TL'den</p>
 <a class="kart-eylem" href="./urunler/pamuk-yorgan.html">Seçenekleri gör</a></div></article><article class="kart" data-kat="yatak" data-dolgu="sunger" data-fiyat="1200" data-sira="3">
-<a class="kart-gorsel" href="./urunler/sunger-dosek.html" tabindex="-1" aria-hidden="true"><img src="./img/dk-sunger-dosek-s.webp" alt="Sünger döşek, sedir &amp; minder" width="640" height="800" loading="lazy" decoding="async"><span class="rozet el">Dükkânda dikilir</span></a>
+<a class="kart-gorsel" href="./urunler/sunger-dosek.html" tabindex="-1" aria-hidden="true"><img src="./img/dk-wa-sunger-dosek-1-s.webp" alt="Sünger döşek, sedir &amp; minder" width="640" height="800" loading="lazy" decoding="async"><span class="rozet el">Dükkânda dikilir</span></a>
 <div class="kart-ic"><p class="kart-ust">Sünger</p><h3><a href="./urunler/sunger-dosek.html">Sünger döşek, sedir &amp; minder</a></h3>
 <p class="kart-fiyat" data-fiyat-id="sunger-dosek">1.200 TL</p>
 <a class="kart-eylem" href="./urunler/sunger-dosek.html">Seçenekleri gör</a></div></article><article class="kart" data-kat="ortu" data-dolgu="diger" data-fiyat="" data-sira="4">
@@ -61,7 +108,7 @@
 <div class="kart-ic"><p class="kart-ust">Perde, örtü &amp; battaniye</p><h3><a href="./urunler/balkon-perdesi.html">Balkon perdesi</a></h3>
 <p class="kart-fiyat" data-fiyat-id="balkon-perdesi">Teklif ile</p>
 <a class="kart-eylem" href="https://wa.me/905327262412?text=Merhaba%20Ramazan%20usta%2C%20Balkon%20perdesi%20i%C3%A7in%20fiyat%20almak%20istiyorum." rel="noopener">Fiyat al</a></div></article><article class="kart" data-kat="hizmet" data-dolgu="yun" data-fiyat="1400" data-sira="5">
-<a class="kart-gorsel" href="./urunler/yorgan-yenileme.html" tabindex="-1" aria-hidden="true"><img src="./img/yun-cuval-s.webp" alt="Yün yorgan yenileme" width="640" height="800" loading="lazy" decoding="async"><span class="rozet el">Hizmet</span></a>
+<a class="kart-gorsel" href="./urunler/yorgan-yenileme.html" tabindex="-1" aria-hidden="true"><img src="./img/dk-wa-yun-kabartma-2-s.webp" alt="Yün yorgan yenileme" width="640" height="800" loading="lazy" decoding="async"><span class="rozet el">Hizmet</span></a>
 <div class="kart-ic"><p class="kart-ust">Yün</p><h3><a href="./urunler/yorgan-yenileme.html">Yün yorgan yenileme</a></h3>
 <p class="kart-fiyat" data-fiyat-id="yorgan-yenileme">1.400 TL'den</p>
 <a class="kart-eylem" href="./urunler/yorgan-yenileme.html">Seçenekleri gör</a></div></article></div></div></section>

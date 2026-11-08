@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sinematik açılış demosu: ahşap atölyesi | Dijitabela</title>
+<meta name="description" content="Kaydırdıkça oynayan film açılışlı web sitesi örneği: meşe ağacından masaya. Dijitabela Sinematik Vitrin paketinin canlı demosu.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://dijitabela.com/ornek/sinematik-ahsap/">
+<meta property="og:title" content="Sinematik açılış demosu: ağaçtan masaya">
+<meta property="og:description" content="Kaydırdıkça oynayan film açılışlı web sitesi örneği. Dijitabela Sinematik Vitrin.">
+<meta property="og:image" content="https://dijitabela.com/ornek/sinematik-ahsap/img/acilis/poster-d.webp">
+<meta name="theme-color" content="#1B1612">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Manrope:wght@400;600;700&display=swap">
+<style>
+:root{--zemin:#F4EEE6;--koyu:#1B1612;--yazi:#2A221C;--soluk:#6B5F55;--vurgu:#B5773A;--vurgu-a:#E2B887;--f-b:"Fraunces",Georgia,serif;--f-g:"Manrope","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--zemin)}
+body{font:400 17px/1.6 var(--f-g);color:var(--yazi);background:var(--zemin);overflow-x:hidden}
+a{color:inherit}
+.sar{max-width:1200px;margin:0 auto;padding:0 20px}
+.demo-bant{background:#B5773A;color:#1B1612;text-align:center;font:700 13px/1.4 var(--f-g);padding:8px 16px}
+.demo-bant a{font-weight:700}
+.ust{position:sticky;top:0;z-index:40;background:rgba(27,22,18,.92);backdrop-filter:blur(8px);color:#F4EEE6}
+.ust .sar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.logo{font:500 22px/1 var(--f-b);text-decoration:none;letter-spacing:.01em}
+.ust nav{display:flex;gap:22px;font:600 14px var(--f-g)}
+.ust nav a{text-decoration:none;opacity:.85}
+@media(max-width:700px){.ust nav{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;font:700 15px var(--f-g);text-decoration:none;border:1.5px solid currentColor}
+.btn-dolu{background:var(--vurgu);border-color:var(--vurgu);color:#1B1612}
+.btn-dolu:hover{background:var(--vurgu-a);border-color:var(--vurgu-a)}
+.btn-cizgi{color:#F4EEE6;border-color:rgba(244,238,230,.7)}
+.dugmeler{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+/* açılış */
+.acilis{position:relative;height:300vh;background:var(--koyu);color:#fff}
+.acilis-sahne{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.acilis-poster,.acilis-poster img,.acilis canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.acilis canvas{opacity:0;transition:opacity .3s}
+.acilis.film canvas{opacity:1}
+.acilis-sahne::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(27,22,18,.4) 0%,rgba(27,22,18,.05) 30%,rgba(27,22,18,.2) 55%,rgba(27,22,18,.85) 100%)}
+.hero-ort{position:absolute;inset:auto 0 0 0;z-index:2;padding:0 max(20px,calc((100vw - 1200px)/2 + 20px)) clamp(96px,16vh,150px);transition:opacity .45s,transform .6s}
+.acilis.kaydi .hero-ort{opacity:0;transform:translateY(-16px);pointer-events:none}
+.hero-yazi{max-width:640px}
+.ust-baslik{font:600 12px/1 var(--f-g);letter-spacing:.22em;text-transform:uppercase;color:var(--vurgu-a);margin-bottom:16px}
+h1{font:500 clamp(42px,7vw,92px)/.98 var(--f-b);letter-spacing:-.01em}
+h1 em,.acilis-yazi p.b em{color:var(--vurgu-a)}
+.giris{margin-top:16px;color:#EDE6DC;max-width:46ch}
+.acilis h1,.giris,.acilis-yazi{text-shadow:0 1px 18px rgba(0,0,0,.45)}
+.acilis-yazi{position:absolute;z-index:2;left:max(20px,calc((100vw - 1200px)/2 + 20px));right:20px;bottom:clamp(96px,16vh,150px);max-width:620px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .7s cubic-bezier(.2,.7,.1,1);pointer-events:none}
+.acilis-yazi.acik{opacity:1;transform:none;pointer-events:auto}
+.acilis-yazi small{display:block;font:600 12px/1 var(--f-g);letter-spacing:.22em;text-transform:uppercase;color:var(--vurgu-a);margin-bottom:14px}
+.acilis-yazi p.b{font:500 clamp(36px,6vw,80px)/1 var(--f-b);color:#fff}
+.acilis-alt{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:14px max(20px,calc((100vw - 1200px)/2 + 20px))}
+.acilis-ilerleme{flex:1;height:2px;background:rgba(255,255,255,.25)}
+.acilis-ilerleme i{display:block;height:100%;background:var(--vurgu-a);transform-origin:left;transform:scaleX(0)}
+.acilis-ipucu{font:600 12px/1 var(--f-g);letter-spacing:.18em;text-transform:uppercase;color:#F4EEE6;transition:opacity .3s}
+.acilis.kaydi .acilis-ipucu{opacity:0}
+.acilis-gec{font:600 13px/1 var(--f-g);color:#1B1612;background:#F4EEE6;padding:10px 14px;text-decoration:none;white-space:nowrap}
+@media(max-width:700px){.acilis{height:240vh}}
+@media(prefers-reduced-motion:reduce){.acilis{height:auto}.acilis-sahne{position:relative;height:auto;min-height:86vh;display:flex;align-items:flex-end}.hero-ort{position:relative}.acilis canvas,.acilis-yazi,.acilis-alt{display:none}.acilis.kaydi .hero-ort{opacity:1;transform:none}}
+/* devam */
+.bol{padding:clamp(56px,9vw,110px) 0}
+.bol h2{font:500 clamp(30px,4.4vw,52px)/1.05 var(--f-b);margin-bottom:18px}
+.izgara{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:28px}
+.izgara h3{font:500 24px/1.2 var(--f-b);margin-bottom:6px}
+.izgara p{color:var(--soluk)}
+.koyu-bol{background:var(--koyu);color:#F4EEE6}
+.koyu-bol p{color:#D8CFC4;max-width:60ch}
+.kredi{font-size:13px;color:var(--soluk);padding:28px 0 40px}
+.kredi a{color:inherit}
+</style>
+<noscript><style>.acilis{height:auto}.acilis-sahne{position:relative;height:auto;min-height:86vh;display:flex;align-items:flex-end}.hero-ort{position:relative}.acilis canvas,.acilis-yazi,.acilis-alt{display:none}</style></noscript>
+</head>
+<body>
+<div class="demo-bant">Örnek demo · hayalî işletme. Bu açılış <a href="/sinematik-vitrin">Dijitabela Sinematik Vitrin</a> paketiyle yapılır.</div>
+<header class="ust"><div class="sar"><a class="logo" href="#">Meşe &amp; Usta</a><nav aria-label="Demo menü"><a href="#urunler">Ürünler</a><a href="#atolye">Atölye</a><a href="#iletisim">İletişim</a></nav></div></header>
+<main>
+<section class="acilis" id="acilis" data-kok="./" aria-label="Açılış: ağaçtan masaya">
+<div class="acilis-sahne">
+<picture class="acilis-poster"><source media="(max-width: 700px) and (orientation: portrait)" srcset="img/acilis/poster-m.webp" width="480" height="720"><img src="img/acilis/poster-d.webp" alt="Güneşli çayırda yaşlı bir meşe ağacı" width="1440" height="810" fetchpriority="high" decoding="async"></picture>
+<canvas aria-hidden="true"></canvas>
+<div class="hero-ort"><div class="hero-yazi">
+<p class="ust-baslik">Ahşap mobilya atölyesi · örnek</p>
+<h1>Ağaçtan<br><em>masaya.</em></h1>
+<p class="giris">Masif meşe masa, ölçünüze göre. Aşağı kaydırın: bir masanın hikâyesi ağaçta başlar.</p>
+<div class="dugmeler"><a class="btn btn-dolu" href="#urunler">Ürünleri gör</a><a class="btn btn-cizgi" href="#iletisim">Ölçü gönder</a></div>
+</div></div>
+<div class="acilis-yazi" data-a="0.2" data-b="0.44" aria-hidden="true"><small>Malzeme</small><p class="b">Masif meşe,<br><em>gerçek damar.</em></p></div>
+<div class="acilis-yazi" data-a="0.5" data-b="0.74" aria-hidden="true"><small>Atölyede</small><p class="b">Elde<br><em>rendelenir.</em></p></div>
+<div class="acilis-yazi" data-a="0.82" data-b="1.01" aria-hidden="true"><small>Sizin eviniz için</small><p class="b">Ölçünüze göre<br><em>masa.</em></p><div class="dugmeler"><a class="btn btn-dolu" href="#urunler" tabindex="-1">Ürünleri gör</a><a class="btn btn-cizgi" href="#iletisim" tabindex="-1">Ölçü gönder</a></div></div>
+<div class="acilis-alt"><span class="acilis-ipucu">Kaydırın ↓</span><span class="acilis-ilerleme" aria-hidden="true"><i></i></span><a class="acilis-gec" href="#acilis-sonra">Filmi geç ↓</a></div>
+</div>
+</section>
+<div id="acilis-sonra"></div>
+<section class="bol" id="urunler"><div class="sar">
+<h2>Film biter, site başlar</h2>
+<p>Bu bir demo. Gerçek sitede bu bölümden sonra ürünler, fiyatlar, sipariş formu ve Google'da bulunmanızı sağlayan yerel SEO içerikleri gelir. Film yalnızca açılıştır; sayfanın geri kalanı hızlı, normal HTML'dir.</p>
+<div class="izgara">
+<div><h3>Kendi fotoğraflarınızla</h3><p>Film, işletmenizin gerçek fotoğrafları arasındaki geçişlerden üretilir: hammadde, atölye, bitmiş ürün.</p></div>
+<div><h3>Telefonda hafif</h3><p>Mobilde daha küçük ve daha az kare iner. İlk kare anında görünür, film kaydırınca yüklenir.</p></div>
+<div><h3>Erişilebilir</h3><p>Hareketi azaltma tercihi olan ziyaretçi durağan bir açılış görür. "Filmi geç" düğmesi her an hazır.</p></div>
+</div>
+</div></section>
+<section class="bol koyu-bol" id="iletisim"><div class="sar">
+<h2>İşletmenize böyle bir açılış</h2>
+<p>Film Açılış 9.900 TL'den başlar (KDV hariç). Paketlerin tamamı ve fiyatlar Sinematik Vitrin sayfasında.</p>
+<div class="dugmeler"><a class="btn btn-dolu" href="/sinematik-vitrin">Paketleri gör</a><a class="btn btn-cizgi" href="https://wa.me/905019452184?text=Merhaba%2C%20sinematik%20a%C3%A7%C4%B1l%C4%B1%C5%9F%20demosunu%20g%C3%B6rd%C3%BCm.%20%C4%B0%C5%9Fletmem%20i%C3%A7in%20bilgi%20almak%20istiyorum." rel="noopener">WhatsApp'tan yaz</a></div>
+</div></section>
+<div class="sar kredi">Demo görselleri: Pixabay İçerik Lisansı (meşe ağacı: mariya_m #7468708, meşe tahta: AS_Photography #3217987, rende: Dormeur74 #4015109, masa: kjhmicro #332207). Aradaki geçişler Dijitabela tarafından yapay zekâ ile üretildi. "Meşe &amp; Usta" hayalî bir işletmedir.</div>
+</main>
+<script src="js/acilis.js?v=1" defer></script>
+<script src="../_dijitabela/filigran.js" data-gucu="0.05" defer></script>
+<script src="../_dijitabela/izle.js" defer></script>
+<script src="/ornek/_dijitabela/wa-buton.js" defer></script><script src="/ornek/_dijitabela/tabela-oto.js" defer></script></body>
+</html>

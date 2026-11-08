@@ -10,6 +10,10 @@ window.YR_FIYAT = {
   "Çift kişilik · 195×215 cm": 3000,
   "Geniş (king) · 220×240 cm": 3750
  },
+ "cocuk-yorgani": {
+  "95×145 cm (çocuk yatağı 70×140)": 3400,
+  "100×150 cm": 3500
+ },
  "silikon-yorgan": {
   "Tek kişilik · 155×215 cm": 1100,
   "Çift kişilik · 195×215 cm": 1400,
@@ -40,6 +44,9 @@ window.YR_FIYAT = {
  "elyaf-yastik": {
   "50×70 cm": 200
  },
+ "ceyiz-yastigi": {
+  "Çift kişilik uzun yastık": 0
+ },
  "yun-dosek": {
   "90×190 cm": 3500,
   "100×200 cm": 3900,
@@ -65,6 +72,9 @@ window.YR_FIYAT = {
  "battaniye": {
   "Tek kişilik": 900,
   "Çift kişilik": 1300
+ },
+ "palmiye-elektrikli-battaniye": {
+  "Çift kişilik (teyit edilecek)": 0
  },
  "nevresim": {
   "Tek kişilik": 1000,

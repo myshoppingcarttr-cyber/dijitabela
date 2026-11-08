@@ -9,7 +9,8 @@ var SB_URL = "https://ctlbhwbccqgwmtqbwtfs.supabase.co", SB_KEY = "sb_publishabl
 var YEREL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) && /[?&]yerel=1\b/.test(location.search);
 var KAT = { yorgan: "Yorganlar", yastik: "Yastıklar", yatak: "Döşek & minder", ortu: "Perde, örtü & battaniye", hizmet: "Tamir & yenileme" };
 var DOLGU = { yun: "Yün", pamuk: "Pamuk", silikon: "Silikon", boncuk: "Boncuk silikon", elyaf: "Elyaf", sunger: "Sünger", diger: "Diğer / yok" };
-var BAKIM = { yun: "Yün", pamuk: "Pamuk", sentetik: "Silikon / elyaf", boncuk: "Boncuk silikon", sunger: "Sünger", ortu: "Örtü / kumaş", perde: "Perde" };
+var BAKIM = { yun: "Yün", pamuk: "Pamuk", sentetik: "Silikon / elyaf", boncuk: "Boncuk silikon", sunger: "Sünger", ortu: "Örtü / kumaş", perde: "Perde", cocuk: "Çocuk yorganı (pamuk)", elektrik: "Elektrikli battaniye" };
+var STOK = { "": "Belirtme", hazir: "Hazır stokta – hemen kargoda", siparis: "Siparişle dikilir" };
 var AILE = { yorgan: "yorgan", yastik: "yastik", yatak: "dosek" };
 var DURUM = { satista: "Satışta", sor: "Stok için sorun", gizli: "Gizli (sitede görünmez)" };
 var sb = YEREL ? null : window.supabase.createClient(SB_URL, SB_KEY, { auth: { persistSession: true, detectSessionInUrl: true } });
@@ -185,6 +186,7 @@ function urunDuzenle(e, u) {
     sec.appendChild(el("label", { class: "secenek" }, [r, el("span", { text: DURUM[d] })]));
   });
   dur.appendChild(sec); tem.appendChild(dur);
+  tem.appendChild(secim(u, "stok", "Stok rozeti", STOK));
   [["el", "Dükkânda dikilir (rozet çıkar)"], ["ozel", "Ölçüye özel üretilir (iade yok uyarısı çıkar)"]].forEach(function (x) {
     var c = el("input", { type: "checkbox" }); c.checked = !!u[x[0]]; c.addEventListener("change", function () { u[x[0]] = c.checked; degisti(); });
     tem.appendChild(el("label", { class: "secenek", style: "margin-bottom:8px" }, [c, el("span", { text: x[1] })]));
