@@ -94,19 +94,19 @@
       });
     });
     function sonuc() {
-      var p = { yun: 0, pamuk: 0, silikon: 0, tuy: 0, bambu: 0 }, neden = [];
+      var p = { yun: 0, pamuk: 0, silikon: 0, boncuk: 0, elyaf: 0 }, neden = [];
       if (cevap.kim === "cocuk") { p.pamuk += 3; p.silikon += 2; neden.push("Çocuk yatağında hafif, yıkanabilir ya da nefes alan dolgu öne çıkar."); }
-      if (cevap.isi === "usur") { p.yun += 3; p.tuy += 2; neden.push("Üşüyorsanız yün ve tüy ısıyı en iyi tutan dolgulardır."); }
-      if (cevap.isi === "terler") { p.pamuk += 3; p.bambu += 2; p.yun += 1; p.silikon -= 1; neden.push("Terliyorsanız nem emen ve nefes alan pamuk (ve yün) daha rahat ettirir."); }
+      if (cevap.isi === "usur") { p.yun += 3; p.boncuk += 1; neden.push("Üşüyorsanız yün, ısıyı en iyi tutan dolgudur; boncuk silikon da kabarık ve sıcak tutar."); }
+      if (cevap.isi === "terler") { p.pamuk += 3; p.yun += 1; p.silikon -= 1; p.elyaf -= 1; neden.push("Terliyorsanız nem emen ve nefes alan pamuk (ve yün) daha rahat ettirir."); }
       if (cevap.isi === "normal") { p.pamuk += 1; p.silikon += 1; p.yun += 1; }
-      if (cevap.alerji === "evet") { p.silikon += 3; p.tuy -= 3; p.yun -= 1; neden.push("Alerji/astım varsa 60 °C'de yıkanabilen sentetik dolgu ve sık yıkanan kılıf pratik olur; doktorunuzun önerisi önceliklidir."); }
+      if (cevap.alerji === "evet") { p.silikon += 2; p.boncuk += 3; p.yun -= 1; neden.push("Alerji/astım varsa 60 °C'ye kadar yıkanabilen sentetik dolgu ve sık yıkanan kılıf pratik olur; doktorunuzun önerisi önceliklidir."); }
       if (cevap.agirlik === "agir") { p.yun += 2; p.pamuk += 2; neden.push("Sarıp sarmalayan, ağır yorgan sevenler el dikimi yün/pamuğu sever."); }
-      if (cevap.agirlik === "hafif") { p.tuy += 2; p.silikon += 2; p.bambu += 1; p.yun -= 1; neden.push("Hafif yorgan sevenler için tüy ve silikon iyi seçeneklerdir."); }
-      if (cevap.bakim === "makine") { p.silikon += 2; p.bambu += 1; p.yun -= 1; p.pamuk -= 1; neden.push("Makinede yıkamak istiyorsanız silikon ve bambu karışımları kolaydır."); }
+      if (cevap.agirlik === "hafif") { p.boncuk += 2; p.silikon += 2; p.elyaf += 1; p.yun -= 1; neden.push("Hafif yorgan sevenler için silikon ve boncuk silikon iyi seçeneklerdir."); }
+      if (cevap.bakim === "makine") { p.boncuk += 2; p.silikon += 2; p.elyaf += 1; p.yun -= 1; p.pamuk -= 1; neden.push("Makinede yıkamak istiyorsanız boncuk silikon ve silikon kolaydır; boncuk silikon yıkamadan sonra topaklanmaz."); }
       if (cevap.bakim === "kabartma") { p.yun += 2; p.pamuk += 1; neden.push("Yün ve pamuk yıkanmaz ama dükkânda kabartılıp yıllarca yenilenir."); }
       var sira = Object.keys(p).sort(function (a, b) { return p[b] - p[a]; }).slice(0, 2);
-      var es = { yun: "yun-yorgan", pamuk: "pamuk-yorgan", silikon: "silikon-yorgan", tuy: "kaz-tuyu-yorgan", bambu: "bambu-yorgan" };
-      if (cevap.kim === "cocuk") es = { yun: "bebek-yorgani", pamuk: "bebek-yorgani", silikon: "bebek-yorgani", tuy: "bebek-yorgani", bambu: "bebek-yorgani" };
+      var es = { yun: "yun-yorgan", pamuk: "pamuk-yorgan", silikon: "silikon-yorgan", boncuk: "boncuk-silikon-yorgan", elyaf: "elyaf-yorgan" };
+      if (cevap.kim === "cocuk") neden.push("Çocuk yatağı için yorganı küçük ölçüde (ör. 95×145 cm) diktirebilirsiniz; ölçüyü sipariş notuna yazın. 1 yaş altı bebeklere yorgan önerilmez.");
       var html = sira.map(function (d, j) { var u = urun(es[d]); if (!u) return ""; return '<div class="oneri"><img src="' + KOK + "img/" + u.gorsel + '-s.webp" alt="" loading="lazy" width="96" height="72"><div><b>' + (j ? "İkinci seçenek: " : "Önerimiz: ") + u.ad + "</b><br><a href=\"" + KOK + "urunler/" + u.id + '.html">Ürünü incele →</a></div></div>'; }).join("");
       var s = $(".sonuc", q); $(".oneriler", s).innerHTML = html; $(".nedenler", s).innerHTML = neden.map(function (n) { return "<li>" + n + "</li>"; }).join("");
       var wq = $(".sonuc-wa", s); if (wq) wq.href = wa("Merhaba Ramazan usta, sitedeki yorgan seçiciyi doldurdum. Önerilen: " + sira.map(function (d) { var u = urun(es[d]); return u ? u.ad : d; }).join(" / ") + ". Bilgi alabilir miyim?");

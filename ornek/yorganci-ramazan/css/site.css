@@ -375,3 +375,16 @@ label.secenek:last-child{border-bottom:0}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .ozellikler dd{overflow-wrap:anywhere;min-width:0}
 .bol-bas h1{font-size:clamp(36px,5vw,64px)}
+/* kabiliyet bandı (rev. 2) */
+.kabiliyet{background:var(--pirinc-zemin);border-bottom:1px solid var(--cizgi)}
+.kabiliyet-ic{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding-top:22px;padding-bottom:22px}
+.kabiliyet-baslik{margin:0;font:italic 500 clamp(19px,2.2vw,25px)/1.25 var(--f-b);color:var(--murekkep);flex:1 1 320px}
+.kabiliyet ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.kabiliyet li{font:700 12px/1 var(--f-g);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--murekkep);padding:8px 10px;color:var(--murekkep)}
+/* ürün sayfası dolgu seçici */
+.dolgu-sec{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 4px}
+.dolgu-sec span{font:700 11.5px/1 var(--f-g);letter-spacing:.14em;text-transform:uppercase;color:var(--soluk);margin-right:4px}
+.dolgu-sec a{font:600 14px/1 var(--f-g);text-decoration:none;color:var(--murekkep);border:1px solid var(--cizgi);padding:11px 14px;min-height:42px;display:inline-flex;align-items:center;background:#fff}
+.dolgu-sec a:hover{border-color:var(--murekkep)}
+.dolgu-sec a[aria-current="page"]{background:var(--murekkep);border-color:var(--murekkep);color:#fff}
+.kart-gorsel,.kart-gorsel .tipo{text-decoration:none}
