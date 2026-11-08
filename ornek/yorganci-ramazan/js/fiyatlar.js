@@ -2,27 +2,27 @@
 window.YR_FIYAT = {
  "yun-yorgan": {
   "Tek kişilik · 155×215 cm · ~3 kg yün": 3500,
-  "Çift kişilik · 195×215 cm · ~4 kg yün": 4500,
-  "Geniş (king) · 220×240 cm · ~5 kg yün": 5500
+  "Geniş (king) · 220×240 cm · ~5 kg yün": 5500,
+  "Çift kişilik · 195×215 cm · ~4 kg yün": 4500
  },
  "pamuk-yorgan": {
   "Tek kişilik · 155×215 cm": 2250,
-  "Çift kişilik · 195×215 cm": 3000,
-  "Geniş (king) · 220×240 cm": 3750
+  "Geniş (king) · 220×240 cm": 3750,
+  "Çift kişilik · 195×215 cm": 3000
  },
  "cocuk-yorgani": {
-  "95×145 cm (çocuk yatağı 70×140)": 3400,
-  "100×150 cm": 3500
+  "100×150 cm": 3500,
+  "95×145 cm (çocuk yatağı 70×140)": 3400
  },
  "silikon-yorgan": {
   "Tek kişilik · 155×215 cm": 1100,
-  "Çift kişilik · 195×215 cm": 1400,
-  "Geniş (king) · 220×240 cm": 1800
+  "Geniş (king) · 220×240 cm": 1800,
+  "Çift kişilik · 195×215 cm": 1400
  },
  "boncuk-silikon-yorgan": {
   "Tek kişilik · 155×215 cm": 1300,
-  "Çift kişilik · 195×215 cm": 1700,
-  "Geniş (king) · 220×240 cm": 2100
+  "Geniş (king) · 220×240 cm": 2100,
+  "Çift kişilik · 195×215 cm": 1700
  },
  "elyaf-yorgan": {
   "Tek kişilik · 155×215 cm": 800,

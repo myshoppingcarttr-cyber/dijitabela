@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..900&family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<script src="assets/piksel.js?v=mw8762dp" defer></script>
+<script src="assets/piksel.js?v=mw8d4075" defer></script>
 <style>
 body{margin:0}
 /* Yerleşim: geceden sabaha bir çarşı yürüyüşü. Marka: LED panel koyusu #16181D, sönük nokta #2C3038, amber #FFB000.
@@ -572,6 +572,9 @@ html{scroll-behavior:smooth}
 .sss-k details p{padding:0 0 18px;color:var(--gece-soluk);max-width:none}
 @media (max-width:820px){.taslak-g{grid-template-columns:1fr}}
 
+.rehber{transition:opacity .3s}
+@media (max-width:600px){.rehber.hero-gizli{opacity:0;pointer-events:none}}
+
 </style>
 </head>
 <body>
@@ -725,9 +728,9 @@ html{scroll-behavior:smooth}
   <div class="alt-alt"><nav aria-label="Yasal"><a href="gizlilik.html">Gizlilik</a><a href="kvkk.html">KVKK</a><a href="mesafeli-satis.html">Mesafeli satış</a><a href="iptal-iade.html">İptal ve iade</a><a href="teslimat-kosullari.html">Teslimat koşulları</a><a href="iletisim.html">İletişim</a></nav><span>© 2026 Dijitabela · Alim Hoşlar · Düden V.D. · VKN 4641290891 · Kepez / Antalya<br>Dizi görselleri yapay zekâ ile üretilmiştir; karakterler hayal ürünüdür.</span></div>
 </div></footer>
 <script src="assets/form-koruma.js?v=eee7e0a335" defer></script>
-<script src="assets/config.js?v=mw8762dp"></script>
-<script src="assets/fiyat.js?v=mw8762dp"></script>
-<script src="assets/data.js?v=mw8762dp"></script>
+<script src="assets/config.js?v=mw8d4075"></script>
+<script src="assets/fiyat.js?v=mw8d4075"></script>
+<script src="assets/data.js?v=mw8d4075"></script>
 <script>
 const SES_VAR = ["duvar","nedir","alanlar","nasil","eks-baslat","taslak"];   // kayıt dosyası olanlar; olmayanlar cihaz sesiyle okunur (404 yok)
 // Ekspertiz sayfası motoru (14 Eki 2026, Elif · İ-1014-P11). LED motoru + yüz çizimi: yeni-ana-kaynak.html ile aynı.
@@ -911,7 +914,7 @@ const SORULAR = [
   ["Ekspertiz ücretsiz mi?", "Evet, tamamen ücretsiz ve bağlayıcı değil. Bir dakikada sonucunuzu görürsünüz.", "#eks-baslat"],
   ["Ne istiyorsunuz benden?", "Yalnızca işletmenizin adı ya da Google Haritalar bağlantısı. Web siteniz varsa onu da yazarsınız. Başka soru sormayız.", null],
   ["Sonra ne olur?", "Eksiklerinizi ve her birinin çözümünü görürsünüz. İsterseniz sizi arayıp planı anlatırız; isterseniz üç ücretsiz taslak hazırlarız.", "#taslak"],
-  ["WhatsApp'tan yazmak istiyorum", "Telefon numaramız 0501 945 21 84, WhatsApp randevu hattımız 0501 945 21 84 (7/24 asistan). Yazdığınızda hemen cevap verilir.", null]
+  ["WhatsApp'tan yazmak istiyorum", "Telefon ve WhatsApp (7/24 asistan): 0501 945 21 84. Yazdığınızda hemen cevap verilir.", null]
 ];
 const SESLI = new Set(Object.keys(REHBER));
 const ETIKET = { duvar: "Başa dön", nedir: "Ekspertiz nedir", alanlar: "4 alan", nasil: "Nasıl çalışır", "eks-baslat": "Ekspertizi başlat", taslak: "Ücretsiz taslak" };
@@ -923,13 +926,17 @@ const CEVAP = [
   [/google|harita|yorum|puan/i, "Google Haritalar kaydınızı, puanınızı ve yorum sayınızı çevrenizdeki rakiplerle karşılaştırırım. Formu açıyorum.", "#eks-baslat"],
   [/site|web/i, "Web sitenizin telefonda açılışına, hızına ve Google'ın sizi anlamasına bakarım. Adresi forma yazın.", "#eks-baslat"],
   [/taslak|örnek|deneme/i, "Size özel üç taslağı ücretsiz hazırlıyoruz. Aşağıdan bize ulaşın.", "#taslak"],
-  [/telefon|ara|numara|iletişim|whatsapp/i, "Telefon: 0501 945 21 84. WhatsApp randevu hattı (7/24 asistan): 0501 945 21 84. E-posta: info@dijitabela.com.", null]
+  [/telefon|ara|numara|iletişim|whatsapp/i, "Telefon ve WhatsApp (7/24 asistan): 0501 945 21 84. E-posta: info@dijitabela.com.", null]
 ];
 CEVAP.forEach((x) => { const k = x[0].source; try { x[0] = new RegExp("(?<!\\p{L})(?:" + k + ")", "iu"); } catch (e) { x[0] = new RegExp("(?:^|[^a-zçğıöşüâîû])(?:" + k + ")", "i"); } });
 
 // Tek ses çalar (iOS dokunuşla açılan çalarda izin verir). Kayıt dosyası yoksa ya da açılamazsa cihaz sesi (tr-TR) yedeği.
 const ses = new Audio(); ses.preload = "auto";
 const rehber = $("#rehber"), govde = $("#rehber-govde"), balon = $("#balon"), yazi = $("#balon-yazi"), yuzCv = $("#yuz");
+// Mobilde rehber, hero'daki "Hemen yazmak isterseniz" satırı ekrandayken gizli kalır (iPhone testinde numarayı örtüyordu).
+const hemenEl = document.querySelector(".hemen"), darEkran = matchMedia("(max-width:600px)");
+function hemenGizle() { if (!hemenEl || !rehber) return; const r = hemenEl.getBoundingClientRect(); rehber.classList.toggle("hero-gizli", darEkran.matches && r.bottom > 0 && r.top < innerHeight); }
+addEventListener("scroll", hemenGizle, { passive: true }); addEventListener("resize", hemenGizle); hemenGizle();
 let sesAcik = false, degisiyor = false, konusuyor = false, yaziyor = false, aktif = "", balonAcik = true, kirp = 0, ifade = "mutlu", ifadeZaman;
 function yuzDongu(t) { if (kirp > 0) kirp--; else if (Math.random() < 0.006) kirp = 8; yuzCiz(t); if (!AZ) requestAnimationFrame(yuzDongu); }
 let bekleyenTepki = null, sonAnlatilan = "", yaziZaman, yedekMetin = "";
@@ -1018,7 +1025,7 @@ $("#sohbet").addEventListener("submit", (e) => {
   e.preventDefault(); const q = $("#sohbet-yaz").value.trim(); if (!q) return;
   const c = CEVAP.find((x) => x[0].test(q));
   $("#sohbet-yaz").value = ""; $("#sss-l").hidden = true;
-  rehberDe(c ? c[1] : "Bunu tam anlayamadım. Telefon numaramız 0501 945 21 84, WhatsApp randevu hattımız 0501 945 21 84; yazarsanız hemen cevap verilir.", c ? "mutlu" : "sasir", true);
+  rehberDe(c ? c[1] : "Bunu tam anlayamadım. Telefon ve WhatsApp (7/24 asistan): 0501 945 21 84; yazarsanız hemen cevap verilir.", c ? "mutlu" : "sasir", true);
   $("#siz").textContent = "Siz: " + q; if (c && c[2]) setTimeout(() => git(c[2]), 600);
 });
 document.addEventListener("focusin", (e) => { if (innerWidth < 760 && e.target.matches("input,textarea,select") && !rehber.contains(e.target)) rehber.style.visibility = "hidden"; });
@@ -1063,6 +1070,6 @@ if ("IntersectionObserver" in window && !AZ) {
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { duvar.olc(); evre = -1; evreSec(0); if (AZ) { duvar.kirli = true; duvar.ciz(); } }, 200); });
 
 </script>
-<script src="assets/ekspertiz.js?v=mw8762dp"></script>
+<script src="assets/ekspertiz.js?v=mw8d4075"></script>
 </body>
 </html>
