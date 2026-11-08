@@ -14,5 +14,7 @@ Disallow: /_build/
 Disallow: /supabase/
 Disallow: /ornek/
 Allow: /ornek/_dijitabela/
+Allow: /ornek/yorganci-ramazan/
 
 Sitemap: https://dijitabela.com/sitemap.xml
+Sitemap: https://dijitabela.com/ornek/yorganci-ramazan/sitemap.xml
