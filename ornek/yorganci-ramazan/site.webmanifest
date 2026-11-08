@@ -1,0 +1,27 @@
+{
+ "name": "Çeyiz Yorgan Dikim Evi · Yorgancı Ramazan Hoşlar",
+ "short_name": "Yorgancı Ramazan",
+ "start_url": "./",
+ "scope": "./",
+ "display": "browser",
+ "background_color": "#F6F2EA",
+ "theme_color": "#121C33",
+ "icons": [
+  {
+   "src": "img/marka/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "img/marka/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "img/marka/icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
