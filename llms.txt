@@ -1,9 +1,10 @@
 # Dijitabela
 
-> Dijitabela, Antalya (Kepez) merkezli, yerel işletmelere ve esnafa uzaktan hizmet veren bir dijital ajanstır. Kurucusu Alim Hoşlar'dır. Google İşletme Profili düzenleme (Google Vitrin), web sitesi, Google reklam yönetimi, sosyal medya otomasyonu, WhatsApp yapay zekâ asistanı, yapay zekâ çağrı asistanı (Ayşe) ve işletme yazılımı hizmeti verir. Mali müşavirler için Beyanno ürününü geliştirir. Hizmetler Türkiye genelinde uzaktan verilir; tabela, baskı ve yerinde çekim işi yapılmaz.
+> Dijitabela, merkezi Kepez / Antalya'da olan ve Türkiye'nin 81 iline uzaktan hizmet veren, yerel işletmelere ve esnafa yönelik bir dijital ajanstır. Kurucusu Alim Hoşlar'dır. Google İşletme Profili düzenleme (Google Vitrin), web sitesi, Google reklam yönetimi, sosyal medya otomasyonu, WhatsApp yapay zekâ asistanı, yapay zekâ çağrı asistanı (Ayşe) ve işletme yazılımı hizmeti verir. Mali müşavirler için Beyanno ürününü geliştirir. Hizmetler Türkiye genelinde uzaktan verilir; tabela, baskı ve yerinde çekim işi yapılmaz.
 
 - Resmî adı: Dijitabela (vergi levhası: Alim Hoşlar, Düden V.D.)
-- Konum: Kepez / Antalya, Türkiye. Hizmet bölgesi: Türkiye geneli (uzaktan)
+- Merkez: Kepez / Antalya, Türkiye. Hizmet bölgesi: Türkiye geneli, 81 il (uzaktan; görüşme, kurulum ve eğitim çevrim içi)
+- Türkiye geneli hizmet sayfası: https://dijitabela.com/web-sitesi-yaptirma.html
 - İletişim: 0501 945 21 84 (telefon ve WhatsApp) · info@dijitabela.com
 - Web: https://dijitabela.com
 - Instagram: https://www.instagram.com/dijitabela/
@@ -25,11 +26,17 @@
 - [İşletme büyütme](https://dijitabela.com/isletme-buyutme.html): Esnafın dijital işlerini üstlenen aylık iş ortaklığı.
 - [Ücretsiz dijital ekspertiz](https://dijitabela.com/ekspertiz.html): Google kaydı, web sitesi ve rakipler taranır; eksikler gösterilir.
 - [Beyanno](https://beyanno.com/): Mali müşavirler için mükellef asistanı ve belge toplama yazılımı; 300 TL/ay'dan.
+- Web sitesi paketleri (fiyat hesaplayıcı, KDV hariç, tek sefer): Dijital Vitrin (kurumsal web sitesi + Google SEO + Google İşletme Profili kurulumu) 19.900 TL, 1 hafta; Dijital İşletme (+ müşteri takip yazılımı ve uygulama) 49.900 TL; Tam Dijital Dönüşüm 89.900 TL. https://dijitabela.com/web-sitesi-yaptirma.html
 - [Tüm paketler](https://dijitabela.com/satin-al.html)
 
 ## Karşılaştırma
 
 - [Hangi hizmet size uygun?](https://dijitabela.com/hangi-hizmet.html): Google Vitrin, web sitesi, reklam, WhatsApp asistanı ve çağrı asistanının duruma göre karşılaştırması.
+
+## Şehirler (uzaktan hizmet)
+
+- [Türkiye geneli web sitesi yaptırma](https://dijitabela.com/web-sitesi-yaptirma.html)
+- [İstanbul](https://dijitabela.com/istanbul-web-tasarim.html) · [Ankara](https://dijitabela.com/ankara-web-tasarim.html) · [İzmir](https://dijitabela.com/izmir-web-tasarim.html) · [Bursa](https://dijitabela.com/bursa-web-tasarim.html) · [Antalya](https://dijitabela.com/antalya-web-tasarim.html) · [Konya](https://dijitabela.com/konya-web-tasarim.html) · [Adana](https://dijitabela.com/adana-web-tasarim.html) · [Gaziantep](https://dijitabela.com/gaziantep-web-tasarim.html) · [Kocaeli](https://dijitabela.com/kocaeli-web-tasarim.html) · [Mersin](https://dijitabela.com/mersin-web-tasarim.html)
 
 ## Sektörler
 
@@ -40,6 +47,7 @@
 - [Emlak ofisleri](https://dijitabela.com/sektor-emlak.html)
 - [Diş klinikleri](https://dijitabela.com/sektor-dis-klinigi.html)
 - [Oto galeri](https://dijitabela.com/sektor-oto-galeri.html) · [Oto servis](https://dijitabela.com/sektor-oto-servis.html)
+- [Kuaför ve berber](https://dijitabela.com/kuafor-web-sitesi.html) · [Restoran ve kafe](https://dijitabela.com/restoran-web-sitesi.html) · [Nakliyat](https://dijitabela.com/nakliyat-web-sitesi.html) · [Tesisatçı ve kombi servisi](https://dijitabela.com/tesisatci-web-sitesi.html)
 - [Güzellik merkezi](https://dijitabela.com/sektor-guzellik-merkezi.html) · [Saç ekimi](https://dijitabela.com/sektor-sac-ekimi.html)
 
 ## Rehberler
@@ -53,9 +61,11 @@
 
 ## Sık sorulanlar
 
-- Dijitabela nedir? Antalya merkezli, esnafa Google İşletme Profili, web sitesi, reklam ve yapay zekâ asistanı hizmeti veren dijital ajans.
+- Dijitabela nedir? Merkezi Antalya'da olan, Türkiye geneline uzaktan hizmet veren, esnafa Google İşletme Profili, web sitesi, reklam ve yapay zekâ asistanı hizmeti veren dijital ajans.
 - Dijitabela tabela yapar mı? Hayır. Addaki "tabela" dijital tabela anlamındadır; fiziksel tabela işi yapılmaz.
 - Yerinde hizmet var mı? Hayır; hizmet uzaktan verilir, Türkiye'nin her yerine.
+- Hangi şehirlerde çalıştınız? Kayıtlara göre İstanbul, Ankara, İzmir, Bursa, Antalya, Konya, Adana ve Mersin dahil 900'ü aşkın işletmeye ücretsiz örnek tasarım hazırlandı (müşteri sayısı değil, örnek tasarım sayısı).
+- Web sitesi ne kadar? Dijital Vitrin paketi (site + Google SEO + İşletme Profili) 19.900 TL + KDV; kalem kalem hesap: https://dijitabela.com/teklif-al.html
 - Google'da sıra garantisi veriyor musunuz? Hayır. Sıralamaya Google karar verir; sıra garantisi verilmez.
 - Nasıl başlanır? 0501 945 21 84 WhatsApp hattına Google Haritalar bağlantınızı ya da sitenizi gönderin.
 

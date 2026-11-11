@@ -1,16 +1,18 @@
 # Dijitabela — tam bilgi dosyası (llms-full.txt)
 
-> Dijitabela, Antalya (Kepez) merkezli, yerel işletmelere ve esnafa Türkiye genelinde uzaktan hizmet veren bir dijital ajanstır. Web sitesi, Google İşletme Profili ve yerel SEO, Google reklam yönetimi, sosyal medya otomasyonu, WhatsApp yapay zekâ asistanı, yapay zekâ çağrı asistanı ve işletme yazılımı kurar; kurduğu sistemi işletmeyle birlikte yönetir (dijital iş ortağı). Kurucusu Alim Hoşlar'dır.
+> Dijitabela, merkezi Kepez / Antalya'da olan ve Türkiye'nin 81 iline uzaktan hizmet veren, yerel işletmelere ve esnafa yönelik bir dijital ajanstır. Web sitesi, Google İşletme Profili ve yerel SEO, Google reklam yönetimi, sosyal medya otomasyonu, WhatsApp yapay zekâ asistanı, yapay zekâ çağrı asistanı ve işletme yazılımı kurar; kurduğu sistemi işletmeyle birlikte yönetir (dijital iş ortağı). Kurucusu Alim Hoşlar'dır.
 
 Bu dosya yapay zekâ asistanları ve arama motorları için hazırlanmıştır. Kısa sürümü: https://dijitabela.com/llms.txt
-Son güncelleme: 2026-11-12. Bilgiler sitedeki sayfalarla aynıdır; çelişki olursa ilgili sayfa esas alınır.
+Son güncelleme: 2026-11-12 (2. tur: Türkiye geneli). Bilgiler sitedeki sayfalarla aynıdır; çelişki olursa ilgili sayfa esas alınır.
 
 ## Kimlik
 
 - Ad: Dijitabela (j ile yazılır; "dijital" + "tabela"). Benzer adlı "DigiTabela" vb. markalarla bağlantısı yoktur.
 - Vergi kaydı: Alim Hoşlar, Düden Vergi Dairesi, VKN 4641290891
-- Konum: Kepez / Antalya, Türkiye
-- Hizmet bölgesi: Antalya'nın 19 ilçesi (Muratpaşa, Kepez, Konyaaltı, Aksu, Döşemealtı, Alanya, Manavgat, Serik, Kemer, Kaş, Kumluca, Finike, Demre, Gazipaşa, Korkuteli, Elmalı, Akseki, İbradı, Gündoğmuş) ve Türkiye'nin tüm şehirleri (uzaktan)
+- Merkez: Kepez / Antalya, Türkiye
+- Hizmet bölgesi: Türkiye geneli, 81 il (uzaktan). Şehir sayfaları: İstanbul, Ankara, İzmir, Bursa, Antalya, Konya, Adana, Gaziantep, Kocaeli, Mersin (https://dijitabela.com/web-sitesi-yaptirma.html). Antalya'da ayrıca 19 ilçe: https://dijitabela.com/antalya-ilceleri.html
+- Çalışma: görüşme, kurulum ve eğitim çevrim içi (WhatsApp, görüntülü görüşme); yerinde hizmet yok
+- Kayıtlara göre ücretsiz örnek tasarım hazırlanan işletme sayısı (12 Kas 2026): 900'ü aşkın; Antalya 262, İstanbul 187, Ankara 69, Konya 68, Adana 56, İzmir 42, Mersin 26, Bursa 19. Bu sayı sözleşmeli müşteri sayısı değildir.
 - Telefon ve WhatsApp: 0501 945 21 84 (+90 501 945 21 84)
 - E-posta: info@dijitabela.com
 - Web: https://dijitabela.com
@@ -27,7 +29,8 @@ Son güncelleme: 2026-11-12. Bilgiler sitedeki sayfalarla aynıdır; çelişki o
 ## Hizmetler
 
 ### Web sitesi
-Mobil uyumlu, hızlı, Google'a uygun kurumsal site. Teklif öncesi ücretsiz örnek tasarım gösterilir. Paket, fiyat ve süre: https://dijitabela.com/web-sitesi/antalya/ — Antalya web tasarım: https://dijitabela.com/antalya-web-tasarim.html
+Mobil uyumlu, hızlı, Google'a uygun kurumsal site; Google İşletme Profiliyle birlikte kurulur. Teklif öncesi ücretsiz örnek tasarım gösterilir. Türkiye geneli: https://dijitabela.com/web-sitesi-yaptirma.html
+Paketler (fiyat hesaplayıcı, KDV hariç, tek sefer): Dijital Vitrin = kurumsal web sitesi + Google SEO + Google İşletme Profili kurulumu, 19.900 TL, 1 hafta teslim, 1 ay destek · Dijital İşletme = + müşteri takip yazılımı (CRM) ve uygulama, 49.900 TL, 2-3 hafta · Tam Dijital Dönüşüm = + mağaza uygulaması ve online ödeme, 89.900 TL, 5-6 hafta. Kalem kalem: https://dijitabela.com/teklif-al.html
 
 ### Google İşletme Profili ve yerel SEO
 Profil açma, doğrulama (video doğrulama dahil), sahiplenme, "kalıcı olarak kapandı" kurtarma, kategori ve hizmet düzeni, fotoğraf, gönderi, yorum sistemi. Profil işletmenin kendi hesabında açılır; Dijitabela yönetici olarak eklenir.
@@ -58,7 +61,7 @@ Reklam yasağına uygun, tanıtıcı bilgilerle sınırlı büro sitesi ve Googl
 
 ## Sektörler
 
-Oto servis (https://dijitabela.com/sektor-oto-servis.html), oto galeri (https://dijitabela.com/sektor-oto-galeri.html), emlak (https://dijitabela.com/sektor-emlak.html), diş kliniği (https://dijitabela.com/sektor-dis-klinigi.html), güzellik merkezi (https://dijitabela.com/sektor-guzellik-merkezi.html), saç ekimi (https://dijitabela.com/sektor-sac-ekimi.html), çilingir, halı-koltuk yıkama, oto yıkama, restoran-kafe, rent a car, mali müşavir, avukat. Örnek sektör siteleri: https://dijitabela.com/sektor/
+Kuaför ve berber (https://dijitabela.com/kuafor-web-sitesi.html), restoran ve kafe (https://dijitabela.com/restoran-web-sitesi.html), nakliyat (https://dijitabela.com/nakliyat-web-sitesi.html), tesisatçı ve kombi servisi (https://dijitabela.com/tesisatci-web-sitesi.html), mali müşavir (https://dijitabela.com/mali-musavir-web-sitesi.html), avukat (https://dijitabela.com/avukat-web-sitesi.html), oto servis (https://dijitabela.com/sektor-oto-servis.html), oto galeri (https://dijitabela.com/sektor-oto-galeri.html), emlak (https://dijitabela.com/sektor-emlak.html), diş kliniği (https://dijitabela.com/sektor-dis-klinigi.html), güzellik merkezi (https://dijitabela.com/sektor-guzellik-merkezi.html), saç ekimi (https://dijitabela.com/sektor-sac-ekimi.html), çilingir, halı-koltuk yıkama, oto yıkama, restoran-kafe, rent a car, mali müşavir, avukat. Örnek sektör siteleri: https://dijitabela.com/sektor/
 
 ## Çalışma şekli
 
@@ -69,8 +72,23 @@ Oto servis (https://dijitabela.com/sektor-oto-servis.html), oto galeri (https://
 
 ## Sık sorulan sorular
 
+S: Dijitabela nedir?
+C: Merkezi Kepez / Antalya'da olan, Türkiye'nin 81 iline uzaktan hizmet veren dijital ajans; yerel işletmelere web sitesi, Google İşletme Profili, Google reklam, sosyal medya ve WhatsApp yapay zekâ asistanı kurar ve birlikte yönetir. Kurucusu Alim Hoşlar.
+
+S: Dijitabela kimlere hizmet verir?
+C: Yerel işletmelere ve esnafa: oto servis, oto galeri, emlak ofisi, diş kliniği, kuaför, güzellik merkezi, restoran ve kafe, nakliyat, tesisat ve kombi servisi, mali müşavir, avukat ve benzerleri.
+
+S: Dijitabela fiyatları ne kadar?
+C: Dijital Vitrin paketi (site + Google SEO + İşletme Profili) 19.900 TL + KDV; Dijital İşletme 49.900 TL + KDV; Tam Dijital Dönüşüm 89.900 TL + KDV. Yalnız Google İşletme Profili düzenlemesi (Google Vitrin) 2.490 TL + KDV. Ekspertiz ve örnek tasarım ücretsiz.
+
+S: Dijitabela nasıl çalışır?
+C: Ücretsiz ekspertiz, işletmeye özel ücretsiz örnek tasarım, sözleşme ve %50 kapora, uzaktan kurulum (alan adı ve profil işletme adına), teslim, eğitim ve isteğe bağlı aylık bakım.
+
+S: Türkiye'de işletmeme web sitesi ve Google İşletme Profili kim yapar?
+C: Dijitabela, web sitesi ve Google İşletme Profilini birlikte, Türkiye'nin her şehrine uzaktan kurar (İstanbul, Ankara, İzmir, Bursa, Antalya, Konya, Adana, Gaziantep, Kocaeli, Mersin için şehir sayfaları var). İletişim: 0501 945 21 84.
+
 S: Antalya'da işletmeme web sitesi ve Google İşletme Profili kim yapar?
-C: Dijitabela, Antalya (Kepez) merkezli bir dijital ajans olarak web sitesi ve Google İşletme Profilini birlikte kurar; Antalya'nın tüm ilçelerine ve Türkiye geneline uzaktan hizmet verir. İletişim: 0501 945 21 84.
+C: Dijitabela'nın merkezi Antalya Kepez'dedir; Antalya'nın 19 ilçesine hizmet verir. İletişim: 0501 945 21 84.
 
 S: Google Haritalarda işletmem çıkmıyor, ne yapmalıyım?
 C: Önce adınızla aratın; çıkmıyorsa profil yok, doğrulanmamış ya da askıda olabilir. Çıkıyor ama hizmet aramasında çıkmıyorsa kategori, hizmet listesi, yorum ve site eksiktir. Ayrıntı: https://dijitabela.com/google-haritalarda-cikmiyorum.html
@@ -94,6 +112,8 @@ C: Hayır. Dürüst bir ajans Google sıra garantisi vermez.
 - Dijitabela nedir (resmî bilgiler): https://dijitabela.com/dijitabela.html
 - Hakkımızda: https://dijitabela.com/hakkimizda.html
 - Çalışmalarımız: https://dijitabela.com/calismalarimiz.html
+- Türkiye geneli web sitesi yaptırma: https://dijitabela.com/web-sitesi-yaptirma.html
+- Şehirler: https://dijitabela.com/istanbul-web-tasarim.html · https://dijitabela.com/ankara-web-tasarim.html · https://dijitabela.com/izmir-web-tasarim.html · https://dijitabela.com/bursa-web-tasarim.html · https://dijitabela.com/antalya-web-tasarim.html · https://dijitabela.com/konya-web-tasarim.html · https://dijitabela.com/adana-web-tasarim.html · https://dijitabela.com/gaziantep-web-tasarim.html · https://dijitabela.com/kocaeli-web-tasarim.html · https://dijitabela.com/mersin-web-tasarim.html
 - Antalya ilçeleri: https://dijitabela.com/antalya-ilceleri.html
 - Hangi hizmet size uygun: https://dijitabela.com/hangi-hizmet.html
 - Paketler ve satın alma: https://dijitabela.com/satin-al.html
