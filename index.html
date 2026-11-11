@@ -922,7 +922,7 @@ function dongu() { ledler.forEach((l) => l.gorunur && l.ciz()); requestAnimation
 /* ---------- 1 · Duvar ---------- */
 const genis = () => innerWidth > 860;
 // Telefonda LED yazısı, alttaki başlık bloğunun (.on) üstünde kalan boşluğa sığdırılır; yoksa başlıkla üst üste biniyordu (12 Kas).
-const duvarAlan = () => { if (genis()) return 0.5; const on = document.querySelector("#duvar .on"), cv = $("#duvar-led"); if (!on || !cv.offsetHeight) return 0.36; const bos = on.offsetTop + parseFloat(getComputedStyle(on).paddingTop) - cv.offsetTop - 10; return Math.max(0.14, Math.min(0.36, bos / cv.offsetHeight - 0.04)); };
+const duvarAlan = () => { if (genis()) return 0.5; const on = document.querySelector("#duvar .on"), cv = $("#duvar-led"); if (!on || !cv.offsetHeight) return 0.36; const bos = on.offsetTop + parseFloat(getComputedStyle(on).paddingTop) - cv.offsetTop - 10; return Math.max(0.06, Math.min(0.36, bos / cv.offsetHeight - 0.04)); };
 const duvar = new Led($("#duvar-led"), (r) => (genis() ? Math.max(8, Math.min(12, r.width / 140)) : 6), duvarAlan);
 duvar.suz = true; ledler.add(duvar);
 const isim = $("#isim");

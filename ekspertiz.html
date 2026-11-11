@@ -67,9 +67,9 @@ a{color:inherit}
 .ust{position:fixed;z-index:50;left:0;right:0;top:calc(4px + env(safe-area-inset-top,0px));background:rgba(14,15,18,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--gece-cizgi)}
 .ust .sar{display:flex;align-items:center;gap:28px;min-height:var(--ust)}
 .logo{display:block;height:36px;flex-shrink:0}.logo img{height:100%;width:auto;display:block}
-.menu{display:flex;gap:24px;margin-left:auto;font-size:15px;font-weight:600}
-.menu a{text-decoration:none;color:var(--gece-soluk)}.menu a:hover{color:var(--gece-yazi)}
-.ust .dugme{min-height:44px;padding:8px 16px;font-size:15px}
+.menu{display:flex;gap:clamp(14px,1.5vw,24px);margin-left:auto;font-size:15px;font-weight:600}
+.menu a{text-decoration:none;color:var(--gece-soluk);white-space:nowrap}.menu a:hover{color:var(--gece-yazi)}
+.ust .dugme{min-height:44px;padding:8px 16px;font-size:15px;white-space:nowrap;flex-shrink:0}
 @media (max-width:1180px){.menu{display:none}.ust .dugme{margin-left:auto}}
 
 /* 1 · LED duvarı */
@@ -93,6 +93,8 @@ html.f-bek .on,html.f-bek .balon{visibility:hidden}
 .dene button{min-height:48px;padding:8px 14px}
 .dene small{color:var(--gece-soluk);font-size:13px}
 @media (max-width:860px){.on .sar{grid-template-columns:1fr}.on{padding-top:40px}.dene{display:none}}
+/* Kısa telefon ekranı (iPhone SE vb.): başlık bloğu ekrana sığsın, üst menünün altına kaymasın (12 Kas) */
+@media (max-width:860px) and (max-height:780px){.on{padding-block:28px 20px}.on .etiket{font-size:11px}.on h1{font-size:30px;margin-top:8px!important}.on .alt{font-size:15.5px;line-height:1.45;margin-top:10px}.cipler{margin-top:12px;gap:6px}.cipler span{font-size:13px;padding:5px 10px}.on .dugmeler{margin-top:14px}.on .dugmeler .dugme{min-height:46px}}
 
 /* 2 · Kepenk + çarşı (yatay) */
 .carsi{position:relative;background:var(--gun);color:var(--gun-yazi);overflow:hidden}
@@ -882,7 +884,9 @@ function dongu() { ledler.forEach((l) => l.gorunur && l.ciz()); requestAnimation
 
 /* 1 · LED duvarı: işletme adı yazılınca tabela yanar, yazı dört evreden geçer */
 const genis = () => innerWidth > 860;
-const duvar = new Led($("#duvar-led"), (r) => (genis() ? Math.max(8, Math.min(12, r.width / 140)) : 6), () => (genis() ? 0.5 : 0.36));
+// Telefonda LED yazısı, alttaki başlık bloğunun (.on) üstünde kalan boşluğa sığdırılır; yoksa başlıkla üst üste biniyordu (12 Kas).
+const duvarAlan = () => { if (genis()) return 0.5; const on = document.querySelector("#duvar .on"), cv = $("#duvar-led"); if (!on || !cv.offsetHeight) return 0.36; const bos = on.offsetTop + parseFloat(getComputedStyle(on).paddingTop) - cv.offsetTop - 10; return Math.max(0.06, Math.min(0.36, bos / cv.offsetHeight - 0.04)); };
+const duvar = new Led($("#duvar-led"), (r) => (genis() ? Math.max(8, Math.min(12, r.width / 140)) : 6), duvarAlan);
 duvar.suz = true; ledler.add(duvar);
 const isim = $("#isim");
 const evreler = () => [(isim.value.trim() || "DİJİTABELA").toLocaleUpperCase("tr-TR"), "EKSPERTİZ", "ÜCRETSİZ", "DIJITABELA.COM"];
