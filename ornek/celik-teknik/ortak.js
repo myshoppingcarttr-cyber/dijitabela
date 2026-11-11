@@ -26,31 +26,31 @@
   /* ---------- Arıza sihirbazı ---------- */
   var CIHAZ = {
     klima: { ad: "Klima", belirti: [
-      ["Soğutmuyor / ısıtmıyor", "Filtre tıkanıklığı, gaz eksikliği (kaçak) ya da dış ünite fanı/kompresör.", "Kumandada modu ve sıcaklığı kontrol edin; iç ünitenin kapağını açıp filtreye bakın, tozluysa çıkarıp suyla yıkayın.", "Ustamız gaz basıncını manometreyle ölçer; eksikse önce kaçağın yerini bulur, sonra dolum yapar.", "gaz.jpg"],
-      ["Su damlatıyor", "Drenaj hortumu tıkanmış, eğimi bozulmuş ya da iç ünite eşanjörü kirlenmiş.", "Dış taraftaki drenaj hortumunun ucunun ezilmediğine, toprağa gömülmediğine bakın.", "Drenaj hattı açılır, eşanjör ilaçlı yıkanır; montaj eğimi gerekiyorsa düzeltilir.", "montaj.jpg"],
-      ["Kötü koku geliyor", "Filtre ve eşanjörde biriken nem; küf ve bakteri.", "Filtreyi yıkayın, klimayı 10 dakika fan modunda çalıştırıp içini kurutun.", "İç ünite koruma örtüsüyle sarılıp ilaçlı yıkama yapılır; drenaj tavası temizlenir.", "montaj2.jpg"],
-      ["Ses / titreşim yapıyor", "Gevşemiş vida ya da braket, dengesi bozulmuş fan, kompresör takozları.", "Dış ünitenin üstünde ya da yanında temas eden bir cisim var mı, bakın.", "Braket ve takozlar kontrol edilir, fan dengesi ayarlanır; gerekirse parça değişir.", "dis-unite.jpg"],
-      ["Hiç çalışmıyor", "Sigorta, kumanda pili ya da elektronik kart arızası.", "Sigortayı ve kumanda pillerini kontrol edin; iç ünitede ışık yanıyor mu, bakın.", "Kart arızası çoğu zaman tamir edilerek çözülür; değişim gerekmeyebilir.", "kart.jpg"],
-      ["Ekranda hata kodu var", "Kod markaya göre değişir: sensör, iletişim hattı, basınç ya da kart uyarısı olabilir.", "Ekrandaki kodu ve klimanın markasını not alın.", "Kodu WhatsApp'tan yazmanız yeterli; ustamız gelmeden önce olası parçayı hazırlar.", "kart2.jpg"]] },
+      ["Soğutmuyor / ısıtmıyor", "Filtre tıkanıklığı, gaz eksikliği (kaçak) ya da dış ünite fanı/kompresör.", "Kumandada modu ve sıcaklığı kontrol edin; iç ünitenin kapağını açıp filtreye bakın, tozluysa çıkarıp suyla yıkayın.", "Ustamız gaz basıncını manometreyle ölçer; eksikse önce kaçağın yerini bulur, sonra dolum yapar.", "st-gaz.jpg"],
+      ["Su damlatıyor", "Drenaj hortumu tıkanmış, eğimi bozulmuş ya da iç ünite eşanjörü kirlenmiş.", "Dış taraftaki drenaj hortumunun ucunun ezilmediğine, toprağa gömülmediğine bakın.", "Drenaj hattı açılır, eşanjör ilaçlı yıkanır; montaj eğimi gerekiyorsa düzeltilir.", "st-klima.jpg"],
+      ["Kötü koku geliyor", "Filtre ve eşanjörde biriken nem; küf ve bakteri.", "Filtreyi yıkayın, klimayı 10 dakika fan modunda çalıştırıp içini kurutun.", "İç ünite koruma örtüsüyle sarılıp ilaçlı yıkama yapılır; drenaj tavası temizlenir.", "st-yatak.jpg"],
+      ["Ses / titreşim yapıyor", "Gevşemiş vida ya da braket, dengesi bozulmuş fan, kompresör takozları.", "Dış ünitenin üstünde ya da yanında temas eden bir cisim var mı, bakın.", "Braket ve takozlar kontrol edilir, fan dengesi ayarlanır; gerekirse parça değişir.", "st-ariza.jpg"],
+      ["Hiç çalışmıyor", "Sigorta, kumanda pili ya da elektronik kart arızası.", "Sigortayı ve kumanda pillerini kontrol edin; iç ünitede ışık yanıyor mu, bakın.", "Kart arızası çoğu zaman tamir edilerek çözülür; değişim gerekmeyebilir.", "st-kart.jpg"],
+      ["Ekranda hata kodu var", "Kod markaya göre değişir: sensör, iletişim hattı, basınç ya da kart uyarısı olabilir.", "Ekrandaki kodu ve klimanın markasını not alın.", "Kodu WhatsApp'tan yazmanız yeterli; ustamız gelmeden önce olası parçayı hazırlar.", "st-kart.jpg"]] },
     camasir: { ad: "Çamaşır makinesi", belirti: [
-      ["Suyu boşaltmıyor", "Pompa filtresi tıkalı ya da tahliye pompası arızalı.", "Ön alt kapaktaki pompa filtresini (altına havlu koyarak) açıp temizleyin.", "Pompa ve tahliye hattı test edilir, gerekiyorsa pompa değişir.", "camasir.jpg"],
-      ["Sıkmıyor / tambur dönmüyor", "Motor kömürü, kayış, motor ya da kart.", "Çamaşır yükü çok mu az ya da çok mu, bakın; tek parça ağır yük sıkmayı engeller.", "Motor ve kart ölçülür, aşınan parça değişir.", "tamir.jpg"],
-      ["Elektrik gidip gelince açılmıyor", "Elektronik kart arızası (sık görülür).", "Prizi ve sigortayı kontrol edin.", "Kart yerinde ya da atölyede tamir edilir.", "kart.jpg"],
-      ["Sıkmada çok gürültülü", "Rulman, amortisör ya da dengesiz yük.", "Makinenin ayaklarının yere tam bastığına bakın.", "Rulman/amortisör kontrol edilir; gerekirse değişir.", "tamir.jpg"]] },
+      ["Suyu boşaltmıyor", "Pompa filtresi tıkalı ya da tahliye pompası arızalı.", "Ön alt kapaktaki pompa filtresini (altına havlu koyarak) açıp temizleyin.", "Pompa ve tahliye hattı test edilir, gerekiyorsa pompa değişir.", "st-camasir.jpg"],
+      ["Sıkmıyor / tambur dönmüyor", "Motor kömürü, kayış, motor ya da kart.", "Çamaşır yükü çok mu az ya da çok mu, bakın; tek parça ağır yük sıkmayı engeller.", "Motor ve kart ölçülür, aşınan parça değişir.", "st-kurutma.jpg"],
+      ["Elektrik gidip gelince açılmıyor", "Elektronik kart arızası (sık görülür).", "Prizi ve sigortayı kontrol edin.", "Kart yerinde ya da atölyede tamir edilir.", "st-kart.jpg"],
+      ["Sıkmada çok gürültülü", "Rulman, amortisör ya da dengesiz yük.", "Makinenin ayaklarının yere tam bastığına bakın.", "Rulman/amortisör kontrol edilir; gerekirse değişir.", "st-camasir.jpg"]] },
     bulasik: { ad: "Bulaşık makinesi", belirti: [
-      ["Yıkamıyor, motor sesi yok", "Yıkama motoru ya da kart arızası.", "Musluk açık mı, filtre temiz mi, bakın.", "Motor ve kart test edilir; yıkama motoru gerekiyorsa değiştirilir.", "kart2.jpg"],
-      ["Suyu boşaltmıyor", "Alt filtre tıkalı ya da tahliye pompası.", "Alt sepetin altındaki filtreyi çıkarıp yıkayın.", "Pompa ve hortum kontrol edilir.", "tamir.jpg"],
-      ["Isıtmıyor", "Rezistans ya da ısı sensörü.", "Programın sıcak program olduğuna emin olun.", "Rezistans ve sensör ölçülüp değiştirilir.", "kart.jpg"],
-      ["Işıklar yanıp sönüyor", "Makine bir hata bildiriyor.", "Hangi ışıkların yanıp söndüğünü not alın ya da fotoğrafını çekin.", "Hata, markaya göre okunup arıza yerinde giderilir.", "kart2.jpg"]] },
+      ["Yıkamıyor, motor sesi yok", "Yıkama motoru ya da kart arızası.", "Musluk açık mı, filtre temiz mi, bakın.", "Motor ve kart test edilir; yıkama motoru gerekiyorsa değiştirilir.", "st-bulasik.jpg"],
+      ["Suyu boşaltmıyor", "Alt filtre tıkalı ya da tahliye pompası.", "Alt sepetin altındaki filtreyi çıkarıp yıkayın.", "Pompa ve hortum kontrol edilir.", "st-bulasik.jpg"],
+      ["Isıtmıyor", "Rezistans ya da ısı sensörü.", "Programın sıcak program olduğuna emin olun.", "Rezistans ve sensör ölçülüp değiştirilir.", "st-bulasik.jpg"],
+      ["Işıklar yanıp sönüyor", "Makine bir hata bildiriyor.", "Hangi ışıkların yanıp söndüğünü not alın ya da fotoğrafını çekin.", "Hata, markaya göre okunup arıza yerinde giderilir.", "st-kart.jpg"]] },
     buzdolabi: { ad: "Buzdolabı / derin dondurucu", belirti: [
-      ["Soğutmuyor", "Gaz kaçağı, kompresör, termostat ya da fan.", "Arkadaki ızgaranın duvara yapışık olmadığına, havalandığına bakın.", "Kompresör ve gaz devresi kontrol edilir; gerekiyorsa motor yenilenir.", "arka.jpg"],
-      ["Karlanma / buzlanma yapıyor", "Defrost rezistansı, sensör ya da kapı fitili.", "Kapı tam kapanıyor mu, bir kâğıt sıkıştırıp çekerek deneyin.", "Defrost devresi test edilir.", "dolap.jpg"],
-      ["Kapı fitili kapatmıyor", "Fitil sertleşmiş ya da kapı ayarı bozulmuş.", "Çoğu zaman fitili değiştirmeye gerek yoktur: ılık suyla silip kapı ayarına bakın.", "Telefonda bile yol gösterebiliriz; gerekmiyorsa parça değiştirmeyiz.", "buzdolabi.jpg"],
-      ["Sürekli çalışıyor, sesli", "Kondenser kirli, fan ya da termostat.", "Arka ızgarayı yumuşak fırçayla tozdan arındırın.", "Fan ve termostat kontrol edilir.", "arka.jpg"]] },
+      ["Soğutmuyor", "Gaz kaçağı, kompresör, termostat ya da fan.", "Arkadaki ızgaranın duvara yapışık olmadığına, havalandığına bakın.", "Kompresör ve gaz devresi kontrol edilir; gerekiyorsa motor yenilenir.", "st-buzdolabi.jpg"],
+      ["Karlanma / buzlanma yapıyor", "Defrost rezistansı, sensör ya da kapı fitili.", "Kapı tam kapanıyor mu, bir kâğıt sıkıştırıp çekerek deneyin.", "Defrost devresi test edilir.", "st-dolapic.jpg"],
+      ["Kapı fitili kapatmıyor", "Fitil sertleşmiş ya da kapı ayarı bozulmuş.", "Çoğu zaman fitili değiştirmeye gerek yoktur: ılık suyla silip kapı ayarına bakın.", "Telefonda bile yol gösterebiliriz; gerekmiyorsa parça değiştirmeyiz.", "st-dolapic.jpg"],
+      ["Sürekli çalışıyor, sesli", "Kondenser kirli, fan ya da termostat.", "Arka ızgarayı yumuşak fırçayla tozdan arındırın.", "Fan ve termostat kontrol edilir.", "st-buzdolabi.jpg"]] },
     firin: { ad: "Fırın / ocak / şofben", belirti: [
-      ["Fırın ısıtmıyor", "Rezistans, termostat ya da fan motoru.", "Saat/zamanlayıcı ayarlı mı, bakın; bazı fırınlar saat ayarlanmadan çalışmaz.", "Rezistans ve termostat ölçülür, değişir.", "kart.jpg"],
-      ["Ocak gözü yanmıyor", "Ateşleme bujisi, termokupl ya da kart.", "Ocak başlıklarının yerine tam oturduğuna bakın.", "Ateşleme ve emniyet parçaları kontrol edilir.", "kart2.jpg"],
-      ["Şofbenden sıcak su gelmiyor", "Ateşleme, pil ya da membran.", "Şofbenin pillerini değiştirip deneyin.", "Ateşleme ve su devresi kontrol edilir.", "tamir.jpg"]] }
+      ["Fırın ısıtmıyor", "Rezistans, termostat ya da fan motoru.", "Saat/zamanlayıcı ayarlı mı, bakın; bazı fırınlar saat ayarlanmadan çalışmaz.", "Rezistans ve termostat ölçülür, değişir.", "st-firin.jpg"],
+      ["Ocak gözü yanmıyor", "Ateşleme bujisi, termokupl ya da kart.", "Ocak başlıklarının yerine tam oturduğuna bakın.", "Ateşleme ve emniyet parçaları kontrol edilir.", "st-firin.jpg"],
+      ["Şofbenden sıcak su gelmiyor", "Ateşleme, pil ya da membran.", "Şofbenin pillerini değiştirip deneyin.", "Ateşleme ve su devresi kontrol edilir.", "st-alet.jpg"]] }
   };
   var sih = $("[data-sihirbaz]");
   if (sih) {
