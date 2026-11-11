@@ -82,7 +82,7 @@
 
   var mobil = false, W = 0, H = 0, ptr = [-9, -9], hedef = [0, 0], egim = [0, 0];
   function olc() {
-    var r = kh.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    var r = kh.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, r.width < 1000 ? 1.25 : 1.5);
     W = Math.max(1, Math.round(r.width * dpr)); H = Math.max(1, Math.round(r.height * dpr));
     if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; gl.viewport(0, 0, W, H); }
     mobil = r.width < 1000;
@@ -120,7 +120,8 @@
     ciz(z); kare = requestAnimationFrame(dongu);
   }
   function baslat() { if (!kare) kare = requestAnimationFrame(dongu); }
-  if ("IntersectionObserver" in window) new IntersectionObserver(function (g) { gorunur = g[0].isIntersecting; if (gorunur) baslat(); }).observe(kh);
+  var hazir = !mobil; setTimeout(function () { hazir = true; }, 5200);
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (g) { gorunur = g[0].isIntersecting; if (gorunur && hazir) baslat(); }).observe(kh);
   document.addEventListener("visibilitychange", baslat);
   var rt = 0; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { olc(); yaz(); }, 120); });
   if (!(window.matchMedia && matchMedia("(hover: none)").matches)) {
@@ -128,5 +129,7 @@
     kh.addEventListener("pointerleave", function () { ptr = [-9, -9]; hedef = [0, 0]; });
   }
   cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); kh.classList.add("gl-yok"); gorunur = false; });
-  baslat();
+  // Telefonda ilk kare sabit çizilir; kayan yazı ilk dokunuş/kaydırmada ya da 5 sn sonra başlar (ilk yükleme hafif kalsın)
+  if (mobil) { var bir = false, ac = function () { if (bir) return; bir = true; baslat(); }; ["touchstart", "scroll", "pointerdown"].forEach(function (o) { window.addEventListener(o, ac, { passive: true, once: true }); }); setTimeout(ac, 5000); }
+  else baslat();
 })();
