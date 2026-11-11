@@ -95,6 +95,7 @@ html.f-bek .on,html.f-bek .balon{visibility:hidden}
 @media (max-width:860px){.on .sar{grid-template-columns:1fr}.on{padding-top:40px}.dene{display:none}}
 /* Kısa telefon ekranı (iPhone SE vb.): başlık bloğu ekrana sığsın, üst menünün altına kaymasın (12 Kas) */
 @media (max-width:860px) and (max-height:780px){.on{padding-block:28px 20px}.on .etiket{font-size:11px}.on h1{font-size:30px;margin-top:8px!important}.on .alt{font-size:15.5px;line-height:1.45;margin-top:10px}.cipler{margin-top:12px;gap:6px}.cipler span{font-size:13px;padding:5px 10px}.on .dugmeler{margin-top:14px}.on .dugmeler .dugme{min-height:46px}}
+@media (max-width:860px) and (max-height:600px){.on .alt{display:none}}
 
 /* 2 · Kepenk + çarşı (yatay) */
 .carsi{position:relative;background:var(--gun);color:var(--gun-yazi);overflow:hidden}
@@ -587,7 +588,7 @@ html{scroll-behavior:smooth}
 <header class="ust">
   <div class="sar">
     <a class="logo" href="./" aria-label="Dijitabela ana sayfa"><img src="assets/yeni/img/logo.svg" alt="Dijitabela" width="282" height="64"></a>
-    <nav class="menu" aria-label="Bölümler"><a href="./#urunler">Ne yapıyoruz</a><a href="./#site">Sitenizi görün</a><a href="./#asistan">Asistanı deneyin</a><a href="ekspertiz.html" aria-current="page" style="color:var(--amber)">Ekspertiz</a><a href="calismalarimiz.html">Çalışmalar</a><a href="./#teklif">Fiyatlar</a><a href="blog.html">Blog</a></nav>
+    <nav class="menu" aria-label="Bölümler"><a href="hangi-hizmet.html">Hizmetler</a><a href="calismalarimiz.html">Çalışmalarımız</a><a href="./#teklif">Fiyatlar</a><a href="ekspertiz.html" aria-current="page" style="color:var(--amber)">Ücretsiz Ekspertiz</a><a href="blog.html">Blog</a><a href="iletisim.html">İletişim</a></nav>
     <a class="dugme amber" href="#eks-baslat">Ekspertizi başlat</a>
   </div>
 </header>
@@ -1075,5 +1076,6 @@ let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() 
 
 </script>
 <script src="assets/ekspertiz.js?v=mw8d4075"></script>
+<script src="assets/menu.js?v=1" defer></script>
 </body>
 </html>
