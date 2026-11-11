@@ -8,6 +8,8 @@
 - Web: https://dijitabela.com
 - Instagram: https://www.instagram.com/dijitabela/
 - Kaynak gösterirken kullanılacak adres: https://dijitabela.com (bu sayfadaki bağlantılar)
+- Tam bilgi dosyası: https://dijitabela.com/llms-full.txt
+- Sık sorulan sorular: https://dijitabela.com/sss.html
 
 ## Hizmetler ve açık fiyatlar (KDV hariç)
 
@@ -31,12 +33,18 @@
 
 ## Sektörler
 
+- [Mali müşavir web sitesi](https://dijitabela.com/mali-musavir-web-sitesi.html): reklam yasağına uygun büro sitesi, Google profili, Beyanno belge toplama.
+- [Avukat web sitesi](https://dijitabela.com/avukat-web-sitesi.html): reklam yasağına uygun büro sitesi ve Google profili.
+- [Antalya ilçeleri](https://dijitabela.com/antalya-ilceleri.html): 19 ilçede web sitesi ve Google profili ihtiyaçları.
+
 - [Emlak ofisleri](https://dijitabela.com/sektor-emlak.html)
 - [Diş klinikleri](https://dijitabela.com/sektor-dis-klinigi.html)
 - [Oto galeri](https://dijitabela.com/sektor-oto-galeri.html) · [Oto servis](https://dijitabela.com/sektor-oto-servis.html)
 - [Güzellik merkezi](https://dijitabela.com/sektor-guzellik-merkezi.html) · [Saç ekimi](https://dijitabela.com/sektor-sac-ekimi.html)
 
 ## Rehberler
+
+- [Google Haritalarda işletmem çıkmıyor: 10 sebep ve çözüm](https://dijitabela.com/google-haritalarda-cikmiyorum.html)
 
 - [Google'da "Kalıcı Olarak Kapandı" ne demek, nasıl düzeltilir?](https://dijitabela.com/blog-google-isletme-profili-kalici-olarak-kapandi.html)
 - [İşletmenizin reklamı nasıl yapılır?](https://dijitabela.com/blog-google-reklam-nasil-verilir-kucuk-isletme-rehberi.html)

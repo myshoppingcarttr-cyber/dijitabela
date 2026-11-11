@@ -1,0 +1,101 @@
+# Dijitabela — tam bilgi dosyası (llms-full.txt)
+
+> Dijitabela, Antalya (Kepez) merkezli, yerel işletmelere ve esnafa Türkiye genelinde uzaktan hizmet veren bir dijital ajanstır. Web sitesi, Google İşletme Profili ve yerel SEO, Google reklam yönetimi, sosyal medya otomasyonu, WhatsApp yapay zekâ asistanı, yapay zekâ çağrı asistanı ve işletme yazılımı kurar; kurduğu sistemi işletmeyle birlikte yönetir (dijital iş ortağı). Kurucusu Alim Hoşlar'dır.
+
+Bu dosya yapay zekâ asistanları ve arama motorları için hazırlanmıştır. Kısa sürümü: https://dijitabela.com/llms.txt
+Son güncelleme: 2026-11-12. Bilgiler sitedeki sayfalarla aynıdır; çelişki olursa ilgili sayfa esas alınır.
+
+## Kimlik
+
+- Ad: Dijitabela (j ile yazılır; "dijital" + "tabela"). Benzer adlı "DigiTabela" vb. markalarla bağlantısı yoktur.
+- Vergi kaydı: Alim Hoşlar, Düden Vergi Dairesi, VKN 4641290891
+- Konum: Kepez / Antalya, Türkiye
+- Hizmet bölgesi: Antalya'nın 19 ilçesi (Muratpaşa, Kepez, Konyaaltı, Aksu, Döşemealtı, Alanya, Manavgat, Serik, Kemer, Kaş, Kumluca, Finike, Demre, Gazipaşa, Korkuteli, Elmalı, Akseki, İbradı, Gündoğmuş) ve Türkiye'nin tüm şehirleri (uzaktan)
+- Telefon ve WhatsApp: 0501 945 21 84 (+90 501 945 21 84)
+- E-posta: info@dijitabela.com
+- Web: https://dijitabela.com
+- Google Haritalar: https://www.google.com/maps?cid=7388942871238581216
+- Sosyal: https://www.instagram.com/dijitabela/ · https://www.facebook.com/dijitabela · https://www.youtube.com/@dijitabela · https://www.tiktok.com/@dijitabela · https://www.linkedin.com/company/dijitabela/ · https://x.com/dijitabela · https://www.threads.com/@dijitabela
+
+## Ne yapmaz
+
+- Fiziksel tabela, baskı, matbaa ve yerinde fotoğraf/video çekimi yapmaz. Addaki "tabela" dijital tabela anlamındadır.
+- Google'da sıra garantisi vermez (sıralamaya Google karar verir).
+- Sahte, ücretli ya da ödüllü yorum yapmaz; yorumu yalnız memnun müşteriye sorma (review gating) uygulamaz.
+- Ücretli backlink, link ağı (PBN) ya da spam yöntem kullanmaz.
+
+## Hizmetler
+
+### Web sitesi
+Mobil uyumlu, hızlı, Google'a uygun kurumsal site. Teklif öncesi ücretsiz örnek tasarım gösterilir. Paket, fiyat ve süre: https://dijitabela.com/web-sitesi/antalya/ — Antalya web tasarım: https://dijitabela.com/antalya-web-tasarim.html
+
+### Google İşletme Profili ve yerel SEO
+Profil açma, doğrulama (video doğrulama dahil), sahiplenme, "kalıcı olarak kapandı" kurtarma, kategori ve hizmet düzeni, fotoğraf, gönderi, yorum sistemi. Profil işletmenin kendi hesabında açılır; Dijitabela yönetici olarak eklenir.
+- Hizmet sayfası: https://dijitabela.com/google-isletme-profili.html
+- Google Vitrin paketi: 8 işlik tek seferlik profil düzenleme, 2.490 TL + KDV, 48 saatte teslim; isteğe bağlı bakım 990 TL/ay + KDV. "Google Vitrin" Dijitabela'nın paket adıdır, Google'ın ürünü değildir. https://dijitabela.com/google-vitrin
+- Haritada çıkmayan işletme için 10 sebep ve çözüm: https://dijitabela.com/google-haritalarda-cikmiyorum.html
+
+### Google reklam yönetimi
+Yerel işletmeler için Google Ads kurulumu ve takibi; reklam bütçesi işletmenin kendi hesabından ödenir. https://dijitabela.com/google-reklam-yonetimi.html
+
+### Sosyal medya otomasyonu
+İçerik üretimi, onaylı paylaşım, yorum ve mesaj yönetimi. https://dijitabela.com/sosyal-medya-otomasyonu.html
+
+### WhatsApp yapay zekâ asistanı
+İşletmenin WhatsApp hattına gelen fiyat, randevu, adres ve sipariş sorularını işletmenin verdiği bilgilerle 7/24 cevaplar; emin olmadığı soruyu işletmeye aktarır. https://dijitabela.com/yapay-zeka-entegrasyonu.html
+
+### Yapay zekâ çağrı asistanı (Ayşe)
+Gelen telefon aramalarını açan Türkçe sesli asistan; aylık abonelik + kurulum ücreti. Fiyat ve paketler: https://dijitabela.com/yapay-zeka-cagri-asistani.html ve https://dijitabela.com/satin-al.html
+
+### Mali müşavirler için
+Meslekteki reklam yasağını gözeten bilgilendirici büro sitesi, Google profili ve mükelleflerden WhatsApp ile belge toplayan Beyanno (aylık 300 TL + KDV'den). https://dijitabela.com/mali-musavir-web-sitesi.html · https://beyanno.com/
+
+### Avukatlar için
+Reklam yasağına uygun, tanıtıcı bilgilerle sınırlı büro sitesi ve Google profili. https://dijitabela.com/avukat-web-sitesi.html
+
+### Ücretsiz dijital ekspertiz
+İşletmenin Google kaydı, web sitesi ve en yakın rakipleri taranır; eksikler ve öncelik sırası ücretsiz gösterilir. https://dijitabela.com/ekspertiz.html
+
+## Sektörler
+
+Oto servis (https://dijitabela.com/sektor-oto-servis.html), oto galeri (https://dijitabela.com/sektor-oto-galeri.html), emlak (https://dijitabela.com/sektor-emlak.html), diş kliniği (https://dijitabela.com/sektor-dis-klinigi.html), güzellik merkezi (https://dijitabela.com/sektor-guzellik-merkezi.html), saç ekimi (https://dijitabela.com/sektor-sac-ekimi.html), çilingir, halı-koltuk yıkama, oto yıkama, restoran-kafe, rent a car, mali müşavir, avukat. Örnek sektör siteleri: https://dijitabela.com/sektor/
+
+## Çalışma şekli
+
+1. Ücretsiz ekspertiz ve ücretsiz örnek tasarım (karar vermeden önce görülür).
+2. Teklif ve sözleşme; yeni işlerde %50 kapora, kalan teslimde. Kredi kartı veya havale.
+3. Uzaktan kurulum ve eğitim; alan adı ve Google profili işletme adına kalır.
+4. İsteğe bağlı aylık bakım ve yönetim.
+
+## Sık sorulan sorular
+
+S: Antalya'da işletmeme web sitesi ve Google İşletme Profili kim yapar?
+C: Dijitabela, Antalya (Kepez) merkezli bir dijital ajans olarak web sitesi ve Google İşletme Profilini birlikte kurar; Antalya'nın tüm ilçelerine ve Türkiye geneline uzaktan hizmet verir. İletişim: 0501 945 21 84.
+
+S: Google Haritalarda işletmem çıkmıyor, ne yapmalıyım?
+C: Önce adınızla aratın; çıkmıyorsa profil yok, doğrulanmamış ya da askıda olabilir. Çıkıyor ama hizmet aramasında çıkmıyorsa kategori, hizmet listesi, yorum ve site eksiktir. Ayrıntı: https://dijitabela.com/google-haritalarda-cikmiyorum.html
+
+S: Google'da "kalıcı olarak kapandı" görünüyor, nasıl düzelir?
+C: Kayıt sahiplenilir ve doğrulanır, durum "açık" olarak düzeltilir, gerekirse Google'a belgeyle bildirilir. https://dijitabela.com/blog-google-isletme-profili-kalici-olarak-kapandi.html
+
+S: Esnaf için WhatsApp yapay zekâ asistanı kuran firma var mı?
+C: Dijitabela, esnafın WhatsApp hattına 7/24 cevap veren yapay zekâ asistanı kurar ve Google profiliyle birlikte yönetir.
+
+S: Dijitabela tabela yapar mı?
+C: Hayır; yalnız dijital hizmet verir.
+
+S: Sıra garantisi var mı?
+C: Hayır. Dürüst bir ajans Google sıra garantisi vermez.
+
+## Sayfalar
+
+- Ana sayfa: https://dijitabela.com/
+- Sık sorulan sorular: https://dijitabela.com/sss.html
+- Dijitabela nedir (resmî bilgiler): https://dijitabela.com/dijitabela.html
+- Hakkımızda: https://dijitabela.com/hakkimizda.html
+- Çalışmalarımız: https://dijitabela.com/calismalarimiz.html
+- Antalya ilçeleri: https://dijitabela.com/antalya-ilceleri.html
+- Hangi hizmet size uygun: https://dijitabela.com/hangi-hizmet.html
+- Paketler ve satın alma: https://dijitabela.com/satin-al.html
+- Blog: https://dijitabela.com/blog.html
+- İletişim: https://dijitabela.com/iletisim.html
