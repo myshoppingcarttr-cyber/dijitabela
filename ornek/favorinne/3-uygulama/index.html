@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0f2421">
+<title>FavorinNe · Dermokozmetik, Vitamin ve Güneş Bakımı</title>
+<meta name="description" content="FavorinNe mobil mağaza: orijinal dermokozmetik, vitamin ve güneş bakım ürünleri, sipariş takibi ve günün her saatinde sipariş asistanı.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak.css">
+<style>
+body{background:#dfeeeb}
+.sahne{min-height:100vh;display:grid;grid-template-columns:1fr 430px 1fr;gap:40px;align-items:start;max-width:1240px;margin:0 auto;padding:28px 20px}
+.yan-y{position:sticky;top:60px;padding-top:40px}.yan-y h2{font-size:30px;line-height:1.15;letter-spacing:-.02em;color:var(--koyu)}.yan-y p{color:var(--soluk);margin-top:10px}.yan-y ul{list-style:none;margin-top:18px;display:grid;gap:10px;font-weight:600;font-size:15px}.yan-y li{display:flex;gap:8px}.yan-y li svg{color:var(--wa);margin-top:2px}
+.tel{background:var(--zemin);border-radius:38px;box-shadow:0 30px 80px rgba(15,36,33,.25),0 0 0 10px #10201e;height:min(860px,calc(100vh - 56px));position:sticky;top:28px;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.ekranlar{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.ekran{display:none;padding-bottom:24px}.ekran.acik{display:block}
+.ub{background:var(--koyu);color:#fff;padding:16px 16px 18px;border-radius:0 0 24px 24px}
+.ub .s1{display:flex;justify-content:space-between;align-items:center;gap:10px}.ub .lg{background:#fff;border-radius:10px;padding:6px 10px}.ub .lg img{height:22px;width:auto}
+.ub .sayac{font-size:12.5px;color:#bfe0da;text-align:right;line-height:1.3}.ub .sayac b{color:#fff}
+.ub h1{font-size:21px;line-height:1.2;letter-spacing:-.01em;margin:14px 0 12px;font-weight:800}
+.ub .ara{position:relative}.ub .ara input{width:100%;min-height:46px;border:0;border-radius:14px;padding:0 14px 0 42px;font-size:16px;background:#fff;color:var(--yazi)}.ub .ara svg{position:absolute;left:13px;top:13px;color:var(--soluk)}
+.hk{display:flex;gap:12px;overflow-x:auto;padding:16px 16px 6px;scrollbar-width:none}.hk::-webkit-scrollbar,.ekranlar::-webkit-scrollbar,.kt::-webkit-scrollbar{display:none}
+.hk button{flex:none;width:68px;text-align:center;font-size:11.5px;font-weight:700;line-height:1.2}.hk i{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;margin:0 auto 5px;background:#fff;border:2.5px solid var(--tur);padding:6px;overflow:hidden}.hk .secili i{border-color:var(--kir)}.hk img{max-height:100%;width:auto;object-fit:contain}
+.blk{padding:12px 16px 0}.blk h2{font-size:18px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline}.blk h2 small{font-size:12.5px;color:var(--soluk);font-weight:600}
+.kt{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.kt .cip{flex:none}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.g2 .uk-i{padding:10px}.g2 .uk-i h3{font-size:13.5px}.g2 .uk-a .dg{width:100%}.g2 .rozet{font-size:10.5px}
+.kart-b{background:#fff;border:1px solid var(--cizgi);border-radius:18px;padding:16px}
+.tk-form{display:flex;gap:8px}.tk-form input{flex:1;min-width:0;min-height:46px;border:1.5px solid var(--cizgi);border-radius:12px;padding:0 12px;font-size:16px}
+.zc{list-style:none;margin-top:14px;position:relative}.zc li{display:grid;grid-template-columns:22px 1fr;gap:12px;padding-bottom:16px;position:relative;font-size:14px}.zc li::before{content:"";width:14px;height:14px;border-radius:50%;border:3px solid #c5d4d1;background:#fff;margin:3px 0 0 3px;z-index:1}.zc li::after{content:"";position:absolute;left:10.5px;top:18px;bottom:0;width:2px;background:#c5d4d1}.zc li:last-child::after{display:none}.zc li.ok::before{border-color:var(--tur-k);background:var(--tur-k)}.zc li.ok::after{background:var(--tur-k)}.zc b{display:block}.zc span{color:var(--soluk);font-size:13px}
+.hz{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hz a,.hz button{display:flex;flex-direction:column;gap:6px;align-items:flex-start;background:#fff;border:1px solid var(--cizgi);border-radius:16px;padding:14px;text-decoration:none;font-weight:700;font-size:14px;text-align:left;min-height:84px}.hz svg{color:var(--tur-k)}.hz small{font-weight:500;color:var(--soluk);font-size:12px}
+.bl-tum{grid-column:1/-1}.as-ic{background:#fff;border:1px solid var(--cizgi);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;height:420px}
+.sp-ic .ss{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:12px;margin-top:10px}
+.ac{position:relative;z-index:5;flex:none;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-top:1px solid var(--cizgi);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+.ac button{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;font-weight:700;color:var(--soluk);min-height:52px;justify-content:center;border-radius:12px;position:relative}.ac .secili{color:var(--kir)}.ac [data-sepet-adet]{position:absolute;top:2px;left:calc(50% + 6px)}
+.tel .fn-pencere{position:absolute}.tel .yan .fp-kutu,.tel .orta .fp-kutu{left:0;right:0;top:auto;bottom:0;width:100%;max-height:90%;border-radius:22px 22px 0 0;transform:translateY(102%);opacity:1}.tel .acik .fp-kutu{transform:none}
+.tel #fn-bildir{position:absolute;bottom:84px}
+@media(max-width:1000px){.sahne{grid-template-columns:1fr;padding:0;gap:0;max-width:none}.yan-y{display:none}.tel{border-radius:0;box-shadow:none;height:100vh;height:100dvh;top:0}body{background:var(--zemin)}}
+</style>
+</head>
+<body>
+<div class="sahne">
+ <aside class="yan-y"><h2>Telefonda uygulama gibi çalışan mağaza</h2><p>Müşterilerinizin çoğu telefondan gelir. Bu yerleşimde her şey başparmağın ulaştığı yerde.</p><ul><li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Alt menü: Mağaza, Bulucu, Sepet, Destek</li><li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Marka halkalarıyla tek dokunuşta süzme</li><li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sipariş takibi ve sipariş asistanı</li></ul></aside>
+
+ <div class="tel" id="tel">
+  <div class="ekranlar" id="ekranlar">
+   <!-- MAĞAZA -->
+   <section class="ekran acik" id="e-magaza">
+    <div class="ub">
+     <div class="s1"><span class="lg"><img src="../img/logo.png" alt="FavorinNe" width="552" height="124"></span><span class="sayac" data-sayac></span></div>
+     <h1>Dermokozmetik, vitamin ve güneş bakımı: orijinal ürün, hızlı kargo</h1>
+     <div class="ara"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><label class="gizli" for="ara">Ürün veya marka ara</label><input id="ara" type="search" placeholder="Ürün veya marka arayın" autocomplete="off"></div>
+    </div>
+    <div class="hk" id="hk" aria-label="Markalar"></div>
+    <div class="blk"><div data-kargo-bar></div></div>
+    <div class="blk"><h2>Ürünler <small id="say"></small></h2><div class="kt" id="kt"><button type="button" class="cip secili" data-k="">Tümü</button><button type="button" class="cip" data-k="cilt">Cilt bakımı</button><button type="button" class="cip" data-k="gunes">Güneş koruma</button><button type="button" class="cip" data-k="takviye">Vitamin ve takviye</button></div><div class="g2" id="g2"></div>
+     <p class="uyari">Takviye edici gıdalar ilaç değildir; hastalıkların önlenmesi veya tedavi edilmesi amacıyla kullanılmaz. Sitemizde ilaç satışı yapılmaz.</p></div>
+   </section>
+   <!-- BULUCU -->
+   <section class="ekran" id="e-bulucu">
+    <div class="ub"><h1 style="margin-top:0">Cildinize göre ürünü iki dokunuşta bulun</h1><p style="color:#bfe0da;font-size:14px">Cilt tipinizi ve bakım adımını seçin.</p></div>
+    <div class="blk"><div class="kart-b" id="bulucu-ic"></div></div>
+   </section>
+   <!-- SEPET -->
+   <section class="ekran" id="e-sepet">
+    <div class="ub"><h1 style="margin:0">Sepetim</h1></div>
+    <div class="blk sp-ic"><div id="fn-sepet-govde"></div><div id="fn-sepet-alt" style="display:grid;gap:9px;margin-top:14px"></div></div>
+   </section>
+   <!-- DESTEK -->
+   <section class="ekran" id="e-destek">
+    <div class="ub"><h1 style="margin-top:0">Destek</h1><p style="color:#bfe0da;font-size:14px">Mesai dışında da cevap alın.</p></div>
+    <div class="blk"><h2>Siparişim nerede?</h2><div class="kart-b"><form class="tk-form" id="tk"><label class="gizli" for="tkn">Sipariş numarası</label><input id="tkn" inputmode="numeric" placeholder="Sipariş numaranız" required minlength="4" maxlength="14"><button class="dg dg-ana kucuk" type="submit">Sorgula</button></form><div id="tk-s"><p class="bos-not" style="padding-bottom:0">Örnek için herhangi bir numara yazın.</p></div></div></div>
+    <div class="blk"><h2>Sipariş asistanı <small>7 gün 24 saat</small></h2><div class="as-ic" id="as-ic"></div></div>
+    <div class="blk"><h2>Hızlı işlemler</h2><div class="hz">
+     <a href="https://wa.me/905369113935?text=Merhaba%20FavorinNe%2C%20bir%20sorum%20var." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>WhatsApp<small>Tek dokunuşla yazın</small></a>
+     <a href="tel:+905369113935"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.300-1.300a2 2 0 0 1 2.100-.4c.9.3 1.800.6 2.800.7a2 2 0 0 1 1.700 2z"/></svg>Arayın<small>Hafta içi 08:00-17:30</small></a>
+     <a href="https://www.google.com/maps/dir/?api=1&destination=Yeni+Mah.+Ada+Cad.+No%3A156+Akyaz%C4%B1+Sakarya" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Yol tarifi<small>Yeni Mah. Ada Cad. No:156, Akyazı</small></a>
+     <a href="https://www.google.com/search?q=Favorinne+E-Ticaret+Akyaz%C4%B1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.300 6.900 1-5 4.900 1.200 6.900L12 17.800l-6.200 3.300L7 14.200 2 9.300l6.900-1z"/></svg>Bizi değerlendirin<small>Google yorumu yazın</small></a>
+    </div><p class="bos-not" style="font-size:12.5px">FavorinNe E-Ticaret A.Ş. · info@favorinne.com · Bu sayfa bir ön çalışmadır · dijitabela.com</p></div>
+   </section>
+  </div>
+  <nav class="ac" aria-label="Alt menü">
+   <button type="button" class="secili" data-e="magaza"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Mağaza</button>
+   <button type="button" data-e="bulucu"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Bulucu</button>
+   <button type="button" data-e="sepet"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>Sepet<span data-sepet-adet>0</span></button>
+   <button type="button" data-e="destek"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Destek</button>
+  </nav>
+ </div>
+ <div></div>
+</div>
+
+<script>window.FN_KOK="../";</script>
+<script src="../ortak.js"></script>
+<script>
+(function(){
+ var tel=document.getElementById("tel"),d={k:"",m:"",a:""};
+ // ortak pencereleri telefon kabuğunun içine kur (sepet bu yerleşimde sekme)
+ var asil=document.body.appendChild;document.body.appendChild=function(n){return tel.appendChild(n)};FN.kur({dugme:false});document.body.appendChild=asil;
+ ["fn-sepet","fn-asistan"].forEach(function(i){var p=document.getElementById(i);if(p)p.remove()});
+ FN.sayac("[data-sayac]");FN.bulucu("#bulucu-ic");FN.asistan("#as-ic");
+ function ekran(e){[].forEach.call(document.querySelectorAll(".ekran"),function(x){x.classList.toggle("acik",x.id==="e-"+e)});[].forEach.call(document.querySelectorAll(".ac button"),function(x){x.classList.toggle("secili",x.dataset.e===e)});document.getElementById("ekranlar").scrollTop=0;}
+ document.querySelector(".ac").addEventListener("click",function(e){var b=e.target.closest("[data-e]");if(b)ekran(b.dataset.e)});
+ function ciz(){var L=FN.U.filter(function(u){return(!d.k||u.k===d.k)&&(!d.m||u.m===d.m)&&(!d.a||(u.ad+" "+u.m).toLocaleLowerCase("tr").indexOf(d.a)>-1)});document.getElementById("g2").innerHTML=L.map(function(u){return FN.kart(u)}).join("")||'<p class="bos-not" style="grid-column:1/-1">Uyan ürün yok. Filtreyi temizleyin.</p>';document.getElementById("say").textContent=L.length+" ürün";}
+ var M={};FN.U.forEach(function(u){if(!M[u.m])M[u.m]=u});
+ document.getElementById("hk").innerHTML='<button type="button" class="secili" data-m=""><i><img src="../img/u09.webp" alt="" width="347" height="520"></i>Tümü</button>'+Object.keys(M).map(function(m){return'<button type="button" data-m="'+m+'"><i><img src="'+M[m].img+'" alt="" width="347" height="520" loading="lazy"></i>'+m+'</button>'}).join("");
+ document.getElementById("hk").addEventListener("click",function(e){var b=e.target.closest("[data-m]");if(!b)return;d.m=b.dataset.m;[].forEach.call(this.children,function(x){x.classList.toggle("secili",x===b)});ciz()});
+ document.getElementById("kt").addEventListener("click",function(e){var b=e.target.closest("[data-k]");if(!b)return;d.k=b.dataset.k;[].forEach.call(this.children,function(x){x.classList.toggle("secili",x===b)});ciz()});
+ document.getElementById("ara").addEventListener("input",function(){d.a=this.value.trim().toLocaleLowerCase("tr");ciz()});
+ document.getElementById("tk").addEventListener("submit",function(e){e.preventDefault();var n=document.getElementById("tkn").value.replace(/[<>&"]/g,"");document.getElementById("tk-s").innerHTML='<ol class="zc"><li class="ok"><div><b>Sipariş alındı</b><span>#'+n+' · ödeme onaylandı</span></div></li><li class="ok"><div><b>Hazırlandı ve kargoya verildi</b><span>Takip numarası SMS ile iletildi</span></div></li><li><div><b>Dağıtımda</b><span>Tahmini teslimat 1-3 iş günü</span></div></li><li><div><b>Teslim edildi</b><span>Teslimattan sonra yorumunuzu bekleriz</span></div></li></ol><p class="bos-not" style="font-size:12.5px;padding:0">Örnek gösterimdir; gerçek sitede kargo firmasının verisi görünür.</p>';});
+ ciz();
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script><script src="/ornek/_dijitabela/izle.js" defer></script>
+</body>
+</html>
