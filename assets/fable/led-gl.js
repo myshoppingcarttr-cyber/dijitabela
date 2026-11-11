@@ -3,6 +3,10 @@
    prefers-reduced-motion: tek sabit kare. WebGL yoksa CSS nokta zemini (.gl-yok). */
 (function () {
   "use strict";
+  // Telefonda sahne ilk dokunuş/kaydırmada ya da 3,5 sn sonra kurulur; o ana dek CSS nokta zemini görünür (ilk yükleme hafif kalır)
+  var dar = window.innerWidth < 1000, kuruldu = false;
+  function kur() {
+  if (kuruldu) return; kuruldu = true;
   var kh = document.querySelector(".kahraman"), cv = kh && kh.querySelector("canvas.led");
   if (!cv) return;
   var azHareket = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -132,4 +136,9 @@
   // Telefonda ilk kare sabit çizilir; kayan yazı ilk dokunuş/kaydırmada ya da 5 sn sonra başlar (ilk yükleme hafif kalsın)
   if (mobil) { var bir = false, ac = function () { if (bir) return; bir = true; baslat(); }; ["touchstart", "scroll", "pointerdown"].forEach(function (o) { window.addEventListener(o, ac, { passive: true, once: true }); }); setTimeout(ac, 5000); }
   else baslat();
+  kh.classList.remove("gl-bekle");
+  }
+  if (!dar) return kur();
+  var k0 = document.querySelector(".kahraman"); if (k0) k0.classList.add("gl-bekle");
+  ["touchstart", "scroll", "pointerdown"].forEach(function (o) { window.addEventListener(o, kur, { passive: true, once: true }); }); setTimeout(kur, 3500);
 })();

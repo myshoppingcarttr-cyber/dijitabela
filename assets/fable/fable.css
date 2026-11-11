@@ -79,7 +79,7 @@ h3{font-size:21px;line-height:1.25;font-weight:700}
 /* Kahraman */
 .kahraman{position:relative;background:var(--gece);color:#F1F2EE;overflow:hidden;isolation:isolate}
 .kahraman canvas.led{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
-.kahraman.gl-yok{background-image:radial-gradient(circle,#23262d 1.6px,transparent 2px);background-size:14px 14px}
+.kahraman.gl-bekle canvas.led{opacity:0}.kahraman canvas.led{transition:opacity .6s}.kahraman.gl-yok,.kahraman.gl-bekle{background-image:radial-gradient(circle,#23262d 1.6px,transparent 2px);background-size:14px 14px}
 .kahraman-ic{display:grid;gap:40px;padding-top:clamp(150px,34vw,230px);padding-bottom:56px;align-items:center}
 .kahraman .etiket{color:var(--amber)}
 .kahraman h1{margin-top:16px}
@@ -212,7 +212,7 @@ h3{font-size:21px;line-height:1.25;font-weight:700}
 .oncesonra.once .gprofil [data-once]{display:revert}
 .oncesonra.once .gprofil [data-sonra]{display:none}
 .oncesonra.once .gprofil .fotolar i:nth-child(n+2){background-image:none!important;opacity:.5}
-.oncesonra.once .gprofil .satir span:nth-child(n+3){opacity:.3;text-decoration:line-through}
+.oncesonra.once .gprofil .satir span:nth-child(n+3){visibility:hidden}
 .oncesonra small{display:block;margin-top:14px;font:700 11px/1.4 "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk-a)}
 @media(min-width:960px){.vaka{grid-template-columns:1.05fr .95fr;gap:72px}}
 @media(max-width:520px){.vaka li{grid-template-columns:1fr;gap:2px}.oncesonra{box-shadow:6px 6px 0 var(--mur)}}
