@@ -3,7 +3,7 @@
    prefers-reduced-motion: tek sabit kare. WebGL yoksa CSS nokta zemini (.gl-yok). */
 (function () {
   "use strict";
-  // Telefonda sahne ilk dokunuş/kaydırmada ya da 3,5 sn sonra kurulur; o ana dek CSS nokta zemini görünür (ilk yükleme hafif kalır)
+  // Telefonda sahne ilk dokunuş/kaydırmada ya da 9 sn sonra kurulur; o ana dek sabit SVG LED bandı görünür (ilk yükleme hafif kalır)
   var dar = window.innerWidth < 1000, kuruldu = false;
   function kur() {
   if (kuruldu) return; kuruldu = true;
@@ -124,7 +124,7 @@
     ciz(z); kare = requestAnimationFrame(dongu);
   }
   function baslat() { if (!kare) kare = requestAnimationFrame(dongu); }
-  var hazir = !mobil; setTimeout(function () { hazir = true; }, 5200);
+  var hazir = !mobil; setTimeout(function () { hazir = true; }, 800);
   if ("IntersectionObserver" in window) new IntersectionObserver(function (g) { gorunur = g[0].isIntersecting; if (gorunur && hazir) baslat(); }).observe(kh);
   document.addEventListener("visibilitychange", baslat);
   var rt = 0; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { olc(); yaz(); }, 120); });
@@ -134,11 +134,11 @@
   }
   cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); kh.classList.add("gl-yok"); gorunur = false; });
   // Telefonda ilk kare sabit çizilir; kayan yazı ilk dokunuş/kaydırmada ya da 5 sn sonra başlar (ilk yükleme hafif kalsın)
-  if (mobil) { var bir = false, ac = function () { if (bir) return; bir = true; baslat(); }; ["touchstart", "scroll", "pointerdown"].forEach(function (o) { window.addEventListener(o, ac, { passive: true, once: true }); }); setTimeout(ac, 5000); }
+  if (mobil) { var bir = false, ac = function () { if (bir) return; bir = true; baslat(); }; ["touchstart", "scroll", "pointerdown"].forEach(function (o) { window.addEventListener(o, ac, { passive: true, once: true }); }); setTimeout(ac, 600); }
   else baslat();
   kh.classList.remove("gl-bekle");
   }
   if (!dar) return kur();
   var k0 = document.querySelector(".kahraman"); if (k0) k0.classList.add("gl-bekle");
-  ["touchstart", "scroll", "pointerdown"].forEach(function (o) { window.addEventListener(o, kur, { passive: true, once: true }); }); setTimeout(kur, 3500);
+  ["touchstart", "scroll", "pointerdown"].forEach(function (o) { window.addEventListener(o, kur, { passive: true, once: true }); }); setTimeout(kur, 9000);
 })();
