@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kodla çizilen 3D sahneler · Dijitabela örnekleri</title>
+<meta name="description" content="Otel, rooftop bar ve fırın için üç örnek ana sayfa. Üst kısımdaki sahneler fotoğraf ya da video değil; tarayıcıda canlı çizilen kod.">
+<meta name="theme-color" content="#14110e">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#14110e;color:#efe7da;font:400 17px/1.65 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.kap{max-width:1180px;margin:0 auto;padding:0 28px}
+header{padding:34px 0 0}
+.marka{display:flex;justify-content:space-between;align-items:center;font:600 14px/1 "DM Sans",sans-serif;letter-spacing:.04em}
+.marka a{text-decoration:none}
+.marka span{font-weight:500;color:#a39685;letter-spacing:.22em;text-transform:uppercase;font-size:11.5px}
+h1{font:500 clamp(42px,7vw,96px)/1.02 "Fraunces",Georgia,serif;letter-spacing:-.025em;margin:clamp(56px,9vw,120px) 0 28px;max-width:980px}
+h1 em{font-weight:400}
+.giris{max-width:640px;font-size:clamp(17px,1.5vw,20px);color:#cfc4b3;margin:0 0 clamp(56px,8vw,96px)}
+.sahne{display:grid;grid-template-columns:7fr 4fr;gap:clamp(24px,4vw,64px);align-items:end;padding:clamp(28px,4vw,48px) 0;border-top:1px solid rgba(239,231,218,.16);text-decoration:none}
+.sahne .gor{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#221c16}
+.sahne img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.sahne:hover img{transform:scale(1.035)}
+.sahne .no{font:500 12px/1 "DM Sans",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#a39685}
+.sahne h2{font:500 clamp(30px,3.6vw,50px)/1.06 "Fraunces",Georgia,serif;letter-spacing:-.02em;margin:18px 0 14px}
+.sahne p{margin:0 0 22px;color:#cfc4b3;font-size:16px}
+.git{display:inline-flex;align-items:center;gap:12px;font:600 14px/1 "DM Sans",sans-serif;letter-spacing:.06em;border-bottom:1px solid currentColor;padding-bottom:8px}
+.git::after{content:"→";transition:transform .25s}
+.sahne:hover .git::after{transform:translateX(5px)}
+.nasil{border-top:1px solid rgba(239,231,218,.16);padding:clamp(64px,9vw,120px) 0;display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,96px)}
+.nasil h2{font:500 clamp(32px,4.2vw,56px)/1.06 "Fraunces",Georgia,serif;letter-spacing:-.02em;margin:0}
+.nasil ol{list-style:none;margin:0;padding:0;border-top:1px solid rgba(239,231,218,.16)}
+.nasil li{display:grid;grid-template-columns:52px 1fr;padding:20px 0;border-bottom:1px solid rgba(239,231,218,.16);color:#cfc4b3}
+.nasil li b{color:#efe7da;font-weight:600}
+.nasil li span:first-child{font:500 12px/1.9 "DM Sans",sans-serif;letter-spacing:.14em;color:#a39685}
+.bant{background:#efe7da;color:#14110e;padding:clamp(56px,7vw,92px) 0}
+.bant .ic{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.bant h2{font:500 clamp(30px,4vw,54px)/1.06 "Fraunces",Georgia,serif;letter-spacing:-.02em;margin:0;max-width:680px}
+.dugme{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;background:#14110e;color:#efe7da;text-decoration:none;font:600 15px/1 "DM Sans",sans-serif}
+footer{padding:34px 0 60px;font-size:14px;color:#a39685}
+@media(max-width:860px){.kap{padding:0 22px}.sahne{grid-template-columns:1fr;align-items:start}.nasil{grid-template-columns:1fr}.marka span{display:none}}
+@media(prefers-reduced-motion:reduce){.sahne img,.git::after{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="kap">
+  <div class="marka"><a href="https://dijitabela.com/">Dijitabela</a><span>Örnek çalışma · Antalya</span></div>
+  <h1>Fotoğraf değil. Video değil. <em>Canlı çizilen kod.</em></h1>
+  <p class="giris">Üç işletme için üç ana sayfa hazırladık. Her birinin üstündeki sahne, sayfa açıldığında telefonunuzun ekran kartında o an çiziliyor: su dalgalanıyor, damla süzülüyor, buhar tütüyor. Parmağınızı ya da fareyi gezdirin; saat çubuğunu kaydırın.</p>
+</div></header>
+
+<main class="kap">
+  <a class="sahne" href="1-sahil-oteli/">
+    <span class="gor"><img src="on-1.jpg" width="960" height="600" alt="Gün batımında sonsuzluk havuzu ve deniz sahnesi"></span>
+    <span><span class="no">01 · Sahil oteli</span><h2>Gün batımında sonsuzluk havuzu</h2><p>Havuzun dibindeki karolar suyun altından kırılarak görünür, deniz güneşi yansıtır, palmiyeler rüzgârda oynar. Saat çubuğuyla gün batımından akşama geçer; havuz ışıkları yanar.</p><span class="git">Sayfayı aç</span></span>
+  </a>
+  <a class="sahne" href="2-rooftop/">
+    <span class="gor"><img src="on-2.jpg" width="960" height="600" alt="Yağmurlu camın ardında gece şehir ışıkları" loading="lazy"></span>
+    <span><span class="no">02 · Rooftop bar</span><h2>Cama vuran yağmur, aşağıda şehir</h2><p>Damlalar camdan süzülür, arkalarında iz bırakır; her damla şehri ters çevirip içinde gösterir. İçeriden sarkıt lambaların sıcak ışığı cama vurur.</p><span class="git">Sayfayı aç</span></span>
+  </a>
+  <a class="sahne" href="3-firin-kafe/">
+    <span class="gor"><img src="on-3.jpg" width="960" height="600" alt="Sabah ışığında tezgâhta ekmek, simit ve kahve" loading="lazy"></span>
+    <span><span class="no">03 · Fırın &amp; kafe</span><h2>Sabah ışığında tezgâh</h2><p>Ekşi maya somun, simit ve tüten kahve; pencere doğramasının gölgesi tezgâha düşer. Saat çubuğu şafaktan sabah güneşine götürür.</p><span class="git">Sayfayı aç</span></span>
+  </a>
+
+  <section class="nasil">
+    <h2>İşletmeniz için ne anlama geliyor?</h2>
+    <ol>
+      <li><span>01</span><span><b>Çekim gerekmez.</b> Fotoğrafçı, drone, stok görsel yok. Sahne işletmenize göre sıfırdan yazılır: sizin havuzunuz, sizin manzaranız, sizin tezgâhınız.</span></li>
+      <li><span>02</span><span><b>Video kadar ağır değil.</b> Bir sahnenin tamamı yaklaşık 25 KB kod. Aynı görüntünün videosu bunun yüzlerce katı yer tutar ve mobil veride geç açılır.</span></li>
+      <li><span>03</span><span><b>Telefonda akıcı.</b> Çözünürlük cihaza göre kendini ayarlar, sayfa görünmüyorken durur, pil yemez. Eski cihazda sade bir renk geçişine düşer; sayfa yine çalışır.</span></li>
+      <li><span>04</span><span><b>Canlıdır.</b> Günün saatine, havaya, mevsime bağlanabilir: akşam giren ziyaretçi akşam ışığını görür.</span></li>
+    </ol>
+  </section>
+</main>
+
+<section class="bant"><div class="kap ic">
+  <h2>Kendi mekânınızın sahnesini görmek ister misiniz?</h2>
+  <a class="dugme" href="https://wa.me/905019452184?text=Merhaba%2C%203D%20sahne%20%C3%B6rneklerini%20g%C3%B6rd%C3%BCm.%20Kendi%20i%C5%9Fletmem%20i%C3%A7in%20bilgi%20almak%20istiyorum.">WhatsApp'tan yazın</a>
+</div></section>
+
+<footer><div class="kap">Dijitabela · Antalya · dijitabela.com · 0501 945 21 84. Sayfalardaki işletme adları ve bilgiler kurgudur; sahneler Dijitabela tarafından kodla üretilmiştir.</div></footer>
+<script src="/ornek/_dijitabela/filigran.js" data-kredi="0" defer></script><script src="/ornek/_dijitabela/izle.js" defer></script>
+</body>
+</html>
