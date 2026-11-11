@@ -18,7 +18,8 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .etik{font-size:12px;letter-spacing:.02em}
 .d-n::before{content:"";display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:#C98A2B;vertical-align:1px}.d-n.ac::before{background:var(--iyi)}
 i.d-n{display:inline-block;margin-right:0}
-.tost{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);z-index:60;width:min(92vw,460px);padding:13px 16px;background:#14161A;color:#fff;font:600 14px/1.4 "Plus Jakarta Sans",system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.35);text-align:center;animation:tg .22s ease-out}
+.tost{position:fixed;left:50%;bottom:calc(66px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:60;display:flex;align-items:flex-start;gap:10px;width:min(calc(100vw - 24px),460px);padding:12px 14px;background:#FFF6DC;color:#17191D;border:1px solid #F0B429;border-radius:12px;font:600 14px/1.4 "Plus Jakarta Sans",system-ui,sans-serif;box-shadow:0 14px 36px rgba(0,0,0,.5);text-align:left;animation:tg .22s ease-out}.tost[hidden]{display:none}
+.tost::before{content:"i";flex:none;display:grid;place-items:center;width:22px;height:22px;margin-top:-1px;border-radius:50%;background:#F0B429;color:#17191D;font:800 13px/1 Georgia,serif}
 @keyframes tg{from{opacity:0;transform:translate(-50%,8px)}}
 .tam-ust{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 14px;background:#0E0F12;color:#F1EFE8;font:600 13px "Plus Jakarta Sans",system-ui,sans-serif}.tam-ust a{background:#FFB000;color:#15171A;padding:7px 12px;font-weight:700;white-space:nowrap}
 .tam body{padding-top:48px}.tam .a-ust,.tam .b-nav{top:48px}
