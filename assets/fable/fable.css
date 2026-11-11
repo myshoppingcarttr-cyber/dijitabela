@@ -133,7 +133,7 @@ h3{font-size:21px;line-height:1.25;font-weight:700}
 @media(max-width:380px){.gkart{left:-34px}.rkart{right:-30px}}
 
 /* Ekran dışı bölümler ilk yüklemede çizilmez (yerleşim ve boyama maliyeti düşer) */
-.bolum,.alt{content-visibility:auto;contain-intrinsic-size:auto 1100px}
+.bolum{content-visibility:auto;contain-intrinsic-size:auto 1100px}
 /* Kayan şerit */
 .serit{background:var(--amber);color:var(--mur);overflow:hidden;border-block:2px solid var(--mur)}
 .serit-ic{display:flex;gap:0;width:max-content;animation:kay 38s linear infinite;font:900 22px/1 Archivo,"Arial Narrow",sans-serif;font-stretch:62%;text-transform:uppercase;padding:13px 0}
