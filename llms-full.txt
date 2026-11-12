@@ -40,7 +40,7 @@ Son güncelleme: 2026-11-12 (2. tur: Türkiye geneli). Bilgiler sitedeki sayfala
 
 ### Web sitesi
 Mobil uyumlu, hızlı, Google'a uygun kurumsal site; Google İşletme Profiliyle birlikte kurulur. Teklif öncesi ücretsiz örnek tasarım gösterilir. Türkiye geneli: https://dijitabela.com/web-sitesi-yaptirma.html
-Paketler (fiyat hesaplayıcı, KDV hariç, tek sefer): Dijital Vitrin = kurumsal web sitesi + Google SEO + Google İşletme Profili kurulumu, 19.900 TL, 1 hafta teslim, 1 ay destek · Dijital İşletme = + müşteri takip yazılımı (CRM) ve uygulama, 49.900 TL, 2-3 hafta · Tam Dijital Dönüşüm = + mağaza uygulaması ve online ödeme, 89.900 TL, 5-6 hafta. Kalem kalem: https://dijitabela.com/teklif-al.html
+Web sitesi (KDV hariç, tek sefer): tek sayfalık site 4.900 TL · kurumsal web sitesi 17.500 TL. Paketler (fiyat hesaplayıcı, KDV hariç, tek sefer): Dijital Vitrin = kurumsal web sitesi + Google SEO + Google İşletme Profili kurulumu, 19.900 TL, 1 hafta teslim, 1 ay destek · Dijital İşletme = + müşteri takip yazılımı (CRM) ve uygulama, 49.900 TL, 2-3 hafta · Tam Dijital Dönüşüm = + mağaza uygulaması ve online ödeme, 89.900 TL, 5-6 hafta. Kalem kalem: https://dijitabela.com/teklif-al.html
 
 ### Google İşletme Profili ve yerel SEO
 Profil açma, doğrulama (video doğrulama dahil), sahiplenme, "kalıcı olarak kapandı" kurtarma, kategori ve hizmet düzeni, fotoğraf, gönderi, yorum sistemi. Profil işletmenin kendi hesabında açılır; Dijitabela yönetici olarak eklenir.
@@ -89,7 +89,7 @@ S: Dijitabela kimlere hizmet verir?
 C: Yerel işletmelere ve esnafa: oto servis, oto galeri, emlak ofisi, diş kliniği, kuaför, güzellik merkezi, restoran ve kafe, nakliyat, tesisat ve kombi servisi, mali müşavir, avukat ve benzerleri.
 
 S: Dijitabela fiyatları ne kadar?
-C: Dijital Vitrin paketi (site + Google SEO + İşletme Profili) 19.900 TL + KDV; Dijital İşletme 49.900 TL + KDV; Tam Dijital Dönüşüm 89.900 TL + KDV. Yalnız Google İşletme Profili düzenlemesi (Google Vitrin) 2.490 TL + KDV. Ekspertiz ve örnek tasarım ücretsiz.
+C: Tek sayfalık web sitesi 4.900 TL + KDV; kurumsal web sitesi 17.500 TL + KDV; Dijital Vitrin paketi (site + Google SEO + İşletme Profili) 19.900 TL + KDV; Dijital İşletme 49.900 TL + KDV; Tam Dijital Dönüşüm 89.900 TL + KDV. Yalnız Google İşletme Profili düzenlemesi (Google Vitrin) 2.490 TL + KDV. Ekspertiz ve örnek tasarım ücretsiz.
 
 S: Dijitabela nasıl çalışır?
 C: Ücretsiz ekspertiz, işletmeye özel ücretsiz örnek tasarım, sözleşme ve %50 kapora, uzaktan kurulum (alan adı ve profil işletme adına), teslim, eğitim ve isteğe bağlı aylık bakım.
