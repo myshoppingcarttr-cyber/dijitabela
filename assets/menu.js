@@ -7,6 +7,7 @@
   var LINKLER = [
     ["/hangi-hizmet.html", "Hizmetler"],
     ["/calismalarimiz.html", "Çalışmalarımız"],
+    ["/ekibimiz.html", "Ekibimiz"],
     ["/#teklif", "Fiyatlar"],
     ["/ekspertiz.html", "Ücretsiz Ekspertiz"],
     ["/blog.html", "Blog"],

@@ -12,22 +12,23 @@
   if (/^(www\.)?dijitabela\.com(\.tr)?$/i.test(location.hostname) && !/^\/(ornek\/|teklif(\.html)?$)/i.test(location.pathname)) return;
   if (window.DJ_FILIGRAN === false || window.__djFiligran) return; window.__djFiligran = true;
   var s = document.currentScript || {}, ds = (s.dataset || {});
-  var guc = ds.gucu ? parseFloat(ds.gucu) : null, kredi = ds.kredi !== "0";
-  /* 13 Kas 2026 Patron: yoğun, çok adlı desen "kalitesiz" görünüyor. Tek marka adı, seyrek ve silik desen. */
-  var ADLAR = ["Dijitabela", "dijitabela.com"]; // Türkçe harfler \u kaçışıyla: dosya hangi karakter kodlamasıyla sunulursa sunulsun bozulmaz
+  var guc = parseFloat(ds.gucu || "0.045"), kredi = ds.kredi !== "0";
+  var ADLAR = ["dijitabela.com", "Dijitabela", "Diji Tabela", "Dijital Tabela", "DJ Tabela", "www.dijitabela.com", "DİJİTABELA"]; // Türkçe harfler \u kaçışıyla: dosya hangi karakter kodlamasıyla sunulursa sunulsun bozulmaz
   function renk() {
     if (ds.renk) return ds.renk;
     try { var c = getComputedStyle(document.body).backgroundColor.match(/\d+/g); if (c && c.length >= 3) { var l = (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]); if (c[3] === "0") l = 255; return l < 128 ? "#ffffff" : "#111827"; } } catch (e) {}
     return "#111827";
   }
   function desen(r) {
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="560" height="380" viewBox="0 0 560 380"><g fill="' + r + '" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="600" letter-spacing="2"><text x="40" y="90">' + ADLAR[0] + '</text><text x="320" y="280">' + ADLAR[1] + "</text></g></svg>";
+    var satir = [], y = 34;
+    for (var i = 0; i < 6; i++) { var a = ADLAR[i % ADLAR.length], b = ADLAR[(i + 3) % ADLAR.length]; satir.push('<text x="' + (i % 2 ? 0 : 60) + '" y="' + y + '">' + a + "   ·   " + b + "</text>"); y += 52; }
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="312" viewBox="0 0 620 312"><g fill="' + r + '" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" letter-spacing="1">' + satir.join("") + "</g></svg>";
     return "url(\"data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg) + "\")";
   }
   function kur() {
     if (!document.body) return;
-    var k = document.createElement("div"); k.setAttribute("aria-hidden", "true"); k.className = "dj-filigran"; var rk = renk();
-    k.style.cssText = "position:fixed;left:-50%;top:-50%;width:200%;height:200%;transform:rotate(-16deg);pointer-events:none;z-index:2147483000;background-image:" + desen(rk) + ";background-repeat:repeat;opacity:" + (guc != null ? guc : (rk === "#ffffff" ? 0.03 : 0.045)) + ";";
+    var k = document.createElement("div"); k.setAttribute("aria-hidden", "true"); k.className = "dj-filigran";
+    k.style.cssText = "position:fixed;left:-50%;top:-50%;width:200%;height:200%;transform:rotate(-16deg);pointer-events:none;z-index:2147483000;background-image:" + desen(renk()) + ";background-repeat:repeat;opacity:" + guc + ";";
     document.body.appendChild(k);
     if (kredi && !document.querySelector(".dj-kredi")) {
       var a = document.createElement("a"); a.className = "dj-kredi"; a.href = "https://dijitabela.com/"; a.target = "_blank"; a.rel = "noopener";

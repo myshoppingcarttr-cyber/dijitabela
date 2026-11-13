@@ -75,4 +75,5 @@
 
 - [Dijitabela nedir: resmî bilgiler](https://dijitabela.com/dijitabela.html)
 - [Hakkımızda](https://dijitabela.com/hakkimizda.html)
+- [Ekibimiz: yapay zekâ destekli dijital ekip](https://dijitabela.com/ekibimiz.html)
 - [Teklif al](https://dijitabela.com/teklif-al.html)

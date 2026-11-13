@@ -8,6 +8,8 @@ body{background:var(--kagit)}
 .hdr .nav{min-height:68px}
 .hdr .nav ul a{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;border-radius:0;color:var(--murekkep)}
 .hdr .nav ul a:hover{background:transparent;text-decoration:underline;text-decoration-color:var(--led);text-decoration-thickness:3px;text-underline-offset:6px}
+/* 13 Kas: menüye "Ekibimiz" eklendi; 1101–1320 px aralığında yedi bağlantı + düğme sığsın */
+@media(max-width:1320px){.hdr .nav{gap:14px}.hdr .nav ul a{font-size:.72rem;letter-spacing:.02em;padding:8px 5px}.hdr .nav>.btn{padding-left:14px;padding-right:14px;white-space:nowrap}}
 .btn{border-radius:0}
 .hdr .btn-p,.v-btn.ana{background:var(--led);color:var(--murekkep);border:2px solid var(--murekkep)}
 

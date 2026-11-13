@@ -121,6 +121,7 @@ C: Hayır. Dürüst bir ajans Google sıra garantisi vermez.
 - Sık sorulan sorular: https://dijitabela.com/sss.html
 - Dijitabela nedir (resmî bilgiler): https://dijitabela.com/dijitabela.html
 - Hakkımızda: https://dijitabela.com/hakkimizda.html
+- Ekibimiz (yapay zekâ destekli dijital ekip): https://dijitabela.com/ekibimiz.html
 - Çalışmalarımız: https://dijitabela.com/calismalarimiz.html
 - Türkiye geneli web sitesi yaptırma: https://dijitabela.com/web-sitesi-yaptirma.html
 - Şehirler: https://dijitabela.com/istanbul-web-tasarim.html · https://dijitabela.com/ankara-web-tasarim.html · https://dijitabela.com/izmir-web-tasarim.html · https://dijitabela.com/bursa-web-tasarim.html · https://dijitabela.com/antalya-web-tasarim.html · https://dijitabela.com/konya-web-tasarim.html · https://dijitabela.com/adana-web-tasarim.html · https://dijitabela.com/gaziantep-web-tasarim.html · https://dijitabela.com/kocaeli-web-tasarim.html · https://dijitabela.com/mersin-web-tasarim.html
