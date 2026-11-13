@@ -1,0 +1,146 @@
+/* Çelik Teknik prototip v2 — ortak tasarım sistemi (premium). Sayfa değişkenleri sayfada ezilebilir. */
+:root{--lac:#0b2a3a;--lac2:#12405a;--kir:#0e9f9a;--kir2:#0b837f;--buz:#e6f5f4;--gri:#f5f7fb;--yazi:#0f1b2d;--soluk:#5b6678;--cizgi:#e3e8f0;--bg:#fff;--yuzey:#fff;--vurgu:var(--kir);--r:14px;--govde:'Plus Jakarta Sans',system-ui,sans-serif;--baslik:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;--golge:0 24px 60px -32px rgba(11,42,58,.45)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--yazi);font:400 16px/1.65 var(--govde);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.kap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--kir);outline-offset:2px}
+.ik{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ik.dolu{fill:currentColor;stroke:none}
+
+/* Taslak şeridi + filigran */
+.taslak-serit{background:#05151d;color:#cfd8e6;font:600 12px/1.4 var(--govde);text-align:center;padding:7px 14px;position:relative;z-index:61}
+.taslak-serit a{color:#ffb000;font-weight:800;text-decoration:none;white-space:nowrap}
+.filigran{position:fixed;inset:0;pointer-events:none;z-index:55;overflow:hidden}
+.filigran span{position:absolute;left:-20%;width:140%;text-align:center;transform:rotate(-24deg);font:800 clamp(30px,6vw,80px)/1 var(--govde);letter-spacing:.08em;color:rgba(120,130,150,.07);white-space:nowrap;text-transform:uppercase}
+.filigran span:nth-child(1){top:16%}.filigran span:nth-child(2){top:48%}.filigran span:nth-child(3){top:80%}
+
+/* Logo */
+.logo{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--lac)}
+.logo .isaret{width:42px;height:42px;border-radius:11px;background:linear-gradient(145deg,#e8262c,#0b837f);display:grid;place-items:center;box-shadow:0 8px 18px -8px rgba(14,159,154,.7),inset 0 1px 0 rgba(255,255,255,.25);flex:none}
+.logo .isaret svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2.1;stroke-linecap:round}
+.logo .ad{display:flex;flex-direction:column;line-height:1}
+.logo .ad b{font:800 23px/1 'Exo 2',sans-serif;letter-spacing:.03em}
+.logo .ad small{font:700 9.5px/1 var(--govde);letter-spacing:.26em;margin-top:5px;opacity:.72}
+.logo.beyaz{color:#fff}
+
+/* Düğmeler */
+.dg{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border:0;border-radius:12px;background:var(--kir);color:#fff;font:700 16px/1.2 var(--govde);text-decoration:none;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s;box-shadow:0 12px 24px -12px rgba(14,159,154,.8)}
+.dg:hover{transform:translateY(-2px);background:var(--kir2)}
+.dg.wa{background:#1faa59;box-shadow:0 12px 24px -12px rgba(31,170,89,.8)}.dg.wa:hover{background:#178a48}
+.dg.koyu{background:var(--lac);box-shadow:none}
+.dg.cizgi{background:transparent;color:currentColor;box-shadow:inset 0 0 0 1.5px currentColor}
+.dg.kucuk{min-height:44px;padding:0 16px;font-size:14.5px}
+.dg svg{width:20px;height:20px}
+
+/* Durum rozeti */
+[data-acik]{display:inline-flex;align-items:center;gap:8px;font:600 13.5px/1 var(--govde)}
+[data-acik] i{width:9px;height:9px;border-radius:50%;background:#999;display:inline-block}
+.is-acik i{background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.22)}
+.is-kapali i{background:#f59e0b;box-shadow:0 0 0 4px rgba(245,158,11,.2)}
+.yildiz{color:#fbbc04;letter-spacing:1px}
+
+/* Bölüm başlıkları */
+.ust-baslik{display:inline-flex;align-items:center;gap:8px;font:800 12.5px/1 var(--govde);letter-spacing:.14em;text-transform:uppercase;color:var(--kir)}
+.ust-baslik:before{content:"";width:22px;height:2px;background:currentColor}
+.bol-bas h2{font:800 clamp(30px,4.2vw,48px)/1.1 var(--baslik);letter-spacing:-.025em;margin:12px 0 12px}
+.bol-bas p{color:var(--soluk);font-size:17.5px;max-width:640px}
+.bol-bas.orta{text-align:center}.bol-bas.orta p{margin:0 auto}
+
+/* Çipler / sihirbaz */
+.cip{border:1.5px solid var(--cizgi);background:#fff;color:var(--yazi);padding:11px 15px;border-radius:999px;font:600 14.5px/1.2 var(--govde);cursor:pointer;transition:all .15s}
+.cip:hover{border-color:var(--lac)}
+.cip.sec{background:var(--lac);color:#fff;border-color:var(--lac)}
+.s-cihaz,.s-belirti{display:flex;flex-wrap:wrap;gap:8px}
+.s-adim{font:800 12px/1 var(--govde);letter-spacing:.12em;text-transform:uppercase;color:var(--soluk);margin:20px 0 11px;display:flex;align-items:center;gap:8px}
+.s-adim b{width:22px;height:22px;border-radius:50%;background:var(--kir);color:#fff;display:inline-grid;place-items:center;font-size:12px;letter-spacing:0}
+.ipucu{color:var(--soluk);font-size:14.5px}
+.s-sonuc{margin-top:20px}
+.s-kart{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);background:#fff;border:1px solid var(--cizgi);border-radius:18px;overflow:hidden;animation:gel .35s ease;color:var(--yazi);box-shadow:var(--golge)}
+.s-kart img{width:100%;height:100%;min-height:280px;max-height:440px;object-fit:cover}
+.s-yazi{padding:22px}
+.s-yazi p{font-size:15px;margin-bottom:10px}
+.s-et{font:800 11px/1 var(--govde)!important;letter-spacing:.14em;color:var(--kir);margin:6px 0 6px!important;text-transform:uppercase}
+.s-yazi .dg{width:100%;margin-top:6px}
+.not{font-size:12.5px!important;color:var(--soluk);margin-top:10px}
+@media(max-width:720px){.s-kart{grid-template-columns:1fr}.s-kart img{min-height:0;height:200px}}
+
+/* Form */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .tam{grid-column:1/-1}
+.form label{display:block;font:700 13px/1 var(--govde);margin-bottom:7px;color:var(--yazi)}
+.form input,.form select,.form textarea{width:100%;min-height:52px;padding:13px 14px;border:1.5px solid var(--cizgi);border-radius:12px;background:#fff;font-size:16px;transition:border-color .15s,box-shadow .15s}
+.form textarea{min-height:92px;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--lac);box-shadow:0 0 0 4px rgba(11,42,58,.08);outline:0}
+.tur-sec{display:flex;flex-wrap:wrap;gap:8px}
+.tur-sec label{margin:0;font:600 14px/1 var(--govde)}
+.tur-sec input{position:absolute;opacity:0;width:1px;height:1px}
+.tur-sec span{display:inline-block;padding:11px 15px;border:1.5px solid var(--cizgi);border-radius:999px;cursor:pointer;background:#fff}
+.tur-sec input:checked+span{background:var(--lac);color:#fff;border-color:var(--lac)}
+.f-uyari{color:var(--kir);font-size:14px;font-weight:600;margin-top:6px}
+.f-ok{font-size:14px;color:#178a48;font-weight:600}
+.f-ok a{color:inherit}
+@media(max-width:620px){.form{grid-template-columns:1fr}}
+
+/* Bakım planlayıcı */
+.b-alan{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.b-alan label{display:block;font:700 13px/1 var(--govde);margin-bottom:7px}
+.b-alan select{width:100%;min-height:52px;padding:10px 12px;border:1.5px solid var(--cizgi);border-radius:12px;background:#fff;font-size:16px}
+.b-sonuc{margin-top:16px}
+.b-sonuc p{margin:12px 0 14px;font-size:15px;color:var(--soluk)}
+.b-durum{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;padding:15px 17px;border-radius:12px;border-left:5px solid}
+.b-durum span{font-weight:700}
+.b-durum.yesil{background:rgba(34,197,94,.1);border-color:#22c55e}
+.b-durum.sari{background:rgba(245,158,11,.12);border-color:#f59e0b}
+.b-durum.kirmizi{background:rgba(14,159,154,.08);border-color:var(--kir)}
+@media(max-width:620px){.b-alan{grid-template-columns:1fr}}
+
+/* Bölge */
+[data-bolge] input{width:100%;min-height:54px;padding:12px 16px;border:1.5px solid var(--cizgi);border-radius:12px;background:#fff;font-size:16px;color:var(--yazi)}
+.bk-sonuc{margin-top:10px;font-size:15px;font-weight:600;min-height:24px}
+.bk-sonuc.evet{color:#178a48}.bk-sonuc.sor{color:#b45309}
+.bk-sonuc a{color:inherit}
+.bolge-harita{height:420px;border-radius:18px;overflow:hidden;border:1px solid var(--cizgi);background:#e8edf3;z-index:1}
+.leaflet-container{font:inherit}
+
+/* SSS */
+.sss details{border:1px solid var(--cizgi);border-radius:14px;background:#fff;margin-bottom:10px;transition:box-shadow .2s}
+.sss details[open]{box-shadow:var(--golge)}
+.sss summary{list-style:none;cursor:pointer;padding:19px 54px 19px 20px;font-weight:700;font-size:16.5px;position:relative}
+.sss summary::-webkit-details-marker{display:none}
+.sss summary:after{content:"+";position:absolute;right:16px;top:50%;margin-top:-15px;width:30px;height:30px;border-radius:50%;background:var(--buz);color:var(--lac);font:500 22px/30px var(--govde);text-align:center;transition:transform .2s}
+.sss details[open] summary:after{transform:rotate(45deg);background:var(--kir);color:#fff}
+.sss details p{padding:0 20px 20px;color:var(--soluk)}
+
+/* Sabit alt çubuk (mobil) */
+.alt-cubuk{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;grid-template-columns:1fr 1.3fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--cizgi);box-shadow:0 -10px 30px -20px rgba(11,42,58,.5)}
+.alt-cubuk a{min-height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font:800 15px/1 var(--govde);text-decoration:none;color:#fff}
+.alt-cubuk .ara{background:var(--lac)}.alt-cubuk .wap{background:#1faa59}
+.alt-cubuk svg{width:20px;height:20px}
+@media(max-width:860px){.alt-cubuk{display:grid}body{padding-bottom:78px}}
+
+.harita iframe,.sv iframe{width:100%;height:100%;border:0;display:block}
+
+/* Kampanya bandı (örnek) */
+.kampanya{background:linear-gradient(90deg,var(--kir2),var(--kir));color:#fff;font:600 14px/1.45 var(--govde);padding:11px 0}
+.kampanya .kap{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:center;text-align:center}
+.kampanya b.orn{font:800 10.5px/1 var(--govde);letter-spacing:.14em;background:rgba(255,255,255,.22);padding:5px 8px;border-radius:5px;margin-right:6px}
+.kampanya a{color:#fff;font-weight:800;white-space:nowrap}
+
+/* Hafif animasyon */
+.gor{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.gor.gorundu{opacity:1;transform:none}
+@keyframes gel{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes yavas{from{transform:scale(1.08)}to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.gor{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}*{animation:none!important}}
+.no-js .gor{opacity:1;transform:none}
+
+/* Işık kutusu */
+.lb{position:fixed;inset:0;background:rgba(5,12,24,.92);z-index:80;display:none;align-items:center;justify-content:center;padding:20px}
+.lb.ac{display:flex}
+.lb img{max-height:86vh;max-width:100%;object-fit:contain;border-radius:8px}
+.lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:14px}
+.lb button{position:absolute;top:12px;right:14px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
