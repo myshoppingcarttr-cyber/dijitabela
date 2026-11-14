@@ -18,7 +18,7 @@
     var onA = null, onB = null, onW = 0, onH = 0, onHazir = false, onSerit = 0, onKirli = true, onSaat = -1;
     var olcek = 1, ema = 16, kareSay = 0, yukari = 0;
     var gorunur = true, sekmeAcik = !document.hidden, calisiyor = false, rafId = 0, kirli = true;
-    var fare = [0, 0], fareH = [0, 0], saat = o.saat == null ? 0.3 : o.saat, saatH = saat, kay = 0;
+    var fare = [0, 0], fareH = [0, 0], saat = o.saat == null ? 0.3 : o.saat, saatH = saat, kay = 0, hava = 0;
     var t0 = performance.now(), tSon = t0, T = o.sabitT || 0, ilkKare = false;
     var sabitT = q.get("t") ? parseFloat(q.get("t")) : null;
 
@@ -34,12 +34,12 @@
     function program(frag) {
       var hp = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
       var bas = "precision " + (hp && hp.precision > 0 ? "highp" : "mediump") + " float;\n" +
-        "uniform vec2 uRes;uniform float uT;uniform vec2 uFare;uniform float uSaat;uniform float uKay;uniform sampler2D uOn;uniform vec2 uOnRes;uniform float uMobil;\n";
+        "uniform vec2 uRes;uniform float uT;uniform vec2 uFare;uniform float uSaat;uniform float uHava;uniform float uKay;uniform sampler2D uOn;uniform vec2 uOnRes;uniform float uMobil;\n";
       var p = gl.createProgram();
       gl.attachShader(p, derle(gl.VERTEX_SHADER, VS)); gl.attachShader(p, derle(gl.FRAGMENT_SHADER, bas + frag));
       gl.bindAttribLocation(p, 0, "p"); gl.linkProgram(p);
       if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
-      var u = {}; ["uRes", "uT", "uFare", "uSaat", "uKay", "uOn", "uOnRes", "uMobil"].forEach(function (n) { u[n] = gl.getUniformLocation(p, n); });
+      var u = {}; ["uRes", "uT", "uFare", "uSaat", "uHava", "uKay", "uOn", "uOnRes", "uMobil"].forEach(function (n) { u[n] = gl.getUniformLocation(p, n); });
       return { p: p, u: u };
     }
     function hedef(w, h, mip) {
@@ -93,7 +93,7 @@
     function tek(prog, w, h, tex) {
       gl.useProgram(prog.p);
       gl.uniform2f(prog.u.uRes, w, h); gl.uniform1f(prog.u.uT, T);
-      gl.uniform2f(prog.u.uFare, fareH[0], fareH[1]); gl.uniform1f(prog.u.uSaat, saatH); gl.uniform1f(prog.u.uKay, kay);
+      gl.uniform2f(prog.u.uFare, fareH[0], fareH[1]); gl.uniform1f(prog.u.uSaat, saatH); gl.uniform1f(prog.u.uHava, hava); gl.uniform1f(prog.u.uKay, kay);
       gl.uniform1f(prog.u.uMobil, mobil ? 1 : 0);
       if (tex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex.tx); gl.uniform1i(prog.u.uOn, 0); gl.uniform2f(prog.u.uOnRes, tex.w, tex.h); }
       gl.drawArrays(gl.TRIANGLES, 0, 3);
@@ -188,6 +188,7 @@
     planla();
 
     return {
+      havaAyarla: function (v) { hava = Math.max(0, Math.min(1, v)); kirli = true; if (o.on && o.on.statik) onKirli = true; planla(); },
       saatAyarla: function (v) { saat = Math.max(0, Math.min(1, v)); if (o.on && o.on.statik) { saatH = saat; if (Math.abs(saat - onSaat) > 0.004) onKirli = true; } planla(); },
       durum: function () { return { w: cv.width, h: cv.height, olcek: olcek, ms: ema, hazir: ilkKare }; },
       // kıyas: n kareyi art arda çizer, kare başına GPU süresini (ms) döndürür (yalnız ölçüm için)

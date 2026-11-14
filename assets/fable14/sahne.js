@@ -40,14 +40,14 @@ vec3 gok(vec3 rd,float kal){
     // yüksek ince bulut
     vec2 qa=q*vec2(.22,1.05)+vec2(uT*.003,3.7);
     float d=fbm(qa);
-    float cov=smoothstep(.40,.62,d)*smoothstep(.03,.14,rd.y)*(1.-smoothstep(.3,.9,rd.y)*.5);
+    float cov=smoothstep(.40-.30*uHava,.62-.26*uHava,d)*smoothstep(.03,.14,rd.y)*(1.-smoothstep(.3,.9,rd.y)*.5);
     float kenar=.5;
     if(kal>.5){ float d2=fbm3(qa+yon2*vec2(.22,1.05)*.25+vec2(0.,-.12)); kenar=clamp((d-d2)*3.4+.45,0.,1.); }
     c=mix(c,mix(koyu,isikli*yak,kenar*(.35+.65*yak)),cov*.86);
     // ufka yakın bulut bandı
     vec2 qb=q*vec2(.07,.42)+vec2(-uT*.002,11.3);
     float b=fbm(qb);
-    float cov2=smoothstep(.46,.60,b)*smoothstep(.012,.05,rd.y)*smoothstep(.20,.09,rd.y);
+    float cov2=smoothstep(.46-.26*uHava,.60-.22*uHava,b)*smoothstep(.012,.05,rd.y)*smoothstep(.20,.09,rd.y);
     float k2=.5;
     if(kal>.5){ float b2=fbm3(qb+yon2*vec2(.07,.42)*.5+vec2(0.,-.10)); k2=clamp((b-b2)*4.+.4,0.,1.); }
     c=mix(c,mix(koyu*.9,isikli*(.35+.9*yak),k2*(.25+.75*yak)),cov2*.85);

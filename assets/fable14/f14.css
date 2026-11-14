@@ -208,9 +208,4 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--ambe
 .alt-b ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}.alt-b a{text-decoration:none}.alt-b a:hover{color:var(--ink)}
 .alt-b .imza{grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;font:700 12px/1.5 var(--mono);letter-spacing:.06em}
 
-/* Kaydırmaya bağlı giriş (destekleyen tarayıcıda; yoksa içerik zaten görünür) */
-@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){
-  .gir{animation:gir linear both;animation-timeline:view();animation-range:entry 0% entry 42%}
-  @keyframes gir{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
-  .gir.yan{animation-name:giryan}@keyframes giryan{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
