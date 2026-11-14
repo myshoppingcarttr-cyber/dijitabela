@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>e-Fatura XML Denetim · Dijitabela Araçlar</title>
+<meta name="description" content="e-Fatura ve e-Arşiv XML dosyalarını (ya da ZIP) toplu yükleyin: mükerrer ETTN, KDV ve toplam tutarsızlıkları, numara atlamaları, hatalı vergi no tek raporda. Excel çıktısı. Dosyalar cihazınızdan çıkmaz.">
+<link rel="canonical" href="https://dijitabela.com/araclar/e-fatura-denetim/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="e-Fatura XML Denetim · Dijitabela Araçlar">
+<meta property="og:description" content="Yüzlerce e-Fatura XML'ini yükleyin; mükerrer, KDV ve toplam hatalarını Excel raporu olarak alın. Dosyalar cihazınızdan çıkmaz.">
+<meta property="og:url" content="https://dijitabela.com/araclar/e-fatura-denetim/">
+<meta name="theme-color" content="#0E0F12">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../ortak/arac.css">
+<link rel="stylesheet" href="efd.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "e-Fatura XML Denetim", "url": "https://dijitabela.com/araclar/e-fatura-denetim/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "tr", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Dijitabela", "url": "https://dijitabela.com/"}}</script>
+</head>
+<body>
+<header class="ust"><div class="w">
+<nav aria-label="Üst menü"><a href="https://dijitabela.com/">DİJİTABELA</a><a href="../">Tüm araçlar</a></nav>
+<span class="et">Ücretsiz araç · mali müşavir · muhasebe</span>
+<h1>e-Fatura XML denetim</h1>
+<p>Ay sonu yüzlerce e-Fatura XML'ini tek tek açmayın. Hepsini (ya da ZIP'i) yükleyin; mükerrer, KDV ve toplam hataları, atlanan numaralar ve hatalı vergi numaraları tek raporda çıksın.</p>
+</div></header>
+<main><div class="w">
+<section class="bolum" id="arac" aria-label="e-Fatura denetim">
+<noscript><p class="uyari">Bu araç için JavaScript gerekir.</p></noscript>
+<p class="uyari"><b>Gizlilik:</b> Yüklediğiniz dosyalar tarayıcınızda işlenir; sunucuya gönderilmez, saklanmaz. Sayfayı kapatınca hepsi silinir.</p>
+<div class="ef-adim">
+<div>
+<span class="et">1 · İsteğe bağlı ayarlar</span>
+<div class="ef-ayar" style="margin-top:10px">
+<label class="alan"><span class="et">Kendi vergi numaranız (VKN/TCKN)</span><input id="kendi-vkn" inputmode="numeric" autocomplete="off" maxlength="11" placeholder="Boş bırakabilirsiniz"><small>Girerseniz gelen/giden ayrılır, KDV özeti yöne göre çıkar, numara atlaması yalnız kendi kestiğiniz faturalarda aranır.</small></label>
+<label class="alan"><span class="et">Dönem (ay)</span><input id="donem" type="month"><small>Seçerseniz dönem dışı tarihli faturalar uyarılır.</small></label>
+</div>
+</div>
+<div>
+<span class="et">2 · Dosyaları seçin</span>
+<div class="ef-yukle" id="yukle" style="margin-top:10px">
+<p>XML dosyalarını ya da içinde XML olan ZIP'i buraya bırakın veya seçin.<br><small class="kucuk">Aynı anda yüzlerce dosya, ZIP başına en fazla 5.000 dosya.</small></p>
+<input id="dosya" type="file" multiple accept=".xml,.zip,application/xml,text/xml,application/zip" aria-label="e-Fatura XML veya ZIP dosyaları">
+<button class="btn iki" type="button" id="b-ornek">Örnek dosyalarla dene</button>
+</div>
+<div class="ef-durum" id="durum" role="status" aria-live="polite"></div>
+<p class="uyari sonuc-hata" id="hata" hidden role="alert"></p>
+</div>
+<div id="sonuc" hidden aria-live="polite"></div>
+</div>
+</section>
+
+<section class="bolum">
+<span class="et">Neleri denetler</span>
+<h2>Kontroller ve dayanakları</h2>
+<div class="tablo-kay" tabindex="0"><table class="ef-kural">
+<thead><tr><th>Kod</th><th>Kontrol</th><th>Önem</th></tr></thead>
+<tbody>
+<tr><td>C01</td><td>Aynı ETTN (UUID) birden fazla dosyada: aynı fatura iki kez indirilmiş ya da iki kez kaydedilmeye hazır.</td><td>Hata</td></tr>
+<tr><td>C02</td><td>Aynı satıcıda aynı fatura numarası, farklı ETTN.</td><td>Hata</td></tr>
+<tr><td>C03</td><td>Aynı satıcı, alıcı, tarih ve ödenecek tutarla farklı numaralı birden fazla fatura (olası çift kesim; sonradan elle bakılmalı).</td><td>Uyarı</td></tr>
+<tr><td>C04 · C05</td><td>Numara serisinde atlanan sıra numaraları; numara büyürken tarihin geriye gitmesi.</td><td>Uyarı</td></tr>
+<tr><td>K07 – K12</td><td>Satır toplamı = belge toplamı; satırda ve belgede matrah × oran = KDV; satır KDV'leri belge özetiyle aynı; vergi hariç + vergi = vergi dahil; ödenecek tutar (tevkifatlı faturada bu son kontrol yapılmaz).</td><td>Hata</td></tr>
+<tr><td>K13</td><td>KDV oranı fatura tarihinde yürürlükte mi: 10.07.2023'ten itibaren %0, %1, %10, %20; öncesinde %0, %1, %8, %18.</td><td>Uyarı</td></tr>
+<tr><td>K14</td><td>KDV %0 yazılmış ama istisna/muafiyet sebebi yok.</td><td>Uyarı</td></tr>
+<tr><td>K03 · K04</td><td>Fatura numarası biçimi (3 harf/rakam + 4 hane yıl + 9 hane sıra) ve ETTN biçimi.</td><td>Hata</td></tr>
+<tr><td>K05</td><td>TCKN ve VKN kontrol hanesi. VKN algoritması için resmî bir yayın bulunmadığından uyarı olarak verilir; yazım hatası yakalamak içindir.</td><td>Hata / Uyarı</td></tr>
+<tr><td>K02 · K06 · K15 · K16</td><td>Zorunlu alan eksikleri, gelecek tarih, döviz faturasında kur bilgisi, iade faturasında referans.</td><td>Hata / Uyarı</td></tr>
+</tbody></table></div>
+<p class="kucuk">Bu araç GİB'in şema (XSD/Schematron) doğrulaması, e-imza veya zarf kontrolü <b>yapmaz</b>; entegratörünüzün kontrollerinin yerine geçmez. Amaç, ay sonu defterine girmeden önce gözle yakalanması saatler süren tutarsızlıkları bulmaktır. ÖTV gibi KDV dışı vergilerin oranı doğrulanmaz.</p>
+<ul class="kaynak" style="margin-top:14px">
+<li><a href="https://www.gib.gov.tr/duyuru-arsivi/guncel/477_477_mal_ve_hizmetlere_uygulanacak_katma_deger_vergisi_oranlarinin_tespitine_iliskin_kararda_degisiklik_yapilmasina_dair_karar_karar_sayisi:_7346_resmi_gazetede_yayimlandi" rel="noopener">GİB, 7346 sayılı Karar: %18→%20, %8→%10, yürürlük 10.07.2023</a></li>
+<li><a href="https://ebelge.gib.gov.tr/dosyalar/kilavuzlar/Karekod_veya_Barkod_Standardi_Kilavuzu_V.1.0.pdf" rel="noopener">GİB, Karekod Standardı Kılavuzu: fatura no (3+4+9), ETTN, tutar alanları</a></li>
+</ul>
+</section>
+
+<section class="cta">
+<span class="et">Muhasebe ofisi misiniz</span>
+<h2>Belge toplamayı da otomatikleştirelim</h2>
+<p>Bu araç ücretsizdir. Mükelleflerden gelen fatura, fiş ve ekstrenin WhatsApp'tan toplanıp bu tür kontrollerden otomatik geçmesini istiyorsanız konuşalım.</p>
+<div class="sira"><a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20e-Fatura%20Denetim%20arac%C4%B1ndan%20geliyorum.%20Muhasebe%20ofisim%20i%C3%A7in%20belge%20toplama%20ve%20kontrol%20otomasyonunu%20konu%C5%9Fmak%20istiyorum.">WhatsApp ile yazın</a><a class="btn iki" href="https://dijitabela.com/">dijitabela.com</a></div>
+</section>
+<p class="yasal">Bilgi amaçlıdır; resmi işlem, mali müşavirlik veya hukuki danışmanlık yerine geçmez. Kesin değerlendirme için mali müşavirinize başvurun.</p>
+</div></main>
+<footer class="alt"><div class="w">Dijitabela · Antalya · <a href="https://dijitabela.com/">dijitabela.com</a> · <a href="../gizlilik/">Gizlilik</a> · <a href="../destek/">Destek</a> · <a href="tel:+905019452184">0501 945 21 84</a></div></footer>
+<script src="js/xml.js"></script>
+<script src="js/denetim.js"></script>
+<script src="js/zip.js"></script>
+<script src="js/xlsx.js"></script>
+<script src="js/ornek.js"></script>
+<script src="js/ui.js"></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>
