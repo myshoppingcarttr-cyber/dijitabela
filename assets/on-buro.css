@@ -1,0 +1,91 @@
+/* ===== Dijital Ön Büro paket sayfası (14 Kas 2026). Kâğıt / mürekkep / LED kehribar; vitrin.css değişkenlerini kullanır ===== */
+.onburo{overflow-x:clip}
+.onburo .v-hero h1{font-size:clamp(3.6rem,13vw,9.2rem)}
+.ob-serit dd{font-size:clamp(1.35rem,2.6vw,1.9rem)}
+
+/* Dürüstlük şeridi */
+.ob-durust{padding:0;border-bottom:2px solid var(--murekkep);background:#fff}
+.ob-durust-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ob-durust-g>div{padding:28px 28px 30px 0;border-right:1px solid var(--cizgi)}
+.ob-durust-g>div+div{padding-left:28px}
+.ob-durust-g>div:last-child{border-right:0}
+.ob-durust span{font-family:var(--mono);font-weight:700;font-size:.8rem;color:var(--led-koyu)}
+.ob-durust h2{font-family:var(--baslik);font-stretch:70%;font-weight:800;text-transform:uppercase;font-size:1.55rem;line-height:1;margin:8px 0 8px}
+.ob-durust p{color:#3A3E46;font-size:.98rem;line-height:1.55}
+
+/* Kime göre */
+.ob-kime-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;border-top:2px solid var(--murekkep);margin-top:34px}
+.ob-kime-g>div{padding:22px 0 8px}
+.ob-kime-g h3{font-family:var(--baslik);font-stretch:70%;font-weight:800;text-transform:uppercase;font-size:1.7rem;line-height:1.02;margin-bottom:10px}
+.ob-kime-g p{color:#3A3E46;font-size:1.02rem;line-height:1.6}
+
+/* Aylık işler */
+.ob-isler{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;border-top:2px solid var(--murekkep)}
+.ob-isler li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:22px 0;border-bottom:1px solid var(--cizgi)}
+.ob-isler span{font-family:var(--mono);font-weight:700;font-size:.9rem;color:var(--led-koyu);padding-top:5px}
+.ob-isler h3{font-family:var(--baslik);font-stretch:70%;font-weight:800;text-transform:uppercase;font-size:1.6rem;line-height:1.04;margin-bottom:6px}
+.ob-isler p{color:#3A3E46;font-size:1rem;line-height:1.55}
+
+/* Kademeler */
+.ob-kademeler{background:#fff}
+.ob-kademe-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border:2px solid var(--murekkep)}
+.ob-kademe{padding:28px 26px 30px;border-right:1px solid var(--murekkep);display:flex;flex-direction:column;background:var(--kagit);min-width:0}
+.ob-kademe:last-child{border-right:0}
+.ob-kademe.one{background:#FFF6DD}
+.ob-kademe-ust{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gri)}
+.ob-kademe.one .ob-kademe-ust{display:inline-block;align-self:flex-start;background:var(--murekkep);color:var(--led);padding:3px 7px}
+.ob-kademe h3{font-family:var(--baslik);font-stretch:66%;font-weight:900;text-transform:uppercase;font-size:2.6rem;line-height:.95;margin:12px 0 10px}
+.ob-fiyat{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 10px;padding-bottom:16px;border-bottom:2px solid var(--murekkep)}
+.ob-fiyat b{font-family:var(--baslik);font-stretch:70%;font-weight:900;font-size:3.4rem;line-height:.9;font-variant-numeric:tabular-nums}
+.ob-fiyat span{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gri)}
+.ob-kime{font-size:.95rem;color:#3A3E46;line-height:1.5;margin:14px 0 6px;min-height:2.9em}
+.ob-kademe ul{list-style:none;margin:6px 0 24px;padding:0;flex:1}
+.ob-kademe li{position:relative;padding:10px 0 10px 22px;border-bottom:1px solid var(--cizgi);font-size:.98rem;line-height:1.45}
+.ob-kademe li::before{content:"";position:absolute;left:1px;top:17px;width:9px;height:9px;background:var(--led);box-shadow:0 0 0 2px var(--murekkep)}
+.ob-kademe .v-btn{justify-content:center;text-align:center}
+.ob-kurulum{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0 56px;margin-top:44px;border-top:2px solid var(--murekkep);padding-top:24px}
+.ob-kurulum ul{list-style:none;margin:14px 0 0;padding:0}
+.ob-kurulum li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--cizgi);font-size:1rem;line-height:1.5}
+.ob-kurulum li::before{content:"";position:absolute;left:1px;top:16px;width:9px;height:9px;background:var(--led);box-shadow:0 0 0 2px var(--murekkep)}
+.ob-kurulum ul.yok li::before{background:transparent;box-shadow:none;content:"×";font-family:var(--mono);font-weight:700;top:8px;left:0;width:auto;height:auto;color:var(--gri)}
+.ob-kurulum ul.yok li{color:#3A3E46}
+
+/* Klinik kuralları */
+.ob-klinik{background:var(--murekkep);color:var(--kagit)}
+.ob-klinik .v-etiket{color:#AEB3BB}
+.ob-klinik .v-etiket::before{box-shadow:0 0 0 2px var(--kagit)}
+.ob-kural{list-style:none;margin:26px 0 0;padding:0;border-top:2px solid var(--kagit)}
+.ob-kural li{position:relative;padding:15px 0 15px 28px;border-bottom:1px solid #3A3F47;font-size:1.08rem;line-height:1.5}
+.ob-kural li::before{content:"";position:absolute;left:2px;top:23px;width:10px;height:10px;background:var(--led);box-shadow:0 0 0 2px var(--kagit)}
+.ob-klinik .v-not{color:#AEB3BB}
+
+.onburo .v-surec a{color:inherit;text-decoration-color:var(--led);text-decoration-thickness:2px;text-underline-offset:3px;font-weight:700}
+.ob-son{padding-top:72px}
+.ob-son p{max-width:720px;margin-bottom:26px;line-height:1.6}
+.ob-son p a{color:var(--led);text-underline-offset:4px;white-space:nowrap}
+
+@media(max-width:1000px){
+  .ob-kademe-g{grid-template-columns:1fr}
+  .ob-kademe{border-right:0;border-bottom:2px solid var(--murekkep)}
+  .ob-kademe:last-child{border-bottom:0}
+  .ob-kime{min-height:0}
+}
+@media(max-width:900px){
+  .ob-durust-g{grid-template-columns:1fr}
+  .ob-durust-g>div,.ob-durust-g>div+div{padding:22px 0;border-right:0;border-bottom:1px solid var(--cizgi)}
+  .ob-durust-g>div:last-child{border-bottom:0}
+  .ob-kime-g{grid-template-columns:1fr}
+  .ob-kime-g>div{border-bottom:1px solid var(--cizgi);padding:20px 0}
+  .ob-kime-g>div:last-child{border-bottom:0}
+  .ob-isler{grid-template-columns:1fr}
+  .ob-kurulum{grid-template-columns:1fr;gap:28px}
+  .ob-serit{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}
+}
+@media(max-width:600px){
+  .onburo .v-b{padding:60px 0}
+  .ob-kademe{padding:24px 18px 26px}
+  .ob-fiyat b{font-size:3rem}
+  .onburo .v-dugmeler .v-btn{width:100%;justify-content:center;text-align:center}
+  .ob-isler li{grid-template-columns:34px minmax(0,1fr);gap:10px}
+  .ob-son{padding-top:48px}
+}
