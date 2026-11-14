@@ -196,7 +196,7 @@
       var r = cv.getBoundingClientRect(), dpr = Math.min(W.devicePixelRatio || 1, 2), w = Math.max(1, r.width), h = Math.max(1, r.height);
       if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
       cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, w, h);
-      var st = getComputedStyle(k), bos = st.getPropertyValue("--line").trim() || "#444", dolu = "#FFB000", T = tepe[akt] || bosDalga, ilr = akt > -1 && au.duration ? au.currentTime / au.duration : 0, g = w / N;
+      var st = getComputedStyle(k), bos = st.getPropertyValue("--line").trim() || "#444", dolu = "#E9A23B", T = tepe[akt] || bosDalga, ilr = akt > -1 && au.duration ? au.currentTime / au.duration : 0, g = w / N;
       for (var j = 0; j < N; j++) { var v = T ? T[j] : 0.05, y = Math.max(2, v * (h - 8)); cx.fillStyle = akt > -1 && j / N < ilr ? dolu : bos; cx.fillRect(j * g + g * 0.2, (h - y) / 2, Math.max(1.5, g * 0.6), y); }
     }
     function balon() {
