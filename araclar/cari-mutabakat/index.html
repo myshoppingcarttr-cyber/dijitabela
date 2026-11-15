@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cari Ekstre Mutabakatı · Dijitabela Araçlar</title>
+<meta name="description" content="İki cari ekstreyi (Excel ya da CSV) yükleyin: eşleşenleri, yalnız bir tarafta olan kayıtları, tutar ve tarih farklarını bulur, bakiye farkını kalem kalem açıklar. Dosyalar cihazınızdan çıkmaz.">
+<link rel="canonical" href="https://dijitabela.com/araclar/cari-mutabakat/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cari Ekstre Mutabakatı · Dijitabela Araçlar">
+<meta property="og:description" content="İki ekstreyi yükleyin; bakiye farkının hangi kayıttan geldiğini görün. Dosyalar cihazınızdan çıkmaz.">
+<meta property="og:url" content="https://dijitabela.com/araclar/cari-mutabakat/">
+<meta name="theme-color" content="#0E0F12">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../ortak/arac.css">
+<link rel="stylesheet" href="cm.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cari Ekstre Mutabakatı", "url": "https://dijitabela.com/araclar/cari-mutabakat/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "tr", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Dijitabela", "url": "https://dijitabela.com/"}}</script>
+</head>
+<body>
+<header class="ust"><div class="w">
+<nav aria-label="Üst menü"><a href="https://dijitabela.com/">DİJİTABELA</a><a href="../">Tüm araçlar</a></nav>
+<span class="et">Ücretsiz araç · mali müşavir · muhasebe · satıcı</span>
+<h1>Cari ekstre mutabakatı</h1>
+<p>Bakiyeler tutmuyor mu? İki ekstreyi yükleyin; fark hangi faturadan, hangi ödemeden, hangi iskontodan geliyor satır satır görün. Karşı tarafa gönderilecek açıklama metni ve Excel dökümü hazır çıksın.</p>
+</div></header>
+<main><div class="w">
+<section class="bolum" id="arac" aria-label="Cari mutabakat">
+<noscript><p class="uyari">Bu araç için JavaScript gerekir.</p></noscript>
+<p class="uyari"><b>Gizlilik:</b> Yüklediğiniz ekstreler tarayıcınızda işlenir; sunucuya gönderilmez, saklanmaz. Sayfayı kapatınca hepsi silinir.</p>
+<div class="cm-adim">
+<div>
+<span class="et">1 · İki ekstreyi seçin</span>
+<div class="cm-iki" style="margin-top:10px">
+<div>
+<div class="cm-yukle" id="yukle-a"><p><b>Bizim kayıtlarımız</b><br><small class="kucuk">Muhasebe programından aldığınız cari ekstre (.xlsx ya da .csv)</small></p><input id="dosya-a" type="file" accept=".xlsx,.xlsm,.csv,.txt" aria-label="Bizim ekstre dosyası"></div>
+<div id="kart-a" aria-live="polite"></div>
+</div>
+<div>
+<div class="cm-yukle" id="yukle-b"><p><b>Karşı tarafın ekstresi</b><br><small class="kucuk">Müşteri ya da tedarikçinin gönderdiği ekstre (.xlsx ya da .csv)</small></p><input id="dosya-b" type="file" accept=".xlsx,.xlsm,.csv,.txt" aria-label="Karşı taraf ekstre dosyası"></div>
+<div id="kart-b" aria-live="polite"></div>
+</div>
+</div>
+<div class="arac-eylem"><button class="btn iki" type="button" id="b-ornek">ÖRNEK dosyalarla dene</button><button class="btn iki" type="button" id="b-ornek-a">ÖRNEK bizim ekstreyi indir</button><button class="btn iki" type="button" id="b-ornek-b">ÖRNEK karşı ekstreyi indir</button></div>
+<p class="kucuk">Örnek dosyalar kurgusaldır; gerçek kişi ya da kurum değildir. PDF ekstre desteklenmez: muhasebe programından Excel/CSV olarak alın. Eski .xls dosyasını Excel'de .xlsx olarak kaydedin.</p>
+</div>
+<div>
+<span class="et">2 · Ayarlar (çoğunlukla değiştirmeniz gerekmez)</span>
+<div class="cm-ayar" style="margin-top:10px">
+<label class="alan"><span class="et">Karşı ekstrenin yönü</span><select id="yon"><option value="otomatik" selected>Otomatik (önerilir)</option><option value="ters">Ters: bizim borcumuz onların alacağı</option><option value="ayni">Aynı yönde</option></select><small>Çoğu ekstre ters gelir; bazı programlar iki tarafı aynı yönde döker. Otomatik seçim hangisinde daha çok tutar çakıştığına bakar.</small></label>
+<label class="alan"><span class="et">Tarih toleransı</span><select id="pencere"><option value="0">Aynı gün</option><option value="3">±3 gün</option><option value="5" selected>±5 gün</option><option value="10">±10 gün</option><option value="20">±20 gün</option></select><small>Belge numarası olmayan kayıtlar tutar ve bu tarih aralığıyla eşleşir.</small></label>
+</div>
+<div class="ef-durum" id="durum" role="status" aria-live="polite" style="margin-top:12px"></div>
+<p class="uyari sonuc-hata" id="hata" hidden role="alert"></p>
+</div>
+<div id="sonuc" hidden aria-live="polite"></div>
+</div>
+</section>
+
+<section class="bolum">
+<span class="et">Nasıl eşleştirir</span>
+<h2>Eşleştirme sırası</h2>
+<div class="tablo-kay" tabindex="0"><table>
+<thead><tr><th>Adım</th><th>Kural</th><th>Durum etiketi</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Aynı belge/fatura numarası ve aynı tutar (numaradaki boşluk, tire, küçük-büyük harf ve baştaki sıfırlar yok sayılır).</td><td>Eşleşti / Tarih farklı</td></tr>
+<tr><td>2</td><td>Aynı belge numarası, farklı tutar: iskonto, kısmi tutar, KDV dahil/hariç ya da kuruş farkı olarak yorumlanır.</td><td>Tutar farkı</td></tr>
+<tr><td>3</td><td>Belge numarası yok ya da farklı, ama tutar aynı ve tarih seçtiğiniz toleransın içinde.</td><td>Eşleşti / Belge no farklı</td></tr>
+<tr><td>4</td><td>Yalnız tutar tutuyor, tarih uzak: düşük güvenle eşleşir ve elle doğrulamanız istenir.</td><td>Tarih farklı (düşük güven)</td></tr>
+<tr><td>5</td><td>1 TL'ye kadar fark ya da %1, %8, %10, %18, %20 KDV oranlarına denk gelen fark.</td><td>Tutar farkı</td></tr>
+<tr><td>6</td><td>Bir kayıt, karşı tarafın 2–3 kaydının toplamına eşit (parçalı ödeme, birleştirilmiş fatura).</td><td>Bire çok</td></tr>
+<tr><td>7</td><td>Geriye kalanlar: yalnız bir tarafta olanlar. Mükerrer kayıt, iade/iptal çifti ve karşı tarafta hiç geçmeyen belge numarası ipuçları yazılır.</td><td>Yalnız bizde / karşıda</td></tr>
+</tbody></table></div>
+<p class="kucuk">Her sonuçta bakiye farkı, kalemlerin toplamıyla kuruşu kuruşuna karşılaştırılır; tutmazsa araç sizi uyarır. Birden fazla para birimi olan ekstrelerde tutarlar çevrilmeden karşılaştırılır; kur farkını ayrıca inceleyin. Bu araç karşılıklı <b>mutabakat mektubu yerine geçmez</b>, kayıt düzeltmez; farkın nedenini bulmanıza yardım eder. Düzeltme kaydı için mali müşavirinize danışın.</p>
+<p class="kucuk">Piyasadaki benzer çözümler genelde ekstreleri sunucularına yükletir ve aylık sınırlıdır (ör. <a href="https://mutabakat.ai/cari-mutabakat" rel="noopener">MutabakatAI</a>, <a href="https://akillimutabakat.com/blog/e-mutabakat" rel="noopener">Akıllı Mutabakat</a>, <a href="https://tammutabakat.com/" rel="noopener">TAM Mutabakat</a>). Bu araç ücretsizdir ve dosyalarınız cihazınızdan çıkmaz.</p>
+</section>
+
+<section class="cta">
+<span class="et">Muhasebe ofisi ya da çok cariniz mi var</span>
+<h2>Toplu mutabakatı otomatikleştirelim</h2>
+<p>Bu araç tek cari için ücretsizdir. Yüzlerce cariye ekstre gönderme, cevapları toplama ve farkları otomatik çıkarma akışını WhatsApp ve e-posta üzerinden kurmak istiyorsanız konuşalım.</p>
+<div class="sira"><a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20Cari%20Mutabakat%20arac%C4%B1ndan%20geliyorum.%20Toplu%20mutabakat%20otomasyonunu%20konu%C5%9Fmak%20istiyorum.">WhatsApp ile yazın</a><a class="btn iki" href="https://dijitabela.com/">dijitabela.com</a></div>
+</section>
+<p class="yasal">Bilgi amaçlıdır; resmi işlem, mali müşavirlik veya hukuki danışmanlık yerine geçmez. Kesin değerlendirme için mali müşavirinize başvurun.</p>
+</div></main>
+<footer class="alt"><div class="w">Dijitabela · Antalya · <a href="https://dijitabela.com/">dijitabela.com</a> · <a href="../gizlilik/">Gizlilik</a> · <a href="../destek/">Destek</a> · <a href="tel:+905019452184">0501 945 21 84</a></div></footer>
+<script src="../ortak/lib/zip.js"></script>
+<script src="../ortak/lib/xlsx.js"></script>
+<script src="js/cm.js"></script>
+<script src="js/okuyucu.js"></script>
+<script src="js/ornek.js"></script>
+<script src="js/ui.js"></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>

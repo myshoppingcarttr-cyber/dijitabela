@@ -1,0 +1,22 @@
+.cm-adim{display:grid;gap:18px;margin-top:18px;grid-template-columns:minmax(0,1fr)}
+.cm-adim>*{min-width:0}
+.cm-iki{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.cm-yukle{border:3px dashed var(--mur);background:#fff;padding:22px 16px;text-align:center;display:grid;gap:10px;justify-items:center}
+.cm-yukle.ustte{background:#FFF4D6;border-color:var(--amber-yazi)}
+.cm-yukle input[type=file]{max-width:100%}
+.cm-dosya{font-weight:700;overflow-wrap:anywhere}
+.cm-kolonlar{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:8px}
+.cm-ayar{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px}
+.cm-kutular{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:14px 0}
+.cm-kutu{background:#fff;border:2px solid var(--mur);padding:12px;display:grid;gap:2px;align-content:start}
+.cm-kutu b{font:900 26px/1.1 Archivo,Impact,sans-serif;font-stretch:62%;overflow-wrap:anywhere}
+.cm-kutu span{font-size:13px;color:var(--soluk)}
+.cm-kutu.iyi b{color:var(--iyi)}.cm-kutu.kotu b{color:var(--kotu)}.cm-kutu.uy b{color:var(--amber-yazi)}
+.cm-filtre{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.cm-f[aria-pressed=true]{background:var(--mur);color:var(--gun)}
+tr.cm-yalniz td:first-child{color:var(--kotu);font-weight:700}
+tr.cm-fark td:first-child{color:var(--amber-yazi);font-weight:700}
+.cm-adim td:nth-child(11){white-space:normal;min-width:240px;max-width:420px;vertical-align:top}
+textarea{width:100%;font:400 15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;border:2px solid var(--mur);padding:10px;background:#fff;color:var(--mur);border-radius:0;resize:vertical}
+.ef-durum,.cm-durum{min-height:24px;font-weight:700;color:var(--soluk)}
+@media(max-width:720px){.cm-iki,.cm-ayar,.cm-kolonlar{grid-template-columns:1fr}.cm-kutular{grid-template-columns:repeat(2,minmax(0,1fr))}}
