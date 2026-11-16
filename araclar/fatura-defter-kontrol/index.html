@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Muhasebeleşmemiş Fatura Kontrolü · e-Fatura XML ↔ Muhasebe Kaydı · Dijitabela Araçlar</title>
+<meta name="description" content="e-Fatura XML/ZIP ile muhasebe kayıt dökümünüzü (Excel/CSV) karşılaştırın: deftere işlenmemiş fatura, faturası olmayan kayıt, mükerrer kayıt, tutar ve KDV farkı. Dosyalar cihazınızdan çıkmaz.">
+<link rel="canonical" href="https://dijitabela.com/araclar/fatura-defter-kontrol/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Muhasebeleşmemiş Fatura Kontrolü · Dijitabela Araçlar">
+<meta property="og:description" content="e-Fatura XML'lerini muhasebe kaydıyla karşılaştırın; deftere işlenmeyen faturaları ve farkları bulun. Dosyalar cihazınızdan çıkmaz.">
+<meta property="og:url" content="https://dijitabela.com/araclar/fatura-defter-kontrol/">
+<meta name="theme-color" content="#0E0F12">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../ortak/arac.css">
+<link rel="stylesheet" href="fdk.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Muhasebeleşmemiş Fatura Kontrolü", "url": "https://dijitabela.com/araclar/fatura-defter-kontrol/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "tr", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Dijitabela", "url": "https://dijitabela.com/"}}</script>
+</head>
+<body>
+<header class="ust"><div class="w">
+<nav aria-label="Üst menü"><a href="https://dijitabela.com/">DİJİTABELA</a><a href="../">Tüm araçlar</a></nav>
+<span class="et">Ücretsiz araç · mali müşavir · muhasebe</span>
+<h1>Muhasebeleşmemiş fatura kontrolü</h1>
+<p>Dönemin e-Fatura XML'lerini ve muhasebe programından aldığınız kayıt dökümünü yükleyin. Deftere işlenmemiş faturaları, faturası bulunmayan kayıtları, mükerrer kayıtları ve tutar farklarını tek tabloda görün; eksik fatura listesi ve Excel dökümü hazır çıksın.</p>
+</div></header>
+<main><div class="w">
+<section class="bolum" id="arac" aria-label="Muhasebeleşmemiş fatura kontrolü">
+<noscript><p class="uyari">Bu araç için JavaScript gerekir.</p></noscript>
+<p class="uyari"><b>Gizlilik:</b> Yüklediğiniz XML ve Excel dosyaları tarayıcınızda işlenir; sunucuya gönderilmez, saklanmaz. Sayfayı kapatınca hepsi silinir.</p>
+<div class="fd-adim">
+<div>
+<span class="et">1 · e-Fatura XML dosyaları</span>
+<div class="fd-iki" style="margin-top:10px">
+<div>
+<div class="fd-yukle" id="yukle-x"><p><b>Dönemin e-Fatura / e-Arşiv XML'leri</b><br><small class="kucuk">Birden çok .xml ya da bir .zip seçin (gelen ve giden birlikte olabilir)</small></p><input id="dosya-x" type="file" multiple accept=".xml,.zip" aria-label="e-Fatura XML ya da ZIP dosyaları"></div>
+<div id="kart-x" aria-live="polite"></div>
+</div>
+<div>
+<div class="fd-yukle" id="yukle-d"><p><b>Muhasebe kayıt dökümü</b><br><small class="kucuk">KDV listesi, alış/satış kaydı ya da cari hesap ekstresi (.xlsx ya da .csv)</small></p><input id="dosya-d" type="file" accept=".xlsx,.xlsm,.csv,.txt" aria-label="Muhasebe kayıt dökümü dosyası"></div>
+<div id="kart-d" aria-live="polite"></div>
+</div>
+</div>
+<div class="arac-eylem"><button class="btn iki" type="button" id="b-ornek">ÖRNEK dosyalarla dene</button><button class="btn iki" type="button" id="b-ornek-x">ÖRNEK XML ZIP'i indir</button><button class="btn iki" type="button" id="b-ornek-d">ÖRNEK kayıt dökümünü indir</button></div>
+<p class="kucuk">Örnek dosyalar kurgusaldır; gerçek kişi, kurum ya da fatura değildir. Defter dosyasında fatura numarası ayrı bir sütunda ya da açıklama içinde (ör. ABC2026000000001) olabilir. PDF desteklenmez; eski .xls dosyasını Excel'de .xlsx olarak kaydedin.</p>
+</div>
+<div>
+<span class="et">2 · Ayarlar (çoğunlukla değiştirmeniz gerekmez)</span>
+<div class="fd-ayar" style="margin-top:10px">
+<label class="alan"><span class="et">Defter neyi kapsıyor?</span><select id="kapsam"><option value="otomatik" selected>Otomatik (önerilir)</option><option value="gelen">Yalnız alış (gelen faturalar)</option><option value="giden">Yalnız satış (giden faturalar)</option><option value="hepsi">Alış ve satış birlikte</option></select><small>Otomatik seçim, defterdeki fatura numaralarının hangi yönle örtüştüğüne bakar.</small></label>
+<label class="alan"><span class="et">Kendi VKN/TCKN'niz</span><input id="vkn" type="text" inputmode="numeric" maxlength="11" placeholder="Boş bırakın: otomatik bulunur"><small>Faturaların çoğunda geçen numara sizin kabul edilir.</small></label>
+<label class="alan"><span class="et">Dönem (isteğe bağlı)</span><input id="donem" type="month"><small>Seçerseniz yalnız o ayın faturaları ve kayıtları eksik sayılır.</small></label>
+<label class="alan"><span class="et">Tutar toleransı</span><select id="tol"><option value="0.01">0,01 TL</option><option value="0.05" selected>0,05 TL (kuruş yuvarlaması)</option><option value="0.5">0,50 TL</option><option value="1">1 TL</option></select><small>Bu farka kadar olan tutar farkları "eşleşti" sayılır.</small></label>
+<label class="alan"><span class="et">Olası eşleşme tarih aralığı</span><select id="pencere"><option value="3">±3 gün</option><option value="7" selected>±7 gün</option><option value="15">±15 gün</option></select><small>Numarası tutmayan ama tutarı ve tarihi uyan kayıtlar "olası eşleşme" olarak önerilir.</small></label>
+</div>
+<div class="ef-durum" id="durum" role="status" aria-live="polite" style="margin-top:12px"></div>
+<p class="uyari sonuc-hata" id="hata" hidden role="alert"></p>
+</div>
+<div id="sonuc" hidden aria-live="polite"></div>
+</div>
+</section>
+
+<section class="bolum">
+<span class="et">Nasıl eşleştirir</span>
+<h2>Eşleştirme sırası</h2>
+<div class="tablo-kay" tabindex="0"><table>
+<thead><tr><th>Adım</th><th>Kural</th><th>Sonuç etiketi</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Defterde ETTN sütunu varsa fatura ETTN'si ile birebir eşleşme.</td><td>Eşleşti</td></tr>
+<tr><td>2</td><td>Aynı fatura numarası (boşluk, tire, küçük-büyük harf ve baştaki sıfırlar yok sayılır) ve aynı karşı taraf VKN'si.</td><td>Eşleşti</td></tr>
+<tr><td>3</td><td>Aynı fatura numarası ama defterdeki VKN faturadakiyle uyuşmuyor.</td><td>VKN farklı</td></tr>
+<tr><td>4</td><td>Eşleşen kaydın tutarları fatura ile karşılaştırılır: toplam (KDV dahil / ödenecek / tevkifat düşülmüş / KDV hariç), matrah ve KDV. KDV oranına bölünmüş satırlar toplanır; birebir kopya satırlar mükerrer sayılır.</td><td>Tutar farkı / Mükerrer</td></tr>
+<tr><td>5</td><td>Defter tarihi faturadan farklı bir aydaysa bilgi olarak işaretlenir.</td><td>Dönem kayması</td></tr>
+<tr><td>6</td><td>Numarası tutmayanlar arasında tutarı aynı, tarihi seçtiğiniz aralıkta olan fatura–kayıt çiftleri.</td><td>Olası eşleşme (düşük güven)</td></tr>
+<tr><td>7</td><td>Geriye kalanlar: faturası deftere işlenmemiş olanlar ve faturası yüklenmemiş kayıtlar.</td><td>Defterde yok / Faturada yok</td></tr>
+</tbody></table></div>
+<p class="kucuk">Her çalıştırmada fatura sayısı ve KDV dahil toplam tutar (kuruş düzeyinde) sonuç kategorileriyle karşılaştırılır; tutmazsa araç sizi uyarır. Bu araç <b>mevzuat kuralı uygulamaz</b>: bir faturanın hangi dönemde indirim konusu yapılabileceği, kayıt düzeltmesinin nasıl yapılacağı gibi kararlar mali müşavire aittir. Ödeme, tahsilat ya da fiş satırları (belge numarası olmayanlar) otomatik atlanır ve "Atlanan satırlar" sayfasında listelenir. Gerçek muhasebe programı dışa aktarımlarının sütun adları farklı olabilir; araç sütunları otomatik tanır, yanlışsa elle düzeltebilirsiniz.</p>
+<p class="kucuk">Benzer çözümler genelde faturaları sunucuya yükletir ya da yalnız XML'i Excel'e döker (ör. <a href="https://faturazip.com/xml-fatura-excel" rel="noopener">FaturaZip</a>, <a href="https://aivergi.com/projects/ind-kdv" rel="noopener">AI Vergi Fatura Çözümleyici</a>); defter karşılaştırmasını ise çoğu zaman Excel'de düşeyara ile elle yaparsınız. Bu araç ücretsizdir ve dosyalarınız cihazınızdan çıkmaz. XML'in şemasını ya da hatalarını denetlemek için <a href="../e-fatura-denetim/">e-Fatura XML denetim</a> aracına bakın.</p>
+</section>
+
+<section class="cta">
+<span class="et">Muhasebe ofisi ya da çok mükellefiniz mi var</span>
+<h2>Aylık kontrolü otomatikleştirelim</h2>
+<p>Bu araç tek dosya çifti içindir. Mükelleflerden belgeleri WhatsApp ya da e-posta ile toplama, her ay otomatik karşılaştırma ve eksik fatura listesini ilgili kişiye gönderme akışını kurmak istiyorsanız konuşalım.</p>
+<div class="sira"><a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20Fatura%20Defter%20Kontrol%20arac%C4%B1ndan%20geliyorum.%20Ayl%C4%B1k%20kontrol%20otomasyonunu%20konu%C5%9Fmak%20istiyorum.">WhatsApp ile yazın</a><a class="btn iki" href="https://dijitabela.com/">dijitabela.com</a></div>
+</section>
+<p class="yasal">Bilgi amaçlıdır; resmi işlem, mali müşavirlik veya hukuki danışmanlık yerine geçmez. Kesin değerlendirme için mali müşavirinize başvurun.</p>
+</div></main>
+<footer class="alt"><div class="w">Dijitabela · Antalya · <a href="https://dijitabela.com/">dijitabela.com</a> · <a href="../gizlilik/">Gizlilik</a> · <a href="../destek/">Destek</a> · <a href="tel:+905019452184">0501 945 21 84</a></div></footer>
+<script src="../ortak/lib/zip.js"></script>
+<script src="../ortak/lib/xlsx.js"></script>
+<script src="../ortak/lib/ubl-xml.js"></script>
+<script src="../ortak/lib/ubl-fatura.js"></script>
+<script src="../ortak/lib/tablo-okuyucu.js"></script>
+<script src="js/fdk.js"></script>
+<script src="js/ornek.js"></script>
+<script src="js/ui.js"></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>
