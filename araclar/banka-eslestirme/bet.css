@@ -1,0 +1,31 @@
+.fd-adim{display:grid;gap:18px;margin-top:18px;grid-template-columns:minmax(0,1fr)}
+.fd-adim>*{min-width:0}
+.fd-iki{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.fd-yukle{border:3px dashed var(--mur);background:#fff;padding:22px 16px;text-align:center;display:grid;gap:10px;justify-items:center}
+.fd-yukle.ustte{background:#FFF4D6;border-color:var(--amber-yazi)}
+.fd-yukle input[type=file]{max-width:100%}
+.fd-dosya{font-weight:700;overflow-wrap:anywhere}
+.fd-kolonlar{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:8px}
+.fd-ayar{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px}
+.fd-kutular{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}
+.fd-kutu{background:#fff;border:2px solid var(--mur);padding:12px;display:grid;gap:2px;align-content:start}
+.fd-kutu b{font:900 26px/1.1 Archivo,Impact,sans-serif;font-stretch:62%;overflow-wrap:anywhere}
+.fd-kutu span{font-size:13px;color:var(--soluk)}
+.fd-kutu.iyi b{color:var(--iyi)}.fd-kutu.kotu b{color:var(--kotu)}.fd-kutu.uy b{color:var(--amber-yazi)}
+.fd-filtre{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.fd-f[aria-pressed=true]{background:var(--mur);color:var(--gun)}
+tr.fd-yalniz td:first-child{color:var(--kotu);font-weight:700}
+tr.fd-fark td:first-child{color:var(--amber-yazi);font-weight:700}
+.fd-adim td:nth-child(11){white-space:normal;min-width:240px;max-width:420px;vertical-align:top}
+textarea{width:100%;font:400 15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;border:2px solid var(--mur);padding:10px;background:#fff;color:var(--mur);border-radius:0;resize:vertical}
+.ef-durum,.fd-durum{min-height:24px;font-weight:700;color:var(--soluk)}
+@media(max-width:720px){.fd-iki,.fd-ayar,.fd-kolonlar{grid-template-columns:1fr}.fd-kutular{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fd-yukle-cok{display:grid;gap:10px;justify-items:center}
+.fd-risk{border:3px solid var(--mur);background:#FFF4D6;padding:12px 16px;margin:12px 0;display:grid;gap:4px}
+.fd-risk b{font-weight:900}
+.fd-adim td:nth-child(n+8){white-space:normal}
+.fd-tablo td.ip{white-space:normal;min-width:220px;max-width:380px;vertical-align:top}
+@media(max-width:720px){.fd-kutular{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.alan input[type=checkbox]{width:24px;height:24px;min-width:24px;padding:0;margin:0 10px 0 0;display:inline-block;vertical-align:middle;accent-color:#0E0F12}
+.fd-onay{display:flex;align-items:center;min-height:48px;font-weight:600}
+.fd-adim .fd-ayar{max-width:900px}

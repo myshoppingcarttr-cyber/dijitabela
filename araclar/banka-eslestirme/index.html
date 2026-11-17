@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Banka Hareketi ↔ Fatura Eşleştirme · Tahsilat ve Ödeme Kontrolü · Dijitabela Araçlar</title>
+<meta name="description" content="Banka ekstrenizi (Excel/CSV) e-Fatura XML ya da fatura listenizle eşleştirin: hangi havale hangi faturayı kapattı, kısmi ve toplu ödemeler, eşleşmeyen hareketler, ödenmemiş faturalar. Dosyalar cihazınızdan çıkmaz.">
+<link rel="canonical" href="https://dijitabela.com/araclar/banka-eslestirme/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Banka Hareketi ↔ Fatura Eşleştirme · Dijitabela Araçlar">
+<meta property="og:description" content="Banka hareketlerini faturalarla eşleştirin; ödenmemiş faturaları ve eşleşmeyen hareketleri görün. Dosyalar cihazınızdan çıkmaz.">
+<meta property="og:url" content="https://dijitabela.com/araclar/banka-eslestirme/">
+<meta name="theme-color" content="#0E0F12">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../ortak/arac.css">
+<link rel="stylesheet" href="bet.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Banka Hareketi ↔ Fatura Eşleştirme", "url": "https://dijitabela.com/araclar/banka-eslestirme/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "tr", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Dijitabela", "url": "https://dijitabela.com/"}}</script>
+</head>
+<body>
+<header class="ust"><div class="w">
+<nav aria-label="Üst menü"><a href="https://dijitabela.com/">DİJİTABELA</a><a href="../">Tüm araçlar</a></nav>
+<span class="et">Ücretsiz araç · mali müşavir · muhasebe · işletme sahibi</span>
+<h1>Banka hareketi ↔ fatura eşleştirme</h1>
+<p>Banka ekstrenizi (Excel/CSV) ve faturalarınızı (e-Fatura XML ya da Excel listesi) yükleyin. Hangi havalenin hangi faturayı kapattığını, kısmi ve toplu ödemeleri, tutarı tutmayanları, eşleşmeyen hareketleri ve hâlâ ödenmemiş faturaları tek tabloda görün; Excel dökümü ve ödeme hatırlatma metni hazır çıksın.</p>
+</div></header>
+<main><div class="w">
+<section class="bolum" id="arac" aria-label="Banka hareketi fatura eşleştirme">
+<noscript><p class="uyari">Bu araç için JavaScript gerekir.</p></noscript>
+<p class="uyari"><b>Gizlilik:</b> Yüklediğiniz ekstre, XML ve Excel dosyaları tarayıcınızda işlenir; sunucuya gönderilmez, saklanmaz. Sayfayı kapatınca hepsi silinir.</p>
+<div class="fd-adim">
+<div>
+<span class="et">1 · Dosyalar</span>
+<div class="fd-iki" style="margin-top:10px">
+<div>
+<div class="fd-yukle" id="yukle-b"><p><b>Banka ekstresi</b><br><small class="kucuk">İnternet şubesinden indirdiğiniz hesap hareketleri (.xlsx ya da .csv)</small></p><input id="dosya-b" type="file" accept=".xlsx,.xlsm,.csv,.txt" aria-label="Banka ekstresi dosyası"></div>
+<div id="kart-b" aria-live="polite"></div>
+</div>
+<div>
+<div class="fd-yukle" id="yukle-f"><p><b>Faturalar</b><br><small class="kucuk">e-Fatura/e-Arşiv XML dosyaları ya da .zip; ya da Excel/CSV fatura (cari) listesi</small></p><input id="dosya-f" type="file" multiple accept=".xml,.zip,.xlsx,.xlsm,.csv,.txt" aria-label="Fatura dosyaları"></div>
+<div id="kart-f" aria-live="polite"></div>
+</div>
+</div>
+<div class="arac-eylem"><button class="btn iki" type="button" id="b-ornek">ÖRNEK dosyalarla dene</button><button class="btn iki" type="button" id="b-ornek-x">ÖRNEK fatura ZIP'i indir</button><button class="btn iki" type="button" id="b-ornek-b">ÖRNEK ekstreyi indir</button></div>
+<p class="kucuk">Örnek dosyalar kurgusaldır; gerçek kişi, kurum, banka ya da fatura değildir. Para girişleri satış faturalarıyla, çıkışlar alış faturalarıyla eşleştirilir. PDF ekstre okunmaz; eski .xls dosyasını Excel'de .xlsx olarak kaydedin.</p>
+</div>
+<div>
+<span class="et">2 · Ayarlar (çoğunlukla değiştirmeniz gerekmez)</span>
+<div class="fd-ayar" style="margin-top:10px">
+<label class="alan"><span class="et">Faturalar neyi gösteriyor?</span><select id="yon"><option value="otomatik" selected>Otomatik (önerilir)</option><option value="satis">Satış faturaları (tahsilat bekleyen)</option><option value="alis">Alış faturaları (ödenecek)</option></select><small>Otomatik: XML'de kendi VKN'nizden yön bulunur; Excel listesi satış sayılır. Satış faturaları para girişiyle, alış faturaları para çıkışıyla eşleşir.</small></label>
+<label class="alan"><span class="et">Kendi VKN/TCKN'niz</span><input id="vkn" type="text" inputmode="numeric" maxlength="11" placeholder="Boş bırakın: otomatik bulunur"><small>Yalnız XML yüklerken faturanın yönünü belirler.</small></label>
+<label class="alan"><span class="et">Tutar toleransı</span><select id="tol"><option value="0.01">0,01 TL</option><option value="0.05" selected>0,05 TL (kuruş yuvarlaması)</option><option value="0.5">0,50 TL</option><option value="1">1 TL</option></select><small>Bu farka kadar olan tutar farkları "tuttu" sayılır.</small></label>
+<label class="alan"><span class="et">Faturadan önce gelen ödeme (avans)</span><select id="avans"><option value="0">İzin verme</option><option value="7">En çok 7 gün önce</option><option value="30" selected>En çok 30 gün önce</option><option value="90">En çok 90 gün önce</option></select><small>Fatura tarihinden önce yapılan ödemeler bu süreye kadar eşleştirilir.</small></label>
+<label class="alan"><span class="et">Borç/Alacak yönü</span><span class="fd-onay"><input id="ters" type="checkbox" aria-label="Borç/Alacak yönünü ters çevir"> Ters çevir</span><small>Ekstrede ayrı Borç ve Alacak sütunu varsa varsayılan: Alacak = para girişi, Borç = para çıkışı. Bankanız tersini kullanıyorsa işaretleyin.</small></label>
+</div>
+<div class="ef-durum" id="durum" role="status" aria-live="polite" style="margin-top:12px"></div>
+<p class="uyari sonuc-hata" id="hata" hidden role="alert"></p>
+</div>
+<div id="sonuc" hidden aria-live="polite"></div>
+</div>
+</section>
+
+<section class="bolum">
+<span class="et">Nasıl eşleştirir</span>
+<h2>Eşleştirme sırası ve güven düzeyi</h2>
+<div class="tablo-kay" tabindex="0"><table>
+<thead><tr><th>Geçiş</th><th>Kural</th><th>Güven</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Açıklamada fatura numarası geçiyor (tam numara ya da e-Fatura sıra numarası). Birden çok numara varsa toplu ödeme olarak toplanır; tutar az, fazla ya da küçük farklıysa ayrı etiketlenir.</td><td>Yüksek / Orta</td></tr>
+<tr><td>2</td><td>Açıklamada ya da gönderen alanında VKN veya (kısaltılmış) unvan geçiyor: cari belli olur. Carinin açık faturaları içinde tutarı tutan tek fatura ya da en çok 6 faturalık bir birleşim aranır; yoksa en eskiden başlayan mahsup ÖNERİSİ yapılır.</td><td>Orta / Düşük</td></tr>
+<tr><td>3</td><td>Cari de yok: tutar tek bir açık faturayla birebir aynıysa "yalnız tutar" eşleşmesi önerilir. Aynı tutarda birden çok fatura ya da hareket varsa hiçbirine atanmaz, aday olarak listelenir.</td><td>Düşük / Aday</td></tr>
+<tr><td>4</td><td>Geriye kalan hareketlere anahtar kelimeyle kategori önerilir (banka masrafı, vergi/SGK, kredi/faiz, POS tahsilatı, maaş vb.). Bu bir öneridir, muhasebe kararı değildir.</td><td>Öneri</td></tr>
+</tbody></table></div>
+<p class="kucuk">Her çalıştırmada hareket sayısı ve net tutar, sonuç gruplarının toplamıyla; fatura toplamı ise ödenen ve kalan tutarın toplamıyla kuruşu kuruşuna karşılaştırılır; tutmazsa araç sizi uyarır. Ekstrede bakiye sütunu varsa bakiye zinciri denetlenir (eksik satır, sıra bozukluğu) ve aynı ekstrenin iki kez yüklenmesi yakalanır. Bu araç <b>mevzuat kuralı uygulamaz</b>: eşleşme ve kategori önerileri muhasebe kaydı, mahsup ya da stopaj/tevkifat değerlendirmesi değildir; kararlar mali müşavire aittir. İade faturaları ve kuru olmayan dövizli faturalar eşleştirmeye alınmaz, ayrıca sayılır.</p>
+<p class="kucuk">Benzer işi yapan çözümler genelde bir muhasebe programının ya da ücretli bir hizmetin içindedir (ör. <a href="https://okzencari.com/yardim/banka-ekstresi.html" rel="noopener">OKZEN CARİ</a>, <a href="https://parsekpro.com/en/modul/banka-ve-cari-mutabakat" rel="noopener">Parsek Banka ve Cari Mutabakat</a>, <a href="https://ifinances.co/continuous-reconciliation" rel="noopener">iFinances</a>); çoğu zaman ise ekstre Excel'de müşteri listesinin yanına konup gözle ve düşeyara ile eşleştirilir. Bu araç ücretsizdir, üyelik istemez ve dosyalarınızı sunucuya göndermez. Kapsamlı bir pazar taraması değildir; kullandığınız programın kendi banka eşleştirmesi varsa onu da karşılaştırın.</p>
+</section>
+
+<section class="cta">
+<span class="et">Her ay yüzlerce hareketiniz mi var</span>
+<h2>Tahsilat takibini otomatikleştirelim</h2>
+<p>Bu araç tek dosya çifti içindir. Banka dosyalarını ve faturaları her ay otomatik toplayıp eşleştiren, ödenmemiş faturalar için müşteriye WhatsApp'tan hatırlatma hazırlayan ve sonucu muhasebe programınıza aktarılabilir dosya olarak veren bir akış kurmak istiyorsanız konuşalım.</p>
+<div class="sira"><a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20Banka%20Fatura%20E%C5%9Fle%C5%9Ftirme%20arac%C4%B1ndan%20geliyorum.%20Tahsilat%20takibi%20otomasyonunu%20konu%C5%9Fmak%20istiyorum.">WhatsApp ile yazın</a><a class="btn iki" href="https://dijitabela.com/">dijitabela.com</a></div>
+</section>
+<p class="yasal">Bilgi amaçlıdır; resmi işlem, muhasebe kaydı, mali müşavirlik veya hukuki danışmanlık yerine geçmez. Kesin değerlendirme için mali müşavirinize başvurun.</p>
+</div></main>
+<footer class="alt"><div class="w">Dijitabela · Antalya · <a href="https://dijitabela.com/">dijitabela.com</a> · <a href="../gizlilik/">Gizlilik</a> · <a href="../destek/">Destek</a> · <a href="tel:+905019452184">0501 945 21 84</a></div></footer>
+<script src="../ortak/lib/zip.js"></script>
+<script src="../ortak/lib/xlsx.js"></script>
+<script src="../ortak/lib/ubl-xml.js"></script>
+<script src="../ortak/lib/ubl-fatura.js"></script>
+<script src="../ortak/lib/tablo-okuyucu.js"></script>
+<script src="js/fdk.js"></script>
+<script src="js/bet.js"></script>
+<script src="js/cikti.js"></script>
+<script src="js/ornek.js"></script>
+<script src="js/ui.js"></script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body>
+</html>
