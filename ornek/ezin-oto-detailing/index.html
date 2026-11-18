@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ezin Oto Detailing Ekspertiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --bg:#F4F3EF; --card:#FFFFFF; --ink:#16181D; --mute:#5F646D; --line:#E3E0D8;
+    --led:#C98A00; --led-soft:#FFF3D6; --ok:#17a55a; --ok-soft:#E7F7EE; --warn:#C7362B; --warn-soft:#FBEAE8;
+    --disp:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0F1116; --card:#171A20; --ink:#F4F3EF; --mute:#9096A0; --line:#262A31;
+    --led:#FFB000; --led-soft:#2A2310; --ok:#2ecc71; --ok-soft:#10251A; --warn:#E0552F; --warn-soft:#2A1512; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0F1116; --card:#171A20; --ink:#F4F3EF; --mute:#9096A0; --line:#262A31;
+    --led:#FFB000; --led-soft:#2A2310; --ok:#2ecc71; --ok-soft:#10251A; --warn:#E0552F; --warn-soft:#2A1512; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);line-height:1.5;
+    padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .wrap{max-width:760px;margin:0 auto;padding-block:28px}
+  h1,h2,h3{text-wrap:balance;letter-spacing:-.02em;margin:0}
+  p{margin:0}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--led)}
+  header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}
+  .brand{font-weight:800;font-size:20px;letter-spacing:.02em;color:var(--led)}
+  header h1{font-size:clamp(23px,5.5vw,30px);font-weight:800;margin:10px 0 6px}
+  .meta{color:var(--mute);font-size:14px}.meta b{color:var(--ink)}
+  section{margin:24px 0}
+  h2{font-size:clamp(18px,4.4vw,22px);font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;flex:0 0 auto;border-radius:8px;background:var(--led-soft);color:var(--led);font-size:14px;font-weight:800;font-family:var(--mono)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+
+  /* skor + özet */
+  .top{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .gauge{position:relative;flex:0 0 auto}
+  .gauge svg{display:block}
+  .gauge .n{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .gauge .n b{font-size:34px;font-weight:800;line-height:1;color:var(--led)}
+  .gauge .n s{font-family:var(--mono);font-size:11px;color:var(--mute);text-decoration:none}
+  .top .sum{flex:1 1 240px;min-width:220px}
+  .top .sum p{color:var(--mute);font-size:14.5px;margin-top:6px}
+
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+  @media (max-width:520px){.facts{grid-template-columns:1fr}}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center}
+  .fact .ic{flex:0 0 auto}
+  .fact .k{font-size:12.5px;color:var(--mute)}.fact .v{font-weight:700;font-size:15px}
+
+  .item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .item:last-child{border-bottom:0}
+  .dot{flex:0 0 auto;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
+  .dot.bad{background:var(--warn-soft);color:var(--warn)} .dot.ok{background:var(--ok-soft);color:var(--ok)}
+  .item .h{font-weight:700} .item .d{color:var(--mute);font-size:14px;margin-top:2px}
+
+  .price{background:var(--card);border:2px solid var(--led);border-radius:16px;padding:20px}
+  .price h3{font-size:18px;font-weight:800}
+  .pkg{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+  .pkg:last-of-type{border-bottom:0}
+  .pkg .n{font-weight:700}.pkg .sub{color:var(--mute);font-size:13px}
+  .pkg .amt{font-weight:800;font-size:19px;color:var(--led);white-space:nowrap;font-family:var(--mono)}
+  .note{color:var(--mute);font-size:13px;margin-top:10px}
+  ul.inc{margin:8px 0 0;padding-left:18px;color:var(--mute);font-size:14px;display:flex;flex-direction:column;gap:4px}
+  ul.inc b{color:var(--ink)}
+  footer{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--mute);font-size:14px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+  footer .brand{font-size:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">DİJİTABELA</div>
+    <div class="eyebrow" style="margin-top:12px">Ücretsiz Dijital Ekspertiz</div>
+    <h1>Ezin Oto Detailing — Dijital Görünürlük Raporu</h1>
+    <p class="meta">Kepez / Antalya · Self Servis Oto Yıkama & Detailing · Tarih: <b>18.11.2026</b> · Hazırlayan: <b>Dijitabela</b></p>
+  </header>
+
+  <section>
+    <div class="card top">
+      <div class="gauge">
+        <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
+          <circle cx="75" cy="75" r="64" fill="none" stroke="var(--line)" stroke-width="12"/>
+          <circle cx="75" cy="75" r="64" fill="none" stroke="var(--led)" stroke-width="12" stroke-linecap="round"
+            stroke-dasharray="402" stroke-dashoffset="169" transform="rotate(-90 75 75)"/>
+        </svg>
+        <div class="n"><b>58</b><s>/ 100</s></div>
+      </div>
+      <div class="sum">
+        <h3>İtibarınız harika, dijital altyapınız eksik.</h3>
+        <p>Google'da <b style="color:var(--ink)">5,0 puan ve 338 yorumla</b> bölgenizin en güçlü işletmelerinden birisiniz. Ama bu güçlü itibarı online'a taşıyacak bir <b style="color:var(--ink)">web siteniz ve randevu/vitrin yapınız yok</b> — yani sizi arayan müşteri sizi internette bulup güven duyacağı bir yere ulaşamıyor. Skorun düşük olmasının tek sebebi bu; düzeltilmesi hızlı ve etkisi yüksek.</p>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="var(--led)"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 16.9 5.8 20.6l1.6-6.7L2.2 8.9l6.9-.6z"/></svg><div><div class="k">Google Puanı</div><div class="v">5,0 ★ · 338 yorum</div></div></div>
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k">Çalışma</div><div class="v">24 saat açık</div></div></div>
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><div><div class="k">Web Sitesi</div><div class="v" style="color:var(--warn)">Yok</div></div></div>
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><div><div class="k">Online Randevu</div><div class="v" style="color:var(--warn)">Yok</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">1</span> Tespit Edilen Eksikler</h2>
+    <div class="card">
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Web sitesi yok</div><div class="d">Google profiliniz bile "Web sitesi ekleyin" uyarısı gösteriyor. 338 memnun müşteriniz var ama sizi internette araştıran yeni müşteri, güven verecek profesyonel bir sayfa bulamıyor; çoğu, sitesi olan rakibe yöneliyor.</div></div></div>
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Online randevu / rezervasyon yok</div><div class="d">24 saat açıksınız ama müşteri yalnız telefonla ulaşabiliyor. Online randevu/paket rezervasyonu, iş telefona ve mesaiye bağlı kalmadan gece de dolmasını sağlar.</div></div></div>
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Google profili tam optimize değil</div><div class="d">Hizmet listesi, fiyat/paket bilgisi, düzenli gönderi, bol ve etiketli fotoğraf, web sitesi bağlantısı eksik. Bunlar yerel aramada sıralamayı ve tıklanmayı doğrudan artırır.</div></div></div>
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Sosyal medya dijital vitrin olarak kullanılmıyor</div><div class="d">Detailing işi "öncesi/sonrası" görselle satan bir iş; Instagram'da düzenli, profesyonel içerik ve web sitesine bağlı bir akış, 5,0 itibarınızı yeni müşteriye dönüştürür.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> Çözüm — Ne Yapacağız</h2>
+    <div class="card">
+      <div class="item"><div class="dot ok">✓</div><div><div class="h">Profesyonel web sitesi</div><div class="d">Mobil öncelikli, hızlı, markanıza özel; hizmet/paketler, öncesi-sonrası galeri, konum ve "tek dokunuşla ara/yol tarifi" dahil.</div></div></div>
+      <div class="item"><div class="dot ok">✓</div><div><div class="h">Online randevu + WhatsApp entegrasyonu</div><div class="d">Müşteri siteden ya da WhatsApp'tan randevu/paket seçip ayırtsın; otomatik yanıt ve yönlendirme.</div></div></div>
+      <div class="item"><div class="dot ok">✓</div><div><div class="h">Google İşletme optimizasyonu</div><div class="d">Hizmetler, paketler, fotoğraflar, site bağlantısı, düzenli Google gönderileri; yerel aramada üst sıralar için düzenleme.</div></div></div>
+      <div class="item"><div class="dot ok">✓</div><div><div class="h">Dijital vitrin içeriği</div><div class="d">İlk profesyonel içerik seti + sosyal/Google için öncesi-sonrası şablonları; isterseniz düzenli içerik aboneliği.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> Teklif ve Fiyat</h2>
+    <div class="price">
+      <h3>Dijital Vitrin Paketi</h3>
+      <ul class="inc">
+        <li><b>Profesyonel web sitesi</b> (çok sayfa, mobil, hızlı, öncesi-sonrası galeri)</li>
+        <li><b>Online randevu + WhatsApp</b> entegrasyonu</li>
+        <li><b>Google İşletme optimizasyonu</b> (hizmet, fotoğraf, gönderi, site bağlantısı)</li>
+        <li>İlk içerik seti + kurulum ve yayına alma</li>
+      </ul>
+      <div class="pkg" style="margin-top:14px"><div><div class="n">Kurulum (tek seferlik)</div><div class="sub">%50 kapora ile başlar, teslimde kalan</div></div><div class="amt">6.900 TL</div></div>
+      <div class="pkg"><div><div class="n">Aylık bakım + içerik <span class="sub">(opsiyonel)</span></div><div class="sub">Google gönderileri, güncelleme, teknik bakım, destek</div></div><div class="amt">990 TL/ay</div></div>
+      <div class="pkg"><div><div class="n">Düşük giriş alternatifi</div><div class="sub">Tek sayfalık dijital vitrin + Google optimizasyonu</div></div><div class="amt">3.900 TL</div></div>
+      <p class="note">Fiyatlar KDV hariçtir. Ödeme PayTR üzerinden güvenli alınır. Kapora onayıyla iş 2 iş günü içinde başlar; ilk taslağı sözleşmeyle birlikte paylaşırız.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="brand">DİJİTABELA</span>
+    <span>dijitabela.com</span>
+    <span>0501 945 21 84</span>
+  </footer>
+</div>
+
+</body>
+</html>
