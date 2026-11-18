@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<title>Sürüş Kasası</title>
+<meta name="description" content="Kişisel sürüş takip ve muhasebe: yolculuk, maliyet, kâr, gider.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#16181D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sürüş Kasası">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png" type="image/png">
+<style>
+  :root{
+    --bg:#0F1116; --card:#171A20; --card2:#1E222A; --ink:#F4F3EF; --mute:#9096A0;
+    --line:#262A31; --led:#FFB000; --led-dim:#2A2310; --ok:#2ecc71; --ok-dim:#102A1C;
+    --bad:#E0552F; --bad-dim:#2A1512; --blue:#5B8CFF;
+    --disp:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--disp)}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  input,button,select{font-family:inherit}
+  input[type=number]{-moz-appearance:textfield}
+  input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+  header{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,var(--bg),rgba(15,17,22,.92));
+    backdrop-filter:blur(8px);padding:calc(14px + env(safe-area-inset-top)) 18px 12px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.01em}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--led);box-shadow:0 0 10px var(--led)}
+  .brand small{font-family:var(--mono);font-weight:400;font-size:11px;color:var(--mute);letter-spacing:.14em;text-transform:uppercase}
+
+  main{max-width:620px;margin:0 auto;padding:16px}
+  .tab{display:none}.tab.on{display:block;animation:f .18s ease}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .seg{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:5px;margin-bottom:16px}
+  .seg button{flex:1;border:0;background:transparent;color:var(--mute);font-weight:700;font-size:14px;padding:9px 4px;border-radius:10px;cursor:pointer}
+  .seg button.on{background:var(--led);color:#1a1300}
+
+  .hero{background:linear-gradient(135deg,#1b1f27,#141720);border:1px solid var(--line);border-radius:20px;padding:20px;position:relative;overflow:hidden;margin-bottom:14px}
+  .hero .glow{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,0,.14),transparent 62%);top:-120px;right:-90px}
+  .hero .lab{color:var(--mute);font-size:13px;font-weight:600;letter-spacing:.02em}
+  .hero .big{font-family:var(--mono);font-weight:700;font-size:42px;line-height:1.05;margin-top:6px}
+  .hero .big.pos{color:var(--ok)}.hero .big.neg{color:var(--bad)}
+  .hero .sub{color:var(--mute);font-size:13px;margin-top:8px}
+
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+  .mini{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+  .mini .l{color:var(--mute);font-size:12px;font-weight:600}
+  .mini .v{font-family:var(--mono);font-weight:700;font-size:22px;margin-top:4px}
+  .mini .v.ciro{color:var(--led)} .mini .v.gid{color:var(--bad)}
+
+  .grid4{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .stat .l{color:var(--mute);font-size:11px;font-weight:600}
+  .stat .v{font-family:var(--mono);font-weight:700;font-size:18px;margin-top:3px}
+  .note{color:var(--mute);font-size:12px;line-height:1.5;margin:12px 2px 0}
+  .note b{color:var(--ink)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px}
+  .card h2{font-size:15px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .card h2 .ic{color:var(--led)}
+
+  label{display:block;color:var(--mute);font-size:12px;font-weight:600;margin:0 0 6px 2px}
+  .f{margin-bottom:12px}
+  .in{width:100%;background:var(--card2);border:1px solid var(--line);border-radius:12px;color:var(--ink);
+    font-size:17px;padding:13px 14px;font-family:var(--mono);outline:none;transition:border .15s}
+  .in:focus{border-color:var(--led)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .suffix{position:relative}.suffix .u{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--mute);font-size:13px;font-family:var(--mono)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--card2);color:var(--mute);border-radius:999px;padding:9px 14px;font-size:14px;font-weight:600;cursor:pointer}
+  .chip.on{background:var(--led);color:#1a1300;border-color:var(--led)}
+
+  .btn{width:100%;border:0;border-radius:14px;background:var(--led);color:#1a1300;font-weight:800;font-size:16px;padding:15px;cursor:pointer;margin-top:4px}
+  .btn:active{transform:scale(.99)}
+  .btn.ghost{background:var(--card2);color:var(--ink);border:1px solid var(--line)}
+  .btn.timer{background:var(--card2);color:var(--led);border:1px solid var(--led)}
+  .btn.timer.run{background:var(--bad);color:#fff;border-color:var(--bad)}
+  .btn.sm{font-size:14px;padding:12px}
+
+  .calc{background:var(--led-dim);border:1px solid rgba(255,176,0,.25);border-radius:12px;padding:12px 14px;margin:2px 0 12px;display:flex;justify-content:space-between;font-size:13px}
+  .calc .k{color:var(--mute)} .calc .vv{font-family:var(--mono);font-weight:700}
+  .calc .vv.kar{color:var(--ok)}
+
+  .list{display:flex;flex-direction:column;gap:10px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;display:flex;align-items:center;gap:12px}
+  .item .ib{flex:1;min-width:0}
+  .item .t1{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .item .t2{color:var(--mute);font-size:12px;margin-top:3px;font-family:var(--mono)}
+  .item .amt{font-family:var(--mono);font-weight:700;font-size:16px;text-align:right;white-space:nowrap}
+  .item .amt.pos{color:var(--ok)}.item .amt.neg{color:var(--bad)}.item .amt.led{color:var(--led)}
+  .item .del{background:transparent;border:0;color:var(--mute);font-size:20px;padding:4px 6px;cursor:pointer;line-height:1}
+  .pill{font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--card2);color:var(--mute);font-family:var(--mono)}
+  .empty{color:var(--mute);text-align:center;padding:30px 10px;font-size:14px}
+
+  nav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(20,23,29,.96);backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);display:flex;padding:8px 8px calc(8px + env(safe-area-inset-bottom));max-width:620px;margin:0 auto}
+  nav button{flex:1;background:transparent;border:0;color:var(--mute);font-size:11px;font-weight:700;padding:6px 2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+  nav button .ni{font-size:21px;line-height:1}
+  nav button.on{color:var(--led)}
+
+  .toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);
+    background:var(--ok);color:#06240f;font-weight:800;font-size:14px;padding:12px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast.warn{background:var(--bad);color:#fff}
+
+  .addbanner{background:var(--card);border:1px dashed var(--led);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:13px;color:var(--mute);display:flex;gap:10px;align-items:center}
+  .addbanner b{color:var(--ink)} .addbanner .x{margin-left:auto;background:0;border:0;color:var(--mute);font-size:18px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="dot"></span>Sürüş Kasası <small id="todayLbl"></small></div>
+</header>
+
+<main>
+  <!-- ÖZET -->
+  <section class="tab on" id="t-ozet">
+    <div class="seg" id="periodSeg">
+      <button data-p="gun" class="on">Bugün</button>
+      <button data-p="hafta">Bu Hafta</button>
+      <button data-p="ay">Bu Ay</button>
+      <button data-p="tum">Tümü</button>
+    </div>
+    <div class="hero">
+      <div class="glow"></div>
+      <div class="lab">Net Kâr <span style="opacity:.7">(Ciro − Giderler)</span></div>
+      <div class="big" id="oNet">₺0</div>
+      <div class="sub" id="oNetSub">—</div>
+    </div>
+    <div class="row2">
+      <div class="mini"><div class="l">Ciro</div><div class="v ciro" id="oCiro">₺0</div></div>
+      <div class="mini"><div class="l">Giderler</div><div class="v gid" id="oGider">₺0</div></div>
+    </div>
+    <div class="grid4">
+      <div class="stat"><div class="l">Yolculuk</div><div class="v" id="oAdet">0</div></div>
+      <div class="stat"><div class="l">Toplam KM</div><div class="v" id="oKm">0</div></div>
+      <div class="stat"><div class="l">Toplam Süre</div><div class="v" id="oSure">0 dk</div></div>
+      <div class="stat"><div class="l">Tahmini Yakıt</div><div class="v" id="oYakit">₺0</div></div>
+    </div>
+    <div class="grid4" style="grid-template-columns:1fr 1fr">
+      <div class="stat"><div class="l">Yolculuk Kârı*</div><div class="v" id="oYkar">₺0</div></div>
+      <div class="stat"><div class="l">Saatlik Kazanç</div><div class="v" id="oSaat">₺0</div></div>
+    </div>
+    <div class="note">* <b>Yolculuk Kârı</b> = Ciro − km bazlı <b>tahmini</b> yakıt (yol planı için). <b>Net Kâr</b> ise Ciro − gerçek <b>Giderler</b> (akaryakıt alımların orada). Ayarlardan tüketim ve yakıt fiyatını güncel tut.</div>
+  </section>
+
+  <!-- YOLCULUK -->
+  <section class="tab" id="t-yol">
+    <div class="card">
+      <h2><span class="ic">🚗</span> Yeni Yolculuk</h2>
+      <div class="two">
+        <div class="f"><label>Başlangıç KM</label><input class="in" id="yKm0" inputmode="decimal" placeholder="0"></div>
+        <div class="f"><label>Bitiş KM</label><input class="in" id="yKm1" inputmode="decimal" placeholder="0"></div>
+      </div>
+      <div class="two">
+        <div class="f"><label>Süre (dakika)</label><input class="in" id="ySure" inputmode="numeric" placeholder="0"></div>
+        <div class="f"><label>Ücret (müşteriden)</label><div class="suffix"><input class="in" id="yUcret" inputmode="decimal" placeholder="0"><span class="u">₺</span></div></div>
+      </div>
+      <button class="btn timer" id="timerBtn" type="button">⏱ Süreyi başlat</button>
+      <div class="calc"><span class="k">Mesafe · Tahmini yakıt</span><span class="vv" id="yCalc">—</span></div>
+      <div class="calc"><span class="k">Tahmini kâr</span><span class="vv kar" id="yKar">—</span></div>
+      <button class="btn" id="ySave">Yolculuğu Kaydet</button>
+    </div>
+    <div class="list" id="yList"></div>
+  </section>
+
+  <!-- GİDER -->
+  <section class="tab" id="t-gider">
+    <div class="card">
+      <h2><span class="ic">🧾</span> Yeni Gider</h2>
+      <div class="f"><label>Kategori</label>
+        <div class="chips" id="gChips">
+          <span class="chip on" data-k="Akaryakıt">⛽ Akaryakıt</span>
+          <span class="chip" data-k="Kahve">☕ Kahve</span>
+          <span class="chip" data-k="Sigara">🚬 Sigara</span>
+          <span class="chip" data-k="Yemek">🍽️ Yemek</span>
+          <span class="chip" data-k="Bakım">🔧 Bakım</span>
+          <span class="chip" data-k="Yıkama">🫧 Yıkama</span>
+          <span class="chip" data-k="Diğer">➕ Diğer</span>
+        </div>
+      </div>
+      <div class="two">
+        <div class="f"><label>Tutar</label><div class="suffix"><input class="in" id="gTutar" inputmode="decimal" placeholder="0"><span class="u">₺</span></div></div>
+        <div class="f"><label>Not (ops.)</label><input class="in" id="gNot" style="font-family:var(--disp)" placeholder="örn. 20 lt"></div>
+      </div>
+      <button class="btn" id="gSave">Gideri Kaydet</button>
+    </div>
+    <div class="list" id="gList"></div>
+  </section>
+
+  <!-- AYARLAR -->
+  <section class="tab" id="t-ayar">
+    <div class="card">
+      <h2><span class="ic">⚙️</span> Araç & Yakıt</h2>
+      <div class="two">
+        <div class="f"><label>Ort. tüketim</label><div class="suffix"><input class="in" id="sTuk" inputmode="decimal"><span class="u">L/100km</span></div></div>
+        <div class="f"><label>Yakıt fiyatı</label><div class="suffix"><input class="in" id="sYak" inputmode="decimal"><span class="u">₺/L</span></div></div>
+      </div>
+      <div class="f"><label>Günlük kâr hedefi (ops.)</label><div class="suffix"><input class="in" id="sHedef" inputmode="decimal"><span class="u">₺</span></div></div>
+      <button class="btn sm" id="sSave">Kaydet</button>
+    </div>
+    <div class="card">
+      <h2><span class="ic">💾</span> Yedek</h2>
+      <p class="note" style="margin:0 0 12px">Verilerin yalnızca bu telefonda saklanır. Telefonu temizlemeden önce yedek al.</p>
+      <button class="btn ghost sm" id="bExport">Yedek İndir (.json)</button>
+      <div style="height:8px"></div>
+      <button class="btn ghost sm" id="bImport">Yedekten Yükle</button>
+      <input type="file" id="fileIn" accept="application/json" style="display:none">
+      <div style="height:8px"></div>
+      <button class="btn ghost sm" id="bWipe" style="color:var(--bad);border-color:var(--bad)">Tüm Verileri Sil</button>
+    </div>
+    <div class="card">
+      <h2><span class="ic">📲</span> Ana Ekrana Ekle</h2>
+      <p class="note" style="margin:0">iPhone: Safari'de <b>Paylaş → Ana Ekrana Ekle</b>. Android: Chrome menü <b>⋮ → Ana ekrana ekle</b>. Böylece ikon gibi açılır, internet olmadan da çalışır.</p>
+    </div>
+    <div class="note" style="text-align:center;margin-top:4px">Sürüş Kasası · Dijitabela</div>
+  </section>
+</main>
+
+<nav id="nav">
+  <button data-t="ozet" class="on"><span class="ni">📊</span>Özet</button>
+  <button data-t="yol"><span class="ni">🚗</span>Yolculuk</button>
+  <button data-t="gider"><span class="ni">🧾</span>Gider</button>
+  <button data-t="ayar"><span class="ni">⚙️</span>Ayarlar</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const K={trips:"sk_trips",exp:"sk_exp",set:"sk_set"};
+function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){toast("Kaydedilemedi (depolama)",1)}}
+let trips=load(K.trips,[]), exps=load(K.exp,[]), S=Object.assign({tuk:8.5,yak:44,hedef:0},load(K.set,{}));
+let period="gun";
+
+const TL=n=>"₺"+Math.round(n).toLocaleString("tr-TR");
+const TL1=n=>"₺"+(Math.round(n*10)/10).toLocaleString("tr-TR",{minimumFractionDigits:0});
+const num=v=>{v=parseFloat(String(v).replace(",","."));return isFinite(v)?v:0};
+function toast(m,warn){const t=$("#toast");t.textContent=m;t.className="toast show"+(warn?" warn":"");clearTimeout(t._);t._=setTimeout(()=>t.className="toast",1800)}
+
+// ---- date helpers ----
+function startOf(p){const d=new Date();d.setHours(0,0,0,0);
+  if(p==="gun")return d.getTime();
+  if(p==="hafta"){const w=(d.getDay()+6)%7;d.setDate(d.getDate()-w);return d.getTime()}
+  if(p==="ay"){d.setDate(1);return d.getTime()}
+  return 0}
+const inPeriod=ts=>ts>=startOf(period);
+function fmtDate(ts){const d=new Date(ts);const g=["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"][d.getDay()];
+  return g+" "+d.toLocaleDateString("tr-TR",{day:"2-digit",month:"2-digit"})+" "+d.toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"})}
+
+function fuelCost(mesafe){return mesafe*(S.tuk/100)*S.yak}
+
+// ---- ÖZET ----
+function renderOzet(){
+  const T=trips.filter(t=>inPeriod(t.ts)), E=exps.filter(e=>inPeriod(e.ts));
+  const ciro=T.reduce((a,t)=>a+t.ucret,0);
+  const gider=E.reduce((a,e)=>a+e.tutar,0);
+  const km=T.reduce((a,t)=>a+t.mesafe,0);
+  const dk=T.reduce((a,t)=>a+t.dakika,0);
+  const yakit=T.reduce((a,t)=>a+fuelCost(t.mesafe),0);
+  const net=ciro-gider, ykar=ciro-yakit;
+  const el=$("#oNet");el.textContent=TL(net);el.className="big "+(net>=0?"pos":"neg");
+  let sub="";
+  if(S.hedef>0 && period==="gun"){const k=Math.max(0,S.hedef-net);sub=net>=S.hedef?("🎯 Günlük hedef tamam (+"+TL(net-S.hedef).slice(1)+")"):("Hedefe "+TL(k)+" kaldı");}
+  else sub=T.length+" yolculuk · "+E.length+" gider";
+  $("#oNetSub").textContent=sub;
+  $("#oCiro").textContent=TL(ciro);
+  $("#oGider").textContent=TL(gider);
+  $("#oAdet").textContent=T.length;
+  $("#oKm").textContent=(Math.round(km*10)/10).toLocaleString("tr-TR")+" km";
+  $("#oSure").textContent=dk>=60?(Math.floor(dk/60)+"s "+(dk%60)+"dk"):(dk+" dk");
+  $("#oYakit").textContent=TL(yakit);
+  $("#oYkar").textContent=TL(ykar);
+  $("#oSaat").textContent=dk>0?TL(net/(dk/60)):"₺0";
+}
+
+// ---- YOLCULUK ----
+function yCalc(){
+  const m=Math.max(0,num($("#yKm1").value)-num($("#yKm0").value));
+  const u=num($("#yUcret").value), fc=fuelCost(m);
+  $("#yCalc").textContent=(Math.round(m*10)/10)+" km · "+TL1(fc);
+  const kar=u-fc; const e=$("#yKar"); e.textContent=u?TL1(kar):"—";
+  e.className="vv kar"; e.style.color=kar>=0?"var(--ok)":"var(--bad)";
+}
+function renderYol(){
+  const l=$("#yList");
+  if(!trips.length){l.innerHTML='<div class="empty">Henüz yolculuk yok. İlkini ekle 🚗</div>';return}
+  l.innerHTML=trips.slice().sort((a,b)=>b.ts-a.ts).map(t=>{
+    const fc=fuelCost(t.mesafe),kar=t.ucret-fc;
+    return `<div class="item"><div class="ib">
+      <div class="t1">${TL(t.ucret)} <span class="pill">${(Math.round(t.mesafe*10)/10)} km</span> <span class="pill">${t.dakika} dk</span></div>
+      <div class="t2">${fmtDate(t.ts)} · yakıt ${TL1(fc)}</div></div>
+      <div class="amt ${kar>=0?'pos':'neg'}">${kar>=0?'+':''}${TL1(kar)}</div>
+      <button class="del" data-del-trip="${t.id}">✕</button></div>`
+  }).join("");
+}
+
+// ---- GİDER ----
+let gKat="Akaryakıt";
+function renderGider(){
+  const l=$("#gList");
+  if(!exps.length){l.innerHTML='<div class="empty">Henüz gider yok. 🧾</div>';return}
+  const ik={"Akaryakıt":"⛽","Kahve":"☕","Sigara":"🚬","Yemek":"🍽️","Bakım":"🔧","Yıkama":"🫧","Diğer":"➕"};
+  l.innerHTML=exps.slice().sort((a,b)=>b.ts-a.ts).map(e=>`
+    <div class="item"><div class="ib">
+      <div class="t1">${ik[e.kat]||"•"} ${e.kat}${e.not?' <span class="pill">'+e.not+'</span>':''}</div>
+      <div class="t2">${fmtDate(e.ts)}</div></div>
+      <div class="amt neg">−${TL(e.tutar).slice(1)}</div>
+      <button class="del" data-del-exp="${e.id}">✕</button></div>`).join("");
+}
+
+function renderAll(){renderOzet();renderYol();renderGider();}
+
+// ---- EVENTS ----
+$("#periodSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  period=b.dataset.p;$$("#periodSeg button").forEach(x=>x.classList.toggle("on",x===b));renderOzet();});
+
+$("#nav").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  const t=b.dataset.t;$$("#nav button").forEach(x=>x.classList.toggle("on",x===b));
+  $$(".tab").forEach(x=>x.classList.remove("on"));$("#t-"+t).classList.add("on");
+  window.scrollTo(0,0); if(t==="ozet")renderOzet();});
+
+["#yKm0","#yKm1","#yUcret"].forEach(s=>$(s).addEventListener("input",yCalc));
+
+// timer
+let tStart=0,tInt=0;
+$("#timerBtn").addEventListener("click",()=>{
+  const b=$("#timerBtn");
+  if(!tStart){tStart=Date.now();b.classList.add("run");
+    tInt=setInterval(()=>{const s=Math.floor((Date.now()-tStart)/1000);
+      b.textContent="⏱ Bitir — "+String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");},500);}
+  else{clearInterval(tInt);const dk=Math.max(1,Math.round((Date.now()-tStart)/60000));
+    $("#ySure").value=dk;tStart=0;b.classList.remove("run");b.textContent="⏱ Süreyi başlat";yCalc();}
+});
+
+$("#ySave").addEventListener("click",()=>{
+  const km0=num($("#yKm0").value),km1=num($("#yKm1").value);
+  let mesafe=km1-km0; if(km1===0&&km0>0){mesafe=km0;} // tek alan girilmişse onu mesafe say
+  const ucret=num($("#yUcret").value),dakika=Math.round(num($("#ySure").value));
+  if(mesafe<=0){toast("Mesafe 0 olamaz (km gir)",1);return}
+  if(ucret<=0){toast("Ücret gir",1);return}
+  trips.push({id:Date.now(),ts:Date.now(),km0,km1,mesafe:Math.round(mesafe*10)/10,dakika,ucret});
+  save(K.trips,trips);
+  if(tStart){clearInterval(tInt);tStart=0;$("#timerBtn").classList.remove("run");$("#timerBtn").textContent="⏱ Süreyi başlat";}
+  ["#yKm0","#yKm1","#ySure","#yUcret"].forEach(s=>$(s).value="");$("#yCalc").textContent="—";$("#yKar").textContent="—";
+  renderAll();toast("Yolculuk kaydedildi ✓");
+});
+
+$("#gChips").addEventListener("click",e=>{const c=e.target.closest(".chip");if(!c)return;
+  gKat=c.dataset.k;$$("#gChips .chip").forEach(x=>x.classList.toggle("on",x===c));});
+$("#gSave").addEventListener("click",()=>{
+  const tutar=num($("#gTutar").value),not=$("#gNot").value.trim();
+  if(tutar<=0){toast("Tutar gir",1);return}
+  exps.push({id:Date.now(),ts:Date.now(),kat:gKat,tutar,not});save(K.exp,exps);
+  $("#gTutar").value="";$("#gNot").value="";renderAll();toast("Gider kaydedildi ✓");
+});
+
+document.body.addEventListener("click",e=>{
+  const dt=e.target.closest("[data-del-trip]"),de=e.target.closest("[data-del-exp]");
+  if(dt){const id=+dt.dataset.delTrip;if(confirm("Bu yolculuğu sil?")){trips=trips.filter(t=>t.id!==id);save(K.trips,trips);renderAll();}}
+  if(de){const id=+de.dataset.delExp;if(confirm("Bu gideri sil?")){exps=exps.filter(x=>x.id!==id);save(K.exp,exps);renderAll();}}
+});
+
+// ayarlar
+function fillSet(){$("#sTuk").value=S.tuk;$("#sYak").value=S.yak;$("#sHedef").value=S.hedef||"";}
+$("#sSave").addEventListener("click",()=>{
+  S.tuk=num($("#sTuk").value)||8.5;S.yak=num($("#sYak").value)||0;S.hedef=num($("#sHedef").value);
+  save(K.set,S);renderAll();yCalc();toast("Ayarlar kaydedildi ✓");
+});
+$("#bExport").addEventListener("click",()=>{
+  const data={trips,exps,S,v:1,ts:Date.now()};
+  const b=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);
+  a.download="surus-kasasi-yedek-"+new Date().toISOString().slice(0,10)+".json";a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast("Yedek indirildi ✓");
+});
+$("#bImport").addEventListener("click",()=>$("#fileIn").click());
+$("#fileIn").addEventListener("change",e=>{
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);
+    if(!d.trips||!d.exps)throw 0;
+    if(!confirm("Yedek yüklensin mi? Mevcut veriler değişecek.")){return}
+    trips=d.trips;exps=d.exps;if(d.S)S=Object.assign(S,d.S);
+    save(K.trips,trips);save(K.exp,exps);save(K.set,S);fillSet();renderAll();toast("Yedek yüklendi ✓");
+  }catch(err){toast("Geçersiz yedek dosyası",1)}};
+  r.readAsText(f);e.target.value="";
+});
+$("#bWipe").addEventListener("click",()=>{
+  if(confirm("TÜM yolculuk ve giderler silinsin mi? Bu geri alınamaz.")){
+    trips=[];exps=[];save(K.trips,trips);save(K.exp,exps);renderAll();toast("Veriler silindi",1);}
+});
+
+$("#todayLbl").textContent=new Date().toLocaleDateString("tr-TR",{day:"2-digit",month:"long"});
+fillSet();renderAll();yCalc();
+
+// service worker
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}
+</script>
+</body>
+</html>
