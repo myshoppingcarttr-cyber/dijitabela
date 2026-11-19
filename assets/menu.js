@@ -9,7 +9,7 @@
     ["/calismalarimiz.html", "Çalışmalarımız"],
     ["/ekibimiz.html", "Ekibimiz"],
     ["/#teklif", "Fiyatlar"],
-    ["/ekspertiz.html", "Ücretsiz Ekspertiz"],
+    ["/ekspertiz", "Ücretsiz Ekspertiz"],
     ["/blog.html", "Blog"],
     ["/iletisim.html", "İletişim"]
   ];
@@ -49,7 +49,7 @@
     var p = document.createElement("nav");
     p.id = "dm-panel"; p.className = "dm-panel"; p.hidden = true; p.setAttribute("aria-label", "Site menüsü");
     p.innerHTML = '<div class="dm-ic"><div class="dm-ust"><span>Menü</span><button type="button" class="dm-kapat" aria-label="Menüyü kapat">&times;</button></div><ul>' +
-      LINKLER.map(function (l) { var ak = l[0].indexOf("#") < 0 && (yol === l[0] || yol === l[0].replace(/\.html$/, "")); return '<li><a href="' + l[0] + '"' + (ak ? ' aria-current="page"' : "") + ">" + l[1] + "</a></li>"; }).join("") +
+      LINKLER.map(function (l) { var ak = l[0].indexOf("#") < 0 && (yol === l[0] || yol === l[0] + "/" || yol === l[0].replace(/\.html$/, "")); return '<li><a href="' + l[0] + '"' + (ak ? ' aria-current="page"' : "") + ">" + l[1] + "</a></li>"; }).join("") +
       '</ul><div class="dm-tel"><a class="a1" href="https://wa.me/905019452184" target="_blank" rel="noopener">WhatsApp</a><a class="a2" href="tel:+905019452184">Ara</a></div></div>';
     document.body.appendChild(p);
 

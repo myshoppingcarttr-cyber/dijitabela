@@ -206,7 +206,7 @@ body{background:var(--kagit)}
 @media(max-width:900px){.v-hero-g{grid-template-columns:1fr;gap:40px}.tel{justify-self:center;width:280px}}
 @media(prefers-reduced-motion:reduce){.tel *{transition:none!important}}
 
-/* ===== Ücretsiz ekspertiz (ana sayfa şeridi + ekspertiz.html) ===== */
+/* ===== Ücretsiz ekspertiz (ana sayfa şeridi + /ekspertiz) ===== */
 .v-eks{background:var(--led);border-top:2px solid var(--murekkep);border-bottom:2px solid var(--murekkep);padding:56px 0}
 .v-eks-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end}
 .v-eks .v-etiket{color:var(--murekkep)}.v-eks .v-etiket::before{background:var(--murekkep)}
