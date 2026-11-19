@@ -150,6 +150,25 @@
     <div class="note">Maliyet = <b>Yakıt</b> (km × tüketim × fiyat) + <b>Yıpranma/bakım</b> (₺/km) + <b>Komisyon</b> (%). Bu üçünü Ayarlar'dan güncel tut. <b>Giderler</b> (kahve, sigara, yemek…) ayrıca düşülür. Yakıt km'den hesaplandığı için depo doldurmayı ayrıca girmene gerek yok.</div>
   </section>
 
+  <!-- TAKSİMETRE -->
+  <section class="tab" id="t-taksi">
+    <div class="hero">
+      <div class="glow"></div>
+      <div class="lab">TAKSİMETRE · <span id="txState">Hazır</span></div>
+      <div class="big pos" id="txFare" style="font-size:52px;color:var(--led)">₺0</div>
+      <div class="sub"><span id="txKm">0 km</span> &nbsp;·&nbsp; <span id="txTime">00:00</span> &nbsp;·&nbsp; <span id="txSpd">0 km/s</span></div>
+    </div>
+    <button class="btn timer" id="txBtn" type="button">▶ Taksimetreyi Başlat</button>
+    <button class="btn" id="txSaveTrip" type="button" style="display:none;margin-top:10px">💾 Bu yolculuğu kaydet</button>
+    <div class="calc" id="txBrk" style="margin-top:12px">
+      <div class="cr"><span class="k">Açılış</span><span class="vv" id="txbAcl">₺0</span></div>
+      <div class="cr"><span class="k">Mesafe (<span id="txbKmR">0 ₺/km</span>)</span><span class="vv" id="txbKm">₺0</span></div>
+      <div class="cr" id="txbDkRow"><span class="k">Bekleme (<span id="txbDkR">0 ₺/dk</span>)</span><span class="vv" id="txbDk">₺0</span></div>
+      <div class="cr tot"><span class="k">Toplam</span><span class="vv pos" id="txbTot" style="color:var(--led)">₺0</span></div>
+    </div>
+    <p class="note" id="txNote">GPS ile <b>canlı km ve ücret</b>. Müşteriyi alınca <b>Başlat</b>, bırakınca <b>Durdur</b> → istersen yolculuğa kaydet. Tarife Ayarlar'dan düzenlenir (örnek yolculuklarından otomatik hesaplanır). İpucu: ekran kapanmasın diye telefonun oto-kilidini artır.</p>
+  </section>
+
   <!-- YOLCULUK -->
   <section class="tab" id="t-yol">
     <div class="card">
@@ -216,6 +235,20 @@
       <p class="note">💡 <b>Yıpranma/bakım</b>'a lastik, yağ, periyodik servis, fren/balata ve aracın <b>değer kaybını</b> dahil et — hepsini tek ₺/km rakamına koy. Örnek başlangıç: 2 ₺/km. Sigorta/kasko, MTV, muayene gibi sabit yıllık giderleri ise <b>Giderler</b>'e ara ara ekleyebilirsin.</p>
     </div>
     <div class="card">
+      <h2><span class="ic">🚕</span> Taksimetre Tarifesi</h2>
+      <div class="two">
+        <div class="f"><label>Açılış ücreti</label><div class="suffix"><input class="in" id="sTacl" inputmode="decimal"><span class="u">₺</span></div></div>
+        <div class="f"><label>KM ücreti</label><div class="suffix"><input class="in" id="sTkm" inputmode="decimal"><span class="u">₺/km</span></div></div>
+      </div>
+      <div class="two">
+        <div class="f"><label>Bekleme / dakika</label><div class="suffix"><input class="in" id="sTdk" inputmode="decimal"><span class="u">₺/dk</span></div></div>
+        <div class="f"><label>Minimum ücret</label><div class="suffix"><input class="in" id="sTmin" inputmode="decimal"><span class="u">₺</span></div></div>
+      </div>
+      <button class="btn ghost sm" id="sTcalc" type="button">📈 Yolculuk örneklerimden hesapla</button>
+      <p class="note" id="sTcalcNote" style="margin-top:8px">Girdiğin yolculuklardaki km ve ücretten açılış + km ücretini otomatik bulur. Sonra <b>Kaydet</b>'e bas.</p>
+      <button class="btn sm" id="sTsave" style="margin-top:10px">Tarifeyi Kaydet</button>
+    </div>
+    <div class="card">
       <h2><span class="ic">💾</span> Yedek</h2>
       <p class="note" style="margin:0 0 12px">Verilerin yalnızca bu telefonda. Temizlemeden önce yedek al.</p>
       <button class="btn ghost sm" id="bExport">Yedek İndir (.json)</button>
@@ -235,6 +268,7 @@
 
 <nav id="nav">
   <button data-t="ozet" class="on"><span class="ni">📊</span>Özet</button>
+  <button data-t="taksi"><span class="ni">🚕</span>Taksimetre</button>
   <button data-t="yol"><span class="ni">🚗</span>Yolculuk</button>
   <button data-t="gider"><span class="ni">🧾</span>Gider</button>
   <button data-t="ayar"><span class="ni">⚙️</span>Ayarlar</button>
@@ -345,6 +379,67 @@ function renderGider(){
 
 function renderAll(){renderOzet();renderYol();renderGider();}
 
+// ---- TAKSİMETRE ----
+// Tarifeyi yolculuk örneklerinden doğrusal regresyonla bul: ucret = acilis + km*oran
+function tariffFromTrips(){
+  const pts=trips.filter(t=>t.mesafe>0&&t.ucret>0).map(t=>[t.mesafe,t.ucret]);
+  if(pts.length<2) return null;
+  const n=pts.length; let sx=0,sy=0,sxy=0,sxx=0;
+  pts.forEach(([x,y])=>{sx+=x;sy+=y;sxy+=x*y;sxx+=x*x;});
+  const den=n*sxx-sx*sx; if(Math.abs(den)<1e-6) return null;
+  let b=(n*sxy-sx*sy)/den, a=(sy-b*sx)/n;
+  if(b<=0) return null; if(a<0) a=0;
+  return {acl:Math.round(a*10)/10, km:Math.round(b*10)/10, n};
+}
+function seedTariff(){
+  if(S.tKm===undefined||S.tAcl===undefined){
+    const r=tariffFromTrips();
+    S.tAcl=(S.tAcl!==undefined)?S.tAcl:(r?r.acl:20);
+    S.tKm =(S.tKm !==undefined)?S.tKm :(r?r.km :25);
+    if(S.tDk===undefined)S.tDk=0;
+    if(S.tMin===undefined)S.tMin=r?r.acl:0;
+    save(K.set,S);
+  }
+}
+let tx={on:false,km:0,t0:0,last:null,watch:0,int:0};
+function hav(a,b){const R=6371000,toR=x=>x*Math.PI/180;
+  const dLa=toR(b.lat-a.lat),dLo=toR(b.lon-a.lon);
+  const s=Math.sin(dLa/2)**2+Math.cos(toR(a.lat))*Math.cos(toR(b.lat))*Math.sin(dLo/2)**2;
+  return 2*R*Math.asin(Math.min(1,Math.sqrt(s)));}
+const txMin=()=>tx.on?((Date.now()-tx.t0)/60000):0;
+const txFare=()=>Math.max(S.tMin||0,(S.tAcl||0)+tx.km*(S.tKm||0)+txMin()*(S.tDk||0));
+function txRender(){
+  const min=txMin(),s=Math.floor(min*60);
+  $("#txFare").textContent=TL(txFare());
+  $("#txKm").textContent=(Math.round(tx.km*100)/100).toLocaleString("tr-TR")+" km";
+  $("#txTime").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+  $("#txSpd").textContent=(min>0?Math.round(tx.km/(min/60)):0)+" km/s";
+  $("#txbAcl").textContent=TL(S.tAcl||0);
+  $("#txbKmR").textContent=(+(S.tKm||0))+" ₺/km";$("#txbKm").textContent=TL(tx.km*(S.tKm||0));
+  $("#txbDkR").textContent=(+(S.tDk||0))+" ₺/dk";$("#txbDk").textContent=TL(min*(S.tDk||0));
+  $("#txbDkRow").style.display=(S.tDk>0)?"flex":"none";
+  $("#txbTot").textContent=TL(txFare());
+}
+function txStart(){
+  if(!navigator.geolocation){toast("Bu cihazda GPS yok",1);return;}
+  tx={on:true,km:0,t0:Date.now(),last:null,watch:0,int:0};
+  $("#txState").textContent="Çalışıyor";$("#txSaveTrip").style.display="none";
+  const b=$("#txBtn");b.classList.add("run");b.textContent="⏹ Durdur";
+  tx.watch=navigator.geolocation.watchPosition(p=>{
+    const c={lat:p.coords.latitude,lon:p.coords.longitude,acc:p.coords.accuracy};
+    if(tx.last&&c.acc<=50){const d=hav(tx.last,c);if(d>2&&d<200)tx.km+=d/1000;}
+    if(!tx.last||c.acc<=50)tx.last=c;
+  },()=>{toast("Konum izni gerekli (GPS aç)",1);},{enableHighAccuracy:true,maximumAge:1000,timeout:20000});
+  tx.int=setInterval(txRender,1000);txRender();
+}
+function txStop(){
+  if(tx.watch)navigator.geolocation.clearWatch(tx.watch);
+  clearInterval(tx.int);tx.on=false;
+  $("#txState").textContent="Bitti — "+TL(txFare());
+  const b=$("#txBtn");b.classList.remove("run");b.textContent="▶ Taksimetreyi Başlat";
+  $("#txSaveTrip").style.display=tx.km>0?"block":"none";txRender();
+}
+
 // ---- EVENTS ----
 $("#periodSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
   period=b.dataset.p;$$("#periodSeg button").forEach(x=>x.classList.toggle("on",x===b));renderOzet();});
@@ -392,11 +487,33 @@ document.body.addEventListener("click",e=>{
   if(de){const id=+de.dataset.delExp;if(confirm("Bu gideri sil?")){exps=exps.filter(x=>x.id!==id);save(K.exp,exps);renderAll();}}
 });
 
-function fillSet(){$("#sTuk").value=S.tuk;$("#sYak").value=S.yak;$("#sYip").value=S.yip;$("#sKom").value=S.kom||"";$("#sHedef").value=S.hedef||"";}
+function fillSet(){$("#sTuk").value=S.tuk;$("#sYak").value=S.yak;$("#sYip").value=S.yip;$("#sKom").value=S.kom||"";$("#sHedef").value=S.hedef||"";
+  $("#sTacl").value=S.tAcl||"";$("#sTkm").value=S.tKm||"";$("#sTdk").value=S.tDk||"";$("#sTmin").value=S.tMin||"";}
 $("#sSave").addEventListener("click",()=>{
   S.tuk=num($("#sTuk").value)||0;S.yak=num($("#sYak").value)||0;
   S.yip=num($("#sYip").value)||0;S.kom=num($("#sKom").value);S.hedef=num($("#sHedef").value);
   save(K.set,S);renderAll();yCalc();toast("Ayarlar kaydedildi ✓");
+});
+
+// Taksimetre olayları
+$("#txBtn").addEventListener("click",()=>{tx.on?txStop():txStart();});
+$("#txSaveTrip").addEventListener("click",()=>{
+  const mesafe=Math.round(tx.km*10)/10,dakika=Math.max(1,Math.round(txMin()||0)),ucret=Math.round(txFare());
+  if(mesafe<=0){toast("Mesafe yok",1);return;}
+  trips.push({id:Date.now(),ts:Date.now(),mesafe,dakika,ucret,taksi:true});
+  save(K.trips,trips);tx={on:false,km:0,t0:0,last:null,watch:0,int:0};
+  $("#txSaveTrip").style.display="none";$("#txState").textContent="Hazır";txRender();
+  renderAll();toast("Yolculuk kaydedildi ✓ (Yolculuk sekmesinde)");
+});
+$("#sTcalc").addEventListener("click",()=>{
+  const r=tariffFromTrips();
+  if(!r){$("#sTcalcNote").textContent="Hesaplamak için en az 2 farklı (km/ücret) yolculuk gerek. Önce birkaç örnek gir.";return;}
+  $("#sTacl").value=r.acl;$("#sTkm").value=r.km;
+  $("#sTcalcNote").textContent=r.n+" yolculuktan: açılış ₺"+r.acl+" + ₺"+r.km+"/km. Doğruysa Tarifeyi Kaydet'e bas.";
+});
+$("#sTsave").addEventListener("click",()=>{
+  S.tAcl=num($("#sTacl").value);S.tKm=num($("#sTkm").value);S.tDk=num($("#sTdk").value);S.tMin=num($("#sTmin").value);
+  save(K.set,S);txRender();toast("Tarife kaydedildi ✓");
 });
 $("#bExport").addEventListener("click",()=>{
   const data={trips,exps,S,v:2,ts:Date.now()};
@@ -417,7 +534,7 @@ $("#bWipe").addEventListener("click",()=>{if(confirm("TÜM yolculuk ve giderler 
   trips=[];exps=[];save(K.trips,trips);save(K.exp,exps);renderAll();toast("Veriler silindi",1);}});
 
 $("#todayLbl").textContent=new Date().toLocaleDateString("tr-TR",{day:"2-digit",month:"long"});
-fillSet();renderAll();yCalc();
+seedTariff();fillSet();renderAll();yCalc();txRender();
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}
 </script>
 </body>

@@ -1,5 +1,5 @@
 // Sürüş Kasası - çevrimdışı önbellek
-const CACHE = "surus-kasasi-v3";
+const CACHE = "surus-kasasi-v4";
 const ASSETS = [
   "./",
   "./index.html",
