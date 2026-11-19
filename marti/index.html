@@ -249,7 +249,7 @@ const K={trips:"sk_trips",exp:"sk_exp",set:"sk_set"};
 function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){toast("Kaydedilemedi (depolama)",1)}}
 let trips=load(K.trips,[]), exps=load(K.exp,[]);
-let S=Object.assign({tuk:7.6,yak:44,yip:2,kom:0,hedef:0},load(K.set,{}));
+let S=Object.assign({tuk:7.6,yak:100,yip:2,kom:0,hedef:0},load(K.set,{}));
 let period="gun";
 
 const TL=n=>"₺"+Math.round(n).toLocaleString("tr-TR");
