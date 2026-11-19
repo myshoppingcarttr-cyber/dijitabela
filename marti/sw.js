@@ -1,5 +1,5 @@
-// Sürüş Kasası - çevrimdışı önbellek
-const CACHE = "surus-kasasi-v5";
+// Sürüş Kasası - çevrimdışı önbellek (HTML için ağ-öncelikli: çevrimiçiyken hep güncel)
+const CACHE = "surus-kasasi-v6";
 const ASSETS = [
   "./",
   "./index.html",
@@ -19,11 +19,27 @@ self.addEventListener("activate", e => {
 });
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
-  e.respondWith(
-    caches.match(e.request).then(hit => hit || fetch(e.request).then(res => {
-      const copy = res.clone();
-      caches.open(CACHE).then(c => c.put(e.request, copy)).catch(() => {});
-      return res;
-    }).catch(() => caches.match("./index.html")))
-  );
+  const url = new URL(e.request.url);
+  const isDoc = e.request.mode === "navigate"
+    || url.pathname.endsWith("/")
+    || url.pathname.endsWith("index.html");
+  if (isDoc) {
+    // AĞ-ÖNCELİKLİ: taze HTML; başarısızsa (çevrimdışı) önbellekten
+    e.respondWith(
+      fetch(e.request).then(res => {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put("./index.html", copy)).catch(() => {});
+        return res;
+      }).catch(() => caches.match("./index.html").then(h => h || caches.match("./")))
+    );
+  } else {
+    // ÖNBELLEK-ÖNCELİKLİ: ikon/manifest gibi değişmeyenler
+    e.respondWith(
+      caches.match(e.request).then(hit => hit || fetch(e.request).then(res => {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copy)).catch(() => {});
+        return res;
+      }).catch(() => undefined))
+    );
+  }
 });
