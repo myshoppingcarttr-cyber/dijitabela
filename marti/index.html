@@ -148,19 +148,19 @@
       <div class="stat"><div class="l">Saatlik Net</div><div class="v" id="oSaat">₺0</div></div>
     </div>
     <div class="card" id="vardiyaCard" style="margin-top:14px">
-      <h2><span class="ic">🧭</span> Vardiya / Boş KM</h2>
-      <p class="note" style="margin:0 0 10px">Martı'ya başlamadan kilometre saatini yaz, bitince tekrar yaz. Aradaki <b>müşterisiz (boş) km</b> de yakıt+yıpranma maliyeti; net kârdan düşülür.</p>
+      <h2><span class="ic">🧭</span> Günlük KM (sabah → akşam)</h2>
+      <p class="note" style="margin:0 0 10px">Sabah Martı'ya çıkarken ve akşam eve dönerken <b>aracın kilometre saatini</b> yaz. Sabahtan akşama yaptığın <b>tüm km</b> (müşterisiz boş km dahil) maliyeti günün net kârından düşülür — hiçbir km kaçmaz.</p>
       <div class="two">
-        <div class="f"><label>Bugün başlangıç KM</label><input class="in" id="vK0" inputmode="decimal" placeholder="km saati"></div>
-        <div class="f"><label>Bugün bitiş KM</label><input class="in" id="vK1" inputmode="decimal" placeholder="km saati"></div>
+        <div class="f"><label>🌅 Sabah çıkış — araç km</label><input class="in" id="vK0" inputmode="decimal" placeholder="km saati"></div>
+        <div class="f"><label>🌙 Akşam dönüş — araç km</label><input class="in" id="vK1" inputmode="decimal" placeholder="km saati"></div>
       </div>
       <div class="calc" id="vInfo">
-        <div class="cr"><span class="k">Bugün toplam sürülen</span><span class="vv" id="vTotal">0 km</span></div>
-        <div class="cr"><span class="k">Müşterili (yolculuk) km</span><span class="vv" id="vPaid">0 km</span></div>
-        <div class="cr"><span class="k">Boş km</span><span class="vv" id="vBos">0 km</span></div>
-        <div class="cr tot"><span class="k">Boş km maliyeti</span><span class="vv neg" id="vBosCost" style="color:var(--bad)">₺0</span></div>
+        <div class="cr"><span class="k">Sabahtan akşama toplam</span><span class="vv" id="vTotal">0 km</span></div>
+        <div class="cr"><span class="k">— müşterili (yolculuk)</span><span class="vv" id="vPaid">0 km</span></div>
+        <div class="cr"><span class="k">— boş (müşterisiz)</span><span class="vv" id="vBos">0 km</span></div>
+        <div class="cr tot"><span class="k">Günün km maliyeti (kârdan düşülür)</span><span class="vv neg" id="vDayCost" style="color:var(--bad)">₺0</span></div>
       </div>
-      <button class="btn sm" id="vSave" style="margin-top:10px">Vardiyayı Kaydet</button>
+      <button class="btn sm" id="vSave" style="margin-top:10px">Kaydet</button>
     </div>
     <div class="note">Maliyet = <b>Yakıt</b> (km × tüketim × fiyat) + <b>Yıpranma/bakım</b> (₺/km) + <b>Komisyon</b> (%). Bu üçünü Ayarlar'dan güncel tut. <b>Giderler</b> (kahve, sigara, yemek…) ayrıca düşülür. Yakıt km'den hesaplandığı için depo doldurmayı ayrıca girmene gerek yok.</div>
   </section>
@@ -277,7 +277,7 @@
       <h2><span class="ic">📲</span> Ana Ekrana Ekle</h2>
       <p class="note" style="margin:0">iPhone: Safari'de <b>Paylaş → Ana Ekrana Ekle</b>. Android: Chrome <b>⋮ → Ana ekrana ekle</b>. İkon gibi açılır, internetsiz de çalışır.</p>
     </div>
-    <div class="note" style="text-align:center;margin-top:4px">Sürüş Kasası · Dijitabela · <b>v7</b> (Taksimetre + Vardiya)</div>
+    <div class="note" style="text-align:center;margin-top:4px">Sürüş Kasası · Dijitabela · <b>v8</b> (Taksimetre + Günlük KM)</div>
   </section>
 </main>
 
@@ -478,11 +478,11 @@ function vCalc(){
   const k0=num($("#vK0").value),k1=num($("#vK1").value);
   const total=Math.max(0,k1-k0),t0=dayStart(Date.now());
   const paid=trips.filter(t=>dayStart(t.ts)===t0).reduce((a,t)=>a+t.mesafe,0);
-  const bos=Math.max(0,total-paid),cost=bos*(S.tuk/100*S.yak+S.yip);
+  const bos=Math.max(0,total-paid),rate=S.tuk/100*S.yak+S.yip,dayCost=total*rate;
   $("#vTotal").textContent=(Math.round(total*10)/10)+" km";
   $("#vPaid").textContent=(Math.round(paid*10)/10)+" km";
   $("#vBos").textContent=(Math.round(bos*10)/10)+" km";
-  $("#vBosCost").textContent="−"+TL(cost).slice(1);
+  $("#vDayCost").textContent="−"+TL(dayCost).slice(1);
 }
 function vFill(){const s=todayShift();$("#vK0").value=s&&s.km0?s.km0:"";$("#vK1").value=s&&s.km1?s.km1:"";vCalc();}
 ["#vK0","#vK1"].forEach(s=>$(s).addEventListener("input",vCalc));
