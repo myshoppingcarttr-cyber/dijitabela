@@ -559,6 +559,25 @@ html{scroll-behavior:smooth}
 .eks-cta .v-etiket{color:#15171A}.eks-cta .v-alt{color:#2a2d33}
 .eks-cta h2 span{background:#15171A;color:var(--amber);padding:0 .12em}
 .eks-cta .v-btn{border-color:#15171A;color:#15171A}.eks-cta .v-btn.ana{background:#15171A;color:var(--amber)}
+/* Sosyal medya analizi + form ipuçları */
+.eks-rozet{font:700 11px var(--f-mono);font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:var(--amber);color:#15171A;padding:2px 7px;margin-left:6px;vertical-align:middle}
+.eks-onerilen-alan input{border-color:var(--amber)!important}
+.eks-ipucu{display:block;margin-top:6px;font:400 13px/1.45 var(--f-govde);color:var(--gece-soluk)}
+.eks-kaynak{margin:0;padding:14px 16px;border:1px solid var(--amber);background:var(--panel);font:400 14px/1.5 var(--f-mono);max-width:none}
+.eks-kaynak b{color:var(--amber)}
+.eks-sosyal{display:grid;gap:14px;background:var(--panel);border:1px solid var(--gece-cizgi);padding:clamp(18px,3vw,32px)}
+.eks-sosyal-ust{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.eks-sosyal-ust b{font:900 clamp(56px,12vw,96px)/.85 var(--f-baslik);font-stretch:62%}.eks-sosyal-ust span{font:400 22px var(--f-mono);color:var(--gece-soluk)}
+.eks-sosyal-ust.kotu b{color:#FF6B5E}.eks-sosyal-ust.orta b{color:var(--amber)}.eks-sosyal-ust.iyi b{color:#5CD98A}
+.eks-sosyal-kanal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.eks-sosyal-kanal>div{background:var(--gece);border:1px solid var(--gece-cizgi);padding:16px;display:grid;gap:8px;align-content:start}
+.eks-sosyal-kanal h4{margin:0;font:700 16px var(--f-govde);display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.eks-sosyal-kanal h4 b{font:400 14px var(--f-mono);color:var(--gece-soluk)}.eks-sosyal-kanal h4 b i{font:700 28px var(--f-mono);font-style:normal;color:var(--gece-yazi)}
+.eks-sosyal-kanal .kotu h4 i{color:#FF6B5E}.eks-sosyal-kanal .orta h4 i{color:var(--amber)}.eks-sosyal-kanal .iyi h4 i{color:#5CD98A}
+.eks-sosyal-kanal p{margin:0;color:var(--gece-soluk);font-size:15px;max-width:none}
+.eks-sosyal-kanal .eks-cozum{color:var(--gece-yazi)}.eks-sosyal-kanal .eks-cozum b{color:var(--amber)}
+.eks-sosyal-not{font:400 12px var(--f-mono);color:var(--gece-soluk);max-width:none;margin:0}
+@media (max-width:700px){.eks-sosyal-kanal{grid-template-columns:1fr}}
 .eks-rapor{margin-top:6px}
 
 /* Ücretsiz taslak + sorular */
@@ -676,9 +695,10 @@ html{scroll-behavior:smooth}
         <p class="etiket" style="color:var(--amber)">Ekspertiz aracı</p>
         <h3>Ekspertizi başlatın</h3>
         <p class="tam soluk">Google Haritalar bağlantınızı (en doğru sonuç için) ya da işletmenizin adını yazın; gerisini biz bulalım.</p>
-        <label class="tam">Google Haritalar bağlantınız ya da işletmenizin adı<input id="e-maps" name="maps" maxlength="400" placeholder="https://maps.app.goo.gl/…  ya da  Ustam Oto Servis"></label>
+        <label class="tam eks-onerilen-alan"><span>Google işletme (Haritalar) bağlantınız <em class="eks-rozet">önerilen</em></span><input id="e-maps" name="maps" maxlength="400" placeholder="https://maps.app.goo.gl/…  ya da  Ustam Oto Servis"><small class="eks-ipucu">Google Haritalar'da işletmenizi açıp «Paylaş» ile bağlantıyı yapıştırın: en doğru ve en detaylı sonuç böyle çıkar. İsterseniz yalnızca işletme adını ve şehri de yazabilirsiniz.</small></label>
         <label>Şehir / semt<input id="e-sehir" name="sehir" maxlength="60" placeholder="Kepez, Antalya"></label>
-        <label>Web siteniz (varsa)<input id="e-web" name="web" inputmode="url" maxlength="300" placeholder="ornekisletme.com"></label>
+        <label>Web siteniz (varsa)<input id="e-web" name="web" inputmode="url" maxlength="300" placeholder="ornekisletme.com"><small class="eks-ipucu">Yazarsanız sitenizdeki eksikler de çıkarılır.</small></label>
+        <label>Instagram kullanıcı adı (varsa, zorunlu değil)<input id="e-ig" name="ig" maxlength="40" autocapitalize="none" autocomplete="off" placeholder="@isletmeadi"><small class="eks-ipucu">Sosyal medya puanınız için.</small></label>
         <button class="v-btn ana" type="submit">Ekspertizi başlat →</button>
         <p class="durum" id="e-durum" role="status" aria-live="polite"></p>
       </form>
@@ -1076,6 +1096,6 @@ if ("IntersectionObserver" in window && !AZ) {
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { duvar.olc(); evre = -1; evreSec(0); if (AZ) { duvar.kirli = true; duvar.ciz(); } }, 200); });
 
 </script>
-<script src="assets/ekspertiz.js?v=mwguhi67"></script>
+<script src="assets/ekspertiz.js?v=sosyal01"></script>
 </body>
 </html>
