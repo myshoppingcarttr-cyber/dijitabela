@@ -1,321 +1,435 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pati Dünyası · Pet Shop & Bakım — Örnek Site</title>
-<meta name="description" content="Mama, aksesuar, akvaryum, kuaför ve pet otel — sevimli dostlarınız için her şey. Online sipariş, randevu ve kredi kartı ödeme.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pati Dünyası · Antalya Pet Shop, Pet Kuaför ve Online Mama Siparişi</title>
+<meta name="description" content="Pati Dünyası: Antalya Muratpaşa, Konyaaltı ve Lara'da kedi, köpek, kuş ve akvaryum ürünleri, pet kuaför ve pansiyon. Aylık mama bütçenizi hesaplayın, WhatsApp ile sipariş verin, randevu alın.">
+<link rel="canonical" href="https://patidunyasi.example/">
+<meta property="og:type" content="website"><meta property="og:title" content="Pati Dünyası · Antalya Pet Shop ve Pet Kuaför"><meta property="og:description" content="Antalya'da mama, aksesuar, pet kuaför ve pansiyon. Bütçe hesaplayıcı, online sipariş ve randevu."><meta property="og:url" content="https://patidunyasi.example/"><meta property="og:image" content="https://patidunyasi.example/img/hero-dog.jpg"><meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#24382d">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["PetStore","LocalBusiness"],"@id":"https://patidunyasi.example/#magaza","name":"Pati Dünyası","description":"Antalya'da kedi, köpek, kuş ve akvaryum ürünleri; pet kuaför ve pansiyon hizmeti.","url":"https://patidunyasi.example/","image":"https://patidunyasi.example/img/store.jpg","telephone":"+90 242 000 00 00","priceRange":"₺₺","address":{"@type":"PostalAddress","streetAddress":"Örnek Cad. No:12","addressLocality":"Muratpaşa","addressRegion":"Antalya","addressCountry":"TR"},"areaServed":["Muratpaşa","Konyaaltı","Lara","Kepez","Antalya"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"20:00"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Ürünler ve Hizmetler","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet kuaför"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet pansiyon"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Kedi ve köpek maması"}}]}}</script>
 <style>
-:root{
-  --cream:#FFF7EE; --card:#FFFFFF; --ink:#2C2420; --mut:#847A70;
-  --orange:#FF7A33; --orange-d:#E85F14; --green:#2FB686; --green-d:#1E9A6F;
-  --line:#EFE4D6; --shadow:0 20px 44px -22px rgba(120,80,40,.4);
-  --disp:"Baloo 2",system-ui,sans-serif; --body:"Nunito Sans",system-ui,sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;overflow-x:hidden}
-h1,h2,h3,.disp{font-family:var(--disp);line-height:1.08;letter-spacing:-.01em}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
-.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:16px;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;transition:.2s;white-space:nowrap}
-.btn.p{background:linear-gradient(135deg,var(--orange),#FF5E3A);color:#fff;box-shadow:0 14px 26px -12px rgba(255,100,50,.75)}
-.btn.p:hover{transform:translateY(-2px)}
-.btn.o{background:#fff;color:var(--ink);border:2px solid var(--line)}
-.btn.wa{background:#25D366;color:#fff;box-shadow:0 14px 26px -12px rgba(37,211,102,.7)}
-.tag{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);color:var(--orange-d);font-family:var(--disp);font-weight:700;font-size:13px;padding:7px 15px;border-radius:999px}
-section{padding:80px 0}
-.sec-h{text-align:center;max-width:650px;margin:0 auto 44px}
-.sec-h h2{font-size:clamp(28px,4.4vw,43px);font-weight:800}
-.sec-h p{color:var(--mut);margin-top:12px;font-size:17px}
-
-.ornek{position:fixed;top:0;right:0;z-index:200;background:#2C2420;color:#FFC23D;font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.1em;padding:7px 54px;transform:rotate(45deg) translate(28px,-6px);box-shadow:0 6px 16px rgba(0,0,0,.3)}
-
-header{position:sticky;top:0;z-index:100;background:rgba(255,247,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav{display:flex;align-items:center;gap:20px;height:72px}
-.logo{font-family:var(--disp);font-weight:800;font-size:23px;display:flex;align-items:center;gap:9px}
-.logo .ic{width:40px;height:40px;background:linear-gradient(135deg,var(--orange),#FF9E7D);border-radius:14px;display:grid;place-items:center;font-size:21px;box-shadow:var(--shadow)}
-.nav-links{display:flex;gap:26px;margin-left:auto;font-weight:700;font-size:15px}
-.nav-links a:hover{color:var(--orange-d)}
-.nav .btn{padding:11px 20px;font-size:15px}
-.burger{display:none;margin-left:auto;background:none;border:0;font-size:26px}
-@media(max-width:900px){.nav-links,.nav>.btn{display:none}.burger{display:block}}
-
-/* HERO */
-.hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center;padding:56px 0 66px}
-.hero h1{font-size:clamp(36px,5.6vw,60px);font-weight:800}
-.hero h1 .hl{color:var(--orange-d)}
-.hero p.lead{font-size:19px;color:var(--mut);margin:20px 0 28px;max-width:520px}
-.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
-.hero .trust{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap}
-.hero .trust b{font-family:var(--disp);font-size:24px;display:block}
-.hero .trust span{color:var(--mut);font-size:13px}
-.hero-art{position:relative}
-.hero-art .main{border-radius:28px;width:100%;height:460px;object-fit:cover;box-shadow:var(--shadow)}
-.hero-art .pic2{position:absolute;bottom:-26px;left:-26px;width:160px;height:160px;object-fit:cover;border-radius:22px;border:6px solid #fff;box-shadow:var(--shadow)}
-.floaty{position:absolute;top:24px;right:-14px;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);font-weight:700;font-size:14px;display:flex;align-items:center;gap:9px;animation:fl 4s ease-in-out infinite}
-.floaty .e{font-size:20px}
-@keyframes fl{50%{transform:translateY(-10px)}}
-
-.strip{background:var(--ink);color:#fff}
-.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:10px;padding:18px 22px}
-.strip div{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px}
-.strip .e{font-size:19px}
-
-/* kategoriler — foto kartları */
-.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
-.cat{position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:var(--shadow);cursor:pointer}
-.cat img{width:100%;height:100%;object-fit:cover;transition:.4s}
-.cat:hover img{transform:scale(1.07)}
-.cat .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,10,.78),transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
-.cat .ov b{color:#fff;font-family:var(--disp);font-size:22px}
-.cat .ov span{color:#F2E4D4;font-size:13px}
-
-/* hizmet kartları — foto üst */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.25s}
-.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.svc .ph{height:170px;overflow:hidden;position:relative}
-.svc .ph img{width:100%;height:100%;object-fit:cover}
-.svc .ph .chip{position:absolute;top:12px;left:12px;background:#fff;border-radius:999px;padding:5px 12px;font-family:var(--disp);font-weight:700;font-size:12px;color:var(--orange-d)}
-.svc .bd{padding:20px 22px}
-.svc h3{font-size:21px;font-weight:700;margin-bottom:7px}
-.svc p{color:var(--mut);font-size:15px}
-
-/* feature */
-.feat{background:linear-gradient(135deg,#2C2420,#3C3029);color:#fff;border-radius:30px;padding:46px;position:relative;overflow:hidden}
-.feat h2{font-size:clamp(26px,4vw,38px);font-weight:800;max-width:640px}
-.feat .fl{color:#FFC23D}
-.feat .fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:32px}
-.feat .fc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px}
-.feat .fc .e{font-size:27px}.feat .fc h3{font-size:18px;margin:9px 0 6px;color:#fff}
-.feat .fc p{color:#CDBFB4;font-size:14.5px}
-
-/* ödeme */
-.pay{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.pay .cards{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.pay .pc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-weight:800;font-family:var(--disp);box-shadow:var(--shadow);font-size:14px}
-.checkbox{display:flex;gap:11px;align-items:flex-start;margin:11px 0}
-.checkbox .ok{color:var(--green-d);font-size:19px;flex:none}
-.pay-mock{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
-.pay-mock .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
-.pay-mock .row:last-child{border:0;font-family:var(--disp);font-weight:800;font-size:18px}
-.pay-mock .field{background:#F7F1E8;border-radius:12px;padding:12px 14px;margin-top:10px;color:var(--mut);font-size:14px;display:flex;justify-content:space-between}
-
-/* galeri */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.gal img{width:100%;height:210px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow)}
-.gal img:nth-child(1){grid-row:span 2;height:434px}
-@media(max-width:700px){.gal{grid-template-columns:1fr 1fr}.gal img:nth-child(1){grid-row:auto;height:210px}}
-
+:root{--zemin:#f7f3ec;--kum:#efe8db;--yuzey:#fff;--yazi:#1c2620;--soluk:#5f6a62;--cizgi:#e1d9c9;--orman:#24382d;--orman2:#182a20;--sage:#8fa592;--kil:#b5623f;--kil2:#9a4f30;--r:14px;--gol:0 1px 2px rgba(28,38,32,.05),0 12px 32px -12px rgba(28,38,32,.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{background:var(--zemin);color:var(--yazi);font:400 16px/1.65 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-.015em;line-height:1.1}
+h1{font-size:clamp(2.5rem,6vw,4.6rem)}h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}h3{font-size:1.3rem}
+:focus-visible{outline:3px solid var(--kil);outline-offset:2px}
+.kap{max-width:1180px;margin:0 auto;padding:0 22px}
+.bol{padding:104px 0}.bol.kum{background:var(--kum)}.bol.koyu{background:var(--orman);color:#ece6d8}
+.etiket{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--kil);margin-bottom:14px}
+.koyu .etiket{color:#d9a98f}
+.giris{max-width:640px;margin-bottom:52px}.giris p{color:var(--soluk);margin-top:16px;font-size:1.04rem}.koyu .giris p{color:rgba(236,230,216,.78)}
+.dg{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 26px;border-radius:999px;background:var(--orman);color:#fff;font-weight:600;font-size:.95rem;border:1.5px solid var(--orman);transition:.25s}
+.dg:hover{background:var(--orman2);transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(24,42,32,.6)}
+.dg.kil{background:var(--kil);border-color:var(--kil)}.dg.kil:hover{background:var(--kil2)}
+.dg.i{background:transparent;color:var(--orman);border-color:var(--orman)}.dg.i:hover{background:var(--orman);color:#fff}
+.dg.b{background:#fff;color:var(--orman);border-color:#fff}.dg.b:hover{background:var(--kum)}
+.dgs{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+/* rozet + header */
+.rozet{position:fixed;top:0;right:0;z-index:70;background:var(--kil);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.16em;padding:6px 14px 6px 16px;border-bottom-left-radius:10px}
+header.ust{position:sticky;top:0;z-index:50;background:rgba(247,243,236,.9);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--cizgi)}
+.ust .kap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo svg{width:34px;height:34px}
+.logo b{font-family:'Fraunces',serif;font-weight:600;font-size:1.35rem;letter-spacing:-.01em;line-height:1}
+.logo small{display:block;font:500 .6rem 'Inter';letter-spacing:.2em;text-transform:uppercase;color:var(--soluk);margin-top:3px}
+nav.menu{display:flex;align-items:center;gap:26px;font-size:.9rem;font-weight:500}
+nav.menu a:not(.dg){position:relative;padding:6px 0;color:#2c382f}
+nav.menu a:not(.dg)::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--kil);transition:.25s}
+nav.menu a:not(.dg):hover::after{width:100%}
+nav.menu .dg{min-height:42px;padding:0 20px;font-size:.88rem}nav.menu a,.logo b,.logo small{white-space:nowrap}nav.menu{gap:18px}
+.sepet-dg{position:relative;background:none;border:1.5px solid var(--cizgi);border-radius:999px;height:42px;padding:0 16px;font-weight:600;font-size:.85rem;color:var(--orman);display:flex;align-items:center;gap:8px}
+.sepet-dg b{background:var(--kil);color:#fff;border-radius:999px;min-width:20px;height:20px;font-size:.72rem;display:grid;place-items:center;padding:0 6px}
+.mdg{display:none;background:none;border:1.5px solid var(--cizgi);width:44px;height:44px;border-radius:50%;font-size:1.2rem}
+/* hero */
+.hero{position:relative;padding:56px 0 0}
+.hero .kap{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
+.hero h1{margin:6px 0 22px}.hero h1 em{font-style:italic;color:var(--kil)}
+.hero p.alt{font-size:1.12rem;color:var(--soluk);max-width:500px}
+.hero-g{position:relative}
+.hero-g .ana{border-radius:240px 240px 18px 18px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--gol)}
+.hero-g .ana img{width:100%;height:100%;object-fit:cover}
+.hero-g .kucuk{position:absolute;left:-44px;bottom:36px;width:168px;border-radius:16px;overflow:hidden;border:6px solid var(--zemin);box-shadow:var(--gol)}
+.hero-g .kucuk img{aspect-ratio:1;object-fit:cover;width:100%}
+.hero-g .etiketk{position:absolute;right:-8px;top:34px;background:#fff;border-radius:14px;padding:13px 17px;box-shadow:var(--gol);font-size:.82rem;line-height:1.35}
+.hero-g .etiketk b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--orman)}
+.rakam{display:flex;gap:42px;margin-top:44px;padding-top:28px;border-top:1px solid var(--cizgi)}
+.rakam b{display:block;font-family:'Fraunces',serif;font-size:2rem;font-weight:500;color:var(--orman)}.rakam span{font-size:.82rem;color:var(--soluk)}
+/* marka */
+.marka-s{margin-top:80px;border-top:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);background:var(--yuzey);padding:26px 0}
+.marka-s .kap{display:flex;align-items:center;gap:36px}
+.marka-s small{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--soluk);white-space:nowrap}
+.markalar{display:flex;flex-wrap:wrap;gap:12px 38px;align-items:center;flex:1;justify-content:space-between}
+.markalar span{font-family:'Fraunces',serif;font-size:1.3rem;color:#5b665e;font-weight:500;opacity:.85;transition:.2s;white-space:nowrap}
+.markalar span:hover{color:var(--kil);opacity:1}
+.markalar span.k{font-family:'Inter';font-weight:800;letter-spacing:.08em;font-size:1.05rem}
+/* hizmetler */
+.hz{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.hk{background:var(--yuzey);border-radius:var(--r);overflow:hidden;box-shadow:var(--gol);transition:.35s;display:flex;flex-direction:column}
+.hk:hover{transform:translateY(-6px)}.hk:hover img{transform:scale(1.06)}
+.hk .g{aspect-ratio:4/3;overflow:hidden}.hk img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.hk .m{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+.hk .no{font:italic 500 .9rem 'Fraunces';color:var(--kil);margin-bottom:6px}
+.hk p{color:var(--soluk);font-size:.92rem;margin:8px 0 16px;flex:1}
+.hk a.l{font-weight:600;font-size:.88rem;color:var(--orman);border-bottom:1.5px solid var(--kil);align-self:flex-start;padding-bottom:2px}
+/* hesaplayici */
+.hes{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.55)}
+.hes-f{background:#fff;color:var(--yazi);padding:40px}
+.hes-s{background:var(--orman2);padding:40px;display:flex;flex-direction:column;justify-content:center;position:relative;background-image:linear-gradient(rgba(24,42,32,.9),rgba(24,42,32,.94)),url(img/cat.jpg);background-size:cover;background-position:center}
+label.e{display:block;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soluk);margin:22px 0 10px}label.e:first-child{margin-top:0}
+.segment{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.segment button{border:1.5px solid var(--cizgi);background:#fff;border-radius:10px;height:46px;font-weight:600;font-size:.9rem;color:#3b473f;transition:.2s}
+.segment button:hover{border-color:var(--sage)}
+.segment button.on{background:var(--orman);border-color:var(--orman);color:#fff}
+.segment.u3{grid-template-columns:repeat(3,1fr)}
+input[type=range]{margin-bottom:6px;width:100%;accent-color:var(--kil);height:6px}
+.deger{display:flex;justify-content:space-between;align-items:baseline}.deger b{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:500;color:var(--orman)}.deger span{font-size:.82rem;color:var(--soluk)}
+.sonuc small.e2{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#d9a98f;font-weight:600}
+.sonuc .buyuk{font-family:'Fraunces',serif;font-size:clamp(3.2rem,6vw,4.6rem);color:#fff;line-height:1;margin:10px 0 4px}
+.sonuc .buyuk span{font-size:1.4rem;color:rgba(255,255,255,.7);margin-left:6px}
+.sonuc .alt1{color:rgba(236,230,216,.75);font-size:.95rem}
+.sonuc hr{border:0;border-top:1px solid rgba(255,255,255,.14);margin:26px 0}
+.butce{font-family:'Fraunces',serif;font-size:2.1rem;color:#fff}
+.cubuk{display:flex;height:8px;border-radius:99px;background:rgba(255,255,255,.12);margin:16px 0 8px;overflow:hidden}.cubuk i{display:block;background:linear-gradient(90deg,var(--sage),#e0b49c);transition:width .5s;border-radius:99px}
+.cs{display:flex;justify-content:space-between;font-size:.76rem;color:rgba(236,230,216,.65)}
+.not{font-size:.78rem;color:rgba(236,230,216,.55);margin-top:22px;line-height:1.5}
+.sonuc .dg{margin-top:22px;align-self:flex-start}
+/* katalog */
+.sekme{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.sekme button{border:1.5px solid var(--cizgi);background:#fff;border-radius:999px;height:42px;padding:0 20px;font-weight:600;font-size:.88rem;color:#3b473f;transition:.2s}
+.sekme button.on,.sekme button:hover{background:var(--orman);color:#fff;border-color:var(--orman)}
+.urunler{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.uk{background:#fff;border-radius:var(--r);padding:0;box-shadow:var(--gol);display:flex;flex-direction:column;transition:.3s;overflow:hidden}
+.uk:hover{transform:translateY(-4px)}
+.uk .pk{height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+.uk .pk b{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:500;line-height:1.1;color:var(--orman)}.uk .pk small{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(28,38,32,.55);margin-top:8px;font-weight:600}
+.uk .pk em{position:absolute;top:12px;left:12px;font-style:normal;font-size:.66rem;font-weight:700;letter-spacing:.1em;background:var(--kil);color:#fff;padding:3px 9px;border-radius:99px}
+.uk .m{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+.uk h3{font-family:'Inter';font-size:.95rem;font-weight:600;letter-spacing:0;line-height:1.35}.uk .m p{font-size:.8rem;color:var(--soluk);margin:4px 0 14px;flex:1}
+.uk .fy{display:flex;align-items:center;justify-content:space-between}
+.uk .fy b{font-size:1.15rem;font-weight:700;color:var(--orman)}
+.uk .ekle{background:var(--orman);color:#fff;border:0;border-radius:999px;height:38px;padding:0 16px;font-weight:600;font-size:.8rem;transition:.2s}.uk .ekle:hover{background:var(--kil)}
+/* sepet panel */
+.ort{position:fixed;inset:0;background:rgba(20,28,23,.5);z-index:80;opacity:0;pointer-events:none;transition:.3s}.ort.ac{opacity:1;pointer-events:auto}
+.panel{visibility:hidden;position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:90;transform:translateX(100%);transition:.4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.2)}.panel.ac{transform:none;visibility:visible}
+.panel header{padding:24px;border-bottom:1px solid var(--cizgi);display:flex;justify-content:space-between;align-items:center}.panel header h3{font-size:1.5rem}
+.panel .x{border:0;background:var(--kum);width:38px;height:38px;border-radius:50%;font-size:1.1rem}
+.panel .liste{flex:1;overflow:auto;padding:8px 24px}
+.sr{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--cizgi);font-size:.92rem}.sr small{color:var(--soluk);display:block}.sr button{background:none;border:0;color:var(--kil);font-size:.78rem;font-weight:600;margin-top:4px}
+.panel footer{padding:22px 24px;border-top:1px solid var(--cizgi);background:var(--zemin)}.panel .top{display:flex;justify-content:space-between;font-family:'Fraunces',serif;font-size:1.4rem;margin-bottom:14px}
+.panel .bos{padding:40px 0;text-align:center;color:var(--soluk)}
+.panel .dg{width:100%}
+/* randevu */
+.rd{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.rd-g{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--gol)}.rd-g img{width:100%;height:100%;object-fit:cover}
+.rd-g .alt{position:absolute;left:0;right:0;bottom:0;padding:60px 26px 26px;background:linear-gradient(transparent,rgba(24,42,32,.88));color:#fff}.rd-g .alt p{font-family:'Fraunces',serif;font-size:1.35rem;line-height:1.3}
+.liste-t{margin:26px 0;display:grid;gap:12px}.liste-t div{display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--cizgi);font-size:.95rem}.liste-t b{font-weight:600}.liste-t span{color:var(--kil);font-weight:600}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#fff;padding:34px;border-radius:20px;box-shadow:var(--gol)}
+.form .f{grid-column:1/-1}.form .y{grid-column:auto}
+.form label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soluk);margin-bottom:7px}
+.form input,.form select,.form textarea{width:100%;height:50px;border:1.5px solid var(--cizgi);border-radius:10px;padding:0 14px;font:inherit;font-size:.95rem;background:#fcfaf6;color:var(--yazi);transition:.2s}
+.form textarea{height:84px;padding:12px 14px;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:0;border-color:var(--orman);background:#fff}
+.form .dg{grid-column:1/-1;background:#1f8f4e;border-color:#1f8f4e}.form .dg:hover{background:#177a41}
+.form small{grid-column:1/-1;font-size:.78rem;color:var(--soluk)}
+/* surec */
+.surec{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.18)}
+.surec div{padding:32px 28px 0 0}.surec div+div{padding-left:28px;border-left:1px solid rgba(255,255,255,.12)}
+.surec .n{font:italic 500 3rem 'Fraunces';color:#d9a98f;line-height:1;margin-bottom:14px}.surec b{font-family:'Fraunces',serif;font-weight:500;font-size:1.25rem;color:#fff}.surec p{margin-top:8px;color:rgba(236,230,216,.75);font-size:.92rem}
+/* odeme */
+.od{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.od ul{list-style:none;margin-top:28px;display:grid;gap:18px}
+.od li{display:grid;grid-template-columns:40px 1fr;gap:14px}.od li i{width:40px;height:40px;border-radius:50%;background:var(--kum);display:grid;place-items:center;font:600 .8rem 'Inter';font-style:normal;color:var(--kil)}
+.od li b{display:block;font-weight:600}.od li span{font-size:.9rem;color:var(--soluk)}
+.kart-vis{background:linear-gradient(135deg,#24382d,#3c5a49 60%,#b5623f);border-radius:22px;padding:30px;color:#fff;aspect-ratio:1.6;max-width:420px;margin:0 auto 22px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px -24px rgba(24,42,32,.7)}
+.kart-vis .c{width:48px;height:36px;border-radius:7px;background:linear-gradient(135deg,#e8d5a8,#bfa467)}
+.kart-vis .no{font:500 1.35rem 'Inter';letter-spacing:.2em}.kart-vis .a{display:flex;justify-content:space-between;font-size:.76rem;letter-spacing:.14em;opacity:.8;text-transform:uppercase}
+.taksit{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.taksit span{background:#fff;border:1px solid var(--cizgi);border-radius:99px;padding:7px 16px;font-size:.82rem;font-weight:600}
+.guvenler{display:flex;justify-content:center;gap:22px;margin-top:20px;font-size:.78rem;color:var(--soluk);flex-wrap:wrap}
+.uyari{font-size:.8rem;color:var(--soluk);margin-top:22px;padding:14px 16px;border-left:3px solid var(--kil);background:var(--kum);border-radius:0 8px 8px 0}
 /* yorum */
-.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.rev{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
-.rev .stars{color:#FFB400;font-size:18px}
-.rev p{margin:12px 0;font-size:15.5px}
-.rev .who{display:flex;align-items:center;gap:12px}
-.rev .av{width:44px;height:44px;border-radius:50%;object-fit:cover}
-.rev .who b{font-family:var(--disp)}.rev .who span{color:var(--mut);font-size:13px}
-
-.final{position:relative;border-radius:30px;overflow:hidden;padding:60px 46px;text-align:center;color:#fff}
-.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.final .ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,95,20,.88),rgba(255,94,58,.82))}
-.final .ct{position:relative;z-index:2}
-.final h2{font-size:clamp(28px,4.5vw,42px);font-weight:800}
-.final p{font-size:18px;opacity:.96;margin:12px auto 26px;max-width:560px}
-
-footer{background:var(--ink);color:#CDBFB4;padding:54px 0 30px}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:30px}
-footer h4{color:#fff;font-family:var(--disp);margin-bottom:14px;font-size:17px}
-footer a{display:block;padding:4px 0;color:#CDBFB4}footer a:hover{color:#fff}
-.made{border-top:1px solid rgba(255,255,255,.1);margin-top:36px;padding-top:22px;text-align:center;font-size:14px}
-.made a{display:inline;color:#FFC23D;font-weight:700}
-
-.fab{position:fixed;bottom:22px;right:22px;z-index:150;background:#25D366;color:#fff;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:29px;box-shadow:0 14px 30px -8px rgba(37,211,102,.8);animation:fl 3s ease-in-out infinite}
-@media(max-width:820px){.hero-in,.pay{grid-template-columns:1fr}.hero-art{order:-1}.hero-art .main{height:320px}.feat{padding:30px}.fgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.fgrid{grid-template-columns:1fr}.hero-art .pic2{display:none}}
+.yr{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.yk{background:#fff;border-radius:var(--r);padding:32px;box-shadow:var(--gol)}
+.yk .yildiz{color:var(--kil);letter-spacing:.2em;font-size:.9rem}.yk p{font-family:'Fraunces',serif;font-size:1.12rem;line-height:1.5;margin:14px 0 22px}
+.yk .k{display:flex;align-items:center;gap:12px;font-size:.88rem}.yk .av{width:42px;height:42px;border-radius:50%;background:var(--orman);color:#fff;display:grid;place-items:center;font:500 1.1rem 'Fraunces'}.yk small{display:block;color:var(--soluk)}
+.ornek-n{font-size:.78rem;color:var(--soluk);margin-top:20px;text-align:center}
+/* blog */
+.bl{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.bk{display:block}.bk .g{aspect-ratio:3/2;border-radius:var(--r);overflow:hidden;margin-bottom:20px}.bk img{width:100%;height:100%;object-fit:cover;transition:.6s}.bk:hover img{transform:scale(1.05)}
+.bk small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--kil);font-weight:600}.bk h3{margin:8px 0 10px;font-size:1.4rem}.bk:hover h3{color:var(--kil)}.bk p{color:var(--soluk);font-size:.93rem}
+/* bolge */
+.bolge{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.bolge span{border:1px solid var(--cizgi);border-radius:99px;padding:8px 18px;font-size:.88rem;background:#fff}
+.sss{max-width:760px}details{border-bottom:1px solid var(--cizgi);padding:20px 0}summary{cursor:pointer;font-family:'Fraunces',serif;font-size:1.2rem;list-style:none;display:flex;justify-content:space-between}summary::after{content:"+";color:var(--kil);font-size:1.5rem;line-height:1}details[open] summary::after{content:"–"}details p{margin-top:12px;color:var(--soluk)}
+/* cta + footer */
+.cta{background:var(--orman);color:#fff;text-align:center;padding:96px 0;background-image:linear-gradient(rgba(24,42,32,.88),rgba(24,42,32,.9)),url(img/store.jpg);background-size:cover;background-position:center}
+.cta h2{max-width:700px;margin:0 auto 16px}.cta p{color:rgba(255,255,255,.8);max-width:520px;margin:0 auto}.cta .dgs{justify-content:center}
+footer.alt-f{background:var(--orman2);color:rgba(236,230,216,.75);padding:70px 0 30px;font-size:.92rem}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+footer .logo b{color:#fff}footer .logo small{color:rgba(255,255,255,.5)}footer h4{color:#fff;font:600 .72rem 'Inter';letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}footer ul{list-style:none;display:grid;gap:9px}footer a:hover{color:#fff}
+.son{margin-top:50px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.8rem}
+.son a{color:#e8b79f;font-weight:600}
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -6px rgba(37,211,102,.6);transition:.25s}.wa:hover{transform:scale(1.08)}
+.wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:nb 2.4s infinite}
+@keyframes nb{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+.bildirim{position:fixed;left:50%;bottom:28px;transform:translate(-50%,120px);background:var(--orman);color:#fff;padding:13px 22px;border-radius:99px;font-size:.88rem;z-index:100;transition:.4s;box-shadow:var(--gol)}.bildirim.ac{transform:translate(-50%,0)}
+@keyframes yuk{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero .kap>div:first-child>*{animation:yuk .8s both}.hero .kap>div:first-child>*:nth-child(2){animation-delay:.1s}.hero .kap>div:first-child>*:nth-child(3){animation-delay:.2s}.hero .kap>div:first-child>*:nth-child(4){animation-delay:.3s}.hero .kap>div:first-child>*:nth-child(5){animation-delay:.4s}
+.hero-g{animation:yuk 1s .2s both}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* responsive */
+@media(max-width:1020px){
+.hz,.urunler{grid-template-columns:repeat(2,1fr)}.surec{grid-template-columns:1fr 1fr}.surec div:nth-child(3){padding-left:0;border-left:0}.surec div:nth-child(n+3){margin-top:20px}
+.hero .kap,.hes,.rd,.od{grid-template-columns:1fr}.hero .kap{gap:44px}.rd{gap:36px}.rd-g{aspect-ratio:16/10}.od{gap:44px}
+.hero-g .kucuk{left:-10px}.yr,.bl{grid-template-columns:1fr 1fr}.fg{grid-template-columns:1fr 1fr}
+nav.menu{display:none;position:absolute;top:74px;left:0;right:0;background:var(--zemin);flex-direction:column;align-items:stretch;gap:0;padding:12px 22px 22px;border-bottom:1px solid var(--cizgi)}nav.menu.ac{display:flex}nav.menu a:not(.dg){padding:14px 0;border-bottom:1px solid var(--cizgi)}nav.menu .dg{margin:16px 0 0}.mdg{display:grid;place-items:center}
+.marka-s .kap{flex-direction:column;align-items:flex-start;gap:16px}.markalar{justify-content:flex-start}}
+@media(max-width:640px){
+.bol{padding:72px 0}.rozet{font-size:.58rem;padding:5px 11px}
+.hz,.urunler,.yr,.bl,.surec,.fg{grid-template-columns:1fr}.surec div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.12);margin-top:24px}
+.hes-f,.hes-s{padding:26px 22px}.form{padding:24px 18px;grid-template-columns:1fr}.form .y{grid-column:1/-1}
+.rakam{gap:24px}.hero-g .etiketk{right:6px}.hero-g .kucuk{width:120px;left:6px}.segment{grid-template-columns:repeat(2,1fr)}.segment.u3{grid-template-columns:repeat(3,1fr)}
+.kart-vis .no{font-size:1rem;letter-spacing:.14em}.logo small{display:none}.sepet-dg span.t{display:none}.urunler{gap:14px}.uk .pk{height:120px}.cta{padding:70px 0}}
+.kap>*,.hero .kap>div,.hes>*,.form>*{min-width:0}html{overflow-x:hidden}
 </style>
 </head>
 <body>
-<div class="ornek">ÖRNEK · DİJİTABELA</div>
+<div class="rozet">ÖRNEK · DİJİTABELA</div>
 
-<header>
-  <nav class="wrap">
-    <div class="logo"><span class="ic">🐾</span> Pati Dünyası</div>
-    <div class="nav-links">
-      <a href="#kategori">Ürünler</a><a href="#hizmet">Hizmetler</a><a href="#ozellik">Özellikler</a>
-      <a href="#galeri">Galeri</a><a href="#iletisim">İletişim</a>
-    </div>
-    <a class="btn p" href="#iletisim">📅 Randevu Al</a>
-    <button class="burger" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
-  </nav>
-</header>
+<header class="ust"><div class="kap">
+<a class="logo" href="#top" aria-label="Pati Dünyası">
+<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#24382d"/><g fill="#f0d9c8"><ellipse cx="20" cy="25.5" rx="6.2" ry="5"/><ellipse cx="11.8" cy="19" rx="2.6" ry="3.3" transform="rotate(-18 11.8 19)"/><ellipse cx="16.2" cy="13.2" rx="2.5" ry="3.4" transform="rotate(-6 16.2 13.2)"/><ellipse cx="23.8" cy="13.2" rx="2.5" ry="3.4" transform="rotate(6 23.8 13.2)"/><ellipse cx="28.2" cy="19" rx="2.6" ry="3.3" transform="rotate(18 28.2 19)"/></g></svg>
+<span><b>Pati Dünyası</b><small>Antalya · Pet Shop</small></span></a>
+<nav class="menu" id="menu" aria-label="Ana menü">
+<a href="#hizmetler">Hizmetler</a><a href="#hesapla">Bütçe Hesapla</a><a href="#katalog">Ürünler</a><a href="#randevu">Randevu</a><a href="#blog">Bakım Rehberi</a><a href="#bolge">İletişim</a>
+<a class="dg kil" href="#randevu">Sipariş / Randevu</a></nav>
+<div style="display:flex;gap:10px;align-items:center;margin-right:64px"><button class="sepet-dg" id="sepetAc" aria-label="Sepeti aç"><span class="t">Sepet</span><b id="sepetN">0</b></button><button class="mdg" id="mdg" aria-label="Menü" aria-expanded="false">☰</button></div>
+</div></header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-in">
-    <div>
-      <span class="tag">🐾 Antalya'nın sevgi dolu pet shop'u</span>
-      <h1>Minik dostlarınız için <span class="hl">her şey</span> burada</h1>
-      <p class="lead">Kaliteli mama, oyuncak ve aksesuardan profesyonel kuaför ve pet otele kadar — sevimli dostlarınızın mutluluğu için tek adres. Online sipariş et, kapına gelsin.</p>
-      <div class="cta">
-        <a class="btn wa" href="https://wa.me/900000000000?text=Merhaba" target="_blank">💬 WhatsApp'tan Sipariş</a>
-        <a class="btn o" href="#hizmet">Hizmetleri Gör</a>
-      </div>
-      <div class="trust">
-        <div><b>5.000+</b><span>Mutlu patili müşteri</span></div>
-        <div><b>⭐ 4.9</b><span>Google puanı</span></div>
-        <div><b>Aynı gün</b><span>Antalya içi teslimat</span></div>
-      </div>
-    </div>
-    <div class="hero-art">
-      <img class="main" src="img/hero-dog.jpg" alt="Mutlu köpek">
-      <img class="pic2" src="img/cat.jpg" alt="Kedi">
-      <div class="floaty"><span class="e">✂️</span> Kuaför Randevusu Açık</div>
-    </div>
-  </div>
+<main id="top">
+<section class="hero"><div class="kap">
+<div>
+<span class="etiket">Antalya · Muratpaşa · Konyaaltı · Lara</span>
+<h1>Patili dostunuz için <em>özenle</em> seçilmiş her şey.</h1>
+<p class="alt">Mama, aksesuar, pet kuaför ve pansiyon tek adreste. Aylık bütçenizi hesaplayın, sepetinizi hazırlayın, siparişinizi WhatsApp'tan tamamlayın.</p>
+<div class="dgs"><a class="dg kil" href="#hesapla">Aylık bütçemi hesapla</a><a class="dg i" href="#randevu">Randevu al</a></div>
+<div class="rakam"><div><b>2.400+</b><span>Ürün çeşidi</span></div><div><b>12 yıl</b><span>Antalya'da hizmet</span></div><div><b>Aynı gün</b><span>Kapıya teslimat</span></div></div>
+</div>
+<div class="hero-g"><div class="ana"><img src="img/hero-dog.jpg" alt="Mutlu bir köpek" fetchpriority="high"></div>
+<div class="kucuk"><img src="img/cat.jpg" alt="Kedi"></div>
+<div class="etiketk"><b>4.9 / 5</b>Müşteri memnuniyeti<br><span style="color:var(--kil);font-size:.72rem">(örnek veri)</span></div></div>
+</div>
+<div class="marka-s"><div class="kap"><small>Taşıdığımız markalar</small><div class="markalar"><span>Royal Canin</span><span class="k">PRO PLAN</span><span>Whiskas</span><span class="k">REFLEX</span><span>Felix</span><span class="k">N&amp;D</span><span>Hill's</span><span class="k">Orijen</span></div></div></div>
 </section>
 
-<div class="strip"><div class="wrap">
-  <div><span class="e">🚚</span> Aynı Gün Teslimat</div>
-  <div><span class="e">💳</span> Kredi Kartına Taksit</div>
-  <div><span class="e">🏷️</span> Üyelere Özel İndirim</div>
-  <div><span class="e">🩺</span> Veteriner Danışma</div>
-  <div><span class="e">↩️</span> Kolay İade</div>
-</div></div>
+<section class="bol" id="hizmetler"><div class="kap">
+<div class="giris"><span class="etiket">Hizmetlerimiz</span><h2>Mağazadan fazlası, bakımın tamamı.</h2><p>Bir pet shop'tan beklediğiniz her şeyi, deneyimli ekibimizle tek çatı altında sunuyoruz.</p></div>
+<div class="hz">
+<article class="hk"><div class="g"><img src="img/store.jpg" alt="Pati Dünyası mağaza içi" loading="lazy"></div><div class="m"><div class="no">01</div><h3>Mama & Ürünler</h3><p>Kedi, köpek, kuş ve balık için seçkin markalar, özel beslenme önerileri.</p><a class="l" href="#katalog">Ürünlere göz at</a></div></article>
+<article class="hk"><div class="g"><img src="img/grooming.jpg" alt="Köpek tıraş ve banyo" loading="lazy"></div><div class="m"><div class="no">02</div><h3>Köpek Kuaför</h3><p>Irka özel tıraş, banyo, tırnak ve kulak bakımı. Stressiz, nazik, randevulu.</p><a class="l" href="#randevu">Randevu al</a></div></article>
+<article class="hk"><div class="g"><img src="img/catgroom.jpg" alt="Kedi bakımı" loading="lazy"></div><div class="m"><div class="no">03</div><h3>Kedi Bakımı & Pansiyon</h3><p>Tatildeyken evinizin sıcaklığında konaklama, günlük fotoğraf bilgilendirmesi.</p><a class="l" href="#randevu">Yer ayırt</a></div></article>
+<article class="hk"><div class="g"><img src="img/aquarium.jpg" alt="Akvaryum" loading="lazy"></div><div class="m"><div class="no">04</div><h3>Akvaryum & Kuş</h3><p>Akvaryum kurulum danışmanlığı, su analizi, kafes ve yem çeşitleri.</p><a class="l" href="#blog">Rehberi oku</a></div></article>
+</div></div></section>
 
-<!-- KATEGORİLER (foto) -->
-<section id="kategori">
-  <div class="wrap">
-    <div class="sec-h"><span class="tag">Ürün Dünyası</span><h2>Dostunuz ne isterse</h2><p>Binlerce ürün, güvenilir markalar, uygun fiyat.</p></div>
-    <div class="cats">
-      <div class="cat"><img src="img/hero-dog.jpg" alt="Köpek"><div class="ov"><b>Köpek</b><span>Mama · tasma · oyuncak</span></div></div>
-      <div class="cat"><img src="img/cat.jpg" alt="Kedi"><div class="ov"><b>Kedi</b><span>Mama · kum · tırmalak</span></div></div>
-      <div class="cat"><img src="img/parrot.jpg" alt="Kuş"><div class="ov"><b>Kuş</b><span>Yem · kafes · vitamin</span></div></div>
-      <div class="cat"><img src="img/aquarium.jpg" alt="Akvaryum"><div class="ov"><b>Akvaryum</b><span>Balık · yem · ekipman</span></div></div>
-    </div>
-  </div>
-</section>
+<section class="bol koyu" id="hesapla"><div class="kap">
+<div class="giris"><span class="etiket">Bütçe Hesaplayıcı</span><h2>Aylık mama ihtiyacı ve bütçesi, saniyeler içinde.</h2><p>Türünü ve boyutunu seçin; yaklaşık aylık mama miktarını ve üç kalite seviyesine göre bütçeyi görün.</p></div>
+<div class="hes">
+<div class="hes-f">
+<label class="e">Hayvan türü</label>
+<div class="segment" id="tur"><button class="on" data-t="kopek">Köpek</button><button data-t="kedi">Kedi</button><button data-t="kus">Kuş</button><button data-t="balik">Balık</button></div>
+<label class="e" id="olcL">Kilo</label>
+<div class="deger"><b id="olcV">12 kg</b><span id="olcN">Orta boy bir köpek</span></div>
+<input type="range" id="olc" min="2" max="45" value="12" aria-label="Kilo">
+<div id="evreK"><label class="e">Yaşam evresi</label>
+<div class="segment u3" id="evre"><button data-e="yavru">Yavru</button><button class="on" data-e="yetiskin">Yetişkin</button><button data-e="yasli">Yaşlı</button></div></div>
+<label class="e">Mama kalitesi</label>
+<div class="segment u3" id="kalite"><button data-k="0">Ekonomik</button><button class="on" data-k="1">Standart</button><button data-k="2">Premium</button></div>
+</div>
+<div class="hes-s sonuc" aria-live="polite">
+<small class="e2">Aylık yaklaşık mama</small>
+<div class="buyuk"><span id="sKg" style="font-size:inherit;color:inherit;margin:0">0</span><span>kg</span></div>
+<div class="alt1" id="sGun">Günlük yaklaşık 0 g</div>
+<hr>
+<small class="e2">Seçili kaliteye göre aylık bütçe</small>
+<div class="butce" id="sTl">0 ₺</div>
+<div class="cubuk"><i id="sBar" style="width:50%"></i></div>
+<div class="cs"><span id="sMin">–</span><span id="sMax">–</span></div>
+<a class="dg b" id="sWa" href="#" target="_blank" rel="noopener">Bu hesapla WhatsApp'tan sor</a>
+<p class="not">Değerler ortalama bir tahmindir; marka, aktivite ve veteriner önerisine göre değişir. Fiyatlar örnek amaçlıdır.</p>
+</div></div></div></section>
 
-<!-- HİZMETLER (foto kartları) -->
-<section id="hizmet" style="background:#fff">
-  <div class="wrap">
-    <div class="sec-h"><span class="tag">Hizmetlerimiz</span><h2>Dostlarınız için eksiksiz bakım</h2><p>Tek çatı altında, sevgiyle ve uzman ellerle.</p></div>
-    <div class="grid">
-      <div class="svc"><div class="ph"><img src="img/grooming.jpg" alt="Kuaför"><span class="chip">✂️ Kuaför</span></div><div class="bd"><h3>Kuaför & Bakım</h3><p>Tüy tıraşı, yıkama, tırnak ve kulak bakımı — stressiz, sevgi dolu bir deneyim.</p></div></div>
-      <div class="svc"><div class="ph"><img src="img/aquarium.jpg" alt="Akvaryum"><span class="chip">🐠 Akvaryum</span></div><div class="bd"><h3>Akvaryum Kurulumu</h3><p>Akvaryum tasarımı, kurulumu ve bakımı; balık ve bitki danışmanlığı.</p></div></div>
-      <div class="svc"><div class="ph"><img src="img/catgroom.jpg" alt="Pet otel"><span class="chip">🏨 Pansiyon</span></div><div class="bd"><h3>Pet Otel & Pansiyon</h3><p>Tatildeyken dostunuz güvende; kameralı, ısıtmalı ve oyun alanlı konaklama.</p></div></div>
-      <div class="svc"><div class="ph"><img src="img/store.jpg" alt="Mağaza"><span class="chip">🦴 Mama</span></div><div class="bd"><h3>Mama & Market</h3><p>Köpek, kedi, kuş, balık ve kemirgenler için premium, veteriner onaylı ürünler.</p></div></div>
-    </div>
-  </div>
-</section>
+<section class="bol" id="katalog"><div class="kap">
+<div class="giris"><span class="etiket">Online Sipariş</span><h2>Sepetinizi hazırlayın, siparişi WhatsApp'tan tamamlayın.</h2><p>Ürünleri sepete ekleyin; tek dokunuşla hazır siparişiniz mağazaya iletilsin. Antalya içi aynı gün teslimat.</p></div>
+<div class="sekme" id="sekme"><button class="on" data-c="hepsi">Tümü</button><button data-c="kopek">Köpek</button><button data-c="kedi">Kedi</button><button data-c="kus">Kuş</button><button data-c="akv">Akvaryum</button></div>
+<div class="urunler" id="urunler"></div>
+</div></section>
 
-<!-- ÖZELLİK -->
-<section id="ozellik">
-  <div class="wrap">
-    <div class="feat">
-      <span class="tag" style="background:rgba(255,255,255,.12);color:#FFC23D;border-color:transparent">İşinizi büyüten dijital özellikler</span>
-      <h2 style="margin-top:14px">Sadece bir site değil — <span class="fl">müşteri getiren bir sistem</span></h2>
-      <div class="fg">
-        <div class="fc"><div class="e">🛒</div><h3>Online Sipariş</h3><p>Ürün kataloğu + sepet; sipariş WhatsApp'a veya panele düşer.</p></div>
-        <div class="fc"><div class="e">📅</div><h3>Online Randevu</h3><p>Kuaför/pansiyon randevusu takvimden otomatik; hatırlatma mesajı gider.</p></div>
-        <div class="fc"><div class="e">💳</div><h3>Kredi Kartı Ödeme</h3><p>PayTR/iyzico entegrasyonu — taksitli, güvenli online tahsilat.</p></div>
-        <div class="fc"><div class="e">📍</div><h3>Google'da Üst Sıra</h3><p>Google İşletme + yerel SEO: "Antalya pet shop" aramalarında görünürlük.</p></div>
-        <div class="fc"><div class="e">📨</div><h3>WhatsApp & Instagram</h3><p>Tek tıkla WhatsApp sipariş, Instagram feed entegrasyonu.</p></div>
-        <div class="fc"><div class="e">🏷️</div><h3>Kampanya & Sadakat</h3><p>İndirim kuponu, üyelik ve sadakat sistemi.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="bol kum" id="randevu"><div class="kap rd">
+<div><div class="rd-g"><img src="img/grooming.jpg" alt="Pet kuaför" loading="lazy"><div class="alt"><p>"Her dost kendi hızında; acele etmeden, nazikçe."</p></div></div></div>
+<div>
+<span class="etiket">Online Randevu</span><h2>Kuaför ve pansiyon için yerinizi ayırtın.</h2>
+<div class="liste-t"><div><b>Banyo & fön (küçük ırk)</b><span>350 ₺'den</span></div><div><b>Tam tıraş & bakım</b><span>650 ₺'den</span></div><div><b>Kedi bakımı</b><span>450 ₺'den</span></div><div><b>Pansiyon (günlük)</b><span>300 ₺'den</span></div></div>
+<form class="form" id="rdForm" novalidate>
+<div class="y"><label for="rAd">Ad soyad</label><input id="rAd" required placeholder="Adınız"></div>
+<div class="y"><label for="rTel">Telefon</label><input id="rTel" type="tel" required placeholder="05xx xxx xx xx"></div>
+<div class="y"><label for="rHay">Hayvan</label><select id="rHay"><option>Köpek</option><option>Kedi</option><option>Kuş</option><option>Diğer</option></select></div>
+<div class="y"><label for="rHiz">Hizmet</label><select id="rHiz"><option>Banyo & fön</option><option>Tam tıraş & bakım</option><option>Kedi bakımı</option><option>Pansiyon</option></select></div>
+<div class="y"><label for="rTar">Tarih</label><input id="rTar" type="date" required></div>
+<div class="y"><label for="rSaat">Saat</label><select id="rSaat"><option>10:00</option><option>11:30</option><option>13:00</option><option>14:30</option><option>16:00</option><option>17:30</option></select></div>
+<div class="f"><label for="rNot">Not (ırk, yaş, özel durum)</label><textarea id="rNot" placeholder="Örn. 3 yaşında golden, kulakları hassas"></textarea></div>
+<button class="dg" type="submit">WhatsApp ile randevu gönder</button>
+<small>Bilgiler yalnızca WhatsApp mesajı olarak hazırlanır; mağaza onayıyla randevunuz kesinleşir.</small>
+</form></div></div></section>
 
-<!-- ÖDEME -->
-<section style="background:#fff">
-  <div class="wrap pay">
-    <div>
-      <span class="tag">💳 Güvenli Ödeme</span>
-      <h2 style="font-size:clamp(26px,4vw,38px);font-weight:800;margin:14px 0 6px">Kredi kartıyla, taksitle, güvenle</h2>
-      <p style="color:var(--mut)">Müşterileriniz siteden kredi kartıyla öder; para doğrudan hesabınıza geçer. Türkiye'nin güvenli ödeme altyapılarıyla entegre.</p>
-      <div class="checkbox"><span class="ok">✔</span><div><b>PayTR / iyzico entegrasyonu</b> — 3D Secure, taksit desteği, anında tahsilat.</div></div>
-      <div class="checkbox"><span class="ok">✔</span><div><b>Kapıda ödeme</b> ve havale/EFT seçenekleri de açılabilir.</div></div>
-      <div class="checkbox"><span class="ok">✔</span><div><b>Fatura & sipariş takibi</b> — her satış kayıt altında.</div></div>
-      <div class="cards"><span class="pc">VISA</span><span class="pc">Mastercard</span><span class="pc">Troy</span><span class="pc">PayTR</span><span class="pc">iyzico</span></div>
-    </div>
-    <div class="pay-mock">
-      <div class="row"><span>Royal Canin Kedi Maması 2kg</span><span>₺540</span></div>
-      <div class="row"><span>Kedi Kumu 10L</span><span>₺180</span></div>
-      <div class="row"><span>Kargo (Antalya içi)</span><span>Ücretsiz</span></div>
-      <div class="row"><span>Toplam</span><span>₺720</span></div>
-      <div class="field"><span>Kart Numarası</span><span>•••• •••• •••• 4242</span></div>
-      <div class="field"><span>Taksit</span><span>3 Taksit ✓</span></div>
-      <a class="btn p" style="width:100%;justify-content:center;margin-top:14px">🔒 Güvenle Öde</a>
-    </div>
-  </div>
-</section>
+<section class="bol koyu" id="surec"><div class="kap">
+<div class="giris"><span class="etiket">Nasıl çalışıyoruz</span><h2>Dört adımda, kapınıza kadar.</h2></div>
+<div class="surec"><div><div class="n">1</div><b>Seçin</b><p>Bütçenizi hesaplayın, ürünleri inceleyin.</p></div><div><div class="n">2</div><b>Gönderin</b><p>Sepetiniz tek dokunuşla WhatsApp'a düşer.</p></div><div><div class="n">3</div><b>Onaylayın</b><p>Stok, fiyat ve teslimat saati netleşir.</p></div><div><div class="n">4</div><b>Teslim alın</b><p>Aynı gün kapıda ya da mağazada.</p></div></div>
+</div></section>
 
-<!-- GALERİ (foto) -->
-<section id="galeri">
-  <div class="wrap">
-    <div class="sec-h"><span class="tag">Galeri</span><h2>Mağazamızdan kareler</h2><p>Siz ve minik dostlarınız için hazırız.</p></div>
-    <div class="gal">
-      <img src="img/hero-dog.jpg" alt="Köpek">
-      <img src="img/cat.jpg" alt="Kedi">
-      <img src="img/aquarium.jpg" alt="Akvaryum">
-      <img src="img/parrot.jpg" alt="Kuş">
-      <img src="img/grooming.jpg" alt="Kuaför">
-      <img src="img/store.jpg" alt="Mağaza">
-      <img src="img/catgroom.jpg" alt="Bakım">
-    </div>
-  </div>
-</section>
+<section class="bol" id="odeme"><div class="kap od">
+<div><span class="etiket">Güvenli Ödeme</span><h2>Kredi kartıyla, taksitle, 3D Secure ile.</h2>
+<ul>
+<li><i>01</i><div><b>PayTR / iyzico entegrasyonu</b><span>Kart bilgileri sitede tutulmaz; ödeme, lisanslı ödeme kuruluşunun güvenli sayfasında alınır.</span></div></li>
+<li><i>02</i><div><b>3D Secure doğrulama</b><span>Her işlem bankanızın SMS onayıyla korunur.</span></div></li>
+<li><i>03</i><div><b>Taksit seçenekleri</b><span>Anlaşmalı bankalarda 2-9 taksit; yüksek tutarlı mama ve ekipman alışverişinde rahatlık.</span></div></li>
+<li><i>04</i><div><b>Kapıda ödeme ve havale</b><span>Tercihinize göre nakit, kart veya havale ile de tamamlayabilirsiniz.</span></div></li>
+</ul></div>
+<div><div class="kart-vis"><div class="c"></div><div class="no">•••• •••• •••• 4242</div><div class="a"><span>Pati Dünyası</span><span>3D Secure</span></div></div>
+<div class="taksit"><span>Tek çekim</span><span>3 taksit</span><span>6 taksit</span><span>9 taksit</span></div>
+<div class="guvenler"><span>256-bit SSL</span><span>PCI DSS</span><span>Banka onaylı</span></div>
+<p class="uyari">Bu sayfa bir örnek tasarımdır. Gerçek sitede ödeme altyapısı, işletmenizin PayTR veya iyzico hesabıyla bağlanır.</p></div>
+</div></section>
 
-<!-- YORUMLAR -->
-<section style="background:#fff">
-  <div class="wrap">
-    <div class="sec-h"><span class="tag">Müşteri Yorumları</span><h2>Patili dostlar bizi seviyor</h2><p>(Örnek yorumlardır — gerçek sitenizde Google yorumlarınız görünür.)</p></div>
-    <div class="revs">
-      <div class="rev"><div class="stars">★★★★★</div><p>"Köpeğimin maması hep burada, kuaför randevusunu da siteden alıyorum. Çok pratik!"</p><div class="who"><img class="av" src="img/hero-dog.jpg" alt=""><div><b>Müşteri</b><span>Örnek yorum</span></div></div></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>"Akvaryum kurulumunu yaptılar, balıklar çok mutlu. İlgi ve bilgi tam not."</p><div class="who"><img class="av" src="img/aquarium.jpg" alt=""><div><b>Müşteri</b><span>Örnek yorum</span></div></div></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>"Tatilde kedimi pansiyona bıraktım, kameradan izledim. İçim rahattı, teşekkürler."</p><div class="who"><img class="av" src="img/cat.jpg" alt=""><div><b>Müşteri</b><span>Örnek yorum</span></div></div></div>
-    </div>
-  </div>
-</section>
+<section class="bol kum" id="yorumlar"><div class="kap">
+<div class="giris"><span class="etiket">Müşteri Yorumları</span><h2>Patili aileler ne diyor?</h2></div>
+<div class="yr">
+<div class="yk"><div class="yildiz">★★★★★</div><p>"Golden'ımın tıraşı için ilk kez bu kadar sakin bir ortam gördüm. Eve gelince bile yorgun değildi."</p><div class="k"><div class="av">E</div><div><b>Elif K.</b><small>Konyaaltı · örnek yorum</small></div></div></div>
+<div class="yk"><div class="yildiz">★★★★★</div><p>"Mama bütçe hesaplayıcı çok işime yaradı. Aylık harcamayı baştan bilmek rahatlatıyor, sipariş de aynı gün geldi."</p><div class="k"><div class="av">M</div><div><b>Murat A.</b><small>Lara · örnek yorum</small></div></div></div>
+<div class="yk"><div class="yildiz">★★★★★</div><p>"Tatildeyken kedimi pansiyonda bıraktım, her gün fotoğraf geldi. Huzurla dönüp onu bıraktığım gibi buldum."</p><div class="k"><div class="av">S</div><div><b>Selin D.</b><small>Muratpaşa · örnek yorum</small></div></div></div>
+</div><p class="ornek-n">Yukarıdaki yorumlar tasarım örneği amacıyla yazılmış kurgusal içeriklerdir.</p></div></section>
 
-<!-- SON CTA -->
-<section id="iletisim">
-  <div class="wrap">
-    <div class="final">
-      <img src="img/hero-dog.jpg" alt="">
-      <div class="ov"></div>
-      <div class="ct">
-        <h2>Dostunuz için en iyisini isteyin</h2>
-        <p>Sipariş, randevu veya bilgi için bir mesaj uzağınızdayız. Hemen yazın, aynı gün dönüş yapalım.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-          <a class="btn o" href="https://wa.me/900000000000" target="_blank">💬 WhatsApp</a>
-          <a class="btn o" href="tel:+900000000000">📞 Hemen Ara</a>
-          <a class="btn o" href="#">📍 Yol Tarifi</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="bol" id="blog"><div class="kap">
+<div class="giris"><span class="etiket">Bakım Rehberi</span><h2>Uzmanlardan kısa ve net bilgiler.</h2><p>Düzenli yayınlanan içerikler hem sizi bilgilendirir hem de Google'da "Antalya pet shop" aramalarında sizi öne çıkarır.</p></div>
+<div class="bl">
+<a class="bk" href="#blog"><div class="g"><img src="img/cat.jpg" alt="Kedi beslenmesi" loading="lazy"></div><small>Beslenme · 4 dk</small><h3>Kediniz için doğru mama nasıl seçilir?</h3><p>Yaş, kısırlık ve hassasiyet durumuna göre içerik etiketini okumanın pratik yolları.</p></a>
+<a class="bk" href="#blog"><div class="g"><img src="img/hero-dog.jpg" alt="Köpek bakımı" loading="lazy"></div><small>Bakım · 5 dk</small><h3>Antalya yazında köpek bakımı: sıcak ve tüy dökülmesi</h3><p>Sıcak aylarda tıraş, tüy bakımı, su ihtiyacı ve yürüyüş saatleri için ipuçları.</p></a>
+<a class="bk" href="#blog"><div class="g"><img src="img/aquarium.jpg" alt="Akvaryum kurulumu" loading="lazy"></div><small>Akvaryum · 6 dk</small><h3>İlk akvaryum kurulumu: yeni başlayanlar için rehber</h3><p>Su döngüsü, filtre seçimi ve balık ekleme sırası; sık yapılan hatalar.</p></a>
+</div></div></section>
 
-<footer>
-  <div class="wrap fgrid">
-    <div>
-      <div class="logo" style="color:#fff"><span class="ic">🐾</span> Pati Dünyası</div>
-      <p style="margin-top:14px;max-width:300px">Antalya'nın sevgi dolu pet shop'u. Mama, aksesuar, kuaför, pansiyon ve akvaryum — minik dostlarınız için tek adres.</p>
-    </div>
-    <div><h4>Hizmetler</h4><a href="#hizmet">Mama & Market</a><a href="#hizmet">Kuaför</a><a href="#hizmet">Pet Otel</a><a href="#hizmet">Akvaryum</a></div>
-    <div><h4>Kurumsal</h4><a href="#">Hakkımızda</a><a href="#kategori">Ürünler</a><a href="#galeri">Galeri</a><a href="#iletisim">İletişim</a></div>
-    <div><h4>İletişim</h4><a>📍 (Mağaza adresiniz), Antalya</a><a>📞 (Telefonunuz)</a><a>🕐 Her gün 09:00 – 21:00</a><a href="https://wa.me/900000000000">💬 WhatsApp Sipariş</a></div>
-  </div>
-  <div class="wrap made">Bu bir <b>örnek tasarımdır</b> · Size özel hazırlanır → <a href="https://dijitabela.com">dijitabela.com</a> · Dijitabela Dijital Ajans · Foto: Pexels</div>
-</footer>
+<section class="bol kum" id="bolge"><div class="kap rd" style="grid-template-columns:1fr 1fr;align-items:start;gap:56px">
+<div><span class="etiket">Bölge & Sıkça Sorulanlar</span><h2>Antalya'nın her ilçesine hizmet.</h2><p style="color:var(--soluk);margin-top:16px">Muratpaşa merkez mağazamızdan Konyaaltı, Lara ve Kepez'e aynı gün teslimat yapıyoruz.</p>
+<div class="bolge"><span>Muratpaşa</span><span>Konyaaltı</span><span>Lara</span><span>Kepez</span><span>Döşemealtı</span><span>Aksu</span></div>
+<p style="margin-top:28px;font-size:.92rem;line-height:1.9">Örnek Cad. No:12, Muratpaşa / Antalya<br>Pzt–Cmt 09:30–20:00<br><a href="tel:+902420000000" style="color:var(--kil);font-weight:600">0242 000 00 00</a> · <a href="https://wa.me/905000000000" style="color:var(--kil);font-weight:600">WhatsApp</a></p></div>
+<div class="sss">
+<details open><summary>Teslimat ne kadar sürer?</summary><p>Antalya içi siparişlerde saat 16:00'ya kadar verilenler aynı gün teslim edilir.</p></details>
+<details><summary>Kuaför için aşı kartı gerekli mi?</summary><p>Evet, güncel aşı kartı ve parazit uygulaması, diğer hayvanların sağlığı için istenir.</p></details>
+<details><summary>İade ve değişim mümkün mü?</summary><p>Açılmamış mama ve ürünler 7 gün içinde değiştirilebilir.</p></details>
+</div></div></section>
 
-<a class="fab" href="https://wa.me/900000000000?text=Merhaba" target="_blank" title="WhatsApp">💬</a>
+<section class="cta"><div class="kap"><h2>Patili dostunuz en iyisini hak ediyor.</h2><p>Bugün sipariş verin ya da randevunuzu ayırtın; gerisini biz halledelim.</p><div class="dgs"><a class="dg b" href="#katalog">Ürünleri incele</a><a class="dg i" style="color:#fff;border-color:#fff" href="#randevu">Randevu al</a></div></div></section>
+</main>
+
+<footer class="alt-f"><div class="kap">
+<div class="fg">
+<div><div class="logo"><svg viewBox="0 0 40 40" fill="none" width="34" height="34"><circle cx="20" cy="20" r="20" fill="#3c5a49"/><g fill="#f0d9c8"><ellipse cx="20" cy="25.5" rx="6.2" ry="5"/><ellipse cx="11.8" cy="19" rx="2.6" ry="3.3" transform="rotate(-18 11.8 19)"/><ellipse cx="16.2" cy="13.2" rx="2.5" ry="3.4" transform="rotate(-6 16.2 13.2)"/><ellipse cx="23.8" cy="13.2" rx="2.5" ry="3.4" transform="rotate(6 23.8 13.2)"/><ellipse cx="28.2" cy="19" rx="2.6" ry="3.3" transform="rotate(18 28.2 19)"/></g></svg><span><b>Pati Dünyası</b><small>Antalya · Pet Shop</small></span></div><p style="margin-top:16px;max-width:300px">Antalya'da kedi, köpek, kuş ve akvaryum ürünleri; pet kuaför ve pansiyon.</p></div>
+<div><h4>Sayfalar</h4><ul><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#hesapla">Bütçe hesapla</a></li><li><a href="#katalog">Ürünler</a></li><li><a href="#randevu">Randevu</a></li></ul></div>
+<div><h4>Bölgeler</h4><ul><li>Muratpaşa pet shop</li><li>Konyaaltı pet kuaför</li><li>Lara köpek maması</li><li>Kepez akvaryum</li></ul></div>
+<div><h4>İletişim</h4><ul><li>0242 000 00 00</li><li>info@patidunyasi.example</li><li>Pzt–Cmt 09:30–20:00</li></ul></div>
+</div>
+<div class="son"><span>© 2026 Pati Dünyası (kurgusal örnek) · Foto: Pexels</span><span>Size özel hazırlanır · <a href="https://dijitabela.com" target="_blank" rel="noopener">dijitabela.com</a></span></div>
+</div></footer>
+
+<a class="wa" id="waF" href="#" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></a>
+
+<div class="ort" id="ort"></div>
+<aside class="panel" id="panel" aria-label="Sepet"><header><h3>Sepetiniz</h3><button class="x" id="sepetKapat" aria-label="Kapat">✕</button></header><div class="liste" id="sepetL"></div><footer><div class="top"><span>Toplam</span><b id="sepetT">0 ₺</b></div><a class="dg kil" id="sepetWa" href="#" target="_blank" rel="noopener">Siparişi WhatsApp ile gönder</a></footer></aside>
+<div class="bildirim" id="bil"></div>
+
+<script>
+(function(){
+var WA='905000000000';
+var wl=function(m){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m)};
+var $=function(s){return document.querySelector(s)};
+var TL=function(n){return Math.round(n).toLocaleString('tr-TR')+' ₺'};
+function bil(t){var b=$('#bil');b.textContent=t;b.classList.add('ac');clearTimeout(bil.t);bil.t=setTimeout(function(){b.classList.remove('ac')},2200)}
+$('#waF').href=wl('Merhaba, Pati Dünyası web sitenizden yazıyorum. Bilgi almak istiyorum.');
+/* menu */
+$('#mdg').onclick=function(){var m=$('#menu');var a=m.classList.toggle('ac');this.setAttribute('aria-expanded',a)};
+document.querySelectorAll('#menu a').forEach(function(a){a.onclick=function(){$('#menu').classList.remove('ac')}});
+
+/* hesaplayici */
+var st={t:'kopek',e:'yetiskin',k:1,v:12};
+var CFG={
+ kopek:{etiket:'Kilo',min:2,max:45,def:12,u:' kg',fy:[[85,140],[160,260],[300,480]],n:function(v){return v<8?'Küçük ırk köpek':v<25?'Orta boy bir köpek':'Büyük ırk köpek'}},
+ kedi:{etiket:'Kilo',min:1,max:9,def:4,u:' kg',fy:[[95,150],[180,290],[330,520]],n:function(v){return v<3?'Yavruya yakın / küçük kedi':v<6?'Ortalama bir kedi':'Büyük yapılı kedi'}},
+ kus:{etiket:'Kuş adedi',min:1,max:12,def:2,u:' adet',fy:[[70,110],[120,190],[210,330]],n:function(v){return v+' adet muhabbet / papağan türü'}},
+ balik:{etiket:'Balık adedi',min:1,max:60,def:15,u:' adet',fy:[[150,250],[300,480],[520,820]],n:function(v){return v<12?'Küçük akvaryum':v<30?'Orta boy akvaryum':'Büyük akvaryum'}}
+};
+function gunluk(){ // gram/gün
+ var v=st.v,t=st.t,e=st.e;
+ if(t==='kopek'){var rer=70*Math.pow(v,.75);var f=e==='yavru'?2.4:e==='yasli'?1.2:1.6;return rer*f/3.6}
+ if(t==='kedi'){var r=70*Math.pow(v,.75);var f2=e==='yavru'?2.2:e==='yasli'?1.0:1.2;return r*f2/3.8}
+ if(t==='kus')return v*(e==='yavru'?32:28);
+ return v*(e==='yavru'?.5:.35)}
+function hesapla(){
+ var c=CFG[st.t],g=gunluk(),kg=g*30/1000,fy=c.fy[st.k];
+ var mn=kg*fy[0],mx=kg*fy[1],all0=kg*CFG[st.t].fy[0][0],all2=kg*CFG[st.t].fy[2][1];
+ $('#olcV').textContent=st.v+c.u;$('#olcN').textContent=c.n(st.v);
+ $('#sKg').textContent=kg<10?kg.toFixed(1).replace('.',','):Math.round(kg);
+ $('#sGun').textContent='Günlük yaklaşık '+Math.round(g)+' g';
+ $('#sTl').textContent=TL(mn)+' – '+TL(mx);
+ $('#sMin').textContent='En düşük '+TL(all0);$('#sMax').textContent='En yüksek '+TL(all2);
+ $('#sBar').style.width=Math.max(8,Math.min(100,((mn+mx)/2-all0)/(all2-all0)*100))+'%';
+ var tur={kopek:'köpek',kedi:'kedi',kus:'kuş',balik:'balık'}[st.t];
+ $('#sWa').href=wl('Merhaba, '+tur+' için ('+st.v+c.u+') aylık yaklaşık '+$('#sKg').textContent+' kg mama gerekiyor görünüyor. '+['Ekonomik','Standart','Premium'][st.k]+' kalitede öneri ve fiyat alabilir miyim?');
+}
+function bagla(sel,attr,fn){document.querySelectorAll(sel+' button').forEach(function(b){b.onclick=function(){document.querySelectorAll(sel+' button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');fn(b.dataset[attr]);hesapla()}})}
+bagla('#tur','t',function(t){st.t=t;var c=CFG[t];var r=$('#olc');r.min=c.min;r.max=c.max;r.value=c.def;st.v=c.def;$('#olcL').textContent=c.etiket;$('#evreK').style.display=(t==='balik')?'none':'block'});
+bagla('#evre','e',function(e){st.e=e});bagla('#kalite','k',function(k){st.k=+k});
+$('#olc').oninput=function(){st.v=+this.value;hesapla()};
+hesapla();
+
+/* urunler */
+var U=[
+{id:1,c:'kopek',m:'Royal Canin',n:'Medium Adult Köpek Maması',a:'15 kg · Orta ırk yetişkin',p:2890,r:'#e9dfcc'},
+{id:2,c:'kopek',m:'Pro Plan',n:'Somonlu Hassas Sindirim',a:'12 kg · Yetişkin köpek',p:2450,r:'#e2e6dc',e:'Çok satan'},
+{id:3,c:'kopek',m:'Reflex',n:'Kuzu Etli Yavru Köpek Maması',a:'15 kg · Yavru',p:1690,r:'#efe3d6'},
+{id:4,c:'kedi',m:'Royal Canin',n:'Kısırlaştırılmış Kedi Maması',a:'4 kg · Sterilised',p:1390,r:'#e9dfcc',e:'Çok satan'},
+{id:5,c:'kedi',m:'Whiskas',n:'Tavuklu Yetişkin Kedi Maması',a:'14 kg · Ekonomik boy',p:1280,r:'#efe3d6'},
+{id:6,c:'kedi',m:'Felix',n:'Pouch Karışık Seçenek',a:'12 x 85 g · Yaş mama',p:395,r:'#e2e6dc'},
+{id:7,c:'kedi',m:'N&D',n:'Tahılsız Somon & Ringa',a:'1,5 kg · Prime',p:980,r:'#e9dfcc',e:'Yeni'},
+{id:8,c:'kus',m:'Versele-Laga',n:'Muhabbet Kuşu Yemi',a:'1 kg · Vitaminli',p:215,r:'#e2e6dc'},
+{id:9,c:'kus',m:'Pati Seçkisi',n:'Papağan Kafes Seti',a:'Oyuncak + tünek + yemlik',p:1750,r:'#efe3d6'},
+{id:10,c:'akv',m:'Tetra',n:'Pul Balık Yemi',a:'250 ml · Tüm tatlı su',p:285,r:'#e2e6dc'},
+{id:11,c:'akv',m:'Sera',n:'Akvaryum Su Düzenleyici',a:'250 ml · Klor giderici',p:240,r:'#e9dfcc'},
+{id:12,c:'akv',m:'Pati Seçkisi',n:'İç Filtre 600 L/s',a:'40–80 L akvaryum',p:890,r:'#efe3d6'}];
+var sepet=[];
+function ciz(c){var h='';U.filter(function(u){return c==='hepsi'||u.c===c}).forEach(function(u){h+='<article class="uk"><div class="pk" style="background:'+u.r+'">'+(u.e?'<em>'+u.e+'</em>':'')+'<b>'+u.m+'</b><small>'+({kopek:'Köpek',kedi:'Kedi',kus:'Kuş',akv:'Akvaryum'}[u.c])+'</small></div><div class="m"><h3>'+u.n+'</h3><p>'+u.a+'</p><div class="fy"><b>'+TL(u.p)+'</b><button class="ekle" data-id="'+u.id+'">Sepete ekle</button></div></div></article>'});$('#urunler').innerHTML=h;
+ document.querySelectorAll('.ekle').forEach(function(b){b.onclick=function(){ekle(+b.dataset.id)}})}
+document.querySelectorAll('#sekme button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#sekme button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');ciz(b.dataset.c)}});
+function ekle(id){var s=sepet.find(function(x){return x.id===id});if(s)s.q++;else sepet.push({id:id,q:1});yaz();bil('Sepete eklendi')}
+function yaz(){var n=0,t=0,h='',msg='Merhaba, Pati Dünyası web sitesinden sipariş vermek istiyorum:\n';
+ sepet.forEach(function(s){var u=U.find(function(x){return x.id===s.id});n+=s.q;t+=u.p*s.q;msg+='- '+s.q+' x '+u.m+' '+u.n+' ('+u.a+') = '+TL(u.p*s.q)+'\n';h+='<div class="sr"><div><b>'+u.m+'</b> '+u.n+'<small>'+s.q+' x '+TL(u.p)+'</small><button data-sil="'+u.id+'">Kaldır</button></div><b>'+TL(u.p*s.q)+'</b></div>'});
+ msg+='Toplam: '+TL(t)+'\nTeslimat ilçesi: ';
+ $('#sepetN').textContent=n;$('#sepetT').textContent=TL(t);$('#sepetL').innerHTML=h||'<div class="bos">Sepetiniz henüz boş.</div>';$('#sepetWa').href=n?wl(msg):'#';
+ document.querySelectorAll('[data-sil]').forEach(function(b){b.onclick=function(){sepet=sepet.filter(function(x){return x.id!==+b.dataset.sil});yaz()}})}
+function panel(a){$('#panel').classList.toggle('ac',a);$('#ort').classList.toggle('ac',a)}
+$('#sepetAc').onclick=function(){panel(true)};$('#sepetKapat').onclick=$('#ort').onclick=function(){panel(false)};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')panel(false)});
+ciz('hepsi');yaz();
+
+/* randevu */
+var d=new Date();d.setDate(d.getDate()+1);$('#rTar').value=d.toISOString().slice(0,10);$('#rTar').min=d.toISOString().slice(0,10);
+$('#rdForm').onsubmit=function(e){e.preventDefault();var ad=$('#rAd').value.trim(),tel=$('#rTel').value.trim();
+ if(!ad||!tel){bil('Lütfen ad ve telefon girin');(ad?$('#rTel'):$('#rAd')).focus();return}
+ var t=$('#rTar').value.split('-').reverse().join('.');
+ var m='Merhaba, randevu almak istiyorum.\nAd: '+ad+'\nTelefon: '+tel+'\nHayvan: '+$('#rHay').value+'\nHizmet: '+$('#rHiz').value+'\nTarih/Saat: '+t+' '+$('#rSaat').value+($('#rNot').value.trim()?'\nNot: '+$('#rNot').value.trim():'');
+ window.open(wl(m),'_blank','noopener')};
+})();
+</script>
 </body>
 </html>
