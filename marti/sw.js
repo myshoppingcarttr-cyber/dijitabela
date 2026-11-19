@@ -1,5 +1,5 @@
 // Sürüş Kasası - çevrimdışı önbellek (HTML için ağ-öncelikli: çevrimiçiyken hep güncel)
-const CACHE = "surus-kasasi-v6";
+const CACHE = "surus-kasasi-v7";
 const ASSETS = [
   "./",
   "./index.html",

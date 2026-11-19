@@ -277,7 +277,7 @@
       <h2><span class="ic">📲</span> Ana Ekrana Ekle</h2>
       <p class="note" style="margin:0">iPhone: Safari'de <b>Paylaş → Ana Ekrana Ekle</b>. Android: Chrome <b>⋮ → Ana ekrana ekle</b>. İkon gibi açılır, internetsiz de çalışır.</p>
     </div>
-    <div class="note" style="text-align:center;margin-top:4px">Sürüş Kasası · Dijitabela · <b>v6</b> (Taksimetre + Vardiya)</div>
+    <div class="note" style="text-align:center;margin-top:4px">Sürüş Kasası · Dijitabela · <b>v7</b> (Taksimetre + Vardiya)</div>
   </section>
 </main>
 
@@ -401,23 +401,34 @@ function renderAll(){renderOzet();renderYol();renderGider();}
 
 // ---- TAKSİMETRE ----
 // Tarifeyi yolculuk örneklerinden doğrusal regresyonla bul: ucret = acilis + km*oran
+function det3(m){return m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])-m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])+m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]);}
+function solve3(M,v){const d=det3(M);if(Math.abs(d)<1e-9)return null;
+  const col=i=>M.map((r,ri)=>r.map((c,ci)=>ci===i?v[ri]:c));
+  return [det3(col(0))/d,det3(col(1))/d,det3(col(2))/d];}
 function tariffFromTrips(){
-  const pts=trips.filter(t=>t.mesafe>0&&t.ucret>0).map(t=>[t.mesafe,t.ucret]);
-  if(pts.length<2) return null;
-  const n=pts.length; let sx=0,sy=0,sxy=0,sxx=0;
-  pts.forEach(([x,y])=>{sx+=x;sy+=y;sxy+=x*y;sxx+=x*x;});
+  const P=trips.filter(t=>t.mesafe>0&&t.ucret>0);
+  if(P.length<2) return null;
+  // km + dakika çoklu regresyon: ücret = açılış + km*oran + dakika*oran
+  if(P.length>=3 && P.some(t=>t.dakika>0)){
+    let n=P.length,Sx=0,Sd=0,Sy=0,Sxx=0,Sdd=0,Sxd=0,Sxy=0,Sdy=0;
+    P.forEach(t=>{const x=t.mesafe,d=t.dakika||0,y=t.ucret;Sx+=x;Sd+=d;Sy+=y;Sxx+=x*x;Sdd+=d*d;Sxd+=x*d;Sxy+=x*y;Sdy+=d*y;});
+    const sol=solve3([[n,Sx,Sd],[Sx,Sxx,Sxd],[Sd,Sxd,Sdd]],[Sy,Sxy,Sdy]);
+    if(sol){let[a,b,c]=sol;if(b>0){return {acl:Math.round(Math.max(0,a)),km:Math.round(b*10)/10,dk:Math.round(Math.max(0,c)*10)/10,n};}}
+  }
+  // km-only yedek
+  const n=P.length;let sx=0,sy=0,sxy=0,sxx=0;
+  P.forEach(t=>{sx+=t.mesafe;sy+=t.ucret;sxy+=t.mesafe*t.ucret;sxx+=t.mesafe*t.mesafe;});
   const den=n*sxx-sx*sx; if(Math.abs(den)<1e-6) return null;
-  let b=(n*sxy-sx*sy)/den, a=(sy-b*sx)/n;
-  if(b<=0) return null; if(a<0) a=0;
-  return {acl:Math.round(a*10)/10, km:Math.round(b*10)/10, n};
+  let b=(n*sxy-sx*sy)/den,a=(sy-b*sx)/n; if(b<=0) return null; if(a<0) a=0;
+  return {acl:Math.round(a*10)/10,km:Math.round(b*10)/10,dk:0,n};
 }
 function seedTariff(){
   if(S.tKm===undefined||S.tAcl===undefined){
     const r=tariffFromTrips();
-    S.tAcl=(S.tAcl!==undefined)?S.tAcl:(r?r.acl:20);
-    S.tKm =(S.tKm !==undefined)?S.tKm :(r?r.km :25);
-    if(S.tDk===undefined)S.tDk=0;
-    if(S.tMin===undefined)S.tMin=r?r.acl:0;
+    S.tAcl=(S.tAcl!==undefined)?S.tAcl:(r?r.acl:200);
+    S.tKm =(S.tKm !==undefined)?S.tKm :(r?r.km :8);
+    S.tDk =(S.tDk !==undefined)?S.tDk :((r&&r.dk)?r.dk:2.5);
+    if(S.tMin===undefined)S.tMin=0;
     save(K.set,S);
   }
 }
@@ -552,8 +563,8 @@ $("#txSaveTrip").addEventListener("click",()=>{
 $("#sTcalc").addEventListener("click",()=>{
   const r=tariffFromTrips();
   if(!r){$("#sTcalcNote").textContent="Hesaplamak için en az 2 farklı (km/ücret) yolculuk gerek. Önce birkaç örnek gir.";return;}
-  $("#sTacl").value=r.acl;$("#sTkm").value=r.km;
-  $("#sTcalcNote").textContent=r.n+" yolculuktan: açılış ₺"+r.acl+" + ₺"+r.km+"/km. Doğruysa Tarifeyi Kaydet'e bas.";
+  $("#sTacl").value=r.acl;$("#sTkm").value=r.km;if(r.dk)$("#sTdk").value=r.dk;
+  $("#sTcalcNote").textContent=r.n+" yolculuktan: açılış ₺"+r.acl+" + ₺"+r.km+"/km"+(r.dk?" + ₺"+r.dk+"/dk":"")+". Doğruysa Tarifeyi Kaydet'e bas.";
 });
 $("#sTsave").addEventListener("click",()=>{
   S.tAcl=num($("#sTacl").value);S.tKm=num($("#sTkm").value);S.tDk=num($("#sTdk").value);S.tMin=num($("#sTmin").value);
