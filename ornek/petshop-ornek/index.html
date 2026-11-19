@@ -6,363 +6,397 @@
 <meta name="description" content="Pati Dünyası: Antalya Muratpaşa, Konyaaltı ve Lara'da kedi, köpek, kuş ve akvaryum ürünleri, pet kuaför ve pansiyon. Aylık mama bütçenizi hesaplayın, WhatsApp ile sipariş verin, randevu alın.">
 <link rel="canonical" href="https://patidunyasi.example/">
 <meta property="og:type" content="website"><meta property="og:title" content="Pati Dünyası · Antalya Pet Shop ve Pet Kuaför"><meta property="og:description" content="Antalya'da mama, aksesuar, pet kuaför ve pansiyon. Bütçe hesaplayıcı, online sipariş ve randevu."><meta property="og:url" content="https://patidunyasi.example/"><meta property="og:image" content="https://patidunyasi.example/img/hero-dog.jpg"><meta property="og:locale" content="tr_TR">
-<meta name="theme-color" content="#1d3a2d">
+<meta name="theme-color" content="#F97316"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2720%27 fill=%27%230F172A%27/%3E%3Cg fill=%27%23F97316%27%3E%3Cellipse cx=%2720%27 cy=%2726%27 rx=%277%27 ry=%276%27/%3E%3Cellipse cx=%2710%27 cy=%2719%27 rx=%273%27 ry=%274%27/%3E%3Cellipse cx=%2715%27 cy=%2711%27 rx=%273%27 ry=%274%27/%3E%3Cellipse cx=%2725%27 cy=%2711%27 rx=%273%27 ry=%274%27/%3E%3Cellipse cx=%2730%27 cy=%2719%27 rx=%273%27 ry=%274%27/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Varela+Round&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["PetStore","LocalBusiness"],"@id":"https://patidunyasi.example/#magaza","name":"Pati Dünyası","description":"Antalya'da kedi, köpek, kuş ve akvaryum ürünleri; pet kuaför ve pansiyon hizmeti.","url":"https://patidunyasi.example/","image":"https://patidunyasi.example/img/hero-dog.jpg","telephone":"+90 242 000 00 00","priceRange":"₺₺","address":{"@type":"PostalAddress","streetAddress":"Örnek Cad. No:12","addressLocality":"Muratpaşa","addressRegion":"Antalya","addressCountry":"TR"},"areaServed":["Muratpaşa","Konyaaltı","Lara","Kepez","Antalya"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"20:00"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Ürünler ve Hizmetler","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet kuaför"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet pansiyon"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Kedi ve köpek maması"}}]}}</script>
 <style>
 :root{
- color-scheme:light dark;
- --bg:#f7f1e4;--bg2:#eee4cf;--card:#fffaf0;--ink:#272b25;--mute:#686e63;--line:rgba(39,43,37,.13);
- --forest:#1d3a2d;--forest2:#122419;--forest3:#2d5441;--sage:#a3bca6;--on:#f1e9d7;--on2:rgba(241,233,215,.72);
- --terra:#c1603a;--terra2:#a24b29;--amber:#eba94b;--btn:#1d3a2d;--btnh:#122419;
- --r:20px;--r-lg:32px;
- --gol:0 1px 2px rgba(39,43,37,.05),0 18px 40px -18px rgba(29,58,45,.28);
- --gol2:0 30px 70px -28px rgba(18,36,25,.55);
- --ease:cubic-bezier(.2,.8,.2,1);
- --serif:'Fraunces',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;
- --pad:clamp(16px,4vw,40px)
+ color-scheme:light;
+ --pri:#F97316;--sec:#FB923C;--cta:#2563EB;--cta2:#1E40AF;--bg:#FFF7ED;--bg2:#FFEDD5;--ink:#0F172A;--card:#fff;--line:#FED7AA;
+ --mute:#475569;--pri-d:#C2410C;--on:#FFF7ED;--on2:rgba(255,247,237,.82);
+ --r:22px;--r-lg:32px;
+ --pop:cubic-bezier(.34,1.56,.64,1);--ease:cubic-bezier(.2,.8,.2,1);
+ --head:'Varela Round','Nunito Sans',system-ui,sans-serif;--body:'Nunito Sans',system-ui,sans-serif;
+ --pad:clamp(16px,4vw,40px);
+ --gol:0 8px 0 var(--line);--gol2:0 30px 60px -24px rgba(15,23,42,.45)
 }
-@media(prefers-color-scheme:dark){:root{
- --bg:#0f1812;--bg2:#141f18;--card:#19261e;--ink:#efe8d6;--mute:#a1ab9d;--line:rgba(239,232,214,.13);
- --forest:#1d3a2d;--btn:#2f5a44;--btnh:#3a6d52;--gol:0 1px 2px rgba(0,0,0,.3),0 18px 40px -18px rgba(0,0,0,.6);
-}}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%;overflow-x:hidden}
-body{background:var(--bg);color:var(--ink);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
-body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-@media(prefers-color-scheme:dark){body::before{mix-blend-mode:screen;opacity:.04}}
-img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;color:inherit}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.025em;line-height:1.04;font-optical-sizing:auto}
-h1{font-size:clamp(2.9rem,7.4vw,6rem);letter-spacing:-.03em;word-spacing:.06em}
-h2{font-size:clamp(2.2rem,4.8vw,3.9rem)}h3{font-size:1.45rem;letter-spacing:-.015em;line-height:1.15}
-em{font-style:italic;font-weight:300}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+img,video{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;color:inherit}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;letter-spacing:-.02em;line-height:1.04}
+h1{font-size:clamp(2.7rem,7.2vw,6.1rem);line-height:.98}
+h2{font-size:clamp(2.1rem,5vw,4rem)}h3{font-size:1.4rem;line-height:1.15}
+:focus-visible{outline:4px solid var(--cta);outline-offset:3px;border-radius:8px}
+.koyu :focus-visible,.hero :focus-visible{outline-color:#fff}
+.hero :focus-visible{outline-color:var(--ink)}
 .kap{max-width:1240px;margin:0 auto;padding-inline:var(--pad)}
 .kap>*,.hes>*,.form>*{min-width:0}
-.bol{padding:clamp(80px,11vw,150px) 0;position:relative}
+.bol{padding:clamp(76px,10vw,140px) 0;position:relative}
 .bol.kum{background:var(--bg2)}
-.bol.koyu{background:var(--forest);color:var(--on)}
+.bol.koyu{background:var(--ink);color:var(--on)}
 .koyu h2,.koyu h3{color:#fff}
-.etiket{display:inline-flex;align-items:center;gap:12px;font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:22px}
-.etiket::before{content:"";width:34px;height:2px;border-radius:2px;background:currentColor}
-.koyu .etiket{color:var(--amber)}
-.giris{max-width:860px;margin-bottom:clamp(44px,6vw,80px)}
-.giris h2 em{color:var(--terra)}.koyu .giris h2 em{color:var(--amber)}
-.giris p{color:var(--mute);margin-top:22px;font-size:1.1rem;max-width:560px}.koyu .giris p{color:var(--on2)}
+.etiket{display:inline-flex;align-items:center;gap:10px;font:800 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:#FDBA74;background:var(--ink);padding:8px 16px;border-radius:999px;margin-bottom:22px}
+.etiket::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pri)}
+.koyu .etiket,.bol.mavi .etiket{background:var(--pri);color:var(--ink)}
+.koyu .etiket::before,.mavi .etiket::before{background:var(--ink)}
+.giris{max-width:860px;margin-bottom:clamp(40px,6vw,76px)}
+.vurgu{background:var(--ink);color:var(--pri);padding:0 .22em;border-radius:.24em;display:inline-block;transform:rotate(-2deg)}
+.giris h2 em,.cta h2 em{font-style:normal;color:var(--pri-d)}
+.koyu .giris h2 em,.mavi h2 em,.cta h2 em{color:var(--pri)}
+.mavi h2 em{color:#FFEDD5}
+.giris p{color:var(--mute);margin-top:20px;font-size:1.15rem;max-width:580px}.koyu .giris p{color:var(--on2)}
+.paw{width:1em;height:1em;fill:currentColor}
 /* butonlar */
-.dg{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 30px;border-radius:999px;background:var(--btn);color:#fff;font-weight:700;font-size:.95rem;border:1.5px solid var(--btn);transition:transform .3s var(--ease),background .25s,box-shadow .3s,color .25s;white-space:nowrap}
-.dg::after{content:"→";transition:transform .3s var(--ease);font-weight:500}
-.dg:hover{background:var(--btnh);transform:translateY(-3px);box-shadow:0 16px 30px -14px rgba(18,36,25,.7)}.dg:hover::after{transform:translateX(4px)}
-.dg.kil{background:var(--terra);border-color:var(--terra)}.dg.kil:hover{background:var(--terra2);box-shadow:0 16px 30px -12px rgba(193,96,58,.7)}
-.dg.i{background:transparent;color:var(--ink);border-color:var(--ink)}.dg.i:hover{background:var(--ink);color:var(--bg)}
-.dg.b{background:var(--on);color:var(--forest);border-color:var(--on)}.dg.b:hover{background:#fff}
+.dg{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 32px;border-radius:999px;background:var(--cta);color:#fff;font:700 1.02rem var(--head);border:0;box-shadow:0 6px 0 var(--cta2);transition:transform .35s var(--pop),box-shadow .2s,background .2s;white-space:nowrap;cursor:pointer;text-align:center}
+.dg::after{content:"→";transition:transform .35s var(--pop)}
+.dg:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 10px 0 var(--cta2)}.dg:hover::after{transform:translateX(5px)}
+.dg:active{transform:translateY(4px);box-shadow:0 2px 0 var(--cta2)}
+.dg.kil{background:var(--pri);color:var(--ink);box-shadow:0 6px 0 var(--pri-d)}.dg.kil:hover{box-shadow:0 10px 0 var(--pri-d)}.dg.kil:active{box-shadow:0 2px 0 var(--pri-d)}
+.dg.i{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 3px var(--ink)}.dg.i:hover{background:var(--ink);color:#fff;box-shadow:inset 0 0 0 3px var(--ink)}
+.dg.b{background:#fff;color:var(--ink);box-shadow:0 6px 0 var(--line)}.dg.b:hover{box-shadow:0 10px 0 var(--line)}
 .dg.n::after{display:none}
-.dgs{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.dgs{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
 /* header */
-header.ust{position:sticky;top:0;z-index:60;transition:background .35s,box-shadow .35s,backdrop-filter .35s}
-header.ust.sc{background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:saturate(1.5) blur(18px);-webkit-backdrop-filter:saturate(1.5) blur(18px);box-shadow:0 1px 0 var(--line)}
-.ust .kap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:18px;transition:height .3s}
-header.sc .kap{height:68px}
+header.ust{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:3px solid var(--line);transition:box-shadow .3s}
+header.ust.sc{box-shadow:0 10px 30px -18px rgba(15,23,42,.4)}
+.ust .kap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:18px;transition:height .3s}
+header.sc .kap{height:66px}
 .logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.logo svg{width:40px;height:40px;transition:transform .5s var(--ease)}.logo:hover svg{transform:rotate(-12deg) scale(1.06)}
-.logo b{display:block;font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.025em;line-height:1}
-.logo small{display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-top:5px}
-nav.menu{display:flex;align-items:center;gap:6px;font-size:.9rem;font-weight:600}
-nav.menu a:not(.dg){position:relative;padding:8px 14px;border-radius:99px;transition:background .25s,color .25s;white-space:nowrap}
+.logo svg{width:42px;height:42px;transition:transform .5s var(--pop)}.logo:hover svg{transform:rotate(-14deg) scale(1.1)}
+.logo b{display:block;font:700 1.45rem var(--head);letter-spacing:-.02em;line-height:1}
+.logo small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:5px}
+nav.menu{display:flex;align-items:center;gap:4px;font-size:.93rem;font-weight:700}
+nav.menu a:not(.dg){padding:9px 14px;border-radius:99px;transition:background .25s,transform .3s var(--pop);white-space:nowrap}
 .nm-x{display:none!important}
-nav.menu a:not(.dg):hover{background:color-mix(in srgb,var(--forest) 10%,transparent)}
+nav.menu a:not(.dg):hover{background:var(--bg2);transform:translateY(-2px)}
 .akt{display:flex;gap:10px;align-items:center}
-.sepet-dg{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:999px;height:46px;padding:0 8px 0 18px;font-weight:700;font-size:.85rem;display:flex;align-items:center;gap:10px;transition:.25s}
-.sepet-dg:hover{border-color:var(--terra)}
-.sepet-dg svg{width:18px;height:18px}
-.sepet-dg b{background:var(--terra);color:#fff;border-radius:999px;min-width:30px;height:30px;font-size:.78rem;display:grid;place-items:center;padding:0 8px;transition:transform .3s var(--ease)}
-.sepet-dg b.pop{transform:scale(1.25)}
-.mdg{display:none;background:var(--card);border:1.5px solid var(--line);width:46px;height:46px;border-radius:50%;place-items:center}
-.mdg i{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.3s}
-.mdg i::before,.mdg i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+.sepet-dg{position:relative;background:#fff;border:3px solid var(--ink);border-radius:999px;height:48px;padding:0 6px 0 16px;font:700 .9rem var(--head);display:flex;align-items:center;gap:10px;transition:transform .3s var(--pop)}
+.sepet-dg:hover{transform:scale(1.07) rotate(-2deg)}
+.sepet-dg svg{width:19px;height:19px}
+.sepet-dg b{background:var(--pri);color:var(--ink);border-radius:999px;min-width:32px;height:32px;font-size:.8rem;display:grid;place-items:center;padding:0 8px;transition:transform .3s var(--pop)}
+.sepet-dg b.pop{transform:scale(1.35)}
+.mdg{display:none;background:#fff;border:3px solid var(--ink);width:48px;height:48px;border-radius:50%;place-items:center}
+.mdg i{display:block;width:18px;height:3px;background:var(--ink);border-radius:3px;position:relative;transition:.3s}
+.mdg i::before,.mdg i::after{content:"";position:absolute;left:0;width:18px;height:3px;background:var(--ink);border-radius:3px;transition:.3s}
 .mdg i::before{top:-6px}.mdg i::after{top:6px}
 .mdg[aria-expanded=true] i{background:transparent}.mdg[aria-expanded=true] i::before{top:0;transform:rotate(45deg)}.mdg[aria-expanded=true] i::after{top:0;transform:rotate(-45deg)}
-.rozet{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:#fff;font-size:.66rem;font-weight:800;letter-spacing:.16em;padding:0 14px;height:30px;border-radius:99px;white-space:nowrap;box-shadow:0 6px 16px -6px rgba(193,96,58,.7)}
-.rozet::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;animation:nb2 2s infinite}
+.rozet{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#FDBA74;font:800 .66rem var(--body);letter-spacing:.14em;padding:0 14px;height:32px;border-radius:99px;white-space:nowrap}
+.rozet::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pri);animation:nb2 2s infinite}
 @keyframes nb2{50%{opacity:.25}}
+/* video ortak */
+.gv{width:100%;height:100%;object-fit:cover;background:#1e293b}
 /* hero */
-.hero{position:relative;padding:clamp(24px,4vw,56px) 0 0;overflow:clip}
-.hero::before{content:"";position:absolute;right:-12vw;top:-10vw;width:56vw;height:56vw;max-width:780px;max-height:780px;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--amber) 32%,transparent),transparent);pointer-events:none}
-.hero .kap{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(32px,5vw,80px);align-items:center;position:relative}
-.hero h1{margin:6px 0 30px}
-.hero h1 em{position:relative;color:var(--terra);display:inline-block}
-.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-.06em;height:.2em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8c20-8 40 6 60-1s40-6 60 0 40 5 76-2' fill='none' stroke='%23eba94b' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat}
-.hero p.alt{font-size:1.18rem;color:var(--mute);max-width:520px}
-.rakam{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:clamp(20px,4vw,52px);margin-top:54px;padding-top:30px;border-top:1px solid var(--line)}
-.rakam b{display:block;font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:400;color:var(--forest);line-height:1;letter-spacing:-.03em}
-@media(prefers-color-scheme:dark){.rakam b{color:var(--amber)}}
-.rakam span{display:block;margin-top:8px;font-size:.82rem;color:var(--mute);font-weight:500}
-.sahne{position:relative;width:100%;max-width:540px;margin-left:auto;aspect-ratio:.82}
-.sahne .blob{position:absolute;inset:6% -4% -4% 10%;background:var(--forest);border-radius:48% 52% 40% 60%/55% 45% 55% 45%;transform:rotate(-4deg)}
-.sahne .ana{position:absolute;inset:0 6% 6% 0}
-.foto{position:relative;overflow:hidden;isolation:isolate;box-shadow:var(--gol2)}
-.foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);filter:saturate(1.06) contrast(1.03)}
-.foto::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(235,169,75,.10),transparent 40%,rgba(18,36,25,.30)),radial-gradient(120% 80% at 80% 0%,rgba(235,169,75,.16),transparent 60%)}
-.arch{border-radius:999px 999px 36px 36px}
-.sahne .ana.foto{border-radius:999px 999px 40px 40px}
-.sahne .ana img{object-position:50% 70%}
-.sahne .dair{position:absolute;left:-9%;bottom:-2%;width:36%;aspect-ratio:1;border-radius:50%;border:7px solid var(--bg);box-shadow:var(--gol2)}
-.sahne .puan{position:absolute;left:-12%;top:14%;background:var(--card);border-radius:22px;padding:14px 20px 14px 16px;box-shadow:var(--gol2);display:flex;gap:12px;align-items:center;animation:yuz 6s ease-in-out infinite}
-.puan .st{width:44px;height:44px;border-radius:14px;background:var(--amber);display:grid;place-items:center;color:var(--forest2)}
-.puan b{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:500;line-height:1}
-.puan span{display:block;font-size:.72rem;color:var(--mute);line-height:1.3;margin-top:4px}
-.puan span i{font-style:normal;color:var(--terra);font-weight:700}
-.sahne .doner{position:absolute;right:-4%;bottom:12%;width:clamp(96px,26%,128px);aspect-ratio:1;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;box-shadow:0 18px 30px -12px rgba(193,96,58,.6)}
-.doner svg.t{position:absolute;inset:0;width:100%;height:100%;animation:don 22s linear infinite}
-.doner svg.p{width:34%;position:relative}
-.doner text{font:700 9.5px var(--sans);fill:#fff;text-transform:uppercase}
-@keyframes don{to{transform:rotate(360deg)}}
+.hero{position:relative;background:var(--pri);color:var(--ink);padding:clamp(34px,5vw,70px) 0 0;overflow:clip}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 20%,rgba(255,255,255,.28),transparent 70%),radial-gradient(40% 50% at 0% 100%,rgba(194,65,12,.45),transparent 70%);pointer-events:none}
+.hero .kap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);align-items:center;position:relative}
+.hero h1{margin:6px 0 26px}
+.hero p.alt{font-size:1.25rem;font-weight:600;max-width:520px}
+.hero .etiket{background:var(--ink);color:#FDBA74}
+.rakam{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:clamp(20px,4vw,48px);margin-top:44px}
+.rakam b{display:block;font:700 clamp(1.9rem,3vw,2.7rem) var(--head);line-height:1}
+.rakam span{display:block;margin-top:6px;font-size:.86rem;font-weight:700}
+.rakam-n{font-size:.8rem;font-weight:700;margin-top:14px;opacity:.9}
+.hero-v{position:relative;width:100%;max-width:560px;margin-left:auto;aspect-ratio:.9}
+.vkart{position:absolute;overflow:hidden;border:6px solid #fff;border-radius:var(--r-lg);box-shadow:var(--gol2);background:#1e293b}
+.v-ana{inset:0 8% 14% 0;transform:rotate(2.5deg)}
+.f-kucuk{right:0;bottom:0;width:44%;aspect-ratio:.9;transform:rotate(-5deg)}
+.f-kucuk img{width:100%;height:100%;object-fit:cover}
+.canli{position:absolute;left:14px;top:14px;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgba(15,23,42,.78);color:#fff;font:800 .68rem var(--body);letter-spacing:.12em;padding:7px 12px;border-radius:99px;text-transform:uppercase}
+.canli::before{content:"";width:8px;height:8px;border-radius:50%;background:#EF4444;animation:nb2 1.4s infinite}
+.puan{position:absolute;left:-5%;bottom:6%;z-index:4;background:#fff;border-radius:24px;padding:14px 20px 14px 14px;box-shadow:0 8px 0 rgba(15,23,42,.18);display:flex;gap:12px;align-items:center;animation:yuz 5s ease-in-out infinite}
+.puan .st{width:46px;height:46px;border-radius:16px;background:var(--pri);display:grid;place-items:center;color:var(--ink)}
+.puan b{display:block;font:700 1.45rem var(--head);line-height:1}
+.puan span{display:block;font-size:.74rem;color:var(--mute);line-height:1.3;margin-top:4px;font-weight:700}
+.puan span i{font-style:normal;color:var(--pri-d);font-weight:800}
 @keyframes yuz{50%{transform:translateY(-10px)}}
 /* marka seridi */
-.marka-s{margin-top:clamp(56px,8vw,110px);background:var(--forest);color:var(--on);padding:26px 0;overflow:hidden;position:relative}
+.marka-s{margin-top:clamp(50px,7vw,96px);background:var(--ink);color:var(--on);padding:24px 0;overflow:hidden;position:relative}
 .marka-s .tr{display:flex;width:max-content;animation:kay 38s linear infinite}
 .marka-s:hover .tr{animation-play-state:paused}
 .marka-s .set{display:flex;align-items:center;flex-shrink:0}
-.marka-s span{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:400;padding:0 28px;white-space:nowrap;display:flex;align-items:center;gap:56px;letter-spacing:-.01em}
-.marka-s span::after{content:"";width:22px;height:22px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='%23eba94b'%3E%3Cellipse cx='20' cy='26' rx='7' ry='6'/%3E%3Cellipse cx='9' cy='19' rx='3' ry='4'/%3E%3Cellipse cx='15' cy='11' rx='3' ry='4.2'/%3E%3Cellipse cx='25' cy='11' rx='3' ry='4.2'/%3E%3Cellipse cx='31' cy='19' rx='3' ry='4'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
-.marka-s span.k{font-family:var(--sans);font-weight:800;font-size:clamp(1.05rem,2vw,1.4rem);letter-spacing:.14em}
+.marka-s span{font:700 clamp(1.4rem,2.6vw,2rem) var(--head);padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:52px}
+.marka-s span::after{content:"";width:24px;height:24px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='%23F97316'%3E%3Cellipse cx='20' cy='26' rx='7' ry='6'/%3E%3Cellipse cx='9' cy='19' rx='3' ry='4'/%3E%3Cellipse cx='15' cy='11' rx='3' ry='4.2'/%3E%3Cellipse cx='25' cy='11' rx='3' ry='4.2'/%3E%3Cellipse cx='31' cy='19' rx='3' ry='4'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.marka-s span.k{color:#FDBA74;font-size:clamp(1.05rem,2vw,1.4rem);letter-spacing:.12em}
 @keyframes kay{to{transform:translateX(-50%)}}
-/* hizmetler bento */
+/* hizmetler */
 .hz{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(250px,auto);gap:clamp(14px,2vw,24px)}
-.hk{position:relative;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;min-height:300px;box-shadow:var(--gol)}
+.hk{position:relative;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;min-height:300px;border:4px solid var(--ink);transition:transform .45s var(--pop)}
+.hk:hover{transform:translateY(-8px) rotate(-.6deg)}
 .hk>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
-.hk::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(235,169,75,.08) 0%,rgba(18,36,25,.15) 35%,rgba(18,36,25,.92) 100%)}
+.hk::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 25%,rgba(15,23,42,.92) 100%)}
 .hk:hover>img{transform:scale(1.07)}
-.hk .m{padding:clamp(22px,2.6vw,34px)}
-.hk .no{text-shadow:0 1px 8px rgba(0,0,0,.5);font:italic 400 1.05rem var(--serif);color:var(--amber);margin-bottom:10px;display:flex;align-items:center;gap:10px}
-.hk .no::after{content:"";height:1px;width:36px;background:currentColor;opacity:.6}
+.hk .m{padding:clamp(22px,2.6vw,32px)}
+.hk .no{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--pri);color:var(--ink);font:700 1.05rem var(--head);margin-bottom:12px}
 .hk h3{color:#fff;font-size:clamp(1.5rem,2.4vw,2.2rem)}
-.hk p{color:rgba(255,255,255,.82);font-size:.95rem;margin:12px 0 20px;max-width:420px;line-height:1.55}
-.hk a.l{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:.88rem}
-.hk a.l::after{content:"↗";width:40px;height:40px;border-radius:50%;background:#fff;color:var(--forest);display:grid;place-items:center;font-size:1rem;transition:.35s var(--ease)}
-.hk:hover a.l::after{background:var(--amber);transform:rotate(45deg)}
+.hk p{color:rgba(255,255,255,.92);font-size:1rem;margin:10px 0 18px;max-width:420px;line-height:1.5}
+.hk a.l{display:inline-flex;align-items:center;gap:12px;font:700 .95rem var(--head)}
+.hk a.l::after{content:"→";width:42px;height:42px;border-radius:50%;background:var(--pri);color:var(--ink);display:grid;place-items:center;font-size:1.1rem;transition:.4s var(--pop)}
+.hk:hover a.l::after{transform:translateX(6px) scale(1.12)}
 .hk a.l::before{content:"";position:absolute;inset:0;z-index:2}
-.hk:nth-child(1){grid-column:span 5;grid-row:span 2;border-radius:999px 999px var(--r-lg) var(--r-lg)}
-.hk:nth-child(1) .m{padding-bottom:36px}
-.hk:nth-child(1)>img{object-position:30% 50%}
+.hk:nth-child(1){grid-column:span 5;grid-row:span 2}
 .hk:nth-child(2){grid-column:span 7}
 .hk:nth-child(3){grid-column:span 4}
 .hk:nth-child(4){grid-column:span 3}
 .hk:nth-child(4) p{display:none}
-.hk .kus{position:absolute;right:18px;top:18px;width:84px;height:84px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,.9);box-shadow:var(--gol)}.hk .kus img{width:100%;height:100%;object-fit:cover}
+.hk .kus{position:absolute;right:16px;top:16px;width:80px;height:80px;border-radius:50%;overflow:hidden;border:4px solid #fff}.hk .kus img{width:100%;height:100%;object-fit:cover}
+/* SAHNE A: camdan kedi */
+.sa{background:linear-gradient(180deg,var(--ink) 0%,#1e293b 100%);color:var(--on);overflow:hidden}
+.sa::before{content:"";position:absolute;right:-10%;top:-10%;width:60vw;height:60vw;max-width:800px;max-height:800px;border-radius:50%;background:radial-gradient(closest-side,rgba(249,115,22,.4),transparent)}
+.sa-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,90px);align-items:center;position:relative}
+.sa h2{color:#fff}.sa h2 em{font-style:normal;color:var(--pri)}
+.sa-t p{color:var(--on2);font-size:1.15rem;margin-top:20px;max-width:480px}
+.cam-sahne{position:relative;height:clamp(460px,66vw,720px)}
+.cam{position:absolute;overflow:hidden;border-radius:30px;border:10px solid rgba(255,255,255,.32);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),inset 0 0 0 2px rgba(255,255,255,.4);background:#0b1220}
+.cam1{left:0;top:0;width:68%;aspect-ratio:.62;transform:rotate(-2deg)}
+.cam2{right:0;bottom:0;width:44%;aspect-ratio:.62;transform:rotate(3deg)}
+.cam-v{position:absolute;left:0;top:-14%;height:128%;width:100%}
+.cam::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.34) 0%,rgba(255,255,255,.08) 28%,transparent 40%,transparent 68%,rgba(255,255,255,.14) 100%)}
+.cam .kayit{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,transparent calc(50% - 3px),rgba(255,255,255,.36) calc(50% - 3px),rgba(255,255,255,.36) calc(50% + 3px),transparent calc(50% + 3px)),linear-gradient(0deg,transparent calc(62% - 3px),rgba(255,255,255,.36) calc(62% - 3px),rgba(255,255,255,.36) calc(62% + 3px),transparent calc(62% + 3px))}
+.cam .damla{position:absolute;top:-30%;width:6px;height:34%;border-radius:6px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.55));z-index:2;pointer-events:none}
+.cam .izler{position:absolute;left:0;right:0;bottom:2%;z-index:4;display:flex;justify-content:center;gap:34px;color:rgba(255,255,255,.55);font-size:2.4rem;pointer-events:none}
+.cam .izler svg{transform:rotate(-8deg)}.cam .izler svg+svg{transform:rotate(10deg) translateY(-14px)}
+.cam-etiket{position:absolute;left:12px;bottom:12px;z-index:5;background:var(--pri);color:var(--ink);font:800 .72rem var(--body);letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+.cam2 .cam-etiket{left:auto;right:8px;bottom:8px;font-size:.62rem}
+.cam-sahne .cizgi{position:absolute;left:50%;top:50%;width:70%;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 8px,transparent 8px 16px);transform:rotate(-24deg);z-index:0}
+.cam-not{margin-top:30px;font-size:.84rem;color:rgba(255,247,237,.7);max-width:480px}
 /* hesaplayici */
 .hesk{position:relative}
-.hes{display:grid;grid-template-columns:1.05fr .95fr;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 50px 90px -40px rgba(0,0,0,.65);position:relative}
-.hes-f{display:flex;flex-direction:column;justify-content:center;background:var(--card);color:var(--ink);padding:clamp(26px,4vw,52px)}
-.hes-s{color:var(--on);padding:clamp(26px,4vw,52px);display:flex;flex-direction:column;justify-content:center;position:relative;background:linear-gradient(160deg,rgba(18,36,25,.93),rgba(12,26,18,.97)),url(img/cat.jpg) center/cover;overflow:hidden}
-.hes-s::before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(closest-side,rgba(235,169,75,.30),transparent)}
+.hes{display:grid;grid-template-columns:1.05fr .95fr;border-radius:var(--r-lg);overflow:hidden;border:4px solid var(--ink);position:relative;background:#fff;box-shadow:0 14px 0 var(--ink)}
+.hes-f{display:flex;flex-direction:column;justify-content:center;background:#fff;color:var(--ink);padding:clamp(24px,4vw,50px)}
+.hes-s{color:var(--on);padding:clamp(24px,4vw,50px);display:flex;flex-direction:column;justify-content:center;position:relative;background:linear-gradient(160deg,rgba(15,23,42,.92),rgba(15,23,42,.97)),url(img/cat.jpg) center/cover;overflow:hidden}
+.hes-s::before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(closest-side,rgba(249,115,22,.5),transparent)}
 .hes-s>*{position:relative}
-label.e{display:block;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin:30px 0 12px}label.e:first-child{margin-top:0}
+label.e{display:block;font:800 .76rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:28px 0 12px}label.e:first-child{margin-top:0}
 .segment{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:var(--bg2);padding:6px;border-radius:999px}
-.segment button{border:0;background:transparent;border-radius:999px;height:44px;font-weight:700;font-size:.88rem;color:var(--mute);transition:.3s var(--ease)}
-.segment button:hover{color:var(--ink)}
-.segment button.on{background:var(--forest);color:#fff;box-shadow:0 8px 18px -8px rgba(18,36,25,.7)}
-@media(prefers-color-scheme:dark){.segment button.on{background:var(--btn)}}
+.segment button{border:0;background:transparent;border-radius:999px;height:46px;font:700 .92rem var(--head);color:var(--ink);transition:transform .3s var(--pop),background .25s}
+.segment button:hover{background:#fff;transform:scale(1.05)}
+.segment button.on{background:var(--ink);color:#fff;transform:scale(1.02)}
 .segment.u3{grid-template-columns:repeat(3,1fr)}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:99px;background:linear-gradient(90deg,var(--terra) var(--p,30%),var(--bg2) var(--p,30%));outline-offset:8px;margin:14px 0 6px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:#fff;border:7px solid var(--terra);box-shadow:0 4px 12px rgba(0,0,0,.25);cursor:grab}
-input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:7px solid var(--terra);cursor:grab}
-.deger{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}.deger b{font-family:var(--serif);font-size:2.6rem;font-weight:400;color:var(--forest);letter-spacing:-.03em;line-height:1}
-@media(prefers-color-scheme:dark){.deger b{color:var(--amber)}}
-.deger span{font-size:.86rem;color:var(--mute)}
-.sonuc small.e2{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:800;display:block}
-.sonuc .buyuk{font-family:var(--serif);font-size:clamp(4.4rem,9vw,7rem);color:#fff;line-height:.95;margin:14px 0 8px;letter-spacing:-.045em;font-weight:300;display:flex;align-items:baseline;gap:10px}
-.sonuc .buyuk .u{font-size:1.6rem;color:var(--amber);font-style:italic;letter-spacing:0}
-.sonuc .alt1{color:var(--on2);font-size:.98rem}
-.sonuc hr{border:0;border-top:1px dashed rgba(255,255,255,.22);margin:32px 0}
-.butce{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);color:#fff;margin-top:8px;letter-spacing:-.02em}
-.cubuk{display:flex;height:10px;border-radius:99px;background:rgba(255,255,255,.12);margin:20px 0 10px;overflow:hidden}.cubuk i{display:block;background:linear-gradient(90deg,var(--sage),var(--amber));transition:width .6s var(--ease);border-radius:99px}
-.cs{display:flex;justify-content:space-between;gap:10px;font-size:.76rem;color:rgba(241,233,215,.66)}
-.not{font-size:.78rem;color:rgba(241,233,215,.55);margin-top:26px;line-height:1.55}
-.sonuc .dg{margin-top:28px;align-self:flex-start;white-space:normal;text-align:center;padding:12px 26px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:12px;border-radius:99px;background:linear-gradient(90deg,var(--pri) var(--p,30%),var(--bg2) var(--p,30%));outline-offset:10px;margin:14px 0 6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;border-radius:50%;background:#fff;border:8px solid var(--pri);box-shadow:0 4px 0 var(--pri-d);cursor:grab}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:8px solid var(--pri);cursor:grab}
+.deger{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}.deger b{font:700 2.8rem var(--head);color:var(--ink);line-height:1}
+.deger span{font-size:.92rem;color:var(--mute);font-weight:700}
+.sonuc small.e2{font:800 .76rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:#FDBA74;display:block}
+.sonuc .buyuk{font:700 clamp(4.4rem,9vw,7rem) var(--head);color:#fff;line-height:.95;margin:14px 0 8px;display:flex;align-items:baseline;gap:10px}
+.sonuc .buyuk .u{font-size:1.6rem;color:var(--pri)}
+.sonuc .alt1{color:var(--on2);font-size:1rem}
+.sonuc hr{border:0;border-top:3px dotted rgba(255,255,255,.25);margin:30px 0}
+.butce{font:700 clamp(1.7rem,3vw,2.3rem) var(--head);color:#fff;margin-top:8px}
+.cubuk{display:flex;height:14px;border-radius:99px;background:rgba(255,255,255,.14);margin:20px 0 10px;overflow:hidden}.cubuk i{display:block;background:var(--pri);transition:width .6s var(--pop);border-radius:99px}
+.cs{display:flex;justify-content:space-between;gap:10px;font-size:.8rem;color:rgba(255,247,237,.78);font-weight:700}
+.not{font-size:.82rem;color:rgba(255,247,237,.72);margin-top:24px;line-height:1.55}
+.sonuc .dg{margin-top:26px;align-self:flex-start;white-space:normal;padding:14px 26px}
 /* katalog */
-.sekme{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(30px,4vw,48px)}
-.sekme button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;height:46px;padding:0 24px;font-weight:700;font-size:.9rem;color:var(--ink);transition:.3s var(--ease)}
-.sekme button:hover{border-color:var(--forest);transform:translateY(-2px)}
-.sekme button.on{background:var(--forest);color:#fff;border-color:var(--forest)}
-@media(prefers-color-scheme:dark){.sekme button.on{background:var(--btn);border-color:var(--btn)}}
+.sekme{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(28px,4vw,44px)}
+.sekme button{border:3px solid var(--ink);background:#fff;border-radius:999px;height:50px;padding:0 24px;font:700 .95rem var(--head);color:var(--ink);transition:transform .3s var(--pop),background .2s}
+.sekme button:hover{transform:translateY(-3px) scale(1.05);background:var(--bg2)}
+.sekme button.on{background:var(--pri);color:var(--ink)}
 .urunler{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px)}
-.uk{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--gol);display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s;overflow:hidden;border:1px solid var(--line)}
-.uk:hover{transform:translateY(-8px);box-shadow:0 36px 60px -30px rgba(18,36,25,.5)}
-.uk .pk{margin:10px;height:190px;border-radius:calc(var(--r-lg) - 10px);background:var(--t);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;color:#1d3a2d;overflow:hidden}
-.uk .pk::before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;border:1.5px dashed rgba(29,58,45,.18);top:50%;left:50%;transform:translate(-50%,-62%);transition:transform .8s var(--ease)}
-.uk:hover .pk::before{transform:translate(-50%,-62%) rotate(90deg) scale(1.1)}
-.uk .pk .ic{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.72);display:grid;place-items:center;margin-bottom:16px;position:relative;transition:transform .45s var(--ease)}
-.uk:hover .pk .ic{transform:scale(1.12) rotate(-8deg)}
-.uk .pk .ic svg{width:40px;height:40px}
-.uk .pk b{font-family:var(--serif);font-size:1.5rem;font-weight:500;line-height:1.05;letter-spacing:-.02em;position:relative}
-.uk .pk small{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(29,58,45,.65);margin-top:8px;font-weight:800;position:relative}
-.uk .pk em{position:absolute;top:12px;left:12px;font-style:normal;font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:#fff;padding:5px 11px;border-radius:99px}
-.uk .m{padding:12px 22px 22px;display:flex;flex-direction:column;flex:1}
-.uk h3{font-family:var(--sans);font-size:.98rem;font-weight:700;letter-spacing:-.005em;line-height:1.35}.uk .m p{font-size:.82rem;color:var(--mute);margin:6px 0 18px;flex:1;line-height:1.5}
+.uk{background:#fff;border-radius:var(--r-lg);display:flex;flex-direction:column;transition:transform .45s var(--pop);overflow:hidden;border:3px solid var(--ink);box-shadow:0 8px 0 var(--ink)}
+.uk:hover{transform:translateY(-8px) rotate(-.8deg)}
+.uk .pk{margin:10px;height:180px;border-radius:calc(var(--r-lg) - 12px);background:var(--t);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;color:var(--ink);overflow:hidden}
+.uk .pk .ic{width:70px;height:70px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-bottom:14px;position:relative;transition:transform .45s var(--pop);border:3px solid var(--ink)}
+.uk:hover .pk .ic{transform:scale(1.15) rotate(-10deg)}
+.uk .pk .ic svg{width:38px;height:38px}
+.uk .pk b{font:700 1.35rem var(--head);line-height:1.05;position:relative}
+.uk .pk small{font:800 .68rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-top:8px;position:relative;opacity:.8}
+.uk .pk em{position:absolute;top:12px;left:12px;font:800 .66rem var(--body);font-style:normal;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:#FDBA74;padding:5px 11px;border-radius:99px}
+.uk .m{padding:10px 20px 20px;display:flex;flex-direction:column;flex:1}
+.uk h3{font:700 1rem var(--head);line-height:1.3}.uk .m p{font-size:.86rem;color:var(--mute);margin:6px 0 16px;flex:1;line-height:1.5;font-weight:600}
 .uk .fy{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.uk .fy b{font-family:var(--serif);font-size:1.45rem;font-weight:500;letter-spacing:-.02em}
-.uk .ekle{background:var(--btn);color:#fff;border:0;border-radius:999px;height:42px;width:42px;font-weight:600;font-size:1.3rem;transition:.3s var(--ease);display:grid;place-items:center;line-height:1}.uk .ekle:hover{background:var(--terra);transform:rotate(90deg) scale(1.08)}
+.uk .fy b{font:700 1.4rem var(--head)}
+.uk .ekle{background:var(--cta);color:#fff;border:0;border-radius:50%;height:46px;width:46px;font:700 1.5rem var(--head);transition:transform .35s var(--pop);display:grid;place-items:center;line-height:1;box-shadow:0 4px 0 var(--cta2)}.uk .ekle:hover{transform:rotate(90deg) scale(1.15)}.uk .ekle:active{transform:translateY(3px)}
 /* sepet */
-.ort{position:fixed;inset:0;background:rgba(10,20,14,.55);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:.35s}.ort.ac{opacity:1;pointer-events:auto}
-.panel{visibility:hidden;position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--card);z-index:90;transform:translateX(100%);transition:transform .5s var(--ease),visibility .5s;display:flex;flex-direction:column;box-shadow:-30px 0 80px rgba(0,0,0,.3)}.panel.ac{transform:none;visibility:visible}
-.panel header{padding:26px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panel header h3{font-size:1.8rem}
-.panel .x{border:0;background:var(--bg2);width:42px;height:42px;border-radius:50%;font-size:1rem;transition:.3s}.panel .x:hover{background:var(--terra);color:#fff;transform:rotate(90deg)}
-.panel .liste{flex:1;overflow:auto;padding:8px 28px}
-.sr{display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);font-size:.92rem;line-height:1.45}.sr small{color:var(--mute);display:block;margin-top:2px}.sr button{background:none;border:0;color:var(--terra);font-size:.78rem;font-weight:700;margin-top:6px;padding:0}
-.panel footer{padding:24px 28px;border-top:1px solid var(--line);background:var(--bg2)}.panel .top{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--serif);font-size:1.6rem;margin-bottom:16px}
-.panel .bos{padding:60px 0;text-align:center;color:var(--mute)}
+.ort{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:.35s}.ort.ac{opacity:1;pointer-events:auto}
+.panel{visibility:hidden;position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:#fff;z-index:90;transform:translateX(100%);transition:transform .5s var(--pop),visibility .5s;display:flex;flex-direction:column;box-shadow:-30px 0 80px rgba(0,0,0,.3);border-left:4px solid var(--ink)}.panel.ac{transform:none;visibility:visible}
+.panel header{padding:24px 26px;border-bottom:3px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panel header h3{font-size:1.8rem}
+.panel .x{border:3px solid var(--ink);background:#fff;width:44px;height:44px;border-radius:50%;font-size:1rem;transition:transform .3s var(--pop)}.panel .x:hover{background:var(--pri);transform:rotate(90deg) scale(1.1)}
+.panel .liste{flex:1;overflow:auto;padding:8px 26px}
+.sr{display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:3px dotted var(--line);font-size:.95rem;line-height:1.45}.sr small{color:var(--mute);display:block;margin-top:2px;font-weight:700}.sr button{background:none;border:0;color:var(--pri-d);font:800 .82rem var(--body);margin-top:6px;padding:0;text-decoration:underline}
+.panel footer{padding:22px 26px;border-top:3px solid var(--line);background:var(--bg2)}.panel .top{display:flex;justify-content:space-between;align-items:baseline;font:700 1.6rem var(--head);margin-bottom:16px}
+.panel .bos{padding:60px 0;text-align:center;color:var(--mute);font-weight:700}
 .panel .dg{width:100%;white-space:normal}
 /* randevu */
-.rd{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,6vw,96px);align-items:start}
+.rd{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(34px,6vw,90px);align-items:start}
 .rd-sol{position:sticky;top:110px}
-.rd-g{aspect-ratio:.86;border-radius:999px 999px var(--r-lg) var(--r-lg)}
-.rd-g .alt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:80px 34px 36px;background:linear-gradient(transparent,rgba(18,36,25,.9));color:#fff;text-align:center}.rd-g .alt p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.5rem;line-height:1.25}
-.liste-t{margin:30px 0 0;display:grid}.liste-t div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:1rem}.liste-t div:first-child{border-top:1px solid var(--line)}.liste-t b{font-weight:600}.liste-t span{font-family:var(--serif);font-size:1.3rem;color:var(--terra);font-weight:500;white-space:nowrap}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:var(--card);padding:clamp(24px,3.4vw,42px);border-radius:var(--r-lg);box-shadow:var(--gol);border:1px solid var(--line)}
+.rd-g{aspect-ratio:.9;border-radius:var(--r-lg);overflow:hidden;position:relative;border:4px solid var(--ink);box-shadow:0 12px 0 var(--ink);isolation:isolate}
+.rd-g img{width:100%;height:100%;object-fit:cover}
+.rd-g .alt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:80px 28px 30px;background:linear-gradient(transparent,rgba(15,23,42,.92));color:#fff;text-align:center}.rd-g .alt p{font:700 1.4rem/1.25 var(--head)}
+.liste-t{margin:36px 0 0;display:grid}.liste-t div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-bottom:3px dotted var(--pri);font-size:1.02rem}.liste-t div:first-child{border-top:3px dotted var(--pri)}.liste-t b{font-weight:800}.liste-t span{font:700 1.25rem var(--head);color:var(--pri-d);white-space:nowrap}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:#fff;padding:clamp(22px,3.4vw,40px);border-radius:var(--r-lg);border:4px solid var(--ink);box-shadow:0 12px 0 var(--ink)}
 .form .f{grid-column:1/-1}
-.form label{display:block;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
-.form input,.form select,.form textarea{width:100%;height:54px;border:1.5px solid var(--line);border-radius:16px;padding:0 18px;font:inherit;font-size:.96rem;background:var(--bg);color:var(--ink);transition:.25s}
-.form select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px}
+.form label{display:block;font:800 .74rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.form input,.form select,.form textarea{width:100%;height:56px;border:3px solid var(--line);border-radius:18px;padding:0 18px;font:inherit;font-size:1rem;font-weight:600;background:var(--bg);color:var(--ink);transition:.25s}
+.form select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230F172A' stroke-width='2.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px}
 .form textarea{height:100px;padding:14px 18px;resize:vertical}
-.form input:focus,.form select:focus,.form textarea:focus{outline:0;border-color:var(--terra);background:var(--card);box-shadow:0 0 0 4px color-mix(in srgb,var(--terra) 18%,transparent)}
-.form .dg{grid-column:1/-1;background:#1f8f4e;border-color:#1f8f4e;white-space:normal}.form .dg:hover{background:#177a41}
-.form small{grid-column:1/-1;font-size:.8rem;color:var(--mute);line-height:1.5}
-/* surec */
-.surec{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);counter-reset:s;position:relative}
-.surec::before{content:"";position:absolute;left:0;right:0;top:34px;border-top:1px dashed rgba(241,233,215,.3)}
-.surec>div{position:relative}
-.surec .n{width:68px;height:68px;border-radius:50%;background:var(--forest);border:1.5px solid var(--amber);display:grid;place-items:center;font:italic 300 2rem var(--serif);color:var(--amber);margin-bottom:26px;position:relative;transition:.4s var(--ease)}
-.surec>div:hover .n{background:var(--amber);color:var(--forest2);transform:scale(1.08)}
-.surec b{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:#fff;letter-spacing:-.02em}.surec p{margin-top:10px;color:var(--on2);font-size:.96rem;max-width:240px}
-/* odeme */
+.form input:focus,.form select:focus,.form textarea:focus{outline:0;border-color:var(--cta);background:#fff;box-shadow:0 0 0 4px rgba(37,99,235,.2)}
+.form .dg{grid-column:1/-1;background:#15803D;box-shadow:0 6px 0 #14532D;white-space:normal}.form .dg:hover{box-shadow:0 10px 0 #14532D}
+.form small{grid-column:1/-1;font-size:.86rem;color:var(--mute);line-height:1.5;font-weight:600}
+/* SAHNE B: yuruyen kopek */
+.sb{background:var(--cta);color:#fff;overflow:hidden;padding-bottom:clamp(60px,8vw,110px)}
+.sb h2,.sb h3{color:#fff}.sb .giris p{color:rgba(255,255,255,.92)}
+.sb-pin{position:relative;overflow:hidden}
+.sb-yol{position:relative;display:flex;align-items:center;gap:clamp(24px,4vw,64px);padding:40px 8vw 120px;width:max-content;min-height:min(78vh,700px)}
+.sb-kart{position:relative;flex:none;height:min(58vh,520px);aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;border:6px solid #fff;box-shadow:0 14px 0 rgba(15,23,42,.35)}
+.sb-kart:nth-of-type(2){transform:rotate(-2deg)}
+.sb-kart figcaption{position:absolute;left:14px;bottom:14px;background:var(--ink);color:#fff;font:800 .74rem var(--body);letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:99px}
+.sb-metin{flex:none;width:min(420px,80vw);background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:clamp(24px,3vw,38px);border:4px solid var(--ink);box-shadow:0 12px 0 var(--ink);transform:rotate(2deg)}
+.sb-metin h3{color:var(--ink);font-size:1.9rem;margin-bottom:14px}
+.sb-metin ul{list-style:none;display:grid;gap:12px;margin:16px 0 24px}
+.sb-metin li{display:flex;gap:12px;align-items:flex-start;font-weight:700}
+.sb-metin li svg{flex:none;width:24px;height:24px;color:var(--pri-d);margin-top:3px}
+.sb-son{flex:none;width:min(360px,70vw);font:700 clamp(2rem,3.4vw,3rem)/1.05 var(--head);color:#fff}
+.sb-son span{color:#FFEDD5;display:block}
+.paws{position:absolute;left:0;right:0;bottom:30px;height:90px;pointer-events:none}
+.paws .p{position:absolute;left:calc(var(--f)*100%);top:var(--t);width:44px;height:44px;color:#fff;opacity:.9;transform:rotate(90deg)}
+.paws .p svg{width:100%;height:100%;fill:currentColor}
+/* randevu/surec/odeme */
+.surec{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,36px);position:relative}
+.surec>div{position:relative;background:#fff;border:3px solid var(--ink);border-radius:var(--r-lg);padding:26px;box-shadow:0 8px 0 var(--ink)}
+.surec .n{width:60px;height:60px;border-radius:50%;background:var(--pri);color:var(--ink);display:grid;place-items:center;font:700 1.8rem var(--head);margin-bottom:18px;transition:transform .4s var(--pop)}
+.surec>div:hover .n{transform:rotate(-12deg) scale(1.12)}
+.surec b{font:700 1.5rem var(--head);color:var(--ink)}.surec p{margin-top:8px;color:var(--mute);font-size:.98rem;font-weight:600}
 .od{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
-.od ul{list-style:none;margin-top:38px;display:grid;gap:8px}
-.od li{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line)}
-.od li i{width:52px;height:52px;border-radius:50%;background:color-mix(in srgb,var(--terra) 14%,transparent);display:grid;place-items:center;font:italic 400 1.15rem var(--serif);color:var(--terra)}
-.od li b{display:block;font-weight:700;margin-bottom:2px}.od li span{font-size:.92rem;color:var(--mute);line-height:1.55;display:block}
+.od ul{list-style:none;margin-top:34px;display:grid;gap:8px}
+.od li{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:18px 0;border-top:3px dotted var(--pri)}
+.od li i{width:54px;height:54px;border-radius:50%;background:var(--pri);display:grid;place-items:center;font:700 1.15rem var(--head);color:var(--ink);font-style:normal}
+.od li b{display:block;font-weight:800;margin-bottom:2px}.od li span{font-size:.96rem;color:var(--mute);line-height:1.55;display:block;font-weight:600}
 .od-g{position:relative;padding:10px 0}
-.od-g::before{content:"";position:absolute;inset:-6% -6% 12% 8%;background:var(--bg2);border-radius:44% 56% 52% 48%/48% 44% 56% 52%}
-.kart-vis{position:relative;background:linear-gradient(135deg,#1d3a2d 0%,#2d5441 55%,#c1603a 130%);border-radius:28px;padding:clamp(22px,3vw,34px);color:#fff;aspect-ratio:1.6;max-width:440px;margin:0 auto 54px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 70px -30px rgba(18,36,25,.8);transform:rotate(-4deg);transition:transform .6s var(--ease);overflow:hidden}
-.kart-vis:hover{transform:rotate(0) scale(1.02)}
-.kart-vis::after{content:"";position:absolute;right:-60px;bottom:-80px;width:240px;height:240px;border-radius:50%;border:34px solid rgba(255,255,255,.07)}
-.kart-vis .c{width:52px;height:38px;border-radius:8px;background:linear-gradient(135deg,#f0dcae,#c2a566)}
-.kart-vis .no{font:500 clamp(1.05rem,2.6vw,1.4rem) var(--sans);letter-spacing:.2em}.kart-vis .a{display:flex;justify-content:space-between;font-size:.74rem;letter-spacing:.14em;opacity:.85;text-transform:uppercase;font-weight:700}
-.taksit{position:relative;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.taksit span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:9px 20px;font-size:.84rem;font-weight:700}
-.guvenler{position:relative;display:flex;justify-content:center;gap:24px;margin-top:22px;font-size:.78rem;color:var(--mute);flex-wrap:wrap;font-weight:600}
-.uyari{position:relative;font-size:.82rem;color:var(--mute);margin-top:26px;padding:16px 20px;border-left:3px solid var(--terra);background:var(--card);border-radius:0 14px 14px 0;line-height:1.55}
+.kart-vis{position:relative;background:linear-gradient(135deg,var(--ink) 0%,#1E3A8A 60%,var(--pri) 140%);border-radius:28px;padding:clamp(22px,3vw,32px);color:#fff;aspect-ratio:1.6;max-width:440px;margin:0 auto 46px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 0 var(--ink);transform:rotate(-4deg);transition:transform .6s var(--pop);overflow:hidden;border:4px solid var(--ink)}
+.kart-vis:hover{transform:rotate(0) scale(1.04)}
+.kart-vis::after{content:"";position:absolute;right:-60px;bottom:-80px;width:240px;height:240px;border-radius:50%;border:34px solid rgba(255,255,255,.08)}
+.kart-vis .c{width:52px;height:38px;border-radius:8px;background:linear-gradient(135deg,#FDE68A,#F59E0B)}
+.kart-vis .no{font:700 clamp(1.05rem,2.6vw,1.4rem) var(--head);letter-spacing:.18em}.kart-vis .a{display:flex;justify-content:space-between;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+.taksit{position:relative;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.taksit span{background:#fff;border:3px solid var(--ink);border-radius:99px;padding:8px 20px;font:700 .9rem var(--head)}
+.guvenler{position:relative;display:flex;justify-content:center;gap:22px;margin-top:22px;font-size:.84rem;color:var(--mute);flex-wrap:wrap;font-weight:800}
+.uyari{position:relative;font-size:.86rem;color:var(--mute);margin-top:26px;padding:16px 20px;border-left:6px solid var(--pri);background:#fff;border-radius:0 16px 16px 0;line-height:1.55;font-weight:600}
 /* yorum */
 .yr{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
-.yk{background:var(--card);border-radius:var(--r-lg);padding:clamp(28px,3vw,40px);box-shadow:var(--gol);position:relative;border:1px solid var(--line);transition:transform .45s var(--ease)}
-.yk{display:flex;flex-direction:column}.yk .k{margin-top:auto}.yk:hover{transform:translateY(-6px)}
+.yk{background:#fff;border-radius:var(--r-lg);padding:clamp(26px,3vw,38px);position:relative;border:3px solid var(--ink);box-shadow:0 8px 0 var(--ink);transition:transform .45s var(--pop);display:flex;flex-direction:column}
+.yk .k{margin-top:auto}.yk:hover{transform:translateY(-6px) rotate(-.8deg)}
 .yk:nth-child(2){margin-top:34px}
-.yk::before{content:"“";position:absolute;right:26px;top:6px;font:400 6rem/1 var(--serif);color:var(--terra);opacity:.2}
-.yk .yildiz{color:var(--amber);letter-spacing:.24em;font-size:1rem}.yk p{font-family:var(--serif);font-size:1.2rem;line-height:1.5;margin:18px 0 28px;font-weight:300}
-.yk .k{display:flex;align-items:center;gap:14px;font-size:.88rem;padding-top:22px;border-top:1px solid var(--line)}.yk .av{width:46px;height:46px;border-radius:50%;background:var(--forest);color:var(--amber);display:grid;place-items:center;flex-shrink:0}.yk .av svg{width:22px;height:22px}.yk small{display:block;color:var(--mute);margin-top:2px}
-.ornek-n{font-size:.8rem;color:var(--mute);margin-top:34px;text-align:center}
+.yk::before{content:"“";position:absolute;right:24px;top:6px;font:700 6rem/1 var(--head);color:var(--pri);opacity:.5}
+.yk .yildiz{color:var(--pri-d);letter-spacing:.2em;font-size:1.1rem}.yk p{font:600 1.1rem/1.55 var(--body);margin:16px 0 26px}
+.yk .k{display:flex;align-items:center;gap:14px;font-size:.92rem;padding-top:20px;border-top:3px dotted var(--line)}.yk .av{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--pri);display:grid;place-items:center;flex-shrink:0}.yk .av svg{width:22px;height:22px}.yk small{display:block;color:var(--mute);margin-top:2px;font-weight:700}
+.ornek-n{font-size:.86rem;color:var(--mute);margin-top:34px;text-align:center;font-weight:700}
 /* blog */
 .bl{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,36px)}
-.bk{display:block}.bk .g{aspect-ratio:4/5;border-radius:var(--r-lg);margin-bottom:26px}.bk:nth-child(2) .g{border-radius:999px 999px var(--r-lg) var(--r-lg)}.bk:nth-child(3) .g{border-radius:var(--r-lg) var(--r-lg) 999px 999px}
+.bk{display:block}.bk .g{aspect-ratio:4/5;border-radius:var(--r-lg);margin-bottom:22px;overflow:hidden;border:4px solid var(--ink);box-shadow:0 8px 0 var(--ink);transition:transform .45s var(--pop)}.bk .g img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.bk:hover .g{transform:rotate(-1.5deg) translateY(-6px)}
 .bk:hover img{transform:scale(1.07)}
-.bk small{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);font-weight:800}.bk h3{margin:10px 0 12px;font-size:1.6rem;transition:color .3s}.bk:hover h3{color:var(--terra)}.bk p{color:var(--mute);font-size:.95rem;line-height:1.6}
+.bk small{font:800 .76rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--pri-d)}.bk h3{margin:10px 0 12px;font-size:1.5rem;transition:color .3s}.bk:hover h3{color:var(--cta)}.bk p{color:var(--mute);font-size:1rem;line-height:1.6;font-weight:600}
 /* bolge */
 .bgd{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,96px);align-items:start}
-.bolge{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}.bolge span{border:1.5px solid var(--line);border-radius:99px;padding:9px 20px;font-size:.9rem;background:var(--card);font-weight:600;transition:.3s}.bolge span:hover{background:var(--forest);color:#fff;border-color:var(--forest)}
-.adres{margin-top:34px;padding:26px 28px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);font-size:.96rem;line-height:2}
-.adres a{color:var(--terra);font-weight:700}
-.sss{max-width:760px}details{border-bottom:1px solid var(--line);padding:24px 0}details:first-child{border-top:1px solid var(--line)}summary{cursor:pointer;font-family:var(--serif);font-size:1.35rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;letter-spacing:-.01em}summary::-webkit-details-marker{display:none}
-summary::after{content:"+";flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--terra);font:400 1.4rem/1 var(--sans);transition:.35s var(--ease)}details[open] summary::after{transform:rotate(45deg);background:var(--terra);color:#fff;border-color:var(--terra)}details p{margin-top:14px;color:var(--mute);max-width:560px}
+.bolge{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.bolge span{border:3px solid var(--ink);border-radius:99px;padding:8px 20px;font:700 .95rem var(--head);background:#fff;transition:transform .3s var(--pop),background .2s}.bolge span:hover{background:var(--pri);transform:scale(1.1) rotate(-3deg)}
+.adres{margin-top:30px;padding:24px 28px;border-radius:var(--r);background:#fff;border:3px solid var(--ink);font-size:1rem;line-height:2;font-weight:600}
+.adres a{color:var(--cta);font-weight:800;text-decoration:underline}
+.sss{max-width:760px}details{border-bottom:3px dotted var(--pri);padding:22px 0}details:first-child{border-top:3px dotted var(--pri)}summary{cursor:pointer;font:700 1.3rem var(--head);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--ink);display:grid;place-items:center;color:var(--pri);font:700 1.5rem/1 var(--head);transition:.4s var(--pop)}details[open] summary::after{transform:rotate(135deg);background:var(--pri);color:var(--ink)}details p{margin-top:14px;color:var(--mute);max-width:560px;font-weight:600}
+/* SAHNE C: akvaryum */
+.sc{background:var(--bg);padding:clamp(40px,6vw,80px) 0;overflow:hidden}
+.sc-kutu{position:relative;height:min(92vh,760px);min-height:560px;overflow:hidden;color:#fff;clip-path:inset(16% 10% round 44px);display:flex;align-items:flex-end;isolation:isolate}
+.sc-kutu>video{position:absolute;inset:0;z-index:-2;transform-origin:50% 50%}
+.sc-kutu::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(15,23,42,.92) 0%,rgba(15,23,42,.45) 50%,rgba(15,23,42,.15) 100%)}
+.sc-metin{padding-block:clamp(36px,6vw,80px);width:100%}
+.sc-metin h2{color:#fff;max-width:820px}.sc-metin h2 em{font-style:normal;color:var(--pri)}
+.sc-metin p{max-width:520px;margin-top:18px;font-size:1.15rem;color:rgba(255,255,255,.94);font-weight:600}
+.sc-mini{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;align-items:center}
+.sc-mini .kus{width:74px;height:74px;border-radius:50%;overflow:hidden;border:4px solid #fff}.sc-mini .kus img{width:100%;height:100%;object-fit:cover}
+.sc-mini .dg{margin:0}
 /* cta */
-.cta{position:relative;margin:0 var(--pad) clamp(40px,6vw,80px);border-radius:var(--r-lg);overflow:hidden;isolation:isolate;text-align:center;color:#fff;padding:clamp(70px,10vw,140px) var(--pad);background:linear-gradient(90deg,rgba(18,36,25,.88),rgba(18,36,25,.5) 60%,rgba(18,36,25,.35)),url(img/hero-dog.jpg) 50% 72%/cover}
-.cta h2{max-width:780px;margin:0 auto 22px;color:#fff;font-size:clamp(2.4rem,6vw,4.8rem)}.cta h2 em{color:var(--amber)}.cta p{color:rgba(255,255,255,.82);max-width:520px;margin:0 auto;font-size:1.1rem}.cta .dgs{justify-content:center}
-.cta .dg.i{color:#fff;border-color:rgba(255,255,255,.7)}.cta .dg.i:hover{background:#fff;color:var(--forest)}
+.cta{position:relative;margin:0 var(--pad) clamp(40px,6vw,80px);border-radius:var(--r-lg);overflow:hidden;isolation:isolate;text-align:center;color:#fff;padding:clamp(70px,10vw,140px) var(--pad);border:4px solid var(--ink);background:var(--ink)}
+.cta .arka{position:absolute;inset:-12% 0;z-index:-2;background:linear-gradient(90deg,rgba(15,23,42,.88),rgba(15,23,42,.5) 60%,rgba(15,23,42,.35)),url(img/hero-dog.jpg) 50% 72%/cover}
+.cta h2{max-width:780px;margin:0 auto 22px;color:#fff;font-size:clamp(2.4rem,6vw,4.8rem)}.cta p{color:rgba(255,255,255,.94);max-width:520px;margin:0 auto;font-size:1.15rem;font-weight:600}.cta .dgs{justify-content:center}
+.cta .dg.i{color:#fff;box-shadow:inset 0 0 0 3px #fff}.cta .dg.i:hover{background:#fff;color:var(--ink)}
 /* footer */
-footer.alt-f{background:var(--forest2);color:var(--on2);padding:clamp(60px,8vw,100px) 0 28px;font-size:.94rem;position:relative;overflow:hidden}
-footer.alt-f::after{content:"Pati Dünyası";position:absolute;left:50%;bottom:-.22em;transform:translateX(-50%);font:italic 300 clamp(5rem,19vw,17rem)/1 var(--serif);color:rgba(241,233,215,.045);white-space:nowrap;pointer-events:none;letter-spacing:-.04em}
+footer.alt-f{background:var(--ink);color:var(--on2);padding:clamp(60px,8vw,100px) 0 28px;font-size:.98rem;position:relative;overflow:hidden}
+footer.alt-f::after{content:"Pati Dünyası";position:absolute;left:50%;bottom:-.2em;transform:translateX(-50%);font:700 clamp(4.6rem,17vw,15rem)/1 var(--head);color:rgba(255,247,237,.05);white-space:nowrap;pointer-events:none}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;position:relative;z-index:1}
-footer .logo b{color:#fff}footer .logo small{color:rgba(255,255,255,.5)}footer h4{color:#fff;font:800 .72rem var(--sans);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}footer ul{list-style:none;display:grid;gap:12px}footer a{transition:color .2s}footer a:hover{color:var(--amber)}
-.son{margin-top:64px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem;position:relative;z-index:1}
-.son a{color:var(--amber);font-weight:700}
-.wa{position:fixed;right:18px;bottom:18px;z-index:55;width:62px;height:62px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -6px rgba(37,211,102,.6);transition:transform .3s var(--ease)}.wa:hover{transform:scale(1.1) rotate(-6deg)}
-.wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:nb 2.4s infinite}
+footer .logo b{color:#fff}footer .logo small{color:rgba(255,255,255,.65)}footer h4{color:#fff;font:800 .76rem var(--body);letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px}footer ul{list-style:none;display:grid;gap:12px}footer a{transition:color .2s}footer a:hover{color:var(--pri)}
+.son{margin-top:64px;padding-top:26px;border-top:3px dotted rgba(255,255,255,.2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.84rem;position:relative;z-index:1}
+.son a{color:#FDBA74;font-weight:800}
+.wa{position:fixed;right:18px;bottom:18px;z-index:55;width:64px;height:64px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 0 #128C4A;transition:transform .35s var(--pop)}.wa:hover{transform:scale(1.15) rotate(-8deg)}
+.wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid #25d366;animation:nb 2.4s infinite}
 @keyframes nb{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
-.bildirim{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140px);background:var(--forest);color:#fff;padding:15px 26px;border-radius:99px;font-size:.9rem;font-weight:600;z-index:100;transition:.5s var(--ease);box-shadow:var(--gol2);max-width:calc(100vw - 32px);text-align:center}.bildirim.ac{transform:translate(-50%,0)}
-/* reveal */
-.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
-.js .rv.in{opacity:1;transform:none}
-.js .rv.sol{transform:translateX(-34px)}.js .rv.sol.in{transform:none}
-@keyframes yuk{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-.hero .kap>div:first-child>*{animation:yuk .9s both}.hero .kap>div:first-child>*:nth-child(2){animation-delay:.1s}.hero .kap>div:first-child>*:nth-child(3){animation-delay:.2s}.hero .kap>div:first-child>*:nth-child(4){animation-delay:.3s}.hero .kap>div:first-child>*:nth-child(5){animation-delay:.4s}
-.sahne{animation:yuk 1.1s .2s both}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+.bildirim{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140px);background:var(--ink);color:#fff;padding:15px 26px;border-radius:99px;font:700 .95rem var(--head);z-index:100;transition:.5s var(--pop);box-shadow:var(--gol2);max-width:calc(100vw - 32px);text-align:center}.bildirim.ac{transform:translate(-50%,0)}
+/* reveal (yalniz GSAP varsa gizler) */
+.gs .rv{opacity:0}.gs .rv.in{opacity:1}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.gs .rv{opacity:1}html{scroll-behavior:auto}}
 /* responsive */
-@media(max-width:1100px){
-.urunler{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:1100px){.urunler{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1020px){
-.hero .kap,.hes,.rd,.od,.bgd{grid-template-columns:1fr}
-.sahne{margin:10px auto 0;max-width:440px}
-.sahne .puan{left:-2%}.sahne .dair{left:-2%}
-.rd-sol{position:static}.rd-g{aspect-ratio:1.1;border-radius:var(--r-lg)}
+.hero .kap,.hes,.rd,.od,.bgd,.sa-g{grid-template-columns:1fr}
+.hero-v{margin:10px auto 0;max-width:460px}
+.rd-sol{position:static}.rd-g{aspect-ratio:1.1}
 .hz{grid-template-columns:repeat(2,1fr)}
-.hk:nth-child(n){grid-column:span 1;grid-row:auto}.hk:nth-child(1){grid-column:span 2;border-radius:var(--r-lg);min-height:380px}.hk:nth-child(2){grid-column:span 2}.hk:nth-child(4) p{display:block}
-.surec{grid-template-columns:1fr 1fr;row-gap:44px}.surec::before{display:none}
+.hk:nth-child(n){grid-column:span 1;grid-row:auto}.hk:nth-child(1){grid-column:span 2;min-height:380px}.hk:nth-child(2){grid-column:span 2}.hk:nth-child(4) p{display:block}
+.surec{grid-template-columns:1fr 1fr}
 .yr,.bl{grid-template-columns:1fr 1fr}.yk:nth-child(2){margin-top:0}.fg{grid-template-columns:1fr 1fr}
 .bk:nth-child(3){display:none}
-nav.menu{display:none;position:absolute;top:100%;left:var(--pad);right:var(--pad);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--gol2);flex-direction:column;align-items:stretch;gap:0;padding:14px 20px 20px}nav.menu.ac{display:flex}.nm-x{display:inline-flex!important}nav.menu a:not(.dg){padding:15px 4px;border-radius:0;border-bottom:1px solid var(--line);font-size:1rem}nav.menu .dg{margin:18px 0 0}.mdg{display:grid}
-
+.cam-sahne{max-width:520px;margin:0 auto;width:100%}
+nav.menu{display:none;position:absolute;top:100%;left:var(--pad);right:var(--pad);background:#fff;border:4px solid var(--ink);border-radius:var(--r);box-shadow:var(--gol2);flex-direction:column;align-items:stretch;gap:0;padding:14px 20px 20px}nav.menu.ac{display:flex}.nm-x{display:inline-flex!important}nav.menu a:not(.dg){padding:15px 4px;border-radius:0;border-bottom:3px dotted var(--line);font-size:1.05rem}nav.menu .dg{margin:18px 0 0}.mdg{display:grid}
+}
+@media(max-width:900px){
+.sb-yol{flex-direction:column;width:100%;padding:10px var(--pad) 0;gap:26px;align-items:stretch;min-height:0}
+.sb-kart{height:auto;width:100%}
+.sb-metin{width:100%}.sb-son{width:100%}
+.paws{position:static;display:flex;justify-content:space-between;height:64px;order:3;overflow:hidden}
+.paws .p{position:static;width:34px;height:34px;flex:none}
+.sb-pin{padding-bottom:10px}
 }
 @media(max-width:640px){
-.rozet{font-size:.52rem;padding:0 9px;height:26px;letter-spacing:.08em;gap:5px}
-.ust .kap{height:70px;gap:8px}.logo small{display:none}.logo svg{width:32px;height:32px}.logo b{font-size:1.08rem}.logo{gap:8px;min-width:0}
-.akt{gap:6px;flex-shrink:0}.sepet-dg{padding:0;width:42px;height:42px;justify-content:center}.sepet-dg .t{display:none}.sepet-dg b{position:absolute;top:-5px;right:-5px;min-width:20px;height:20px;font-size:.64rem;padding:0 5px}.mdg{width:42px;height:42px}
+.rozet{font-size:.52rem;padding:0 9px;height:26px;letter-spacing:.06em;gap:5px}
+.ust .kap{height:68px;gap:8px}.logo small{display:none}.logo svg{width:34px;height:34px}.logo b{font-size:1.1rem}.logo{gap:8px;min-width:0}
+.akt{gap:6px;flex-shrink:0}.sepet-dg{padding:0;width:44px;height:44px;justify-content:center}.sepet-dg .t{display:none}.sepet-dg b{position:absolute;top:-8px;right:-8px;min-width:22px;height:22px;font-size:.66rem;padding:0 5px}.mdg{width:44px;height:44px}
 .hz,.yr,.bl,.fg{grid-template-columns:1fr}.urunler{grid-template-columns:1fr 1fr;gap:12px}.hk:nth-child(n){grid-column:span 1}.hz{grid-auto-rows:auto}
-.hk{min-height:340px}.hk:nth-child(1){min-height:440px;border-radius:999px 999px var(--r-lg) var(--r-lg)}
+.hk{min-height:340px}.hk:nth-child(1){min-height:420px}
 .bk:nth-child(3){display:block}.bk .g{aspect-ratio:1/1}
-.surec{grid-template-columns:1fr 1fr;gap:34px 16px}.surec .n{width:56px;height:56px;font-size:1.6rem;margin-bottom:18px}.surec b{font-size:1.35rem}
-.form{grid-template-columns:1fr;padding:22px 18px}.rakam{grid-template-columns:repeat(3,auto);gap:16px}.rakam b{font-size:1.5rem}.rakam span{font-size:.72rem}
-.sahne .puan{left:0;top:8%;padding:10px 14px 10px 10px}.sahne .puan .st{width:36px;height:36px}.sahne .puan b{font-size:1.2rem}
-.sahne .doner{right:0}.sahne .dair{border-width:5px}
-.segment{grid-template-columns:repeat(2,1fr);border-radius:24px}.segment.u3{grid-template-columns:repeat(3,1fr);border-radius:999px}.segment.u3 button{font-size:.8rem}
-.deger b{font-size:2.2rem}
-.uk{border-radius:24px}.uk .pk{height:136px;margin:8px;border-radius:18px}.uk .pk .ic{width:46px;height:46px;margin-bottom:10px}.uk .pk .ic svg{width:26px;height:26px}.uk .pk b{font-size:1.1rem}.uk .pk::before{width:110px;height:110px}.uk .pk em{top:8px;left:8px;font-size:.56rem;padding:4px 8px}.uk .m{padding:8px 14px 16px}.uk h3{font-size:.84rem}.uk .m p{font-size:.72rem;margin:4px 0 12px}.uk .fy b{font-size:1.1rem}.uk .ekle{width:36px;height:36px;font-size:1.15rem}
+.surec{grid-template-columns:1fr 1fr;gap:14px}.surec>div{padding:18px}.surec .n{width:48px;height:48px;font-size:1.4rem;margin-bottom:12px}.surec b{font-size:1.2rem}.surec p{font-size:.88rem}
+.form{grid-template-columns:1fr;padding:22px 18px}.rakam{grid-template-columns:repeat(3,auto);gap:14px}.rakam b{font-size:1.45rem}.rakam span{font-size:.74rem}
+.puan{left:0;top:4%;padding:10px 14px 10px 10px}.puan .st{width:38px;height:38px}.puan b{font-size:1.2rem}
+.segment{grid-template-columns:repeat(2,1fr);border-radius:24px}.segment.u3{grid-template-columns:repeat(3,1fr);border-radius:999px}.segment.u3 button{font-size:.82rem}
+.deger b{font-size:2.3rem}
+.uk{border-radius:24px}.uk .pk{height:130px;margin:8px;border-radius:18px}.uk .pk .ic{width:44px;height:44px;margin-bottom:8px}.uk .pk .ic svg{width:24px;height:24px}.uk .pk b{font-size:1.05rem}.uk .pk em{top:8px;left:8px;font-size:.58rem;padding:4px 8px}.uk .m{padding:6px 14px 16px}.uk h3{font-size:.88rem}.uk .m p{font-size:.76rem;margin:4px 0 12px}.uk .fy b{font-size:1.1rem}.uk .ekle{width:40px;height:40px;font-size:1.25rem}
 .cta{margin-inline:16px}
 .cta .dgs .dg{width:100%}
-.wa{width:56px;height:56px;right:14px;bottom:14px}
+.wa{width:58px;height:58px;right:14px;bottom:14px}
 .od li{grid-template-columns:44px 1fr;gap:14px}.od li i{width:44px;height:44px}
-.hk:nth-child(1) .m{padding-bottom:30px}
-.liste-t div{font-size:.94rem}
+.cam-sahne{height:520px}.cam1{width:72%}.cam2{width:46%}
+.sc-kutu{clip-path:inset(8% 4% round 30px);min-height:620px}
+.sa h2{font-size:2.1rem}
 }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="pati" viewBox="0 0 40 40"><ellipse cx="20" cy="26" rx="7.5" ry="6.5"/><ellipse cx="8.5" cy="19" rx="3.2" ry="4.2" transform="rotate(-18 8.5 19)"/><ellipse cx="15" cy="10.5" rx="3.2" ry="4.4" transform="rotate(-6 15 10.5)"/><ellipse cx="25" cy="10.5" rx="3.2" ry="4.4" transform="rotate(6 25 10.5)"/><ellipse cx="31.5" cy="19" rx="3.2" ry="4.2" transform="rotate(18 31.5 19)"/></symbol></svg>
 
 <header class="ust" id="ust"><div class="kap">
 <a class="logo" href="#top" aria-label="Pati Dünyası">
-<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#1d3a2d"/><g fill="#eba94b"><ellipse cx="20" cy="25.5" rx="6.2" ry="5"/><ellipse cx="11.8" cy="19" rx="2.6" ry="3.3" transform="rotate(-18 11.8 19)"/><ellipse cx="16.2" cy="13.2" rx="2.5" ry="3.4" transform="rotate(-6 16.2 13.2)"/><ellipse cx="23.8" cy="13.2" rx="2.5" ry="3.4" transform="rotate(6 23.8 13.2)"/><ellipse cx="28.2" cy="19" rx="2.6" ry="3.3" transform="rotate(18 28.2 19)"/></g></svg>
+<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#0F172A"/><use href="#pati" x="6" y="6" width="28" height="28" fill="#F97316"/></svg>
 <span><b>Pati Dünyası</b><small>Antalya · Pet Shop</small></span></a>
 <nav class="menu" id="menu" aria-label="Ana menü">
 <a href="#hizmetler">Hizmetler</a><a href="#hesapla">Bütçe Hesapla</a><a href="#katalog">Ürünler</a><a href="#randevu">Randevu</a><a href="#blog">Bakım Rehberi</a><a href="#bolge">İletişim</a>
 <a class="dg kil nm-x n" href="#randevu">Randevu al</a></nav>
-<div class="akt"><button class="sepet-dg" id="sepetAc" aria-label="Sepeti aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="t">Sepet</span><b id="sepetN">0</b></button><div class="rozet">ÖRNEK · DİJİTABELA</div><button class="mdg" id="mdg" aria-label="Menü" aria-expanded="false"><i></i></button></div>
+<div class="akt"><button class="sepet-dg" id="sepetAc" aria-label="Sepeti aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="t">Sepet</span><b id="sepetN">0</b></button><div class="rozet">ÖRNEK · DİJİTABELA</div><button class="mdg" id="mdg" aria-label="Menü" aria-expanded="false"><i></i></button></div>
 </div></header>
 
 <main id="top">
 <section class="hero"><div class="kap">
-<div>
+<div class="hero-t">
 <span class="etiket">Antalya · Muratpaşa · Konyaaltı · Lara</span>
-<h1>Patili dostunuz için <em>özenle</em> seçilmiş her şey.</h1>
-<p class="alt">Mama, aksesuar, pet kuaför ve pansiyon tek adreste. Aylık bütçenizi hesaplayın, sepetinizi hazırlayın, siparişinizi WhatsApp'tan tamamlayın.</p>
-<div class="dgs"><a class="dg kil" href="#hesapla">Aylık bütçemi hesapla</a><a class="dg i" href="#randevu">Randevu al</a></div>
+<h1>Patili dostun için <span class="vurgu">her şey</span> burada!</h1>
+<p class="alt">Mama, aksesuar, pet kuaför ve pansiyon tek adreste. Aylık bütçeni hesapla, sepetini hazırla, siparişi WhatsApp'tan tamamla.</p>
+<div class="dgs"><a class="dg" href="#hesapla">Aylık bütçemi hesapla</a><a class="dg i n" href="#randevu">Randevu al</a></div>
 <div class="rakam"><div><b>2.400+</b><span>Ürün çeşidi</span></div><div><b>12 yıl</b><span>Antalya'da hizmet</span></div><div><b>Aynı gün</b><span>Kapıya teslimat</span></div></div>
+<p class="rakam-n">Rakamlar ve puan örnek veridir.</p>
 </div>
-<div class="sahne">
-<div class="blob"></div>
-<div class="ana foto"><img src="img/hero-dog.jpg" alt="Mutlu bir golden retriever" fetchpriority="high"></div>
-<div class="dair foto"><img src="img/parrot.jpg" alt="Yeşil papağan" style="object-position:55% 40%"></div>
-<div class="puan"><div class="st"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div><div><b>4.9 / 5</b><span>Müşteri memnuniyeti<br><i>(örnek veri)</i></span></div></div>
-<div class="doner"><svg class="t" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="dy" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#dy" textLength="284" lengthAdjust="spacing">Özenle seçildi · Antalya · </textPath></text></svg><svg class="p" viewBox="0 0 40 40" fill="#fff" aria-hidden="true"><ellipse cx="20" cy="26" rx="7" ry="6"/><ellipse cx="9" cy="19" rx="3" ry="4" transform="rotate(-18 9 19)"/><ellipse cx="15" cy="11" rx="3" ry="4.2" transform="rotate(-6 15 11)"/><ellipse cx="25" cy="11" rx="3" ry="4.2" transform="rotate(6 25 11)"/><ellipse cx="31" cy="19" rx="3" ry="4" transform="rotate(18 31 19)"/></svg></div>
+<div class="hero-v">
+<figure class="vkart v-ana" data-par="-6"><span class="canli">Gerçek görüntü</span><video class="gv" data-oynat muted loop playsinline preload="metadata" poster="media/kopek-sahil.jpg" aria-label="Sahilde sahibiyle oynayan sevimli bir köpek"><source src="media/kopek-sahil.mp4" type="video/mp4"></video></figure>
+<figure class="vkart f-kucuk" data-par="-22"><img src="img/hero-dog.jpg" alt="Mutlu bir golden retriever" fetchpriority="high"></figure>
+<div class="puan" data-par="-34"><div class="st"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div><div><b>4.9 / 5</b><span>Müşteri memnuniyeti<br><i>(örnek veri)</i></span></div></div>
 </div>
 </div>
 <div class="marka-s" aria-label="Taşıdığımız markalar"><div class="tr">
@@ -372,16 +406,31 @@ nav.menu{display:none;position:absolute;top:100%;left:var(--pad);right:var(--pad
 </section>
 
 <section class="bol" id="hizmetler"><div class="kap">
-<div class="giris rv"><span class="etiket">Hizmetlerimiz</span><h2>Mağazadan fazlası, <em>bakımın</em> tamamı.</h2><p>Bir pet shop'tan beklediğiniz her şeyi, deneyimli ekibimizle tek çatı altında sunuyoruz.</p></div>
+<div class="giris rv"><span class="etiket">Hizmetlerimiz</span><h2>Mağazadan fazlası, <em>bakımın</em> tamamı.</h2><p>Bir pet shop'tan beklediğin her şeyi, deneyimli ekibimizle tek çatı altında sunuyoruz.</p></div>
 <div class="hz">
-<article class="hk rv" style="--d:.0s"><img src="img/grooming.jpg" alt="Köpek tıraş ve banyo" loading="lazy"><div class="m"><div class="no">01</div><h3>Köpek Kuaför</h3><p>Irka özel tıraş, banyo, tırnak ve kulak bakımı. Stressiz, nazik, randevulu.</p><a class="l" href="#randevu">Randevu al</a></div></article>
-<article class="hk rv" style="--d:.1s"><img src="img/cat.jpg" alt="Kedi portresi" loading="lazy" style="object-position:50% 40%"><div class="m"><div class="no">02</div><h3>Mama &amp; Ürünler</h3><p>Kedi, köpek, kuş ve balık için seçkin markalar, özel beslenme önerileri.</p><a class="l" href="#katalog">Ürünlere göz at</a></div></article>
-<article class="hk rv" style="--d:.15s"><img src="img/catgroom.jpg" alt="Kedi bakımı" loading="lazy"><div class="m"><div class="no">03</div><h3>Kedi Bakımı &amp; Pansiyon</h3><p>Tatildeyken evinizin sıcaklığında konaklama, günlük fotoğraf bilgilendirmesi.</p><a class="l" href="#randevu">Yer ayırt</a></div></article>
-<article class="hk rv" style="--d:.2s"><img src="img/aquarium.jpg" alt="Akvaryum" loading="lazy"><div class="kus"><img src="img/parrot.jpg" alt="Papağan" loading="lazy" style="object-position:55% 40%"></div><div class="m"><div class="no">04</div><h3>Akvaryum &amp; Kuş</h3><p>Akvaryum kurulum danışmanlığı, su analizi, kafes ve yem çeşitleri.</p><a class="l" href="#blog">Rehberi oku</a></div></article>
+<article class="hk rv"><img src="img/grooming.jpg" alt="Köpek tıraş ve banyo" loading="lazy"><div class="m"><div class="no">1</div><h3>Köpek Kuaför</h3><p>Irka özel tıraş, banyo, tırnak ve kulak bakımı. Stressiz, nazik, randevulu.</p><a class="l" href="#randevu">Randevu al</a></div></article>
+<article class="hk rv"><img src="img/cat.jpg" alt="Kedi portresi" loading="lazy" style="object-position:50% 40%"><div class="m"><div class="no">2</div><h3>Mama &amp; Ürünler</h3><p>Kedi, köpek, kuş ve balık için seçkin markalar, özel beslenme önerileri.</p><a class="l" href="#katalog">Ürünlere göz at</a></div></article>
+<article class="hk rv"><img src="img/catgroom.jpg" alt="Kedi bakımı" loading="lazy"><div class="m"><div class="no">3</div><h3>Kedi Bakımı &amp; Pansiyon</h3><p>Tatildeyken evinizin sıcaklığında konaklama, günlük fotoğraf bilgilendirmesi.</p><a class="l" href="#randevu">Yer ayırt</a></div></article>
+<article class="hk rv"><img src="img/aquarium.jpg" alt="Akvaryum" loading="lazy"><div class="kus"><img src="img/parrot.jpg" alt="Papağan" loading="lazy" style="object-position:55% 40%"></div><div class="m"><div class="no">4</div><h3>Akvaryum &amp; Kuş</h3><p>Akvaryum kurulum danışmanlığı, su analizi, kafes ve yem çeşitleri.</p><a class="l" href="#blog">Rehberi oku</a></div></article>
 </div></div></section>
 
-<section class="bol koyu" id="hesapla"><div class="kap">
-<div class="giris rv"><span class="etiket">Bütçe Hesaplayıcı</span><h2>Aylık mama ihtiyacı ve bütçesi, <em>saniyeler</em> içinde.</h2><p>Türünü ve boyutunu seçin; yaklaşık aylık mama miktarını ve üç kalite seviyesine göre bütçeyi görün.</p></div>
+<!-- SAHNE A: camdan kayan kedi -->
+<section class="bol sa" id="pansiyon" aria-labelledby="saH"><div class="kap sa-g">
+<div class="sa-t rv"><span class="etiket">Pansiyon · Kedi Bakımı</span><h2 id="saH">Camın ardında seni bekleyen bir <em>miyav</em> var.</h2><p>Tatildeyken minik dostun sıcak, sakin ve güvenli bir odada. Pencere önünde güneşlenir, sen de her gün fotoğrafını alırsın.</p><div class="dgs"><a class="dg kil" href="#randevu">Pansiyon yeri ayırt</a></div><p class="cam-not">Videolar Pexels'ten alınmış gerçek hayvan görüntüleridir; örnek tasarım amacıyla kullanılmıştır.</p></div>
+<div class="cam-sahne" id="camSahne">
+<div class="cam cam1" id="cam1">
+<video class="gv cam-v" data-oynat muted loop playsinline preload="metadata" poster="media/kedi-pencere.jpg" aria-label="Pencere camının ardından merakla bakan üç renkli kedi"><source src="media/kedi-pencere.mp4" type="video/mp4"></video>
+<i class="kayit"></i><i class="damla" style="left:18%"></i><i class="damla" style="left:63%;height:26%"></i><i class="damla" style="left:84%;height:40%"></i>
+<span class="izler" aria-hidden="true"><svg class="paw" viewBox="0 0 40 40"><use href="#pati"/></svg><svg class="paw" viewBox="0 0 40 40"><use href="#pati"/></svg></span>
+<span class="cam-etiket">Pansiyon penceresi</span></div>
+<div class="cam cam2" id="cam2">
+<video class="gv cam-v" data-oynat muted loop playsinline preload="metadata" poster="media/kedi-cam.jpg" aria-label="Karlı pencereden dışarı bakan turuncu kedi"><source src="media/kedi-cam.mp4" type="video/mp4"></video>
+<i class="kayit"></i><i class="damla" style="left:30%;height:30%"></i><i class="damla" style="left:72%"></i>
+<span class="cam-etiket">Gün ışığı odası</span></div>
+</div></div></section>
+
+<section class="bol kum" id="hesapla"><div class="kap">
+<div class="giris rv"><span class="etiket">Bütçe Hesaplayıcı</span><h2>Aylık mama ihtiyacı ve bütçesi, <em>saniyeler</em> içinde.</h2><p>Türünü ve boyutunu seç; yaklaşık aylık mama miktarını ve üç kalite seviyesine göre bütçeyi gör.</p></div>
 <div class="hes rv">
 <div class="hes-f">
 <label class="e">Hayvan türü</label>
@@ -404,22 +453,34 @@ nav.menu{display:none;position:absolute;top:100%;left:var(--pad);right:var(--pad
 <div class="cubuk"><i id="sBar" style="width:50%"></i></div>
 <div class="cs"><span id="sMin">–</span><span id="sMax">–</span></div>
 <a class="dg b" id="sWa" href="#" target="_blank" rel="noopener">Bu hesapla WhatsApp'tan sor</a>
-<p class="not">Değerler ortalama bir tahmindir; marka, aktivite ve veteriner önerisine göre değişir. Fiyatlar örnek amaçlıdır.</p>
+<p class="not">Değerler ortalama bir tahmindir; marka, aktivite ve veteriner önerisine göre değişir. Fiyatlar örnek veridir.</p>
 </div></div></div></section>
 
 <section class="bol" id="katalog"><div class="kap">
-<div class="giris rv"><span class="etiket">Online Sipariş</span><h2>Sepetinizi hazırlayın, siparişi <em>WhatsApp'tan</em> tamamlayın.</h2><p>Ürünleri sepete ekleyin; tek dokunuşla hazır siparişiniz mağazaya iletilsin. Antalya içi aynı gün teslimat.</p></div>
+<div class="giris rv"><span class="etiket">Online Sipariş</span><h2>Sepetini hazırla, siparişi <em>WhatsApp'tan</em> tamamla.</h2><p>Ürünleri sepete ekle; tek dokunuşla hazır siparişin mağazaya iletilsin. Antalya içi aynı gün teslimat. Ürün ve fiyatlar örnek veridir.</p></div>
 <div class="sekme rv" id="sekme"><button class="on" data-c="hepsi">Tümü</button><button data-c="kopek">Köpek</button><button data-c="kedi">Kedi</button><button data-c="kus">Kuş</button><button data-c="akv">Akvaryum</button></div>
 <div class="urunler" id="urunler"></div>
 </div></section>
 
+<!-- SAHNE B: gezdirilen kopek -->
+<section class="bol mavi sb" id="yuruyus" aria-labelledby="sbH">
+<div class="kap"><div class="giris rv"><span class="etiket">Köpek Gezdirme &amp; Oyun</span><h2 id="sbH">Pati izlerini takip et: <em>yürüyüş zamanı!</em></h2><p>Kuaförden çıkan, pansiyonda enerji biriktiren dostların günlük yürüyüşü ve oyun molası bizde. Aşağı kaydır, birlikte yürüyelim.</p></div></div>
+<div class="sb-pin" id="sbPin"><div class="sb-yol" id="sbYol">
+<figure class="sb-kart" id="sbK1"><video class="gv" data-oynat muted loop playsinline preload="metadata" poster="media/kopek-park.jpg" aria-label="Sahibiyle tasmalı yürüyen iki golden retriever"><source src="media/kopek-park.mp4" type="video/mp4"></video><figcaption>Günlük yürüyüş</figcaption></figure>
+<div class="sb-metin"><h3>Yürüyüş paketi</h3><p>Aşısı tam her ırk için, tasmalı ve eğitimli ekibimizle güvenli rota.</p><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Günde 1-2 yürüyüş, 30-45 dk</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Konyaaltı ve Lara sahil rotaları</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yürüyüş sonrası fotoğraf ve not</li></ul><a class="dg kil" href="#randevu">Yürüyüş planla</a></div>
+<figure class="sb-kart" id="sbK2"><video class="gv" data-oynat muted loop playsinline preload="metadata" poster="media/kopek-sahil.jpg" aria-label="Sahilde sahibiyle oynayan border collie"><source src="media/kopek-sahil.mp4" type="video/mp4"></video><figcaption>Sahil oyun molası</figcaption></figure>
+<div class="sb-son">Sıradaki<span>sen ve dostun.</span></div>
+<div class="paws" id="paws" aria-hidden="true"></div>
+</div></div>
+</section>
+
 <section class="bol kum" id="randevu"><div class="kap rd">
-<div class="rd-sol rv sol"><div class="rd-g foto"><img src="img/grooming.jpg" alt="Pet kuaför" loading="lazy" style="object-position:40% 50%"><div class="alt"><p>"Her dost kendi hızında; acele etmeden, nazikçe."</p></div></div><div class="liste-t"><div><b>Banyo &amp; fön (küçük ırk)</b><span>350 ₺'den</span></div><div><b>Tam tıraş &amp; bakım</b><span>650 ₺'den</span></div><div><b>Kedi bakımı</b><span>450 ₺'den</span></div><div><b>Pansiyon (günlük)</b><span>300 ₺'den</span></div></div></div>
+<div class="rd-sol rv"><div class="rd-g"><img src="img/grooming.jpg" alt="Pet kuaför" loading="lazy" style="object-position:40% 50%"><div class="alt"><p>"Her dost kendi hızında; acele etmeden, nazikçe."</p></div></div><div class="liste-t"><div><b>Banyo &amp; fön (küçük ırk)</b><span>350 ₺'den</span></div><div><b>Tam tıraş &amp; bakım</b><span>650 ₺'den</span></div><div><b>Kedi bakımı</b><span>450 ₺'den</span></div><div><b>Pansiyon (günlük)</b><span>300 ₺'den</span></div><small style="display:block;margin-top:12px;font-weight:700;color:var(--mute)">Fiyatlar örnek veridir.</small></div></div>
 <div>
-<div class="rv" style="margin-bottom:38px"><span class="etiket">Online Randevu</span><h2>Kuaför ve pansiyon için <em>yerinizi</em> ayırtın.</h2>
+<div class="rv" style="margin-bottom:38px"><span class="etiket">Online Randevu</span><h2>Kuaför ve pansiyon için <em style="font-style:normal;color:var(--pri-d)">yerini</em> ayırt.</h2>
 </div>
 <form class="form rv" id="rdForm" novalidate>
-<div class="y"><label for="rAd">Ad soyad</label><input id="rAd" required placeholder="Adınız"></div>
+<div class="y"><label for="rAd">Ad soyad</label><input id="rAd" required placeholder="Adın"></div>
 <div class="y"><label for="rTel">Telefon</label><input id="rTel" type="tel" required placeholder="05xx xxx xx xx"></div>
 <div class="y"><label for="rHay">Hayvan</label><select id="rHay"><option>Köpek</option><option>Kedi</option><option>Kuş</option><option>Diğer</option></select></div>
 <div class="y"><label for="rHiz">Hizmet</label><select id="rHiz"><option>Banyo &amp; fön</option><option>Tam tıraş &amp; bakım</option><option>Kedi bakımı</option><option>Pansiyon</option></select></div>
@@ -427,46 +488,54 @@ nav.menu{display:none;position:absolute;top:100%;left:var(--pad);right:var(--pad
 <div class="y"><label for="rSaat">Saat</label><select id="rSaat"><option>10:00</option><option>11:30</option><option>13:00</option><option>14:30</option><option>16:00</option><option>17:30</option></select></div>
 <div class="f"><label for="rNot">Not (ırk, yaş, özel durum)</label><textarea id="rNot" placeholder="Örn. 3 yaşında golden, kulakları hassas"></textarea></div>
 <button class="dg" type="submit">WhatsApp ile randevu gönder</button>
-<small>Bilgiler yalnızca WhatsApp mesajı olarak hazırlanır; mağaza onayıyla randevunuz kesinleşir.</small>
+<small>Bilgiler yalnızca WhatsApp mesajı olarak hazırlanır; mağaza onayıyla randevun kesinleşir.</small>
 </form></div></div></section>
 
-<section class="bol koyu" id="surec"><div class="kap">
-<div class="giris rv"><span class="etiket">Nasıl çalışıyoruz</span><h2>Dört adımda, <em>kapınıza</em> kadar.</h2></div>
-<div class="surec"><div class="rv" style="--d:0s"><div class="n">1</div><b>Seçin</b><p>Bütçenizi hesaplayın, ürünleri inceleyin.</p></div><div class="rv" style="--d:.1s"><div class="n">2</div><b>Gönderin</b><p>Sepetiniz tek dokunuşla WhatsApp'a düşer.</p></div><div class="rv" style="--d:.2s"><div class="n">3</div><b>Onaylayın</b><p>Stok, fiyat ve teslimat saati netleşir.</p></div><div class="rv" style="--d:.3s"><div class="n">4</div><b>Teslim alın</b><p>Aynı gün kapıda ya da mağazada.</p></div></div>
+<!-- SAHNE C: akvaryum -->
+<section class="sc" id="akvaryum" aria-labelledby="scH">
+<div class="sc-kutu" id="scKutu">
+<video class="gv" data-oynat muted loop playsinline preload="metadata" poster="media/balik.jpg" aria-label="Renkli tropikal balıkların yüzdüğü akvaryum"><source src="media/balik.mp4" type="video/mp4"></video>
+<div class="kap sc-metin"><span class="etiket">Akvaryum &amp; Kuş</span><h2 id="scH">Suyun altında <em>küçük bir dünya</em> kur.</h2><p>Kurulum danışmanlığı, su analizi, filtre, yem ve kafes çeşitleri. İlk akvaryumundan papağan kafesine kadar yanındayız.</p>
+<div class="sc-mini"><span class="kus"><img src="img/parrot.jpg" alt="Yeşil papağan" loading="lazy" style="object-position:55% 40%"></span><a class="dg kil" href="#blog">Akvaryum rehberi</a></div></div>
+</div></section>
+
+<section class="bol kum" id="surec"><div class="kap">
+<div class="giris rv"><span class="etiket">Nasıl çalışıyoruz</span><h2>Dört adımda, <em>kapına</em> kadar.</h2></div>
+<div class="surec"><div class="rv"><div class="n">1</div><b>Seç</b><p>Bütçeni hesapla, ürünleri incele.</p></div><div class="rv"><div class="n">2</div><b>Gönder</b><p>Sepetin tek dokunuşla WhatsApp'a düşer.</p></div><div class="rv"><div class="n">3</div><b>Onayla</b><p>Stok, fiyat ve teslimat saati netleşir.</p></div><div class="rv"><div class="n">4</div><b>Teslim al</b><p>Aynı gün kapıda ya da mağazada.</p></div></div>
 </div></section>
 
 <section class="bol" id="odeme"><div class="kap od">
 <div class="rv"><span class="etiket">Güvenli Ödeme</span><h2>Kredi kartıyla, taksitle, <em>3D Secure</em> ile.</h2>
 <ul>
-<li><i>01</i><div><b>PayTR / iyzico entegrasyonu</b><span>Kart bilgileri sitede tutulmaz; ödeme, lisanslı ödeme kuruluşunun güvenli sayfasında alınır.</span></div></li>
-<li><i>02</i><div><b>3D Secure doğrulama</b><span>Her işlem bankanızın SMS onayıyla korunur.</span></div></li>
-<li><i>03</i><div><b>Taksit seçenekleri</b><span>Anlaşmalı bankalarda 2-9 taksit; yüksek tutarlı mama ve ekipman alışverişinde rahatlık.</span></div></li>
-<li><i>04</i><div><b>Kapıda ödeme ve havale</b><span>Tercihinize göre nakit, kart veya havale ile de tamamlayabilirsiniz.</span></div></li>
+<li><i>1</i><div><b>PayTR / iyzico entegrasyonu</b><span>Kart bilgileri sitede tutulmaz; ödeme, lisanslı ödeme kuruluşunun güvenli sayfasında alınır.</span></div></li>
+<li><i>2</i><div><b>3D Secure doğrulama</b><span>Her işlem bankanın SMS onayıyla korunur.</span></div></li>
+<li><i>3</i><div><b>Taksit seçenekleri</b><span>Anlaşmalı bankalarda 2-9 taksit; yüksek tutarlı mama ve ekipman alışverişinde rahatlık.</span></div></li>
+<li><i>4</i><div><b>Kapıda ödeme ve havale</b><span>Tercihine göre nakit, kart veya havale ile de tamamlayabilirsin.</span></div></li>
 </ul></div>
 <div class="od-g rv"><div class="kart-vis"><div class="c"></div><div class="no">•••• •••• •••• 4242</div><div class="a"><span>Pati Dünyası</span><span>3D Secure</span></div></div>
 <div class="taksit"><span>Tek çekim</span><span>3 taksit</span><span>6 taksit</span><span>9 taksit</span></div>
 <div class="guvenler"><span>256-bit SSL</span><span>PCI DSS</span><span>Banka onaylı</span></div>
-<p class="uyari">Bu sayfa bir örnek tasarımdır. Gerçek sitede ödeme altyapısı, işletmenizin PayTR veya iyzico hesabıyla bağlanır.</p></div>
+<p class="uyari">Bu sayfa bir örnek tasarımdır. Gerçek sitede ödeme altyapısı, işletmenin PayTR veya iyzico hesabıyla bağlanır.</p></div>
 </div></section>
 
 <section class="bol kum" id="yorumlar"><div class="kap">
 <div class="giris rv"><span class="etiket">Müşteri Yorumları</span><h2>Patili aileler <em>ne diyor?</em></h2></div>
 <div class="yr">
-<div class="yk rv" style="--d:0s"><div class="yildiz">★★★★★</div><p>"Golden'ımın tıraşı için ilk kez bu kadar sakin bir ortam gördüm. Eve gelince bile yorgun değildi."</p><div class="k"><div class="av"><svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><ellipse cx="20" cy="26" rx="7" ry="6"/><ellipse cx="9" cy="19" rx="3" ry="4"/><ellipse cx="15" cy="11" rx="3" ry="4.2"/><ellipse cx="25" cy="11" rx="3" ry="4.2"/><ellipse cx="31" cy="19" rx="3" ry="4"/></svg></div><div><b>Örnek yorum</b><small>Konyaaltı · kurgusal içerik</small></div></div></div>
-<div class="yk rv" style="--d:.1s"><div class="yildiz">★★★★★</div><p>"Mama bütçe hesaplayıcı çok işime yaradı. Aylık harcamayı baştan bilmek rahatlatıyor, sipariş de aynı gün geldi."</p><div class="k"><div class="av"><svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><ellipse cx="20" cy="26" rx="7" ry="6"/><ellipse cx="9" cy="19" rx="3" ry="4"/><ellipse cx="15" cy="11" rx="3" ry="4.2"/><ellipse cx="25" cy="11" rx="3" ry="4.2"/><ellipse cx="31" cy="19" rx="3" ry="4"/></svg></div><div><b>Örnek yorum</b><small>Lara · kurgusal içerik</small></div></div></div>
-<div class="yk rv" style="--d:.2s"><div class="yildiz">★★★★★</div><p>"Tatildeyken kedimi pansiyonda bıraktım, her gün fotoğraf geldi. Huzurla dönüp onu bıraktığım gibi buldum."</p><div class="k"><div class="av"><svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><ellipse cx="20" cy="26" rx="7" ry="6"/><ellipse cx="9" cy="19" rx="3" ry="4"/><ellipse cx="15" cy="11" rx="3" ry="4.2"/><ellipse cx="25" cy="11" rx="3" ry="4.2"/><ellipse cx="31" cy="19" rx="3" ry="4"/></svg></div><div><b>Örnek yorum</b><small>Muratpaşa · kurgusal içerik</small></div></div></div>
+<div class="yk rv"><div class="yildiz">★★★★★</div><p>"Golden'ımın tıraşı için ilk kez bu kadar sakin bir ortam gördüm. Eve gelince bile yorgun değildi."</p><div class="k"><div class="av"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#pati" fill="currentColor"/></svg></div><div><b>Örnek yorum</b><small>Konyaaltı · kurgusal içerik</small></div></div></div>
+<div class="yk rv"><div class="yildiz">★★★★★</div><p>"Mama bütçe hesaplayıcı çok işime yaradı. Aylık harcamayı baştan bilmek rahatlatıyor, sipariş de aynı gün geldi."</p><div class="k"><div class="av"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#pati" fill="currentColor"/></svg></div><div><b>Örnek yorum</b><small>Lara · kurgusal içerik</small></div></div></div>
+<div class="yk rv"><div class="yildiz">★★★★★</div><p>"Tatildeyken kedimi pansiyonda bıraktım, her gün fotoğraf geldi. Huzurla dönüp onu bıraktığım gibi buldum."</p><div class="k"><div class="av"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#pati" fill="currentColor"/></svg></div><div><b>Örnek yorum</b><small>Muratpaşa · kurgusal içerik</small></div></div></div>
 </div><p class="ornek-n">Yukarıdaki yorumlar tasarım örneği amacıyla yazılmış kurgusal içeriklerdir.</p></div></section>
 
 <section class="bol" id="blog"><div class="kap">
-<div class="giris rv"><span class="etiket">Bakım Rehberi</span><h2>Uzmanlardan <em>kısa ve net</em> bilgiler.</h2><p>Düzenli yayınlanan içerikler hem sizi bilgilendirir hem de Google'da "Antalya pet shop" aramalarında sizi öne çıkarır.</p></div>
+<div class="giris rv"><span class="etiket">Bakım Rehberi</span><h2>Uzmanlardan <em>kısa ve net</em> bilgiler.</h2><p>Düzenli yayınlanan içerikler hem seni bilgilendirir hem de Google'da "Antalya pet shop" aramalarında işletmeni öne çıkarır.</p></div>
 <div class="bl">
-<a class="bk rv" href="#blog" style="--d:0s"><div class="g foto"><img src="img/cat.jpg" alt="Kedi beslenmesi" loading="lazy" style="object-position:50% 40%"></div><small>Beslenme · 4 dk</small><h3>Kediniz için doğru mama nasıl seçilir?</h3><p>Yaş, kısırlık ve hassasiyet durumuna göre içerik etiketini okumanın pratik yolları.</p></a>
-<a class="bk rv" href="#blog" style="--d:.1s"><div class="g foto"><img src="img/hero-dog.jpg" alt="Köpek bakımı" loading="lazy" style="object-position:50% 72%"></div><small>Bakım · 5 dk</small><h3>Antalya yazında köpek bakımı: sıcak ve tüy dökülmesi</h3><p>Sıcak aylarda tıraş, tüy bakımı, su ihtiyacı ve yürüyüş saatleri için ipuçları.</p></a>
-<a class="bk rv" href="#blog" style="--d:.2s"><div class="g foto"><img src="img/aquarium.jpg" alt="Akvaryum kurulumu" loading="lazy"></div><small>Akvaryum · 6 dk</small><h3>İlk akvaryum kurulumu: yeni başlayanlar için rehber</h3><p>Su döngüsü, filtre seçimi ve balık ekleme sırası; sık yapılan hatalar.</p></a>
+<a class="bk rv" href="#blog"><div class="g"><img src="img/cat.jpg" alt="Kedi beslenmesi" loading="lazy" style="object-position:50% 40%"></div><small>Beslenme · 4 dk</small><h3>Kediniz için doğru mama nasıl seçilir?</h3><p>Yaş, kısırlık ve hassasiyet durumuna göre içerik etiketini okumanın pratik yolları.</p></a>
+<a class="bk rv" href="#blog"><div class="g"><img src="img/hero-dog.jpg" alt="Köpek bakımı" loading="lazy" style="object-position:50% 72%"></div><small>Bakım · 5 dk</small><h3>Antalya yazında köpek bakımı: sıcak ve tüy dökülmesi</h3><p>Sıcak aylarda tıraş, tüy bakımı, su ihtiyacı ve yürüyüş saatleri için ipuçları.</p></a>
+<a class="bk rv" href="#blog"><div class="g"><img src="img/aquarium.jpg" alt="Akvaryum kurulumu" loading="lazy"></div><small>Akvaryum · 6 dk</small><h3>İlk akvaryum kurulumu: yeni başlayanlar için rehber</h3><p>Su döngüsü, filtre seçimi ve balık ekleme sırası; sık yapılan hatalar.</p></a>
 </div></div></section>
 
 <section class="bol kum" id="bolge"><div class="kap bgd">
-<div class="rv"><span class="etiket">Bölge &amp; Sıkça Sorulanlar</span><h2>Antalya'nın her <em>ilçesine</em> hizmet.</h2><p style="color:var(--mute);margin-top:22px;font-size:1.08rem">Muratpaşa merkez mağazamızdan Konyaaltı, Lara ve Kepez'e aynı gün teslimat yapıyoruz.</p>
+<div class="rv"><span class="etiket">Bölge &amp; Sıkça Sorulanlar</span><h2>Antalya'nın her <em style="font-style:normal;color:var(--pri-d)">ilçesine</em> hizmet.</h2><p style="color:var(--mute);margin-top:22px;font-size:1.12rem;font-weight:600">Muratpaşa merkez mağazamızdan Konyaaltı, Lara ve Kepez'e aynı gün teslimat yapıyoruz.</p>
 <div class="bolge"><span>Muratpaşa</span><span>Konyaaltı</span><span>Lara</span><span>Kepez</span><span>Döşemealtı</span><span>Aksu</span></div>
 <p class="adres">Örnek Cad. No:12, Muratpaşa / Antalya<br>Pzt–Cmt 09:30–20:00<br><a href="tel:+902420000000">0242 000 00 00</a> · <a href="https://wa.me/905000000000">WhatsApp</a></p></div>
 <div class="sss rv">
@@ -475,27 +544,28 @@ nav.menu{display:none;position:absolute;top:100%;left:var(--pad);right:var(--pad
 <details><summary>İade ve değişim mümkün mü?</summary><p>Açılmamış mama ve ürünler 7 gün içinde değiştirilebilir.</p></details>
 </div></div></section>
 
-<section class="cta rv"><h2>Patili dostunuz <em>en iyisini</em> hak ediyor.</h2><p>Bugün sipariş verin ya da randevunuzu ayırtın; gerisini biz halledelim.</p><div class="dgs"><a class="dg b" href="#katalog">Ürünleri incele</a><a class="dg i" href="#randevu">Randevu al</a></div></section>
+<section class="cta rv"><div class="arka" id="ctaArka"></div><h2>Patili dostun <em>en iyisini</em> hak ediyor.</h2><p>Bugün sipariş ver ya da randevunu ayırt; gerisini biz halledelim.</p><div class="dgs"><a class="dg b" href="#katalog">Ürünleri incele</a><a class="dg i" href="#randevu">Randevu al</a></div></section>
 </main>
 
 <footer class="alt-f"><div class="kap">
 <div class="fg">
-<div><div class="logo"><svg viewBox="0 0 40 40" fill="none" width="40" height="40"><circle cx="20" cy="20" r="20" fill="#2d5441"/><g fill="#eba94b"><ellipse cx="20" cy="25.5" rx="6.2" ry="5"/><ellipse cx="11.8" cy="19" rx="2.6" ry="3.3" transform="rotate(-18 11.8 19)"/><ellipse cx="16.2" cy="13.2" rx="2.5" ry="3.4" transform="rotate(-6 16.2 13.2)"/><ellipse cx="23.8" cy="13.2" rx="2.5" ry="3.4" transform="rotate(6 23.8 13.2)"/><ellipse cx="28.2" cy="19" rx="2.6" ry="3.3" transform="rotate(18 28.2 19)"/></g></svg><span><b>Pati Dünyası</b><small>Antalya · Pet Shop</small></span></div><p style="margin-top:20px;max-width:320px">Antalya'da kedi, köpek, kuş ve akvaryum ürünleri; pet kuaför ve pansiyon.</p></div>
+<div><div class="logo"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#F97316"/><use href="#pati" x="6" y="6" width="28" height="28" fill="#0F172A"/></svg><span><b>Pati Dünyası</b><small>Antalya · Pet Shop</small></span></div><p style="margin-top:20px;max-width:320px">Antalya'da kedi, köpek, kuş ve akvaryum ürünleri; pet kuaför ve pansiyon.</p></div>
 <div><h4>Sayfalar</h4><ul><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#hesapla">Bütçe hesapla</a></li><li><a href="#katalog">Ürünler</a></li><li><a href="#randevu">Randevu</a></li></ul></div>
 <div><h4>Bölgeler</h4><ul><li>Muratpaşa pet shop</li><li>Konyaaltı pet kuaför</li><li>Lara köpek maması</li><li>Kepez akvaryum</li></ul></div>
 <div><h4>İletişim</h4><ul><li>0242 000 00 00</li><li>info@patidunyasi.example</li><li>Pzt–Cmt 09:30–20:00</li></ul></div>
 </div>
-<div class="son"><span>© 2026 Pati Dünyası (kurgusal örnek) · Foto: Pexels</span><span>Size özel hazırlanır · <a href="https://dijitabela.com" target="_blank" rel="noopener">dijitabela.com</a></span></div>
+<div class="son"><span>© 2026 Pati Dünyası (kurgusal örnek) · Foto ve video: Pexels</span><span>Size özel hazırlanır · <a href="https://dijitabela.com" target="_blank" rel="noopener">dijitabela.com</a></span></div>
 </div></footer>
 
 <a class="wa" id="waF" href="#" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></a>
 
 <div class="ort" id="ort"></div>
 <aside class="panel" id="panel" aria-label="Sepet"><header><h3>Sepetiniz</h3><button class="x" id="sepetKapat" aria-label="Kapat">✕</button></header><div class="liste" id="sepetL"></div><footer><div class="top"><span>Toplam</span><b id="sepetT">0 ₺</b></div><a class="dg kil" id="sepetWa" href="#" target="_blank" rel="noopener">Siparişi WhatsApp ile gönder</a></footer></aside>
-<div class="bildirim" id="bil"></div>
+<div class="bildirim" id="bil" role="status"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-document.documentElement.classList.add('js');
 (function(){
 var WA='905000000000';
 var wl=function(m){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m)};
@@ -507,12 +577,79 @@ $('#waF').href=wl('Merhaba, Pati Dünyası web sitenizden yazıyorum. Bilgi alma
 $('#mdg').onclick=function(){var m=$('#menu');var a=m.classList.toggle('ac');this.setAttribute('aria-expanded',a)};
 document.querySelectorAll('#menu a').forEach(function(a){a.onclick=function(){$('#menu').classList.remove('ac');$('#mdg').setAttribute('aria-expanded','false')}});
 var ust=$('#ust');function sc(){ust.classList.toggle('sc',window.scrollY>24)}window.addEventListener('scroll',sc,{passive:true});sc();
-/* scroll reveal */
-var io=null;
-if('IntersectionObserver' in window){io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'})}
+
+/* ===== animasyon altyapisi ===== */
+var G=window.gsap,ST=window.ScrollTrigger,hasG=!!(G&&ST);
+var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches);
+var anim=hasG&&!RM;
+if(hasG){G.registerPlugin(ST);if(!RM)document.documentElement.classList.add('gs')}
+
+/* scroll reveal: gsap stagger + back.out(1.4) */
+var io=null,kuyruk=[],tm=null;
+function patlat(){var l=kuyruk.splice(0);if(!l.length)return;
+ G.fromTo(l,{y:46,scale:.94},{y:0,scale:1,opacity:1,duration:.8,ease:'back.out(1.4)',stagger:.09,onComplete:function(){l.forEach(function(e){e.classList.add('in')});G.set(l,{clearProps:'transform,opacity'})}})}
+if('IntersectionObserver' in window&&anim){io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);kuyruk.push(e.target)}});clearTimeout(tm);tm=setTimeout(patlat,40)},{threshold:.12,rootMargin:'0px 0px -6% 0px'})}
 function rv(root){(root||document).querySelectorAll('.rv:not(.in)').forEach(function(el){if(io)io.observe(el);else el.classList.add('in')})}
-if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});io=null}
 rv();
+
+/* gercek hayvan videolari: gorununce oynat, ekran disinda durdur */
+var vio=null;
+if('IntersectionObserver' in window){vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(!RM){var p=v.play();if(p&&p.catch)p.catch(function(){})}}else v.pause()})},{threshold:.12})}
+document.querySelectorAll('video[data-oynat]').forEach(function(v){v.muted=true;v.setAttribute('muted','');v.playsInline=true;if(RM){v.controls=true;v.removeAttribute('loop')}else if(vio)vio.observe(v);else{var p=v.play();if(p&&p.catch)p.catch(function(){})}});
+
+/* sahne B: pati izleri */
+var pw=$('#paws'),pats=[];
+if(pw){var N=16;for(var i=0;i<N;i++){var d=document.createElement('span');d.className='p';d.style.setProperty('--f',(i/N*0.96+0.02).toFixed(3));d.style.setProperty('--t',(i%2?'44px':'6px'));d.innerHTML='<svg viewBox="0 0 40 40" aria-hidden="true"><use href="#pati"/></svg>';pw.appendChild(d);pats.push(d)}}
+
+if(anim){
+ /* hero giris + parallax */
+ var tl=G.timeline({defaults:{ease:'back.out(1.4)'}});
+ tl.from('.hero .etiket',{y:30,opacity:0,duration:.6})
+   .from('.hero h1',{y:60,opacity:0,duration:.9},'-=.3')
+   .from('.hero p.alt,.hero .dgs,.hero .rakam,.rakam-n',{y:40,opacity:0,duration:.7,stagger:.12},'-=.5')
+   .from('.vkart,.puan',{scale:.7,opacity:0,rotate:-8,duration:.9,stagger:.15},'-=1.1');
+ G.utils.toArray('[data-par]').forEach(function(el){G.to(el,{yPercent:+el.dataset.par,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}})});
+ G.to('.hero h1',{yPercent:-10,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+ /* SAHNE A: camdan kayan kedi */
+ var cs={trigger:'#camSahne',start:'top bottom',end:'bottom top',scrub:.8};
+ G.fromTo('#cam1',{y:-70,rotate:-4},{y:90,rotate:1.5,ease:'none',scrollTrigger:cs});
+ G.fromTo('#cam1 .cam-v',{yPercent:-9},{yPercent:9,ease:'none',scrollTrigger:cs});
+ G.fromTo('#cam1 .damla',{yPercent:-20},{yPercent:320,ease:'none',stagger:.05,scrollTrigger:cs});
+ G.fromTo('#cam1 .izler',{yPercent:-80},{yPercent:0,ease:'none',scrollTrigger:cs});
+ G.fromTo('#cam2',{y:120,rotate:5},{y:-60,rotate:-1,ease:'none',scrollTrigger:cs});
+ G.fromTo('#cam2 .cam-v',{yPercent:10},{yPercent:-6,ease:'none',scrollTrigger:cs});
+ G.fromTo('#cam2 .damla',{yPercent:-10},{yPercent:260,ease:'none',stagger:.08,scrollTrigger:cs});
+
+ /* SAHNE B: yuruyen kopek */
+ var mm=G.matchMedia();
+ mm.add('(min-width:901px)',function(){
+  var yol=$('#sbYol');if(!yol)return;
+  var W=function(){return yol.scrollWidth},VW=function(){return window.innerWidth};
+  var tlb=G.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'#sbPin',start:'center center',end:function(){return '+='+Math.max(600,W()-VW())},pin:true,scrub:.7,anticipatePin:1,invalidateOnRefresh:true}});
+  tlb.to(yol,{x:function(){return -(W()-VW())},duration:1},0);
+  pats.forEach(function(p,i){var f=parseFloat(p.style.getPropertyValue('--f'));
+   var t=Math.max(0,Math.min(.97,(f*W()-VW()*.82)/Math.max(1,W()-VW())));
+   tlb.fromTo(p,{autoAlpha:0,scale:.2},{autoAlpha:.95,scale:1,duration:.04,ease:'back.out(2.5)'},t)});
+  tlb.fromTo('#sbK1 video',{scale:1.18},{scale:1,duration:.5},0);
+  tlb.fromTo('#sbK2 video',{scale:1.18},{scale:1,duration:.4},.45);
+ });
+ mm.add('(max-width:900px)',function(){
+  G.utils.toArray('.sb-kart').forEach(function(c,i){G.fromTo(c,{x:(i%2?1:-1)*48,rotate:(i%2?2:-2)},{x:0,rotate:0,ease:'none',scrollTrigger:{trigger:c,start:'top 92%',end:'top 38%',scrub:true}})});
+  G.fromTo(pats,{autoAlpha:0,scale:.2},{autoAlpha:.95,scale:1,stagger:.08,ease:'back.out(2)',scrollTrigger:{trigger:'#paws',start:'top 95%',end:'bottom 55%',scrub:true}});
+ });
+
+ /* SAHNE C: akvaryum acilir */
+ var kutu=$('#scKutu');
+ if(kutu){var mob=window.innerWidth<=640;
+  G.fromTo(kutu,{clipPath:mob?'inset(8% 4% round 30px)':'inset(16% 10% round 44px)'},{clipPath:'inset(0% 0% round 0px)',ease:'none',scrollTrigger:{trigger:kutu,start:'top 88%',end:'top 8%',scrub:.6}});
+  G.fromTo('#scKutu>video',{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:kutu,start:'top 88%',end:'bottom 30%',scrub:.6}});
+  G.from('.sc-metin>*',{y:50,opacity:0,stagger:.12,ease:'back.out(1.4)',duration:.8,scrollTrigger:{trigger:kutu,start:'top 35%'}});
+ }
+ /* CTA parallax */
+ G.fromTo('#ctaArka',{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:'.cta',start:'top bottom',end:'bottom top',scrub:true}});
+ window.addEventListener('load',function(){ST.refresh()});
+}
 
 /* hesaplayici */
 var st={t:'kopek',e:'yetiskin',k:1,v:12};
@@ -549,18 +686,18 @@ hesapla();
 
 /* urunler */
 var U=[
-{id:1,c:'kopek',m:'Royal Canin',n:'Medium Adult Köpek Maması',a:'15 kg · Orta ırk yetişkin',p:2890,r:'#ecdfc3'},
-{id:2,c:'kopek',m:'Pro Plan',n:'Somonlu Hassas Sindirim',a:'12 kg · Yetişkin köpek',p:2450,r:'#d5e0cf',e:'Çok satan'},
-{id:3,c:'kopek',m:'Reflex',n:'Kuzu Etli Yavru Köpek Maması',a:'15 kg · Yavru',p:1690,r:'#f1d9c4'},
-{id:4,c:'kedi',m:'Royal Canin',n:'Kısırlaştırılmış Kedi Maması',a:'4 kg · Sterilised',p:1390,r:'#f1d9c4',e:'Çok satan'},
-{id:5,c:'kedi',m:'Whiskas',n:'Tavuklu Yetişkin Kedi Maması',a:'14 kg · Ekonomik boy',p:1280,r:'#ecdfc3'},
-{id:6,c:'kedi',m:'Felix',n:'Pouch Karışık Seçenek',a:'12 x 85 g · Yaş mama',p:395,r:'#d5e0cf'},
-{id:7,c:'kedi',m:'N&D',n:'Tahılsız Somon & Ringa',a:'1,5 kg · Prime',p:980,r:'#ecdfc3',e:'Yeni'},
-{id:8,c:'kus',m:'Versele-Laga',n:'Muhabbet Kuşu Yemi',a:'1 kg · Vitaminli',p:215,r:'#d5e0cf'},
-{id:9,c:'kus',m:'Pati Seçkisi',n:'Papağan Kafes Seti',a:'Oyuncak + tünek + yemlik',p:1750,r:'#f1d9c4'},
-{id:10,c:'akv',m:'Tetra',n:'Pul Balık Yemi',a:'250 ml · Tüm tatlı su',p:285,r:'#cfe0dc'},
-{id:11,c:'akv',m:'Sera',n:'Akvaryum Su Düzenleyici',a:'250 ml · Klor giderici',p:240,r:'#d5e0cf'},
-{id:12,c:'akv',m:'Pati Seçkisi',n:'İç Filtre 600 L/s',a:'40–80 L akvaryum',p:890,r:'#cfe0dc'}];
+{id:1,c:'kopek',m:'Royal Canin',n:'Medium Adult Köpek Maması',a:'15 kg · Orta ırk yetişkin',p:2890,r:'#FFEDD5'},
+{id:2,c:'kopek',m:'Pro Plan',n:'Somonlu Hassas Sindirim',a:'12 kg · Yetişkin köpek',p:2450,r:'#DBEAFE',e:'Çok satan'},
+{id:3,c:'kopek',m:'Reflex',n:'Kuzu Etli Yavru Köpek Maması',a:'15 kg · Yavru',p:1690,r:'#FED7AA'},
+{id:4,c:'kedi',m:'Royal Canin',n:'Kısırlaştırılmış Kedi Maması',a:'4 kg · Sterilised',p:1390,r:'#FED7AA',e:'Çok satan'},
+{id:5,c:'kedi',m:'Whiskas',n:'Tavuklu Yetişkin Kedi Maması',a:'14 kg · Ekonomik boy',p:1280,r:'#FFEDD5'},
+{id:6,c:'kedi',m:'Felix',n:'Pouch Karışık Seçenek',a:'12 x 85 g · Yaş mama',p:395,r:'#DBEAFE'},
+{id:7,c:'kedi',m:'N&D',n:'Tahılsız Somon & Ringa',a:'1,5 kg · Prime',p:980,r:'#FFEDD5',e:'Yeni'},
+{id:8,c:'kus',m:'Versele-Laga',n:'Muhabbet Kuşu Yemi',a:'1 kg · Vitaminli',p:215,r:'#DBEAFE'},
+{id:9,c:'kus',m:'Pati Seçkisi',n:'Papağan Kafes Seti',a:'Oyuncak + tünek + yemlik',p:1750,r:'#FED7AA'},
+{id:10,c:'akv',m:'Tetra',n:'Pul Balık Yemi',a:'250 ml · Tüm tatlı su',p:285,r:'#DBEAFE'},
+{id:11,c:'akv',m:'Sera',n:'Akvaryum Su Düzenleyici',a:'250 ml · Klor giderici',p:240,r:'#FFEDD5'},
+{id:12,c:'akv',m:'Pati Seçkisi',n:'İç Filtre 600 L/s',a:'40–80 L akvaryum',p:890,r:'#DBEAFE'}];
 var IC={
  kopek:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><g transform="rotate(-38 12 12)"><rect x="5.5" y="10" width="13" height="4" rx="2"/><circle cx="5.2" cy="9.4" r="2.5"/><circle cx="5.2" cy="14.6" r="2.5"/><circle cx="18.8" cy="9.4" r="2.5"/><circle cx="18.8" cy="14.6" r="2.5"/></g></svg>',
  kedi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12c3-5 8.5-6 12.5-3l5.5-3.5v13L15 15.5c-4 3-9.500 2-12.500-3.500z"/><circle cx="16" cy="11" r=".9" fill="currentColor"/></svg>',
@@ -568,8 +705,8 @@ var IC={
  akv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 5 6.500 8 6.500 11a6.500 6.500 0 0 1-13 0C5.500 11 8 8 12 3z"/><path d="M9 14.500a3 3 0 0 0 3 3" stroke-linecap="round"/></svg>'};
 var CN={kopek:'Köpek',kedi:'Kedi',kus:'Kuş',akv:'Akvaryum'};
 var sepet=[];
-function ciz(c){var h='',i=0;U.filter(function(u){return c==='hepsi'||u.c===c}).forEach(function(u){h+='<article class="uk rv" style="--d:'+((i++%4)*.07)+'s"><div class="pk" style="--t:'+u.r+'">'+(u.e?'<em>'+u.e+'</em>':'')+'<span class="ic">'+IC[u.c]+'</span><b>'+u.m+'</b><small>'+CN[u.c]+'</small></div><div class="m"><h3>'+u.n+'</h3><p>'+u.a+'</p><div class="fy"><b>'+TL(u.p)+'</b><button class="ekle" data-id="'+u.id+'" aria-label="Sepete ekle: '+u.n+'">+</button></div></div></article>'});$('#urunler').innerHTML=h;
- document.querySelectorAll('.ekle').forEach(function(b){b.onclick=function(){ekle(+b.dataset.id)}});rv($('#urunler'))}
+function ciz(c){var h='';U.filter(function(u){return c==='hepsi'||u.c===c}).forEach(function(u){h+='<article class="uk rv"><div class="pk" style="--t:'+u.r+'">'+(u.e?'<em>'+u.e+'</em>':'')+'<span class="ic">'+IC[u.c]+'</span><b>'+u.m+'</b><small>'+CN[u.c]+'</small></div><div class="m"><h3>'+u.n+'</h3><p>'+u.a+'</p><div class="fy"><b>'+TL(u.p)+'</b><button class="ekle" data-id="'+u.id+'" aria-label="Sepete ekle: '+u.n+'">+</button></div></div></article>'});$('#urunler').innerHTML=h;
+ document.querySelectorAll('.ekle').forEach(function(b){b.onclick=function(){ekle(+b.dataset.id)}});rv($('#urunler'));if(hasG&&ST)setTimeout(function(){ST.refresh()},50)}
 document.querySelectorAll('#sekme button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#sekme button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');ciz(b.dataset.c)}});
 function ekle(id){var s=sepet.find(function(x){return x.id===id});if(s)s.q++;else sepet.push({id:id,q:1});yaz();var n=$('#sepetN');n.classList.add('pop');setTimeout(function(){n.classList.remove('pop')},300);bil('Sepete eklendi')}
 function yaz(){var n=0,t=0,h='',msg='Merhaba, Pati Dünyası web sitesinden sipariş vermek istiyorum:\n';
