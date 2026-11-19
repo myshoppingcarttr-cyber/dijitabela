@@ -114,8 +114,8 @@ td a{color:var(--mavi);font-weight:700}
   var saat = function (d) { return new Date(d).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }); };
   var sb = null, L = [];
   var DEMO_L = [
-    { id: "1", olusturma: new Date(Date.now() - 36e5).toISOString(), isletme_adi: "NvlHomedesign", sehir: "Antalya", skor: 73, google_durum: "bulundu", google_tur: "Ev eşyası mağazası", google_puan: 4.8, google_yorum: 12, google_harita: "https://maps.google.com", isletme_site: null, kaynak_sayfa: "/ekspertiz", referrer_alan: "instagram.com", utm: {}, wa_tiklandi: true, prototip_durum: "prototip: S005 kuyrukta", eksikler: [{ ad: "Web sitesi", durum: "eksik" }, { ad: "Çalışma saatleri", durum: "eksik" }] },
-    { id: "2", olusturma: new Date(Date.now() - 5 * 36e5).toISOString(), isletme_adi: "Örnek Klinik", sehir: "Muratpaşa", skor: 91, google_durum: "bulundu", kaynak_sayfa: "/ekspertiz", utm: { utm_source: "google" }, wa_tiklandi: false, prototip_durum: "prototip: gerek yok (skor ≥ 85)", eksikler: [] }
+    { id: "1", olusturma: new Date(Date.now() - 36e5).toISOString(), isletme_adi: "NvlHomedesign", sehir: "Antalya", skor: 73, google_durum: "bulundu", google_tur: "Ev eşyası mağazası", google_puan: 4.8, google_yorum: 12, google_harita: "https://maps.google.com", isletme_site: null, kaynak_sayfa: "/ekspertiz.html", referrer_alan: "instagram.com", utm: {}, wa_tiklandi: true, prototip_durum: "prototip: S005 kuyrukta", eksikler: [{ ad: "Web sitesi", durum: "eksik" }, { ad: "Çalışma saatleri", durum: "eksik" }] },
+    { id: "2", olusturma: new Date(Date.now() - 5 * 36e5).toISOString(), isletme_adi: "Örnek Klinik", sehir: "Muratpaşa", skor: 91, google_durum: "bulundu", kaynak_sayfa: "/ekspertiz.html", utm: { utm_source: "google" }, wa_tiklandi: false, prototip_durum: "prototip: gerek yok (skor ≥ 85)", eksikler: [] }
   ];
   function hata(m) { $("uyari").hidden = !m; $("uyari").textContent = m || ""; }
   function sinif(s) { return s == null ? "o" : s < 50 ? "k" : s < 85 ? "o" : "i"; }

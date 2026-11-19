@@ -17,7 +17,7 @@
     ev.preventDefault();
     var harita = f.maps.value.trim(), web = f.web.value.trim();
     // Harita kutusuna işletme adı da yazılabilir: bağlantı değilse ad olarak gönderilir
-    girdi = { url: web, maps: HARITA.test(harita) ? harita : "", isletme: HARITA.test(harita) ? "" : harita, sehir: f.sehir.value.trim(), ig: f.ig ? f.ig.value.trim().replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//i, "").replace(/[\/?#].*$/, "").slice(0, 40) : "" };
+    girdi = { url: web, maps: HARITA.test(harita) ? harita : "", isletme: HARITA.test(harita) ? "" : harita, sehir: f.sehir.value.trim() };
     if (HARITA.test(web) && !girdi.maps) { girdi.maps = web; girdi.url = ""; }
     if (!girdi.url && !girdi.maps && !girdi.isletme) return yaz($("e-durum"), "Google Haritalar bağlantınızı ya da işletmenizin adını yazın.", "kotu");
     // 30 Eki: sonuç kaydedilir (işletme bilgisi + hangi sayfadan geldiği; IP/kişisel veri yok — sayfadaki aydınlatma notu)
@@ -26,7 +26,7 @@
     var refAlan = ""; try { refAlan = document.referrer ? new URL(document.referrer).hostname : ""; } catch (x) {}
     girdi.kayit = true; girdi.kaynak = { sayfa: location.pathname, ref: refAlan, utm: utm };
     f.hidden = true; var ilr = $("eks-ilerleme"); ilr.hidden = false; ilr.scrollIntoView({ behavior: "smooth", block: "center" });
-    var adimlar = [girdi.maps ? "Google işletme bağlantınız açılıyor…" : "İşletmeniz Google Haritalar'da aranıyor…", "Google profiliniz okunuyor: durum, saatler, fotoğraflar…", "Yorumlarınız ve puanınız inceleniyor…", "Çevrenizdeki rakipler bulunuyor…", "Rakiplerle karşılaştırılıyor…", "Web siteniz açılıyor…", "Mobil uyum ve hız ölçülüyor…", "Telefon, WhatsApp ve randevu düğmeleri aranıyor…", "Sosyal medya hesapları ve yorumlar değerlendiriliyor…", "Çözüm planı hazırlanıyor…"], i = 0;
+    var adimlar = ["İşletmeniz Google Haritalar'da aranıyor…", "Google profiliniz okunuyor: durum, saatler, fotoğraflar…", "Yorumlarınız ve puanınız inceleniyor…", "Çevrenizdeki rakipler bulunuyor…", "Rakiplerle karşılaştırılıyor…", "Web siteniz açılıyor…", "Mobil uyum ve hız ölçülüyor…", "Telefon, WhatsApp ve randevu düğmeleri aranıyor…", "Çözüm planı hazırlanıyor…"], i = 0;
     $("eks-ilerleme-yazi").textContent = adimlar[0];
     var zam = setInterval(function () { i = Math.min(i + 1, adimlar.length - 1); $("eks-ilerleme-yazi").textContent = adimlar[i]; }, 2600);
     fetch(URL_FN, { method: "POST", headers: { "Content-Type": "application/json", apikey: A.supabaseAnonKey || "" }, body: JSON.stringify(girdi) })
@@ -44,58 +44,6 @@
   });
 
   var renk = function (p) { return p >= 75 ? "iyi" : p >= 50 ? "orta" : "kotu"; };
-  // ===== KULLANILAN KAYNAKLAR NOTU =====
-  function kaynakNot(g, d) {
-    var m = [];
-    if (g.maps) m.push("<b>Google kaydınız</b> bağlantınızdan doğrudan incelendi (en doğru sonuç)");
-    else if (g.isletme) m.push("Google kaydınız adınızdan bulundu; Haritalar bağlantınızı yapıştırırsanız analiz daha detaylı ve kesin olur");
-    if (g.url) m.push("<b>web siteniz</b> açılıp incelendi: sitenizdeki eksikler aşağıda");
-    else m.push("web siteniz yazılmadığı için site eksikleri çıkarılmadı; siteniz varsa eklerseniz analiz genişler");
-    if (g.ig) m.push("<b>Instagram</b> (@" + e(g.ig) + ") sosyal medya puanına katıldı");
-    return '<p class="eks-kaynak">Bu analizde kullanılan kaynaklar: ' + m.join(" · ") + ".</p>";
-  }
-
-  // ===== SOSYAL MEDYA ANALİZİ (v1) =====
-  // Sunucu d.sosyal döndürürse o kullanılır. Döndürmezse, dışarıdan görünen gerçek işaretlerden (site bağlantıları, Google puanı/yorumu,
-  // verilen Instagram adı) ön değerlendirme üretilir; sosyal ağların kendi verisine erişilmediği için "tahmini" olarak etiketlenir.
-  function kesin(s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; }
-  function sosyalAnaliz(d, g) {
-    if (d.sosyal && d.sosyal.kanallar) return d.sosyal;
-    var B = d.bulgular || [], ist = d.isletme, siteLink = B.some(function (b) { return b.id === "sosyal" && b.durum === "ok"; });
-    var tohum = kesin(((ist && ist.ad) || g.isletme || g.url || g.maps || "") + "|" + (g.sehir || "")), j = function (n, m) { return (tohum >>> n) % (m + 1); };
-    var ig = !!g.ig, K = [];
-    var igP = Math.min(92, 22 + (siteLink ? 22 : 0) + (ig ? 20 : 0) + j(1, 14));
-    K.push({ ad: "Instagram", agirlik: 35, puan: igP,
-      tespit: ig ? "@" + g.ig + " hesabı için ön değerlendirme: biyografi, profil bağlantısı, paylaşım düzeni ve etkileşim birlikte tartıldı." : "Instagram hesabı bildirilmedi" + (siteLink ? "; ancak sitenizde sosyal bağlantı var, hesabınız olduğu anlaşılıyor." : " ve sitenizde Instagram bağlantısı bulunamadı."),
-      cozum: igP >= 75 ? "Haftada 3 paylaşımı sürdürün; Reels oranını artırın ve her gönderiye yerel etiket ekleyin." : igP >= 50 ? "Düzenli paylaşım yok gibi görünüyor: haftalık içerik planı, biyografide WhatsApp/randevu bağlantısı ve sabit gönderi şart." : "Hesabı açın ya da toparlayın: işletme profiline çevirin, biyografiye telefon ve harita bağlantısı koyun, haftalık içerik planı çıkarın." });
-    var fbP = Math.min(88, 18 + (siteLink ? 24 : 0) + j(5, 18));
-    K.push({ ad: "Facebook sayfası", agirlik: 15, puan: fbP,
-      tespit: siteLink ? "Sitenizde sosyal bağlantılar var; sayfanın güncel olup olmadığı paylaşım tarihine bağlı." : "Sitenizde Facebook bağlantısı görünmüyor; sayfa yoksa ya da eskiyse güven kaybettirir.",
-      cozum: fbP >= 60 ? "Instagram paylaşımlarını Facebook'a otomatik yansıtın; çalışma saatleri ve telefon güncel kalsın." : "Sayfayı açın/güncelleyin, Instagram ile eşleyip aynı içeriği otomatik paylaştırın." });
-    var gp, gt, gc;
-    if (ist && ist.puan != null) {
-      var y = ist.yorum || 0; gp = Math.round(Math.min(50, ist.puan / 5 * 50) + Math.min(50, y / 150 * 50));
-      gt = "Google'da ★ " + String(ist.puan).replace(".", ",") + " ve " + y + " yorum görünüyor" + (d.rakip && d.rakip.ilk && d.rakip.ilk.length ? "; çevrenizdeki rakiplerle karşılaştırması aşağıdaki tabloda." : ".");
-      gc = y < 50 ? "Memnun müşteriye tek tıkla yorum bağlantısı gönderin; hedef 50+ yorum ve her yoruma 24 saatte cevap." : ist.puan < 4.5 ? "Olumsuz yorumlara kibar, çözüm odaklı cevap verin; memnuniyet anketiyle puanı yükseltin." : "Yorum akışını sürdürün; yeni yorumlara düzenli cevap verin.";
-    } else { gp = 12; gt = "Google yorumları ve puanı ölçülemedi; profil bulunamadıysa müşteri sizi haritada göremez."; gc = "Google İşletme Profilini sahiplenin/doğrulayın, sonra yorum toplamaya başlayın."; }
-    K.push({ ad: "Google yorumları ve puanı", agirlik: 35, puan: gp, tespit: gt, cozum: gc });
-    var tP = Math.min(60, 8 + (siteLink ? 10 : 0) + j(9, 12));
-    K.push({ ad: "TikTok / YouTube", agirlik: 15, puan: tP, opsiyonel: true,
-      tespit: "Kısa video kanalı bağlantısı ya da düzenli video bulunamadı; zorunlu değil ama yerel aramada fark yaratır.",
-      cozum: "Atölyeden/dükkândan 15 saniyelik videoları hem Reels hem TikTok/Shorts olarak aynı anda yayınlayın." });
-    var top = Math.round(K.reduce(function (a, k) { return a + k.puan * k.agirlik; }, 0) / K.reduce(function (a, k) { return a + k.agirlik; }, 0));
-    return { puan: top, kanallar: K, tahmini: true };
-  }
-  function sosyalHtml(so) {
-    var kls = renk(so.puan);
-    return '<div class="eks-sosyal"><p class="v-etiket">Sosyal medya analizi</p>' +
-      '<div class="eks-sosyal-ust ' + kls + '"><b>' + so.puan + '</b><span>/100</span></div><div class="eks-bar"><i style="width:' + so.puan + '%"></i></div>' +
-      '<div class="eks-sosyal-kanal">' + so.kanallar.map(function (k) {
-        return '<div class="' + renk(k.puan) + '"><h4>' + e(k.ad) + (k.opsiyonel ? ' <small style="color:var(--gece-soluk);font-weight:400">· opsiyonel</small>' : "") + '<b><i>' + k.puan + '</i>/100</b></h4><span class="eks-mini"><i style="width:' + k.puan + '%"></i></span><p>' + e(k.tespit) + '</p><p class="eks-cozum"><b>Ne yapılmalı:</b> ' + e(k.cozum) + '</p></div>';
-      }).join("") + '</div>' +
-      (so.tahmini ? '<p class="eks-sosyal-not">Ön değerlendirme: sitenizdeki sosyal bağlantılar, Google verileri ve bildirdiğiniz hesaba göre tahmin edilir. Hesaplarınızı birlikte açıp kesin sonucu 10 dakikada netleştirelim.</p>' : "") + '</div>';
-  }
-
   function goster(d) {
     $("eks-ilerleme").hidden = true;
     var B = d.bulgular || [], eksik = B.filter(function (b) { return b.durum !== "ok"; }), iyi = B.filter(function (b) { return b.durum === "ok"; });
@@ -128,7 +76,6 @@
     var waLink = A.whatsapp ? "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ücretsiz ekspertiz yaptım (" + skor + "/100). Eksikleri ve çözüm planını konuşmak istiyorum.") : "";
     var dugmeler = '<div class="v-dugmeler eks-dugmeler">' + (waLink ? '<a class="v-btn ana" href="' + waLink + '" target="_blank" rel="noopener">WhatsApp\'tan hemen yazın →</a>' : "") + (A.whatsapp2 ? '<a class="v-btn" href="https://wa.me/' + A.whatsapp2 + "?text=" + encodeURIComponent("Merhaba, " + adSoyle + " için ekspertiz yaptım (" + skor + "/100). Ücretsiz taslak istiyorum.") + '" target="_blank" rel="noopener">7/24 asistan · ' + e(A.telefon2) + "</a>" : "") + '<a class="v-btn" href="#eks-rapor">Beni arayın</a>' + (A.telefon ?'<a class="v-btn" href="tel:+90' + A.telefon.replace(/\D/g, "").replace(/^0/, "") + '">☎ ' + e(A.telefon) + "</a>" : "") + "</div>";
     var ALAN = Object.keys(d.alanlar || {});
-    var SOSYAL = sosyalAnaliz(d, girdi);
     var ilk3 = ciddi.slice(0, 3);
     var googleNot = d.google === "kapali" || d.google === "hata" ? '<p class="eks-not">Google profil karşılaştırması bu analizde yapılamadı; arayıp profilinizi birlikte kontrol edelim.</p>'
       : d.google === "bulunamadi" ? '<p class="eks-not kotu"><b>İşletmeniz Google Haritalar\'da bulunamadı.</b> Ya profiliniz yok ya da adınız farklı kayıtlı. Haritada görünmeyen işletmeyi “yakınımdaki …” diye arayan müşteri hiç görmez.</p>' : "";
@@ -137,9 +84,8 @@
     s.innerHTML = '<p class="v-etiket">Ekspertiz sonucu' + (ist ? " · " + e(ist.ad) : girdi.url ? " · " + e(girdi.url.replace(/^https?:\/\//, "")) : "") + "</p>" +
       (ist ? '<p class="eks-kimlik">' + e([ist.tur, ist.adres].filter(Boolean).join(" · ")) + (ist.puan != null ? " · ★ " + String(ist.puan).replace(".", ",") + " (" + ist.yorum + " yorum)" : "") + (ist.eminDegil ? ' <em>· Doğru işletme değilse Google Haritalar bağlantınızla tekrar deneyin.</em>' : "") + "</p>" : "") +
       '<div class="eks-skor ' + renk(skor) + '"><b>' + skor + '</b><span>/100</span></div><div class="eks-bar"><i style="width:' + skor + '%"></i></div>' +
-      kaynakNot(girdi, d) + '<p class="v-alt" style="margin:18px 0 26px">' + e(yorum) + " <b>" + ciddi.length + " önemli eksik</b> bulundu.</p>" + googleNot +
+      '<p class="v-alt" style="margin:18px 0 26px">' + e(yorum) + " <b>" + ciddi.length + " önemli eksik</b> bulundu.</p>" + googleNot +
       '<dl class="eks-alanlar">' + ALAN.map(function (a) { var p = d.alanlar[a]; return '<div class="' + renk(p) + '"><dt>' + e(d.alanAd[a]) + "</dt><dd><b>" + p + '</b>/100</dd><span class="eks-mini"><i style="width:' + p + '%"></i></span></div>'; }).join("") + "</dl>" +
-      sosyalHtml(SOSYAL) +
       (rk ? '<h3 class="eks-h">Çevrenizdeki rakipler · ' + rk.sayi + " işletme (" + (rk.yaricap >= 1000 ? String(rk.yaricap / 1000).replace(".", ",") + " km" : rk.yaricap + " m") + ")</h3>" +
         '<table class="eks-rakip"><thead><tr><th>İşletme</th><th>Puan</th><th>Yorum</th></tr></thead><tbody>' +
         (ist ? '<tr class="biz"><td>' + e(ist.ad) + " (siz)</td><td>" + (ist.puan != null ? String(ist.puan).replace(".", ",") : "—") + "</td><td>" + ist.yorum + "</td></tr>" : "") +
@@ -173,7 +119,7 @@
       if (!rf.isletme.value.trim()) return yaz(rd, "İşletmenizin adını yazın.", "kotu");
       if (rf.tel.value.replace(/\D/g, "").length < 10) return yaz(rd, "Telefon numaranızı yazın.", "kotu");
       if (!rf.kvkk.checked) return yaz(rd, "KVKK onay kutusunu işaretleyin.", "kotu");
-      var not = "Ekspertiz v2 puanı " + skor + "/100 (" + ALAN.map(function (a) { return d.alanAd[a] + " " + d.alanlar[a]; }).join(", ") + ")" + ". Sosyal medya " + SOSYAL.puan + "/100 (" + SOSYAL.kanallar.map(function (k) { return k.ad + " " + k.puan; }).join(", ") + (girdi.ig ? ", IG @" + girdi.ig : "") + ")" +
+      var not = "Ekspertiz v2 puanı " + skor + "/100 (" + ALAN.map(function (a) { return d.alanAd[a] + " " + d.alanlar[a]; }).join(", ") + ")" +
         (ist ? ". Google: " + ist.ad + ", ★" + (ist.puan ?? "—") + " / " + ist.yorum + " yorum, durum " + ist.durum : "") +
         (rk ? ". Rakip ortancası: " + rk.ilk.map(function (r) { return r.yorum; }).join("/") + " yorum" : "") +
         ". Öneri: " + h.satirlar.map(function (r) { return r.ad; }).join(" + ") + " = " + TL(h.tek) + (h.ay ? " + " + TL(h.ay) + "/ay" : "") +

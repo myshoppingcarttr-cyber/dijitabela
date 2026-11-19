@@ -77,7 +77,7 @@
     }
     function hata(baslik, metin) {
       c.className = "cikti cam";
-      c.innerHTML = '<div class="r-hata" role="alert"><span class="rozet k">Tamamlanamadı</span><h3>' + esc(baslik) + "</h3><p>" + esc(metin) + '</p><div class="dizi"><button type="button" class="dugme kucuk" id="r-yine">Yeniden dene</button><a class="dugme kucuk" href="' + C.kok + '/ekspertiz">Tam ekspertiz sayfası</a></div></div>';
+      c.innerHTML = '<div class="r-hata" role="alert"><span class="rozet k">Tamamlanamadı</span><h3>' + esc(baslik) + "</h3><p>" + esc(metin) + '</p><div class="dizi"><button type="button" class="dugme kucuk" id="r-yine">Yeniden dene</button><a class="dugme kucuk" href="' + C.kok + 'ekspertiz.html">Tam ekspertiz sayfası</a></div></div>';
       var y = $("#r-yine", c); if (y) y.addEventListener("click", function () { f.requestSubmit ? f.requestSubmit() : f.dispatchEvent(new Event("submit", { cancelable: true })); });
     }
     function sonuc(d, u) {
@@ -90,7 +90,7 @@
       if (B.length > 5) h += '<p class="bos">' + (B.length - 5) + " madde daha tam raporda.</p>";
       var olc = (d.kapsam && d.kapsam.olculmeyen || []).map(function (x) { return ad[x.alan] || x.alan; });
       if (olc.length) h += '<p class="bos">Bu hızlı bakışta ölçülmeyen alanlar: ' + esc(olc.join(", ")) + ". Tam ekspertiz bunları da inceler.</p>";
-      h += '<div class="dizi"><a class="dugme ana kucuk" href="' + "/ekspertiz?url=" + encodeURIComponent(u) + '">Tam raporu ve çözüm planını aç</a><a class="dugme kucuk" href="' + C.wa + "?text=" + encodeURIComponent("Merhaba, sitenizdeki röntgende puanım " + skor + " çıktı. Eksikleri konuşmak istiyorum: " + u) + '" rel="noopener">WhatsApp\'tan sor</a></div>';
+      h += '<div class="dizi"><a class="dugme ana kucuk" href="' + C.kok + "ekspertiz.html?url=" + encodeURIComponent(u) + '">Tam raporu ve çözüm planını aç</a><a class="dugme kucuk" href="' + C.wa + "?text=" + encodeURIComponent("Merhaba, sitenizdeki röntgende puanım " + skor + " çıktı. Eksikleri konuşmak istiyorum: " + u) + '" rel="noopener">WhatsApp\'tan sor</a></div>';
       c.className = "cikti cam bitti"; c.innerHTML = h;
       var halka = $("#r-halka", c);
       requestAnimationFrame(function () { $$(".alan i", c).forEach(function (x) { x.style.width = x.getAttribute("data-w") + "%"; }); });
