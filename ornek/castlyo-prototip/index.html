@@ -17,6 +17,7 @@
   html,body{margin:0;scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
   .pf{font-family:"Playfair Display",Georgia,serif}
+  body::before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   a{color:inherit}
   .wrap{max-width:1120px;margin:0 auto;padding:0 18px}
   button{font-family:inherit;cursor:pointer;border:none}
@@ -83,21 +84,24 @@
   .acard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;opacity:0;transform:translateY(14px) scale(.97);animation:pop .45s forwards}
   @keyframes pop{to{opacity:1;transform:none}}
   .acard:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--pri)}
-  .acard .ph{position:relative;aspect-ratio:3/3.4;display:grid;place-items:center;font-family:"Playfair Display",serif;font-size:42px;color:#fff;font-weight:700}
-  .acard .boost{position:absolute;top:9px;left:9px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(--gold),#eab14a);color:#3a2a06;font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px}
-  .acard .lockmini{position:absolute;bottom:9px;right:9px;display:flex;align-items:center;gap:5px;background:rgba(10,10,16,.7);backdrop-filter:blur(4px);color:#fff;font-size:10.5px;font-weight:700;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
-  .acard .meta{padding:12px 13px 14px}
-  .acard .meta .n{font-weight:700;font-size:15.5px}
-  .acard .meta .s{color:var(--mut);font-size:12.5px;margin-top:2px}
-  .acard .tag{display:inline-block;margin-top:9px;font-size:11px;font-weight:700;color:var(--accent);background:rgba(34,211,238,.1);padding:3px 9px;border-radius:999px}
+  .acard .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:#15131f}
+  .acard .ph img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:saturate(1.04) contrast(1.02);transition:transform .5s}
+  .acard:hover .ph img{transform:scale(1.05)}
+  .acard .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,12,.95) 2%,rgba(7,7,12,.55) 26%,rgba(7,7,12,0) 52%)}
+  .acard .boost{position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(--gold),#eab14a);color:#3a2a06;font-size:10.5px;font-weight:800;padding:4px 9px;border-radius:999px;box-shadow:0 4px 12px rgba(246,200,97,.35)}
+  .acard .lockmini{position:absolute;top:10px;right:10px;display:flex;align-items:center;gap:5px;background:rgba(10,10,16,.55);backdrop-filter:blur(6px);color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.16)}
+  .acard .cardmeta{position:absolute;left:13px;right:13px;bottom:12px}
+  .acard .cardmeta .n{font-weight:700;font-size:16.5px;color:#fff;letter-spacing:.2px}
+  .acard .cardmeta .s{color:#cfc9e0;font-size:12px;margin-top:2px}
+  .acard .cardmeta .tag{display:inline-block;margin-top:8px;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#06222a;background:var(--accent);padding:3px 9px;border-radius:999px}
 
   /* MODAL */
   .ov{position:fixed;inset:0;z-index:60;background:rgba(5,5,10,.72);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;padding:28px 14px;overflow:auto}
   .ov.on{display:flex}
   .modal{background:var(--bg2);border:1px solid var(--line);border-radius:20px;max-width:720px;width:100%;box-shadow:var(--sh);overflow:hidden;animation:up .3s ease}
   @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-  .mhead{position:relative;padding:22px;display:flex;gap:16px;align-items:center;border-bottom:1px solid var(--line);background:radial-gradient(70% 120% at 0% 0%,rgba(236,72,153,.18),transparent)}
-  .mhead .av{width:92px;height:92px;border-radius:16px;display:grid;place-items:center;font-family:"Playfair Display",serif;font-size:36px;color:#fff;font-weight:700;flex:0 0 auto;box-shadow:var(--sh)}
+  .mhead{position:relative;padding:22px;display:flex;gap:16px;align-items:center;border-bottom:1px solid var(--line);background-size:cover;background-position:center top}
+  .mhead .av{width:94px;height:116px;border-radius:14px;object-fit:cover;object-position:center top;flex:0 0 auto;box-shadow:var(--sh);border:2px solid rgba(255,255,255,.12)}
   .mhead h3{margin:0;font-size:22px}
   .mhead .sub{color:var(--mut);font-size:13.5px;margin-top:3px}
   .mhead .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
@@ -400,15 +404,14 @@
 </svg>
 
 <script>
+const PX=(id)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=560&h=720&fit=crop`;
 const ACTORS=[
-  {n:"Deniz Aksoy",y:27,c:"İstanbul",k:"Oyuncu",g:"Kadın",boost:true,exp:"8 yıl · 3 dizi, 2 film",boy:"1.71",col:"linear-gradient(135deg,#ec4899,#8b5cf6)",in:"DA"},
-  {n:"Mert Çelik",y:31,c:"Ankara",k:"Oyuncu",g:"Erkek",boost:false,exp:"6 yıl · tiyatro + reklam",boy:"1.83",col:"linear-gradient(135deg,#22d3ee,#3b82f6)",in:"MÇ"},
-  {n:"Selin Yıldız",y:24,c:"İzmir",k:"Model",g:"Kadın",boost:true,exp:"5 yıl · 40+ kampanya",boy:"1.76",col:"linear-gradient(135deg,#f6c861,#ec4899)",in:"SY"},
-  {n:"Can Demir",y:35,c:"İstanbul",k:"Dublaj",g:"Erkek",boost:false,exp:"12 yıl · 60+ seslendirme",boy:"1.80",col:"linear-gradient(135deg,#34d399,#22d3ee)",in:"CD"},
-  {n:"Ela Korkmaz",y:22,c:"Bursa",k:"Oyuncu",g:"Kadın",boost:false,exp:"3 yıl · kısa film",boy:"1.68",col:"linear-gradient(135deg,#a78bfa,#ec4899)",in:"EK"},
-  {n:"Barış Uğur",y:29,c:"İstanbul",k:"Figüran",g:"Erkek",boost:false,exp:"4 yıl · set deneyimi",boy:"1.78",col:"linear-gradient(135deg,#fb7185,#f6c861)",in:"BU"},
-  {n:"Naz Erdem",y:26,c:"Antalya",k:"Model",g:"Kadın",boost:false,exp:"6 yıl · defile + katalog",boy:"1.79",col:"linear-gradient(135deg,#60a5fa,#a78bfa)",in:"NE"},
-  {n:"Kaan Polat",y:33,c:"Ankara",k:"Oyuncu",g:"Erkek",boost:true,exp:"10 yıl · başrol tecrübesi",boy:"1.85",col:"linear-gradient(135deg,#f472b6,#22d3ee)",in:"KP"},
+  {n:"Deniz Aksoy",y:27,c:"İstanbul",k:"Oyuncu",g:"Kadın",boost:true,exp:"8 yıl · 3 dizi, 2 film",boy:"1.71",img:PX(14599151),in:"DA"},
+  {n:"Mert Çelik",y:31,c:"Ankara",k:"Oyuncu",g:"Erkek",boost:false,exp:"6 yıl · tiyatro + reklam",boy:"1.83",img:PX(14599188),in:"MÇ"},
+  {n:"Selin Yıldız",y:24,c:"İzmir",k:"Model",g:"Kadın",boost:true,exp:"5 yıl · 40+ kampanya",boy:"1.76",img:PX(31444894),in:"SY"},
+  {n:"Can Demir",y:35,c:"İstanbul",k:"Dublaj",g:"Erkek",boost:false,exp:"12 yıl · 60+ seslendirme",boy:"1.80",img:PX(31804108),in:"CD"},
+  {n:"Kaan Polat",y:33,c:"Ankara",k:"Oyuncu",g:"Erkek",boost:true,exp:"10 yıl · başrol tecrübesi",boy:"1.85",img:PX(32758452),in:"KP"},
+  {n:"Barış Uğur",y:29,c:"İstanbul",k:"Figüran",g:"Erkek",boost:false,exp:"4 yıl · set deneyimi",boy:"1.78",img:"https://images.unsplash.com/photo-1623347403440-45a88ae80913?auto=format&fit=crop&w=560&h=720&q=70",in:"BU"},
 ];
 const KATS=["Tümü","Oyuncu","Model","Dublaj","Figüran"];
 let kat="Tümü";
@@ -427,20 +430,21 @@ function renderActors(){
   document.getElementById('count').textContent=list.length+' oyuncu';
   document.getElementById('grid').innerHTML=list.map((a,i)=>`
     <div class="acard" style="animation-delay:${i*55}ms" onclick="openActor(${ACTORS.indexOf(a)})">
-      <div class="ph" style="background:${a.col}">
+      <div class="ph">
+        <img src="${a.img}" loading="lazy" alt="${a.n}">
+        <div class="grad"></div>
         ${a.boost?'<span class="boost"><svg class="i" style="width:12px;height:12px"><use href="#ico-rocket"/></svg> Öne çıkan</span>':''}
-        ${a.in}
-        <span class="lockmini"><svg class="i" style="width:11px;height:11px"><use href="#ico-lock"/></svg> İletişim onayla</span>
+        <span class="lockmini"><svg class="i" style="width:11px;height:11px"><use href="#ico-lock"/></svg> Onayla</span>
+        <div class="cardmeta"><div class="n">${a.n}</div><div class="s">${a.y} · ${a.c} · ${a.g}</div><span class="tag">${a.k}</span></div>
       </div>
-      <div class="meta"><div class="n">${a.n}</div><div class="s">${a.y} yaş · ${a.c} · ${a.g}</div><span class="tag">${a.k}</span></div>
     </div>`).join('');
 }
 
 function openActor(idx){
   const a=ACTORS[idx];
   document.getElementById('modalBox').innerHTML=`
-    <div class="mhead">
-      <div class="av" style="background:${a.col}">${a.in}</div>
+    <div class="mhead" style="background-image:linear-gradient(90deg,rgba(18,18,29,.94),rgba(18,18,29,.6)),url('${a.img}')">
+      <img class="av" src="${a.img}" alt="${a.n}">
       <div><h3 class="pf">${a.n}</h3><div class="sub">${a.k} · ${a.c}</div>
         <div class="pills"><span>${a.y} yaş</span><span>${a.g}</span><span>Boy ${a.boy} m</span>${a.boost?'<span style="color:var(--gold);border-color:rgba(246,200,97,.4)">★ Öne çıkan</span>':''}</div>
       </div>
