@@ -440,9 +440,10 @@ function requestContact(ad){
   const b=document.getElementById('reqBtn');
   b.innerHTML='<svg class="i spin"><use href="#ico-shield"/></svg> Talep gönderildi · onay bekleniyor…';b.disabled=true;b.style.opacity=.75;
   setTimeout(()=>{
-    document.getElementById('lockBox').classList.add('open');
-    document.getElementById('lockBox').innerHTML='<div class="lk" style="background:rgba(52,211,153,.16);color:var(--ok)"><svg class="i" style="width:22px;height:22px"><use href="#ico-check"/></svg></div><h5 style="color:var(--ok)">'+ad+' talebinizi onayladı</h5><p>İletişim bilgileri ve özel videolar aşağıda açıldı.</p>';
-    document.getElementById('unlocked').classList.add('on');
+    const lb=document.getElementById('lockBox');if(!lb)return; // kullanıcı modalı kapattıysa işlem yok
+    lb.classList.add('open');
+    lb.innerHTML='<div class="lk" style="background:rgba(52,211,153,.16);color:var(--ok)"><svg class="i" style="width:22px;height:22px"><use href="#ico-check"/></svg></div><h5 style="color:var(--ok)">'+ad+' talebinizi onayladı</h5><p>İletişim bilgileri ve özel videolar aşağıda açıldı.</p>';
+    const ul=document.getElementById('unlocked');if(ul)ul.classList.add('on');
     toast(ad+' iletişim talebinizi onayladı ✓');
   },1700);
 }
