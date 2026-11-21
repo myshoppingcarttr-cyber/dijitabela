@@ -375,9 +375,10 @@ document.getElementById('menuBtn').onclick=()=>{const v=['kesfet','uyelik','pane
 document.querySelector('.roles').addEventListener('click',e=>{if(e.target.dataset.r){document.querySelectorAll('.roles button').forEach(b=>b.classList.toggle('on',b===e.target));toast('Görünüm: '+(e.target.dataset.r==='ajans'?'Ajans':'Oyuncu'))}});
 
 function filters(){const f=document.getElementById('filters');f.innerHTML=KATS.map(k=>`<button class="chip ${k===kat?'on':''}" onclick="kat='${k}';filters();renderActors()">${k}</button>`).join('')}
+const trNorm=s=>(s||'').replace(/[İIı]/g,'i').replace(/[Şş]/g,'s').replace(/[Çç]/g,'c').replace(/[Ğğ]/g,'g').replace(/[Üü]/g,'u').replace(/[Öö]/g,'o').toLowerCase().trim();
 function renderActors(){
-  const q=(document.getElementById('q').value||'').toLowerCase().trim();
-  const list=ACTORS.filter(a=>(kat==='Tümü'||a.k===kat)&&(!q||(a.n+a.c+a.k+a.g).toLowerCase().includes(q)));
+  const q=trNorm(document.getElementById('q').value);
+  const list=ACTORS.filter(a=>(kat==='Tümü'||a.k===kat)&&(!q||trNorm(a.n+a.c+a.k+a.g).includes(q)));
   document.getElementById('count').textContent=list.length+' oyuncu';
   document.getElementById('grid').innerHTML=list.map((a,i)=>`
     <div class="acard" style="animation-delay:${i*55}ms" onclick="openActor(${ACTORS.indexOf(a)})">
