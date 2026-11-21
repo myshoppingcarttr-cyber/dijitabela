@@ -176,6 +176,19 @@
   .vidrow .v.add{border-style:dashed;color:var(--mut);cursor:pointer}
   .vidrow .v .pv{font-size:9.5px;position:absolute;bottom:5px;left:6px;color:var(--mut)}
   .vidrow .v .pv.prv{color:var(--pri2)}
+  .bars{display:flex;align-items:flex-end;gap:8px;height:92px;margin:4px 0 18px}
+  .bars .b{flex:1;background:linear-gradient(var(--pri2),var(--pri));border-radius:5px 5px 0 0;position:relative;min-height:6px}
+  .bars .b span{position:absolute;bottom:-17px;left:0;right:0;text-align:center;font-size:10px;color:var(--mut)}
+  .sw{width:44px;height:26px;border-radius:999px;background:#2a2740;position:relative;cursor:pointer;transition:background .2s;flex:0 0 auto;border:1px solid var(--line)}
+  .sw.on{background:linear-gradient(135deg,var(--pri),var(--pri2));border-color:transparent}
+  .sw::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .2s}
+  .sw.on::after{left:20px}
+  .setrow{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line)}
+  .setrow:last-child{border-bottom:none}
+  .ref{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(34,211,238,.1));border:1px dashed var(--pri);border-radius:12px;padding:15px;text-align:center}
+  .ref .code{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;font-size:18px;letter-spacing:1px;color:var(--pri2);margin:5px 0 11px}
+  .prog{height:8px;background:#2a2740;border-radius:5px;overflow:hidden;margin:12px 0 5px}
+  .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--accent))}
 
   /* PAYMENT */
   .pay{max-width:420px}
@@ -315,6 +328,36 @@
         </div>
       </div>
     </div>
+
+    <div class="pgrid" style="margin-top:16px">
+      <div class="pcard">
+        <h3><svg class="i" style="color:var(--accent)"><use href="#ico-chart"/></svg> Profil Analitiği</h3>
+        <div class="mut" style="font-size:12.5px;margin-bottom:8px">Son 7 gün · profil görüntülenme</div>
+        <div class="bars" id="bars"></div>
+        <div style="display:flex;gap:10px">
+          <div style="flex:1;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:11px"><b style="font-size:18px;color:var(--ok)">+%34</b><div class="mut" style="font-size:11.5px">geçen haftaya göre</div></div>
+          <div style="flex:1;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:11px"><b style="font-size:18px">42</b><div class="mut" style="font-size:11.5px">farklı ajans baktı</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="pcard" style="margin-bottom:16px">
+          <h3><svg class="i" style="color:var(--pri2)"><use href="#ico-bell"/></svg> Bildirim Tercihleri</h3>
+          <div class="setrow"><span style="font-size:14px">Yeni talepte <b>SMS</b></span><div class="sw on" onclick="this.classList.toggle('on');toast('Bildirim tercihi güncellendi')"></div></div>
+          <div class="setrow"><span style="font-size:14px">Yeni talepte <b>E-posta</b></span><div class="sw on" onclick="this.classList.toggle('on');toast('Bildirim tercihi güncellendi')"></div></div>
+          <div class="setrow"><span style="font-size:14px">Push bildirim</span><div class="sw" onclick="this.classList.toggle('on');toast('Bildirim tercihi güncellendi')"></div></div>
+        </div>
+        <div class="pcard">
+          <h3><svg class="i" style="color:var(--gold)"><use href="#ico-gift"/></svg> Davet Et & Kazan</h3>
+          <div class="ref">
+            <div class="mut" style="font-size:12.5px">Davet kodun</div>
+            <div class="code">CASTLYO-DENIZ</div>
+            <button class="btn btn-gold" style="padding:8px 16px;font-size:13px" onclick="try{navigator.clipboard.writeText('CASTLYO-DENIZ')}catch(e){};toast('Davet kodu kopyalandı')">Kodu Kopyala</button>
+            <div class="prog"><i style="width:60%"></i></div>
+            <div class="mut" style="font-size:12px">3 / 5 davet · her davet = <b style="color:var(--gold)">1 hafta ücretsiz boost</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -351,6 +394,8 @@
     <g id="ico-video"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></g>
     <g id="ico-plus"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></g>
     <g id="ico-card"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></g>
+    <g id="ico-chart"><line x1="4" y1="20" x2="4" y2="10"/><line x1="10" y1="20" x2="10" y2="4"/><line x1="16" y1="20" x2="16" y2="13"/><line x1="2" y1="20" x2="22" y2="20"/></g>
+    <g id="ico-gift"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M3 13h18M12 9v11M12 9S10 4 7.5 5.5 9.5 9 12 9m0 0s2-5 4.5-3.5S14.5 9 12 9"/></g>
   </defs>
 </svg>
 
@@ -522,8 +567,11 @@ function payDone(tot){
 /* Toast */
 let tt;function toast(m){clearTimeout(tt);document.getElementById('toastT').textContent=m;const t=document.getElementById('toast');t.classList.add('on');tt=setTimeout(()=>t.classList.remove('on'),2600)}
 
+/* Analitik grafik */
+function renderBars(){const d=[38,52,45,70,61,84,96],g=['Pt','Sa','Ça','Pe','Cu','Ct','Pz'];const el=document.getElementById('bars');if(el)el.innerHTML=d.map((v,i)=>`<div class="b" style="height:${v}%"><span>${g[i]}</span></div>`).join('')}
+
 /* init */
-filters();renderActors();renderPlans();renderReqs();
+filters();renderActors();renderPlans();renderReqs();renderBars();
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOv()});
 </script>
 <style>.spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style>
