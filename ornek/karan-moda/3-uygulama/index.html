@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><title>Karan Moda · Mağaza Uygulaması</title>
+<meta name="description" content="Karan Moda telefon uygulaması gibi çalışan mağaza: sekmeler, hızlı sepet, beden bulucu, WhatsApp sipariş.">
+<meta name="theme-color" content="#16181D">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak.css">
+<style>
+:root{--bg:#0f1115;--tx:#f3f1ea;--kart:#1a1d23;--cz:#2a2e37;--gz:#232730;--sol:#98a0ad;--vur:#FFB000;--vurt:#16181D;--r:18px}
+body{padding-bottom:84px}
+.kab{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
+.ust{position:sticky;top:0;z-index:40;background:rgba(15,17,21,.94);backdrop-filter:blur(10px);padding:calc(10px + env(safe-area-inset-top)) 16px 10px;display:flex;align-items:center;justify-content:space-between}
+.ust b{font:800 19px "Plus Jakarta Sans";letter-spacing:.12em}.ust b span{color:var(--vur)}
+.ust button{position:relative;width:44px;height:44px;border-radius:14px;border:1px solid var(--cz);background:var(--kart);color:var(--tx);font-size:18px}
+.hik{display:flex;gap:14px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none}.hik::-webkit-scrollbar{display:none}
+.hik a{flex:none;text-align:center;text-decoration:none;font-size:11.5px;font-weight:700;width:68px}
+.hik i{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;padding:3px;background:conic-gradient(var(--vur),#ff7a00,var(--vur));margin-bottom:5px}
+.hik i span{display:block;width:100%;height:100%;border-radius:50%;background:var(--gz);border:3px solid var(--bg);padding:8px}
+.pano{margin:4px 16px 16px;border-radius:22px;padding:22px;background:linear-gradient(135deg,#FFB000,#ff8a00);color:#16181D;position:relative;overflow:hidden}
+.pano h1{font-size:25px;line-height:1.1;letter-spacing:-.02em;max-width:230px}.pano p{font-size:13.5px;margin:8px 0 14px;max-width:230px;font-weight:600}
+.pano .gm{position:absolute;right:-16px;bottom:-14px;width:150px;height:155px;transform:rotate(8deg)}
+.pano a,.pano button{display:inline-block;background:#16181D;color:#fff;border:0;text-decoration:none;font-weight:800;padding:11px 16px;border-radius:12px;font-size:14px}
+.blk{padding:0 16px 20px}.blk h2{font-size:18px;margin-bottom:10px;letter-spacing:-.01em}
+.ugrid{grid-template-columns:repeat(2,1fr);gap:12px}.ui{padding:11px}.ub select{height:40px;padding:0 4px}.ek{font-size:13px}
+.bilgi{display:grid;gap:10px}.bilgi div{background:var(--kart);border:1px solid var(--cz);border-radius:16px;padding:14px 16px;font-size:14px}.bilgi small{color:var(--sol)}
+.sek{display:none}.sek.ac{display:block}
+.alt{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(21,23,28,.97);backdrop-filter:blur(12px);border-top:1px solid var(--cz);padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
+.alt div{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.alt button,.alt a{background:none;border:0;color:var(--sol);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;font-weight:700;padding:6px 0;text-decoration:none;position:relative}
+.alt svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.alt .on{color:var(--vur)}.alt .wa{color:#25D366}
+.alt .sayac{top:0;right:calc(50% - 22px)}
+.not{padding:10px 16px 20px}
+.harita{aspect-ratio:4/3}
+</style></head><body>
+<div class="kab">
+<div class="bant" data-bant></div>
+<header class="ust"><b>KARAN<span>.</span>MODA</b><button data-sepet-ac aria-label="Sepet">&#128717;<span class="sayac" data-sepet-say style="display:none">0</span></button></header>
+
+<main>
+<section class="sek ac" id="s-ana">
+<div class="hik" id="hik"></div>
+<div class="pano"><h1>Kaliteli giyinmek herkesin hakkı</h1><p>Tüm ürünlerde premium kalite. Kargo ücretsiz.</p><a href="#" data-sek="urun">Ürünlere bak</a><span id="panog"></span></div>
+<div class="blk"><h2>Yeni gelenler</h2><div class="ugrid" data-grid="4"></div></div>
+<div class="blk"><h2>Kombin yap</h2><div class="kombin" data-kombin data-secili="mont-1"></div></div>
+</section>
+<section class="sek" id="s-urun"><div class="blk" style="padding-top:6px"><h2>Tüm ürünler</h2><div class="chips" data-chips="#ug2"></div><div class="ugrid" id="ug2" data-grid="99"></div></div></section>
+<section class="sek" id="s-beden"><div class="blk"><h2>Beden bulucu</h2><p style="color:var(--sol);font-size:14px;margin-bottom:12px">Boy ve kilonuza göre yaklaşık beden. Emin olmak için WhatsApp'tan danışın.</p><button class="dg" data-beden-ac style="width:100%;justify-content:center;height:52px">Bedenimi hesapla</button>
+<div class="bilgi" style="margin-top:16px"><div><b>İade ve değişim</b><br><small>Mağazanın kuralı buraya yazılır (şu an Shopier'de belirtilmemiş).</small></div><div><b>Kargo</b><br><small>Ücretsiz (mağaza bilgisi)</small></div></div></div></section>
+<section class="sek" id="s-yer"><div class="blk"><h2>Mağaza</h2><div class="harita" data-harita></div><div class="bilgi" style="margin-top:12px"><div><b>Adres</b><br><small>893. Sokak No: 7, Sancaktepe Mah., 34200 Bağcılar / İstanbul</small></div><div><b>Sipariş hattı</b><br><small>WhatsApp hattı 24 saat açık (profil bilgisi)</small></div></div>
+<div style="display:grid;gap:10px;margin-top:12px"><a class="dg" data-yol href="#" style="justify-content:center;height:50px">Yol tarifi al</a><a class="dg ko" href="https://www.instagram.com/karanpremiumgiyim/" target="_blank" rel="noopener" style="justify-content:center;height:50px">Instagram · @karanpremiumgiyim</a></div></div></section>
+<p class="not">Örnek tasarımdır, yayında değildir. Ürün çizimleri temsilidir; yayında gerçek fotoğraflar kullanılır. Sipariş düğmeleri bu örnekte Dijitabela WhatsApp hattını açar. Dijitabela · dijitabela.com</p>
+</main>
+<nav class="alt"><div>
+<button class="on" data-sek="ana"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10H3z"/></svg>Ana</button>
+<button data-sek="urun"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Ürünler</button>
+<button data-sek="beden"><svg viewBox="0 0 24 24"><path d="M3 17l14-14 4 4L7 21H3z"/><path d="M8 12l2 2M11 9l2 2"/></svg>Beden</button>
+<button data-sek="yer"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Mağaza</button>
+<a class="wa" data-wa="Merhaba, Karan Moda uygulama örneğini inceledim."><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-13.4 7.8L3 21l1.3-4.4A9 9 0 1121 12z"/></svg>WhatsApp</a>
+</div></nav>
+</div>
+<script src="../ortak.js"></script>
+<script>
+(function(){
+var U=KR.urun,h=document.getElementById("hik"),seen={},html="";
+U.forEach(function(u){if(seen[u.kat])return;seen[u.kat]=1;html+='<a href="#" data-git="'+u.kat+'" data-sek="urun"><i><span>'+KR.svg(u.tip,u.renk)+'</span></i>'+u.kat.replace("Eşofman ","Eşof. ")+'</a>'});
+h.innerHTML=html;
+var p=U.filter(function(x){return x.id==="hirka-2"})[0];document.getElementById("panog").outerHTML=KR.svg(p.tip,p.renk);
+function sek(n){document.querySelectorAll(".sek").forEach(function(s){s.classList.toggle("ac",s.id==="s-"+n)});document.querySelectorAll(".alt [data-sek]").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-sek")===n)});window.scrollTo(0,0)}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-sek]");if(!b)return;e.preventDefault();var n=b.getAttribute("data-sek");sek(n);var k=b.getAttribute("data-git");if(k){var c=document.querySelector("[data-chips]"),x=[].filter.call(c.querySelectorAll("button"),function(y){return y.getAttribute("data-k")===k})[0];if(x)x.click()}});
+})();
+</script>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body></html>

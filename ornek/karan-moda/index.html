@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><title>Karan Moda · Dijital Ekspertiz ve Örnek Tasarımlar</title>
+<meta name="theme-color" content="#16181D">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16181D;--led:#FFB000;--bg:#f7f5ef;--kart:#fff;--cz:#e4dfd2;--sol:#625f56;--kir:#c2410c;--yes:#15803d}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}.kap{max-width:980px;margin:0 auto;padding:0 18px}
+.kapak{background:var(--ink);color:#f3f1ea;padding:46px 0 54px;position:relative;overflow:hidden}
+.kapak:before{content:"";position:absolute;right:-100px;top:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,0,.25),transparent 65%)}
+.et{font:700 12px "Space Mono",monospace;letter-spacing:.12em;color:var(--led);text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,52px);line-height:1.06;letter-spacing:-.03em;margin:12px 0 14px;position:relative}h1 em{font-style:normal;color:var(--led)}
+.kapak p{color:#b9bcc4;max-width:640px;font-size:17px;position:relative}
+h2{font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}.alt{color:var(--sol);margin-bottom:20px}
+section{padding:42px 0}
+.puan{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;background:var(--kart);border:1px solid var(--cz);border-radius:20px;padding:24px;margin-top:-30px;position:relative;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.halka{width:170px;height:170px;border-radius:50%;background:conic-gradient(var(--led) 0 37%,#ebe6d8 0);display:grid;place-items:center;margin:auto}.halka div{width:132px;height:132px;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center}.halka b{font:700 40px "Space Mono"}.halka small{display:block;color:var(--sol);font-size:12px;margin-top:-8px}
+.cubuk{margin:8px 0}.cubuk div{display:flex;justify-content:space-between;font-size:14px;font-weight:600}.cubuk i{display:block;height:8px;border-radius:9px;background:#ebe6d8;margin-top:4px;overflow:hidden}.cubuk i s{display:block;height:100%;background:var(--led);border-radius:9px}
+.kutu{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.bk{background:var(--kart);border:1px solid var(--cz);border-radius:16px;padding:18px}.bk b{display:block;margin-bottom:4px}.bk small{color:var(--sol);font-size:13px;display:block;margin-top:6px}
+.bk .rz{display:inline-block;font:700 11px "Space Mono";padding:3px 8px;border-radius:99px;margin-bottom:8px}.rz.i{background:#dcfce7;color:var(--yes)}.rz.e{background:#ffedd5;color:var(--kir)}.rz.b{background:#e5e7eb;color:#374151}
+.ek{display:grid;gap:10px}.ek div{display:grid;grid-template-columns:34px 1fr;gap:12px;background:var(--kart);border:1px solid var(--cz);border-radius:14px;padding:14px 16px}.ek span{font:700 14px "Space Mono";color:var(--led);background:var(--ink);border-radius:9px;display:grid;place-items:center;height:34px}.ek b{display:block}.ek small{color:var(--sol)}
+.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pr a{display:block;text-decoration:none;background:var(--ink);color:#f3f1ea;border-radius:18px;padding:18px;transition:transform .2s}.pr a:hover{transform:translateY(-4px)}
+.pr .on{height:130px;border-radius:12px;margin-bottom:14px;display:flex;align-items:flex-end;padding:10px;font:700 11px "Space Mono";letter-spacing:.08em}
+.pr .a1{background:linear-gradient(135deg,#2a2e37,#16181D);color:var(--led);border:1px solid #333}.pr .a2{background:#f6f3ec;color:#16181D}.pr .a3{background:linear-gradient(160deg,#FFB000,#ff8a00);color:#16181D}
+.pr b{display:block;font-size:17px}.pr small{color:#aab0bb;display:block;margin-top:4px}.pr span{display:inline-block;margin-top:10px;color:var(--led);font-weight:800}
+.fiyat{background:var(--ink);color:#f3f1ea;border-radius:22px;padding:30px}.fiyat .tut{font:700 46px "Space Mono";color:var(--led);margin:6px 0}.fiyat .tut small{font-size:16px;color:#b9bcc4}
+.fiyat ul{list-style:none;margin:14px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}.fiyat li{padding-left:22px;position:relative;font-size:15px;color:#dcdfe6}.fiyat li:before{content:"";position:absolute;left:0;top:8px;width:10px;height:6px;border-left:2px solid var(--led);border-bottom:2px solid var(--led);transform:rotate(-45deg)}
+.fiyat p{color:#b9bcc4;font-size:14px;margin-top:10px}
+.ops{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.ops div{border:1px solid #333;border-radius:14px;padding:14px;font-size:14px;color:#cfd2da}.ops b{color:#fff;display:block}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--led);color:var(--ink);font-weight:800;text-decoration:none;padding:14px 22px;border-radius:12px;margin-top:18px}
+footer{padding:28px 0 50px;color:var(--sol);font-size:12.5px;border-top:1px solid var(--cz)}
+@media(max-width:760px){.puan,.kutu,.pr,.fiyat ul,.ops{grid-template-columns:1fr}.halka{margin:0 auto}}
+</style></head><body>
+<div class="kapak"><div class="kap"><span class="et">Dijital ekspertiz · Karan Moda</span>
+<h1>Karan Moda için <em>dijital ekspertiz</em> ve 3 örnek tasarım</h1>
+<p>İbrahim Bey, herkese açık sayfalarınıza bakarak (Instagram, Shopier, arama sonuçları) hazırladık. Hiçbir hesaba girilmedi, hiçbir veri alınmadı. Aşağıda ne gördüğümüzü, neyin eksik olduğunu ve size özel çalışan örnek tasarımları bulacaksınız.</p></div></div>
+
+<div class="kap"><div class="puan"><div class="halka"><div><span><b>37</b><small>/ 100</small></span></div></div>
+<div><h2 style="font-size:22px">Dijital hazırlık puanı</h2><p class="alt" style="margin-bottom:10px">Gösterge niteliğindedir; yalnız herkese açık bilgilere dayanır.</p>
+<div class="cubuk"><div><span>Instagram varlığı</span><span>16 / 20</span></div><i><s style="width:80%"></s></i></div>
+<div class="cubuk"><div><span>Google'da görünürlük</span><span>4 / 20</span></div><i><s style="width:20%"></s></i></div>
+<div class="cubuk"><div><span>Satış kanalı (kendi sitesi, süreklilik)</span><span>5 / 20</span></div><i><s style="width:25%"></s></i></div>
+<div class="cubuk"><div><span>Güven bilgileri (iade, adres, hakkımızda)</span><span>4 / 20</span></div><i><s style="width:20%"></s></i></div>
+<div class="cubuk"><div><span>Mobilde sipariş kolaylığı</span><span>8 / 20</span></div><i><s style="width:40%"></s></i></div></div></div></div>
+
+<section><div class="kap"><h2>Ne gördük</h2><p class="alt">Her satır, herkese açık sayfadan doğruladığımız bilgidir.</p>
+<div class="kutu">
+<div class="bk"><span class="rz i">GÜÇLÜ</span><b>Instagram: 20,3 bin takipçi</b>Hesap @karanpremiumgiyim; biyografide WhatsApp numarası, konum (Bağcılar) ve Shopier bağlantısı var. Bu, ciddi bir hazır kitle demek.<small>Kaynak: instagram.com/karanpremiumgiyim</small></div>
+<div class="bk"><span class="rz e">DİKKAT</span><b>Shopier mağazası şu an satışa ara vermiş görünüyor</b>"Karan Premium Mağaza" sayfasında "Bu dükkan, satışlarına geçici bir süre ara vermiştir" yazıyor. Instagram'dan gelen müşteri bağlantıya tıklayınca alışveriş yapamıyor.<small>Kaynak: shopier.com/Karanmodatr</small></div>
+<div class="bk"><span class="rz i">VAR</span><b>135 ürün, 8 kategori, ücretsiz kargo</b>Eşofman altı, t-shirt, pantolon, eşofman takımı, sweat, triko, hırka, mont. Görünen fiyatlar 999,90 TL ile 2.099 TL arasında (sweat 999,90; hırka ve triko 1.099; ceket 2.000; mont 2.099).<small>Kaynak: shopier.com/Karanmodatr</small></div>
+<div class="bk"><span class="rz e">EKSİK</span><b>İade ve değişim bilgisi yok, mağaza sayfasında yorum/puan yok</b>Shopier sayfasında iade koşulu ve müşteri puanı görünmüyor. Yeni müşteri için "alsam mı?" sorusunun cevabı sayfada yok.<small>Kaynak: shopier.com/Karanmodatr</small></div>
+<div class="bk"><span class="rz e">BULAMADIK</span><b>Google işletme profili ve kendi web sitesi</b>Ad, adres ve "Bağcılar" ile yaptığımız aramalarda Karan Moda'ya ait bir Google Haritalar kaydı, web sitesi veya yorum bulamadık. Profiliniz varsa bile aramada öne çıkmıyor demektir. Bunu hesabınıza girmeden kesinleştiremeyiz.<small>Kaynak: Bing ve genel web aramaları</small></div>
+<div class="bk"><span class="rz b">DOĞRULANAMADI</span><b>Trendyol, Hepsiburada ve benzeri pazaryerleri</b>Aramalarımızda bu adla bir mağaza çıkmadı. Pazaryeri hesabınız varsa lütfen söyleyin, değerlendirmeye ekleriz.<small>Kaynak: genel web aramaları</small></div>
+<div class="bk"><span class="rz i">VAR</span><b>Fiziksel mağaza ve 24 saat açık WhatsApp hattı</b>WhatsApp işletme profilinde adres (893. Sokak No: 7, Sancaktepe Mah., Bağcılar) ve "24 saat açık" bilgisi var. Mağaza tabelası "KARAN MODA".<small>Kaynak: WhatsApp işletme profili (müşteri bize yazdığında görünen bilgi)</small></div>
+<div class="bk"><span class="rz b">NOT</span><b>Ürün adları</b>Shopier'deki bazı ürün adlarında başka markaları andıran kısaltmalar görünüyor. Kendi sitenizde marka izlenimi vermeyen, kendi adınızı öne çıkaran bir adlandırma sizi hem hesap kapanması hem hukuki risklerden korur.<small>Kaynak: shopier.com/Karanmodatr</small></div>
+</div></div></section>
+
+<section style="padding-top:0"><div class="kap"><h2>Eksikler ve ne yapmalı</h2><p class="alt">Karan Moda'ya özel, önem sırasına göre.</p>
+<div class="ek">
+<div><span>1</span><p><b>Satış tek bir bağlantıya bağlı ve şu an kapalı</b><small>20 bin kişilik Instagram kitlesi, satışa ara vermiş bir mağaza sayfasına yönleniyor. Kendi alan adınızda, ara vermeyen, size ait bir sipariş sayfası gerekiyor. Komisyon ve platform kuralı riski de ortadan kalkar.</small></p></div>
+<div><span>2</span><p><b>Sipariş yolu uzun; müşteri zaten WhatsApp'ta</b><small>Müşteri bize de WhatsApp'tan yazdı. Ürünü seç, beden seç, sepeti tek dokunuşla hazır mesaj olarak WhatsApp'a gönder: Shopier'in üyelik ve ödeme adımlarından kısa.</small></p></div>
+<div><span>3</span><p><b>Google'da "Bağcılar giyim" aramasında görünmüyorsunuz</b><small>Mağaza açık, adres var, ama aramada bulamadık. Doğrulanmış Google işletme profili (fotoğraf, çalışma saati, yol tarifi) mahalle aramalarında görünmenin ilk adımı.</small></p></div>
+<div><span>4</span><p><b>Beden ve iade belirsizliği</b><small>Giyimde iadenin ilk sebebi bedendir. Boy-kilo beden rehberi ve açık iade/değişim metni tereddüdü azaltır.</small></p></div>
+<div><span>5</span><p><b>Ürün fotoğrafı ve katalog düzeni</b><small>135 ürün için tutarlı fotoğraf standardı, renk/beden seçenekleri ve kategori filtreleri. Satış tek tek ürün paylaşımıyla değil, katalogla büyür.</small></p></div>
+<div><span>6</span><p><b>Kombin ve sepet büyütme</b><small>Hırkanın yanına pantolon, sweat'in yanına eşofman altı önerisi. Aynı müşteriden daha yüksek sepet.</small></p></div>
+<div><span>7</span><p><b>Instagram'dan siteye düzenli akış</b><small>Biyografideki tek bağlantı yerine ürün kategorilerine giden bağlantılar ve hikâyelerden doğrudan ürün sayfası.</small></p></div>
+</div></div></section>
+
+<section style="padding-top:0"><div class="kap"><h2>3 farklı örnek tasarım</h2><p class="alt">Üçü de çalışır halde. Telefondan açıp deneyin: kategori seçin, sepete atın, bedeninizi bulun, kombin görün, "WhatsApp'tan siparişi gönder"e dokunun. Üçünde de aynı içerik, farklı yerleşim.</p>
+<div class="pr"><a href="1-vitrin/"><div class="on a1">SEÇENEK 1 · VİTRİN</div><b>Koyu, güçlü vitrin</b><small>Hero, kategoriler, ürün ızgarası, kombin, 3 adımda sipariş, harita. Önerimiz.</small><span>Aç ve dene →</span></a>
+<a href="2-katalog/"><div class="on a2">SEÇENEK 2 · KATALOG</div><b>Açık, dergi tarzı katalog</b><small>Sade, editoryal düzen; 135 ürünlük katalog için ideal.</small><span style="color:#FFB000">Aç ve dene →</span></a>
+<a href="3-uygulama/"><div class="on a3">SEÇENEK 3 · UYGULAMA</div><b>Telefon uygulaması gibi</b><small>Hikâye halkaları, alt sekmeler, hızlı sepet. Instagram'dan gelen müşteri için.</small><span>Aç ve dene →</span></a></div>
+<div class="bk" style="margin-top:16px"><b>Size özel çalışan özellikler</b>WhatsApp'a düşen sipariş sepeti (ürün, beden, adet, toplam hazır mesaj) · boy-kilo beden bulucu · kombin önerisi · kategori filtreleri · ücretsiz kargo bandı · Google Haritalar'da yol tarifi · Instagram bağlantısı.<small>Örnek tasarımdır, yayında değildir. Ürün çizimleri temsilidir; yayında gerçek fotoğraflarınız kullanılır. Fiyatlar Shopier sayfanızdaki güncel fiyatlardır; fiyatı görünmeyen ürünler "Fiyat için yazın" görünür. Sepet düğmesi bu örnekte Dijitabela hattını açar; yayında sizin hattınıza bağlanır.</small></div></div></section>
+
+<section style="padding-top:0"><div class="kap"><h2>Net fiyat</h2><p class="alt">Tek seferlik, sürpriz yok.</p>
+<div class="fiyat"><span class="et">Dijital Vitrin paketi</span><div class="tut">19.900 TL <small>+ KDV · tek seferlik</small></div>
+<ul><li>Kendi alan adınızda kurumsal site ve ürün kataloğu</li><li>WhatsApp'a düşen sipariş sepeti ve beden rehberi</li><li>Kombin önerisi ve kategori filtreleri</li><li>Google İşletme Profili kurulumu ve düzeni</li><li>Yerel Google SEO ("Bağcılar giyim" vb.)</li><li>1 hafta teslim, 1 ay destek</li></ul>
+<p>Ödeme: %50 kapora ve sözleşmeyle başlarız, kalan teslimde. Alan adı ve Google profili sizin adınıza açılır; biz yalnız yönetici oluruz. Faturalı çalışırız.</p>
+<div class="ops"><div><b>İsterseniz yalnız Google ile başlayın</b>Google Vitrin: 2.490 TL tek sefer (48 saatte teslim), + 990 TL/ay (fiyat sayfamızdaki tarifeye göre). Siteyi sonra eklersiniz.</div><div><b>Kartla online ödeme istenirse</b>Bu ayrı bir kapsam: "Tam Dijital Dönüşüm" 89.900 TL + KDV. Şimdilik WhatsApp siparişiyle başlamanızı öneririz.</div></div>
+<a class="btn" href="https://wa.me/905019452184?text=Karan%20Moda%20ekspertiz%20raporunu%20g%C3%B6rd%C3%BCm%2C%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum.">Dijitabela ile WhatsApp'tan görüşün</a></div></div></section>
+
+<footer><div class="kap">Bu rapor, herkese açık sayfalardan (Instagram, Shopier, genel web aramaları) ve işletmenin WhatsApp profilinden hazırlandı; hiçbir hesaba giriş yapılmadı. Doğrulayamadığımız noktalar "bulamadık" olarak belirtildi. Puan gösterge niteliğindedir. Dijitabela · dijitabela.com</div></footer>
+<script src="/ornek/_dijitabela/filigran.js" defer></script>
+</body></html>
