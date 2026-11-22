@@ -1,0 +1,302 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta property="og:image" content="https://dijitabela.com/ornek/fd-cam-balkon/img/hero.jpg">
+<title>FD Cam Balkon · Uygulama</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Yerleşim "Uygulama": telefon genişliğinde tek sütun, sekmeli ekranlar, hikâye halkaları, alt sabit menü. Masaüstünde uygulama ortada, yanında tanıtım. Açık tema, bakır vurgu. */
+:root{
+  --bg:#E9ECEF; --app:#F6F7F8; --card:#FFFFFF; --ink:#1D2126; --soft:#6A717A; --rule:#E3E6E9;
+  --copper:#BC6F40; --copper-s:#F5E6DB; --dark:#1D2126; --ok:#1E8E5A;
+  --f:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-size:15px;line-height:1.5}
+h1,h2,h3{margin:0;line-height:1.2;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font-family:var(--f)}
+.stage{display:grid;grid-template-columns:1fr 440px 1fr;min-height:100%}
+.side{padding:48px 32px;align-self:center}
+.side h1{font-size:34px;font-weight:800;letter-spacing:-.02em}
+.side p{color:var(--soft);margin-top:10px;max-width:34ch}
+.side ul{padding-left:18px;color:var(--soft);margin-top:14px}
+.app{background:var(--app);min-height:100%;position:relative;box-shadow:0 0 0 1px var(--rule),0 30px 60px -30px rgba(0,0,0,.35);padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+.ribbon{display:inline-block;margin-top:18px;background:#16181D;color:#FFB000;font:700 11px/1 var(--f);letter-spacing:.06em;padding:7px 10px;border-radius:999px}
+
+/* Üst */
+.bar{background:var(--dark);color:#fff;padding:calc(14px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 22px max(16px,env(safe-area-inset-left,0px));border-radius:0 0 22px 22px}
+.bar .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.id{display:flex;gap:10px;align-items:center}
+.id .lg{width:44px;height:44px;border-radius:12px;background:#2B3037;display:grid;place-items:center}
+.id .lg svg{width:32px;height:30px}
+.id b{display:block;font-size:16px}
+.id small{color:#AEB4BB;font-size:12px}
+.open{font-size:12px;background:rgba(30,142,90,.2);color:#7FD7A9;padding:5px 9px;border-radius:999px;font-weight:700;white-space:nowrap}
+.hi{margin-top:18px;font-size:22px;font-weight:800}
+.hi span{color:#E9A27A}
+
+/* Hikâyeler */
+.stories{display:flex;gap:12px;overflow-x:auto;padding:16px max(16px,env(safe-area-inset-left,0px)) 6px;scrollbar-width:none}
+.stories::-webkit-scrollbar{display:none}
+.st{flex:none;width:68px;text-align:center;background:none;border:0;padding:0;cursor:pointer;color:var(--ink)}
+.st .ring{width:64px;height:64px;border-radius:50%;padding:3px;background:conic-gradient(var(--copper),#E9A27A,var(--copper));margin:0 auto}
+.st.seen .ring{background:#C9CED3}
+.st img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--app);display:block}
+.st span{display:block;font-size:11px;font-weight:600;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st:focus-visible,.tab:focus-visible,.btn:focus-visible,.acc summary:focus-visible,.seg button:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+
+.pad{padding:8px max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));display:grid;gap:14px}
+.card{background:var(--card);border-radius:18px;padding:16px;border:1px solid var(--rule)}
+.card h2{font-size:17px;font-weight:800}
+.card .sub{color:var(--soft);font-size:13px;margin-top:2px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:14px;text-align:left;cursor:pointer;display:grid;gap:8px;color:var(--ink)}
+.tile i{width:36px;height:36px;border-radius:10px;background:var(--copper-s);display:grid;place-items:center;font-style:normal;color:var(--copper);font-weight:800}
+.tile b{font-size:14px}
+.tile small{color:var(--soft);font-size:12px}
+.promo{position:relative;border-radius:18px;overflow:hidden;min-height:170px;display:flex;align-items:flex-end;color:#fff;background:#222 url(img/isicam.jpg) center/cover}
+.promo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,.78))}
+.promo div{position:relative;z-index:1;padding:16px}
+.promo b{font-size:19px;display:block}
+.promo small{color:#E3E3E3}
+.btn{display:flex;justify-content:center;align-items:center;gap:8px;width:100%;padding:14px;border-radius:14px;border:0;background:var(--copper);color:#fff;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer}
+.btn.ghost{background:var(--copper-s);color:var(--copper)}
+
+/* Hızlı teklif */
+.seg{display:flex;background:#EEF0F2;border-radius:12px;padding:4px;gap:4px;margin-top:12px}
+.seg button{flex:1;border:0;background:none;padding:9px 6px;border-radius:9px;font-weight:700;font-size:13px;color:var(--soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.rng{margin-top:14px}
+.rng label{display:flex;justify-content:space-between;font-size:13px;color:var(--soft)}
+.rng label b{color:var(--ink);font-variant-numeric:tabular-nums}
+.rng input{width:100%;accent-color:var(--copper)}
+.out{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.out div{background:#F3F4F6;border-radius:12px;padding:10px;text-align:center}
+.out small{display:block;font-size:11px;color:var(--soft)}
+.out b{font-size:16px;font-variant-numeric:tabular-nums}
+.total{margin-top:12px;background:var(--dark);color:#fff;border-radius:14px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.total b{font-size:19px;font-variant-numeric:tabular-nums;color:#F2B48E}
+.total small{color:#AEB4BB;font-size:11px;display:block}
+
+/* Takip */
+.code{display:flex;gap:8px;margin-top:12px}
+.code input{flex:1;min-width:0;border:1.5px solid var(--rule);border-radius:12px;padding:12px;font:700 15px var(--f);letter-spacing:.06em;background:#F3F4F6;color:var(--ink)}
+.code .btn{width:auto;padding:12px 16px}
+.tl{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:28px 1fr;gap:10px;position:relative;padding-bottom:16px}
+.tl li::before{content:"";position:absolute;left:13px;top:24px;bottom:0;width:2px;background:var(--rule)}
+.tl li:last-child::before{display:none}
+.tl .d{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:#EEF0F2;color:var(--soft)}
+.tl li.done .d{background:var(--ok);color:#fff}
+.tl li.now .d{background:var(--copper);color:#fff;box-shadow:0 0 0 5px var(--copper-s)}
+.tl b{display:block;font-size:14px}
+.tl small{color:var(--soft);font-size:12px}
+.warranty{background:linear-gradient(135deg,#2B3037,#1D2126);color:#fff;border-radius:18px;padding:18px;position:relative;overflow:hidden}
+.warranty::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:24px solid rgba(233,162,122,.14)}
+.warranty small{color:#AEB4BB;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.warranty b{display:block;font-size:18px;margin-top:4px}
+.warranty dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0 0;font-size:13px}
+.warranty dt{color:#AEB4BB}
+.warranty dd{margin:0;font-weight:700}
+
+/* Ürün detay akordiyon */
+.acc{background:var(--card);border:1px solid var(--rule);border-radius:16px;overflow:hidden}
+.acc+.acc{margin-top:8px}
+.acc summary{list-style:none;display:flex;align-items:center;gap:12px;padding:10px;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary img{width:52px;height:52px;border-radius:12px;object-fit:cover}
+.acc summary b{display:block;font-size:15px}
+.acc summary small{color:var(--soft);font-size:12px}
+.acc summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--copper);font-weight:700;padding-right:6px}
+.acc[open] summary::after{content:"–"}
+.acc .in{padding:0 14px 14px;color:var(--soft);font-size:14px;display:grid;gap:10px}
+.acc .in img{width:100%;border-radius:12px;aspect-ratio:16/10;object-fit:cover}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{background:#F3F4F6;color:var(--ink);font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px}
+
+/* Alt menü */
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(440px,100%);background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(5,1fr);padding:8px max(8px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));z-index:30}
+.tab{background:none;border:0;display:grid;justify-items:center;gap:2px;font-size:11px;font-weight:700;color:var(--soft);cursor:pointer;padding:4px 0;text-decoration:none}
+.tab svg{width:22px;height:22px}
+.tab[aria-current="page"]{color:var(--copper)}
+.tab.wa{color:#fff}
+.tab.wa span.dot{width:44px;height:44px;border-radius:50%;background:#1FA855;display:grid;place-items:center;margin-top:-18px;box-shadow:0 6px 16px -6px rgba(31,168,85,.7)}
+.tab.wa em{font-style:normal;color:var(--soft)}
+
+/* Hikâye görüntüleyici */
+.viewer{position:fixed;inset:0;z-index:60;background:#000;display:flex;align-items:center;justify-content:center}
+.viewer .box{position:relative;width:min(440px,100%);height:100%;max-height:820px}
+.viewer img{width:100%;height:100%;object-fit:cover}
+.viewer .bars{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));left:12px;right:12px;display:flex;gap:4px}
+.viewer .bars i{flex:1;height:3px;background:rgba(255,255,255,.35);border-radius:2px;overflow:hidden}
+.viewer .bars i b{display:block;height:100%;width:0;background:#fff}
+.viewer .cap{position:absolute;left:0;right:0;bottom:0;padding:24px 18px calc(24px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,transparent,rgba(0,0,0,.85));color:#fff}
+.viewer .cap b{font-size:22px;display:block}
+.viewer .x{position:absolute;top:calc(22px + env(safe-area-inset-top,0px));right:12px;background:rgba(0,0,0,.4);color:#fff;border:0;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer}
+.viewer .nx{position:absolute;top:0;bottom:120px;width:40%;background:none;border:0;cursor:pointer}
+
+@media (max-width:1000px){.stage{grid-template-columns:1fr}.side{display:none}.app{box-shadow:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fd" viewBox="0 0 120 112">
+    <path d="M6 52 60 8l54 44" fill="none" stroke="#E9A27A" stroke-width="8"/>
+    <rect x="86" y="14" width="10" height="22" fill="#E9A27A"/><rect x="13" y="48" width="7" height="60" fill="#E9A27A"/>
+    <rect x="50" y="28" width="9" height="9" fill="#fff"/><rect x="61" y="28" width="9" height="9" fill="#fff"/>
+    <rect x="50" y="39" width="9" height="9" fill="#E9A27A"/><rect x="61" y="39" width="9" height="9" fill="#E9A27A"/>
+    <path d="M26 56h32v12H40v8h15v12H40v20H26z" fill="#fff"/>
+    <path fill="#E9A27A" fill-rule="evenodd" d="M62 56h18a26 26 0 0 1 0 52H62zm13 12v28h5a14 14 0 0 0 0-28z"/>
+  </symbol>
+</svg>
+
+<div class="stage">
+  <aside class="side">
+    <h1>FD Cam Balkon cebinizde</h1>
+    <p>Bu tasarım telefonda uygulama gibi çalışır. Müşteri ana ekrana ekleyip istediği zaman teklif alır, montajını takip eder.</p>
+    <ul><li>Ürün hikâyeleri</li><li>Hızlı teklif</li><li>Montaj takibi (FD-2611-014 deneyin)</li><li>Dijital garanti kartı</li></ul>
+    <span class="ribbon">ÖN TASARIM · DİJİTABELA</span>
+  </aside>
+
+  <div class="app">
+    <header class="bar">
+      <div class="row">
+        <div class="id"><span class="lg"><svg><use href="#fd"/></svg></span><span><b>FD Cam Balkon</b><small>Dülger Yapı · Milas</small></span></div>
+        <span class="open" id="open">● Açık</span>
+      </div>
+      <p class="hi">Balkonunuzu <span>dört mevsim</span> kullanın</p>
+    </header>
+
+    <div class="stories" id="stories" aria-label="Ürün hikâyeleri"></div>
+
+    <!-- ANA -->
+    <section class="pad" data-view="ana">
+      <div class="promo"><div><b>Kış gelmeden balkonu kapatın</b><small>Isıcamlı sistemde ücretsiz keşif, yerinde ölçü</small></div></div>
+      <div class="tiles">
+        <button class="tile" data-go="teklif"><i>m²</i><b>Hızlı teklif</b><small>30 saniyede tahmini fiyat</small></button>
+        <button class="tile" data-go="takip"><i>↻</i><b>Montaj takibi</b><small>Siparişiniz ne durumda</small></button>
+        <button class="tile" data-go="urun"><i>▦</i><b>Ürünler</b><small>7 ürün grubu</small></button>
+        <a class="tile" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=37.317638,27.782795" target="_blank" rel="noopener"><i>360</i><b>Dükkânı gör</b><small>Sokak görünümü</small></a>
+      </div>
+      <div class="card">
+        <h2>Bize ulaşın</h2>
+        <p class="sub">Faruk Dülger · <b style="user-select:all">0541 343 07 00</b></p>
+        <p class="sub">Fatih Dülger · <b style="user-select:all">0544 894 95 84</b></p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+          <a class="btn" href="https://wa.me/905413430700?text=Merhaba%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=37.317638,27.782795" target="_blank" rel="noopener">Yol tarifi</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEKLİF -->
+    <section class="pad" data-view="teklif" hidden>
+      <div class="card">
+        <h2>Hızlı teklif</h2>
+        <p class="sub">Ölçüyü kaydırarak girin. Fiyatlar örnektir, kesin fiyat keşifte verilir.</p>
+        <div class="seg" id="sys" role="group" aria-label="Sistem">
+          <button type="button" data-v="kat" aria-pressed="true">Katlanır</button><button type="button" data-v="sur" aria-pressed="false">Sürme</button><button type="button" data-v="isi" aria-pressed="false">Isıcamlı</button><button type="button" data-v="giy" aria-pressed="false">Giyotin</button>
+        </div>
+        <div class="rng"><label for="gen">Genişlik <b id="genv"></b></label><input id="gen" type="range" min="100" max="1200" step="10" value="420"></div>
+        <div class="rng"><label for="yuk">Yükseklik <b id="yukv"></b></label><input id="yuk" type="range" min="80" max="300" step="5" value="175"></div>
+        <div class="out"><div><small>Alan</small><b id="q-m2">-</b></div><div><small>Kanat</small><b id="q-k">-</b></div><div><small>Montaj</small><b id="q-g">-</b></div></div>
+        <div class="total"><div><small>Tahmini (KDV hariç)</small><b id="q-t">-</b></div><a class="btn" style="width:auto;padding:11px 14px" id="q-wa" target="_blank" rel="noopener" href="#">Teklif iste</a></div>
+      </div>
+    </section>
+
+    <!-- TAKİP -->
+    <section class="pad" data-view="takip" hidden>
+      <div class="card">
+        <h2>Montaj takibi</h2>
+        <p class="sub">Size verilen sipariş kodunu girin.</p>
+        <form class="code" id="tf"><input id="kod" value="FD-2611-014" aria-label="Sipariş kodu" autocomplete="off"><button class="btn" type="submit">Sorgula</button></form>
+        <ol class="tl" id="tl"></ol>
+      </div>
+      <div class="warranty" id="gar">
+        <small>Dijital garanti kartı</small>
+        <b>Isıcamlı cam balkon · Antrasit</b>
+        <dl><dt>Sipariş</dt><dd>FD-2611-014</dd><dt>Müşteri</dt><dd>Örnek Müşteri, Hacıabdi</dd><dt>Ölçü</dt><dd>420 × 175 cm, 6 kanat</dd><dt>Montaj</dt><dd>26 Kasım 2026</dd></dl>
+      </div>
+    </section>
+
+    <!-- ÜRÜNLER -->
+    <section class="pad" data-view="urun" hidden>
+      <div id="acc"></div>
+    </section>
+
+    <nav class="nav" aria-label="Alt menü">
+      <button class="tab" data-go="ana" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Ana sayfa</button>
+      <button class="tab" data-go="teklif"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg>Teklif</button>
+      <a class="tab wa" href="https://wa.me/905413430700" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="dot"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.1z"/></svg></span><em>WhatsApp</em></a>
+      <button class="tab" data-go="takip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>Takip</button>
+      <button class="tab" data-go="urun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Ürünler</button>
+    </nav>
+  </div>
+  <div></div>
+</div>
+
+<div class="viewer" id="vw" hidden role="dialog" aria-label="Ürün hikâyesi">
+  <div class="box"><img id="vimg" alt=""><div class="bars" id="vbars"></div><button class="nx" style="left:0" id="vprev" aria-label="Önceki"></button><button class="nx" style="right:0" id="vnext" aria-label="Sonraki"></button><button class="x" id="vx" aria-label="Kapat">✕</button><div class="cap"><b id="vt"></b><p id="vd"></p></div></div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var P=[
+    {k:"cambalkon",t:"Cam balkon",d:"Katlanır ve sürme sistemler. Yazın tamamen açılır, kışın kapanır.",tags:["8 mm temperli","5 renk","1 günde montaj"]},
+    {k:"isicam",t:"Isıcamlı",d:"Çift cam ile balkon kışın da sıcak kalır. Kış bahçesi için.",tags:["Çift cam","Dört mevsim","Kış bahçesi"]},
+    {k:"aluminyum",t:"Alüminyum",d:"İnce profilli kapı ve pencereler. Villa ve iş yerleri için.",tags:["Sürme kapı","Geniş açıklık","Antrasit"]},
+    {k:"pvc",t:"PVC pencere",d:"Isı ve ses yalıtımlı pencereler. Eski pencereleri söküp takarız.",tags:["Isıcam","Söküm dahil","Yalıtım"]},
+    {k:"panjur",t:"Panjur",d:"Güneş, ısı ve güvenlik için alüminyum panjur. Manuel ya da motorlu.",tags:["Motorlu","Kumandalı","Güvenlik"]},
+    {k:"sineklik",t:"Sineklik",d:"Plise, menteşeli ve sürme sineklik, ölçüye özel.",tags:["Plise","Kedi filesi","Ölçüye özel"]},
+    {k:"korkuluk",t:"Korkuluk",d:"Cam ve paslanmaz korkuluk. Merdiven, teras ve balkon.",tags:["Cam","Paslanmaz","Teras"]},
+    {k:"tente",t:"Tente",d:"Ev ve iş yerleri için mafsallı ve kasetli tente.",tags:["Mafsallı","Kafe / dükkân","Gölge"]}
+  ];
+  // Hikâyeler
+  $("stories").innerHTML=P.map(function(p,i){return '<button class="st" data-i="'+i+'"><span class="ring"><img src="img/'+p.k+'.jpg" alt=""></span><span>'+p.t+"</span></button>"}).join("");
+  var vi=0, tm=null;
+  function show(i){if(i<0)i=0;if(i>=P.length){close();return}vi=i;var p=P[i];$("vimg").src="img/"+p.k+".jpg";$("vimg").alt=p.t;$("vt").textContent=p.t;$("vd").textContent=p.d;
+    $("vbars").innerHTML=P.map(function(_,j){return "<i><b style=\"width:"+(j<i?100:0)+"%\"></b></i>"}).join("");
+    document.querySelector('.st[data-i="'+i+'"]').classList.add("seen");
+    var b=$("vbars").children[i].firstChild, t0=Date.now(); clearInterval(tm);
+    tm=setInterval(function(){var r=(Date.now()-t0)/4500;b.style.width=Math.min(100,r*100)+"%";if(r>=1){show(vi+1)}},60);}
+  function close(){clearInterval(tm);$("vw").hidden=true}
+  $("stories").addEventListener("click",function(e){var b=e.target.closest(".st");if(!b)return;$("vw").hidden=false;show(+b.dataset.i)});
+  $("vx").onclick=close; $("vnext").onclick=function(){show(vi+1)}; $("vprev").onclick=function(){show(vi-1)};
+  document.addEventListener("keydown",function(e){if(!$("vw").hidden&&e.key==="Escape")close()});
+
+  // Ürünler akordiyon
+  $("acc").innerHTML=P.map(function(p,i){return '<details class="acc"'+(i===0?" open":"")+'><summary><img src="img/'+p.k+'.jpg" alt=""><span><b>'+p.t+"</b><small>"+p.tags[0]+" · "+p.tags[1]+'</small></span></summary><div class="in"><img src="img/'+p.k+'.jpg" alt="'+p.t+'" loading="lazy"><p>'+p.d+'</p><div class="tags">'+p.tags.map(function(t){return"<span>"+t+"</span>"}).join("")+'</div><a class="btn" href="https://wa.me/905413430700?text='+encodeURIComponent("Merhaba, "+p.t+" için teklif almak istiyorum.")+'" target="_blank" rel="noopener">'+p.t+" için teklif al</a></div></details>"}).join("");
+
+  // Sekmeler
+  function go(v){document.querySelectorAll("[data-view]").forEach(function(s){s.hidden=s.dataset.view!==v});
+    document.querySelectorAll(".nav .tab[data-go]").forEach(function(t){if(t.dataset.go===v)t.setAttribute("aria-current","page");else t.removeAttribute("aria-current")});
+    window.scrollTo(0,0);}
+  document.addEventListener("click",function(e){var b=e.target.closest("[data-go]");if(b){e.preventDefault();go(b.dataset.go)}});
+
+  // Açık / kapalı (Pzt-Cmt 08:30-19:00 örnek)
+  var n=new Date(), m=n.getHours()*60+n.getMinutes(), op=n.getDay()!==0&&m>=510&&m<1140;
+  $("open").textContent=op?"● Şu an açık":"● Şu an kapalı"; if(!op){$("open").style.background="rgba(194,65,45,.22)";$("open").style.color="#F1A493"}
+
+  // Hızlı teklif
+  var PR={kat:4500,sur:5500,isi:7000,giy:9000}, MW={kat:70,sur:90,isi:75,giy:110}, NM={kat:"Katlanır",sur:"Sürme",isi:"Isıcamlı",giy:"Giyotin"}, sys="kat";
+  function q(){var g=+$("gen").value,y=+$("yuk").value,m2=g*y/1e4,k=Math.max(2,Math.ceil(g/MW[sys])),t=m2*PR[sys];
+    $("genv").textContent=g+" cm";$("yukv").textContent=y+" cm";$("q-m2").textContent=m2.toFixed(1)+" m²";$("q-k").textContent=k;$("q-g").textContent=m2>14?"2 gün":"1 gün";
+    $("q-t").textContent=Math.round(t*.92).toLocaleString("tr-TR")+" - "+Math.round(t*1.08).toLocaleString("tr-TR")+" ₺";
+    $("q-wa").href="https://wa.me/905413430700?text="+encodeURIComponent("Merhaba FD Cam Balkon, uygulamadan hesapladım: "+NM[sys]+", "+g+" x "+y+" cm ("+m2.toFixed(1)+" m², "+k+" kanat). Ücretsiz keşif rica ediyorum.");}
+  $("gen").oninput=q;$("yuk").oninput=q;
+  $("sys").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;[].forEach.call($("sys").children,function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");sys=b.dataset.v;q()});
+  q();
+
+  // Takip
+  var ST=[["Keşif yapıldı","19 Kasım · Hacıabdi, ölçü alındı",1],["Teklif onaylandı","20 Kasım · Isıcamlı, antrasit",1],["Üretimde","Camlar kesildi, profiller hazırlanıyor",2],["Montaj","26 Kasım Perşembe, 09:30",0],["Teslim ve garanti","Montaj günü dijital garanti kartı",0]];
+  function tk(){var ok=$("kod").value.trim().toUpperCase()==="FD-2611-014";
+    $("tl").innerHTML=ok?ST.map(function(s,i){return '<li class="'+(s[2]===1?"done":s[2]===2?"now":"")+'"><span class="d">'+(s[2]===1?"✓":i+1)+"</span><span><b>"+s[0]+"</b><small>"+s[1]+"</small></span></li>"}).join(""):'<li><span class="d">?</span><span><b>Kod bulunamadı</b><small>Kodu kontrol edin ya da WhatsApp\'tan sorun. Örnek: FD-2611-014</small></span></li>';
+    $("gar").hidden=!ok;}
+  $("tf").addEventListener("submit",function(e){e.preventDefault();tk()}); tk();
+})();
+</script>

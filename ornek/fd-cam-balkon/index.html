@@ -1,0 +1,418 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:type" content="website"><meta property="og:title" content="FD Cam Balkon · Dijital Plan ve 3 Site Tasarımı"><meta property="og:description" content="Google durum raporu, Milas rakip analizi, Google profil planı, fiyatlar ve size özel 3 web sitesi tasarımı."><meta property="og:image" content="https://dijitabela.com/ornek/fd-cam-balkon/img/hero.jpg"><meta property="og:url" content="https://dijitabela.com/ornek/fd-cam-balkon/">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>FD Cam Balkon Dijital Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Yerleşim: koyu "ekspertiz" başlığı → açık rapor gövdesi; Dijitabela kehribarı rapor dili, FD bakırı müşteri tarafı. Tek, bilinçli açık tema. */
+:root{
+  --ink:#16181D; --ink2:#2A2E36; --paper:#F7F7F5; --card:#FFFFFF; --line:#E3E2DE;
+  --led:#FFB000; --copper:#B96A3E; --copper-d:#94522D; --muted:#5E6470;
+  --ok:#1E8E5A; --warn:#C77700; --bad:#C2412D;
+  --f-d:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-m:"Space Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-d);font-size:16px;line-height:1.6;margin:0}
+.w{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* Başlık bandı */
+.top{background:var(--ink);color:#F2F2EE}
+.top .w{padding-block:22px 56px}
+.brandbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.dj{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+.dj i{width:12px;height:12px;border-radius:50%;background:var(--led);box-shadow:0 0 14px var(--led)}
+.top .mono{color:#A9ADB5}
+.hero{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:end;margin-top:44px}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--led)}
+.hero p.lead{color:#C9CCD2;margin-top:16px;max-width:56ch;font-size:17px}
+.client{background:var(--ink2);border:1px solid #3A3F48;border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center}
+.client img{width:96px;height:96px;border-radius:10px;object-fit:cover;flex:none}
+.client b{display:block;font-size:18px}
+.client span{color:#B8BCC4;font-size:14px;display:block}
+.meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px}
+.meta div{min-width:0}
+.meta .mono{display:block;margin-bottom:2px}
+.meta strong{font-size:15px}
+
+section{padding-block:56px}
+.eyebrow{color:var(--copper);margin-bottom:10px;display:block}
+h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.015em}
+.sub{color:var(--muted);margin-top:10px;max-width:68ch}
+
+/* Durum özeti */
+.verdict{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.v{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.v .mono{color:var(--muted)}
+.v strong{display:block;font-size:22px;margin-top:4px}
+.pill{display:inline-block;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;padding:3px 8px;border-radius:999px;font-weight:700}
+.p-bad{background:#FBE7E3;color:var(--bad)} .p-warn{background:#FDF0DA;color:var(--warn)} .p-ok{background:#E2F4EA;color:var(--ok)}
+
+/* Eksik listesi */
+.gaps{margin-top:28px;display:grid;gap:10px}
+.gap{display:grid;grid-template-columns:110px 1fr;gap:18px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:16px 18px}
+.gap.warn{border-left-color:var(--warn)}
+.gap h3{font-size:17px}
+.gap p{color:var(--muted);margin-top:4px;font-size:15px}
+.gap .fix{color:var(--ink);margin-top:8px;font-size:14px}
+.gap .fix b{color:var(--copper-d)}
+
+/* Rakipler */
+.tbl{overflow-x:auto;margin-top:24px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#FAFAF8}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.us td{background:#FFF7EE}
+.src{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* Google profil */
+.gbp{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}
+.box h3{font-size:18px;margin-bottom:12px}
+.cats{display:flex;flex-wrap:wrap;gap:8px}
+.cat{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:14px;background:#FBFBFA}
+.cat.main{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cat.main small{color:var(--led);font-family:var(--f-m);font-size:10px;letter-spacing:.06em;margin-left:6px}
+ul.chk{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.chk li{padding-left:26px;position:relative;font-size:15px}
+ul.chk li::before{content:"";position:absolute;left:0;top:6px;width:14px;height:14px;border-radius:4px;background:var(--copper);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='black' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='black' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/contain no-repeat}
+.areas{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.areas span{font-size:13px;background:#F1ECE7;color:var(--copper-d);padding:4px 9px;border-radius:999px}
+
+/* Google önizleme */
+.gprev{border:1px solid #DADCE0;border-radius:12px;padding:16px;background:#fff;font-family:Arial,Helvetica,sans-serif;margin-top:16px}
+.gprev .t{font-size:20px;color:#202124}
+.gprev .r{font-size:14px;color:#70757A;margin-top:2px}
+.gprev .stars{color:#F4B400}
+.gprev .btns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.gprev .btns span{border:1px solid #DADCE0;border-radius:18px;padding:6px 12px;font-size:13px;color:#1A73E8}
+
+/* Tasarımlar */
+.designs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.d{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none}
+.d img{aspect-ratio:4/3;object-fit:cover;width:100%;display:block}
+.d .in{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.d h3{font-size:18px}
+.d p{color:var(--muted);font-size:14px}
+.d .go{margin-top:auto;padding-top:10px;font-weight:700;color:var(--copper-d)}
+.d:hover{border-color:var(--copper)}
+.d:focus-visible{outline:3px solid var(--led);outline-offset:2px}
+
+/* Paketler */
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;align-items:start}
+.pk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+.pk.rec{background:var(--ink);color:#F2F2EE;border-color:var(--ink);position:relative}
+.pk.rec .tag{position:absolute;top:-12px;left:24px;background:var(--led);color:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px}
+.pk h3{font-size:20px}
+.pk .for{color:var(--muted);font-size:14px;margin-top:4px}
+.pk.rec .for{color:#B8BCC4}
+.price{font-size:36px;font-weight:800;letter-spacing:-.02em;margin-top:16px;font-variant-numeric:tabular-nums}
+.price small{font-size:14px;font-weight:500;color:var(--muted)}
+.pk.rec .price small{color:#B8BCC4}
+.was{font-size:14px;color:var(--muted);text-decoration:line-through}
+.pk.rec .was{color:#8E939C}
+.pk ul.chk{margin-top:16px}
+.pk.rec ul.chk li::before{background:var(--led)}
+.dur{font-family:var(--f-m);font-size:12px;margin-top:16px;color:var(--muted)}
+.pk.rec .dur{color:#B8BCC4}
+.extras{margin-top:22px}
+.extras .row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.extras .row b{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Takvim */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.st{border-top:3px solid var(--copper);padding-top:12px}
+.st .mono{color:var(--copper-d)}
+.st h3{font-size:16px;margin-top:4px}
+.st p{font-size:14px;color:var(--muted);margin-top:4px}
+
+/* SSS */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+details+details{margin-top:8px}
+summary{font-weight:700;cursor:pointer}
+details p{color:var(--muted);margin-top:8px;font-size:15px}
+
+.cta{background:var(--ink);color:#F2F2EE}
+.cta .w{padding-block:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta h2{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--led);color:var(--ink);font-weight:800;text-decoration:none;padding:14px 20px;border-radius:12px}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.foot{font-size:13px;color:var(--muted);padding-block:24px}
+
+@media (max-width:860px){
+  .hero,.gbp{grid-template-columns:1fr}
+  .verdict{grid-template-columns:1fr 1fr}
+  .designs,.packs{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .gap{grid-template-columns:1fr;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+  <div class="w">
+    <div class="brandbar">
+      <div class="dj"><i></i>Dijitabela</div>
+      <span class="mono">Dijital durum raporu · 22 Kasım 2026</span>
+    </div>
+    <div class="hero">
+      <div>
+        <span class="mono" style="color:var(--led)">Muğla · Milas</span>
+        <h1>FD Cam Balkon, Milas'ta cam balkon arayan müşteriye <em>bugün görünmüyor.</em></h1>
+        <p class="lead">İşletmenizin internetteki durumunu inceledik. Aşağıda eksikleri, rakiplerin ne yaptığını ve sizi Google'da ve internette nasıl görünür yapacağımızı fiyatlarıyla birlikte bulacaksınız.</p>
+      </div>
+      <div>
+        <div class="client">
+          <img src="img/logo-kart.jpg" alt="FD Dülger Yapı logosu">
+          <div><b>FD Cam Balkon</b><span>Dülger Yapı · Faruk Dülger, Fatih Dülger</span><span>Cam balkon, doğrama, panjur, sineklik, korkuluk, tente</span></div>
+        </div>
+        <div class="meta">
+          <div><span class="mono">Hazırlayan</span><strong>Dijitabela</strong></div>
+          <div><span class="mono">Kaynak</span><strong>Google Haritalar, web</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="w">
+  <span class="mono eyebrow">01 · Durum</span>
+  <h2>Kısaca bugünkü tablo</h2>
+  <div class="verdict">
+    <div class="v"><span class="mono">Google profili</span><strong>Yok</strong><span class="pill p-bad">KRİTİK</span></div>
+    <div class="v"><span class="mono">Web sitesi</span><strong>Yok</strong><span class="pill p-bad">KRİTİK</span></div>
+    <div class="v"><span class="mono">Google yorumu</span><strong>0</strong><span class="pill p-bad">KRİTİK</span></div>
+    <div class="v"><span class="mono">Marka adı</span><strong>3 farklı</strong><span class="pill p-warn">DÜZELTİLMELİ</span></div>
+  </div>
+
+  <div class="gaps">
+    <div class="gap">
+      <span class="pill p-bad" style="align-self:start;justify-self:start">KRİTİK</span>
+      <div>
+        <h3>Google İşletme Profili yok</h3>
+        <p>"Milas cam balkon", "Milas pimapen", "Milas panjur" diye arayan kişi haritada sizi değil rakipleri görüyor. Dükkânınızın yakınındaki Bayramoğulları Yapı 72 yorumla 4,9 puan alıyor ve aramaların en üstünde.</p>
+        <p class="fix"><b>Yapacağımız:</b> Profili sıfırdan açıp doğrulatırız. Doğru kategorileri, tüm hizmetleri, hizmet bölgelerini, fotoğrafları ve çalışma saatlerini gireriz.</p>
+      </div>
+    </div>
+    <div class="gap">
+      <span class="pill p-bad" style="align-self:start;justify-self:start">KRİTİK</span>
+      <div>
+        <h3>Web sitesi yok, reklam tıklamaları boşa gidiyor</h3>
+        <p>Bize Meta reklamından ulaştınız. Reklamı gören kişinin ürünlerinize, yaptığınız işlere ve teklif almaya bakabileceği bir sayfa yok. Milas'taki Akın Pen, Çetin Pen, Durmaz Pen ve Mil Alüminyum'un sitesi var.</p>
+        <p class="fix"><b>Yapacağımız:</b> Ölçü girip anında tahmini teklif alınan ve ücretsiz keşif randevusu verilebilen bir site kurarız. Aşağıda 3 farklı tasarım hazır.</p>
+      </div>
+    </div>
+    <div class="gap">
+      <span class="pill p-bad" style="align-self:start;justify-self:start">KRİTİK</span>
+      <div>
+        <h3>Hiç yorum yok</h3>
+        <p>Cam balkon birkaç on bin liralık bir iş. Müşteri karar vermeden önce yorumlara bakıyor. Yorumu olmayan firma, iyi iş çıkarsa bile ikinci planda kalıyor.</p>
+        <p class="fix"><b>Yapacağımız:</b> İşi biten her müşteriye yorum bırakabileceği QR kartı ve hazır WhatsApp mesajı hazırlarız. Herkese aynı bağlantıyı veririz, yorum seçmeyiz.</p>
+      </div>
+    </div>
+    <div class="gap warn">
+      <span class="pill p-warn" style="align-self:start;justify-self:start">ÖNEMLİ</span>
+      <div>
+        <h3>Üç farklı isim kullanılıyor</h3>
+        <p>Logoda "Dülger Yapı Firması", WhatsApp'ta "dulger yapi cambalkon" yazıyor, internette ise "FD Cam Balkon" adı isteniyor. Google adı, adresi ve telefonu her yerde aynı görmek ister. İsimler farklı olunca sıralamada geride kalınır.</p>
+        <p class="fix"><b>Yapacağımız:</b> Her yerde tek ad kullanılır: <b>FD Cam Balkon</b>. Dülger Yapı adı açıklamada geçer.</p>
+      </div>
+    </div>
+    <div class="gap warn">
+      <span class="pill p-warn" style="align-self:start;justify-self:start">ÖNEMLİ</span>
+      <div>
+        <h3>Logo küçük ekranda okunmuyor</h3>
+        <p>Mevcut logoda telefon numaraları ve fotoğraf arka planı var. Google profil fotoğrafında ve WhatsApp'ta küçülünce yazılar okunmaz hale geliyor.</p>
+        <p class="fix"><b>Yapacağımız:</b> FD amblemini sade, arka plansız ve vektörel hale getiririz. Paketlere dahil.</p>
+      </div>
+    </div>
+    <div class="gap warn">
+      <span class="pill p-warn" style="align-self:start;justify-self:start">ÖNEMLİ</span>
+      <div>
+        <h3>Alan adı ve iş fotoğrafları yok</h3>
+        <p>fdcambalkon.com adresinde şu an kayıt görünmüyor, bu adı alabilirsiniz (satın alırken kesinleşir). Yaptığınız işlerin fotoğrafları internette yayımlanmamış.</p>
+        <p class="fix"><b>Yapacağımız:</b> Alan adını sizin adınıza alırız. Bitirdiğiniz işlerin fotoğraflarını önce/sonra düzeninde siteye ve Google'a ekleriz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">02 · Rakipler</span>
+  <h2>Milas'ta Google'da görünen firmalar</h2>
+  <p class="sub">Aynı işleri yapan ve Google Haritalar'da kaydı olan firmalar. Sizin işletmenizin henüz kaydı yok.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Firma</th><th>Google puanı</th><th>Yorum</th><th>Web sitesi</th><th>Google kategorisi</th></tr></thead>
+      <tbody>
+        <tr><td><b>Bayramoğulları Yapı</b><br><span style="color:var(--muted);font-size:13px">Hacıabdi, size yaklaşık 500 m</span></td><td class="num">4,9 ★</td><td class="num">72</td><td>Yok (Instagram)</td><td>Cam dükkânı, Alüminyum pencere, PVC pencere tedarikçisi</td></tr>
+        <tr><td><b>Milas Akın Pen</b></td><td class="num">4,5 ★</td><td class="num">15</td><td>Var</td><td>Kış bahçesi yüklenicisi</td></tr>
+        <tr><td><b>Winer Gökser Metal</b></td><td class="num">5,0 ★</td><td class="num">2</td><td>Yok</td><td>Pencere montaj servisi</td></tr>
+        <tr><td><b>Çetin Pen</b></td><td class="num">-</td><td class="num">-</td><td>Var</td><td>-</td></tr>
+        <tr><td><b>Durmaz Pen</b></td><td class="num">-</td><td class="num">-</td><td>Var</td><td>-</td></tr>
+        <tr class="us"><td><b>FD Cam Balkon</b></td><td class="num">Kayıt yok</td><td class="num">0</td><td>Yok</td><td>Yok</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">Kaynak: Google Haritalar kayıtları (1-5 Kasım 2026) ve firmaların web siteleri. "-" olan yerlerde bilgiye ulaşamadık.</p>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">03 · Google İşletme Profili</span>
+  <h2>Google'da sizi nasıl kuracağız</h2>
+  <p class="sub">Haritada çıkmak için en önemli adım bu. Rakiplerin kullandığı kategorilere bakarak sizin için şu kurguyu öneriyoruz:</p>
+  <div class="gbp">
+    <div class="box">
+      <h3>Kategoriler</h3>
+      <div class="cats">
+        <span class="cat main">Pencere montaj servisi <small>ANA</small></span>
+        <span class="cat">Kış bahçesi yüklenicisi</span>
+        <span class="cat">Alüminyum pencere</span>
+        <span class="cat">PVC pencere tedarikçisi</span>
+        <span class="cat">Cam dükkânı</span>
+        <span class="cat">Tente tedarikçisi</span>
+        <span class="cat">Panjur / kepenk</span>
+        <span class="cat">Korkuluk yüklenicisi</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:10px">Kategori adlarını kurulum günü Google'ın güncel listesiyle birebir eşleştiririz. Ana kategori, en çok aranan işinize göre seçilir.</p>
+      <h3 style="margin-top:22px">Hizmetler (her biri ayrı kayıt)</h3>
+      <div class="cats">
+        <span class="cat">Katlanır cam balkon</span><span class="cat">Sürme cam balkon</span><span class="cat">Isıcamlı cam balkon</span><span class="cat">Giyotin cam</span>
+        <span class="cat">Alüminyum doğrama</span><span class="cat">PVC doğrama</span><span class="cat">Alüminyum panjur</span><span class="cat">Motorlu panjur</span>
+        <span class="cat">Plise sineklik</span><span class="cat">Menteşeli sineklik</span><span class="cat">Cam korkuluk</span><span class="cat">Paslanmaz korkuluk</span>
+        <span class="cat">Mafsallı tente</span><span class="cat">Cam balkon tamiri</span><span class="cat">Ücretsiz keşif</span>
+      </div>
+    </div>
+    <div class="box">
+      <h3>Profilde neler olacak</h3>
+      <ul class="chk">
+        <li>Doğrulama süreci baştan sona bizde. Size sadece Google'dan gelen kodu iletmek kalıyor.</li>
+        <li>Anahtar kelimeli açıklama: Milas cam balkon, pimapen, panjur, sineklik</li>
+        <li>Sade logo, kapak görseli ve ilk fotoğraf seti</li>
+        <li>Arama ve WhatsApp düğmeleri, çalışma saatleri</li>
+        <li>İlk 4 Google gönderisi (kampanya, kış hazırlığı, ücretsiz keşif)</li>
+        <li>Soru-cevap bölümüne sık sorulan 5 soru</li>
+        <li>Yorum QR kartı (dükkân ve servis aracı için)</li>
+      </ul>
+      <h3 style="margin-top:22px">Hizmet bölgeleri</h3>
+      <div class="areas"><span>Milas merkez</span><span>Güllük</span><span>Ören</span><span>Selimiye</span><span>Boğaziçi</span><span>Bafa</span><span>Yatağan</span><span>Bodrum</span><span>Turgutreis</span><span>Didim</span></div>
+      <div class="gprev" aria-label="Google'da görünüm örneği">
+        <div class="t">FD Cam Balkon</div>
+        <div class="r"><span class="stars">★★★★★</span> Yeni · Pencere montaj servisi · Milas</div>
+        <div class="r">Cam balkon, alüminyum ve PVC doğrama, panjur, sineklik</div>
+        <div class="btns"><span>Yol tarifi</span><span>Ara</span><span>WhatsApp</span><span>Web sitesi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">04 · Web sitesi</span>
+  <h2>Size özel 3 farklı tasarım</h2>
+  <p class="sub">Üç tasarımın yerleşimleri birbirinden farklı. Hepsi telefonda ve bilgisayarda çalışır, örnek verilerle denenebilir. Beğendiğinizi seçin, onun üzerinden ilerleyelim.</p>
+  <div class="designs">
+    <a class="d" href="tasarim-1.html"><img src="img/hero.jpg" alt="Vitrin tasarımı önizlemesi"><div class="in"><span class="mono" style="color:var(--copper-d)">Tasarım 1 · Vitrin</span><h3>Bakır ve beton</h3><p>Büyük fotoğraflı açılış, ölçüye göre anında tahmini teklif hesaplayan sihirbaz ve renk seçici.</p><span class="go">Tasarımı aç →</span></div></a>
+    <a class="d" href="tasarim-2.html"><img src="img/kis.jpg" alt="Dergi tasarımı önizlemesi"><div class="in"><span class="mono" style="color:var(--copper-d)">Tasarım 2 · Dergi</span><h3>Ege evi kataloğu</h3><p>Ürünleri hikâye gibi anlatan katalog düzeni, sistem karşılaştırma tablosu ve keşif randevusu.</p><span class="go">Tasarımı aç →</span></div></a>
+    <a class="d" href="tasarim-3.html"><img src="img/usta.jpg" alt="Uygulama tasarımı önizlemesi"><div class="in"><span class="mono" style="color:var(--copper-d)">Tasarım 3 · Uygulama</span><h3>Cepteki usta</h3><p>Telefon uygulaması gibi çalışır: hızlı teklif, montaj takibi, garanti kartı ve alt menüden tek dokunuşla WhatsApp.</p><span class="go">Tasarımı aç →</span></div></a>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">05 · Paketler</span>
+  <h2>Fiyatlar</h2>
+  <p class="sub">Fiyatlara KDV dahil değildir. İşe %50 ön ödemeyle başlanır, kalan %50 yayına alınınca ödenir. Kartla taksit yapılabilir.</p>
+  <div class="packs">
+    <div class="pk">
+      <h3>Google'da Görün</h3>
+      <p class="for">Önce haritada çıkmak isteyenler için</p>
+      <div class="price">3.990 ₺ <small>tek sefer</small></div>
+      <ul class="chk">
+        <li>Google İşletme Profili kurulumu ve doğrulama</li>
+        <li>8 kategori, 15 hizmet, 10 hizmet bölgesi</li>
+        <li>Sade FD logosu ve kapak görseli</li>
+        <li>İlk 4 gönderi ve soru-cevap</li>
+        <li>Yorum QR kartı</li>
+      </ul>
+      <p class="dur">Teslim: 48 saat (doğrulama Google'a bağlı)</p>
+    </div>
+    <div class="pk rec">
+      <span class="tag">ÖNERİLEN</span>
+      <h3>Dijital Vitrin</h3>
+      <p class="for">Google + kendi siteniz, reklamdan gelen müşteri boşa gitmez</p>
+      <div class="was">3.990 + 17.900 = 21.890 ₺</div>
+      <div class="price">15.900 ₺ <small>tek sefer</small></div>
+      <ul class="chk">
+        <li>"Google'da Görün" paketinin tamamı</li>
+        <li>Seçtiğiniz tasarımla 7 sayfalık site</li>
+        <li>Ölçüye göre tahmini teklif sihirbazı</li>
+        <li>Ücretsiz keşif randevu formu, WhatsApp'a düşer</li>
+        <li>fdcambalkon.com alan adı ve barındırma, ilk yıl dahil</li>
+        <li>Milas ve Bodrum aramaları için SEO</li>
+        <li>SSL, KVKK metni, Google Search Console kaydı</li>
+      </ul>
+      <p class="dur">Teslim: 7 iş günü</p>
+    </div>
+    <div class="pk">
+      <h3>Aylık Bakım</h3>
+      <p class="for">İsteğe bağlı, siteniz ve profiliniz hep güncel kalsın</p>
+      <div class="was">990 + 990 = 1.980 ₺</div>
+      <div class="price">1.790 ₺ <small>/ ay</small></div>
+      <ul class="chk">
+        <li>Her hafta 1 Google gönderisi</li>
+        <li>Yorumlara 24 saat içinde cevap</li>
+        <li>Yeni iş fotoğraflarını yükleme</li>
+        <li>Sitede fiyat ve içerik güncellemeleri</li>
+        <li>Aylık rapor: kaç kişi aradı, yol tarifi aldı, siteye girdi</li>
+      </ul>
+      <p class="dur">İstediğiniz ay bırakabilirsiniz</p>
+    </div>
+  </div>
+  <div class="extras">
+    <span class="mono" style="color:var(--muted)">İsterseniz eklenir</span>
+    <div class="row"><span>Instagram ve Facebook yönetimi (ayda 12 paylaşım, reels dahil)</span><b>9.900 ₺ / ay</b></div>
+    <div class="row"><span>Sade logo ve vektör çizim (paketlerde ücretsiz)</span><b>Dahil</b></div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">06 · Süreç</span>
+  <h2>Nasıl ilerliyoruz</h2>
+  <div class="steps">
+    <div class="st"><span class="mono">1. gün</span><h3>Tasarımı seçin</h3><p>3 tasarımdan birini seçip ön ödemeyi yaparsınız. Biz Google profilini açarız.</p></div>
+    <div class="st"><span class="mono">2-3. gün</span><h3>Bilgi ve fotoğraf</h3><p>Yaptığınız işlerin fotoğraflarını WhatsApp'tan atarsınız, biz düzenleriz.</p></div>
+    <div class="st"><span class="mono">4-6. gün</span><h3>Site hazırlanır</h3><p>Ürünler, fiyat sihirbazı ve randevu formu sizin bilgilerinizle doldurulur.</p></div>
+    <div class="st"><span class="mono">7. gün</span><h3>Yayına alınır</h3><p>fdcambalkon.com açılır, Google profiline bağlanır, kalan ödeme yapılır.</p></div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">07 · Sorular</span>
+  <h2>Sık sorulanlar</h2>
+  <div style="margin-top:24px">
+    <details><summary>Google profili için dükkân şart mı?</summary><p>Hayır. Dükkânınız varsa adres gösterilir. Yoksa adres gizlenip yalnızca hizmet bölgeleri gösterilir. Konum paylaştığınız mavi dükkân için adresli kurulum öneriyoruz.</p></details>
+    <details><summary>Site ve alan adı kimin adına olur?</summary><p>Sizin adınıza. Alan adı FD Cam Balkon adına kaydedilir. Bizimle çalışmayı bıraksanız da siteniz sizde kalır.</p></details>
+    <details><summary>Sitedeki fiyatları kim belirliyor?</summary><p>Siz belirliyorsunuz. Teklif sihirbazı sizin metrekare fiyatlarınızla çalışır. Fiyat değiştikçe biz güncelleriz, bakım paketinde ücretsizdir.</p></details>
+    <details><summary>Ne zaman müşteri gelmeye başlar?</summary><p>Google profili doğrulandıktan sonra birkaç gün içinde aramalarda çıkmaya başlar. İlk yorumlar geldikçe üst sıralara çıkılır. Kesin bir sıra garantisi veremeyiz. Bunu söyleyen olursa dikkat edin.</p></details>
+  </div>
+</section>
+</main>
+
+<div class="cta">
+  <div class="w">
+    <div><h2>Tasarımınızı seçin, yarın başlayalım.</h2><p style="color:#B8BCC4;margin-top:8px">Dijitabela · 0501 945 21 84 · dijitabela.com</p></div>
+    <a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20FD%20Cam%20Balkon%20i%C3%A7in%20tasar%C4%B1m%C4%B1m%C4%B1%20se%C3%A7tim%3A%20" target="_blank" rel="noopener">WhatsApp'tan seçimimi ilet</a>
+  </div>
+</div>
+<p class="w foot">Bu rapor 22 Kasım 2026 tarihinde herkese açık kaynaklardan hazırlanmıştır. Rakip bilgileri Google Haritalar'daki kayıtlarına göredir ve değişebilir.</p>

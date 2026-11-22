@@ -1,0 +1,364 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta property="og:image" content="https://dijitabela.com/ornek/fd-cam-balkon/img/hero.jpg">
+<title>FD Cam Balkon · Vitrin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Yerleşim "Vitrin": tam genişlik fotoğraf açılış → ürün ızgarası → hesaplayıcı merkezde → yaz/kış karşılaştırma. Logo bakırı + beton antrasiti, tek koyu tema. */
+:root{
+  --concrete:#1C1F23; --concrete2:#262A2F; --slab:#30353B; --line:#3B4148;
+  --copper:#C47A4A; --copper-l:#E3A273; --white:#F4F2EF; --muted:#A3A8AF;
+  --f-d:"Archivo","Arial Narrow",system-ui,sans-serif; --f-b:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--concrete);color:var(--white);font-family:var(--f-b);font-size:16px;line-height:1.6}
+.w{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-d);line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.lbl{font-family:var(--f-d);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper-l)}
+.ribbon{position:fixed;z-index:50;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));background:rgba(22,24,29,.88);border:1px solid #FFB000;color:#FFB000;font:700 11px/1 var(--f-b);letter-spacing:.06em;padding:7px 10px;border-radius:999px}
+
+/* Üst menü */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--concrete)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(28,31,35,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .w{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:42px;height:40px}
+.logo b{font-family:var(--f-d);font-weight:900;font-size:19px;letter-spacing:.02em}
+.logo small{display:block;font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.menu{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.menu a{text-decoration:none}
+.menu a:hover{color:var(--white)}
+.call{background:var(--copper);color:#1C1F23;font-weight:700;text-decoration:none;padding:10px 14px;border-radius:8px;font-size:14px;white-space:nowrap}
+
+/* Açılış */
+.hero{position:relative;min-height:560px;display:flex;align-items:flex-end;background:#111 url(img/hero.jpg) center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,31,35,.1) 20%,rgba(28,31,35,.92) 88%)}
+.hero .w{position:relative;z-index:1;padding-block:72px 56px;width:100%}
+.hero h1{font-size:clamp(40px,7vw,84px);font-weight:900;letter-spacing:-.01em;text-transform:uppercase;max-width:12ch}
+.hero h1 span{color:var(--copper-l)}
+.hero p{max-width:52ch;color:#D9D6D2;margin-top:16px;font-size:18px}
+.hero .acts{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 20px;border-radius:10px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:700 15px var(--f-b)}
+.btn.cu{background:var(--copper);color:#1C1F23}
+.btn.gh{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.25)}
+.btn:focus-visible,.opt:focus-within,.sw:focus-visible{outline:3px solid var(--copper-l);outline-offset:2px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--concrete2)}
+.trust div{padding:18px 20px;border-right:1px solid var(--line)}
+.trust div:last-child{border-right:0}
+.trust b{font-family:var(--f-d);font-size:17px;display:block}
+.trust span{font-size:13px;color:var(--muted)}
+
+section{padding-block:80px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.head h2{font-size:clamp(30px,4.4vw,52px);font-weight:900;text-transform:uppercase}
+.head p{color:var(--muted);max-width:44ch}
+
+/* Ürünler */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pr{position:relative;border-radius:12px;overflow:hidden;background:var(--slab);min-height:260px;display:flex;align-items:flex-end}
+.pr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pr:hover img{transform:scale(1.05)}
+.pr::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(20,22,25,.9))}
+.pr .t{position:relative;z-index:1;padding:16px}
+.pr h3{font-size:20px;font-weight:800}
+.pr p{font-size:13px;color:#CFCBC6;margin-top:4px}
+.pr.big{grid-column:span 2;grid-row:span 2;min-height:534px}
+.pr.big h3{font-size:30px}
+
+/* Hesaplayıcı */
+.calc{display:grid;grid-template-columns:1.15fr .85fr;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--concrete2)}
+.calc form{padding:28px;display:grid;gap:22px}
+.q .lbl{display:block;margin-bottom:10px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt span{display:block;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px;background:var(--slab);cursor:pointer}
+.opt input:checked+span{border-color:var(--copper);background:#3A2C22;color:#fff}
+.opt small{display:block;color:var(--muted);font-size:12px}
+.shape svg{width:46px;height:30px;display:block;margin:0 auto 4px}
+.dims{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.dims label{font-size:12px;color:var(--muted);display:grid;gap:4px}
+.dims input,.uprice input{width:100%;background:var(--slab);border:1px solid var(--line);color:var(--white);border-radius:8px;padding:10px;font:600 15px var(--f-b);font-variant-numeric:tabular-nums}
+.dims label[hidden]{display:none}
+.res{background:#141619;padding:28px;display:flex;flex-direction:column;gap:16px;border-left:1px solid var(--line)}
+.res .big{font-family:var(--f-d);font-size:clamp(34px,4.6vw,50px);font-weight:900;font-variant-numeric:tabular-nums;color:var(--copper-l);line-height:1}
+.kv{display:grid;grid-template-columns:1fr auto;gap:8px 12px;font-size:14px}
+.kv span{color:var(--muted)}
+.kv b{font-variant-numeric:tabular-nums;text-align:right}
+.preview{background:var(--slab);border-radius:10px;padding:12px}
+.preview svg{width:100%;height:110px;display:block}
+.uprice{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.uprice input{width:110px;padding:6px 8px;font-size:13px}
+.note{font-size:12px;color:var(--muted)}
+.sws{display:flex;gap:8px}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{border-color:var(--copper-l);box-shadow:0 0 0 3px rgba(227,162,115,.35)}
+
+/* Yaz / Kış */
+.ba{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/8;max-width:100%;background:#000}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .top{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:var(--copper-l);transform:translateX(-1px)}
+.ba .bar::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--copper);color:#1C1F23;display:grid;place-items:center;font-weight:900}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .tg{position:absolute;top:14px;padding:6px 10px;border-radius:6px;background:rgba(20,22,25,.75);font:700 12px var(--f-d);letter-spacing:.1em;text-transform:uppercase}
+
+/* Süreç */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.steps div{padding:24px 20px 0 0}
+.steps b{font-family:var(--f-d);font-size:56px;font-weight:900;color:var(--slab);-webkit-text-stroke:1px var(--copper);line-height:1}
+.steps h3{font-size:20px;margin-top:8px}
+.steps p{color:var(--muted);font-size:14px;margin-top:6px}
+
+/* Bölge */
+.area{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px}
+.chips span.me{background:var(--copper);color:#1C1F23;border-color:var(--copper);font-weight:700}
+.map{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--concrete2);padding:22px}
+.map svg{width:100%;height:auto;display:block}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+footer{border-top:1px solid var(--line);background:#16181B}
+footer .w{padding-block:40px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+footer h3{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper-l);margin-bottom:10px}
+footer p,footer a{font-size:14px;color:var(--muted)}
+.tel{font-family:var(--f-d);font-size:22px;font-weight:800;color:var(--white);display:block;user-select:all}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:8px;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(22,24,27,.96);border-top:1px solid var(--line)}
+.dock a{flex:1;text-align:center;justify-content:center}
+
+@media (max-width:900px){
+  .menu{display:none}
+  .prods{grid-template-columns:1fr 1fr}
+  .pr.big{grid-column:span 2;grid-row:auto;min-height:320px}
+  .calc,.area{grid-template-columns:1fr}
+  .res{border-left:0;border-top:1px solid var(--line)}
+  .trust{grid-template-columns:1fr 1fr}
+  .trust div:nth-child(2){border-right:0}
+  .steps{grid-template-columns:1fr 1fr;gap:12px}
+  footer .w{grid-template-columns:1fr}
+  .dims{grid-template-columns:1fr 1fr}
+  .dock{display:flex}
+  body{padding-bottom:76px}
+  .ba{aspect-ratio:4/3}
+}
+@media (max-width:480px){.prods{grid-template-columns:1fr}.pr.big{grid-column:auto}.hero{min-height:480px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fd" viewBox="0 0 120 112">
+    <path d="M6 52 60 8l54 44" fill="none" stroke="#C47A4A" stroke-width="8" stroke-linejoin="miter"/>
+    <rect x="86" y="14" width="10" height="22" fill="#C47A4A"/>
+    <rect x="13" y="48" width="7" height="60" fill="#C47A4A"/>
+    <rect x="50" y="28" width="9" height="9" fill="#F4F2EF"/><rect x="61" y="28" width="9" height="9" fill="#F4F2EF"/>
+    <rect x="50" y="39" width="9" height="9" fill="#C47A4A"/><rect x="61" y="39" width="9" height="9" fill="#C47A4A"/>
+    <path d="M26 56h32v12H40v8h15v12H40v20H26z" fill="#F4F2EF"/>
+    <path fill="#C47A4A" fill-rule="evenodd" d="M62 56h18a26 26 0 0 1 0 52H62zm13 12v28h5a14 14 0 0 0 0-28z"/>
+  </symbol>
+</svg>
+
+<span class="ribbon">ÖN TASARIM · DİJİTABELA</span>
+
+<header class="nav">
+  <div class="w">
+    <a class="logo" href="#top" aria-label="FD Cam Balkon ana sayfa"><svg><use href="#fd"/></svg><span><b>FD CAM BALKON</b><small>Dülger Yapı · Milas</small></span></a>
+    <nav class="menu" aria-label="Ana menü"><a href="#urunler">Ürünler</a><a href="#hesapla">Fiyat hesapla</a><a href="#yazkis">Yaz / Kış</a><a href="#bolge">Hizmet bölgesi</a></nav>
+    <a class="call" href="https://wa.me/905413430700?text=Merhaba%2C%20cam%20balkon%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="w">
+    <span class="lbl">Milas · Bodrum · Güllük</span>
+    <h1>Balkonunuz <span>dört mevsim</span> sizin</h1>
+    <p>Cam balkon, alüminyum ve PVC doğrama, panjur, sineklik, korkuluk ve tente. Ölçüye özel üretip kendi ekibimizle takıyoruz.</p>
+    <div class="acts">
+      <a class="btn cu" href="#hesapla">Balkonumu hesapla</a>
+      <a class="btn gh" href="https://wa.me/905413430700?text=Merhaba%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum." target="_blank" rel="noopener">Ücretsiz keşif iste</a>
+    </div>
+  </div>
+</section>
+<div class="trust">
+  <div><b>Ücretsiz keşif</b><span>Yerinde ölçü, bağlayıcı değil</span></div>
+  <div><b>Ölçüye özel</b><span>Milimetrik ölçüyle üretim</span></div>
+  <div><b>Kendi ekibimiz</b><span>Montaj taşerona verilmez</span></div>
+  <div><b>Montaj sonrası</b><span>Ayar ve servis desteği</span></div>
+</div>
+
+<section id="urunler" class="w">
+  <div class="head"><h2>Ne yapıyoruz</h2><p>Evinizin, villanızın ya da dükkânınızın her açıklığı için sistem.</p></div>
+  <div class="prods">
+    <article class="pr big"><img src="img/cambalkon.jpg" alt="Antrasit profilli cam balkon" loading="lazy"><div class="t"><span class="lbl">En çok istenen</span><h3>Cam balkon</h3><p>Katlanır, sürme, ısıcamlı ve giyotin sistemler</p></div></article>
+    <article class="pr"><img src="img/aluminyum.jpg" alt="Alüminyum sürme kapı" loading="lazy"><div class="t"><h3>Alüminyum doğrama</h3><p>İnce profil, geniş cam</p></div></article>
+    <article class="pr"><img src="img/pvc.jpg" alt="PVC pencere" loading="lazy"><div class="t"><h3>PVC doğrama</h3><p>Isı ve ses yalıtımı</p></div></article>
+    <article class="pr"><img src="img/panjur.jpg" alt="Alüminyum panjur" loading="lazy"><div class="t"><h3>Panjur</h3><p>Manuel ve motorlu</p></div></article>
+    <article class="pr"><img src="img/sineklik.jpg" alt="Plise sineklik" loading="lazy"><div class="t"><h3>Sineklik</h3><p>Plise, menteşeli, sürme</p></div></article>
+    <article class="pr"><img src="img/korkuluk.jpg" alt="Cam korkuluk" loading="lazy"><div class="t"><h3>Korkuluk</h3><p>Cam ve paslanmaz</p></div></article>
+    <article class="pr"><img src="img/tente.jpg" alt="Mafsallı tente" loading="lazy"><div class="t"><h3>Tente</h3><p>Mafsallı ve kasetli</p></div></article>
+  </div>
+</section>
+
+<section id="hesapla" class="w">
+  <div class="head"><h2>Balkonunuzu hesaplayın</h2><p>Ölçünüzü girin, kaç metrekare olduğunu, kaç kanat çıkacağını ve tahmini bütçeyi hemen görün.</p></div>
+  <div class="calc">
+    <form id="f" onsubmit="return false">
+      <div class="q"><span class="lbl">1 · Balkonun şekli</span>
+        <div class="opts shape">
+          <label class="opt"><input type="radio" name="shape" value="1" checked><span><svg viewBox="0 0 46 30"><path d="M4 8h38" stroke="#E3A273" stroke-width="4"/><path d="M4 8v18M42 8v18" stroke="#6B7178" stroke-width="2"/></svg>Düz</span></label>
+          <label class="opt"><input type="radio" name="shape" value="2"><span><svg viewBox="0 0 46 30"><path d="M4 8h38v18" stroke="#E3A273" stroke-width="4" fill="none"/></svg>L tipi</span></label>
+          <label class="opt"><input type="radio" name="shape" value="3"><span><svg viewBox="0 0 46 30"><path d="M4 26V8h38v18" stroke="#E3A273" stroke-width="4" fill="none"/></svg>U tipi</span></label>
+        </div>
+      </div>
+      <div class="q"><span class="lbl">2 · Ölçüler (cm)</span>
+        <div class="dims">
+          <label>Ön cephe<input id="a" type="number" inputmode="numeric" min="50" max="2000" value="420"></label>
+          <label id="lb" hidden>Yan cephe 1<input id="b" type="number" inputmode="numeric" min="0" max="1000" value="150"></label>
+          <label id="lc" hidden>Yan cephe 2<input id="c" type="number" inputmode="numeric" min="0" max="1000" value="150"></label>
+          <label>Yükseklik<input id="h" type="number" inputmode="numeric" min="50" max="400" value="175"></label>
+        </div>
+      </div>
+      <div class="q"><span class="lbl">3 · Sistem</span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="sys" value="kat" checked><span>Katlanır<small>En ekonomik</small></span></label>
+          <label class="opt"><input type="radio" name="sys" value="sur"><span>Sürme<small>Eşikli / eşiksiz</small></span></label>
+          <label class="opt"><input type="radio" name="sys" value="isi"><span>Isıcamlı<small>Kış bahçesi</small></span></label>
+          <label class="opt"><input type="radio" name="sys" value="giy"><span>Giyotin<small>Motorlu</small></span></label>
+        </div>
+      </div>
+      <div class="q"><span class="lbl">4 · Profil rengi</span>
+        <div class="sws" role="group" aria-label="Profil rengi">
+          <button type="button" class="sw" data-c="#3A3F45" data-n="Antrasit" style="background:#3A3F45" aria-pressed="true" aria-label="Antrasit"></button>
+          <button type="button" class="sw" data-c="#F1F0EC" data-n="Beyaz" style="background:#F1F0EC" aria-pressed="false" aria-label="Beyaz"></button>
+          <button type="button" class="sw" data-c="#8A6A4A" data-n="Bronz" style="background:#8A6A4A" aria-pressed="false" aria-label="Bronz"></button>
+          <button type="button" class="sw" data-c="#9B6B43" data-n="Ahşap desen" style="background:linear-gradient(90deg,#8B5A33,#B07A4C,#8B5A33)" aria-pressed="false" aria-label="Ahşap desen"></button>
+          <button type="button" class="sw" data-c="#BFC3C7" data-n="Eloksal" style="background:#BFC3C7" aria-pressed="false" aria-label="Doğal eloksal"></button>
+        </div>
+      </div>
+    </form>
+    <div class="res" aria-live="polite">
+      <span class="lbl">Tahmini bütçe</span>
+      <div class="big" id="tot">-</div>
+      <div class="kv">
+        <span>Cam alanı</span><b id="m2">-</b>
+        <span>Kanat sayısı</span><b id="pn">-</b>
+        <span>Kanat genişliği</span><b id="pw">-</b>
+        <span>Montaj süresi</span><b id="md">-</b>
+        <span>Profil</span><b id="cn">Antrasit</b>
+      </div>
+      <div class="preview"><svg id="pv" viewBox="0 0 400 110" preserveAspectRatio="none" aria-label="Kanat önizlemesi"></svg></div>
+      <label class="uprice">m² birim fiyatı (örnek) <input id="up" type="number" inputmode="numeric" min="0" step="50"> ₺ + KDV</label>
+      <p class="note">Örnek fiyatlar 2026 piyasa başlangıç fiyatlarıdır. FD Cam Balkon kendi fiyatlarını girdiğinde hesap onlarla çalışır. Kesin fiyat ücretsiz keşifte verilir.</p>
+      <a class="btn cu" id="wa" target="_blank" rel="noopener" href="#">Bu ölçüyle teklif iste</a>
+    </div>
+  </div>
+</section>
+
+<section id="yazkis" class="w">
+  <div class="head"><h2>Yaz açık, kış kapalı</h2><p>Çubuğu kaydırın. Aynı balkon yazın açık teras, kışın çay içilen bir kış bahçesi oluyor.</p></div>
+  <div class="ba" id="ba">
+    <img src="img/kis.jpg" alt="Kışın kapalı cam balkon, içeride oturma alanı">
+    <img class="top" src="img/hero.jpg" alt="Yazın açık cam balkon">
+    <span class="tg" style="left:14px">Kış</span><span class="tg" style="right:14px">Yaz</span>
+    <div class="bar"></div>
+    <input type="range" min="0" max="100" value="50" aria-label="Yaz ve kış görünümü arasında kaydır">
+  </div>
+</section>
+
+<section class="w">
+  <div class="head"><h2>Nasıl çalışıyoruz</h2></div>
+  <div class="steps">
+    <div><b>1</b><h3>Arayın ya da yazın</h3><p>WhatsApp'tan balkonun fotoğrafını atmanız yeterli.</p></div>
+    <div><b>2</b><h3>Ücretsiz keşif</h3><p>Yerinde ölçü alır, size uygun sistemi anlatırız.</p></div>
+    <div><b>3</b><h3>Net teklif</h3><p>Yazılı fiyat, sistem, renk ve teslim tarihi.</p></div>
+    <div><b>4</b><h3>Üretim ve montaj</h3><p>Ölçüye özel üretim, kendi ekibimizle temiz montaj.</p></div>
+  </div>
+</section>
+
+<section id="bolge" class="w">
+  <div class="area">
+    <div>
+      <span class="lbl">Hizmet bölgesi</span>
+      <h2 style="font-size:clamp(30px,4.4vw,48px);font-weight:900;text-transform:uppercase;margin-top:8px">Milas merkezli, Bodrum'a kadar</h2>
+      <p style="color:var(--muted);margin-top:12px">Dükkânımız Milas merkezde. Keşif ve montaj için aşağıdaki bölgelere geliyoruz.</p>
+      <div class="chips"><span class="me">Milas merkez</span><span>Güllük</span><span>Ören</span><span>Selimiye</span><span>Boğaziçi</span><span>Bafa</span><span>Yatağan</span><span>Bodrum</span><span>Turgutreis</span><span>Didim</span></div>
+      <div class="links">
+        <a class="btn gh" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=37.317638,27.782795" target="_blank" rel="noopener">360° sokak görünümü</a>
+        <a class="btn gh" href="https://www.google.com/maps/dir/?api=1&destination=37.317638,27.782795" target="_blank" rel="noopener">Yol tarifi al</a>
+      </div>
+    </div>
+    <div class="map" aria-label="Hizmet bölgesi şeması">
+      <svg viewBox="0 0 360 260">
+        <rect width="360" height="260" fill="#262A2F"/>
+        <path d="M0 210 C60 200 90 230 140 222 S240 250 360 236 V260 H0Z" fill="#1F3540"/>
+        <path d="M40 30 C80 60 70 110 120 120" stroke="#3B4148" stroke-width="2" fill="none"/>
+        <circle cx="170" cy="120" r="92" fill="rgba(196,122,74,.08)" stroke="#C47A4A" stroke-dasharray="4 5"/>
+        <g font-family="Inter,sans-serif" font-size="11" fill="#A3A8AF">
+          <circle cx="170" cy="120" r="7" fill="#E3A273"/><text x="182" y="124" fill="#F4F2EF" font-weight="700">Milas</text>
+          <circle cx="120" cy="170" r="3.5" fill="#A3A8AF"/><text x="80" y="186">Güllük</text>
+          <circle cx="230" cy="200" r="3.5" fill="#A3A8AF"/><text x="240" y="204">Ören</text>
+          <circle cx="210" cy="60" r="3.5" fill="#A3A8AF"/><text x="220" y="64">Yatağan</text>
+          <circle cx="120" cy="58" r="3.5" fill="#A3A8AF"/><text x="80" y="50">Bafa</text>
+          <circle cx="70" cy="232" r="3.5" fill="#A3A8AF"/><text x="22" y="252">Bodrum</text>
+          <circle cx="40" cy="120" r="3.5" fill="#A3A8AF"/><text x="10" y="110">Didim</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="w">
+    <div><a class="logo" href="#top"><svg><use href="#fd"/></svg><span><b>FD CAM BALKON</b><small>Dülger Yapı</small></span></a><p style="margin-top:12px">Cam balkon, alüminyum ve PVC doğrama, panjur, sineklik, korkuluk, tente. Milas / Muğla.</p></div>
+    <div><h3>Faruk Dülger</h3><span class="tel">0541 343 07 00</span><h3 style="margin-top:16px">Fatih Dülger</h3><span class="tel">0544 894 95 84</span></div>
+    <div><h3>Çalışma saatleri</h3><p>Pazartesi - Cumartesi<br>08:30 - 19:00 (örnek)</p><h3 style="margin-top:16px">Adres</h3><p>Milas merkez, Muğla<br>(mavi dükkân)</p></div>
+  </div>
+</footer>
+<div class="dock"><a class="btn gh" href="#hesapla">Hesapla</a><a class="btn cu" href="https://wa.me/905413430700" target="_blank" rel="noopener">WhatsApp</a></div>
+
+<script>
+(function(){
+  var PRICE={kat:4500,sur:5500,isi:7000,giy:9000}, NAME={kat:"Katlanır",sur:"Sürme",isi:"Isıcamlı",giy:"Giyotin"}, MAXW={kat:70,sur:90,isi:75,giy:110};
+  var $=function(i){return document.getElementById(i)}, f=$("f"), up=$("up"), color="#3A3F45", cname="Antrasit", custom={};
+  var tl=function(n){return Math.round(n).toLocaleString("tr-TR")+" ₺"};
+  function val(name){var r=f.querySelector('input[name="'+name+'"]:checked');return r?r.value:null}
+  function calc(){
+    var sh=+val("shape"), sys=val("sys");
+    $("lb").hidden=sh<2; $("lc").hidden=sh<3;
+    if(document.activeElement!==up) up.value=custom[sys]||PRICE[sys];
+    var a=Math.max(0,+$("a").value||0), b=sh>=2?Math.max(0,+$("b").value||0):0, c=sh>=3?Math.max(0,+$("c").value||0):0, h=Math.max(0,+$("h").value||0);
+    var sides=[a,b,c].filter(function(x){return x>0});
+    var m2=(a+b+c)*h/10000, panels=0;
+    sides.forEach(function(s){panels+=Math.max(2,Math.ceil(s/MAXW[sys]))});
+    var pw=sides.length?Math.round((a+b+c)/panels):0, unit=+up.value||PRICE[sys];
+    var tot=m2*unit;
+    $("m2").textContent=m2.toLocaleString("tr-TR",{maximumFractionDigits:2})+" m²";
+    $("pn").textContent=panels+" kanat";
+    $("pw").textContent="≈ "+pw+" cm";
+    $("md").textContent=(m2>14?"2 gün":"1 gün");
+    $("cn").textContent=cname;
+    $("tot").textContent=m2?tl(tot*0.92)+" - "+tl(tot*1.08):"-";
+    var svg="", n=Math.min(panels,14)||1, w=400/n;
+    for(var i=0;i<n;i++){svg+='<rect x="'+(i*w+2)+'" y="6" width="'+(w-4)+'" height="98" fill="rgba(170,200,215,.25)" stroke="'+color+'" stroke-width="5"/>';}
+    $("pv").innerHTML=svg;
+    var msg="Merhaba FD Cam Balkon, siteden hesapladım.\nBalkon: "+["","Düz","L tipi","U tipi"][sh]+", "+sides.join(" + ")+" cm x "+h+" cm\nSistem: "+NAME[sys]+", renk: "+cname+"\nYaklaşık "+m2.toFixed(2)+" m², "+panels+" kanat.\nÜcretsiz keşif rica ediyorum.";
+    $("wa").href="https://wa.me/905413430700?text="+encodeURIComponent(msg);
+  }
+  f.addEventListener("input",calc);
+  f.addEventListener("change",calc);
+  up.addEventListener("input",function(){custom[val("sys")]=+up.value;calc()});
+  document.querySelectorAll(".sw").forEach(function(b){b.addEventListener("click",function(){
+    document.querySelectorAll(".sw").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    b.setAttribute("aria-pressed","true"); color=b.dataset.c; cname=b.dataset.n; calc();
+  })});
+  calc();
+  var ba=$("ba"), r=ba.querySelector("input");
+  r.addEventListener("input",function(){ba.style.setProperty("--x",r.value+"%")});
+})();
+</script>
