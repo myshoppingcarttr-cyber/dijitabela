@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Foto Güven · Dijital Ekspertiz ve 3 Web Sitesi Tasarımı</title>
+<meta name="description" content="Foto Güven (Muratpaşa, Antalya) için ücretsiz dijital ekspertiz raporu ve işletmeye özel hazırlanan 3 farklı web sitesi tasarımı.">
+<meta name="theme-color" content="#16181D">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F3EF;--card:#fff;--ink:#16181D;--mute:#5F646D;--line:#E3E0D8;--led:#C98A00;--led2:#FFB000;--led-soft:#FFF3D6;--ok:#17a55a;--ok-soft:#E7F7EE;--warn:#C7362B;--warn-soft:#FBEAE8;
+--d:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--m:"Space Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1116;--card:#171A20;--ink:#F4F3EF;--mute:#9096A0;--line:#262A31;--led:#FFB000;--led-soft:#2A2310;--ok:#2ecc71;--ok-soft:#10251A;--warn:#E0552F;--warn-soft:#2A1512;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1116;--card:#171A20;--ink:#F4F3EF;--mute:#9096A0;--line:#262A31;--led:#FFB000;--led-soft:#2A2310;--ok:#2ecc71;--ok-soft:#10251A;--warn:#E0552F;--warn-soft:#2A1512;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--d)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left))}
+h1,h2,h3{margin:0;letter-spacing:-.02em;text-wrap:balance}p{margin:0}
+.ust{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.brand{font-weight:800;font-size:19px;letter-spacing:.03em;color:var(--led)}
+.kime{font:700 12px/1 var(--m);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.hero{padding:40px 0 10px;display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
+.eyebrow{font:700 11.5px/1 var(--m);letter-spacing:.2em;text-transform:uppercase;color:var(--led)}
+.hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:800;line-height:1.08;margin:12px 0 12px}
+.hero p{color:var(--mute);font-size:17px;max-width:560px}
+.skor{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;gap:18px;align-items:center;justify-content:center}
+.g{position:relative;width:118px;height:118px;flex:none}.g svg{transform:rotate(-90deg)}
+.g b{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:32px;font-weight:800;line-height:1}
+.g b small{font:400 11px/1.4 var(--m);color:var(--mute)}
+.g.az b{color:var(--warn)}.g.cok b{color:var(--ok)}
+.ok{font-size:26px;color:var(--mute)}
+.g-et{text-align:center;font-size:12.5px;color:var(--mute);margin-top:6px;font-weight:600}
+section{margin:40px 0}
+h2{font-size:clamp(21px,3vw,28px);font-weight:800;display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--led-soft);color:var(--led);font:700 14px/1 var(--m);flex:none}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.fact .k{font-size:12.5px;color:var(--mute)}.fact .v{font-weight:800;font-size:16px;margin-top:2px}
+.v.kirmizi{color:var(--warn)}.v.yesil{color:var(--ok)}
+.tablo{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.satir{display:grid;grid-template-columns:1fr 1fr}
+.satir+.satir{border-top:1px solid var(--line)}
+.satir>div{padding:16px 18px;font-size:15px}
+.satir i{display:block;font:700 10.5px/1 var(--m);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px;font-style:normal}
+.x i{color:var(--warn)}.v2{background:var(--ok-soft)}.v2 i{color:var(--ok)}
+.x b,.v2 b{display:block;margin-bottom:3px}
+.x span,.v2 span{color:var(--mute);font-size:14px}
+.v2 span{color:inherit;opacity:.85}
+.tasarimlar{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tk{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.tk:hover{transform:translateY(-5px);box-shadow:0 28px 50px -34px rgba(0,0,0,.5)}
+.tk .ekran{background:linear-gradient(160deg,#20242C,#0E1014);padding:22px 0 0;display:flex;justify-content:center;height:330px;overflow:hidden}
+.tk .tel{width:62%;border-radius:26px 26px 0 0;padding:7px 7px 0;background:#05070A;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.tk .tel img{width:100%;display:block;border-radius:20px 20px 0 0}
+.tk .ic{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.yer{font:700 11px/1 var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--led)}
+.tk h3{font-size:20px;font-weight:800}
+.tk ul{margin:0;padding-left:18px;color:var(--mute);font-size:14.5px;display:flex;flex-direction:column;gap:3px}
+.git{margin-top:auto;padding-top:8px;font-weight:800;color:var(--led)}
+.cta{background:var(--ink);color:var(--bg);border-radius:22px;padding:28px;display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}
+.cta p{opacity:.75;margin-top:8px}
+.cta a{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:14px;background:var(--led2);color:#16181D;font-weight:800;text-decoration:none;text-align:center;padding:0 16px}
+.not{color:var(--mute);font-size:13px;margin-top:10px}
+footer{border-top:1px solid var(--line);margin:40px 0 0;padding:18px 0 30px;color:var(--mute);font-size:14px;display:flex;gap:16px;flex-wrap:wrap}
+footer .brand{font-size:15px}
+@media(max-width:880px){.hero{grid-template-columns:1fr}.tasarimlar{grid-template-columns:1fr;max-width:420px;margin:0 auto}.facts{grid-template-columns:1fr 1fr}.cta{grid-template-columns:1fr}}
+@media(max-width:560px){.satir{grid-template-columns:1fr}.skor{gap:10px}.g{width:100px;height:100px}.g svg{width:100px;height:100px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="ust"><span class="brand">DİJİTABELA</span><span class="kime">Foto Güven için hazırlandı</span></div>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Ücretsiz Dijital Ekspertiz · 23.11.2026</div>
+      <h1>Foto Güven: güçlü itibar, kapalı bir dijital kapı</h1>
+      <p>Muratpaşa'da 4,9 puanlı, 07:30'da açılan, yabancı müşterilerin bile övdüğü bir stüdyosunuz. Ama Google profilinizdeki web sitesi bağlantısı <b style="color:var(--ink)">hiçbir yere açılmıyor</b>. Aşağıda tespitleri ve size özel hazırladığımız 3 farklı site tasarımını bulacaksınız.</p>
+    </div>
+    <div>
+      <div class="skor">
+        <div><div class="g az"><svg width="118" height="118" viewBox="0 0 118 118"><circle cx="59" cy="59" r="50" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="59" cy="59" r="50" fill="none" stroke="var(--warn)" stroke-width="10" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="170"/></svg><b>46<small>/ 100</small></b></div><div class="g-et">Bugün</div></div>
+        <span class="ok">→</span>
+        <div><div class="g cok"><svg width="118" height="118" viewBox="0 0 118 118"><circle cx="59" cy="59" r="50" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="59" cy="59" r="50" fill="none" stroke="var(--ok)" stroke-width="10" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="35"/></svg><b>89<small>/ 100</small></b></div><div class="g-et">Çalışma sonrası</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> Mevcut durum</h2>
+    <div class="facts">
+      <div class="fact"><div class="k">Google puanı</div><div class="v yesil">4,9 ★ · 63 yorum</div></div>
+      <div class="fact"><div class="k">Çalışma saati</div><div class="v">Pzt–Cmt 07:30–20:30</div></div>
+      <div class="fact"><div class="k">Web sitesi</div><div class="v kirmizi">Açılmıyor</div></div>
+      <div class="fact"><div class="k">Yabancı dil desteği</div><div class="v kirmizi">Yok</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> Tespitler ve çözüm</h2>
+    <div class="tablo">
+      <div class="satir"><div class="x"><i>Tespit</i><b>Google'daki site adresi ölü</b><span>Profilde "fotogüven.com" yazıyor ama bu alan adı şu an internette kayıtlı görünmüyor (DNS kaydı yok). Profilden "Web sitesi"ne dokunan her müşteri hata sayfası görüyor; bu Google'a da "bakımsız işletme" sinyali verir.</span></div><div class="v2"><i>Çözüm</i><b>Yeni, hızlı site + doğru bağlantı</b><span>Kolay yazılan (Türkçe karaktersiz) bir alan adıyla yeni site; Google profilindeki bağlantı güncellenir.</span></div></div>
+      <div class="satir"><div class="x"><i>Tespit</i><b>Yabancı müşteri var, yabancı dilde bilgi yok</b><span>Yorumlarınızda İngilizce yazan ve "telefon çevirisiyle anlaştık" diyen müşteriler var. Antalya'da ikamet izni ve vize fotoğrafı için sürekli yabancı müşteri akışı var; ama sizde onlara hitap eden tek satır yok.</span></div><div class="v2"><i>Çözüm</i><b>4 dilli belge fotoğrafı asistanı</b><span>TR/EN/RU/DE: belgeye göre ölçü, fon, kurallar ve yanında getirilecekler. Müşteri doğru bilgiyle, hazır gelir.</span></div></div>
+      <div class="satir"><div class="x"><i>Tespit</i><b>En büyük avantajınız görünmüyor</b><span>Çoğu rakip 08:30–09:00'da açılıyor; siz 07:30'da. Resmi daireye sabah gidecek biri için bu çok değerli, ama yalnızca saat kutusunda duruyor.</span></div><div class="v2"><i>Çözüm</i><b>"07:30'dan itibaren" vurgusu + canlı açık/kapalı</b><span>İlk ekranda, Google gönderilerinde ve sitede öne çıkarılır.</span></div></div>
+      <div class="satir"><div class="x"><i>Tespit</i><b>Aramalarda "biyometrik" kelimesiyle zayıf</b><span>Bölgede "biyometrik / vesikalık" aramalarında öne çıkan rakipler bu kelimeleri hizmet listelerinde ve sitelerinde yoğun kullanıyor.</span></div><div class="v2"><i>Çözüm</i><b>Hizmet listesi ve içerik düzeni</b><span>Google profiline hizmetler (biyometrik, ikamet, vize, baskı, restorasyon) ve fotoğraflar eklenir; sitede her hizmetin kendi bölümü olur.</span></div></div>
+      <div class="satir"><div class="x"><i>Tespit</i><b>Bekleme ve sipariş tamamen yerinde</b><span>Müşteri sıranın durumunu bilmeden geliyor; telefonundaki fotoğrafı bastırmak için de mutlaka dükkânda beklemesi gerekiyor.</span></div><div class="v2"><i>Çözüm</i><b>Online sıra + telefondan baskı siparişi</b><span>Müşteri yoldayken sıraya girer, fotoğraflarını önceden gönderir; gelince hazır alır.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> Size özel 3 tasarım</h2>
+    <p style="color:var(--mute);margin:-4px 0 18px">Üçü de çalışır durumda; telefonunuzdan açıp araçları deneyebilirsiniz. Renk değil, yerleşim ve kurgu olarak tamamen farklılar.</p>
+    <div class="tasarimlar">
+      <a class="tk" href="1-vitrin/"><div class="ekran"><div class="tel"><img src="img/1.jpg" alt="Vitrin tasarımı telefonda" loading="lazy"></div></div><div class="ic"><span class="yer">Yerleşim 1 · Vitrin</span><h3>Biyometrik Merkezi</h3><ul><li>4 dilli belge fotoğrafı asistanı</li><li>Canlı "şu an açık" göstergesi</li><li>Harita, yol tarifi, tek dokunuşla arama</li></ul><span class="git">Tasarımı aç →</span></div></a>
+      <a class="tk" href="2-dergi/"><div class="ekran"><div class="tel"><img src="img/2.jpg" alt="Dergi tasarımı telefonda" loading="lazy"></div></div><div class="ic"><span class="yer">Yerleşim 2 · Dergi</span><h3>Foto Güven Atölye</h3><ul><li>Portre, aile, bebek, mezuniyet vitrini</li><li>Çekim planlayıcı (süre hesaplı)</li><li>Gün/saat seçmeli randevu takvimi</li></ul><span class="git">Tasarımı aç →</span></div></a>
+      <a class="tk" href="3-uygulama/"><div class="ekran"><div class="tel"><img src="img/3.jpg" alt="Uygulama tasarımı telefonda" loading="lazy"></div></div><div class="ic"><span class="yer">Yerleşim 3 · Uygulama</span><h3>Foto Güven Cepte</h3><ul><li>Telefondan baskı siparişi</li><li>Eski fotoğraf önce/sonra önizleme</li><li>Canlı sıra durumu ve sıra alma</li></ul><span class="git">Tasarımı aç →</span></div></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <div><h2 style="margin:0">Hangisi size daha yakın?</h2><p>Beğendiğiniz tasarımı ve eklemek istediklerinizi kısa bir görüşmede konuşalım; net teklifimizi aynı görüşmede iletelim.</p></div>
+      <a href="https://wa.me/905019452184?text=Merhaba%2C%20Foto%20G%C3%BCven%20i%C3%A7in%20haz%C4%B1rlanan%20tasar%C4%B1mlar%C4%B1%20g%C3%B6rd%C3%BCm.">WhatsApp'tan yazın</a>
+    </div>
+    <p class="not">Tasarımlardaki örnek fiyatlar ve dolu/boş saatler gösterim amaçlıdır. Gerçek fotoğraflarınız ve fiyatlarınız işin başında eklenir.</p>
+  </section>
+
+  
+<section data-sv360 style="padding:64px 16px;background:inherit;color:inherit"><div style="max-width:1120px;margin:0 auto">
+  <p style="font:700 12px/1 ui-monospace,monospace;letter-spacing:.18em;opacity:.65;margin:0 0 12px">360° GÖRÜNÜM</p>
+  <h2 style="margin:0 0 10px;font-size:clamp(26px,4vw,40px);line-height:1.1">Gelmeden önce bizi görün</h2>
+  <p style="margin:0 0 20px;opacity:.75;max-width:640px">Görüntüyü fareyle ya da parmağınızla çevirin; bulunduğumuz sokağı ve girişimizi 360° gezin, gelirken zorlanmayın.</p>
+  <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(127,127,127,.35);background:#222"><iframe src="https://www.google.com/maps/embed?pb=!6m6!1m5!2m2!1d36.892545!2d30.688903!4f0!5f0.8" title="foto-guven-antalya 360° görünüm" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" style="display:block;width:100%;height:min(62vh,520px);border:0"></iframe></div>
+  <p style="font-size:13px;opacity:.6;margin:12px 0 0">Görüntü: Google Street View · <a href="https://maps.google.com/?cid=12694143159900713364" target="_blank" rel="noopener" style="color:inherit">Yol tarifi al</a></p>
+</div></section>
+<footer><span class="brand">DİJİTABELA</span><span>dijitabela.com</span><span>0501 945 21 84</span></footer>
+</div>
+<script src="/ornek/_dijitabela/izle.js" defer></script>
+</body>
+</html>
