@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Aşkın Nakliyat Ekspertiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --bg:#F4F3EF; --card:#FFFFFF; --ink:#16181D; --mute:#5F646D; --line:#E3E0D8;
+    --led:#C98A00; --led-soft:#FFF3D6; --ok:#17a55a; --ok-soft:#E7F7EE; --warn:#C7362B; --warn-soft:#FBEAE8;
+    --disp:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0F1116; --card:#171A20; --ink:#F4F3EF; --mute:#9096A0; --line:#262A31;
+    --led:#FFB000; --led-soft:#2A2310; --ok:#2ecc71; --ok-soft:#10251A; --warn:#E0552F; --warn-soft:#2A1512; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0F1116; --card:#171A20; --ink:#F4F3EF; --mute:#9096A0; --line:#262A31;
+    --led:#FFB000; --led-soft:#2A2310; --ok:#2ecc71; --ok-soft:#10251A; --warn:#E0552F; --warn-soft:#2A1512; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);line-height:1.5;
+    padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .wrap{max-width:760px;margin:0 auto;padding-block:28px}
+  h1,h2,h3{text-wrap:balance;letter-spacing:-.02em;margin:0}
+  p{margin:0}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--led)}
+  header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}
+  .brand{font-weight:800;font-size:20px;letter-spacing:.02em;color:var(--led)}
+  header h1{font-size:clamp(23px,5.5vw,30px);font-weight:800;margin:10px 0 6px}
+  .meta{color:var(--mute);font-size:14px}.meta b{color:var(--ink)}
+  section{margin:24px 0}
+  h2{font-size:clamp(18px,4.4vw,22px);font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;flex:0 0 auto;border-radius:8px;background:var(--led-soft);color:var(--led);font-size:14px;font-weight:800;font-family:var(--mono)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+
+  /* skor + özet */
+  .top{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .gauge{position:relative;flex:0 0 auto}
+  .gauge svg{display:block}
+  .gauge .n{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .gauge .n b{font-size:34px;font-weight:800;line-height:1;color:var(--led)}
+  .gauge .n s{font-family:var(--mono);font-size:11px;color:var(--mute);text-decoration:none}
+  .top .sum{flex:1 1 240px;min-width:220px}
+  .top .sum p{color:var(--mute);font-size:14.5px;margin-top:6px}
+
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+  @media (max-width:520px){.facts{grid-template-columns:1fr}}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center}
+  .fact .ic{flex:0 0 auto}
+  .fact .k{font-size:12.5px;color:var(--mute)}.fact .v{font-weight:700;font-size:15px}
+
+  .item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .item:last-child{border-bottom:0}
+  .dot{flex:0 0 auto;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
+  .dot.bad{background:var(--warn-soft);color:var(--warn)} .dot.ok{background:var(--ok-soft);color:var(--ok)}
+  .item .h{font-weight:700} .item .d{color:var(--mute);font-size:14px;margin-top:2px}
+
+  .price{background:var(--card);border:2px solid var(--led);border-radius:16px;padding:20px}
+  .price h3{font-size:18px;font-weight:800}
+  .pkg{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+  .pkg:last-of-type{border-bottom:0}
+  .pkg .n{font-weight:700}.pkg .sub{color:var(--mute);font-size:13px}
+  .pkg .amt{font-weight:800;font-size:19px;color:var(--led);white-space:nowrap;font-family:var(--mono)}
+  .note{color:var(--mute);font-size:13px;margin-top:10px}
+  ul.inc{margin:8px 0 0;padding-left:18px;color:var(--mute);font-size:14px;display:flex;flex-direction:column;gap:4px}
+  ul.inc b{color:var(--ink)}
+  footer{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--mute);font-size:14px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+  footer .brand{font-size:16px}
+</style>
+<style>
+  .cta{display:block;text-align:center;background:var(--led);color:#16181D;font-weight:800;text-decoration:none;border-radius:12px;padding:15px 18px;margin-top:14px;font-size:16px}
+  .tbl{width:100%;border-collapse:collapse;font-size:14px}
+  .tbl td{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl td:first-child{color:var(--mute);width:38%}
+  .bad{color:var(--warn);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">DİJİTABELA</div>
+    <div class="eyebrow" style="margin-top:12px">Ücretsiz Dijital Ekspertiz</div>
+    <h1>Aşkın Nakliyat — Dijital Görünürlük Raporu</h1>
+    <p class="meta">Manavkuyu, Bayraklı / İzmir · Evden Eve Nakliyat &amp; Eşya Depolama · Tarih: <b>23.11.2026</b> · Hazırlayan: <b>Dijitabela</b></p>
+  </header>
+
+  <section>
+    <div class="card top">
+      <div class="gauge">
+        <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
+          <circle cx="75" cy="75" r="64" fill="none" stroke="var(--line)" stroke-width="12"/>
+          <circle cx="75" cy="75" r="64" fill="none" stroke="var(--led)" stroke-width="12" stroke-linecap="round"
+            stroke-dasharray="402" stroke-dashoffset="201" transform="rotate(-90 75 75)"/>
+        </svg>
+        <div class="n"><b>50</b><s>/ 100</s></div>
+      </div>
+      <div class="sum">
+        <h3>Müşterileriniz sizi çok seviyor, internet sizi yeterince tanımıyor.</h3>
+        <p>Google'da <b style="color:var(--ink)">4,9 puan ve 55 yorum</b>, isimle teşekkür edilen bir ekip (Tuncay Bey, Deniz Bey) ve "9 ay depoda kaldı, eksiksiz teslim edildi" diyen müşteriler: güven tarafınız çok güçlü. Ama sizi ilk kez arayan kişi <b style="color:var(--ink)">dört farklı telefon numarası, iki farklı çalışma saati</b> ve teklif alamadığı tek sayfalık bir siteyle karşılaşıyor. Puanı aşağı çeken bu dağınıklık. Düzeltmesi hızlı, etkisi doğrudan telefon ve teklif sayısına yansır.</p>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="var(--led)"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 16.9 5.8 20.6l1.6-6.7L2.2 8.9l6.9-.6z"/></svg><div><div class="k">Google Puanı</div><div class="v">4,9 ★ · 55 yorum</div></div></div>
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2"><path d="M4 7h16v13H4zM8 7V4h8v3"/></svg><div><div class="k">Sosyal Medya</div><div class="v">IG 1.784 · FB 321</div></div></div>
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k">Site açılış süresi (mobil)</div><div class="v" style="color:var(--warn)">~7,4 saniye</div></div></div>
+      <div class="fact"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><div><div class="k">Online fiyat / teklif</div><div class="v" style="color:var(--warn)">Yok</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">1</span> Bilgi Tutarlılığı (En Acil)</h2>
+    <div class="card">
+      <table class="tbl">
+        <tr><td>Google'da telefon</td><td>0232 348 68 97 (sabit hat)</td></tr>
+        <tr><td>Sitedeki WhatsApp / Ara butonu</td><td>0554 588 17 57</td></tr>
+        <tr><td>Sitedeki 2. GSM</td><td>0535 541 95 25</td></tr>
+        <tr><td>WhatsApp İşletme hattınız</td><td>0554 347 79 25 <span class="bad">— sitede ve Google'da yok</span></td></tr>
+        <tr><td>Google çalışma saati</td><td>Hafta içi 09–18, Cmt 10–17, <span class="bad">Pazar kapalı</span></td></tr>
+        <tr><td>WhatsApp çalışma saati</td><td><span class="bad">24 saat açık</span></td></tr>
+        <tr><td>Google kategorisi</td><td>"Kamyon taşımacılığı şirketi" <span class="bad">— "Nakliyat şirketi / Eşya depolama" olmalı</span></td></tr>
+      </table>
+      <p class="note">Google, adres-telefon-saat bilgisinin her yerde aynı olmasını güven sinyali olarak kullanır. Farklı numaralar hem sıralamayı düşürür hem de müşteriyi "hangisini arayayım?" diye kararsız bırakır. Ayrıca "Aşkın Nakliyat" adıyla Ankara'da başka bir firma (askinnakliyat.com) var; aramada sizinle karışıyor. Bu yüzden her yerde "İzmir" vurgusu şart.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> Web Sitesi Teknik Taraması</h2>
+    <div class="card">
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Çok yavaş: mobilde ~7,4 saniye</div><div class="d">Taşınacak kişi telefondan 3–4 firmaya bakar; 3 saniyeyi geçen sitelerden ziyaretçilerin büyük kısmı beklemeden çıkar.</div></div></div>
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Google için temel ayarlar eksik</div><div class="d">Sayfa başlığı sadece "Aşkın Nakliyat"; "İzmir evden eve nakliyat", "Bayraklı nakliyat", "eşya depolama İzmir" gibi aranan kelimeler yok. Açıklama metni, site haritası (sitemap) ve robots dosyası yok; yerel işletme bilgisi (şema) tanımlı değil. Fotoğrafların 5'inden 4'ünün açıklaması boş.</div></div></div>
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Tek sayfa, hizmet sayfası yok</div><div class="d">Evden eve, asansörlü, şehirlerarası, parça eşya ve özellikle <b>depolama</b> için ayrı sayfa yok. Bölgedeki 300+ yorumlu rakipler her hizmet ve ilçe için ayrı sayfayla aramalarda öne çıkıyor.</div></div></div>
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Teklif almak zahmetli</div><div class="d">Yalnız ad/e-posta/mesaj formu var. Müşteri "kaç oda, kaçıncı kat, asansör var mı, nereden nereye, hangi tarih" bilgisini veremiyor; size de yarım bilgi geliyor. Rakipler "ücretsiz keşif + yazılı sabit fiyat" vaadini ilk ekranda gösteriyor.</div></div></div>
+      <div class="item"><div class="dot bad">✕</div><div><div class="h">Yazım hataları güveni zedeliyor</div><div class="d">Sitede "elektirik", "elamanlarımız"; katalog görselinde "depolamaya la" gibi hatalar var. Küçük ama kurumsal algıyı düşürüyor.</div></div></div>
+      <div class="item"><div class="dot ok">✓</div><div><div class="h">Güvenli bağlantı (SSL) var</div><div class="d">Sertifika geçerli, http → https yönlendirmesi çalışıyor.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> Elinizdeki Altın: Depolama</h2>
+    <div class="card">
+      <p style="color:var(--mute);font-size:14.5px">Yorumlarınızın önemli kısmı depolamayı övüyor ("depoları son derece hijyenik ve güvenilir", "9 ay depoda kaldı, eksiksiz teslim"). WhatsApp kataloğunuzda "kişiye özel oda sistemi" var. Ama sitede depolamanın kendi sayfası, fotoğrafları, oda ölçüleri, fiyat aralığı ve "depoyu görme randevusu" yok. Depolama, tek seferlik taşımadan farklı olarak <b style="color:var(--ink)">her ay tekrar eden gelir</b> demek ve İzmir'de "eşya depolama" araması yıl boyu sürüyor. En hızlı büyüyebileceğiniz kalem bu.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> Önerilen Yol Haritası</h2>
+    <div class="card">
+      <div class="item"><div class="dot ok">1</div><div><div class="h">İlk hafta: tek numara, tek saat</div><div class="d">Google, site, WhatsApp, Instagram ve Facebook'ta aynı telefon ve aynı çalışma saati; Google kategorisi "Nakliyat şirketi" + "Eşya depolama" olarak düzeltilir, hizmetler ve fotoğraflar eklenir.</div></div></div>
+      <div class="item"><div class="dot ok">2</div><div><div class="h">Hızlı, çok sayfalı yeni site</div><div class="d">1 saniyenin altında açılan; hizmet ve Bayraklı/Karşıyaka/Bornova/Buca ilçe sayfaları; Google yorumlarınızın sitede gösterilmesi; doğru başlık, açıklama ve işletme bilgisi.</div></div></div>
+      <div class="item"><div class="dot ok">3</div><div><div class="h">Akıllı teklif sihirbazı</div><div class="d">Oda sayısı, kat, asansör, güzergâh ve tarih seçilir; talep tam bilgiyle WhatsApp'ınıza düşer. İsterseniz görüntülü keşif randevusu da buradan alınır.</div></div></div>
+      <div class="item"><div class="dot ok">4</div><div><div class="h">Depolama vitrini</div><div class="d">Oda tipleri, fotoğraflar, güvenlik/hijyen bilgisi, fiyat aralığı ve "depoyu yerinde görün" randevusu.</div></div></div>
+      <div class="item"><div class="dot ok">5</div><div><div class="h">Yorum ve içerik düzeni</div><div class="d">Her taşımadan sonra müşteriye yorum hatırlatması; Instagram'daki 1.784 takipçiyi siteye ve WhatsApp'a bağlayan düzenli öncesi/sonrası paylaşımlar.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="price">
+      <h3>Kısa bir sesli görüşme yapalım</h3>
+      <p class="note" style="font-size:14px">15 dakikada raporu birlikte üzerinden geçelim; hangi adımın size en hızlı dönüş getireceğini ve net teklifimizi görüşmede iletelim. Size uygun saati WhatsApp'tan yazmanız yeterli.</p>
+      <a class="cta" href="https://wa.me/905019452184?text=Merhaba%2C%20A%C5%9Fk%C4%B1n%20Nakliyat%20raporu%20i%C3%A7in%20sesli%20g%C3%B6r%C3%BC%C5%9Fme%20saati%20belirlemek%20istiyorum.">Görüşme saati belirle (WhatsApp)</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="brand">DİJİTABELA</span>
+    <span>dijitabela.com</span>
+    <span>0501 945 21 84</span>
+  </footer>
+</div>
+<script src="/ornek/_dijitabela/izle.js" defer></script>
+</body>
+</html>
