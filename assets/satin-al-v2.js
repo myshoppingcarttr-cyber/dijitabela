@@ -9,15 +9,15 @@
       madde: ["Sahiplik ve erişim kontrolü", "Doğru kategoriler ve anahtar kelimeli açıklama", "Çalışma saatleri, telefon, web ve WhatsApp bağlantısı", "10–15 fotoğraf (düzenlenmiş, yüklemeden önce onayınıza)", "Bütün yorumlara cevap", "Ürün ve hizmet listesi", "Baskıya hazır QR yorum kartı", "Önce / sonra raporu + 30 günlük 3 öneri"] },
     { kod: "google-vitrin-bakim", kat: "Google İşletme", ad: "Google Vitrin aylık bakım", tek: 990, aylik: true, oran: 1, sure: "Aylık · istediğiniz zaman bırakın",
       madde: ["Yorumlara 24 saat içinde cevap", "Haftalık Google gönderisi", "Ayda 4 yeni fotoğraf", "Aylık rapor"] },
-    { kod: "google-profil-kurulum", kat: "Google İşletme", ad: "Google İşletme Profili kurulumu", tek: 3490, oran: 0.5, sure: "Hazırlık 1 iş günü + Google doğrulama süresi", madde: ["Tek konumda mevcut kayıt ve sahiplik kontrolü", "Kategori, hizmetler, saatler, iletişim bilgileri ve işletmenin fotoğrafları", "Google doğrulaması için rehberlik ve erişim teslimi"], tarifeKontrol: true },
+    { kod: "google-profil-kurulum", ekler: ["ek-google"], kat: "Google İşletme", ad: "Google İşletme Profili kurulumu", tek: 3490, oran: 0.5, sure: "Hazırlık 1 iş günü + Google doğrulama süresi", madde: ["Tek konumda mevcut kayıt ve sahiplik kontrolü", "Kategori, hizmetler, saatler, iletişim bilgileri ve işletmenin fotoğrafları", "Google doğrulaması için rehberlik ve erişim teslimi"], tarifeKontrol: true },
     { kod: "dijital-ekspertiz", kat: "Google İşletme", ad: "Detaylı dijital ekspertiz raporu", tek: 1900, oran: 1, sure: "1 iş günü",
       madde: ["Google profili ve web sitesinin eksikleri", "Çevrenizdeki rakiplerle karşılaştırma", "Öncelik sırasıyla 10 adımlık yol haritası"] },
     { kod: "tek-sayfa-site", kat: "Web sitesi", ad: "Tek sayfalık web sitesi", tek: 3900, oran: 0.5, sure: "2 iş günü",
       madde: ["Mobil uyumlu tek sayfa (kampanya, uzman, lansman)", "Arama ve WhatsApp düğmesi", "Temel SEO ayarları", "İşletmenize özel prototip, onayınızla yayın"] },
-    { kod: "kurumsal-site", kat: "Web sitesi", ad: "Kurumsal web sitesi", tek: 17900, oran: 0.5, sure: "Yaklaşık 1 hafta", madde: ["Beş sayfaya kadar özel tasarım ve mobil uyum", "İşletmenin metin ve görselleriyle iletişim alanı ve temel SEO", "Alan adı ve ilk yıl barındırma"], tarifeKontrol: true },
-    { kod: "tek-kanal-reklam", kat: "Reklam yönetimi", ad: "Tek kanalda reklam yönetimi", tek: 7490, aylik: true, oran: 0.5, sure: "Aylık hizmet", madde: ["Google Arama veya Instagram ve Facebook reklamları (Meta)", "Tek işletme, en fazla iki kampanya, müşteri görsellerinden iki reklam varyasyonu", "Haftalık optimizasyon, ay sonu raporu ve desteklenen arama/WhatsApp tıklamalarının takibi", "Aylık 30.000 TL’ye kadar medya bütçesi ayrıca platforma ödenir"], tarifeKontrol: true },
-    { kod: "profil-reklam-paketi", kat: "Reklam yönetimi", ad: "Profil kurulumu ve ilk ay reklam yönetimi", tek: 9990, oran: 0.5, sure: "İlk ay", madde: ["Google İşletme Profili kurulumu ve tek platformda reklam yönetimi", "Ayrı alım toplamı 10.980 TL, paket avantajı 990 TL", "Aylık 30.000 TL’ye kadar reklam bütçesi ayrıca platforma ödenir", "Aynı kapsamda devam ederseniz ikinci aydan itibaren 7.490 TL + KDV/ay"], tarifeKontrol: true },
-    { kod: "dijital-vitrin-paketi", kat: "Web sitesi", ad: "Dijital Vitrin · web sitesi ve Google profili", tek: 19900, oran: 0.5, sure: "Yaklaşık 1 hafta", madde: ["Beş sayfaya kadar kurumsal site ve Google İşletme Profili kurulumu", "Mobil uyum, SEO altyapısı ve bir ay destek", "Site ve profil ayrı alındığında 21.390 TL, paket avantajı 1.490 TL"], tarifeKontrol: true },
+    { kod: "kurumsal-site", ekler: ["ek-web"], kat: "Web sitesi", ad: "Kurumsal web sitesi", tek: 17900, oran: 0.5, sure: "Yaklaşık 1 hafta", madde: ["Beş sayfaya kadar özel tasarım ve mobil uyum", "İşletmenin metin ve görselleriyle iletişim alanı ve temel SEO", "Alan adı ve ilk yıl barındırma"], tarifeKontrol: true },
+    { kod: "tek-kanal-reklam", ekler: ["ek-aylik"], kat: "Reklam yönetimi", ad: "Tek kanalda reklam yönetimi", tek: 7490, aylik: true, oran: 0.5, sure: "Aylık hizmet", madde: ["Google Arama veya Instagram ve Facebook reklamları (Meta)", "Tek işletme, en fazla iki kampanya, müşteri görsellerinden iki reklam varyasyonu", "Haftalık optimizasyon, ay sonu raporu ve desteklenen arama/WhatsApp tıklamalarının takibi", "Aylık 30.000 TL’ye kadar medya bütçesi ayrıca platforma ödenir"], tarifeKontrol: true },
+    { kod: "profil-reklam-paketi", ekler: ["ek-google", "ek-aylik"], kat: "Reklam yönetimi", ad: "Profil kurulumu ve ilk ay reklam yönetimi", tek: 9990, oran: 0.5, sure: "İlk ay", madde: ["Google İşletme Profili kurulumu ve tek platformda reklam yönetimi", "Ayrı alım toplamı 10.980 TL, paket avantajı 990 TL", "Aylık 30.000 TL’ye kadar reklam bütçesi ayrıca platforma ödenir", "Aynı kapsamda devam ederseniz ikinci aydan itibaren 7.490 TL + KDV/ay"], tarifeKontrol: true },
+    { kod: "dijital-vitrin-paketi", ekler: ["ek-web", "ek-google"], kat: "Web sitesi", ad: "Dijital Vitrin · web sitesi ve Google profili", tek: 19900, oran: 0.5, sure: "Yaklaşık 1 hafta", madde: ["Beş sayfaya kadar kurumsal site ve Google İşletme Profili kurulumu", "Mobil uyum, SEO altyapısı ve bir ay destek", "Site ve profil ayrı alındığında 21.390 TL, paket avantajı 1.490 TL"], tarifeKontrol: true },
     { kod: "site-duzeltme", kat: "Web sitesi", ad: "Web sitesi hata ve hız düzeltme", tek: 1500, oran: 1, sure: "1 iş günü",
       madde: ["Kırık bağlantılar ve hatalar", "Hız ve mobil uyum sorunları", "Güvenlik güncellemesi", "Önce / sonra raporu"] },
     { kod: "site-bakim", kat: "Web sitesi", ad: "Web sitesi aylık bakım", tek: 990, aylik: true, oran: 1, sure: "Aylık · istediğiniz zaman bırakın",
@@ -156,7 +156,7 @@
     if (veri.kdv !== KDV || !veri.katalog) return;
     URUNLER.filter(function (u) { return u.tarifeKontrol; }).forEach(function (u) {
       var kayit = veri.katalog[u.kod], baglanti = document.querySelector('[data-teklif="' + u.kod + '"]');
-      if (baglanti && kayit && kayit.ad === u.ad && kayit.tek === u.tek && kayit.oran === u.oran && !!kayit.aylik === !!u.aylik) {
+      if (baglanti && kayit && Array.isArray(kayit.ekler) && JSON.stringify(kayit.ekler) === JSON.stringify(u.ekler) && kayit.ad === u.ad && kayit.tek === u.tek && kayit.oran === u.oran && !!kayit.aylik === !!u.aylik) {
         baglanti.outerHTML = siparisDugmesi(u);
       }
     });
@@ -233,7 +233,9 @@
   }; });
   // 31 Eki 2026: hizmete özel sözleşme metni (genel + ek [+ tüketici eki]) — assets/sozlesme.js
   var aliciTuru = function () { return (F.querySelector('input[name="alici"]:checked') || {}).value === "tuketici" ? "tuketici" : "isletme"; };
-  var sozKodlar = function () { return window.Sozlesme ? Sozlesme.kodlar({ urun: secili && secili.kod }, aliciTuru()) : []; };
+  var sozKodlar = function () {
+    return window.Sozlesme ? Sozlesme.kodlar({ urun: secili && secili.kod, sozlesme_ekleri: secili && secili.ekler }, aliciTuru()) : [];
+  };
   document.getElementById("fSozOku").onclick = function () {
     if (!window.Sozlesme || !secili) { window.open("sozlesme.html", "_blank"); return; }
     var ek0 = '<div class="soz-ek0"><h2>EK-0 — SİPARİŞ ÖZETİ</h2><p><b>' + esc(secili.ad) + "</b></p>" + document.getElementById("saOzet").innerHTML +
@@ -244,7 +246,7 @@
   F.onsubmit = function (e) {
     e.preventDefault(); hata("");
     var v = function (id) { return document.getElementById(id).value.trim(); };
-    var d = { urun: secili && secili.kod, ad: v("fAd"), isletme: v("fIs"), tel: v("fTel"), eposta: v("fEp"), not: v("fNot"),
+    var d = { urun: secili && secili.kod, tarife_tutari: secili && secili.tek, ad: v("fAd"), isletme: v("fIs"), tel: v("fTel"), eposta: v("fEp"), not: v("fNot"),
       yontem: (F.querySelector('input[name="yontem"]:checked') || {}).value || "havale", kvkk: document.getElementById("fKvkk").checked, sozlesme: document.getElementById("fSoz").checked,
       alici_turu: aliciTuru(), ifa_onayi: aliciTuru() === "tuketici" && document.getElementById("fIfa").checked,
       unvan: aliciTuru() === "isletme" ? v("fUnvan") : "", vergi_no: aliciTuru() === "isletme" ? v("fVkn") : "",
