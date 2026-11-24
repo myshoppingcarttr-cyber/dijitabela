@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Dijital menü · Ege Garden</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="menu-data.js" defer></script>
+  <script src="menu.js" defer></script>
+</head>
+<body class="menu-page">
+  <a class="skip" href="#main">İçeriğe geç</a>
+  <header class="mast wrap">
+    <a class="wordmark" href="site.html"><span>Ege Garden</span><small>AKÇAY · EDREMİT</small></a>
+    <a class="quiet" href="rezervasyon.html">Masa talebi <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main" class="wrap">
+    <section class="menu-heading">
+      <div><p class="eyebrow">Ege Garden · Akçay</p><h1>Dijital menü</h1><p>Yemekleri seçin, listenizi masada garsona gösterin.</p>
+        <a class="quiet" href="https://view.qrall.co/tr?tenantId=3a219a0f-aabe-9f33-6f35-0a78c53407e7&amp;channelId=3a219a10-6ec9-9e3f-e297-23eecd7b360e">Restoranın QR menüsü <span aria-hidden="true">↗</span></a>
+      </div>
+      <img src="assets/oven.webp" alt="Ege Garden’ın taş fırınındaki pide" fetchpriority="high">
+    </section>
+    <section aria-label="Menüde ara ve filtrele">
+      <div class="menu-toolbar">
+        <label class="search-box">Menüde ara<input id="menu-search" class="field" type="search" placeholder="Örn. lahmacun" autocomplete="off" aria-controls="dishes"></label>
+        <div class="categories" id="categories" role="group" aria-label="Menü kategorileri"></div>
+      </div>
+      <div class="menu-layout">
+        <div>
+          <p class="menu-result" id="menu-result" role="status"></p>
+          <div class="dishes" id="dishes"></div>
+          <p class="menu-note">Fiyatlar 25 Kasım 2026 tarihli QR menüden alınmıştır. Alerjiniz varsa servis ekibine bildirin.</p>
+          <noscript><p class="menu-note">Arama ve seçim listesi için tarayıcınızda JavaScript’i açın. Üstteki bağlantıdan restoranın QR menüsüne ulaşabilirsiniz.</p></noscript>
+        </div>
+        <aside class="cart-summary" aria-labelledby="cart-title">
+          <h3 id="cart-title">Masa listesi</h3>
+          <p data-cart-summary>0 ürün</p>
+          <button class="button" type="button" data-open-cart disabled>Listeyi aç <span aria-hidden="true">↗</span></button>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap foot"><a href="index.html">Sunuma dön</a><span class="watermark">Örnek / Dijitabela</span></footer>
+  <div class="mobile-cart"><strong data-cart-summary>0 ürün</strong><button class="button" type="button" data-open-cart disabled>Listeyi aç <span aria-hidden="true">↗</span></button></div>
+  <div class="skip cart-announcement" id="cart-announcement" role="status"></div>
+  <dialog id="cart" aria-labelledby="cart-heading">
+    <div class="dialog-header"><h2 id="cart-heading">Masa listesi</h2><form method="dialog"><button class="icon-button" aria-label="Kapat">×</button></form></div>
+    <ul class="cart-lines" id="cart-lines"></ul>
+    <p class="cart-total" id="cart-total"></p>
+    <button type="button" id="waiter" class="button">Garsona göster</button>
+    <p class="menu-note">Siparişinizi servis ekibi alır.</p>
+  </dialog>
+</body>
+</html>

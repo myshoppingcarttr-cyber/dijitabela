@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Masa talebi · Ege Garden</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="contact.js" defer></script>
+  <script src="booking.js" defer></script>
+</head>
+<body class="booking-page">
+  <a class="skip" href="#main">İçeriğe geç</a>
+  <header class="mast wrap">
+    <a class="wordmark" href="site.html"><span>Ege Garden</span><small>AKÇAY · EDREMİT</small></a>
+    <nav aria-label="Sayfalar"><a class="quiet" href="menu.html">Menü</a><a class="quiet" href="#panel">İşletme paneli</a></nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="booking" aria-label="Masa talebi">
+      <div class="booking-aside">
+        <img src="assets/plane-tree.webp" alt="Ege Garden’ın ışıklarla aydınlanan çınarı" fetchpriority="high">
+        <div><p class="eyebrow">Ege Garden · Akçay</p><h1>Bir masa ayıralım.</h1><p>Tarihi ve yer tercihinizi seçin, talebinizi WhatsApp’ta paylaşın. Rezervasyon işletmenin dönüşüyle kesinleşir.</p></div>
+      </div>
+      <section class="booking-form">
+        <h2>Rezervasyon talebi</h2>
+        <form id="booking-form">
+          <div class="form-grid">
+            <label>Tarih<input class="field" name="date" type="date" required aria-describedby="booking-timezone"></label>
+            <label>Saat<input class="field" name="time" type="time" required aria-describedby="booking-timezone"></label>
+            <label>Kişi sayısı<input class="field" name="guests" type="number" min="1" step="1" inputmode="numeric" placeholder="Örn. 4" required></label>
+            <label>Alan
+              <select class="field" name="area" required>
+                <option value="">Alan seçin</option><option>Bahçe</option><option>Kapalı alan</option><option>Çınar altı</option>
+              </select>
+            </label>
+            <label class="wide">Özel gün notu (isteğe bağlı)
+              <textarea class="field" name="note" maxlength="240" placeholder="Örn. Doğum günü yemeği"></textarea>
+            </label>
+          </div>
+          <button type="submit" class="button">Mesajı hazırla <span aria-hidden="true">→</span></button>
+          <p class="form-note" id="booking-timezone">Saatler Türkiye saatine göre. WhatsApp hattı teyit edilecek.</p>
+        </form>
+        <section class="prepared" hidden aria-labelledby="prepared-title">
+          <h3 id="prepared-title" tabindex="-1">WhatsApp mesajı</h3>
+          <p id="prepared-message"></p>
+          <a class="button" id="send-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp’ı aç ↗</a>
+          <p class="form-note" id="booking-feedback" role="status"></p>
+        </section>
+        <noscript><p class="form-note">Talep hazırlamak için tarayıcınızda JavaScript’i açın.</p></noscript>
+      </section>
+    </section>
+    <details class="panel" id="panel">
+      <summary><h2>İşletme paneli</h2></summary>
+      <p>Bu tarayıcıdan açılan örnek talepler burada görünür. Onay ve ret yalnızca bu cihazda saklanır.</p>
+      <div class="request-list" id="request-list"></div>
+      <p id="panel-feedback" role="status"></p>
+    </details>
+  </main>
+  <footer class="wrap foot"><a href="index.html">Sunuma dön</a><span class="watermark">Örnek / Dijitabela</span></footer>
+</body>
+</html>
