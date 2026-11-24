@@ -51,9 +51,10 @@
     SUM.innerHTML = "<h3>Anlık fiyat</h3>" + (h.satirlar.length
       ? h.satirlar.map(function (r) { return '<div class="row"><span>' + e(r.ad) + '</span><span>' + (r.tek ? TL(r.tek) : "") + (r.ay ? (r.tek ? " + " : "") + TL(r.ay) + "/ay" : "") + "</span></div>"; }).join("") +
         (h.carpan !== 1 ? '<div class="row"><span>Ölçek / aciliyet katsayısı</span><span>×' + h.carpan.toFixed(2).replace(".", ",") + "</span></div>" : "") +
-        '<div class="tot"><span>Tek seferlik</span><b>' + TL(h.tek) + "</b></div>" +
+        '<div class="tot"><span>Başlangıç toplamı</span><b>' + TL(h.tek) + "</b></div>" +
         (h.ay ? '<div class="row" style="border:0"><span>Aylık (isteğe bağlı)</span><span>' + TL(h.ay) + " / ay</span></div>" : "") +
         '<p class="small">KDV hariç · %50 başlangıçta: <b>' + TL(h.kapora) + "</b></p>" +
+        (h.secim.indexOf("reklam") >= 0 ? '<p>İlk ay reklam yönetimi dahildir. Devamında 7.490 TL/ay. Medya bütçesi ayrıca ödenir.</p>' : "") +
         (h.indirim ? '<div class="save">Paket avantajı: ' + TL(h.indirim) + " tasarruf</div>" : "")
       : '<p class="empty">Hizmet seçtikçe fiyat burada oluşur.</p>');
   }
@@ -108,6 +109,9 @@
         if (S.adim === 0) S.sektor = i.value;
         if (S.adim === 1) S.hedef = [].slice.call(W.querySelectorAll("input:checked")).map(function (x) { return x.value; });
         if (S.adim === 2) {
+          if (i.checked && (i.id === "k_seo" || i.id === "k_profil")) {
+            document.getElementById(i.id === "k_seo" ? "k_profil" : "k_seo").checked = false;
+          }
           S.secim = [].slice.call(W.querySelectorAll('input[id^="k_"]:checked')).map(function (x) { return x.value; });
           var o = W.querySelector('input[name="ol"]:checked'), a = W.querySelector('input[name="ac"]:checked');
           if (o) S.olcek = o.value; if (a) S.acil = a.value;

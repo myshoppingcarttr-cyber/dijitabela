@@ -4,7 +4,9 @@
   // tek: tek seferlik (TL, KDV hariç) · ay: aylık (TL, KDV hariç)
   // Fiyatlar Eylül 2026 Türkiye pazar araştırmasına göre piyasanın alt-orta bandında tutuldu (talep çekmek için).
   var KALEMLER = {
-    site:      { ad: "Kurumsal web sitesi", acik: "Mobil uyumlu, hizmet sayfaları, galeri, harita, WhatsApp randevu", tek: 17500, grup: "Görünürlük" },
+    site:      { ad: "Kurumsal web sitesi", acik: "En fazla beş sayfa, müşteri metin ve görselleri, iletişim, mobil uyum", tek: 17900, grup: "Görünürlük" },
+    profil:    { ad: "Google İşletme Profili kurulumu", acik: "Tek konum, kategori, hizmetler, saatler, fotoğraflar ve doğrulama rehberliği", tek: 3490, grup: "Görünürlük" },
+    reklam:    { ad: "Tek kanalda reklam yönetimi · ilk ay", acik: "Google Arama veya Meta. Devam eden aylarda 7.490 TL/ay, medya bütçesi ayrı", tek: 7490, grup: "Reklam" },
     seo:       { ad: "Google SEO + Google İşletme Profili", acik: "SEO altyapısı, 6 blog yazısı, Google İşletme kurulum/kurtarma", tek: 7500, grup: "Görünürlük" },
     crm:       { ad: "Müşteri takip yazılımı (CRM)", acik: "Müşteri/kayıt paneli, geçmiş, hatırlatmalar, müşteri girişi", tek: 30000, grup: "Yazılım" },
     uygulama:  { ad: "Telefon ve bilgisayar uygulaması", acik: "Yüklenebilir uygulama (Android, iPhone, masaüstü)", tek: 10000, grup: "Yazılım", gerekli: "crm" },
@@ -20,6 +22,8 @@
   };
 
   var PAKETLER = [
+    { id: "reklam-profil", ad: "Profil + reklam başlangıç", kisa: "Profil kurulumu ve ilk ay reklam yönetimi. Devam eden aylarda 7.490 TL/ay.", kalemler: ["profil", "reklam"], fiyat: 9990, sure: "1 ay", destek: "1 ay" },
+    { id: "site-profil", ad: "Site + profil", kisa: "Kurumsal web sitesi ve profil kurulumu.", kalemler: ["site", "profil"], fiyat: 19900, sure: "1 hafta", destek: "1 ay" },
     { id: "vitrin", ad: "Dijital Vitrin", kisa: "Google'da görünür olun, müşteri sizi bulsun.", kalemler: ["site", "seo"], fiyat: 19900, sure: "1 hafta", destek: "1 ay" },
     { id: "servis", ad: "Dijital İşletme", kisa: "Müşterinizi takip edin, geri çağırın.", kalemler: ["site", "seo", "crm", "uygulama"], fiyat: 49900, sure: "2–3 hafta", destek: "3 ay", onerilen: true },
     { id: "tam", ad: "Tam Dijital Dönüşüm", kisa: "Mağaza uygulaması, online ödeme ve büyüme desteği.", kalemler: ["site", "seo", "crm", "uygulama", "magaza", "odeme"], fiyat: 89900, sure: "5–6 hafta", destek: "6 ay" }

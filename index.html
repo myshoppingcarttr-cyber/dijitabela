@@ -448,6 +448,7 @@ dialog.film video{width:100%;aspect-ratio:9/16;display:block;background:#000}
 dialog.film button{display:block;margin:0 0 8px auto;background:var(--amber);border:0;font:700 14px var(--f-govde);padding:8px 14px;cursor:pointer;color:#15171A}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.kepenk-perde{display:none}}
+.hizmet-tarifesi{margin:1.5rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:12px}.hizmet-tarifesi>div{border:1px solid #49515a;border-radius:12px;padding:18px}.hizmet-tarifesi dt{font-weight:700}.hizmet-tarifesi dd{margin:8px 0 0}.hizmet-tarifesi strong{display:block;color:var(--amber);font-size:1.3rem}.hizmet-tarifesi span{display:block;margin-top:8px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -489,7 +490,7 @@ dialog.film button{display:block;margin:0 0 8px auto;background:var(--amber);bor
       <p class="etiket" style="color:var(--amber)">Antalya merkezli · Türkiye geneline uzaktan</p>
       <h1 style="margin-top:12px">Dijitabela: web sitesi, Google ve <em>yapay zekâ asistanı.</em> Esnafa tek elden.</h1>
       <p class="alt">Müşteriniz sizi Google'da bulsun, gece gelen mesaja asistan cevap versin, randevu ve takip kendiliğinden işlesin. Angaryayı biz alalım, siz işinize bakın.</p>
-      <div class="cipler"><span>Web sitesi · <b>1 haftada</b></span><span>Asistan · <b>7/24</b></span><span>Fiyatlar · <b>4.900 TL'den</b></span></div>
+      <div class="cipler"><span>Web sitesi · <b>1 haftada</b></span><span>Asistan · <b>7/24</b></span><span>Tek sayfa site · <b>4.900 TL'den</b></span></div>
       <div class="dugmeler"><a class="dugme amber" href="#son">3 ücretsiz ön tasarım isteyin</a><a class="dugme" href="#urunler">Ne yapıyoruz?</a></div>
     </div>
     <div class="dene">
@@ -666,11 +667,12 @@ dialog.film button{display:block;margin:0 0 8px auto;background:var(--amber);bor
 <!-- 9 · Teklif -->
 <section class="teklif bolum gece" id="teklif">
   <div class="sar">
-    <div class="bas"><p class="etiket" style="color:var(--amber)">Fiyatlar · KDV hariç · tek seferlik</p><h2>Teklifinizi kendiniz kurun.</h2><p class="soluk">İhtiyacınızı işaretleyin. Toplam anında çıkar; paket daha ucuzsa söyleriz. Aylık ücret zorunlu değil.</p></div>
+    <div class="bas"><p class="etiket" style="color:var(--amber)">Fiyatlar · KDV hariç</p><h2>Teklifinizi kendiniz kurun.</h2><p class="soluk">İhtiyacınızı işaretleyin. Toplam anında çıkar; paket daha ucuzsa söyleriz. Aylık ücret zorunlu değil.</p></div>
+    <dl class="hizmet-tarifesi"><div><dt>Google İşletme Profili kurulumu</dt><dd><strong>3.490 TL</strong><span>Tek konum için mevcut kayıt kontrolü, kategori, hizmet, saat, müşteri fotoğrafları ve doğrulama rehberliği.</span></dd></div><div><dt>Tek platformda reklam yönetimi</dt><dd><strong>7.490 TL / ay</strong><span>Google Arama veya Meta. Aylık 30.000 TL’ye kadar reklam bütçesi, iki kampanyaya kadar yönetim, iki reklam varyasyonu, haftalık iyileştirme ve aylık rapor.</span></dd></div><div><dt>Profil kurulumu + reklam yönetimi</dt><dd><strong>9.990 TL ilk ay</strong><span>Ayrı alımda 10.980 TL. İlk ay 990 TL avantaj. Aynı kapsamda devam eden aylarda 7.490 TL.</span></dd></div><div><dt>Kurumsal tanıtım sitesi</dt><dd><strong>17.900 TL</strong><span>En fazla beş sayfa, mobil uyum, iletişim bağlantıları ve müşterinin sağladığı metin ve görseller.</span></dd></div><div><dt>Web sitesi + Google İşletme Profili</dt><dd><strong>19.900 TL</strong><span>Kurumsal site ve tek konum için profil kurulumu. Ayrı alımda 21.390 TL. Paket avantajı 1.490 TL.</span></dd></div></dl><p class="soluk">Fiyatlara KDV eklenir. Reklam bütçesini kendi platform hesabınızdan ödersiniz. Profil ve reklam paketinde hizmet bedelinin yarısı başlangıçta, yarısı ilk ay tesliminde alınır. Google İşletme Profili ücretsizdir. Kurulum bedeli ajans hizmetini kapsar.</p>
     <div class="teklif-sahne">
       <div id="kalemler"></div>
       <aside class="ozet" aria-live="polite">
-        <span class="etiket soluk">Kurulum toplamı</span>
+        <span class="etiket soluk">Başlangıç toplamı</span>
         <div class="toplam" id="toplam">0 TL</div>
         <div id="aylik" class="soluk"></div>
         <div class="oneri" id="oneri"></div>
@@ -1032,11 +1034,11 @@ fetch("assets/yeni/bolumler.json", { cache: "no-cache" }).then((r) => (r.ok ? r.
 
 /* ---------- 9 · Teklif ---------- */
 const KALEM = [
-  ["Görünürlük", [["web", "Kurumsal web sitesi", "Hizmet sayfaları, randevu düğmesi, mobil uyumlu", 17500, 0, true], ["seo", "Google SEO + İşletme Profili", "Haritada doğru kayıt, yerel arama", 7500, 0, true]]],
+  ["Görünürlük", [["web", "Kurumsal web sitesi", "En fazla beş sayfa, müşterinin içeriği, mobil tasarım", 17900, 0, true], ["profil", "Google İşletme Profili kurulumu", "Tek konum için kurulum ve doğrulama rehberliği", 3490, 0], ["reklam", "Tek kanalda reklam yönetimi", "İlk ay dahil. Devam ederseniz 7.490 TL/ay; medya bütçesi ayrı.", 7490, 0], ["seo", "Google SEO + İşletme Profili", "Haritada doğru kayıt, yerel arama", 7500, 0, true]]],
   ["Yazılım", [["crm", "Müşteri takip yazılımı", "Müşteri, iş emri, teklif, tahsilat", 30000, 0], ["app", "Telefon ve bilgisayar uygulaması", "Aynı veri her cihazda", 10000, 0], ["magaza", "Google Play + App Store yayını", "Kendi markanızla uygulama", 35000, 0], ["odeme", "Online ödeme ve taksit", "Kapora ve kartla ödeme", 15000, 0], ["randevu", "Online randevu sistemi", "Boş saat seçimi, hatırlatma", 10000, 0]]],
   ["Yapay zekâ", [["wa", "WhatsApp yapay zekâ asistanı", "Gece de cevap, randevu, sipariş", 20000, 2500, true], ["icerik", "Otomatik içerik ve sosyal medya", "Paylaşım, video, hikâye takvimi", 15000, 1500], ["yorum", "Google yorum toplama", "Her müşteriye yorum bağlantısı, düşük puana uyarı", 6000, 500]]]
 ];
-const PAKET = [["Dijital Vitrin", 19900, ["web", "seo"]], ["Dijital İşletme", 49900, ["web", "seo", "crm", "app"]], ["Tam Dijital Dönüşüm", 89900, ["web", "seo", "crm", "app", "magaza", "odeme"]]];
+const PAKET = [["Profil + reklam başlangıç", 9990, ["profil", "reklam"]], ["Site + profil", 19900, ["web", "profil"]], ["Dijital Vitrin", 19900, ["web", "seo"]], ["Dijital İşletme", 49900, ["web", "seo", "crm", "app"]], ["Tam Dijital Dönüşüm", 89900, ["web", "seo", "crm", "app", "magaza", "odeme"]]];
 const tl = (n) => Math.round(n).toLocaleString("tr-TR") + " TL";
 const fiyat = {}, adlar = {};
 KALEM.forEach(([grup, kl]) => {
@@ -1045,7 +1047,12 @@ KALEM.forEach(([grup, kl]) => {
     fiyat[id] = [kur, ay]; adlar[id] = ad3;
     const l = document.createElement("label"); l.className = "kalem"; l.htmlFor = "k-" + id;
     l.innerHTML = `<input type="checkbox" id="k-${id}" ${sec ? "checked" : ""}><span><b>${ad3}</b><small>${acik}</small></span><em>${tl(kur)}${ay ? `<br><small>+ ${tl(ay)}/ay</small>` : ""}</em>`;
-    l.querySelector("input").addEventListener("change", teklif); $("#kalemler").appendChild(l);
+    l.querySelector("input").addEventListener("change", (ev) => {
+      if (ev.target.checked && (id === "seo" || id === "profil")) {
+        $("#k-" + (id === "seo" ? "profil" : "seo")).checked = false;
+      }
+      teklif(ev);
+    }); $("#kalemler").appendChild(l);
   });
 });
 let gosterilen = 0, ozetMetin = "";
@@ -1057,14 +1064,15 @@ function teklif(ev) {
     const paketli = f + sec.filter((x) => !ic.includes(x)).reduce((a, id) => a + fiyat[id][0], 0);
     if (paketli < en) { en = paketli; oneri = `${ad4} paketiyle ${tl(paketli)}: ${tl(kur - paketli)} daha az ödersiniz.`; }
   }
-  $("#aylik").textContent = ay ? `+ ${tl(ay)} / ay işletim (isteğe bağlı)` : "Aylık ücret yok.";
+  const devam = sec.includes("reklam") ? " Reklam yönetimine devam ederseniz ikinci aydan itibaren 7.490 TL/ay. Medya bütçesi ayrıca ödenir." : "";
+  $("#aylik").textContent = (ay ? `+ ${tl(ay)} / ay işletim (isteğe bağlı)` : "") + devam || "Aylık ücret yok.";
   $("#oneri").textContent = sec.length ? (oneri || "Seçiminizde tek tek almak daha uygun.") : "Bir kalem seçin.";
-  const wa = document.getElementById("teklif-wa"); if (wa) wa.href = "https://wa.me/905019452184?text=" + encodeURIComponent(sec.length ? `Merhaba, şu kalemler için teklif almak istiyorum: ${sec.map((id) => adlar[id]).join(", ")}. Sitedeki toplam: ${tl(en)}.` : "Merhaba, Dijitabela hakkında bilgi almak istiyorum.");
-  ozetMetin = sec.length ? `${sec.map((id) => adlar[id]).join(", ")} · yaklaşık ${tl(en)}` : "";
-  if (GS) { const o = { v: gosterilen }; gsap.to(o, { v: kur, duration: 0.6, ease: "power2.out", onUpdate: () => ($("#toplam").textContent = tl(o.v)) }); }
-  else $("#toplam").textContent = tl(kur);
-  gosterilen = kur;
-  if (ev && window.__rehberHazir) { clearTimeout(teklif._t); teklif._t = setTimeout(() => rehberDe(sec.length ? `Toplam ${tl(kur)}. ${oneri || "Seçiminizde tek tek almak daha uygun."}` : "Bir kalem seçin, toplamı söyleyeyim.", oneri ? "goz" : "mutlu"), 500); }
+  const wa = document.getElementById("teklif-wa"); if (wa) wa.href = "https://wa.me/905019452184?text=" + encodeURIComponent(sec.length ? `Merhaba, şu kalemler için teklif almak istiyorum: ${sec.map((id) => adlar[id]).join(", ")}. Sitedeki başlangıç toplamı: ${tl(en)}. ${$("#aylik").textContent}` : "Merhaba, Dijitabela hakkında bilgi almak istiyorum.");
+  ozetMetin = sec.length ? `${sec.map((id) => adlar[id]).join(", ")} · başlangıç ${tl(en)}. ${$("#aylik").textContent}` : "";
+  if (GS) { const o = { v: gosterilen }; gsap.to(o, { v: en, duration: 0.6, ease: "power2.out", onUpdate: () => ($("#toplam").textContent = tl(o.v)) }); }
+  else $("#toplam").textContent = tl(en);
+  gosterilen = en;
+  if (ev && window.__rehberHazir) { clearTimeout(teklif._t); teklif._t = setTimeout(() => rehberDe(sec.length ? `Toplam ${tl(en)}. ${oneri || "Seçiminizde tek tek almak daha uygun."}` : "Bir kalem seçin, toplamı söyleyeyim.", oneri ? "goz" : "mutlu"), 500); }
 }
 teklif();
 $("#teklif-tasi").addEventListener("click", () => { const s = $("#secim"); s.hidden = !ozetMetin; s.textContent = "Seçiminiz: " + ozetMetin; });
@@ -1225,7 +1233,7 @@ const REHBER = {
   son:"Son adım! Bilgilerinizi bırakın, iki iş gününde üç ücretsiz ön tasarım hazırlayalım."
 };
 const SORULAR = [
-  ["Fiyatlar ne kadar?", "Giriş paketi 4.900 TL'den başlıyor, kapsamlı paketler 19.900 TL; KDV hariç ve tek seferlik. Teklif bölümünde seçtiğiniz kalemlerin toplamını anında görürsünüz.", "#teklif"],
+  ["Fiyatlar ne kadar?", "Tek sayfalık site 4.900 TL, profil kurulumu 3.490 TL. Site ve profil birlikte 19.900 TL. Reklam yönetimi tek platformda 7.490 TL/ay. Fiyatlara KDV eklenir. Teklif bölümünde seçtiğiniz kalemlerin toplamını anında görürsünüz.", "#teklif"],
   ["Ne kadar sürede biter?", "Web sitesi 1 haftada yayında. Yazılım ve uygulama içeren paketler 2 ile 6 hafta sürer. Ön tasarımlar 2 iş gününde gelir.", null],
   ["Başka şehirdeyim, olur mu?", "Olur. Türkiye geneline uzaktan çalışıyoruz: fotoğrafları siz gönderirsiniz, kurulumu ve eğitimi biz uzaktan yaparız.", null],
   ["Site ve hesaplar kimin olur?", "Tamamen sizin. Alan adı, Google hesabı ve uygulama mağazası hesabı işletme adına açılır.", null],
@@ -1248,14 +1256,14 @@ const SEKTORLER = [
 // Serbest soru: anahtar kelime → hazır cevap; eşleşmeyen soru canlı sitede yapay zekâ asistanına gider
 const CEVAP = [
   [/merhaba|selam|iyi günler|günaydın/i, "Merhaba! Ben Dijitabela'nın tabelasıyım. Fiyat, süre, randevu, Google ya da uygulama… ne merak ediyorsanız yazın.", null],
-  [/fiyat|ücret|kaç para|ne kadar tut|pahalı|ucuz|tl/i, "Giriş paketi 4.900 TL'den başlıyor, kapsamlı paketler 19.900 TL; KDV hariç ve tek seferlik. Aşağıda kalemleri işaretleyin, toplamı anında göstereyim.", "#teklif"],
+  [/fiyat|ücret|kaç para|ne kadar tut|pahalı|ucuz|tl/i, "Tek sayfalık site 4.900 TL, profil kurulumu 3.490 TL. Site ve profil birlikte 19.900 TL. Reklam yönetimi tek platformda 7.490 TL/ay. Fiyatlara KDV eklenir. Aşağıda kalemleri işaretleyin, toplamı anında göstereyim.", "#teklif"],
   [/süre|ne zaman|kaç gün|hafta|hızlı|acil/i, "Web sitesi 1 haftada yayında. Yazılım ve uygulama içeren paketler 2 ile 6 hafta. Ön tasarımlar 2 iş gününde gelir.", null],
   [/şehir|uzak|istanbul|ankara|izmir|bursa|antalya dışı/i, "Türkiye geneline uzaktan çalışıyoruz. Fotoğrafları siz gönderin, kurulumu ve eğitimi biz uzaktan yapalım.", null],
   [/randevu|kapora|gelmeyen/i, "Online randevu sistemi 10.000 TL. Müşteri boş saati kendisi seçer, isterseniz küçük kapora alırsınız, bir gün önce hatırlatma gider.", null],
   [/whatsapp|asistan|yapay|bot|gece/i, "WhatsApp yapay zekâ asistanı kurulumu 20.000 TL, işletimi ayda 2.500 TL. Gece de cevap verir, randevu ve sipariş alır, bilmediğini size aktarır.", null],
   [/google|harita|kapal|yorum|seo/i, "Google'da nasıl göründüğünüzü 1 dakikada kontrol edelim. Hemen aşağıdaki sorulara geçiyorum.", "#google"],
   [/uygulama|app|mobil|android|ios/i, "Uygulama fikrinizi yazın, ekranını hemen çizelim. Oraya götürüyorum.", "#fikir"],
-  [/site|web|sayfa|alan adı/i, "Kurumsal web sitesi 17.500 TL ve 1 haftada yayında. Hizmet sayfaları, randevu düğmesi ve Google kaydıyla birlikte.", null],
+  [/site|web|sayfa|alan adı/i, "Beş sayfaya kadar kurumsal site 17.900 TL. Google İşletme Profili kurulumu ile birlikte 19.900 TL + KDV.", null],
   [/tasla[kğ]|tasarım|örnek|ücretsiz|deneme/i, "Size özel 3 ön tasarımı ücretsiz hazırlıyoruz, 2 iş gününde gelir. Formu açıyorum.", "#son"],
   [/hesap|kimin|sahip|mülkiyet/i, "Her şey sizin: alan adı, Google hesabı ve mağaza hesapları işletme adına açılır.", null],
   [/ödeme|taksit|kart|havale/i, "Onayda %50, teslimde kalan. Kredi kartıyla taksitli ya da havale ile ödeyebilirsiniz.", null],
