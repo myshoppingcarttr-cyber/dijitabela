@@ -9,14 +9,15 @@
       madde: ["Sahiplik ve erişim kontrolü", "Doğru kategoriler ve anahtar kelimeli açıklama", "Çalışma saatleri, telefon, web ve WhatsApp bağlantısı", "10–15 fotoğraf (düzenlenmiş, yüklemeden önce onayınıza)", "Bütün yorumlara cevap", "Ürün ve hizmet listesi", "Baskıya hazır QR yorum kartı", "Önce / sonra raporu + 30 günlük 3 öneri"] },
     { kod: "google-vitrin-bakim", kat: "Google İşletme", ad: "Google Vitrin aylık bakım", tek: 990, aylik: true, oran: 1, sure: "Aylık · istediğiniz zaman bırakın",
       madde: ["Yorumlara 24 saat içinde cevap", "Haftalık Google gönderisi", "Ayda 4 yeni fotoğraf", "Aylık rapor"] },
-    { kod: "google-profil-kurulum", kat: "Google İşletme", ad: "Google İşletme Profili açma / doğrulama / kurtarma", tek: 2500, oran: 0.5, sure: "1 iş günü + Google doğrulama süresi",
-      madde: ["Profil açma ya da mevcut kaydı Google'ın resmi yoluyla sahiplenme", "Doğrulama adımlarında (video, telefon, posta) yol gösterme", "“Kalıcı olarak kapandı” görünen profili kurtarma başvurusu", "Kategori, saatler, hizmet bölgesi, web ve WhatsApp bağlantısı"] },
+    { kod: "google-profil-kurulum", kat: "Google İşletme", ad: "Google İşletme Profili kurulumu", tek: 3490, oran: 0.5, sure: "Hazırlık 1 iş günü + Google doğrulama süresi", madde: ["Tek konumda mevcut kayıt ve sahiplik kontrolü", "Kategori, hizmetler, saatler, iletişim bilgileri ve işletmenin fotoğrafları", "Google doğrulaması için rehberlik ve erişim teslimi"], tarifeKontrol: true },
     { kod: "dijital-ekspertiz", kat: "Google İşletme", ad: "Detaylı dijital ekspertiz raporu", tek: 1900, oran: 1, sure: "1 iş günü",
       madde: ["Google profili ve web sitesinin eksikleri", "Çevrenizdeki rakiplerle karşılaştırma", "Öncelik sırasıyla 10 adımlık yol haritası"] },
     { kod: "tek-sayfa-site", kat: "Web sitesi", ad: "Tek sayfalık web sitesi", tek: 3900, oran: 0.5, sure: "2 iş günü",
       madde: ["Mobil uyumlu tek sayfa (kampanya, uzman, lansman)", "Arama ve WhatsApp düğmesi", "Temel SEO ayarları", "İşletmenize özel prototip, onayınızla yayın"] },
-    { kod: "kurumsal-site", kat: "Web sitesi", ad: "Kurumsal web sitesi · giriş paketi", tek: 9900, oran: 0.5, sure: "Yaklaşık 1 hafta",
-      madde: ["Özel tasarım", "Mobil uyum", "SEO altyapısı", "Alan adı + 1 yıl barındırma"] },
+    { kod: "kurumsal-site", kat: "Web sitesi", ad: "Kurumsal web sitesi", tek: 17900, oran: 0.5, sure: "Yaklaşık 1 hafta", madde: ["Beş sayfaya kadar özel tasarım ve mobil uyum", "İşletmenin metin ve görselleriyle iletişim alanı ve temel SEO", "Alan adı ve ilk yıl barındırma"], tarifeKontrol: true },
+    { kod: "tek-kanal-reklam", kat: "Reklam yönetimi", ad: "Tek kanalda reklam yönetimi", tek: 7490, aylik: true, oran: 0.5, sure: "Aylık hizmet", madde: ["Google Arama veya Instagram ve Facebook reklamları (Meta)", "Tek işletme, en fazla iki kampanya, müşteri görsellerinden iki reklam varyasyonu", "Haftalık optimizasyon, ay sonu raporu ve desteklenen arama/WhatsApp tıklamalarının takibi", "Aylık 30.000 TL’ye kadar medya bütçesi ayrıca platforma ödenir"], tarifeKontrol: true },
+    { kod: "profil-reklam-paketi", kat: "Reklam yönetimi", ad: "Profil kurulumu ve ilk ay reklam yönetimi", tek: 9990, oran: 0.5, sure: "İlk ay", madde: ["Google İşletme Profili kurulumu ve tek platformda reklam yönetimi", "Ayrı alım toplamı 10.980 TL, paket avantajı 990 TL", "Aylık 30.000 TL’ye kadar reklam bütçesi ayrıca platforma ödenir", "Aynı kapsamda devam ederseniz ikinci aydan itibaren 7.490 TL + KDV/ay"], tarifeKontrol: true },
+    { kod: "dijital-vitrin-paketi", kat: "Web sitesi", ad: "Dijital Vitrin · web sitesi ve Google profili", tek: 19900, oran: 0.5, sure: "Yaklaşık 1 hafta", madde: ["Beş sayfaya kadar kurumsal site ve Google İşletme Profili kurulumu", "Mobil uyum, SEO altyapısı ve bir ay destek", "Site ve profil ayrı alındığında 21.390 TL, paket avantajı 1.490 TL"], tarifeKontrol: true },
     { kod: "site-duzeltme", kat: "Web sitesi", ad: "Web sitesi hata ve hız düzeltme", tek: 1500, oran: 1, sure: "1 iş günü",
       madde: ["Kırık bağlantılar ve hatalar", "Hız ve mobil uyum sorunları", "Güvenlik güncellemesi", "Önce / sonra raporu"] },
     { kod: "site-bakim", kat: "Web sitesi", ad: "Web sitesi aylık bakım", tek: 990, aylik: true, oran: 1, sure: "Aylık · istediğiniz zaman bırakın",
@@ -62,7 +63,7 @@
       "beyanno-tam": ["Belge paketi", "Banka eşleştirme", "Cari mutabakat ve panel", "Aylık raporlar"]
     };
     var RE = {
-      google: [["Profiliniz yok ya da “kalıcı olarak kapandı” görünüyor", "google-profil-kurulum"], ["Profil var ama saat, fotoğraf, yorum cevabı eksik", "google-vitrin"], ["Profil düzgün, düzenli bakım istiyorsunuz", "google-vitrin-bakim"], ["Önce nerede eksik olduğunu görmek istiyorsunuz", "dijital-ekspertiz"]],
+      google: [["Yeni profil açmak veya mevcut kaydınızı sahiplenmek istiyorsunuz", "google-profil-kurulum"], ["Profil var ama saat, fotoğraf, yorum cevabı eksik", "google-vitrin"], ["Profil düzgün, düzenli bakım istiyorsunuz", "google-vitrin-bakim"], ["Önce nerede eksik olduğunu görmek istiyorsunuz", "dijital-ekspertiz"]],
       web: [["Tek kampanya, uzman ya da lansman sayfası", "tek-sayfa-site"], ["Birden çok sayfa, kurumsal görünüm", "kurumsal-site"], ["Siteniz var ama yavaş ya da hatalı", "site-duzeltme"], ["Siteniz sağlıklı kalsın", "site-bakim"]],
       beyanno: [["Yalnız mükellef sorularına cevap", "beyanno-wa"], ["Belgeler de otomatik toplansın ve okunsun", "beyanno-belge"], ["Banka, tahsilat, cari ve panel de gerekli", "beyanno-tam"]],
       sosyal: [["Bir seferlik gönderi tasarımı", "sosyal-tasarim-5"], ["Her ay düzenli içerik ve paylaşım", "sosyal-yonetim"]]
@@ -127,14 +128,39 @@
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var odemeNotu = function (u) { return u.oran === 1 ? (u.aylik ? "İlk ay peşin" : "Tamamı peşin") : "%" + Math.round(u.oran * 100) + " siparişte, kalanı teslimde"; };
 
+  function siparisDugmesi(u) {
+    return '<button type="button" class="btn btn-p" data-urun="' + u.kod + '">Sipariş ver</button>';
+  }
+  function siparisEylemi(u) {
+    if (!u.tarifeKontrol) return siparisDugmesi(u);
+    var mesaj = u.ad + " için " + TL(u.tek) + " + KDV üzerinden teklif almak istiyorum.";
+    return '<a class="btn btn-p" data-teklif="' + u.kod + '" href="https://wa.me/' + A.whatsapp + '?text=' + encodeURIComponent(mesaj) + '">WhatsApp ile teklif iste</a>';
+  }
+
   document.querySelectorAll(".sa-liste[data-kat]").forEach(function (L) {
     L.innerHTML = URUNLER.filter(function (u) { return u.kat === L.getAttribute("data-kat"); }).map(function (u) {
       return '<div class="sa-urun" id="u-' + u.kod + '">' + medyaHtml(u.kod, u.ad) + '<h3>' + esc(u.ad) + '</h3><div class="sa-fiyat">' + TL(u.tek) + (u.aylik ? "<small>/ ay</small>" : "") + "</div>" +
         '<p class="sa-kdv">+ KDV · KDV dahil ' + TL(Math.round(u.tek * (1 + KDV))) + (u.aylik ? " / ay" : "") + '</p><span class="sa-sure">' + esc(u.sure) + "</span>" +
         "<ul>" + u.madde.map(function (m) { return "<li>" + esc(m) + "</li>"; }).join("") + "</ul>" +
-        V2.akis(u.kod) + '<p class="sa-odeme">Ödeme: ' + odemeNotu(u) + '</p><button type="button" class="btn btn-p" data-urun="' + u.kod + '">Sipariş ver</button></div>';
+        V2.akis(u.kod) + '<p class="sa-odeme">Ödeme: ' + odemeNotu(u) + '</p>' + siparisEylemi(u) + '</div>';
     }).join("");
   });
+
+  // Karttaki tutar ve ödeme koşulu sipariş sisteminde de geçerliyse doğrudan siparişi aç.
+  fetch(A.supabaseUrl + "/functions/v1/siparis-olustur", {
+    headers: { apikey: A.supabaseAnonKey }, cache: "no-store"
+  }).then(function (r) {
+    if (!r.ok) throw new Error("Katalog alınamadı");
+    return r.json();
+  }).then(function (veri) {
+    if (veri.kdv !== KDV || !veri.katalog) return;
+    URUNLER.filter(function (u) { return u.tarifeKontrol; }).forEach(function (u) {
+      var kayit = veri.katalog[u.kod], baglanti = document.querySelector('[data-teklif="' + u.kod + '"]');
+      if (baglanti && kayit && kayit.ad === u.ad && kayit.tek === u.tek && kayit.oran === u.oran && !!kayit.aylik === !!u.aylik) {
+        baglanti.outerHTML = siparisDugmesi(u);
+      }
+    });
+  }).catch(function () { /* Teklif bağlantısı kullanılabilir. */ });
 
   document.querySelectorAll(".sa-urun[data-medya]").forEach(function (k) {
     var h = k.querySelector("h3"), kod = k.getAttribute("data-medya"); k.id = "u-" + kod; h.insertAdjacentHTML("beforebegin", medyaHtml(kod, h.textContent));
