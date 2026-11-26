@@ -1,0 +1,159 @@
+{
+ "urunler": [
+  {
+   "id": "google-profil",
+   "ad": "Google İşletme Profili kurulumu",
+   "fayda": "Haritada çıkmıyor ya da \"kalıcı kapandı\" görünüyorsanız kaydı kurtarır; kategori, hizmetler, saatler ve doğrulamada rehberlik eder.",
+   "fiyat": "3.490 TL",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "tek-sayfa",
+   "ad": "Tek sayfa web sitesi",
+   "fayda": "Kampanya, uzman ya da lansman için mobil uyumlu tek sayfa; arama ve WhatsApp düğmeli.",
+   "fiyat": "8.490 TL",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "web-sitesi",
+   "ad": "Kurumsal web sitesi (5 sayfa)",
+   "fayda": "Mobil uyumlu, beş sayfaya kadar; arama ve WhatsApp düğmeli, Google için hazır. İşinize özel prototiple başlar.",
+   "fiyat": "21.490 TL",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "vitrin-paket",
+   "ad": "Dijital Vitrin paketi (web + Google)",
+   "fayda": "Web sitesi ve Google İşletme Profili birlikte; ayrı alıma göre avantajlı.",
+   "fiyat": "18.490 TL",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "reklam",
+   "ad": "Reklam yönetimi",
+   "fayda": "Google Arama ya da Instagram/Facebook reklamları; haftalık optimizasyon ve aylık rapor.",
+   "fiyat": "7.990 TL / ay",
+   "not": "KDV hariç · reklam bütçesi ayrıca"
+  },
+  {
+   "id": "sosyal",
+   "ad": "Sosyal medya yönetimi (12 yayın)",
+   "fayda": "Aylık içerik planı, tasarım, paylaşım ve rapor.",
+   "fiyat": "12.490 TL / ay",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "seo",
+   "ad": "SEO ve içerik",
+   "fayda": "Haritada ve aramada üst sıraya: aylık blog içerikleri, Google gönderileri ve düzenli rapor.",
+   "fiyat": "9.990 TL / ay",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "wa-asistan",
+   "ad": "WhatsApp yapay zekâ asistanı",
+   "fayda": "Gece gelen mesaja sizin bilgilerinizle cevap verir, randevuyu yazar, bilmediğini size aktarır.",
+   "fiyat": "23.490 TL kurulum",
+   "not": "KDV hariç · aylık işletim için teklif alın"
+  },
+  {
+   "id": "crm",
+   "ad": "Müşteri takip yazılımı (CRM) ve işletme paneli",
+   "fayda": "Müşteri, iş, teklif ve hatırlatma tek ekranda; telefonda ve bilgisayarda aynı veri."
+  },
+  {
+   "id": "mobil",
+   "ad": "Mobil uygulama (3 ekran)",
+   "fayda": "İşletmenize özel Android ve iPhone uygulaması; tek akış, üç ekran."
+  },
+  {
+   "id": "logo",
+   "ad": "Logo ve kurumsal kimlik",
+   "fayda": "Logo, renk ve yazı tipi seti; sosyal medya ve tabela için hazır dosyalar.",
+   "fiyat": "4.990 TL",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "bakim",
+   "ad": "Web sitesi bakımı",
+   "fayda": "Güncelleme, yedek, hız ve hata kontrolü.",
+   "fiyat": "990 TL / ay",
+   "not": "KDV hariç"
+  },
+  {
+   "id": "ayse",
+   "ad": "Ayşe · yapay zekâ telefon asistanı",
+   "fayda": "Gelen aramayı açar, özet çıkarır, acil durumu size aktarır. Sınırlı pilot."
+  },
+  {
+   "id": "video",
+   "ad": "Tanıtım videosu ve sosyal medya",
+   "fayda": "İşletmenize özel kısa videolar, hikâye ve gönderi tasarımları; düzenli paylaşım."
+  },
+  {
+   "id": "beyanno",
+   "ad": "Beyanno · mali müşavirler için",
+   "fayda": "Mükellef soruları WhatsApp'ta cevaplanır; eksik belge hatırlatması otomatik gider.",
+   "fiyat": "300 TL / ay",
+   "not": "KDV hariç · 1 hafta ücretsiz deneme"
+  }
+ ],
+ "ornekler": [
+  {
+   "ad": "Emlak ofisi paneli",
+   "sektor": "Emlak",
+   "url": "https://dijitabela.com/emlak-demo.html"
+  },
+  {
+   "ad": "Güzellik salonu randevu",
+   "sektor": "Güzellik",
+   "url": "https://dijitabela.com/guzellik-demo.html"
+  },
+  {
+   "ad": "Servis defteri dijitalde",
+   "sektor": "Oto servis",
+   "url": "https://dijitabela.com/oto-servis-demo.html"
+  },
+  {
+   "ad": "QR menü ve masadan sipariş",
+   "sektor": "Restoran ve kafe",
+   "url": "https://dijitabela.com/qr-menu-demo.html"
+  },
+  {
+   "ad": "Klinik resepsiyon",
+   "sektor": "Klinik",
+   "url": "https://dijitabela.com/klinik-demo.html"
+  },
+  {
+   "ad": "Mali müşavir paneli (Beyanno)",
+   "sektor": "Mali müşavir",
+   "url": "https://dijitabela.com/mali-demo.html"
+  }
+ ],
+ "videolar": [
+  {
+   "id": "c4o4am2d-2U",
+   "baslik": "Google yorumunu yalnız memnunlardan istemeyin! Herkese sorun"
+  },
+  {
+   "id": "fV-He7uX5do",
+   "baslik": "Google Haritalar'da kapalı görünmeyin: çalışma saatleri 5. sırada!"
+  },
+  {
+   "id": "4JbXu-O4GGU",
+   "baslik": "Google Haritalar'da işletme adına anahtar kelime eklemek TUZAK!"
+  },
+  {
+   "id": "NGTRbFmmV-U",
+   "baslik": "Google Haritalar'da rakibin neden önde? Bu 7 ayarla"
+  },
+  {
+   "id": "vwyhaDs3UKw",
+   "baslik": "Siten telefonda kaç saniyede açılıyor? Ücretsiz ölç"
+  },
+  {
+   "id": "HO2tv7G_TYc",
+   "baslik": "Google profilinde bu alan boşsa müşteri seni bulamayabilir"
+  }
+ ]
+}
