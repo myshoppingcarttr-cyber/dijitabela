@@ -1,0 +1,239 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta property="og:image" content="https://dijitabela.com/ornek/cozum-yapi-antalya/img/avize.jpg">
+<title>Çözüm Yapı · Uygulama</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Yerleşim "Uygulama": telefon uygulaması düzeni, alt sekme çubuğu, "Sorunum ne?" yönlendirmesi, keşif günü seçici. Masaüstünde telefon çerçevesi. Tek koyu tema. */
+:root{--bg:#101216;--s1:#181B21;--s2:#20242B;--s3:#2A2F38;--line:#323843;--y:#F2A900;--y2:#FFC53D;--t:#F3F1EC;--m:#A0A6B0;--g:#3DC47E;
+ --f:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{background:#0A0B0E;color:var(--t);font-family:var(--f);font-size:16px;line-height:1.5;display:grid;place-items:center}
+.app{position:relative;width:100%;max-width:440px;height:100dvh;max-height:100dvh;background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+@media (min-width:600px){.app{height:min(860px,96dvh);border-radius:36px;border:8px solid #23262d;box-shadow:0 30px 80px rgba(0,0,0,.6)}}
+.bar{flex:none;display:flex;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;background:var(--s1);border-bottom:1px solid var(--line)}
+.bar img{height:36px;width:auto;background:#fff;border-radius:6px;padding:2px 4px}
+.bar b{display:block;font-weight:800;font-size:16px;line-height:1.1}
+.bar small{color:var(--m);font-size:12px}
+.bar .on{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--g);font-weight:700}
+.bar .on i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g)}
+.scr{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:16px 16px 24px;-webkit-overflow-scrolling:touch}
+.tab{display:none}.tab.on{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h1,h2,h3{margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:30px;font-weight:800;letter-spacing:-.02em}
+h1 span{color:var(--y)}
+h2{font-size:20px;font-weight:800;margin:22px 0 10px}
+p{margin:0}
+.lead{color:var(--m);margin-top:10px;font-size:15px}
+.card{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:16px}
+.hero{border-radius:22px;overflow:hidden;position:relative;margin-bottom:14px}
+.hero img{display:block;width:100%;height:200px;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(16,18,22,.95))}
+.hero .tx{position:absolute;z-index:1;left:16px;right:16px;bottom:14px}
+.hero .tx b{font-size:22px;font-weight:800;display:block;line-height:1.1}
+.hero .tx span{color:#D9D6D0;font-size:13px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;border-radius:14px;border:0;font:800 16px var(--f);text-decoration:none;cursor:pointer;color:#15171B;background:var(--y)}
+.btn.g{background:var(--s3);color:var(--t);border:1px solid var(--line)}
+.btn+.btn{margin-top:10px}
+.btn:focus-visible,.chip:focus-visible,.nv button:focus-visible,.dy:focus-visible,.pb:focus-visible{outline:3px solid var(--y2);outline-offset:2px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.facts div{background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:12px}
+.facts b{display:block;color:var(--y);font-size:20px;font-weight:800}
+.facts span{font-size:12px;color:var(--m)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pb{display:flex;flex-direction:column;gap:6px;text-align:left;background:var(--s1);border:1.5px solid var(--line);border-radius:16px;padding:14px;color:var(--t);font:600 15px/1.25 var(--f);cursor:pointer;min-height:92px}
+.pb svg{width:26px;height:26px;stroke:var(--y);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pb[aria-pressed="true"]{border-color:var(--y);background:#2a2619}
+.res{margin-top:14px;border:1.5px solid var(--y);border-radius:18px;background:#201d12;padding:16px}
+.res h3{font-size:18px;font-weight:800}
+.res .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--y);font-weight:800;margin-bottom:4px;display:block}
+.res ul{margin:10px 0 14px;padding-left:18px;font-size:15px;color:#E6E3DC}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{border:1px solid var(--line);background:var(--s1);color:var(--t);border-radius:999px;padding:9px 14px;font:600 14px var(--f);cursor:pointer;min-height:40px}
+.chip[aria-pressed="true"]{background:var(--y);color:#15171B;border-color:var(--y)}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.dy{background:var(--s1);border:1.5px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center;color:var(--t);font:700 14px/1.2 var(--f);cursor:pointer;min-height:64px}
+.dy small{display:block;color:var(--m);font-weight:600;font-size:12px;margin-top:2px}
+.dy[aria-pressed="true"]{background:var(--y);color:#15171B;border-color:var(--y)}
+.dy[aria-pressed="true"] small{color:#3b3000}
+.fld{display:grid;gap:6px;margin-top:14px}
+.fld label{font-size:12px;color:var(--m);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.fld input{min-height:50px;border-radius:12px;border:1.5px solid var(--line);background:var(--s1);color:var(--t);padding:10px 14px;font:600 16px var(--f);width:100%}
+.fld input:focus{outline:3px solid var(--y2);outline-offset:1px}
+.ph{columns:2;column-gap:10px}
+.ph figure{margin:0 0 10px;break-inside:avoid;border-radius:14px;overflow:hidden;position:relative;background:var(--s1)}
+.ph img{display:block;width:100%;height:auto}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:12px;font-weight:700;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.row{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.row svg{flex:none;width:24px;height:24px;stroke:var(--y);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.row b{display:block;font-weight:800}.row span{color:var(--m);font-size:14px}
+.row a{color:var(--t);text-decoration-color:var(--y)}
+.note{font-size:12px;color:var(--m);margin-top:12px}
+.nv{flex:none;display:grid;grid-template-columns:repeat(5,1fr);background:var(--s1);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+.nv button{background:none;border:0;color:var(--m);font:700 11px var(--f);display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px;min-height:56px;cursor:pointer;border-radius:12px}
+.nv svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nv button[aria-selected="true"]{color:var(--y)}
+.ribbon{position:absolute;z-index:20;right:10px;top:calc(62px + env(safe-area-inset-top,0px));background:rgba(22,24,29,.92);border:1px solid #FFB000;color:#FFB000;font:700 10px/1 var(--f);letter-spacing:.06em;padding:6px 8px;border-radius:999px;pointer-events:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="app">
+ <div class="ribbon">DİJİTABELA ÖRNEK TASARIM</div>
+ <header class="bar"><img src="img/logo.png" alt="Çözüm Yapı logosu"><div><b>Çözüm Yapı Market</b><small>İnşaat · Anahtar teslim tadilat · Antalya</small></div><span class="on"><i></i>Açık</span></header>
+ <main class="scr" id="scr">
+
+  <!-- ANA -->
+  <section class="tab on" id="t-ana" role="tabpanel">
+   <div class="hero"><img src="img/ofis-1.jpg" alt="Tadilatı biten ofis"><div class="tx"><b>Evinizin tadilatını çözüme kavuşturuyoruz</b><span>Muratpaşa / Antalya · 40 yılı aşkın tecrübe</span></div></div>
+   <a class="btn" href="tel:+905327760629">Hemen ara · 0532 776 06 29</a>
+   <button class="btn g" type="button" data-go="sorun">Sorunum ne? Bana yol göster</button>
+   <div class="facts">
+    <div><b>Ücretsiz</b><span>keşif</span></div>
+    <div><b>Sözleşme</b><span>ve garanti</span></div>
+    <div><b>Zamanında</b><span>teslimat</span></div>
+    <div><b>Profesyonel</b><span>ekip</span></div>
+   </div>
+   <h2>Neler yapıyoruz</h2>
+   <div class="card">
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M3 28h26M6 28V12l10-8 10 8v16M13 28v-8h6v8"/></svg><div><b>Anahtar teslim tadilat</b><span>Temelden inşaat, yenileme, dekorasyon</span></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M6 6h20v8H6zM16 14v6M13 20h6v8h-6z"/></svg><div><b>Boya, alçı, sıva, alçıpan</b><span>İç ve dış cephe, bölme duvar, asma tavan</span></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M4 12l12-8 12 8M7 12v14h18V12M12 26v-8h8v8"/></svg><div><b>Çatı onarım ve izolasyon</b><span>Sızıntı, yalıtım, kaplama</span></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M16 4c4 6 7 9 7 14a7 7 0 0 1-14 0c0-5 3-8 7-14z"/></svg><div><b>Su ve elektrik tesisatı</b><span>Eski tesisatı yenileme</span></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M5 14h22v5a7 7 0 0 1-7 7h-8a7 7 0 0 1-7-7zM9 14V8a3 3 0 0 1 6 0"/></svg><div><b>Banyo, mutfak, fayans</b><span>Duşakabin, seramik, laminat parke</span></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M4 4h24v24H4zM4 16h24M16 4v24"/></svg><div><b>Pimapen, cam balkon, mimari proje</b><span>Doğrama, pergole, proje çizimi</span></div></div>
+   </div>
+  </section>
+
+  <!-- SORUNUM NE -->
+  <section class="tab" id="t-sorun" role="tabpanel">
+   <h1>Sorunum <span>ne?</span></h1>
+   <p class="lead">Size en yakın olanı seçin, hangi işe ihtiyacınız olduğunu söyleyelim.</p>
+   <div class="grid" id="pbs" style="margin-top:16px">
+    <button class="pb" type="button" data-k="cati" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M4 12l12-8 12 8M7 12v14h18V12"/></svg>Çatıdan su sızıyor</button>
+    <button class="pb" type="button" data-k="boya" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M6 6h20v8H6zM16 14v6M13 20h6v8h-6z"/></svg>Duvarlar boyanacak, dökülüyor</button>
+    <button class="pb" type="button" data-k="banyo" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M5 14h22v5a7 7 0 0 1-7 7h-8a7 7 0 0 1-7-7zM9 14V8a3 3 0 0 1 6 0"/></svg>Banyom eskidi</button>
+    <button class="pb" type="button" data-k="mutfak" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M4 12h24M6 12v14h20V12M10 8h12M12 17h8"/></svg>Mutfağı yenilemek istiyorum</button>
+    <button class="pb" type="button" data-k="tesisat" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M16 4c4 6 7 9 7 14a7 7 0 0 1-14 0c0-5 3-8 7-14z"/></svg>Su kaçağı, eski tesisat</button>
+    <button class="pb" type="button" data-k="elektrik" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M18 3L8 18h7l-2 11 11-15h-7z"/></svg>Elektrik yenilenecek</button>
+    <button class="pb" type="button" data-k="tavan" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M4 8h24v4H4zM8 12v4M16 12v8M24 12v4M8 22h16"/></svg>Asma tavan, bölme duvar</button>
+    <button class="pb" type="button" data-k="komple" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M3 28h26M6 28V12l10-8 10 8v16M13 28v-8h6v8"/></svg>Komple tadilat / inşaat</button>
+   </div>
+   <div class="res" id="res" hidden aria-live="polite">
+    <span class="lbl">Önerimiz</span>
+    <h3 id="rt"></h3>
+    <ul id="rl"></ul>
+    <button class="btn" type="button" id="rg">Keşif için günü seç</button>
+   </div>
+  </section>
+
+  <!-- KEŞİF -->
+  <section class="tab" id="t-kesif" role="tabpanel">
+   <h1>Ücretsiz <span>keşif</span></h1>
+   <p class="lead">Gün ve saat aralığı seçin, talebiniz WhatsApp'a hazır mesaj olarak açılır. Ekibimiz sizi arayıp kesinleştirir.</p>
+   <h2>Hangi iş?</h2>
+   <div class="chips" id="isc">
+    <button class="chip" type="button" aria-pressed="false">Çatı</button><button class="chip" type="button" aria-pressed="false">Boya, alçı</button><button class="chip" type="button" aria-pressed="false">Banyo</button><button class="chip" type="button" aria-pressed="false">Mutfak</button><button class="chip" type="button" aria-pressed="false">Tesisat</button><button class="chip" type="button" aria-pressed="false">Elektrik</button><button class="chip" type="button" aria-pressed="false">Asma tavan</button><button class="chip" type="button" aria-pressed="false">Komple tadilat</button><button class="chip" type="button" aria-pressed="false">Cam balkon, pimapen</button>
+   </div>
+   <h2>Hangi gün?</h2>
+   <div class="days" id="dys"></div>
+   <h2>Saat</h2>
+   <div class="chips" id="sts"><button class="chip" type="button" aria-pressed="false">09:00–12:00</button><button class="chip" type="button" aria-pressed="false">12:00–15:00</button><button class="chip" type="button" aria-pressed="false">15:00–18:00</button></div>
+   <div class="fld"><label for="ad">Adınız</label><input id="ad" autocomplete="name" placeholder="Ad Soyad"></div>
+   <div class="fld"><label for="mh">Mahalle / ilçe</label><input id="mh" placeholder="Örn. Kışla, Muratpaşa"></div>
+   <div style="margin-top:18px"><button class="btn" type="button" id="kg">Keşif talebini WhatsApp'ta aç</button></div>
+   <p class="note">Çalışma saatleri Pazartesi–Cumartesi 09:00–18:00. Fiyat, yerinde keşiften sonra yazılı teklifle verilir.</p>
+  </section>
+
+  <!-- İŞLER -->
+  <section class="tab" id="t-isler" role="tabpanel">
+   <h1>Yaptığımız <span>işler</span></h1>
+   <p class="lead">Sitenizdeki iş fotoğrafları. Yayında her işin yanında mekân ve süre yazılır.</p>
+   <div class="ph" style="margin-top:16px">
+    <figure><img src="img/ofis-1.jpg" alt="Ofis tadilatı" loading="lazy"><figcaption>Ofis tadilatı</figcaption></figure>
+    <figure><img src="img/mutfak.jpg" alt="Mutfak yenileme" loading="lazy"><figcaption>Mutfak yenileme</figcaption></figure>
+    <figure><img src="img/havuz-teras.jpg" alt="Havuz ve teras kaplama" loading="lazy"><figcaption>Havuz ve teras</figcaption></figure>
+    <figure><img src="img/dusakabin.jpg" alt="Banyo ve duşakabin" loading="lazy"><figcaption>Banyo, duşakabin</figcaption></figure>
+    <figure><img src="img/led-tavan.jpg" alt="Gizli ışıklı tavan" loading="lazy"><figcaption>Gizli ışıklı tavan</figcaption></figure>
+    <figure><img src="img/alcipan-tavan.jpg" alt="Alçıpan çalışması" loading="lazy"><figcaption>Alçıpan, asma tavan</figcaption></figure>
+    <figure><img src="img/pencere-demir.jpg" alt="Pencere ve demir doğrama" loading="lazy"><figcaption>Doğrama montajı</figcaption></figure>
+    <figure><img src="img/koridor.jpg" alt="Boyalı koridor" loading="lazy"><figcaption>Boya, aydınlatma</figcaption></figure>
+    <figure><img src="img/cati.jpg" alt="Çatı kaplama" loading="lazy"><figcaption>Çatı kaplama</figcaption></figure>
+    <figure><img src="img/avize.jpg" alt="Avize montajı" loading="lazy"><figcaption>Elektrik, avize</figcaption></figure>
+   </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="tab" id="t-ara" role="tabpanel">
+   <h1>Bize <span>ulaşın</span></h1>
+   <div class="card" style="margin-top:16px">
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M7 4h6l2 7-3 2a16 16 0 0 0 7 7l2-3 7 2v6a3 3 0 0 1-3 3A22 22 0 0 1 4 7a3 3 0 0 1 3-3z"/></svg><div><b>Telefon / WhatsApp</b><a href="tel:+905327760629">0532 776 06 29</a></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M16 29s9-8 9-15a9 9 0 0 0-18 0c0 7 9 15 9 15z"/><circle cx="16" cy="14" r="3"/></svg><div><b>Adres</b><span>Kışla Mah. 55 Sk. No:8, Muratpaşa / Antalya</span></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg><div><b>Çalışma saatleri</b><span>Pazartesi–Cumartesi 09:00–18:00</span></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><path d="M4 8h24v16H4zM4 8l12 9 12-9"/></svg><div><b>E-posta</b><a href="mailto:cozumyapimarket@hotmail.com">cozumyapimarket@hotmail.com</a></div></div>
+    <div class="row"><svg viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="6"/><circle cx="16" cy="16" r="5"/><circle cx="23" cy="9" r="1"/></svg><div><b>Instagram</b><a href="https://www.instagram.com/cozumyapimarketinsaat/" target="_blank" rel="noopener">@cozumyapimarketinsaat</a></div></div>
+   </div>
+   <div style="margin-top:14px"><a class="btn" href="https://wa.me/905327760629?text=Merhaba%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yaz</a><a class="btn g" href="tel:+905327760629">Ara</a></div>
+   <p class="note">Çözüm Yapı Market İnşaat San. ve Tic. Ltd. Şti. · Dijitabela örnek tasarımıdır, yayında KVKK metni ve çerez bildirimi eklenir.</p>
+  </section>
+ </main>
+
+ <nav class="nv" role="tablist" aria-label="Ana menü">
+  <button type="button" role="tab" aria-selected="true" data-go="ana"><svg viewBox="0 0 32 32"><path d="M4 15L16 5l12 10M7 13v14h18V13"/></svg>Ana sayfa</button>
+  <button type="button" role="tab" aria-selected="false" data-go="sorun"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M12 12a4 4 0 1 1 5 4c-1 .5-1 1.5-1 3M16 23v.5"/></svg>Sorunum</button>
+  <button type="button" role="tab" aria-selected="false" data-go="kesif"><svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="22" rx="3"/><path d="M4 13h24M10 3v6M22 3v6"/></svg>Keşif</button>
+  <button type="button" role="tab" aria-selected="false" data-go="isler"><svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="20" rx="3"/><circle cx="12" cy="14" r="2.5"/><path d="M4 23l7-6 6 5 4-3 7 5"/></svg>İşler</button>
+  <button type="button" role="tab" aria-selected="false" data-go="ara"><svg viewBox="0 0 32 32"><path d="M7 4h6l2 7-3 2a16 16 0 0 0 7 7l2-3 7 2v6a3 3 0 0 1-3 3A22 22 0 0 1 4 7a3 3 0 0 1 3-3z"/></svg>Ara</button>
+ </nav>
+</div>
+<script>
+(function(){
+ var scr=document.getElementById('scr');
+ function go(n){
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(t){t.classList.toggle('on',t.id==='t-'+n)});
+  Array.prototype.forEach.call(document.querySelectorAll('.nv button'),function(b){b.setAttribute('aria-selected',b.getAttribute('data-go')===n?'true':'false')});
+  scr.scrollTop=0;
+ }
+ document.addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(b){go(b.getAttribute('data-go'))}});
+ var P={
+  cati:{t:'Çatı onarımı ve izolasyon',i:['Sızıntının nereden geldiğini yerinde tespit','Çatı onarımı','Çatı izolasyonu ve yalıtım'],c:'Çatı'},
+  boya:{t:'İç cephe boya, alçı ve sıva',i:['Dökülen yüzeylerde alçı ve sıva onarımı','İç ve dış cephe boya','Gerekirse alçıpan'],c:'Boya, alçı'},
+  banyo:{t:'Banyo yenileme',i:['Fayans ve seramik yenileme','Duşakabin','Su tesisatı yenileme'],c:'Banyo'},
+  mutfak:{t:'Tam mutfak yenileme',i:['Dolap ve tezgâh','Fayans ve seramik','Su ve elektrik tesisatı'],c:'Mutfak'},
+  tesisat:{t:'Su tesisatı yenileme',i:['Kaçak tespiti','Eski boruların yenilenmesi','Sonrasında fayans ve boya onarımı'],c:'Tesisat'},
+  elektrik:{t:'Elektrik tesisatı yenileme',i:['Tesisat kontrolü ve yenileme','Aydınlatma, avize montajı','Gerekirse asma tavan'],c:'Elektrik'},
+  tavan:{t:'Asma tavan ve bölme duvar',i:['Alçıpan asma tavan','Gizli ışık ve spot aydınlatma','Bölme duvar'],c:'Asma tavan'},
+  komple:{t:'Anahtar teslim tadilat',i:['Keşif, teklif ve sözleşme tek elde','Yıkımdan boyaya tüm işler','Gerekirse mimari proje çizimi','Garantili teslim'],c:'Komple tadilat'}
+ };
+ var cur=null,res=document.getElementById('res');
+ document.getElementById('pbs').addEventListener('click',function(e){
+  var b=e.target.closest('.pb');if(!b)return;cur=b.getAttribute('data-k');
+  Array.prototype.forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+  var p=P[cur];document.getElementById('rt').textContent=p.t;var ul=document.getElementById('rl');ul.innerHTML='';
+  p.i.forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li)});res.hidden=false;
+  res.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'nearest'});
+ });
+ function tek(box,val){Array.prototype.forEach.call(box.children,function(x){x.setAttribute('aria-pressed',x.textContent.indexOf(val)===0?'true':'false')})}
+ document.getElementById('rg').addEventListener('click',function(){
+  if(cur){var box=document.getElementById('isc');Array.prototype.forEach.call(box.children,function(x){x.setAttribute('aria-pressed',x.textContent===P[cur].c?'true':'false')})}
+  go('kesif');
+ });
+ // günler: bugünden sonraki 6 çalışma günü (Pazar hariç)
+ var G=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'],Ay=['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'],dys=document.getElementById('dys'),d=new Date(),n=0;
+ while(n<6){d=new Date(d.getTime()+864e5);if(d.getDay()===0)continue;n++;
+  var b=document.createElement('button');b.type='button';b.className='dy';b.setAttribute('aria-pressed','false');b.setAttribute('data-t',G[d.getDay()]+' '+d.getDate()+' '+Ay[d.getMonth()]);
+  b.innerHTML=G[d.getDay()].slice(0,3)+'<small>'+d.getDate()+' '+Ay[d.getMonth()]+'</small>';dys.appendChild(b);}
+ function tekSec(box,sel){box.addEventListener('click',function(e){var b=e.target.closest(sel);if(!b)return;Array.prototype.forEach.call(box.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})}
+ tekSec(dys,'.dy');tekSec(document.getElementById('sts'),'.chip');
+ document.getElementById('isc').addEventListener('click',function(e){var b=e.target.closest('.chip');if(b)b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true')});
+ document.getElementById('kg').addEventListener('click',function(){
+  var is=Array.prototype.map.call(document.querySelectorAll('#isc [aria-pressed="true"]'),function(x){return x.textContent}),
+   dy=document.querySelector('#dys [aria-pressed="true"]'),st=document.querySelector('#sts [aria-pressed="true"]'),
+   ad=document.getElementById('ad').value.trim(),mh=document.getElementById('mh').value.trim();
+  var m='Merhaba, ücretsiz keşif istiyorum.'+(ad?' Adım '+ad+'.':'')+(mh?' Konum: '+mh+'.':'')+(is.length?' İş: '+is.join(', ')+'.':'')+(dy?' Uygun gün: '+dy.getAttribute('data-t')+(st?', '+st.textContent:'')+'.':'');
+  window.open('https://wa.me/905327760629?text='+encodeURIComponent(m),'_blank','noopener');
+ });
+})();
+</script>
+</body></html>

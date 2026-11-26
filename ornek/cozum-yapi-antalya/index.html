@@ -1,0 +1,415 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:type" content="website"><meta property="og:title" content="Çözüm Yapı Market İnşaat · Dijital Plan ve 3 Site Tasarımı"><meta property="og:description" content="Google durum raporu, Muratpaşa rakip analizi, Google profil düzeltme planı, fiyatlar ve size özel 3 web sitesi tasarımı."><meta property="og:image" content="https://dijitabela.com/ornek/cozum-yapi-antalya/img/hero.jpg"><meta property="og:url" content="https://dijitabela.com/ornek/cozum-yapi-antalya/">
+<title>Çözüm Yapı Dijital Plan</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ink:#16181D; --ink2:#2A2E36; --paper:#F7F7F5; --card:#FFFFFF; --line:#E3E2DE;
+  --led:#FFB000; --amber:#F2A900; --amber-d:#8A5F00; --muted:#5E6470;
+  --ok:#1E8E5A; --warn:#C77700; --bad:#C2412D;
+  --f-d:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-m:"Space Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-d);font-size:16px;line-height:1.6;margin:0;padding-top:env(safe-area-inset-top,0px)}
+img{max-width:100%}
+.w{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.top{background:var(--ink);color:#F2F2EE}
+.top .w{padding-block:22px 56px}
+.brandbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.dj{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+.dj i{width:12px;height:12px;border-radius:50%;background:var(--led);box-shadow:0 0 14px var(--led)}
+.top .mono{color:#A9ADB5}
+.hero{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:end;margin-top:44px}
+.hero h1{font-size:clamp(28px,5vw,50px);font-weight:800;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--led)}
+.hero p.lead{color:#C9CCD2;margin-top:16px;max-width:56ch;font-size:17px}
+.client{background:var(--ink2);border:1px solid #3A3F48;border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center}
+.client img{width:84px;height:96px;border-radius:10px;object-fit:contain;background:#fff;padding:6px;flex:none}
+.client b{display:block;font-size:17px;line-height:1.3}
+.client span{color:#B8BCC4;font-size:14px;display:block}
+.meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px}
+.meta .mono{display:block;margin-bottom:2px}
+.meta strong{font-size:15px}
+section{padding-block:56px}
+.eyebrow{color:var(--amber-d);margin-bottom:10px;display:block}
+h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.015em}
+.sub{color:var(--muted);margin-top:10px;max-width:68ch}
+.verdict{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.v{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.v .mono{color:var(--muted)}
+.v strong{display:block;font-size:22px;margin-top:4px}
+.pill{display:inline-block;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;padding:3px 8px;border-radius:999px;font-weight:700}
+.p-bad{background:#FBE7E3;color:var(--bad)} .p-warn{background:#FDF0DA;color:var(--warn)} .p-ok{background:#E2F4EA;color:var(--ok)}
+.gaps{margin-top:28px;display:grid;gap:10px}
+.gap{display:grid;grid-template-columns:110px 1fr;gap:18px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:16px 18px}
+.gap.warn{border-left-color:var(--warn)}
+.gap h3{font-size:17px}
+.gap p{color:var(--muted);margin-top:4px;font-size:15px}
+.gap .fix{color:var(--ink);margin-top:8px;font-size:14px}
+.gap .fix b{color:var(--amber-d)}
+.tbl{overflow-x:auto;margin-top:24px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#FAFAF8}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.us td{background:#FFF6DC}
+.src{font-size:13px;color:var(--muted);margin-top:10px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}
+.box h3{font-size:18px;margin-bottom:12px}
+.cats{display:flex;flex-wrap:wrap;gap:8px}
+.cat{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:14px;background:#FBFBFA}
+.cat.main{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cat.main small{color:var(--led);font-family:var(--f-m);font-size:10px;letter-spacing:.06em;margin-left:6px}
+ul.chk{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.chk li{padding-left:26px;position:relative;font-size:15px}
+ul.chk li::before{content:"";position:absolute;left:0;top:6px;width:14px;height:14px;border-radius:4px;background:var(--amber);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='black' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='black' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/contain no-repeat}
+.kv{display:grid;gap:0;font-size:14px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.kv div{display:grid;grid-template-columns:120px 1fr 1fr;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.kv div:last-child{border-bottom:0}
+.kv .h{background:#FAFAF8;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kv b{font-weight:700}
+.areas{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.areas span{font-size:13px;background:#F6EDD3;color:var(--amber-d);padding:4px 9px;border-radius:999px}
+.gprev{border:1px solid #DADCE0;border-radius:12px;padding:16px;background:#fff;font-family:Arial,Helvetica,sans-serif;margin-top:16px}
+.gprev .t{font-size:20px;color:#202124}
+.gprev .r{font-size:14px;color:#70757A;margin-top:2px}
+.gprev .stars{color:#F4B400}
+.gprev .btns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.gprev .btns span{border:1px solid #DADCE0;border-radius:18px;padding:6px 12px;font-size:13px;color:#1A73E8}
+.designs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.d{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none}
+.d .pv{aspect-ratio:4/3;display:block;position:relative;overflow:hidden}
+.d .pv img{width:100%;height:100%;object-fit:cover;display:block}
+.d .in{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.d h3{font-size:18px}
+.d p{color:var(--muted);font-size:14px}
+.d .go{margin-top:auto;padding-top:10px;font-weight:700;color:var(--amber-d)}
+.d:hover{border-color:var(--amber)}
+.d:focus-visible,.btn:focus-visible{outline:3px solid var(--led);outline-offset:2px}
+.pv.p1{background:linear-gradient(180deg,rgba(24,26,30,.2),rgba(24,26,30,.88)),url(img/hero.jpg) center/cover}
+.pv.p2{background:#F4EFE6}
+.pv.p3{background:#1B1E24}
+.pv .tag{position:absolute;left:14px;bottom:12px;right:14px;color:#fff;font-weight:800;font-size:22px;line-height:1.1;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.pv.p2 .tag{color:#2B2520;text-shadow:none;font-family:Georgia,"Times New Roman",serif;font-weight:700}
+.pv.p2 img{position:absolute;right:0;top:0;width:55%;height:100%;object-fit:cover}
+.pv.p3 .ph{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36%;aspect-ratio:9/17;border:3px solid #555;border-radius:18px;background:#101216;overflow:hidden}
+.pv.p3 .ph img{height:42%;object-fit:cover}
+.pv.p3 .ph i{display:block;margin:8px;height:8px;border-radius:4px;background:#2F343C}
+.pv.p3 .ph i:nth-child(3){background:var(--amber);width:50%}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;align-items:start}
+.pk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+.pk.rec{background:var(--ink);color:#F2F2EE;border-color:var(--ink);position:relative}
+.pk.rec .tag{position:absolute;top:-12px;left:24px;background:var(--led);color:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px}
+.pk h3{font-size:20px}
+.pk .for{color:var(--muted);font-size:14px;margin-top:4px}
+.pk.rec .for{color:#B8BCC4}
+.price{font-size:36px;font-weight:800;letter-spacing:-.02em;margin-top:16px;font-variant-numeric:tabular-nums}
+.price small{font-size:14px;font-weight:500;color:var(--muted)}
+.pk.rec .price small{color:#B8BCC4}
+.was{font-size:14px;color:var(--muted);text-decoration:line-through}
+.pk.rec .was{color:#8E939C}
+.pk ul.chk{margin-top:16px}
+.pk.rec ul.chk li::before{background:var(--led)}
+.dur{font-family:var(--f-m);font-size:12px;margin-top:16px;color:var(--muted)}
+.pk.rec .dur{color:#B8BCC4}
+.extras{margin-top:22px}
+.extras .row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.extras .row b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.st{border-top:3px solid var(--amber);padding-top:12px}
+.st .mono{color:var(--amber-d)}
+.st h3{font-size:16px;margin-top:4px}
+.st p{font-size:14px;color:var(--muted);margin-top:4px}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+details+details{margin-top:8px}
+summary{font-weight:700;cursor:pointer}
+details p{color:var(--muted);margin-top:8px;font-size:15px}
+.cta{background:var(--ink);color:#F2F2EE}
+.cta .w{padding-block:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta h2{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--led);color:var(--ink);font-weight:800;text-decoration:none;padding:14px 20px;border-radius:12px}
+.foot{font-size:13px;color:var(--muted);padding-block:24px}
+@media (max-width:860px){
+  .hero,.cmp{grid-template-columns:1fr}
+  .verdict{grid-template-columns:1fr 1fr}
+  .designs,.packs{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .gap{grid-template-columns:1fr;gap:8px}
+  .kv div{grid-template-columns:1fr;gap:2px}
+  .kv .h{display:none}
+  section{padding-block:40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+
+<header class="top">
+  <div class="w">
+    <div class="brandbar">
+      <div class="dj"><i></i>Dijitabela</div>
+      <span class="mono">Dijital durum raporu · 26 Kasım 2026</span>
+    </div>
+    <div class="hero">
+      <div>
+        <span class="mono" style="color:var(--led)">Antalya · Muratpaşa</span>
+        <h1>Çözüm Yapı'nın Google kaydı var ama <em>yorumu yok, bilgileri tutmuyor.</em></h1>
+        <p class="lead">İşletmenizin internetteki durumunu inceledik. Aşağıda eksikleri, Muratpaşa'daki rakiplerin ne yaptığını ve sizi Google'da ve kendi sitenizde nasıl öne çıkaracağımızı fiyatlarıyla birlikte bulacaksınız.</p>
+      </div>
+      <div>
+        <div class="client">
+          <img src="img/logo.png" alt="Çözüm Yapı Market İnşaat logosu">
+          <div><b>Çözüm Yapı Market İnşaat Sanayi ve Ticaret Ltd. Şti.</b><span>Kışla Mah. 55 Sk. No:8, Muratpaşa/Antalya</span><span>Anahtar teslim tadilat, inşaat, boya, alçıpan, çatı, tesisat</span></div>
+        </div>
+        <div class="meta">
+          <div><span class="mono">Hazırlayan</span><strong>Dijitabela</strong></div>
+          <div><span class="mono">Kaynak</span><strong>Google Haritalar, web</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="w">
+  <span class="mono eyebrow">01 · Durum</span>
+  <h2>Kısaca bugünkü tablo</h2>
+  <div class="verdict">
+    <div class="v"><span class="mono">Google kaydı</span><strong>Var</strong><span class="pill p-warn">BOŞ VE HATALI</span></div>
+    <div class="v"><span class="mono">Google yorumu</span><strong>0</strong><span class="pill p-bad">KRİTİK</span></div>
+    <div class="v"><span class="mono">Telefon</span><strong>3 farklı</strong><span class="pill p-warn">DÜZELTİLMELİ</span></div>
+    <div class="v"><span class="mono">Web sitesi</span><strong>Var</strong><span class="pill p-warn">GÜÇLENMELİ</span></div>
+  </div>
+
+  <div class="gaps">
+    <div class="gap">
+      <span class="pill p-bad" style="align-self:start;justify-self:start">KRİTİK</span>
+      <div>
+        <h3>Google'da hiç yorumunuz yok</h3>
+        <p>Haritalarda sizin kaydınız "yorum yok, 2 fotoğraf" görünüyor. "Antalya tadilat" diye arayan kişi yorumlara bakıyor: Muratpaşa'daki rakiplerin çoğunda 17 ile 137 arasında, 4 ile 5 puan arası yorum var. Anahtar teslim iş birkaç yüz bin liralık güvendir, yorumsuz firma ikinci planda kalıyor.</p>
+        <p class="fix"><b>Yapacağımız:</b> Biten her iş için müşteriye gönderilecek yorum bağlantısı, QR kart ve hazır WhatsApp mesajı. Herkese aynı bağlantı gider, yorum seçmeyiz. Google'ın kuralı gereği yalnızca gerçek müşteri yorumu istenir.</p>
+      </div>
+    </div>
+    <div class="gap warn">
+      <span class="pill p-warn" style="align-self:start;justify-self:start">ÖNEMLİ</span>
+      <div>
+        <h3>Google kaydında bilgiler tutmuyor</h3>
+        <p>Haritalardaki kayıtta telefon <b>0242 247 27 04</b>, sitenizde <b>0532 776 06 29</b>. Kayıt kategorisi yalnızca "İnşaat firması". Harita işareti, Kışla'daki adresinizden yaklaşık 20 km uzakta, Antalya'nın batısında görünüyor. Kaydı kimin yönettiğini ancak sizin Google hesabınızla görebiliriz.</p>
+        <p class="fix"><b>Yapacağımız:</b> Kaydı sahiplenmenizi sağlarız (ya da sahipliği devralırız), konumu Kışla 55. Sokak No:8'e taşırız, telefonu, saatleri, kategorileri ve hizmetleri düzeltiriz.</p>
+      </div>
+    </div>
+    <div class="gap warn">
+      <span class="pill p-warn" style="align-self:start;justify-self:start">ÖNEMLİ</span>
+      <div>
+        <h3>Site Google'a ne yaptığınızı söylemiyor</h3>
+        <p>Sayfa başlığı yalnızca "Çözüm Yapı Market". İçinde "Antalya", "tadilat" ya da "anahtar teslim" geçmiyor. Açıklama (meta description) yok, 33 görselin 32'sinin alt metni boş, sayfada 3 farklı ana başlık var ve hiçbiri hizmeti anlatmıyor. robots.txt ve sitemap.xml yok, yapılandırılmış veri yok.</p>
+        <p class="fix"><b>Yapacağımız:</b> Her hizmet için ayrı sayfa (banyo yenileme, çatı izolasyonu, alçıpan, boya...), "Antalya" ve "Muratpaşa" odaklı başlıklar, görsel alt metinleri, sitemap ve işletme şeması.</p>
+      </div>
+    </div>
+    <div class="gap warn">
+      <span class="pill p-warn" style="align-self:start;justify-self:start">ÖNEMLİ</span>
+      <div>
+        <h3>Siteden müşteri talebi toplanmıyor</h3>
+        <p>"İletişim" bağlantısı sayfanın kendisine dönüyor, teklif ya da keşif formu yok. Müşteri ancak telefon ya da WhatsApp'a basıp kendi yazmak zorunda. Yaptığınız işlerin fotoğrafları var ama önce/sonra, hangi mahalle, kaç gün gibi bilgi yok. "40 yılı aşkın tecrübe" ve "sözleşme ve garanti" gibi güçlü sözleriniz sayfanın içinde kaybolmuş.</p>
+        <p class="fix"><b>Yapacağımız:</b> Tadilat kalemini seçince keşif talebi WhatsApp'a düşen akış, iş galerisi ve tecrübe/sözleşme/garanti vurgusu. Aşağıda 3 tasarım hazır.</p>
+      </div>
+    </div>
+    <div class="gap warn">
+      <span class="pill p-warn" style="align-self:start;justify-self:start">ÖNEMLİ</span>
+      <div>
+        <h3>Adres ve telefon her yerde farklı yazılmış</h3>
+        <p>Sitede adres "Kışla Mah. 55 Sk. No:8", Instagram profilinde "No:1" yazıyor. Telefon sitede mobil, Google'da ve Yandex Haritalar'da sabit hat, üç ayrı numara. Google bu tutarsızlığı güven kaybı sayar, müşteri de hangisini arayacağını bilemez.</p>
+        <p class="fix"><b>Yapacağımız:</b> Tek adres, tek telefon, tek yazım biçimi. Site, Google, Instagram, Yandex ve diğer dizinlerde aynı bilgi.</p>
+      </div>
+    </div>
+  </div>
+  <div class="kv" style="margin-top:24px" role="table" aria-label="Bilgi karşılaştırması">
+    <div class="h"><span>Bilgi</span><span>Web sitesi</span><span>Google / diğer</span></div>
+    <div><span>Telefon</span><b>0532 776 06 29</b><b>Google: 0242 247 27 04 · Yandex: 0242 247 65 59</b></div>
+    <div><span>Adres</span><b>Kışla Mah. 55 Sk. No:8</b><b>Instagram: Kışla mah. 55 sk. No:1 · Google işareti: yaklaşık 20 km batıda</b></div>
+    <div><span>Kategori</span><b>Anahtar teslim tadilat, inşaat</b><b>Google: İnşaat firması</b></div>
+    <div><span>Yorum</span><b>Yok</b><b>Google: 0 yorum, 2 fotoğraf</b></div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">02 · Rakipler</span>
+  <h2>Muratpaşa'da Google'da görünen firmalar</h2>
+  <p class="sub">Aynı işleri yapan ve Google Haritalar'da kaydı olan firmalar. Hepsinin yorumu var, bir kısmının sitesi de var.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Firma</th><th>Google puanı</th><th>Yorum</th><th>Web sitesi</th><th>Google kategorisi</th></tr></thead>
+      <tbody>
+        <tr><td><b>Antalya Boya Badana Ustası</b></td><td class="num">4,8 ★</td><td class="num">137</td><td>Yok</td><td>Boyacı</td></tr>
+        <tr><td><b>Boyacı Antalya Badana Tadilat</b></td><td class="num">5,0 ★</td><td class="num">120</td><td>Var</td><td>Boyacı</td></tr>
+        <tr><td><b>Antalyam Boya Badana Hizmetleri</b></td><td class="num">5,0 ★</td><td class="num">94</td><td>Var</td><td>Boyacı, alçıpan yüklenicisi</td></tr>
+        <tr><td><b>OYK İnşaat · Anahtar Teslim Tadilat</b></td><td class="num">4,7 ★</td><td class="num">64</td><td>Var</td><td>Ev geliştirme mağazası</td></tr>
+        <tr><td><b>Ataser Yapı Tadilat &amp; Dekorasyon</b></td><td class="num">4,1 ★</td><td class="num">31</td><td>Var</td><td>İnşaat firması</td></tr>
+        <tr><td><b>Melka Dekorasyon</b></td><td class="num">5,0 ★</td><td class="num">28</td><td>Yok</td><td>Boyacı, fayans, alçıpan</td></tr>
+        <tr><td><b>Antalya İnşaat Tadilat Mimarlık</b></td><td class="num">4,9 ★</td><td class="num">27</td><td>Yok</td><td>Ev geliştirme mağazası</td></tr>
+        <tr><td><b>MC Yapı Tadilat &amp; Dekorasyon</b></td><td class="num">5,0 ★</td><td class="num">17</td><td>Var</td><td>İnşaat firması</td></tr>
+        <tr class="us"><td><b>Çözüm Yapı Market İnşaat</b></td><td class="num">Puan yok</td><td class="num">0</td><td>Var</td><td>İnşaat firması</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">Kaynak: Google Haritalar kayıtları (Ekim–Kasım 2026) ve firmaların web siteleri. Puan ve yorum sayıları kayıtların o günkü haline göredir, değişebilir.</p>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">03 · Google İşletme Profili</span>
+  <h2>Mevcut kaydı nasıl düzeltiriz</h2>
+  <p class="sub">Sıfırdan kayıt açmıyoruz, çünkü kaydınız zaten var. Çift kayıt Google'da cezadır. Önce mevcut kaydı sahipleniriz, sonra şu kurguya getiririz:</p>
+  <div class="cmp">
+    <div class="box">
+      <h3>Kategoriler</h3>
+      <div class="cats">
+        <span class="cat main">İnşaat firması <small>ANA</small></span>
+        <span class="cat">Tadilat yüklenicisi</span>
+        <span class="cat">Boyacı</span>
+        <span class="cat">Alçıpan yüklenicisi</span>
+        <span class="cat">Çatı yüklenicisi</span>
+        <span class="cat">Su tesisatçısı</span>
+        <span class="cat">Elektrikçi</span>
+        <span class="cat">Fayans / seramik yüklenicisi</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:10px">Kategori adlarını kurulum günü Google'ın güncel listesiyle birebir eşleştiririz. Ana kategoriyi en çok iş getiren hizmetinize göre seçeriz.</p>
+      <h3 style="margin-top:22px">Hizmetler (her biri ayrı kayıt)</h3>
+      <div class="cats">
+        <span class="cat">Anahtar teslim tadilat</span><span class="cat">Temelden inşaat</span><span class="cat">İç cephe boya</span><span class="cat">Dış cephe boya</span>
+        <span class="cat">Alçı, sıva, alçıpan</span><span class="cat">Asma tavan</span><span class="cat">Bölme duvar</span><span class="cat">Çatı onarımı</span>
+        <span class="cat">Çatı izolasyonu</span><span class="cat">Su tesisatı yenileme</span><span class="cat">Elektrik tesisatı yenileme</span><span class="cat">Banyo yenileme</span>
+        <span class="cat">Mutfak yenileme</span><span class="cat">Fayans ve seramik</span><span class="cat">Laminat parke</span><span class="cat">Pimapen doğrama</span><span class="cat">Cam balkon</span><span class="cat">Duşakabin</span><span class="cat">Mimari proje çizimi</span><span class="cat">Ücretsiz keşif</span>
+      </div>
+    </div>
+    <div class="box">
+      <h3>Profilde neler olacak</h3>
+      <ul class="chk">
+        <li>Sahiplenme ve doğrulama süreci baştan sona bizde. Size sadece Google'dan gelen kodu iletmek kalıyor.</li>
+        <li>Harita işareti Kışla 55. Sokak No:8'e taşınır, telefon ve çalışma saatleri (Pzt–Cmt 09:00–18:00) düzeltilir</li>
+        <li>Anahtar kelimeli açıklama: Antalya tadilat, anahtar teslim, boya, çatı, banyo, mutfak</li>
+        <li>Sitenizdeki iş fotoğraflarından seçilmiş ilk fotoğraf seti, logo ve kapak görseli</li>
+        <li>Arama ve WhatsApp düğmeleri, web sitesi bağlantısı</li>
+        <li>İlk 4 Google gönderisi (ücretsiz keşif, kış öncesi çatı kontrolü, banyo yenileme)</li>
+        <li>Soru-cevap bölümüne sık sorulan 5 soru</li>
+        <li>Yorum QR kartı ve her iş sonunda gönderilecek hazır mesaj</li>
+      </ul>
+      <h3 style="margin-top:22px">Hizmet bölgeleri</h3>
+      <div class="areas"><span>Muratpaşa</span><span>Kepez</span><span>Konyaaltı</span><span>Döşemealtı</span><span>Aksu</span><span>Lara</span><span>Kundu</span><span>Kemer</span><span>Serik</span></div>
+      <div class="gprev" aria-label="Google'da görünüm örneği">
+        <div class="t">Çözüm Yapı Market İnşaat</div>
+        <div class="r"><span class="stars">★★★★★</span> Yeni · İnşaat firması · Muratpaşa</div>
+        <div class="r">Anahtar teslim tadilat, boya, alçıpan, çatı, banyo ve mutfak yenileme · Ücretsiz keşif</div>
+        <div class="btns"><span>Yol tarifi</span><span>Ara</span><span>WhatsApp</span><span>Web sitesi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">04 · Web sitesi</span>
+  <h2>Size özel 3 farklı tasarım</h2>
+  <p class="sub">Üç tasarımın yerleşimi ve dili birbirinden farklı. Hepsinde sizin gerçek hizmetleriniz, adresiniz, telefonunuz ve sitenizdeki iş fotoğraflarınız var. Telefonda ve bilgisayarda çalışır, düğmeleri deneyebilirsiniz. Beğendiğinizi seçin, onun üzerinden ilerleyelim.</p>
+  <div class="designs">
+    <a class="d" href="tasarim-1.html"><span class="pv p1"><span class="tag">Şantiyeden<br>anahtar teslime</span></span><div class="in"><span class="mono" style="color:var(--amber-d)">Tasarım 1 · Şantiye</span><h3>Antrasit ve sarı</h3><p>Koyu, güçlü, projeye bakan bir yerleşim. Tadilat kalemlerini seçip keşif talebini WhatsApp'a gönderen sihirbaz ve iş galerisi.</p><span class="go">Tasarımı aç →</span></div></a>
+    <a class="d" href="tasarim-2.html"><span class="pv p2"><span class="tag">40 yılı aşkın<br>tecrübe</span><img src="img/koridor.jpg" alt=""></span><div class="in"><span class="mono" style="color:var(--amber-d)">Tasarım 2 · Kurumsal</span><h3>Sözleşmeli, garantili</h3><p>Açık renkli, güven veren kurumsal düzen. Oda oda tadilat planlayıcı, 6 adımlık süreç ve sözleşme-garanti vurgusu.</p><span class="go">Tasarımı aç →</span></div></a>
+    <a class="d" href="tasarim-3.html"><span class="pv p3"><span class="ph"><img src="img/avize.jpg" alt=""><i></i><i></i><i></i></span></span><div class="in"><span class="mono" style="color:var(--amber-d)">Tasarım 3 · Uygulama</span><h3>Cepteki usta</h3><p>Telefon uygulaması gibi çalışır: "Sorunum ne?" ile sorununuza uygun hizmeti bulur, keşif gününü seçtirir, alt menüden tek dokunuşla arar.</p><span class="go">Tasarımı aç →</span></div></a>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">05 · Paketler</span>
+  <h2>Fiyatlar</h2>
+  <p class="sub">Fiyatlara KDV dahil değildir. İşe %50 ön ödemeyle başlanır, kalan %50 yayına alınınca ödenir. Kartla taksit yapılabilir.</p>
+  <div class="packs">
+    <div class="pk">
+      <h3>Google'da Görün</h3>
+      <p class="for">Önce haritada güven kazanmak isteyenler için</p>
+      <div class="price">6.850 ₺ <small>tek sefer</small></div>
+      <ul class="chk">
+        <li>Mevcut Google kaydını sahiplenme, düzeltme ve doğrulama</li>
+        <li>8 kategori, 20 hizmet, 9 hizmet bölgesi</li>
+        <li>Logo ve kapak görseli, ilk fotoğraf seti</li>
+        <li>İlk 4 gönderi ve soru-cevap</li>
+        <li>Yorum QR kartı ve yorum isteme mesajı</li>
+      </ul>
+      <p class="dur">Teslim: 48 saat (doğrulama Google'a bağlı)</p>
+    </div>
+    <div class="pk rec">
+      <span class="tag">ÖNERİLEN</span>
+      <h3>Dijital Vitrin</h3>
+      <p class="for">Google + yenilenmiş siteniz, arayan müşteri talep bırakır</p>
+      <div class="price">27.010 ₺ <small>tek sefer</small></div>
+      <ul class="chk">
+        <li>"Google'da Görün" paketinin tamamı</li>
+        <li>Seçtiğiniz tasarımla 7 sayfalık site, hizmet başına ayrı sayfa</li>
+        <li>Keşif talebi sihirbazı, talepler WhatsApp'a düşer</li>
+        <li>Mevcut antalyacozumyapi.com adresinize bağlanır, barındırma ilk yıl dahil</li>
+        <li>Antalya ve Muratpaşa aramaları için SEO, sitemap, işletme şeması</li>
+        <li>SSL, KVKK metni, Google Search Console kaydı</li>
+      </ul>
+      <p class="dur">Teslim: 7 iş günü</p>
+    </div>
+    <div class="pk">
+      <h3>Tam Paket</h3>
+      <p class="for">Kurulum + ilk 3 ay bakım, hiç uğraşmayın</p>
+      <div class="was">27.010 + 3 × 6.240 = 45.730 ₺</div>
+      <div class="price">39.520 ₺ <small>tek sefer</small></div>
+      <ul class="chk">
+        <li>"Dijital Vitrin" paketinin tamamı</li>
+        <li>İlk 3 ay bakım dahil:</li>
+        <li>Her hafta 1 Google gönderisi</li>
+        <li>Yorumlara 24 saat içinde cevap</li>
+        <li>Yeni iş fotoğraflarını yükleme</li>
+        <li>Sitede fiyat ve içerik güncellemeleri</li>
+        <li>Aylık rapor: kaç kişi aradı, yol tarifi aldı, siteye girdi</li>
+      </ul>
+      <p class="dur">Teslim: 7 iş günü, bakım 3 ay</p>
+    </div>
+  </div>
+  <div class="extras">
+    <span class="mono" style="color:var(--muted)">İsterseniz eklenir</span>
+    <div class="row"><span>Aylık bakım (Google gönderileri, yorum cevapları, site güncellemeleri, aylık rapor)</span><b>6.240 ₺ / ay</b></div>
+    <div class="row"><span>Instagram ve Facebook yönetimi (ayda 12 paylaşım, reels dahil)</span><b>15.210 ₺ / ay</b></div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">06 · Süreç</span>
+  <h2>Nasıl ilerliyoruz</h2>
+  <div class="steps">
+    <div class="st"><span class="mono">1. gün</span><h3>Tasarımı seçin</h3><p>3 tasarımdan birini seçip ön ödemeyi yaparsınız. Biz Google kaydını sahiplenmeye başlarız.</p></div>
+    <div class="st"><span class="mono">2-3. gün</span><h3>Bilgi ve fotoğraf</h3><p>Yaptığınız işlerin fotoğraflarını WhatsApp'tan atarsınız, biz düzenleriz.</p></div>
+    <div class="st"><span class="mono">4-6. gün</span><h3>Site hazırlanır</h3><p>Hizmet sayfaları, galeri ve keşif formu sizin bilgilerinizle doldurulur.</p></div>
+    <div class="st"><span class="mono">7. gün</span><h3>Yayına alınır</h3><p>Site mevcut adresinizde açılır, Google profiline bağlanır, kalan ödeme yapılır.</p></div>
+  </div>
+</section>
+
+<section class="w">
+  <span class="mono eyebrow">07 · Sorular</span>
+  <h2>Sık sorulanlar</h2>
+  <div style="margin-top:24px">
+    <details><summary>Google'da kaydımız var, yeni kayıt mı açacaksınız?</summary><p>Hayır. Mevcut kaydı sahipleniriz. İki kayıt açmak Google'da kaydın askıya alınmasına yol açabilir. Kaydı daha önce kimin açtığını bilmiyoruz, sahiplenme sırasında Google size doğrulama kodu gönderir.</p></details>
+    <details><summary>Site ve alan adı kimin adına olur?</summary><p>Sizin adınıza. Alan adınız antalyacozumyapi.com zaten sizde, biz yalnızca yeni siteyi ona bağlarız. Bizimle çalışmayı bıraksanız da siteniz sizde kalır.</p></details>
+    <details><summary>Müşteri yorumlarını siz mi yazacaksınız?</summary><p>Hayır, yorum satın alınmaz ve yazılmaz. Biz müşterinizin tek tıkla yorum bırakabileceği bağlantıyı ve mesajı hazırlarız. Yorumu müşteriniz yazar.</p></details>
+    <details><summary>Ne zaman müşteri gelmeye başlar?</summary><p>Kayıt düzeldikten ve ilk yorumlar geldikten sonra aramalarda yükselmeye başlarsınız. Kesin bir sıra garantisi veremeyiz. Bunu söyleyen olursa dikkat edin.</p></details>
+  </div>
+</section>
+</main>
+
+<div class="cta">
+  <div class="w">
+    <div><h2>Tasarımınızı seçin, yarın başlayalım.</h2><p style="color:#B8BCC4;margin-top:8px">Dijitabela · 0501 945 21 84 · dijitabela.com</p></div>
+    <a class="btn" href="https://wa.me/905019452184?text=Merhaba%2C%20%C3%87%C3%B6z%C3%BCm%20Yap%C4%B1%20i%C3%A7in%20tasar%C4%B1m%C4%B1m%C4%B1%20se%C3%A7tim%3A%20" target="_blank" rel="noopener">WhatsApp'tan seçimimi ilet</a>
+  </div>
+</div>
+<p class="w foot">Bu rapor 26 Kasım 2026 tarihinde herkese açık kaynaklardan hazırlanmıştır. Rakip ve Google bilgileri kayıtların o günkü haline göredir ve değişebilir. Tasarımlardaki fotoğraflar sizin web sitenizden alınmıştır.</p>
+</body></html>
