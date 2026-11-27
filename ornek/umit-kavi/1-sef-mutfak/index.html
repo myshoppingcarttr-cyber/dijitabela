@@ -1,213 +1,317 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ümit Kavi · Mutfak Sanatları — Tasarım 1</title>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ümit Kavi · Atelier — Mutfak Sanatları</title>
+<meta name="description" content="Ümit Kavi — Mutfak Sanatları eğitimli aşçı yardımcısı, barista ve girişimci. Etkinlik menüleri, tadım sofraları, kahve servisi ve menü danışmanlığı. Maltepe, İstanbul. (Dijitabela örnek tasarım)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231b1712'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-style='italic' fill='%23f4eee3'%3E%C3%9CK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ortak/features.css">
 <style>
-:root{--cream:#fbf4e8;--paper:#fffaf1;--ink:#2a1d14;--muted:#6f5d4e;--terra:#b8502f;--terra2:#8f3a1f;--sage:#6b7a4f;--honey:#e2a93b;--line:#e8dac3;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 var(--sans)}
-a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.1;margin:0}
-nav{position:sticky;top:0;z-index:50;background:rgba(251,244,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;gap:18px;height:66px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:18px}
-.logo svg{width:40px;height:40px}
-.menu{margin-left:auto;display:flex;gap:22px;font-size:14px;font-weight:500;color:var(--muted)}
-.menu a:hover{color:var(--terra)}
-.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
-.lang button{background:none;border:0;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted)}
-.lang button.on{background:var(--terra);color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:#fff;border:0;border-radius:999px;padding:13px 24px;font-weight:600;cursor:pointer;transition:.2s}
-.btn:hover{background:var(--terra2);transform:translateY(-1px)}
-.btn.ghost{background:transparent;color:var(--terra);border:1.5px solid var(--terra)}
-.hero{padding:70px 0 50px;position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:14px}
-.hero h1{font-size:clamp(40px,6vw,74px);letter-spacing:-.02em}
-.hero h1 em{color:var(--terra);font-weight:500}
-.hero p{font-size:18px;color:var(--muted);max-width:520px;margin:20px 0 28px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.plate{position:relative;aspect-ratio:1;max-width:420px;margin:auto;width:100%}
-.plate svg{width:100%;height:100%}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
-.chip{font-size:12px;border:1px solid var(--line);background:var(--paper);padding:6px 12px;border-radius:999px;color:var(--muted)}
-section{padding:70px 0}
-.sec-h{max-width:620px;margin-bottom:34px}
-.sec-h h2{font-size:clamp(30px,4vw,44px)}
-.sec-h p{color:var(--muted);margin:12px 0 0}
-.paper{background:var(--paper);border:1px solid var(--line);border-radius:22px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{padding:26px}
-.card .ic{width:46px;height:46px;border-radius:14px;background:#f3e3c8;display:grid;place-items:center;margin-bottom:14px}
-.card h3{font-size:22px;margin-bottom:8px}.card p{margin:0;color:var(--muted);font-size:15px}
-.planner{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
-.planner .in{padding:28px}.planner .out{padding:28px;background:#2a1d14;color:#fbf4e8;border-radius:22px}
-.lbl{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
-.lbl:first-child{margin-top:0}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 15px;font-size:14px;cursor:pointer;transition:.15s}
-.pill.on{background:var(--terra);border-color:var(--terra);color:#fff}
-input[type=range]{width:100%;accent-color:var(--terra)}
-.gc{font-family:var(--serif);font-size:34px;color:var(--terra)}
-.out h3{color:var(--honey);font-size:24px;margin-bottom:4px}
-.out .sub{opacity:.7;font-size:13px;margin-bottom:16px}
-.course{border-top:1px dashed rgba(251,244,232,.25);padding:12px 0}
-.course small{display:block;color:var(--honey);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-.stat{display:flex;gap:14px;margin:16px 0}.stat div{flex:1;background:rgba(255,255,255,.08);border-radius:14px;padding:12px;text-align:center}
-.stat b{font-family:var(--serif);font-size:26px;display:block;color:var(--honey)}.stat span{font-size:12px;opacity:.75}
-.note{font-size:12px;opacity:.6;margin-top:10px}
-.tl{position:relative;padding-left:34px}
-.tl:before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--terra),var(--sage))}
-.tli{position:relative;padding:0 0 26px;opacity:0;transform:translateY(14px);transition:.6s}
-.tli.in{opacity:1;transform:none}
-.tli:before{content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--cream);border:3px solid var(--terra)}
-.tli h3{font-size:21px}.tli .when{font-size:12px;color:var(--sage);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-.tli p{margin:4px 0 0;color:var(--muted);font-size:15px}
-.two{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
-.wiz{max-width:760px;margin:auto;padding:30px}
-.steps{display:flex;gap:6px;margin-bottom:22px}.steps i{flex:1;height:5px;border-radius:9px;background:var(--line)}.steps i.on{background:var(--terra)}
-.field{margin-bottom:14px}.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
-.field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff}
-.field input:focus,.field textarea:focus{outline:2px solid var(--terra);border-color:transparent}
-.nav2{display:flex;justify-content:space-between;margin-top:18px;gap:10px}
-.sum{background:#fff;border:1.5px dashed var(--terra);border-radius:14px;padding:16px;white-space:pre-wrap;font-size:14px;line-height:1.6}
-.hidden{display:none}
-footer{padding:40px 0 90px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(max-width:860px){.hero .wrap,.planner,.two{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.menu{display:none}.lang{margin-left:auto}.hero{padding-top:36px}section{padding:48px 0}.two{gap:10px}}
-.wrap>*,.box,.panel>*,.planner>*,.work>*,.feat>*,.two>*,.top>*{min-width:0}h1,h2,h3{overflow-wrap:anywhere}img,svg{max-width:100%}</style></head><body>
-<nav><div class="wrap">
-<a class="logo" href="#top" aria-label="Ümit Kavi">
-<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#b8502f"/><path d="M14 14v6a4 4 0 004 4v10M18 14v8M22 14v6a4 4 0 01-4 4" stroke="#fbf4e8" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M30 34V14c4 2 6 7 6 11h-6" stroke="#fbf4e8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="22" fill="none" stroke="#e2a93b" stroke-width="1.2" stroke-dasharray="2 3"/></svg>
-<span>Ümit Kavi</span></a>
-<div class="menu"><a href="#hakkimda" data-en="About">Hakkımda</a><a href="#planlayici" data-en="Menu planner">Menü planlayıcı</a><a href="#yolculuk" data-en="Journey">Yolculuk</a><a href="#talep" data-en="Request">Talep</a></div>
-<div class="lang"><button class="langbtn on" data-l="tr">TR</button><button class="langbtn" data-l="en">EN</button></div>
-</div></nav>
+:root{--cream:#f4eee3;--paper:#ece4d4;--ink:#1b1712;--mu:#6d6455;--ox:#7a2e22;--gold:#b08d57;--ln:rgba(27,23,18,.16);
+--uk-bg:#f9f5ec;--uk-fg:#1b1712;--uk-mu:#6d6455;--uk-ac:#7a2e22;--uk-acf:#f9f5ec;--uk-ln:rgba(27,23,18,.18);--uk-r:4px;--uk-ff:'Instrument Sans',system-ui,sans-serif;--uk-fh:'Cormorant Garamond',Georgia,serif;--uk-sf:rgba(27,23,18,.04);--uk-hw:500}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:auto}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--cream);color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.sr{position:absolute;left:-9999px}
+:focus-visible{outline:2px solid var(--ox);outline-offset:3px}
+/* grain: çok hafif */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:6000;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* yükleme perdesi */
+#curtain{position:fixed;inset:0;z-index:9500;background:var(--ink);color:var(--cream);display:grid;place-items:center}
+#curtain .l{display:flex;flex-direction:column;align-items:center;gap:14px}
+#curtain svg{width:84px;height:84px}
+#curtain p{font:italic 500 1.4rem 'Cormorant Garamond',serif;letter-spacing:.04em;opacity:.8}
+/* header */
+header.top{position:fixed;top:0;left:0;right:0;z-index:5000;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(18px,3.2vw,48px);color:var(--cream);transition:color .4s,background .4s,transform .5s}
+header.top.light{color:var(--ink);background:linear-gradient(var(--cream),rgba(244,238,227,0))}
+header.top{animation:hdin 1s 2.4s both}@keyframes hdin{from{opacity:0}}
+header.top.hide{transform:translateY(-100%)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:44px;height:44px;flex:none}
+.logo b{white-space:nowrap;display:block;font:500 1.35rem/1 'Cormorant Garamond',serif;letter-spacing:.14em;text-transform:uppercase}
+.logo span{display:block;font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;opacity:.75;margin-top:4px;white-space:nowrap}
+nav.main{display:flex;gap:clamp(14px,2.2vw,34px);align-items:center;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+nav.main a{text-decoration:none;position:relative;padding:8px 0}
+nav.main a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+nav.main a:hover::after{transform:scaleX(1);transform-origin:left}
+#burger{display:none;background:none;border:1px solid currentColor;border-radius:99px;color:inherit;min-height:44px;padding:0 18px;font:inherit;letter-spacing:.14em;font-size:.72rem;cursor:pointer;text-transform:uppercase}
+@media(max-width:960px){nav.main a.n{display:none}#burger{display:block}.logo span{display:none}}
+#sheet{position:fixed;inset:0;z-index:5500;background:var(--ink);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:0 8vw;gap:6px;transform:translateY(-100%);transition:transform .7s cubic-bezier(.7,0,.2,1)}
+#sheet.open{transform:none}
+#sheet a{font:italic 500 clamp(2.4rem,11vw,4rem)/1.15 'Cormorant Garamond',serif;text-decoration:none}
+#sheet button{position:absolute;top:18px;right:18px;background:none;border:1px solid var(--cream);color:var(--cream);border-radius:99px;min-height:44px;padding:0 18px;cursor:pointer;font:inherit;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+/* hero */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;color:var(--cream);display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:-6% 0;will-change:transform}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,.45),rgba(20,14,8,.05) 35%,rgba(20,14,8,.75))}
+.hero .in{position:relative;z-index:2;width:100%;padding:0 clamp(18px,3.2vw,48px) clamp(34px,6vh,70px);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+.hero h1{font:500 clamp(3.4rem,11.5vw,11rem)/.88 'Cormorant Garamond',serif;letter-spacing:-.025em}
+.hero h1 em{font-style:italic;font-weight:400;color:#e8d3a6}
+.hero .l{display:block;overflow:hidden;padding-bottom:.08em}
+.hero .l>span{display:block;transform:translateY(105%)}
+.hero .meta{max-width:300px;font-size:.92rem;opacity:.92}
+.hero .meta p{margin-bottom:18px}
+.hero .cta{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--cream);border-radius:99px;padding:14px 26px;min-height:48px;text-decoration:none;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;transition:background .3s,color .3s}
+.hero .cta:hover{background:var(--cream);color:var(--ink)}
+.hero .tag{position:absolute;top:50%;right:clamp(18px,3vw,44px);writing-mode:vertical-rl;font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;opacity:.8;z-index:2}
+@media(max-width:800px){.hero .in{grid-template-columns:1fr}.hero .tag{display:none}.hero .meta{max-width:none}}
+/* intro */
+.intro{padding:clamp(90px,16vw,220px) clamp(18px,6vw,100px);max-width:1500px;margin:auto}
+.intro .k{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mu);margin-bottom:34px;display:flex;gap:16px;align-items:center}
+.intro .k::before{content:"";width:60px;height:1px;background:var(--ox)}
+.intro p.big{font:400 clamp(2rem,5.4vw,5rem)/1.12 'Cormorant Garamond',serif;letter-spacing:-.01em}
+.intro p.big .w{opacity:.14;transition:none}
+.intro p.big em{color:var(--ox)}
+/* menü yatay */
+#menu{background:var(--ink);color:var(--cream);overflow:hidden}
+.hs{height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hs .hd{padding:0 clamp(18px,4vw,60px);display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:3vh}
+.hs .hd h2{font:500 clamp(2.4rem,6vw,5.4rem)/.95 'Cormorant Garamond',serif}
+.hs .hd h2 em{color:#e8d3a6}
+.hs .hd p{max-width:340px;font-size:.88rem;opacity:.7}
+.track{display:flex;gap:clamp(18px,2.4vw,40px);padding:0 clamp(18px,4vw,60px);width:max-content;will-change:transform}
+.pn{flex:none;width:min(78vw,520px);display:grid;grid-template-rows:1fr auto;gap:16px;height:min(62svh,560px)}
+.pn .ph{overflow:hidden;position:relative;border-radius:2px}
+.pn .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.pn:hover .ph img{transform:scale(1.06)}
+.pn .no{position:absolute;top:12px;left:16px;font:italic 400 3.4rem/1 'Cormorant Garamond',serif;color:var(--cream);mix-blend-mode:difference}
+.pn h3{font:500 1.9rem/1 'Cormorant Garamond',serif;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.pn h3 small{font:400 .7rem 'Instrument Sans';letter-spacing:.22em;text-transform:uppercase;opacity:.6}
+.pn p{font-size:.88rem;opacity:.72;max-width:44ch;margin-top:4px}
+.pn.last{width:min(70vw,380px);display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(244,238,227,.25);padding:30px}
+.pn.last a{font:italic 500 2.2rem/1.1 'Cormorant Garamond',serif;text-decoration:none}
+.pbar{position:absolute;left:clamp(18px,4vw,60px);right:clamp(18px,4vw,60px);bottom:4vh;height:1px;background:rgba(244,238,227,.2)}
+.pbar i{display:block;height:1px;background:#e8d3a6;width:0}
+@media(max-width:800px){.pn{height:58svh}.hs .hd p{display:none}}
+/* hakkımda */
+.about{display:grid;grid-template-columns:5fr 7fr;gap:clamp(30px,6vw,110px);padding:clamp(80px,12vw,180px) clamp(18px,5vw,90px);max-width:1600px;margin:auto;align-items:start}
+.about .ph{position:sticky;top:90px;aspect-ratio:3/4;overflow:hidden}
+.about .ph img{width:100%;height:115%;object-fit:cover}
+.about .ph span{position:absolute;left:14px;bottom:14px;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);background:rgba(0,0,0,.4);padding:6px 10px;border-radius:99px}
+h2.t{font:500 clamp(2.4rem,5.5vw,5rem)/.98 'Cormorant Garamond',serif;margin-bottom:30px}
+h2.t em{color:var(--ox)}
+.about .lead{font-size:1.15rem;max-width:56ch;margin-bottom:46px;color:#3b342a}
+.tl{border-top:1px solid var(--ln)}
+.tl .it{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid var(--ln);transition:padding .4s,background .4s}
+.tl .it:hover{padding-left:14px;background:rgba(122,46,34,.05)}
+.tl .y{font:italic 400 1.5rem 'Cormorant Garamond',serif;color:var(--ox)}
+.tl h4{font:500 1.55rem/1.1 'Cormorant Garamond',serif}
+.tl p{font-size:.92rem;color:var(--mu);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chips span{border:1px solid var(--ln);padding:8px 16px;border-radius:99px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:860px){.about{grid-template-columns:1fr}.about .ph{position:relative;top:0;max-height:70vh;aspect-ratio:4/5}.tl .it{grid-template-columns:62px 1fr}}
+/* hizmet */
+.svc{background:var(--paper);padding:clamp(80px,12vw,170px) clamp(18px,5vw,90px)}
+.svc .wrap{max-width:1500px;margin:auto}
+.svc .row{display:grid;grid-template-columns:70px 1.1fr 1fr 40px;gap:20px;align-items:center;padding:30px 0;border-top:1px solid var(--ln);cursor:pointer;position:relative}
+.svc .row:last-child{border-bottom:1px solid var(--ln)}
+.svc .row .n{font:italic 400 1.4rem 'Cormorant Garamond',serif;color:var(--ox)}
+.svc .row h3{font:500 clamp(1.7rem,3.6vw,3.2rem)/1 'Cormorant Garamond',serif;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.svc .row:hover h3{transform:translateX(14px)}
+.svc .row p{color:var(--mu);font-size:.95rem}
+.svc .row .pm{font-size:1.6rem;transition:transform .4s}
+.svc .row[aria-expanded=true] .pm{transform:rotate(45deg)}
+.svc .row .more{grid-column:2/4;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s ease,opacity .4s}
+.svc .row[aria-expanded=true] .more{max-height:200px;opacity:1;padding-top:6px}
+.svc .row .more ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0}
+.svc .row .more li{border:1px solid var(--ln);border-radius:99px;padding:6px 14px;font-size:.82rem}
+.svc .row .peek{position:absolute;right:70px;top:50%;width:150px;height:190px;transform:translateY(-50%) scale(.8) rotate(4deg);opacity:0;pointer-events:none;transition:all .45s cubic-bezier(.2,.8,.2,1);overflow:hidden;z-index:2}
+.svc .row .peek img{width:100%;height:100%;object-fit:cover}
+@media(hover:hover) and (min-width:900px){.svc .row:hover .peek{opacity:1;transform:translateY(-50%) scale(1) rotate(-3deg)}}
+@media(max-width:800px){.svc .row{grid-template-columns:40px 1fr 30px}.svc .row p{display:none}.svc .row .more{grid-column:2/3}}
+/* galeri */
+.gal{padding:clamp(60px,9vw,120px) 0;overflow:hidden}
+.gal .rowg{display:flex;gap:18px;width:max-content;margin-bottom:18px}
+.gal img{height:clamp(200px,32vw,380px);width:auto;border-radius:2px;filter:saturate(.95)}
+.quote{padding:clamp(60px,10vw,150px) clamp(18px,6vw,100px);text-align:center}
+.quote p{font:italic 400 clamp(1.8rem,4.4vw,4rem)/1.15 'Cormorant Garamond',serif;max-width:22ch;margin:auto}
+.quote small{display:block;margin-top:24px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mu)}
+/* rezervasyon */
+.res{background:var(--ink);color:var(--cream);padding:clamp(80px,12vw,170px) clamp(18px,5vw,90px)}
+.res .wrap{max-width:1500px;margin:auto}
+.res h2.t{color:var(--cream)}.res h2.t em{color:#e8d3a6}
+.res .intro2{max-width:56ch;opacity:.75;margin-bottom:50px}
+.res .grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.res .grid .uk{--uk-bg:#241f19;--uk-fg:#f4eee3;--uk-mu:#b8ad98;--uk-ac:#e8d3a6;--uk-acf:#1b1712;--uk-ln:rgba(244,238,227,.2);--uk-sf:rgba(244,238,227,.06)}
+.res .grid .uk .card{background:#241f19}
+.res .stack{display:grid;gap:26px}
+@media(max-width:900px){.res .grid{grid-template-columns:1fr}}
+.tools{padding:clamp(70px,10vw,140px) clamp(18px,5vw,90px);max-width:1500px;margin:auto}
+.tools .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:start}
+@media(max-width:1000px){.tools .g3{grid-template-columns:1fr}}
+/* iletişim */
+.contact{background:var(--ox);color:var(--cream);padding:clamp(80px,12vw,160px) clamp(18px,5vw,90px) 40px;overflow:hidden}
+.contact .big{font:500 clamp(3rem,13vw,13rem)/.86 'Cormorant Garamond',serif;letter-spacing:-.03em}
+.contact .big em{font-weight:400}
+.contact .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin:60px 0 80px;font-size:.95rem}
+.contact .cols h5{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;opacity:.65;margin-bottom:10px;font-weight:500}
+.contact a{text-decoration:underline;text-underline-offset:4px}
+.contact .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.78rem;opacity:.7;padding-bottom:50px}
+@media(max-width:800px){.contact .cols{grid-template-columns:1fr}}
+/* imleç */
+#cur{position:fixed;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--cream);mix-blend-mode:difference;z-index:9800;pointer-events:none;transition:width .3s,height .3s,margin .3s,opacity .3s;display:none;opacity:0}
+#cur.big{width:70px;height:70px;margin:-29px 0 0 -29px}
+@media(hover:hover) and (pointer:fine){#cur{display:block}}
+#prog{position:fixed;left:0;top:0;height:2px;background:var(--ox);z-index:9600;width:0}
+.rv{opacity:0;transform:translateY(40px)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero .l>span{transform:none!important}}
+</style></head>
+<body>
+<div id="curtain" aria-hidden="true"><div class="l"><svg viewBox="0 0 100 100" fill="none" stroke="#f4eee3" stroke-width="1.5"><circle cx="50" cy="50" r="46"/><path d="M50 14v22M44 14v14c0 6 12 6 12 0V14" stroke-linecap="round"/><text x="50" y="76" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="30" fill="#f4eee3" stroke="none">ÜK</text></svg><p>Ümit Kavi</p></div></div>
+<div id="prog"></div><div id="cur" aria-hidden="true"></div>
+<a class="sr" href="#main">İçeriğe geç</a>
 
-<header class="hero" id="top"><div class="wrap">
-<div>
-<div class="eyebrow" data-en="Culinary Arts · Istanbul">Mutfak Sanatları · İstanbul</div>
-<h1 data-en="Taste, hygiene and <em>discipline</em> in one kitchen.">Lezzet, hijyen ve <em>disiplin</em> tek mutfakta.</h1>
-<p data-en="Culinary Arts graduate and kitchen assistant. I combine modern kitchen, pastry and international cuisines with years of team leadership. Tell me about your event or project.">Mutfak Sanatları mezunu aşçı yardımcısı. Modern mutfak, pastacılık ve uluslararası mutfakları, yılların ekip liderliğiyle birleştiriyorum. Etkinliğinizi ya da projenizi anlatın.</p>
-<div class="cta"><a class="btn" href="#planlayici" data-en="Plan your menu">Menünü planla</a><a class="btn ghost" href="#talep" data-en="Send a request">Talep gönder</a></div>
-<div class="chips"><span class="chip" data-en="Hygiene certificate (İSMEK)">Hijyen sertifikası (İSMEK)</span><span class="chip" data-en="Associate degree · Culinary Arts">Önlisans · Mutfak Sanatları</span><span class="chip" data-en="Professional English">Profesyonel İngilizce</span></div>
-</div>
-<div class="plate"><svg viewBox="0 0 400 400" role="img" aria-label="Tabak illüstrasyonu">
-<defs><radialGradient id="pg" cx="40%" cy="35%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#eadcc2"/></radialGradient></defs>
-<circle cx="200" cy="200" r="190" fill="#f3e3c8"/><circle cx="200" cy="200" r="160" fill="url(#pg)" stroke="#d9c6a3" stroke-width="3"/><circle cx="200" cy="200" r="118" fill="none" stroke="#d9c6a3" stroke-dasharray="3 7"/>
-<path d="M130 215c20-60 100-70 140-20 10 20-10 55-70 60s-80-10-70-40z" fill="#b8502f"/><path d="M150 205c30-30 80-30 105-5" stroke="#8f3a1f" stroke-width="5" fill="none" stroke-linecap="round"/>
-<g fill="#6b7a4f"><ellipse cx="240" cy="150" rx="26" ry="9" transform="rotate(-30 240 150)"/><ellipse cx="262" cy="170" rx="22" ry="8" transform="rotate(20 262 170)"/><ellipse cx="148" cy="160" rx="22" ry="8" transform="rotate(30 148 160)"/></g>
-<g fill="#e2a93b"><circle cx="190" cy="250" r="7"/><circle cx="215" cy="262" r="5"/><circle cx="170" cy="268" r="5"/></g>
-<g stroke="#2a1d14" stroke-width="5" stroke-linecap="round" fill="none"><path d="M22 120v150M12 120v40a10 10 0 0020 0v-40"/><path d="M380 120c-18 20-18 60-6 80v70"/></g>
-</svg></div>
-</div></header>
+<header class="top" id="hd">
+  <a class="logo" href="#top" aria-label="Ümit Kavi">
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="50" cy="50" r="46"/><path d="M50 12v20M42.5 12v12c0 5.5 15 5.5 15 0V12" stroke-linecap="round"/><text x="50" y="76" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-style="italic" font-size="32" fill="currentColor" stroke="none">ÜK</text></svg>
+    <div><b>Ümit Kavi</b><span data-en="Culinary arts · Maltepe">Mutfak sanatları · Maltepe</span></div>
+  </a>
+  <nav class="main" aria-label="Ana menü">
+    <a class="n" href="#menu" data-en="Menu">Menü</a><a class="n" href="#hakkimda" data-en="About">Hakkımda</a><a class="n" href="#hizmetler" data-en="Services">Hizmetler</a><a class="n" href="#randevu" data-en="Book">Randevu</a><a class="n" href="#iletisim" data-en="Contact">İletişim</a>
+    <span class="uk-lang" role="group" aria-label="Dil"></span>
+    <button id="burger" aria-expanded="false" data-en="Menu">Menü</button>
+  </nav>
+</header>
+<div id="sheet" aria-hidden="true"><button id="sx" data-en="Close">Kapat</button>
+  <a href="#menu" data-en="Menu">Menü</a><a href="#hakkimda" data-en="About">Hakkımda</a><a href="#hizmetler" data-en="Services">Hizmetler</a><a href="#randevu" data-en="Booking">Randevu</a><a href="#iletisim" data-en="Contact">İletişim</a></div>
 
-<section id="hakkimda"><div class="wrap">
-<div class="sec-h"><div class="eyebrow" data-en="About">Hakkımda</div><h2 data-en="A kitchen mind with a team leader's calm.">Mutfak aklı, ekip liderinin sakinliği.</h2><p data-en="Sample text — you can edit it in the panel and write it in your own words.">Örnek metin — yönetim panelinden kendi cümlelerinizle değiştirebilirsiniz.</p></div>
-<div class="cards">
-<div class="card paper"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f3a1f" stroke-width="2"><path d="M6 14a4 4 0 010-8 5 5 0 019 0 4 4 0 010 8v5H6z"/></svg></div><h3 data-en="Modern kitchen">Modern mutfak</h3><p data-en="Culinary Arts associate degree: modern kitchen, pastry and international cuisines.">Mutfak Sanatları önlisansı: modern mutfak, pastacılık ve uluslararası mutfaklar.</p></div>
-<div class="card paper"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f3a1f" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 data-en="Hygiene & quality">Hijyen ve kalite</h3><p data-en="İSMEK hygiene certificate and experience as a finished-product quality control technician.">İSMEK hijyen sertifikası ve bitmiş ürün kontrol teknikerliği deneyimi.</p></div>
-<div class="card paper"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f3a1f" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6M15 15c3 0 6 1.5 6 5"/></svg></div><h3 data-en="Team & service">Ekip ve servis</h3><p data-en="Barista and shift leader at Starbucks (2017–2022), logistics supervisor at KVK Teknik Servis.">Starbucks'ta barista ve vardiya lideri (2017–2022), KVK Teknik Servis'te lojistik süpervizörü.</p></div>
-</div></div></section>
+<main id="main">
+<section class="hero" id="top">
+  <div class="bg"><img src="img/a-hero.webp" alt="Şef önlüklü bir aşçının elleri, koyu taş tabaktaki yemeğe son otu yerleştiriyor" fetchpriority="high"></div>
+  <div class="tag" data-en="Maltepe · Istanbul">Maltepe · İstanbul</div>
+  <div class="in">
+    <h1 aria-label="Sofra bir hikâyedir"><span class="l"><span data-en="The table">Sofra,</span></span><span class="l"><span><em data-en="is a story.">bir hikâye.</em></span></span></h1>
+    <div class="meta"><p data-en="Ümit Kavi — culinary arts graduate, barista and founder. Event menus, tasting tables and coffee, made with discipline and warmth.">Ümit Kavi — Mutfak Sanatları eğitimli aşçı yardımcısı, barista ve girişimci. Etkinlik menüleri, tadım sofraları ve kahve; disiplinle, sıcaklıkla.</p><a class="cta" href="#randevu" data-en="Book a tasting →">Tadım için randevu →</a></div>
+  </div>
+</section>
 
-<section id="planlayici" style="background:#f6ead4"><div class="wrap">
-<div class="sec-h"><div class="eyebrow" data-en="Working feature · demo">Çalışan özellik · demo</div><h2 data-en="Special menu & event planner">Özel menü ve etkinlik planlayıcı</h2><p data-en="Choose the event, guest count and cuisine; see an outline of the menu instantly. Dishes are sample text, not a price offer.">Etkinliği, kişi sayısını ve mutfağı seçin; menü iskeleti anında çıksın. Yemekler örnek metindir, fiyat teklifi değildir.</p></div>
-<div class="planner">
-<div class="in paper">
-<div class="lbl" data-en="Event type">Etkinlik türü</div>
-<div class="pills" id="pEvent"><button class="pill on" data-v="Doğum günü|Birthday" data-en="Birthday">Doğum günü</button><button class="pill" data-v="Kurumsal yemek|Corporate dinner" data-en="Corporate dinner">Kurumsal yemek</button><button class="pill" data-v="Nişan / Düğün|Engagement / Wedding" data-en="Engagement / Wedding">Nişan / Düğün</button><button class="pill" data-v="Brunch / Kahvaltı|Brunch" data-en="Brunch">Brunch / Kahvaltı</button></div>
-<div class="lbl" data-en="Guests">Kişi sayısı</div><div class="gc"><span id="gv">20</span></div><input type="range" id="pGuest" min="4" max="150" value="20" aria-label="Kişi sayısı">
-<div class="lbl" data-en="Cuisine">Mutfak</div>
-<div class="pills" id="pCuis"><button class="pill on" data-v="Modern|Modern" data-en="Modern">Modern</button><button class="pill" data-v="Türk|Turkish" data-en="Turkish">Türk</button><button class="pill" data-v="Uluslararası|International" data-en="International">Uluslararası</button><button class="pill" data-v="Pastane ağırlıklı|Pastry-led" data-en="Pastry-led">Pastane ağırlıklı</button></div>
-<div class="lbl" data-en="Service style">Servis şekli</div>
-<div class="pills" id="pServ"><button class="pill on" data-v="Oturmalı servis|Seated service" data-en="Seated service">Oturmalı servis</button><button class="pill" data-v="Açık büfe|Buffet" data-en="Buffet">Açık büfe</button><button class="pill" data-v="Kokteyl / ikram|Cocktail / canapés" data-en="Cocktail / canapés">Kokteyl / ikram</button></div>
-<div class="lbl" data-en="Dietary needs">Beslenme notları</div>
-<div class="pills" id="pDiet"><button class="pill tog" data-v="Vejetaryen|Vegetarian" data-en="Vegetarian">Vejetaryen</button><button class="pill tog" data-v="Glutensiz|Gluten-free" data-en="Gluten-free">Glutensiz</button><button class="pill tog" data-v="Laktozsuz|Lactose-free" data-en="Lactose-free">Laktozsuz</button></div>
-</div>
-<div class="out"><h3 id="oTitle"></h3><div class="sub" id="oSub"></div><div id="oCourses"></div>
-<div class="stat"><div><b id="sPor">0</b><span data-en="portions">porsiyon</span></div><div><b id="sCrs">0</b><span data-en="courses">kurs</span></div></div>
-<button class="btn" id="toWiz" style="width:100%;justify-content:center" data-en="Send this plan as a request">Bu planı talebe ekle</button>
-<div class="note" data-en="Sample outline. Final menu and offer are prepared together with Ümit Kavi.">Örnek iskelet. Nihai menü ve teklif Ümit Kavi ile birlikte hazırlanır.</div></div>
-</div></div></section>
+<section class="intro">
+  <div class="k" data-en="Philosophy">Yaklaşım</div>
+  <p class="big" id="manifesto" data-en="Good cooking begins with hygiene, order and respect for ingredients. Then comes the part guests remember: <em>warmth, rhythm and a story on the plate.</em>">İyi mutfak; hijyen, düzen ve malzemeye saygıyla başlar. Sonra misafirin hatırladığı kısım gelir: <em>sıcaklık, ritim ve tabakta bir hikâye.</em></p>
+</section>
 
-<section id="yolculuk"><div class="wrap two">
-<div class="sec-h"><div class="eyebrow" data-en="Journey">Yolculuk</div><h2 data-en="From the line to the kitchen.">Sahadan mutfağa.</h2><p data-en="Real career milestones from LinkedIn. Order and details can be refined with you.">LinkedIn'deki gerçek kariyer duraklarından derlendi. Sıra ve ayrıntılar sizinle netleştirilir.</p></div>
-<div class="tl" id="tl">
-<div class="tli"><div class="when" data-en="Education">Eğitim</div><h3 data-en="Culinary Arts (Associate)">Mutfak Sanatları (Önlisans)</h3><p data-en="Modern kitchen, hygiene, pastry and international cuisines.">Modern mutfak, hijyen, pastacılık ve uluslararası mutfaklar.</p></div>
-<div class="tli"><div class="when">2017 – 2022</div><h3 data-en="Barista & Shift Leader · Starbucks">Barista ve Vardiya Lideri · Starbucks</h3><p data-en="Customer service, shift management and team coordination.">Müşteri hizmeti, vardiya yönetimi ve ekip koordinasyonu.</p></div>
-<div class="tli"><div class="when" data-en="Experience">Deneyim</div><h3 data-en="Logistics Supervisor · KVK Teknik Servis">Lojistik Süpervizörü · KVK Teknik Servis</h3><p data-en="Operations, flow and supervision.">Operasyon, akış ve saha denetimi.</p></div>
-<div class="tli"><div class="when" data-en="Experience">Deneyim</div><h3 data-en="Finished Product Control Technician · Biofarma">Bitmiş Ürün Kontrol Teknikeri · Biofarma İlaç</h3><p data-en="Quality discipline that carries over to the kitchen.">Mutfağa taşınan kalite disiplini.</p></div>
-<div class="tli"><div class="when" data-en="Certificates">Sertifikalar</div><h3 data-en="Hygiene (İSMEK) · Beekeeping · Football scouting">Hijyen (İSMEK) · Arıcılık · Futbol scoutluk</h3><p data-en="Curiosity beyond the kitchen.">Mutfağın dışında da merak.</p></div>
-</div></div></section>
+<section id="menu">
+  <div class="hs" id="hs">
+    <div class="hd"><h2><span data-en="A menu,">Bir menü,</span><br><em data-en="five chapters.">beş bölüm.</em></h2><p data-en="Sample tasting flow — every real menu is designed for your guests and season.">Örnek tadım akışı — gerçek menü; misafirinize ve mevsime göre tasarlanır.</p></div>
+    <div class="track" id="track">
+      <article class="pn"><div class="ph"><img loading="lazy" src="img/a-herbs.webp" alt="Mevsim yeşillikleri ve domatesler ahşap tahtada"><span class="no">01</span></div><div><h3><span data-en="Earth">Toprak</span><small data-en="Starter">Başlangıç</small></h3><p data-en="Seasonal greens, heirloom tomatoes, olive oil and fresh herbs.">Mevsim yeşilleri, yerli domates, zeytinyağı ve taze otlar.</p></div></article>
+      <article class="pn"><div class="ph"><img loading="lazy" src="img/a-plate1.webp" alt="Beyaz porselen tabakta ince sunumlu deniz ürünü"><span class="no">02</span></div><div><h3><span data-en="Sea">Deniz</span><small data-en="Warm course">Ara sıcak</small></h3><p data-en="Gently seared seafood, green purée and micro herbs.">Hafif mühürlenmiş deniz ürünü, yeşil püre ve mikro filiz.</p></div></article>
+      <article class="pn"><div class="ph"><img loading="lazy" src="img/a-steam.webp" alt="Mutfakta bakır tencerelerden buhar yükseliyor"><span class="no">03</span></div><div><h3><span data-en="Fire">Ocak</span><small data-en="Main">Ana yemek</small></h3><p data-en="Slow-cooked main with sauces built over patient steam.">Sabırla pişen ana yemek; buharda ve ocak başında kurulan soslar.</p></div></article>
+      <article class="pn"><div class="ph"><img loading="lazy" src="img/a-tart.webp" alt="Parlak mevsim meyveli tart"><span class="no">04</span></div><div><h3><span data-en="Sweet">Tatlı</span><small data-en="Pastry">Pastacılık</small></h3><p data-en="Pastry from the culinary arts curriculum: tarts, creams, glazes.">Mutfak Sanatları eğitiminden pastacılık: tart, krema, parlak glazür.</p></div></article>
+      <article class="pn"><div class="ph"><img loading="lazy" src="img/a-coffee.webp" alt="Latte art yapılmış fincan"><span class="no">05</span></div><div><h3><span data-en="Coffee">Kahve</span><small data-en="Finale">Final</small></h3><p data-en="Five years as a barista and shift lead — the last note of every table.">Beş yıl barista ve vardiya liderliği — her sofranın son notası.</p></div></article>
+      <article class="pn last"><a href="#randevu" data-en="Design your menu together →">Menünüzü birlikte tasarlayalım →</a></article>
+    </div>
+    <div class="pbar"><i id="pfill"></i></div>
+  </div>
+</section>
 
-<section id="talep" style="background:#f6ead4"><div class="wrap">
-<div class="sec-h" style="margin-inline:auto;text-align:center"><div class="eyebrow" data-en="Working feature · demo">Çalışan özellik · demo</div><h2 data-en="Service request wizard">Hizmet talebi sihirbazı</h2><p data-en="3 steps. In this demo nothing is sent; you get a ready summary for WhatsApp or e-mail.">3 adım. Bu demoda hiçbir şey gönderilmez; WhatsApp veya e-posta için hazır özet çıkar.</p></div>
-<div class="wiz paper">
-<div class="steps"><i class="on"></i><i></i><i></i></div>
-<div class="st" id="s1"><div class="field"><label data-en="What do you need?">Ne arıyorsunuz?</label><select id="fTip"><option>Etkinlik / özel şef</option><option>Menü danışmanlığı</option><option>Pastane siparişi</option><option>İş birliği</option></select></div><div class="field"><label data-en="Date (approx.)">Tarih (yaklaşık)</label><input type="date" id="fDate"></div></div>
-<div class="st hidden" id="s2"><div class="field"><label data-en="Details">Detaylar</label><textarea id="fDet" rows="4" data-ph-en="Guests, place, wishes…" placeholder="Kişi sayısı, mekân, istekler…"></textarea></div><div class="field"><label data-en="Planner result">Planlayıcı sonucu</label><input id="fPlan" readonly></div></div>
-<div class="st hidden" id="s3"><div class="field"><label data-en="Your name">Adınız</label><input id="fName" placeholder="Ad Soyad" data-ph-en="Full name"></div><div class="field"><label data-en="Phone / e-mail">Telefon / e-posta</label><input id="fCon" placeholder="05xx… / ornek@mail.com" data-ph-en="05xx… / name@mail.com"></div></div>
-<div class="st hidden" id="s4"><div class="sum" id="sum"></div><div class="cta" style="margin-top:14px"><a class="btn" id="wa" target="_blank" rel="noopener">WhatsApp</a><a class="btn ghost" id="ml">E-posta</a><button class="btn ghost" id="cp">Kopyala</button></div></div>
-<div class="nav2"><button class="btn ghost" id="bk" style="visibility:hidden">Geri</button><button class="btn" id="nx">İleri</button></div>
-</div></div></section>
+<section class="about" id="hakkimda">
+  <div class="ph"><img loading="lazy" src="img/a-hands.webp" alt="Un serpilmiş ahşap tezgâhta hamur yoğuran eller"><span data-en="Hands first">Önce eller</span></div>
+  <div>
+    <h2 class="t"><span data-en="Trained in the craft,">Zanaatı okulda,</span><br><em data-en="tested on the floor.">sahada öğrendim.</em></h2>
+    <p class="lead" data-en="Hello, I'm Ümit. I studied Culinary Arts (modern kitchen, hygiene, pastry, international cuisines). Before the kitchen I ran shifts as a barista lead, supervised logistics and worked in finished-product quality control — which is why I bring order and care to every table. I am also the founder of Redna Hub.">Merhaba, ben Ümit. Mutfak Sanatları okudum (modern mutfak, hijyen, pastacılık, uluslararası mutfaklar). Mutfağa gelmeden önce barista ve vardiya liderliği yaptım, lojistik süpervizörlüğü ve bitmiş ürün kalite kontrol deneyimi edindim — bu yüzden her sofraya düzen ve özen taşırım. Aynı zamanda Redna Hub'ın kurucusuyum.</p>
+    <div class="tl">
+      <div class="it"><div class="y">—</div><div><h4 data-en="Culinary Arts (associate degree)">Mutfak Sanatları (önlisans)</h4><p data-en="Modern kitchen, hygiene, pastry and international cuisines.">Modern mutfak, hijyen, pastacılık ve uluslararası mutfaklar.</p></div></div>
+      <div class="it"><div class="y">2017–22</div><div><h4 data-en="Starbucks — Barista & Shift Lead">Starbucks — Barista & Vardiya Lideri</h4><p data-en="Fast, consistent service, team rhythm and customer care.">Hızlı ve tutarlı servis, ekip ritmi, müşteri ilişkisi.</p></div></div>
+      <div class="it"><div class="y">—</div><div><h4 data-en="KVK Technical Service — Logistics Supervisor">KVK Teknik Servis — Lojistik Süpervizörü</h4><p data-en="Planning, flow and order in a busy operation.">Yoğun bir operasyonda planlama, akış ve düzen.</p></div></div>
+      <div class="it"><div class="y">—</div><div><h4 data-en="Biofarma — Finished Product Control Technician">Biofarma İlaç — Bitmiş Ürün Kontrol Teknikeri</h4><p data-en="Quality discipline and meticulous inspection.">Kalite disiplini ve titiz kontrol.</p></div></div>
+      <div class="it"><div class="y">—</div><div><h4 data-en="Hygiene certificate (İSMEK)">Hijyen sertifikası (İSMEK)</h4><p data-en="Plus beekeeping and football scouting courses.">Ayrıca arıcılık ve futbol scoutluk kursları.</p></div></div>
+    </div>
+    <div class="chips"><span data-en="Professional English">Profesyonel İngilizce</span><span>Maltepe · İstanbul</span><span data-en="Founder · Redna Hub">Kurucu · Redna Hub</span></div>
+  </div>
+</section>
 
-<footer><div class="wrap"><div><b>Ümit Kavi</b> · <span data-en="Culinary Arts · Istanbul (Maltepe)">Mutfak Sanatları · İstanbul (Maltepe)</span></div><div data-en="Design proposal by Dijitabela. Demo content.">Dijitabela tasarım önerisi. Demo içerik.</div><a href="../" style="color:var(--terra);font-weight:600" data-en="All 3 designs">3 tasarıma dön</a></div></footer>
-<style>
-.dj-wm-bg{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='220'><text x='180' y='120' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='%23808080' transform='rotate(-24 180 110)'>Dijitabela · Örnek tasarım</text></svg>")}
-.dj-wm-badge{position:fixed;right:12px;bottom:12px;z-index:9999;pointer-events:none;background:rgba(15,15,15,.82);color:#fff;font:600 12px/1 Arial,sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.35);box-shadow:0 4px 14px rgba(0,0,0,.3);letter-spacing:.2px}
-.dj-wm-badge b{color:#ffd24a}
-</style>
-<div class="dj-wm-bg" aria-hidden="true"></div>
-<div class="dj-wm-badge" aria-hidden="true"><b>Dijitabela</b> · Örnek tasarım</div>
+<section class="gal" aria-label="Galeri">
+  <div class="rowg" id="g1"><img loading="lazy" src="img/a-table.webp" alt="Mumlarla donatılmış uzun etkinlik sofrası"><img loading="lazy" src="img/a-pass.webp" alt="Pasoda sıralanmış servis tabakları"><img loading="lazy" src="img/a-plate2.webp" alt="Mermer üstünde tatlı"><img loading="lazy" src="img/a-honey.webp" alt="Petek ve bal"><img loading="lazy" src="img/a-table.webp" alt=""></div>
+</section>
 
+<section class="quote"><p data-en="“Not luxury. Care.”">“Lüks değil. Özen.”</p><small data-en="Ümit Kavi · working principle">Ümit Kavi · çalışma ilkesi</small></section>
+
+<section class="svc" id="hizmetler"><div class="wrap">
+  <h2 class="t"><span data-en="What I">Neler</span> <em data-en="make for you.">yapıyorum.</em></h2>
+  <div class="row" role="button" tabindex="0" aria-expanded="false"><span class="n">01</span><h3 data-en="Events & catering">Etkinlik & catering</h3><p data-en="Menus designed for your guests, from 10 to hundreds.">Misafirinize göre tasarlanan menüler; 10 kişiden yüzlere.</p><span class="pm">+</span><div class="more"><ul><li data-en="Set menu">Set menü</li><li data-en="Buffet">Açık büfe</li><li data-en="Cocktail">Kokteyl</li><li data-en="Brunch">Brunch</li></ul></div><div class="peek"><img src="img/a-table.webp" alt="" loading="lazy"></div></div>
+  <div class="row" role="button" tabindex="0" aria-expanded="false"><span class="n">02</span><h3 data-en="Tasting & chef's table">Tadım & şef masası</h3><p data-en="Small, intimate tables with a story per course.">Küçük, samimi sofralar; her servis için bir hikâye.</p><span class="pm">+</span><div class="more"><ul><li data-en="4–5 courses">4–5 servis</li><li data-en="Home or venue">Ev ya da mekân</li><li data-en="Pairing ideas">Eşleşme önerileri</li></ul></div><div class="peek"><img src="img/a-plate1.webp" alt="" loading="lazy"></div></div>
+  <div class="row" role="button" tabindex="0" aria-expanded="false"><span class="n">03</span><h3 data-en="Coffee & barista service">Kahve & barista servisi</h3><p data-en="Espresso bar for events and offices.">Etkinlik ve ofisler için espresso barı.</p><span class="pm">+</span><div class="more"><ul><li>Espresso</li><li>Latte art</li><li data-en="Team training">Ekip eğitimi</li></ul></div><div class="peek"><img src="img/a-coffee.webp" alt="" loading="lazy"></div></div>
+  <div class="row" role="button" tabindex="0" aria-expanded="false"><span class="n">04</span><h3 data-en="Menu & hygiene consulting">Menü & hijyen danışmanlığı</h3><p data-en="Menu flow, hygiene and workflow for small businesses.">Küçük işletmeler için menü akışı, hijyen ve iş düzeni.</p><span class="pm">+</span><div class="more"><ul><li data-en="Menu design">Menü tasarımı</li><li data-en="Hygiene routine">Hijyen rutini</li><li data-en="Cost thinking">Maliyet bakışı</li></ul></div><div class="peek"><img src="img/a-pass.webp" alt="" loading="lazy"></div></div>
+</div></section>
+
+<section class="res" id="randevu"><div class="wrap">
+  <h2 class="t"><span data-en="Reserve a table,">Bir masa ayırın,</span> <em data-en="plan an evening.">bir akşam planlayın.</em></h2>
+  <p class="intro2" data-en="Check live availability, estimate your budget and talk to Ümit's assistant — all on this page. (Working demo of the tools we build for local businesses.)">Müsaitliği görün, bütçenizi hesaplayın, Ümit'in asistanıyla konuşun — hepsi bu sayfada. (Yerel işletmeler için kurduğumuz araçların çalışan demosu.)</p>
+  <div class="grid"><div id="mod-book"></div><div id="mod-calc"></div></div>
+</div></section>
+
+<section class="tools" id="araclar"><div class="g3"><div id="mod-lead"></div><div class="stack"><div id="mod-wa"></div><div id="mod-rev"></div></div><div id="mod-qr"></div></div></section>
+
+<section class="contact" id="iletisim">
+  <div class="big"><span data-en="Let's cook">Birlikte</span><br><em data-en="something good.">pişirelim.</em></div>
+  <div class="cols">
+    <div><h5 data-en="Location">Konum</h5>Maltepe, İstanbul<br><span data-en="Remote and on-site by arrangement">Anlaşmaya göre yerinde ve uzaktan</span></div>
+    <div><h5 data-en="Phone / WhatsApp">Telefon / WhatsApp</h5>+90 5XX XXX XX XX<br><a data-wa="Hello Ümit, I found your website." data-wa-tr="Merhaba Ümit, sitenizden ulaşıyorum." href="#" target="_blank" rel="noopener">WhatsApp ↗</a></div>
+    <div><h5>E-posta</h5>ornek@example.com<br><span data-en="(placeholders — real details added at launch)">(yer tutucu — yayında gerçek bilgiler)</span></div>
+  </div>
+  <div class="bot"><span>© Ümit Kavi · <span data-en="Sample design by Dijitabela">Dijitabela örnek tasarımı</span></span><span data-en="Redna Hub — founder">Redna Hub kurucusu</span></div>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="../ortak/features.js"></script>
 <script>
-let LANG='tr';
-const T=(tr,en)=>LANG==='en'?en:tr;
-function setLang(l){LANG=l;document.documentElement.lang=l;
-document.querySelectorAll('[data-en]').forEach(e=>{if(e.dataset.tr===undefined)e.dataset.tr=e.innerHTML;e.innerHTML=l==='en'?e.dataset.en:e.dataset.tr});
-document.querySelectorAll('[data-ph-en]').forEach(e=>{if(e.dataset.phTr===undefined)e.dataset.phTr=e.placeholder;e.placeholder=l==='en'?e.dataset.phEn:e.dataset.phTr});
-document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
-if(window.onLang)onLang(l)}
-document.addEventListener('click',e=>{const b=e.target.closest('.langbtn');if(b)setLang(b.dataset.l)});
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  gsap.registerPlugin(ScrollTrigger);
+  var lenis=null;
+  if(!reduce&&window.Lenis){lenis=new Lenis({duration:1.15,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))}});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}
+  UK.scrollTo=function(el){var e=typeof el==='string'?document.querySelector(el):el;if(!e)return;lenis?lenis.scrollTo(e,{offset:-10}):e.scrollIntoView({behavior:'smooth'})};
+  // sayfa içi geçiş
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;var t=document.querySelector(h);if(!t)return;e.preventDefault();sheet(false);UK.scrollTo(t)})});
+  var sh=document.getElementById('sheet'),bg=document.getElementById('burger');
+  function sheet(o){sh.classList.toggle('open',o);bg.setAttribute('aria-expanded',o);sh.setAttribute('aria-hidden',!o)}
+  bg.onclick=function(){sheet(true)};document.getElementById('sx').onclick=function(){sheet(false)};
+  // perde
+  var tl=gsap.timeline({defaults:{ease:'power3.inOut'}});
+  tl.to('#curtain .l',{y:-20,opacity:0,duration:.6,delay:.5}).to('#curtain',{yPercent:-100,duration:.9}).set('#curtain',{display:'none'})
+    .to('.hero .l>span',{y:0,duration:1.2,stagger:.14,ease:'power4.out'},'-=.5').from('.hero .meta',{opacity:0,y:30,duration:1},'-=.7');
+  gsap.fromTo('.hero .bg',{scale:1.15},{scale:1,duration:2.6,ease:'power2.out'});
+  gsap.to('.hero .bg',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  // header
+  var hd=document.getElementById('hd'),last=0;
+  ScrollTrigger.create({start:0,end:'max',onUpdate:function(s){var y=s.scroll();hd.classList.toggle('hide',y>last&&y>400);last=y;
+    var dark=[].some.call(document.querySelectorAll('#menu,.res,.contact'),function(el){var r=el.getBoundingClientRect();return r.top<40&&r.bottom>40});
+    var hero=document.querySelector('.hero').getBoundingClientRect().bottom>40;hd.classList.toggle('light',!(dark||hero));
+    document.getElementById('prog').style.width=(s.progress*100)+'%'}});
+  // manifesto kelime kelime
+  var m=document.getElementById('manifesto');
+  function split(){m.querySelectorAll('.w').forEach(function(w){w.replaceWith(document.createTextNode(w.textContent))});m.normalize();
+    (function walk(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(/^\s+$/.test(p)||!p){f.appendChild(document.createTextNode(p))}else{var s=document.createElement('span');s.className='w';s.textContent=p;f.appendChild(s)}});c.replaceWith(f)}else if(c.nodeType===1&&!c.classList.contains('w'))walk(c)})})(m);
+    gsap.fromTo('#manifesto .w',{opacity:.14},{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:m,start:'top 80%',end:'bottom 45%',scrub:true}})}
+  // yatay menü
+  var track=document.getElementById('track');
+  function hs(){var dist=function(){return track.scrollWidth-innerWidth};
+    gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'#hs',start:'top top',end:function(){return '+='+dist()},pin:true,scrub:.8,invalidateOnRefresh:true,onUpdate:function(s){document.getElementById('pfill').style.width=(s.progress*100)+'%'}}})}
+  // galeri
+  function gal(){var g=document.getElementById('g1');gsap.to(g,{x:function(){return -(g.scrollWidth-innerWidth)*.6},ease:'none',scrollTrigger:{trigger:'.gal',start:'top bottom',end:'bottom top',scrub:.6}})}
+  // about foto parallax + reveal
+  gsap.to('.about .ph img',{yPercent:-12,ease:'none',scrollTrigger:{trigger:'.about',start:'top bottom',end:'bottom top',scrub:true}});
+  function rv(){gsap.utils.toArray('.tl .it,.svc .row,.res .uk,.tools .uk,.quote p,h2.t,.contact .big,.contact .cols>div').forEach(function(e){gsap.fromTo(e,{opacity:0,y:50},{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:e,start:'top 90%',once:true}})})}
+  // accordion
+  document.querySelectorAll('.svc .row').forEach(function(r){var tg=function(){var o=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.svc .row').forEach(function(x){x.setAttribute('aria-expanded','false')});r.setAttribute('aria-expanded',!o);setTimeout(function(){ScrollTrigger.refresh()},700)};r.onclick=tg;r.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}}});
+  // imleç
+  var cur=document.getElementById('cur');
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){var cx=gsap.quickTo(cur,'x',{duration:.25}),cy=gsap.quickTo(cur,'y',{duration:.25});addEventListener('mousemove',function(e){cur.style.opacity=1;cx(e.clientX-6);cy(e.clientY-6)});
+    document.addEventListener('mouseover',function(e){cur.classList.toggle('big',!!e.target.closest('a,button,.pn,.row,input,select'))})}
+  window.addEventListener('load',function(){split();hs();gal();rv();setTimeout(function(){ScrollTrigger.refresh()},600)});
+  UK.onLang=function(){split();setTimeout(function(){ScrollTrigger.refresh()},300)};
 
-const pick=el=>{const v=el.dataset.v.split('|');return LANG==='en'?v[1]:v[0]};
-document.querySelectorAll('.pills').forEach(g=>g.addEventListener('click',e=>{const p=e.target.closest('.pill');if(!p)return;if(p.classList.contains('tog'))p.classList.toggle('on');else{g.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));p.classList.add('on')}render()}));
-const COURSES={Modern:[["Başlangıç|Starter","Mevsim salata, ev yapımı sos|Seasonal salad, house dressing"],["Ana yemek|Main","Fırınlanmış ana yemek, garnitür|Oven main with garnish"],["Tatlı|Dessert","Porsiyonluk pasta|Plated pastry"]],
-Türk:[["Meze|Meze","Soğuk ve sıcak mezeler|Cold and hot meze"],["Ana yemek|Main","Izgara ya da fırın, pilav|Grill or oven, rice"],["Tatlı|Dessert","Sütlü ya da şerbetli tatlı|Milk or syrup dessert"]],
-Uluslararası:[["Başlangıç|Starter","Çorba ya da bruschetta|Soup or bruschetta"],["Ana yemek|Main","Makarna ya da et/tavuk tabağı|Pasta or meat/chicken plate"],["Tatlı|Dessert","Tiramisu tarzı tatlı|Tiramisu-style dessert"]],
-"Pastane ağırlıklı":[["Tuzlu|Savory","Poğaça, kiş, mini sandviç|Savory pastries, quiche, mini sandwiches"],["Tatlı|Sweet","Tartlet, kurabiye, kek çeşitleri|Tarts, cookies, cakes"],["İçecek|Drinks","Sıcak içecek servisi|Hot drinks service"]]};
-function render(){
-const g=+document.getElementById('pGuest').value;document.getElementById('gv').textContent=g;
-const ev=pick(document.querySelector('#pEvent .on')),cu=document.querySelector('#pCuis .on'),sv=pick(document.querySelector('#pServ .on'));
-const diets=[...document.querySelectorAll('#pDiet .on')].map(pick);
-let cs=COURSES[cu.dataset.v.split('|')[0]].slice();
-if(document.querySelector('#pServ .on').dataset.v.startsWith('Kokteyl'))cs=cs.slice(0,2);
-const idx=LANG==='en'?1:0;
-document.getElementById('oTitle').textContent=ev+' · '+g+' '+T('kişi','guests');
-document.getElementById('oSub').textContent=pick(cu)+' · '+sv+(diets.length?' · '+diets.join(', '):'');
-document.getElementById('oCourses').innerHTML=cs.map((c,i)=>'<div class="course"><small>'+(i+1)+'. '+c[0].split('|')[idx]+'</small>'+c[1].split('|')[idx]+'</div>').join('')+(diets.length?'<div class="course"><small>'+T('Not','Note')+'</small>'+diets.join(', ')+' '+T('seçenekleri ayrıca hazırlanır','options prepared separately')+'</div>':'');
-document.getElementById('sPor').textContent=g*cs.length;document.getElementById('sCrs').textContent=cs.length;
-window.PLAN=ev+', '+g+' '+T('kişi','guests')+', '+pick(cu)+', '+sv+(diets.length?', '+diets.join('/'):'');
-document.getElementById('fPlan').value=window.PLAN;go(step)}
-document.getElementById('pGuest').addEventListener('input',render);
-window.onLang=render;
-document.getElementById('toWiz').onclick=()=>{document.getElementById('talep').scrollIntoView();go(1)};
-let step=1;
-function go(n){step=n;[1,2,3,4].forEach(i=>document.getElementById('s'+i).classList.toggle('hidden',i!==n));
-document.querySelectorAll('.steps i').forEach((x,i)=>x.classList.toggle('on',i<Math.min(n,3)));
-document.getElementById('bk').style.visibility=n>1?'visible':'hidden';document.getElementById('bk').textContent=T('Geri','Back');
-const nx=document.getElementById('nx');nx.textContent=n===3?T('Özeti oluştur','Build summary'):T('İleri','Next');nx.style.display=n===4?'none':'';
-document.getElementById('cp').textContent=T('Kopyala','Copy');
-if(n===4)summary()}
-document.getElementById('nx').onclick=()=>go(step+1);document.getElementById('bk').onclick=()=>go(step-1);
-function summary(){const t=document.getElementById('fTip').value,d=document.getElementById('fDate').value||'—';
-const txt=T('Merhaba Ümit Bey, web sitesi üzerinden talep bırakıyorum.','Hello Ümit, I am sending a request via your website.')+'\n'+T('Talep','Request')+': '+t+'\n'+T('Tarih','Date')+': '+d+'\n'+T('Plan','Plan')+': '+window.PLAN+'\n'+T('Detay','Details')+': '+(document.getElementById('fDet').value||'—')+'\n'+T('Ad','Name')+': '+(document.getElementById('fName').value||'—')+'\n'+T('İletişim','Contact')+': '+(document.getElementById('fCon').value||'—')+'\n\n(DEMO)';
-document.getElementById('sum').textContent=txt;
-document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(txt);
-document.getElementById('ml').href='mailto:?subject='+encodeURIComponent(T('Hizmet talebi','Service request'))+'&body='+encodeURIComponent(txt)}
-document.getElementById('cp').onclick=e=>{navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('sum').textContent);e.target.textContent=T('Kopyalandı','Copied')};
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.2});document.querySelectorAll('.tli').forEach(x=>io.observe(x));
-render();
-</script></body></html>
+})();
+</script>
+</body></html>
