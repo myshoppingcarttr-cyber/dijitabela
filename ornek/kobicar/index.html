@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>KobiCar Sosyal Medya Kiti</title>
+<meta name="description" content="KobiCar için örnek sosyal medya marka kiti: üç görsel yön, hazır gönderi tasarımları ve 30 günlük içerik takvimi.">
+<link rel="icon" href="logo/kobicar-isaret.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f3f4;--ink:#12181b;--mut:#5b676d;--line:#dfe4e6;--g:#00b172;--gd:#007f55;--card:#fff;--dk:#222d32}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+/* rozet + filigran */
+.rozet{position:fixed;top:10px;right:10px;z-index:50;background:rgba(18,24,27,.88);color:#fff;font-size:11px;font-weight:600;letter-spacing:.02em;padding:6px 11px;border-radius:99px;backdrop-filter:blur(6px)}
+.rozet b{color:var(--g);font-weight:700}
+.fg{position:fixed;inset:0;z-index:40;pointer-events:none;display:flex;align-items:flex-end;justify-content:flex-start;padding:0 0 14px 14px}
+.fg span{font-size:11px;color:#000;opacity:.07;font-weight:700;letter-spacing:.08em}
+/* nav */
+nav{position:sticky;top:0;z-index:30;background:rgba(242,243,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:10px;padding-bottom:10px;padding-right:130px;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--mut);font-size:13px;font-weight:600;padding:6px 12px;border-radius:99px}
+nav a:hover{background:#e5e8ea;color:var(--ink)}
+/* hero */
+.hero{background:var(--dk);color:#fff;padding:64px 0 56px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(0,177,114,.35),transparent 65%)}
+.hero .lg{height:34px;margin-bottom:28px;filter:brightness(0) invert(1)}
+.hero h1{font-size:clamp(30px,5.2vw,52px);line-height:1.08;font-weight:800;max-width:780px;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--g)}
+.hero p{margin-top:16px;max-width:640px;color:#c9d3d7;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips span{border:1px solid #3d4b52;border-radius:99px;padding:6px 13px;font-size:13px;color:#dfe4e6}
+.not{margin-top:26px;font-size:13px;color:#9fb0b7;max-width:640px}
+section{padding:56px 0}
+section h2{font-size:clamp(24px,3.4vw,34px);letter-spacing:-.015em;line-height:1.15;margin-bottom:6px}
+.lead{color:var(--mut);max-width:720px;margin-bottom:26px}
+.kick{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--gd);text-transform:uppercase;margin-bottom:8px}
+/* kartlar */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{font-size:15px;margin-bottom:6px}
+.card p,.card li{font-size:14px;color:var(--mut)}
+.card ul{padding-left:18px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:#e3f6ee;color:var(--gd);margin-bottom:8px}
+.tag.r{background:#fdeaea;color:#b01818}.tag.y{background:#fff3cc;color:#7a5a00}.tag.n{background:#e9ecee;color:#44525a}
+.src{font-size:12px;color:var(--mut);margin-top:14px}
+.src a{color:var(--gd)}
+/* yon basliklari */
+.yon{border-top:1px solid var(--line)}
+.yonhead{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between;margin-bottom:24px}
+.pal{display:flex;gap:6px}.pal i{width:34px;height:34px;border-radius:9px;border:1px solid rgba(0,0,0,.1);display:block}
+.board{display:grid;gap:18px;grid-template-columns:repeat(6,1fr);align-items:start}
+.board .it{grid-column:span 2}
+.board .it.sq{grid-column:span 2}
+.board .it.wide{grid-column:span 3}
+.cap{font-size:12px;color:var(--mut);margin-top:7px}
+.cap b{color:var(--ink)}
+/* post */
+.post{container-type:inline-size;position:relative;overflow:hidden;width:100%;border-radius:10px;box-shadow:0 8px 30px rgba(18,24,27,.16)}
+.p45{aspect-ratio:4/5}.p11{aspect-ratio:1/1}.p916{aspect-ratio:9/16}
+.post .ph{position:absolute;inset:0;background-size:cover;background-position:center}
+.post .in{position:absolute;inset:0;display:flex;flex-direction:column;padding:7cqw}
+.post .mk{position:absolute;top:5cqw;left:6cqw;height:5.2cqw;display:flex;align-items:center;gap:1.6cqw;font-weight:800;font-size:3.4cqw;letter-spacing:-.01em}
+.post .mk img{height:100%}
+.post .pg{position:absolute;right:5cqw;bottom:4.2cqw;font-size:2.7cqw;font-weight:600;opacity:.75}
+/* A */
+.A{background:#12181b;color:#fff;font-family:Inter}
+.A .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,27,.25) 0%,rgba(18,24,27,.2) 35%,rgba(18,24,27,.92) 100%)}
+.A .mk{color:#fff}
+.A .in{justify-content:flex-end}
+.A .k{font-size:3.1cqw;font-weight:700;letter-spacing:.18em;color:#00d68d;text-transform:uppercase;margin-bottom:2.4cqw}
+.A h4{font-size:9.6cqw;line-height:1.02;letter-spacing:-.035em;font-weight:800;white-space:pre-line}
+.A .sb{margin-top:3cqw;font-size:3.9cqw;color:#c9d3d7;max-width:80%;line-height:1.35}
+.A .bar{position:absolute;left:0;bottom:0;height:1.6cqw;width:100%;background:linear-gradient(90deg,#00b172,#00875a)}
+.A .steps{display:flex;flex-direction:column;gap:2.6cqw;margin-top:4cqw}
+.A .steps div{display:flex;align-items:center;gap:3.4cqw;font-size:4.6cqw;font-weight:600;border-bottom:1px solid #2b373d;padding-bottom:2.2cqw}
+.A .steps b{width:7.5cqw;height:7.5cqw;border-radius:50%;background:#00b172;color:#fff;display:grid;place-items:center;font-size:3.6cqw;flex:none}
+.A.plain .in{justify-content:center;padding-top:16cqw}
+.A .chip{display:inline-block;background:#00b172;color:#04140d;font-weight:800;font-size:3cqw;padding:1.6cqw 3.4cqw;border-radius:99px;align-self:flex-start;margin-bottom:3cqw}
+.A .poll{margin-top:5cqw;display:flex;flex-direction:column;gap:2.6cqw}
+.A .poll div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px);border-radius:3cqw;padding:3.4cqw 4cqw;font-size:4.3cqw;font-weight:600}
+.A .play{width:15cqw;height:15cqw;border-radius:50%;background:#00b172;display:grid;place-items:center;margin-bottom:5cqw}
+.A .play:after{content:"";border-left:5cqw solid #fff;border-top:3.2cqw solid transparent;border-bottom:3.2cqw solid transparent;margin-left:1.4cqw}
+/* B */
+.B{background:#f6efe2;color:#2a2118;font-family:Inter}
+.B .ph{height:62%;bottom:auto;border-radius:0 0 7cqw 7cqw}
+.B .in{justify-content:flex-end;padding:6cqw 7cqw 7cqw}
+.B .mk{color:#fff;z-index:2}.B .mk img{filter:brightness(0) invert(1)}
+.B .k{font-size:3cqw;font-weight:700;color:#b8601f;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.8cqw}
+.B h4{font-family:Fraunces,Georgia,serif;font-size:7.4cqw;line-height:1.08;font-weight:700;letter-spacing:-.01em;white-space:pre-line}
+.B .sb{margin-top:2.2cqw;font-size:3.6cqw;color:#6b5a48;line-height:1.4}
+.B.full .ph{inset:0;height:100%;border-radius:0}
+.B.full .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(34,22,10,.82))}
+.B.full h4,.B.full .sb{color:#fff}.B.full .k{color:#ffc58a}
+.B .def{background:#fff;border-radius:5cqw;padding:5cqw;margin-top:3.4cqw;font-size:4cqw;color:#4a3d2e;line-height:1.45;box-shadow:0 2px 0 #e8dcc6}
+.B.txt .in{justify-content:center}.B.txt .mk img{filter:none}.A .k{text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.B .stk{position:absolute;right:6cqw;top:6cqw;background:#ffd36b;color:#3a2a00;font-weight:800;font-size:3.2cqw;padding:2cqw 3.6cqw;border-radius:2cqw;transform:rotate(4deg);z-index:2}
+/* C */
+.C{background:#f4f1ea;color:#101010;font-family:'Barlow Condensed',Inter,sans-serif}
+.C .mk{color:#101010;font-family:Inter}
+.C .in{justify-content:flex-end}
+.C .k{font-family:Inter;font-size:3cqw;font-weight:800;letter-spacing:.14em;background:#101010;color:#FABC04;align-self:flex-start;padding:1.2cqw 2.6cqw;margin-bottom:3cqw}
+.C h4{font-size:15cqw;line-height:.9;font-weight:800;text-transform:uppercase;letter-spacing:-.005em;white-space:pre-line}
+.C .sb{font-family:Inter;margin-top:3.4cqw;font-size:3.8cqw;line-height:1.4;color:#2c2c2c;max-width:88%}
+.C.y{background:#FABC04}.C.y .k{background:#101010;color:#FABC04}
+.C .big{font-size:52cqw;line-height:.8;font-weight:800;color:#101010}
+.C .duo .ph{filter:grayscale(1) contrast(1.25);mix-blend-mode:multiply;opacity:.9}
+.C .duo{background:#FABC04}
+.C .duo h4,.C .duo .sb{color:#101010}
+.C .opt{display:flex;gap:3cqw;margin-top:4cqw;font-family:Inter}
+.C .opt div{flex:1;border:.6cqw solid #101010;padding:4cqw;font-weight:700;font-size:4cqw;line-height:1.2;background:#fff}
+.C .mk img{height:100%}
+.C .rule{height:1.1cqw;background:#101010;margin:3cqw 0}
+.C .play{width:15cqw;height:15cqw;border-radius:50%;background:#101010;display:grid;place-items:center;margin-bottom:5cqw}
+.C .play:after{content:"";border-left:5cqw solid #FABC04;border-top:3.2cqw solid transparent;border-bottom:3.2cqw solid transparent;margin-left:1.4cqw}
+/* takvim */
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tools button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 14px;cursor:pointer;color:var(--mut)}
+.tools button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:13.5px}
+th{background:#eceff0;text-align:left;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);padding:10px 12px}
+td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
+td.d{font-weight:800;color:var(--gd);white-space:nowrap}
+td .tg{color:var(--mut);font-size:12px}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:#e9ecee;margin:0 4px 4px 0;white-space:nowrap}
+.pill.IG{background:#fde6f0;color:#a0155c}.pill.FB{background:#e2ecfd;color:#1b4fb0}.pill.IN{background:#e0f0f9;color:#07587d}
+footer{background:var(--dk);color:#9fb0b7;padding:36px 0;font-size:13px}
+footer b{color:#fff}
+@media(max-width:860px){
+ .g3,.g4{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
+ .board{grid-template-columns:repeat(2,1fr);gap:14px}.board .it,.board .it.sq,.board .it.wide{grid-column:span 1}
+ thead{display:none}table,tbody,tr,td{display:block;width:100%}
+ tr{border-top:1px solid var(--line);padding:10px 0}td{border:0;padding:3px 14px}
+}
+@media(max-width:520px){.board{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr}.hero{padding:48px 0 40px}section{padding:40px 0}}
+</style>
+</head>
+<body>
+<div class="rozet">Dijitabela · <b>Örnek tasarım</b></div>
+<div class="fg"><span>DİJİTABELA · ÖRNEK</span></div>
+
+<nav><div class="wrap">
+<a href="#ozet">Özet</a><a href="#durum">Durum raporu</a><a href="#yon-a">Yön A</a><a href="#yon-b">Yön B</a><a href="#yon-c">Yön C</a><a href="#takvim">30 gün takvim</a><a href="#kapsam">Aylık kapsam</a>
+</div></nav>
+
+<header class="hero" id="ozet"><div class="wrap">
+<img class="lg" src="logo/kobicar-logo.svg" alt="KobiCar">
+<div class="kick" style="color:#00d68d">Sosyal medya marka kiti · ilk ay önizlemesi</div>
+<h1>Galericinin dilinden konuşan, <em>veriyle güven veren</em> bir sosyal medya.</h1>
+<p>KobiCar için hazırladığımız üç farklı görsel yön, her birinde hazır gönderi, hikâye ve Reels kapağı tasarımı; arkasında 30 günlük içerik takvimi. Beğendiğiniz yönü seçin, ilk ay bu çizgide ilerleyelim.</p>
+<div class="chips"><span>Facebook + Instagram</span><span>LinkedIn (isteğe bağlı)</span><span>3 görsel yön</span><span>15 gönderi + 3 hikâye + 3 Reels kapağı</span><span>30 günlük takvim</span></div>
+<p class="not">Bu çalışmalar örnektir, gerçek içeriklerde sizin görselleriniz kullanılır. Gösterilen fotoğraflar yapay zekâ ile üretilmiş sahne örnekleridir; KobiCar logosu yalnızca yerleşim önizlemesi içindir.</p>
+</div></header>
+
+<section id="durum"><div class="wrap">
+<div class="kick">Durum raporu</div>
+<h2>KobiCar bugün sosyal medyada nerede?</h2>
+<p class="lead">Herkese açık kaynaklardan derlenen özet. Erişemediğimiz bilgiler “belirsiz” olarak işaretlidir; hesap içi veriler (erişim, etkileşim) görüşmede birlikte netleşir.</p>
+<div class="grid g3">
+<div class="card"><span class="tag n">Kim?</span><h3>Otomotiv yazılımı (B2B)</h3><p>İkinci el araç değerleme, CRM, bayi yönetimi (DMS), ön muhasebe, web sitesi ve pazarlama modülleri. Kurucu: Uğur Yeşbek. LinkedIn’de 11–50 çalışan, İstanbul. Başarı hikâyeleri: OtoDeğer, TrinkCars, OtoFly, OtoVakit, OtoBerco, AydCars.</p></div>
+<div class="card"><span class="tag n">Hedef kitle</span><h3>Oto galeri sahipleri ve ekipleri</h3><p>İkinci el galeriler, bayiler, ekspertiz noktaları, filo ve araç alım şirketleri. Karar verici çoğunlukla galeri sahibi: hızlı, sade ve sahadan konuşan içerikle ikna olur.</p></div>
+<div class="card"><span class="tag n">Rakipler</span><h3>Galeri yazılımı sağlayıcıları</h3><p>Wind Medya (otomotiv CRM), MobilGaleri, Otomologs, GaleriTakipPro, OCCO Car, Gelecek Yazılım, otogaleriprogrami.com. Çoğu özellik listesi anlatıyor; sahadan hikâye ve tutarlı sosyal medya çizgisi az.</p></div>
+</div>
+<div class="grid g3" style="margin-top:14px">
+<div class="card"><span class="tag">Instagram</span><h3>@kobicarcom</h3><p>Yaklaşık 147 takipçi, 1 takip. Görünen son 11 gönderi 25–27 Eylül 2026’da, üç güne yığılmış; 10’u çoklu görsel (carousel). Reels ve düzenli ritim görünmüyor. Hikâye/öne çıkanlar: belirsiz.</p></div>
+<div class="card"><span class="tag">Facebook</span><h3>facebook.com/kobicarcom</h3><p>Sayfa mevcut, açıklama kısa tanıtım metni. Takipçi sayısı, paylaşım sıklığı ve son gönderiler: belirsiz (herkese açık veri alınamadı).</p></div>
+<div class="card"><span class="tag">LinkedIn</span><h3>KobiCar şirket sayfası</h3><p>Yaklaşık 4 takipçi, 3 çalışan profili bağlı. Son paylaşım “Gelen Kutusu” ürün anlatımı; dil iyi ama erişim çok düşük.</p></div>
+</div>
+<div class="grid g2" style="margin-top:14px">
+<div class="card"><span class="tag y">Eksikler</span><ul>
+<li>Paylaşımlar ritimsiz: kısa sürede çok, sonra boşluk. Yeni bir takipçi için profil “canlı” görünmüyor.</li>
+<li>Reels ve hikâye yok ya da görünmüyor; sektörde en çok ilgi toplayan format kullanılmıyor.</li>
+<li>Ürün özellikleri anlatılıyor, galericinin günlük derdi (stok bekliyor, mesaj kaçıyor, fiyat belirsiz) çok az işleniyor.</li>
+<li>Marka dili web sitesinde net (yeşil + koyu, sade); sosyal medyada bu kimliğin tutarlı şablona dönüşmesi belirsiz.</li>
+<li>Facebook ve LinkedIn ile Instagram arasında çapraz kullanım yok gibi görünüyor.</li>
+</ul></div>
+<div class="card"><span class="tag">Hızlı kazanımlar</span><ul>
+<li>Haftada 3–4 gönderi + 2–3 hikâye ritmi, sabit gün/saat.</li>
+<li>Tek şablon ailesi: kapak, madde, sözlük, anket (aşağıdaki yönlerden biri).</li>
+<li>Aylık 4 kısa Reels: panel turu, “formdan stoğa”, mini sözlük.</li>
+<li>Blogdaki 3 güncel yazı (Eylül 2026) ve sürüm notları hazır içerik kaynağı: carousel ve gönderiye çevrilir.</li>
+<li>Başarı hikâyeleri (OtoDeğer, TrinkCars vb.) onayla gönderi serisi olur.</li>
+</ul></div>
+</div>
+<p class="src">Kaynaklar: <a href="https://kobicar.com/">kobicar.com</a> · <a href="https://lp.kobicar.com/">lp.kobicar.com</a> · <a href="https://linkedin.com/company/145228359">LinkedIn şirket sayfası</a> · <a href="https://www.instagram.com/kobicarcom/">Instagram</a> · <a href="https://www.facebook.com/kobicarcom">Facebook</a> · rakipler: windmedya.com, mobilgaleri.com, otomologs.com, galeritakippro.com, occocar.com, gelecekyazilim.com.tr. Takipçi sayıları anlık değişir.</p>
+</div></section>
+
+<!-- YON A -->
+<section class="yon" id="yon-a"><div class="wrap">
+<div class="yonhead"><div><div class="kick">Yön A</div><h2>Veri Yeşili</h2><p class="lead" style="margin-bottom:0">Web sitenizdeki koyu + yeşil kimliğin sosyal medyaya taşınmış hâli. Teknolojik, güven veren, kurumsal. Başlıklar kısa ve iddialı; fotoğraflar koyu tonla bütünleşir.</p></div>
+<div class="pal"><i style="background:#12181b"></i><i style="background:#00b172"></i><i style="background:#007f55"></i><i style="background:#f2f3f4"></i></div></div>
+<div class="board" id="bA"></div>
+</div></section>
+
+<!-- YON B -->
+<section class="yon" id="yon-b"><div class="wrap">
+<div class="yonhead"><div><div class="kick">Yön B</div><h2>Galeri Sıcaklığı</h2><p class="lead" style="margin-bottom:0">Yazılım değil, galerici esnafıyla konuşan insani bir ton. Krem zemin, sıcak fotoğraf, serif başlık. Ürünü değil günlük işi anlatır; güven “bizden biri” hissiyle kurulur.</p></div>
+<div class="pal"><i style="background:#f6efe2"></i><i style="background:#2a2118"></i><i style="background:#b8601f"></i><i style="background:#00875a"></i></div></div>
+<div class="board" id="bB"></div>
+</div></section>
+
+<!-- YON C -->
+<section class="yon" id="yon-c"><div class="wrap">
+<div class="yonhead"><div><div class="kick">Yön C</div><h2>Editoryal Tipografi</h2><p class="lead" style="margin-bottom:0">Dev yazılar, sarı vurgu, siyah çerçeve: kaydırırken duran, hızlı okunan, paylaşılabilir bilgi kartları. Fotoğrafa az bağımlı, üretimi hızlı, aylık hacim artırmaya en uygun yön.</p></div>
+<div class="pal"><i style="background:#f4f1ea"></i><i style="background:#101010"></i><i style="background:#FABC04"></i><i style="background:#00b172"></i></div></div>
+<div class="board" id="bC"></div>
+</div></section>
+
+<section id="takvim"><div class="wrap">
+<div class="kick">İlk ay</div>
+<h2>30 günlük içerik takvimi</h2>
+<p class="lead">Seçilen yöne göre tasarlanır. Her satırda kanal, format, konu, metin taslağı ve etiketler var. Facebook + Instagram ana kanal; LinkedIn ek kanal olarak işaretli.</p>
+<div class="tools" id="tools"></div>
+<table><thead><tr><th>Gün</th><th>Kanal</th><th>Format</th><th>Konu</th><th>Metin taslağı</th></tr></thead><tbody id="tb"></tbody></table>
+</div></section>
+
+<section id="kapsam" style="padding-top:0"><div class="wrap">
+<div class="kick">Aylık kapsam</div>
+<h2>Her ay neler dahil?</h2>
+<div class="grid g4" style="margin-top:18px">
+<div class="card"><h3>16 gönderi tasarımı</h3><p>Facebook + Instagram için, 1080×1350 ve 1080×1080; metinleriyle birlikte.</p></div>
+<div class="card"><h3>8 hikâye şablonu</h3><p>Anket, soru kutusu, duyuru ve “bugün” formatları.</p></div>
+<div class="card"><h3>2 Reels kapağı + kurgu planı</h3><p>Kapak tasarımı, senaryo ve altyazı metni; çekim sizden veya ekran kaydından.</p></div>
+<div class="card"><h3>Takvim ve aylık rapor</h3><p>Ay başı onay takvimi, ay sonu sade rapor ve bir sonraki ay önerisi.</p></div>
+</div>
+<p class="src">Başlangıç: yön seçimi ve hesap erişimi sonrası ilk içerik paketi kısa sürede onaya sunulur. Kapsam, görüşmede ihtiyaca göre ayarlanır.</p>
+</div></section>
+
+<footer><div class="wrap"><b>Dijitabela</b> · KobiCar için hazırlanmış örnek sunumdur. Bu çalışmalar örnektir, gerçek içeriklerde sizin görselleriniz kullanılır. KobiCar adı ve logosu ilgili sahibine aittir; yalnızca yerleşim önizlemesi için kullanılmıştır.</div></footer>
+
+<script>
+var L='<img src="logo/kobicar-isaret.svg" alt=""><span>KobiCar</span>';
+function img(n){return '<div class="ph" style="background-image:url(img/'+n+'.jpg)"></div>'}
+function P(cls,fmt,body,cap){return '<div class="it '+(fmt=='p11'?'sq':'')+'"><div class="post '+cls+' '+fmt+'">'+body+'</div><div class="cap">'+cap+'</div></div>'}
+// ---- A
+var A=[
+P('A','p45',img('suv_stud')+'<div class="mk">'+L+'</div><div class="in"><div class="k">Araç alımı</div><h4>Tahmin değil,\nveri.</h4><div class="sb">Saniyeler içinde gerekçeli değer bandı.</div></div><div class="bar"></div>','<b>Gönderi 1</b> · 1080×1350 · kapak'),
+P('A','p11',img('tablet_deger')+'<div class="mk">'+L+'</div><div class="in"><div class="k">Kaynak takibi</div><h4 style="font-size:8.6cqw">Hangi reklam\naraç aldırdı?</h4><div class="sb">Her değerleme kaynağıyla kayıtta.</div></div><div class="bar"></div>','<b>Gönderi 2</b> · 1080×1080'),
+P('A plain','p45','<div class="mk">'+L+'</div><div class="in"><div class="k">Süreç</div><h4 style="font-size:8.6cqw">Formdan stoğa\naltı durak</h4><div class="steps"><div><b>1</b>Değerleme</div><div><b>2</b>SMS doğrulama</div><div><b>3</b>Temsilciye atama</div><div><b>4</b>Randevu</div><div><b>5</b>Araç alımı</div><div><b>6</b>Stoğa giriş</div></div></div><div class="bar"></div>','<b>Gönderi 3</b> · 1080×1350 · bilgi kartı'),
+P('A','p11',img('telefon_kaput')+'<div class="mk">'+L+'</div><div class="in"><div class="k">Gelen kutusu</div><h4 style="font-size:8.2cqw">Kaçan mesaj,\nkaçan alım fırsatı.</h4><div class="sb">WhatsApp, Instagram ve Facebook tek ekranda.</div></div><div class="bar"></div>','<b>Gönderi 4</b> · 1080×1080'),
+P('A','p45',img('gece_showroom')+'<div class="mk">'+L+'</div><div class="in"><span class="chip">KAYDIR →</span><h4>Stok\nyaşlanıyor mu?</h4><div class="sb">Erken uyarı veren 5 işaret.</div></div><div class="bar"></div><div class="pg">1 / 6</div>','<b>Gönderi 5</b> · 1080×1350 · carousel kapağı'),
+P('A','p916',img('ekspertiz')+'<div class="mk">'+L+'</div><div class="in"><span class="chip">ANKET</span><h4 style="font-size:10cqw">Galerinizde en çok\nzaman alan iş?</h4><div class="poll"><div>Fiyat belirleme</div><div>Müşteri takibi</div><div>Muhasebe</div></div></div><div class="bar"></div>','<b>Hikâye şablonu</b> · 1080×1920'),
+P('A','p916',img('kilometre')+'<div class="mk">'+L+'</div><div class="in"><div class="play"></div><h4 style="font-size:11cqw">60 saniyede\naraç değerleme</h4><div class="sb">Satıcı formu doldurunca ne olur?</div></div><div class="bar"></div>','<b>Reels kapağı</b> · 1080×1920')
+].join('');
+document.getElementById('bA').innerHTML=A;
+// ---- B
+var B=[
+P('B','p45',img('showroom_dis')+'<div class="mk">'+L+'</div><div class="in"><div class="k">Hafta sonu rehberi</div><h4>Vitrinde ilk 3 araç\nnasıl seçilir?</h4><div class="sb">Cumartesi trafiği için küçük bir sıralama.</div></div>','<b>Gönderi 1</b> · 1080×1350'),
+P('B full','p11',img('teslim')+'<div class="mk">'+L+'</div><div class="stk">Müşteri anı</div><div class="in"><div class="k">Anahtar teslim</div><h4 style="font-size:7.8cqw">Her galericinin\nen güzel dakikası.</h4><div class="sb" style="color:#ffe3c8">Teslim fotoğrafınızı bu şablona koyarız.</div></div>','<b>Gönderi 2</b> · 1080×1080'),
+P('B','p45',img('ofis')+'<div class="mk">'+L+'</div><div class="in"><div class="k">Ekip düzeni</div><h4>Kim aradı, kim\nrandevu verdi?</h4><div class="sb">Tek ekranda herkes aynı sayfada.</div></div>','<b>Gönderi 3</b> · 1080×1350'),
+P('B txt','p11','<div class="mk" style="color:#2a2118">'+L+'</div><div class="in"><div class="k">Mini sözlük</div><h4 style="font-size:9cqw">Ekspertiz nedir?</h4><div class="def">Aracın boya, değişen parça ve mekanik durumunu uzmanın kayıt altına aldığı rapordur. Pazarlıkta ilk bakılan belge budur.</div></div>','<b>Gönderi 4</b> · 1080×1080 · sözlük serisi'),
+P('B','p45',img('ekspertiz')+'<div class="mk">'+L+'</div><div class="in"><div class="k">3 dakikada</div><h4>Boya mı, değişen mi?\nRaporu okumak.</h4><div class="sb">Kaydırın, üç adımda anlatalım.</div></div><div class="pg" style="color:#6b5a48">1 / 5</div>','<b>Gönderi 5</b> · 1080×1350 · carousel kapağı'),
+P('B full','p916',img('dusk_aerial')+'<div class="mk">'+L+'</div><div class="stk">Bugün galeride</div><div class="in"><div class="k">Günün aracı</div><h4 style="font-size:9.5cqw">Akşam ışığında\nvitrin.</h4><div class="sb" style="color:#ffe3c8">Fotoğrafınızı ekleyin, etiketi biz yazalım.</div></div>','<b>Hikâye şablonu</b> · 1080×1920'),
+P('B full','p916',img('lot_mavi')+'<div class="mk">'+L+'</div><div class="in"><div class="k">Reels</div><h4 style="font-size:9.5cqw">Bir araç stoğa\nnasıl girer?</h4><div class="sb" style="color:#ffe3c8">Kapıdan vitrine, 45 saniyede.</div></div>','<b>Reels kapağı</b> · 1080×1920')
+].join('');
+document.getElementById('bB').innerHTML=B;
+// ---- C
+var C=[
+P('C','p45','<div class="mk">'+L+'</div><div class="in" style="justify-content:center"><div class="k">MİT / GERÇEK</div><h4>Yüksek km\nkötü araç mı?</h4><div class="rule"></div><div class="sb">Hayır. Bakım kaydı ve ekspertiz, kilometreden çok daha fazlasını söyler.</div></div>','<b>Gönderi 1</b> · 1080×1350'),
+P('C y','p11','<div class="mk">'+L+'</div><div class="in" style="justify-content:flex-end"><div class="big">7</div><h4 style="font-size:11cqw;margin-top:2cqw">İkinci el almadan önce\nbakılacak şey</h4></div>','<b>Gönderi 2</b> · 1080×1080 · liste kapağı'),
+P('C','p45','<div class="duo"><div class="ph" style="background-image:url(img/kilometre.jpg)"></div></div><div class="mk">'+L+'</div><div class="in duo"><div class="k">KAÇININ</div><h4 style="font-size:14cqw">Araç satmadan\nönce 5 hata</h4></div>','<b>Gönderi 3</b> · 1080×1350 · fotoğraf + sarı filtre'),
+P('C','p11','<div class="mk">'+L+'</div><div class="in" style="justify-content:center"><div class="k">SİZ OLSANIZ?</div><h4 style="font-size:12cqw">Hangisini\nalırdınız?</h4><div class="opt"><div>Düşük km<br>hasar kayıtlı</div><div>Yüksek km<br>hatasız</div></div></div>','<b>Gönderi 4</b> · 1080×1080 · yorum sorusu'),
+P('C','p45','<div class="mk">'+L+'</div><div class="in" style="justify-content:center"><div class="k">NOT</div><h4 style="font-size:13cqw">Değerleme\ntahmin değil,\naralıktır.</h4><div class="rule"></div><div class="sb">Bandın en üstünden konuşmak pazarlık alanını baştan kapatır.</div></div>','<b>Gönderi 5</b> · 1080×1350 · alıntı kartı'),
+P('C y','p916','<div class="mk">'+L+'</div><div class="in" style="justify-content:center"><div class="k">ANKET</div><h4 style="font-size:17cqw">Bugün\nkaç araç\nbaktınız?</h4><div class="opt"><div>0–2</div><div>3–5</div><div>6+</div></div></div>','<b>Hikâye şablonu</b> · 1080×1920'),
+P('C','p916','<div class="mk">'+L+'</div><div class="in" style="justify-content:center"><div class="play"></div><h4 style="font-size:16cqw">30 sn\niçinde:\nPert kaydı\nnedir?</h4><div class="rule"></div><div class="sb">Sözlük serisi · Reels</div></div>','<b>Reels kapağı</b> · 1080×1920')
+].join('');
+document.getElementById('bC').innerHTML=C;
+
+// ---- takvim
+var T=[
+[1,'IG FB','Carousel','Tanışma: KobiCar nedir?','Araç değerlemeden stoğa, galerinizin işini tek kayıtta toplayan sistem. 6 durakta anlatıyoruz. #kobicar #otogaleri'],
+[2,'IG','Hikâye','Anket: en çok zaman alan iş','Galerinizde en çok zaman alan iş hangisi? Sonuçları yarın paylaşacağız.'],
+[3,'IG FB','Tek görsel','Tahmin değil veri','Araç alırken el yordamı yerine gerekçeli değer bandı. #aracdeğerleme #ikinciel'],
+[4,'IG','Reels','60 saniyede değerleme','Satıcı formu doldurunca ekranda ne oluyor? Kısa demo. #reels #otomotiv'],
+[5,'IN','Gönderi','Kurucudan not: neden araç değerleme?','İkinci elde fiyat kararı çoğu zaman sezgiyle veriliyor. Biz bunu veriye bağlamak için yola çıktık. #girişim #otomotiv'],
+[6,'FB IG','Tek görsel','Mini sözlük: Ekspertiz','Ekspertiz nedir, neye bakar, rapor nasıl okunur? Sözlük serisi başlıyor. #galerisözlüğü'],
+[7,'IG','Hikâye','Haftanın özeti','Bu hafta ne paylaştık, hangi soruyu aldık? 3 kartlık özet.'],
+[8,'IG FB','Carousel','Stok yaşlanıyor mu? 5 işaret','Bekleyen her gün sermayeyi park ediyor. Erken uyarı işaretleri. #stokyönetimi #galeri'],
+[9,'FB IG','Tek görsel','Mit / Gerçek: yüksek km','Yüksek km kötü araç demek mi? Cevap altı. Siz ne düşünüyorsunuz? #mitgerçek'],
+[10,'IG','Reels','Panel turu 30 sn','Gelen talepten randevuya: ekran akışı. #crm #otogaleri'],
+[11,'IN','Gönderi','Gelen Kutusu: kaçan mesaj, kaçan fırsat','WhatsApp, Instagram, Facebook mesajları tek listede. Kim ilgileniyor belli. #müşteriiletişimi'],
+[12,'IG','Hikâye','Soru kutusu','Galeri işiyle ilgili merak ettiğiniz soruyu yazın, haftaya yanıtlayalım.'],
+[13,'FB IG','Gönderi','Başarı hikâyesi (onaylı): OtoDeğer','Satıcı ve galeri tek uygulamada. Hikâyenin kısa özeti ve link. #başarıhikayesi'],
+[14,'IG FB','Tek görsel','Hafta sonu galeri rehberi','Cumartesi vitrininde ilk 3 araç nasıl seçilir? #vitrin #galerirehberi'],
+[15,'IG FB','Carousel','Hangi reklam araç aldırdı?','Kaynak takibiyle talep, randevu ve alınan araç kampanya bazında görünür. #reklam #dönüşüm'],
+[16,'IG','Reels','Formdan stoğa','Satıcı formu doldurduktan sonraki altı adım, ekranlarla. #süreç'],
+[17,'IG','Hikâye','Yenilik duyurusu','Son sürümde gelenler: kısa 3 madde ve görsel.'],
+[18,'FB IG','Tek görsel','Mini sözlük: Pert kaydı','Pert kaydı nedir, alıcı neye dikkat etmeli? #galerisözlüğü'],
+[19,'IN','Gönderi','Veriyle yönetilen galeri','Stok devir hızından talep tahminine: blog yazısından üç çıkarım. #veri #otomotiv'],
+[20,'IG FB','Carousel','Araç satmadan önce 5 hata','Satıcıya yönelik: değerlemeden önce yapılan yaygın hatalar. #ikinciel #araçsatış'],
+[21,'FB IG','Tek görsel','Canlı demo daveti','20 dakikada panelinizi gerçek örnekle gezelim. Mesaj atın, günü ayarlayalım.'],
+[22,'IG','Reels','Ekip ekranları','Temsilci, yönetici ve muhasebe ekranı: kim ne görür? #ekip'],
+[23,'IG','Hikâye','Anket: bugün kaç araç baktınız?','0–2, 3–5, 6+. Sonuç yarın.'],
+[24,'FB IG','Tek görsel','Mini sözlük: Değerleme bandı','Değerleme tek rakam değil, aralıktır. Nedeni altta. #galerisözlüğü'],
+[25,'FB IN','Blog özeti','Yapay zekâ otomotiv perakendesinde','Fiyat önerisinden talep tahminine: nerede işe yarıyor, nerede dikkat gerek? Link yorumlarda. #yapayzeka'],
+[26,'IG FB','Carousel','Araç bazlı net kâr: 4 soru','Hangi araç kazandırdı, hangisi zarar yazdı? Muhasebe modülünün kısa özeti. #ön muhasebe'],
+[27,'IG','Hikâye','Perde arkası','Ekipten bir gün: kısa video ve not.'],
+[28,'IG','Reels','Ayın yenilikleri','Bu ay panele eklenen üç özellik. #sürümnotu'],
+[29,'IN','Gönderi','Ay sonu: bu ay ne öğrendik?','Galericilerden gelen en sık üç soru ve cevapları.'],
+[30,'FB IG','Tek görsel','Ay özeti + gelecek ay','En çok ilgi gören 3 içerik ve gelecek ay neler geliyor? Sizce hangisi? #kobicar']
+];
+var FL='all';
+var tools=document.getElementById('tools');
+[['all','Tümü'],['IG','Instagram'],['FB','Facebook'],['IN','LinkedIn']].forEach(function(x){var b=document.createElement('button');b.textContent=x[1];if(x[0]==FL)b.className='on';b.onclick=function(){FL=x[0];[].forEach.call(tools.children,function(c){c.className=''});b.className='on';draw()};tools.appendChild(b)});
+function draw(){var h='';T.forEach(function(r){if(FL!='all'&&r[1].split(' ').indexOf(FL)<0)return;
+var k=r[1].split(' ').map(function(c){return '<span class="pill '+c+'">'+({IG:'Instagram',FB:'Facebook',IN:'LinkedIn'})[c]+'</span>'}).join('');
+var txt=r[4].replace(/(#[^\s#]+(?:\s#[^\s#]+)*)$/,'<br><span class="tg">$1</span>');
+h+='<tr><td class="d">Gün '+r[0]+'</td><td>'+k+'</td><td>'+r[2]+'</td><td><b>'+r[3]+'</b></td><td>'+txt+'</td></tr>'});
+document.getElementById('tb').innerHTML=h}
+draw();
+</script>
+</body>
+</html>
