@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ümit Kavi · Mutfak Sanatları — Tasarım 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fbf4e8;--paper:#fffaf1;--ink:#2a1d14;--muted:#6f5d4e;--terra:#b8502f;--terra2:#8f3a1f;--sage:#6b7a4f;--honey:#e2a93b;--line:#e8dac3;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 var(--sans)}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.1;margin:0}
+nav{position:sticky;top:0;z-index:50;background:rgba(251,244,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:18px}
+.logo svg{width:40px;height:40px}
+.menu{margin-left:auto;display:flex;gap:22px;font-size:14px;font-weight:500;color:var(--muted)}
+.menu a:hover{color:var(--terra)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted)}
+.lang button.on{background:var(--terra);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:#fff;border:0;border-radius:999px;padding:13px 24px;font-weight:600;cursor:pointer;transition:.2s}
+.btn:hover{background:var(--terra2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--terra);border:1.5px solid var(--terra)}
+.hero{padding:70px 0 50px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:14px}
+.hero h1{font-size:clamp(40px,6vw,74px);letter-spacing:-.02em}
+.hero h1 em{color:var(--terra);font-weight:500}
+.hero p{font-size:18px;color:var(--muted);max-width:520px;margin:20px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.plate{position:relative;aspect-ratio:1;max-width:420px;margin:auto;width:100%}
+.plate svg{width:100%;height:100%}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.chip{font-size:12px;border:1px solid var(--line);background:var(--paper);padding:6px 12px;border-radius:999px;color:var(--muted)}
+section{padding:70px 0}
+.sec-h{max-width:620px;margin-bottom:34px}
+.sec-h h2{font-size:clamp(30px,4vw,44px)}
+.sec-h p{color:var(--muted);margin:12px 0 0}
+.paper{background:var(--paper);border:1px solid var(--line);border-radius:22px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{padding:26px}
+.card .ic{width:46px;height:46px;border-radius:14px;background:#f3e3c8;display:grid;place-items:center;margin-bottom:14px}
+.card h3{font-size:22px;margin-bottom:8px}.card p{margin:0;color:var(--muted);font-size:15px}
+.planner{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.planner .in{padding:28px}.planner .out{padding:28px;background:#2a1d14;color:#fbf4e8;border-radius:22px}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+.lbl:first-child{margin-top:0}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 15px;font-size:14px;cursor:pointer;transition:.15s}
+.pill.on{background:var(--terra);border-color:var(--terra);color:#fff}
+input[type=range]{width:100%;accent-color:var(--terra)}
+.gc{font-family:var(--serif);font-size:34px;color:var(--terra)}
+.out h3{color:var(--honey);font-size:24px;margin-bottom:4px}
+.out .sub{opacity:.7;font-size:13px;margin-bottom:16px}
+.course{border-top:1px dashed rgba(251,244,232,.25);padding:12px 0}
+.course small{display:block;color:var(--honey);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.stat{display:flex;gap:14px;margin:16px 0}.stat div{flex:1;background:rgba(255,255,255,.08);border-radius:14px;padding:12px;text-align:center}
+.stat b{font-family:var(--serif);font-size:26px;display:block;color:var(--honey)}.stat span{font-size:12px;opacity:.75}
+.note{font-size:12px;opacity:.6;margin-top:10px}
+.tl{position:relative;padding-left:34px}
+.tl:before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--terra),var(--sage))}
+.tli{position:relative;padding:0 0 26px;opacity:0;transform:translateY(14px);transition:.6s}
+.tli.in{opacity:1;transform:none}
+.tli:before{content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--cream);border:3px solid var(--terra)}
+.tli h3{font-size:21px}.tli .when{font-size:12px;color:var(--sage);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.tli p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.two{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
+.wiz{max-width:760px;margin:auto;padding:30px}
+.steps{display:flex;gap:6px;margin-bottom:22px}.steps i{flex:1;height:5px;border-radius:9px;background:var(--line)}.steps i.on{background:var(--terra)}
+.field{margin-bottom:14px}.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff}
+.field input:focus,.field textarea:focus{outline:2px solid var(--terra);border-color:transparent}
+.nav2{display:flex;justify-content:space-between;margin-top:18px;gap:10px}
+.sum{background:#fff;border:1.5px dashed var(--terra);border-radius:14px;padding:16px;white-space:pre-wrap;font-size:14px;line-height:1.6}
+.hidden{display:none}
+footer{padding:40px 0 90px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:860px){.hero .wrap,.planner,.two{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.menu{display:none}.lang{margin-left:auto}.hero{padding-top:36px}section{padding:48px 0}.two{gap:10px}}
+.wrap>*,.box,.panel>*,.planner>*,.work>*,.feat>*,.two>*,.top>*{min-width:0}h1,h2,h3{overflow-wrap:anywhere}img,svg{max-width:100%}</style></head><body>
+<nav><div class="wrap">
+<a class="logo" href="#top" aria-label="Ümit Kavi">
+<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#b8502f"/><path d="M14 14v6a4 4 0 004 4v10M18 14v8M22 14v6a4 4 0 01-4 4" stroke="#fbf4e8" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M30 34V14c4 2 6 7 6 11h-6" stroke="#fbf4e8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="22" fill="none" stroke="#e2a93b" stroke-width="1.2" stroke-dasharray="2 3"/></svg>
+<span>Ümit Kavi</span></a>
+<div class="menu"><a href="#hakkimda" data-en="About">Hakkımda</a><a href="#planlayici" data-en="Menu planner">Menü planlayıcı</a><a href="#yolculuk" data-en="Journey">Yolculuk</a><a href="#talep" data-en="Request">Talep</a></div>
+<div class="lang"><button class="langbtn on" data-l="tr">TR</button><button class="langbtn" data-l="en">EN</button></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div>
+<div class="eyebrow" data-en="Culinary Arts · Istanbul">Mutfak Sanatları · İstanbul</div>
+<h1 data-en="Taste, hygiene and <em>discipline</em> in one kitchen.">Lezzet, hijyen ve <em>disiplin</em> tek mutfakta.</h1>
+<p data-en="Culinary Arts graduate and kitchen assistant. I combine modern kitchen, pastry and international cuisines with years of team leadership. Tell me about your event or project.">Mutfak Sanatları mezunu aşçı yardımcısı. Modern mutfak, pastacılık ve uluslararası mutfakları, yılların ekip liderliğiyle birleştiriyorum. Etkinliğinizi ya da projenizi anlatın.</p>
+<div class="cta"><a class="btn" href="#planlayici" data-en="Plan your menu">Menünü planla</a><a class="btn ghost" href="#talep" data-en="Send a request">Talep gönder</a></div>
+<div class="chips"><span class="chip" data-en="Hygiene certificate (İSMEK)">Hijyen sertifikası (İSMEK)</span><span class="chip" data-en="Associate degree · Culinary Arts">Önlisans · Mutfak Sanatları</span><span class="chip" data-en="Professional English">Profesyonel İngilizce</span></div>
+</div>
+<div class="plate"><svg viewBox="0 0 400 400" role="img" aria-label="Tabak illüstrasyonu">
+<defs><radialGradient id="pg" cx="40%" cy="35%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#eadcc2"/></radialGradient></defs>
+<circle cx="200" cy="200" r="190" fill="#f3e3c8"/><circle cx="200" cy="200" r="160" fill="url(#pg)" stroke="#d9c6a3" stroke-width="3"/><circle cx="200" cy="200" r="118" fill="none" stroke="#d9c6a3" stroke-dasharray="3 7"/>
+<path d="M130 215c20-60 100-70 140-20 10 20-10 55-70 60s-80-10-70-40z" fill="#b8502f"/><path d="M150 205c30-30 80-30 105-5" stroke="#8f3a1f" stroke-width="5" fill="none" stroke-linecap="round"/>
+<g fill="#6b7a4f"><ellipse cx="240" cy="150" rx="26" ry="9" transform="rotate(-30 240 150)"/><ellipse cx="262" cy="170" rx="22" ry="8" transform="rotate(20 262 170)"/><ellipse cx="148" cy="160" rx="22" ry="8" transform="rotate(30 148 160)"/></g>
+<g fill="#e2a93b"><circle cx="190" cy="250" r="7"/><circle cx="215" cy="262" r="5"/><circle cx="170" cy="268" r="5"/></g>
+<g stroke="#2a1d14" stroke-width="5" stroke-linecap="round" fill="none"><path d="M22 120v150M12 120v40a10 10 0 0020 0v-40"/><path d="M380 120c-18 20-18 60-6 80v70"/></g>
+</svg></div>
+</div></header>
+
+<section id="hakkimda"><div class="wrap">
+<div class="sec-h"><div class="eyebrow" data-en="About">Hakkımda</div><h2 data-en="A kitchen mind with a team leader's calm.">Mutfak aklı, ekip liderinin sakinliği.</h2><p data-en="Sample text — you can edit it in the panel and write it in your own words.">Örnek metin — yönetim panelinden kendi cümlelerinizle değiştirebilirsiniz.</p></div>
+<div class="cards">
+<div class="card paper"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f3a1f" stroke-width="2"><path d="M6 14a4 4 0 010-8 5 5 0 019 0 4 4 0 010 8v5H6z"/></svg></div><h3 data-en="Modern kitchen">Modern mutfak</h3><p data-en="Culinary Arts associate degree: modern kitchen, pastry and international cuisines.">Mutfak Sanatları önlisansı: modern mutfak, pastacılık ve uluslararası mutfaklar.</p></div>
+<div class="card paper"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f3a1f" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 data-en="Hygiene & quality">Hijyen ve kalite</h3><p data-en="İSMEK hygiene certificate and experience as a finished-product quality control technician.">İSMEK hijyen sertifikası ve bitmiş ürün kontrol teknikerliği deneyimi.</p></div>
+<div class="card paper"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f3a1f" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6M15 15c3 0 6 1.5 6 5"/></svg></div><h3 data-en="Team & service">Ekip ve servis</h3><p data-en="Barista and shift leader at Starbucks (2017–2022), logistics supervisor at KVK Teknik Servis.">Starbucks'ta barista ve vardiya lideri (2017–2022), KVK Teknik Servis'te lojistik süpervizörü.</p></div>
+</div></div></section>
+
+<section id="planlayici" style="background:#f6ead4"><div class="wrap">
+<div class="sec-h"><div class="eyebrow" data-en="Working feature · demo">Çalışan özellik · demo</div><h2 data-en="Special menu & event planner">Özel menü ve etkinlik planlayıcı</h2><p data-en="Choose the event, guest count and cuisine; see an outline of the menu instantly. Dishes are sample text, not a price offer.">Etkinliği, kişi sayısını ve mutfağı seçin; menü iskeleti anında çıksın. Yemekler örnek metindir, fiyat teklifi değildir.</p></div>
+<div class="planner">
+<div class="in paper">
+<div class="lbl" data-en="Event type">Etkinlik türü</div>
+<div class="pills" id="pEvent"><button class="pill on" data-v="Doğum günü|Birthday" data-en="Birthday">Doğum günü</button><button class="pill" data-v="Kurumsal yemek|Corporate dinner" data-en="Corporate dinner">Kurumsal yemek</button><button class="pill" data-v="Nişan / Düğün|Engagement / Wedding" data-en="Engagement / Wedding">Nişan / Düğün</button><button class="pill" data-v="Brunch / Kahvaltı|Brunch" data-en="Brunch">Brunch / Kahvaltı</button></div>
+<div class="lbl" data-en="Guests">Kişi sayısı</div><div class="gc"><span id="gv">20</span></div><input type="range" id="pGuest" min="4" max="150" value="20" aria-label="Kişi sayısı">
+<div class="lbl" data-en="Cuisine">Mutfak</div>
+<div class="pills" id="pCuis"><button class="pill on" data-v="Modern|Modern" data-en="Modern">Modern</button><button class="pill" data-v="Türk|Turkish" data-en="Turkish">Türk</button><button class="pill" data-v="Uluslararası|International" data-en="International">Uluslararası</button><button class="pill" data-v="Pastane ağırlıklı|Pastry-led" data-en="Pastry-led">Pastane ağırlıklı</button></div>
+<div class="lbl" data-en="Service style">Servis şekli</div>
+<div class="pills" id="pServ"><button class="pill on" data-v="Oturmalı servis|Seated service" data-en="Seated service">Oturmalı servis</button><button class="pill" data-v="Açık büfe|Buffet" data-en="Buffet">Açık büfe</button><button class="pill" data-v="Kokteyl / ikram|Cocktail / canapés" data-en="Cocktail / canapés">Kokteyl / ikram</button></div>
+<div class="lbl" data-en="Dietary needs">Beslenme notları</div>
+<div class="pills" id="pDiet"><button class="pill tog" data-v="Vejetaryen|Vegetarian" data-en="Vegetarian">Vejetaryen</button><button class="pill tog" data-v="Glutensiz|Gluten-free" data-en="Gluten-free">Glutensiz</button><button class="pill tog" data-v="Laktozsuz|Lactose-free" data-en="Lactose-free">Laktozsuz</button></div>
+</div>
+<div class="out"><h3 id="oTitle"></h3><div class="sub" id="oSub"></div><div id="oCourses"></div>
+<div class="stat"><div><b id="sPor">0</b><span data-en="portions">porsiyon</span></div><div><b id="sCrs">0</b><span data-en="courses">kurs</span></div></div>
+<button class="btn" id="toWiz" style="width:100%;justify-content:center" data-en="Send this plan as a request">Bu planı talebe ekle</button>
+<div class="note" data-en="Sample outline. Final menu and offer are prepared together with Ümit Kavi.">Örnek iskelet. Nihai menü ve teklif Ümit Kavi ile birlikte hazırlanır.</div></div>
+</div></div></section>
+
+<section id="yolculuk"><div class="wrap two">
+<div class="sec-h"><div class="eyebrow" data-en="Journey">Yolculuk</div><h2 data-en="From the line to the kitchen.">Sahadan mutfağa.</h2><p data-en="Real career milestones from LinkedIn. Order and details can be refined with you.">LinkedIn'deki gerçek kariyer duraklarından derlendi. Sıra ve ayrıntılar sizinle netleştirilir.</p></div>
+<div class="tl" id="tl">
+<div class="tli"><div class="when" data-en="Education">Eğitim</div><h3 data-en="Culinary Arts (Associate)">Mutfak Sanatları (Önlisans)</h3><p data-en="Modern kitchen, hygiene, pastry and international cuisines.">Modern mutfak, hijyen, pastacılık ve uluslararası mutfaklar.</p></div>
+<div class="tli"><div class="when">2017 – 2022</div><h3 data-en="Barista & Shift Leader · Starbucks">Barista ve Vardiya Lideri · Starbucks</h3><p data-en="Customer service, shift management and team coordination.">Müşteri hizmeti, vardiya yönetimi ve ekip koordinasyonu.</p></div>
+<div class="tli"><div class="when" data-en="Experience">Deneyim</div><h3 data-en="Logistics Supervisor · KVK Teknik Servis">Lojistik Süpervizörü · KVK Teknik Servis</h3><p data-en="Operations, flow and supervision.">Operasyon, akış ve saha denetimi.</p></div>
+<div class="tli"><div class="when" data-en="Experience">Deneyim</div><h3 data-en="Finished Product Control Technician · Biofarma">Bitmiş Ürün Kontrol Teknikeri · Biofarma İlaç</h3><p data-en="Quality discipline that carries over to the kitchen.">Mutfağa taşınan kalite disiplini.</p></div>
+<div class="tli"><div class="when" data-en="Certificates">Sertifikalar</div><h3 data-en="Hygiene (İSMEK) · Beekeeping · Football scouting">Hijyen (İSMEK) · Arıcılık · Futbol scoutluk</h3><p data-en="Curiosity beyond the kitchen.">Mutfağın dışında da merak.</p></div>
+</div></div></section>
+
+<section id="talep" style="background:#f6ead4"><div class="wrap">
+<div class="sec-h" style="margin-inline:auto;text-align:center"><div class="eyebrow" data-en="Working feature · demo">Çalışan özellik · demo</div><h2 data-en="Service request wizard">Hizmet talebi sihirbazı</h2><p data-en="3 steps. In this demo nothing is sent; you get a ready summary for WhatsApp or e-mail.">3 adım. Bu demoda hiçbir şey gönderilmez; WhatsApp veya e-posta için hazır özet çıkar.</p></div>
+<div class="wiz paper">
+<div class="steps"><i class="on"></i><i></i><i></i></div>
+<div class="st" id="s1"><div class="field"><label data-en="What do you need?">Ne arıyorsunuz?</label><select id="fTip"><option>Etkinlik / özel şef</option><option>Menü danışmanlığı</option><option>Pastane siparişi</option><option>İş birliği</option></select></div><div class="field"><label data-en="Date (approx.)">Tarih (yaklaşık)</label><input type="date" id="fDate"></div></div>
+<div class="st hidden" id="s2"><div class="field"><label data-en="Details">Detaylar</label><textarea id="fDet" rows="4" data-ph-en="Guests, place, wishes…" placeholder="Kişi sayısı, mekân, istekler…"></textarea></div><div class="field"><label data-en="Planner result">Planlayıcı sonucu</label><input id="fPlan" readonly></div></div>
+<div class="st hidden" id="s3"><div class="field"><label data-en="Your name">Adınız</label><input id="fName" placeholder="Ad Soyad" data-ph-en="Full name"></div><div class="field"><label data-en="Phone / e-mail">Telefon / e-posta</label><input id="fCon" placeholder="05xx… / ornek@mail.com" data-ph-en="05xx… / name@mail.com"></div></div>
+<div class="st hidden" id="s4"><div class="sum" id="sum"></div><div class="cta" style="margin-top:14px"><a class="btn" id="wa" target="_blank" rel="noopener">WhatsApp</a><a class="btn ghost" id="ml">E-posta</a><button class="btn ghost" id="cp">Kopyala</button></div></div>
+<div class="nav2"><button class="btn ghost" id="bk" style="visibility:hidden">Geri</button><button class="btn" id="nx">İleri</button></div>
+</div></div></section>
+
+<footer><div class="wrap"><div><b>Ümit Kavi</b> · <span data-en="Culinary Arts · Istanbul (Maltepe)">Mutfak Sanatları · İstanbul (Maltepe)</span></div><div data-en="Design proposal by Dijitabela. Demo content.">Dijitabela tasarım önerisi. Demo içerik.</div><a href="../" style="color:var(--terra);font-weight:600" data-en="All 3 designs">3 tasarıma dön</a></div></footer>
+<style>
+.dj-wm-bg{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='220'><text x='180' y='120' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='%23808080' transform='rotate(-24 180 110)'>Dijitabela · Örnek tasarım</text></svg>")}
+.dj-wm-badge{position:fixed;right:12px;bottom:12px;z-index:9999;pointer-events:none;background:rgba(15,15,15,.82);color:#fff;font:600 12px/1 Arial,sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.35);box-shadow:0 4px 14px rgba(0,0,0,.3);letter-spacing:.2px}
+.dj-wm-badge b{color:#ffd24a}
+</style>
+<div class="dj-wm-bg" aria-hidden="true"></div>
+<div class="dj-wm-badge" aria-hidden="true"><b>Dijitabela</b> · Örnek tasarım</div>
+
+<script>
+let LANG='tr';
+const T=(tr,en)=>LANG==='en'?en:tr;
+function setLang(l){LANG=l;document.documentElement.lang=l;
+document.querySelectorAll('[data-en]').forEach(e=>{if(e.dataset.tr===undefined)e.dataset.tr=e.innerHTML;e.innerHTML=l==='en'?e.dataset.en:e.dataset.tr});
+document.querySelectorAll('[data-ph-en]').forEach(e=>{if(e.dataset.phTr===undefined)e.dataset.phTr=e.placeholder;e.placeholder=l==='en'?e.dataset.phEn:e.dataset.phTr});
+document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+if(window.onLang)onLang(l)}
+document.addEventListener('click',e=>{const b=e.target.closest('.langbtn');if(b)setLang(b.dataset.l)});
+
+const pick=el=>{const v=el.dataset.v.split('|');return LANG==='en'?v[1]:v[0]};
+document.querySelectorAll('.pills').forEach(g=>g.addEventListener('click',e=>{const p=e.target.closest('.pill');if(!p)return;if(p.classList.contains('tog'))p.classList.toggle('on');else{g.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));p.classList.add('on')}render()}));
+const COURSES={Modern:[["Başlangıç|Starter","Mevsim salata, ev yapımı sos|Seasonal salad, house dressing"],["Ana yemek|Main","Fırınlanmış ana yemek, garnitür|Oven main with garnish"],["Tatlı|Dessert","Porsiyonluk pasta|Plated pastry"]],
+Türk:[["Meze|Meze","Soğuk ve sıcak mezeler|Cold and hot meze"],["Ana yemek|Main","Izgara ya da fırın, pilav|Grill or oven, rice"],["Tatlı|Dessert","Sütlü ya da şerbetli tatlı|Milk or syrup dessert"]],
+Uluslararası:[["Başlangıç|Starter","Çorba ya da bruschetta|Soup or bruschetta"],["Ana yemek|Main","Makarna ya da et/tavuk tabağı|Pasta or meat/chicken plate"],["Tatlı|Dessert","Tiramisu tarzı tatlı|Tiramisu-style dessert"]],
+"Pastane ağırlıklı":[["Tuzlu|Savory","Poğaça, kiş, mini sandviç|Savory pastries, quiche, mini sandwiches"],["Tatlı|Sweet","Tartlet, kurabiye, kek çeşitleri|Tarts, cookies, cakes"],["İçecek|Drinks","Sıcak içecek servisi|Hot drinks service"]]};
+function render(){
+const g=+document.getElementById('pGuest').value;document.getElementById('gv').textContent=g;
+const ev=pick(document.querySelector('#pEvent .on')),cu=document.querySelector('#pCuis .on'),sv=pick(document.querySelector('#pServ .on'));
+const diets=[...document.querySelectorAll('#pDiet .on')].map(pick);
+let cs=COURSES[cu.dataset.v.split('|')[0]].slice();
+if(document.querySelector('#pServ .on').dataset.v.startsWith('Kokteyl'))cs=cs.slice(0,2);
+const idx=LANG==='en'?1:0;
+document.getElementById('oTitle').textContent=ev+' · '+g+' '+T('kişi','guests');
+document.getElementById('oSub').textContent=pick(cu)+' · '+sv+(diets.length?' · '+diets.join(', '):'');
+document.getElementById('oCourses').innerHTML=cs.map((c,i)=>'<div class="course"><small>'+(i+1)+'. '+c[0].split('|')[idx]+'</small>'+c[1].split('|')[idx]+'</div>').join('')+(diets.length?'<div class="course"><small>'+T('Not','Note')+'</small>'+diets.join(', ')+' '+T('seçenekleri ayrıca hazırlanır','options prepared separately')+'</div>':'');
+document.getElementById('sPor').textContent=g*cs.length;document.getElementById('sCrs').textContent=cs.length;
+window.PLAN=ev+', '+g+' '+T('kişi','guests')+', '+pick(cu)+', '+sv+(diets.length?', '+diets.join('/'):'');
+document.getElementById('fPlan').value=window.PLAN;go(step)}
+document.getElementById('pGuest').addEventListener('input',render);
+window.onLang=render;
+document.getElementById('toWiz').onclick=()=>{document.getElementById('talep').scrollIntoView();go(1)};
+let step=1;
+function go(n){step=n;[1,2,3,4].forEach(i=>document.getElementById('s'+i).classList.toggle('hidden',i!==n));
+document.querySelectorAll('.steps i').forEach((x,i)=>x.classList.toggle('on',i<Math.min(n,3)));
+document.getElementById('bk').style.visibility=n>1?'visible':'hidden';document.getElementById('bk').textContent=T('Geri','Back');
+const nx=document.getElementById('nx');nx.textContent=n===3?T('Özeti oluştur','Build summary'):T('İleri','Next');nx.style.display=n===4?'none':'';
+document.getElementById('cp').textContent=T('Kopyala','Copy');
+if(n===4)summary()}
+document.getElementById('nx').onclick=()=>go(step+1);document.getElementById('bk').onclick=()=>go(step-1);
+function summary(){const t=document.getElementById('fTip').value,d=document.getElementById('fDate').value||'—';
+const txt=T('Merhaba Ümit Bey, web sitesi üzerinden talep bırakıyorum.','Hello Ümit, I am sending a request via your website.')+'\n'+T('Talep','Request')+': '+t+'\n'+T('Tarih','Date')+': '+d+'\n'+T('Plan','Plan')+': '+window.PLAN+'\n'+T('Detay','Details')+': '+(document.getElementById('fDet').value||'—')+'\n'+T('Ad','Name')+': '+(document.getElementById('fName').value||'—')+'\n'+T('İletişim','Contact')+': '+(document.getElementById('fCon').value||'—')+'\n\n(DEMO)';
+document.getElementById('sum').textContent=txt;
+document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(txt);
+document.getElementById('ml').href='mailto:?subject='+encodeURIComponent(T('Hizmet talebi','Service request'))+'&body='+encodeURIComponent(txt)}
+document.getElementById('cp').onclick=e=>{navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('sum').textContent);e.target.textContent=T('Kopyalandı','Copied')};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.2});document.querySelectorAll('.tli').forEach(x=>io.observe(x));
+render();
+</script></body></html>

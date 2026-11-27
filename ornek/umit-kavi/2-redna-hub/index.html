@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Redna Hub · Ümit Kavi — Tasarım 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c10;--bg2:#10141b;--card:#141a23;--line:#222b38;--tx:#e9eef5;--mu:#8b97a8;--a:#ff5a36;--b:#21d4a6;--c:#6b8cff;--f:"Space Grotesk",system-ui,sans-serif;--m:"JetBrains Mono",monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 var(--f);overflow-x:hidden}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em}
+.logo svg{width:38px;height:38px}
+.menu{margin-left:auto;display:flex;gap:22px;font-size:14px;color:var(--mu)}.menu a:hover{color:var(--tx)}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{background:none;border:0;padding:6px 11px;font:600 12px var(--m);cursor:pointer;color:var(--mu)}
+.lang button.on{background:var(--a);color:#0a0c10}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--a);color:#0a0c10;border:0;border-radius:10px;padding:13px 22px;font-weight:700;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,90,54,.35)}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line)}.btn.ghost:hover{border-color:var(--b);box-shadow:none}
+.hero{position:relative;padding:90px 0 70px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 80% 20%,rgba(107,140,255,.18),transparent),radial-gradient(500px 360px at 10% 80%,rgba(255,90,54,.15),transparent);pointer-events:none}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.25;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.tag{display:inline-block;font:600 12px var(--m);color:var(--b);border:1px solid rgba(33,212,166,.4);padding:5px 12px;border-radius:999px;margin-bottom:20px}
+.hero h1{font-size:clamp(40px,6.2vw,80px);line-height:1;margin:0;letter-spacing:-.03em}
+.hero h1 span{background:linear-gradient(90deg,var(--a),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.type{font:500 18px var(--m);color:var(--mu);margin:22px 0 28px;min-height:30px}
+.type b{color:var(--tx)}.caret{display:inline-block;width:9px;height:19px;background:var(--a);vertical-align:-3px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.orbit{position:relative;aspect-ratio:1;max-width:400px;margin:auto;width:100%}
+.orbit svg{width:100%;height:100%}
+.spin{transform-origin:200px 200px;animation:sp 24s linear infinite}.spin2{transform-origin:200px 200px;animation:sp 36s linear infinite reverse}
+@keyframes sp{to{transform:rotate(360deg)}}
+.pulse{animation:pu 3s ease-in-out infinite;transform-origin:200px 200px}@keyframes pu{50%{transform:scale(1.06)}}
+section{padding:70px 0}
+.eb{font:600 12px var(--m);color:var(--a);letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(30px,4.2vw,50px);line-height:1.05;margin:10px 0 14px;letter-spacing:-.02em}
+.lead{color:var(--mu);max-width:600px;margin:0 0 30px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{background:var(--card);border:1px solid var(--line);color:var(--mu);padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:500}
+.tab.on{color:#0a0c10;background:var(--b);border-color:var(--b)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:26px;min-height:240px}
+.panel h3{margin:0 0 8px;font-size:26px}.panel p{color:var(--mu);margin:0 0 14px}
+.panel ul{margin:0;padding:0;list-style:none}.panel li{padding:9px 0;border-top:1px solid var(--line);font:400 14px var(--m)}
+.panel li:before{content:"▸ ";color:var(--a)}
+.vis{border-radius:14px;background:var(--bg2);display:grid;place-items:center;min-height:200px;border:1px dashed var(--line)}
+.vis svg{width:70%;max-height:220px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.box h3{margin:0 0 4px;font-size:22px}.box .s{color:var(--mu);font-size:14px;margin-bottom:16px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:14px}
+.cal .h{font:600 11px var(--m);color:var(--mu);text-align:center}
+.day{aspect-ratio:1;border:1px solid var(--line);border-radius:10px;background:var(--bg2);cursor:pointer;display:grid;place-items:center;font-weight:500;font-size:14px;transition:.15s}
+.day:hover{border-color:var(--c)}.day.on{background:var(--c);color:#0a0c10;border-color:var(--c)}.day.off{opacity:.25;cursor:not-allowed}.day.empty{visibility:hidden}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.slot{padding:8px 14px;border:1px solid var(--line);border-radius:8px;font:500 13px var(--m);cursor:pointer;background:var(--bg2)}.slot.on{background:var(--a);color:#0a0c10;border-color:var(--a)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--bg2);padding:8px 14px;border-radius:8px;font-size:14px;cursor:pointer}.chip.on{border-color:var(--b);color:var(--b);background:rgba(33,212,166,.1)}
+.lb{font:600 11px var(--m);color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin:12px 0 7px}
+input[type=text],textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-bottom:10px}
+input:focus,textarea:focus{outline:1px solid var(--b)}
+.sum{font:400 13px/1.6 var(--m);background:var(--bg2);border:1px dashed var(--b);border-radius:12px;padding:14px;white-space:pre-wrap;margin-top:14px;min-height:60px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.stepbar{display:flex;gap:6px;margin-bottom:16px}.stepbar i{flex:1;height:4px;border-radius:4px;background:var(--line)}.stepbar i.on{background:var(--b)}
+.hidden{display:none}
+.big{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.big div{border-left:2px solid var(--a);padding-left:14px;color:var(--mu);font-size:14px}.big b{display:block;color:var(--tx);font-size:17px}
+footer{border-top:1px solid var(--line);padding:36px 0 90px;color:var(--mu);font-size:14px}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:860px){.hero .wrap,.panel,.feat{grid-template-columns:1fr}.menu{display:none}.lang{margin-left:auto}.hero{padding:44px 0}section{padding:46px 0}.big{grid-template-columns:1fr}}
+.wrap>*,.box,.panel>*,.planner>*,.work>*,.feat>*,.two>*,.top>*{min-width:0}h1,h2,h3{overflow-wrap:anywhere}img,svg{max-width:100%}</style></head><body>
+<nav><div class="wrap">
+<a class="logo" href="#top"><svg viewBox="0 0 48 48"><polygon points="24,3 43,14 43,34 24,45 5,34 5,14" fill="#0a0c10" stroke="#ff5a36" stroke-width="2"/><path d="M17 33V15h9a5 5 0 010 10h-9M25 25l7 8" stroke="#e9eef5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="14" r="2.6" fill="#21d4a6"/></svg>REDNA<span style="color:var(--a)">HUB</span></a>
+<div class="menu"><a href="#alanlar" data-en="Focus areas">Alanlar</a><a href="#randevu" data-en="Book a call">Görüşme</a><a href="#is-birligi" data-en="Collaborate">İş birliği</a></div>
+<div class="lang"><button class="langbtn on" data-l="tr">TR</button><button class="langbtn" data-l="en">EN</button></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="grid"></div><div class="wrap">
+<div>
+<div class="tag" data-en="FOUNDER · ÜMİT KAVİ">KURUCU · ÜMİT KAVİ</div>
+<h1 data-en="Build. Cook. <span>Ship.</span>">Kur. Pişir. <span>Yayınla.</span></h1>
+<div class="type"><span id="tp"></span><span class="caret"></span></div>
+<div class="row"><a class="btn" href="#randevu" data-en="Book a call">Görüşme planla</a><a class="btn ghost" href="#is-birligi" data-en="Start a collaboration">İş birliği başlat</a></div>
+</div>
+<div class="orbit"><svg viewBox="0 0 400 400" role="img" aria-label="Redna Hub animasyon">
+<circle cx="200" cy="200" r="170" fill="none" stroke="#222b38"/><circle cx="200" cy="200" r="120" fill="none" stroke="#222b38" stroke-dasharray="4 8"/>
+<g class="spin"><circle cx="200" cy="30" r="9" fill="#ff5a36"/><circle cx="370" cy="200" r="6" fill="#21d4a6"/><circle cx="80" cy="320" r="7" fill="#6b8cff"/></g>
+<g class="spin2"><circle cx="200" cy="80" r="6" fill="#6b8cff"/><circle cx="320" cy="200" r="8" fill="#ff5a36"/><circle cx="130" cy="300" r="5" fill="#21d4a6"/></g>
+<g class="pulse"><polygon points="200,130 262,165 262,235 200,270 138,235 138,165" fill="#10141b" stroke="#ff5a36" stroke-width="3"/><path d="M178 240v-80h38a22 22 0 010 44h-38M214 204l30 36" stroke="#e9eef5" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg></div>
+</div></header>
+
+<section id="alanlar"><div class="wrap">
+<div class="eb">// HUB</div><h2 data-en="One hub, three working areas.">Tek merkez, üç çalışma alanı.</h2>
+<p class="lead" data-en="Redna Hub is the venture/project hub founded by Ümit Kavi. The areas below are a sample structure — you can rename and fill them with your own content.">Redna Hub, Ümit Kavi'nin kurduğu girişim / proje merkezi. Aşağıdaki alanlar örnek bir yapıdır — kendi içeriğinizle yeniden adlandırıp doldurabilirsiniz.</p>
+<div class="tabs" id="tabs"><button class="tab on" data-i="0" data-en="Kitchen & Food">Mutfak ve Gıda</button><button class="tab" data-i="1" data-en="Operations & Quality">Operasyon ve Kalite</button><button class="tab" data-i="2" data-en="Content & Visibility">İçerik ve Görünürlük</button></div>
+<div class="panel" id="panel"></div>
+<div class="big"><div><b data-en="Culinary Arts">Mutfak Sanatları</b><span data-en="Associate degree">Önlisans</span></div><div><b>2017 – 2022</b><span data-en="Barista & shift leader, Starbucks">Starbucks barista ve vardiya lideri</span></div><div><b data-en="Professional English">Profesyonel İngilizce</b><span data-en="International work ready">Uluslararası işlere hazır</span></div></div>
+</div></section>
+
+<section id="randevu" style="background:var(--bg2)"><div class="wrap">
+<div class="eb" data-en="// WORKING FEATURES · DEMO">// ÇALIŞAN ÖZELLİKLER · DEMO</div><h2 data-en="Book a call, start a project.">Görüşme planla, projeyi başlat.</h2>
+<p class="lead" data-en="Nothing is sent in this demo. You get a ready summary for WhatsApp or e-mail.">Bu demoda hiçbir şey gönderilmez. WhatsApp veya e-posta için hazır özet çıkar.</p>
+<div class="feat">
+<div class="box"><h3 data-en="Appointment calendar">Randevu takvimi</h3><div class="s" id="calTitle"></div>
+<div class="cal" id="cal"></div><div class="lb" data-en="Time">Saat</div><div class="slots" id="slots"></div>
+<div class="lb" data-en="Meeting type">Görüşme türü</div><div class="chips" id="mt"><button class="chip on" data-v="Online (Meet/Zoom)|Online (Meet/Zoom)">Online</button><button class="chip" data-v="Telefon|Phone" data-en="Phone">Telefon</button><button class="chip" data-v="Yüz yüze (İstanbul)|In person (Istanbul)" data-en="In person (Istanbul)">Yüz yüze (İstanbul)</button></div>
+<div class="sum" id="sumA"></div></div>
+<div class="box" id="wz"><h3 data-en="Collaboration wizard">İş birliği sihirbazı</h3><div class="s" data-en="3 steps, 1 minute.">3 adım, 1 dakika.</div>
+<div class="stepbar"><i class="on"></i><i></i><i></i></div>
+<div id="w1"><div class="lb" data-en="What are we building? (multi-select)">Ne kuruyoruz? (çoklu seçim)</div><div class="chips" id="wt"><button class="chip" data-v="Menü / yemek projesi|Menu / food project" data-en="Menu / food project">Menü / yemek projesi</button><button class="chip" data-v="Etkinlik|Event" data-en="Event">Etkinlik</button><button class="chip" data-v="Marka / içerik|Brand / content" data-en="Brand / content">Marka / içerik</button><button class="chip" data-v="Danışmanlık|Consulting" data-en="Consulting">Danışmanlık</button></div></div>
+<div id="w2" class="hidden"><div class="lb" data-en="Timing">Zamanlama</div><div class="chips" id="wm"><button class="chip on" data-v="Bu ay|This month" data-en="This month">Bu ay</button><button class="chip" data-v="1–3 ay|1–3 months" data-en="1–3 months">1–3 ay</button><button class="chip" data-v="Esnek|Flexible" data-en="Flexible">Esnek</button></div><div class="lb" data-en="Short note">Kısa not</div><textarea id="wn" rows="3" placeholder="Kısaca anlatın…" data-ph-en="Briefly describe…"></textarea></div>
+<div id="w3" class="hidden"><div class="lb" data-en="Name">Ad</div><input type="text" id="wa" placeholder="Ad Soyad" data-ph-en="Full name"><div class="lb" data-en="Contact">İletişim</div><input type="text" id="wc" placeholder="Telefon / e-posta" data-ph-en="Phone / e-mail"><div class="sum" id="sumB"></div>
+<div class="row"><a class="btn" id="waB" target="_blank" rel="noopener">WhatsApp</a><a class="btn ghost" id="mlB" data-en="E-mail">E-posta</a></div></div>
+<div class="row" style="justify-content:space-between"><button class="btn ghost" id="wbk" style="visibility:hidden" data-en="Back">Geri</button><button class="btn" id="wnx" data-en="Next">İleri</button></div>
+</div></div></div></section>
+
+<section id="is-birligi"><div class="wrap"><div class="eb">// DIJITABELA</div><h2 data-en="Your site, managed by you.">Sitenizi siz yönetirsiniz.</h2><p class="lead" data-en="The final site will have a simple panel: edit text, swap images, add events. Logo and visuals are included in the package.">Nihai sitede basit bir panel olur: metin düzenleme, görsel değiştirme, etkinlik ekleme. Logo ve görseller pakete dahildir.</p></div></section>
+
+<footer><div class="wrap"><div>© Redna Hub · Ümit Kavi · İstanbul</div><div data-en="Design proposal by Dijitabela. Demo content.">Dijitabela tasarım önerisi. Demo içerik.</div><a href="../" style="color:var(--b)" data-en="All 3 designs">3 tasarıma dön</a></div></footer>
+<style>
+.dj-wm-bg{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='220'><text x='180' y='120' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='%23808080' transform='rotate(-24 180 110)'>Dijitabela · Örnek tasarım</text></svg>")}
+.dj-wm-badge{position:fixed;right:12px;bottom:12px;z-index:9999;pointer-events:none;background:rgba(15,15,15,.82);color:#fff;font:600 12px/1 Arial,sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.35);box-shadow:0 4px 14px rgba(0,0,0,.3);letter-spacing:.2px}
+.dj-wm-badge b{color:#ffd24a}
+</style>
+<div class="dj-wm-bg" aria-hidden="true"></div>
+<div class="dj-wm-badge" aria-hidden="true"><b>Dijitabela</b> · Örnek tasarım</div>
+
+<script>
+let LANG='tr';
+const T=(tr,en)=>LANG==='en'?en:tr;
+function setLang(l){LANG=l;document.documentElement.lang=l;
+document.querySelectorAll('[data-en]').forEach(e=>{if(e.dataset.tr===undefined)e.dataset.tr=e.innerHTML;e.innerHTML=l==='en'?e.dataset.en:e.dataset.tr});
+document.querySelectorAll('[data-ph-en]').forEach(e=>{if(e.dataset.phTr===undefined)e.dataset.phTr=e.placeholder;e.placeholder=l==='en'?e.dataset.phEn:e.dataset.phTr});
+document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+if(window.onLang)onLang(l)}
+document.addEventListener('click',e=>{const b=e.target.closest('.langbtn');if(b)setLang(b.dataset.l)});
+
+const ic=(p)=>'<svg viewBox="0 0 200 160" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>';
+const AREAS=[
+{t:["Mutfak ve Gıda","Kitchen & Food"],d:["Modern mutfak ve pastacılık bilgisini projelere taşıyan alan.","The area that brings modern kitchen and pastry knowledge into projects."],l:[["Menü geliştirme","Menu development"],["Özel etkinlik mutfağı","Private event catering"],["Hijyen odaklı üretim","Hygiene-first production"]],v:ic('<circle cx="100" cy="85" r="55" stroke="#ff5a36"/><circle cx="100" cy="85" r="36" stroke="#8b97a8" stroke-dasharray="3 6"/><path d="M30 40v90M24 40v25a6 6 0 0012 0V40M170 40c-12 14-12 38-4 52v38" stroke="#e9eef5"/>')},
+{t:["Operasyon ve Kalite","Operations & Quality"],d:["Lojistik süpervizörlüğü ve kalite kontrol deneyiminden gelen düzen.","Order that comes from logistics supervision and quality-control experience."],l:[["Süreç ve vardiya planı","Process & shift plan"],["Kalite kontrol listeleri","Quality checklists"],["Ekip koordinasyonu","Team coordination"]],v:ic('<rect x="30" y="30" width="60" height="40" rx="6" stroke="#21d4a6"/><rect x="110" y="30" width="60" height="40" rx="6" stroke="#8b97a8"/><rect x="70" y="100" width="60" height="40" rx="6" stroke="#ff5a36"/><path d="M60 70v15h40v15M140 70v15h-40" stroke="#e9eef5"/>')},
+{t:["İçerik ve Görünürlük","Content & Visibility"],d:["After Effects'e yatkın bir göz: hareketli görsel, kısa video, marka dili.","An eye comfortable with After Effects: motion graphics, short video, brand language."],l:[["Kısa video / animasyon","Short video / animation"],["Sosyal medya görselleri","Social visuals"],["Logo ve marka seti","Logo & brand kit"]],v:ic('<rect x="25" y="30" width="150" height="100" rx="10" stroke="#6b8cff"/><path d="M85 60l40 20-40 20z" stroke="#ff5a36" fill="rgba(255,90,54,.2)"/><path d="M25 150h150" stroke="#8b97a8" stroke-dasharray="4 6"/>')}];
+let ai=0;
+function drawArea(){const a=AREAS[ai],k=LANG==='en'?1:0;document.getElementById('panel').innerHTML='<div><h3>'+a.t[k]+'</h3><p>'+a.d[k]+'</p><ul>'+a.l.map(x=>'<li>'+x[k]+'</li>').join('')+'</ul></div><div class="vis">'+a.v+'</div>';
+document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===ai))}
+document.getElementById('tabs').onclick=e=>{const t=e.target.closest('.tab');if(!t)return;ai=+t.dataset.i;drawArea()};
+/* typing */
+const PH=[["aşçı yardımcısı · mutfak sanatları","kitchen assistant · culinary arts"],["girişimci · Redna Hub kurucusu","entrepreneur · Redna Hub founder"],["hareketli görsel meraklısı · After Effects","motion enthusiast · After Effects"]];
+let pi=0,ci=0,del=false;
+function tick(){const s=PH[pi][LANG==='en'?1:0];const el=document.getElementById('tp');
+if(!del){ci++;el.innerHTML='<b>'+s.slice(0,ci)+'</b>';if(ci>=s.length){del=true;return setTimeout(tick,1600)}}else{ci--;el.innerHTML='<b>'+s.slice(0,ci)+'</b>';if(ci<=0){del=false;pi=(pi+1)%PH.length}}
+setTimeout(tick,del?30:60)}
+/* calendar */
+const MON=[["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"],["January","February","March","April","May","June","July","August","September","October","November","December"]];
+const DN=[["Pt","Sa","Ça","Pe","Cu","Ct","Pz"],["Mo","Tu","We","Th","Fr","Sa","Su"]];
+const now=new Date();const cmD=new Date(now.getFullYear(),now.getMonth()+(now.getDate()>18?1:0),1);let selDay=null,selSlot=null;
+function drawCal(){const k=LANG==='en'?1:0,y=cmD.getFullYear(),m=cmD.getMonth();
+document.getElementById('calTitle').textContent=MON[k][m]+' '+y;
+const first=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate();let h=DN[k].map(d=>'<div class="h">'+d+'</div>').join('');
+for(let i=0;i<first;i++)h+='<div class="day empty"></div>';
+for(let d=1;d<=days;d++){const dt=new Date(y,m,d),wk=dt.getDay(),past=dt<=now;const off=past||wk===0;h+='<div class="day'+(off?' off':'')+(selDay===d?' on':'')+'" data-d="'+d+'">'+d+'</div>'}
+document.getElementById('cal').innerHTML=h;
+const sl=['10:00','11:30','14:00','15:30','17:00'];document.getElementById('slots').innerHTML=sl.map(s=>'<div class="slot'+(selSlot===s?' on':'')+'">'+s+'</div>').join('');sumA()}
+document.getElementById('cal').onclick=e=>{const d=e.target.closest('.day');if(!d||d.classList.contains('off')||d.classList.contains('empty'))return;selDay=+d.dataset.d;drawCal()};
+document.getElementById('slots').onclick=e=>{const s=e.target.closest('.slot');if(!s)return;selSlot=s.textContent;drawCal()};
+const pv=el=>{const v=el.dataset.v.split('|');return LANG==='en'?v[1]:v[0]};
+document.getElementById('mt').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('#mt .chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');sumA()};
+function sumA(){const k=LANG==='en'?1:0,mt=pv(document.querySelector('#mt .on'));
+document.getElementById('sumA').textContent=selDay&&selSlot?T('Randevu talebi: ','Appointment request: ')+selDay+' '+MON[k][cmD.getMonth()]+' '+cmD.getFullYear()+', '+selSlot+' · '+mt+'\n'+T('(Demo — gerçek takvime işlenmez)','(Demo — not added to a real calendar)'):T('Bir gün ve saat seçin.','Pick a day and a time.')}
+/* wizard */
+let ws=1;
+document.getElementById('wt').onclick=e=>{const c=e.target.closest('.chip');if(c)c.classList.toggle('on')};
+document.getElementById('wm').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('#wm .chip').forEach(x=>x.classList.remove('on'));c.classList.add('on')};
+function wgo(n){ws=n;[1,2,3].forEach(i=>document.getElementById('w'+i).classList.toggle('hidden',i!==n));
+document.querySelectorAll('.stepbar i').forEach((x,i)=>x.classList.toggle('on',i<n));
+document.getElementById('wbk').style.visibility=n>1?'visible':'hidden';document.getElementById('wbk').textContent=T('Geri','Back');
+document.getElementById('wnx').style.display=n===3?'none':'';document.getElementById('wnx').textContent=T('İleri','Next');if(n===3)sumB()}
+document.getElementById('wnx').onclick=()=>wgo(ws+1);document.getElementById('wbk').onclick=()=>wgo(ws-1);
+function sumB(){const ty=[...document.querySelectorAll('#wt .on')].map(pv).join(', ')||'—';
+const tx=T('Merhaba Ümit Bey, Redna Hub sitesinden iş birliği talebi.','Hello Ümit, a collaboration request from the Redna Hub site.')+'\n'+T('Konu','Topic')+': '+ty+'\n'+T('Zamanlama','Timing')+': '+pv(document.querySelector('#wm .on'))+'\n'+T('Not','Note')+': '+(document.getElementById('wn').value||'—')+'\n'+T('Görüşme','Call')+': '+(selDay&&selSlot?selDay+'.'+(cmD.getMonth()+1)+' '+selSlot:'—')+'\n'+T('Ad','Name')+': '+(document.getElementById('wa').value||'—')+'\n'+T('İletişim','Contact')+': '+(document.getElementById('wc').value||'—')+'\n(DEMO)';
+document.getElementById('sumB').textContent=tx;document.getElementById('waB').href='https://wa.me/?text='+encodeURIComponent(tx);document.getElementById('mlB').href='mailto:?subject='+encodeURIComponent(T('İş birliği talebi','Collaboration request'))+'&body='+encodeURIComponent(tx)}
+['wa','wc'].forEach(i=>document.getElementById(i).addEventListener('input',sumB));
+window.onLang=()=>{drawArea();drawCal();wgo(ws);pi=pi;};
+drawArea();drawCal();wgo(1);tick();
+</script></body></html>
