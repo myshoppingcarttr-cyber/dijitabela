@@ -4,7 +4,7 @@
   // tek: tek seferlik (TL, KDV hariç) · ay: aylık (TL, KDV hariç)
   // Fiyatlar Eylül 2026 Türkiye pazar araştırmasına göre piyasanın alt-orta bandında tutuldu (talep çekmek için).
   var KALEMLER = {
-    site:      { ad: "Kurumsal web sitesi", acik: "En fazla beş sayfa, müşteri metin ve görselleri, iletişim, mobil uyum", tek: 17900, grup: "Görünürlük" },
+    site:      { ad: "Kurumsal web sitesi", acik: "En fazla beş sayfa, müşteri metin ve görselleri, iletişim, mobil uyum", tek: 24900, grup: "Görünürlük" },
     profil:    { ad: "Google İşletme Profili kurulumu", acik: "Tek konum, kategori, hizmetler, saatler, fotoğraflar ve doğrulama rehberliği", tek: 3490, grup: "Görünürlük" },
     reklam:    { ad: "Tek kanalda reklam yönetimi · ilk ay", acik: "Google Arama veya Meta. Devam eden aylarda 7.490 TL/ay, medya bütçesi ayrı", tek: 7490, grup: "Reklam" },
     seo:       { ad: "Google SEO + Google İşletme Profili", acik: "SEO altyapısı, 6 blog yazısı, Google İşletme kurulum/kurtarma", tek: 7500, grup: "Görünürlük" },
@@ -23,10 +23,10 @@
 
   var PAKETLER = [
     { id: "reklam-profil", ad: "Profil + reklam başlangıç", kisa: "Profil kurulumu ve ilk ay reklam yönetimi. Devam eden aylarda 7.490 TL/ay.", kalemler: ["profil", "reklam"], fiyat: 9990, sure: "1 ay", destek: "1 ay" },
-    { id: "site-profil", ad: "Site + profil", kisa: "Kurumsal web sitesi ve profil kurulumu.", kalemler: ["site", "profil"], fiyat: 19900, sure: "1 hafta", destek: "1 ay" },
-    { id: "vitrin", ad: "Dijital Vitrin", kisa: "Google'da görünür olun, müşteri sizi bulsun.", kalemler: ["site", "seo"], fiyat: 19900, sure: "1 hafta", destek: "1 ay" },
-    { id: "servis", ad: "Dijital İşletme", kisa: "Müşterinizi takip edin, geri çağırın.", kalemler: ["site", "seo", "crm", "uygulama"], fiyat: 49900, sure: "2–3 hafta", destek: "3 ay", onerilen: true },
-    { id: "tam", ad: "Tam Dijital Dönüşüm", kisa: "Mağaza uygulaması, online ödeme ve büyüme desteği.", kalemler: ["site", "seo", "crm", "uygulama", "magaza", "odeme"], fiyat: 89900, sure: "5–6 hafta", destek: "6 ay" }
+    { id: "site-profil", ad: "Site + profil", kisa: "Kurumsal web sitesi ve profil kurulumu.", kalemler: ["site", "profil"], fiyat: 26900, sure: "1 hafta", destek: "1 ay" },
+    { id: "vitrin", ad: "Dijital Vitrin", kisa: "Google'da görünür olun, müşteri sizi bulsun.", kalemler: ["site", "seo"], fiyat: 26900, sure: "1 hafta", destek: "1 ay" },
+    { id: "servis", ad: "Dijital İşletme", kisa: "Müşterinizi takip edin, geri çağırın.", kalemler: ["site", "seo", "crm", "uygulama"], fiyat: 56900, sure: "2–3 hafta", destek: "3 ay", onerilen: true },
+    { id: "tam", ad: "Tam Dijital Dönüşüm", kisa: "Mağaza uygulaması, online ödeme ve büyüme desteği.", kalemler: ["site", "seo", "crm", "uygulama", "magaza", "odeme"], fiyat: 96900, sure: "5–6 hafta", destek: "6 ay" }
   ];
 
   var OLCEK = { tek: { ad: "Tek şube", k: 1 }, cok: { ad: "2–3 şube", k: 1.3 }, buyuk: { ad: "4+ şube / zincir", k: 1.6 } };
@@ -57,7 +57,7 @@
     });
     secim.forEach(function (k) { ay += KALEMLER[k].ay || 0; });
     var carpan = ko * ka;
-    // çarpan yoksa liste fiyatı aynen kalır (19.900 gibi); çarpan varsa 500 TL'ye yuvarlanır
+    // çarpan yoksa liste fiyatı aynen kalır (26.900 gibi); çarpan varsa 500 TL'ye yuvarlanır
     if (carpan !== 1) tek = Math.round(tek * carpan / 500) * 500;
     var liste = satirlar.reduce(function (s, r) { return s + (r.liste || r.tek); }, 0);
     return {

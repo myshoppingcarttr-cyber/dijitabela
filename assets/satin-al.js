@@ -13,7 +13,7 @@
       madde: ["Profil açma ya da mevcut kaydı Google'ın resmi yoluyla sahiplenme", "Doğrulama adımlarında (video, telefon, posta) yol gösterme", "“Kalıcı olarak kapandı” görünen profili kurtarma başvurusu", "Kategori, saatler, hizmet bölgesi, web ve WhatsApp bağlantısı"] },
     { kod: "dijital-ekspertiz", kat: "Google İşletme", ad: "Detaylı dijital ekspertiz raporu", tek: 1900, oran: 1, sure: "1 iş günü",
       madde: ["Google profili ve web sitesinin eksikleri", "Çevrenizdeki rakiplerle karşılaştırma", "Öncelik sırasıyla 10 adımlık yol haritası"] },
-    { kod: "tek-sayfa-site", kat: "Web sitesi", ad: "Tek sayfalık web sitesi", tek: 3900, oran: 0.5, sure: "2 iş günü",
+    { kod: "tek-sayfa-site", kat: "Web sitesi", ad: "Tek sayfalık web sitesi", tek: 9900, oran: 0.5, sure: "2 iş günü",
       madde: ["Mobil uyumlu tek sayfa (kampanya, uzman, lansman)", "Arama ve WhatsApp düğmesi", "Temel SEO ayarları", "İşletmenize özel prototip, onayınızla yayın"] },
     { kod: "kurumsal-site", kat: "Web sitesi", ad: "Kurumsal web sitesi · giriş paketi", tek: 9900, oran: 0.5, sure: "Yaklaşık 1 hafta",
       madde: ["Özel tasarım", "Mobil uyum", "SEO altyapısı", "Alan adı + 1 yıl barındırma"] },
